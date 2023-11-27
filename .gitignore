@@ -1,3 +1,18 @@
+# Used by some IDEs and LSP plugins
+compile_commands.json
+
+# clangd writes index files here
+.cache
+
+# Ignore IDEA / IntelliJ files
+.idea/
+cmake-build-*/
+.clwb/
+
+# Ignore Visual Studio Code files
+.vsbuild/
+.vscode/
+
 # Prerequisites
 *.d
 
@@ -30,3 +45,10 @@
 *.exe
 *.out
 *.app
+
+# Common build output directory names
+.build/
+_build/
+build-output/
+build-out/
+cmake-out/
