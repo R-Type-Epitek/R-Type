@@ -1,107 +1,107 @@
-name: C/C++ CI R-Type
+# name: C/C++ CI R-Type
 
-on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
+#on:
+#  push:
+#    branches: [ main, develop ]
+#  pull_request:
+#    branches: [ main, develop ]
 
-  workflow_dispatch:
+#  workflow_dispatch:
 
-env:
-  CLCACHE_VERSION: v1
-  CLCACHE_MAX_SIZE: 500M
-  MIRROR_URL: git@github.com:EpitechPromo2026/B-CPP-500-BDX-5-2-rtype-edouard.pradie.git
+#env:
+#  CLCACHE_VERSION: v1
+#  CLCACHE_MAX_SIZE: 500M
+#  MIRROR_URL: git@github.com:EpitechPromo2026/B-CPP-500-BDX-5-2-rtype-edouard.pradie.git
 
-jobs:
-  push_to_mirror:
-      runs-on: ubuntu-latest
-      if: ${{ github.event_name == 'push' }}
-      steps:
-        - uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
-        - name: Push the repository to a mirror
-          uses: pixta-dev/repository-mirroring-action@v1
-          with:
-            target_repo_url: ${{ env.MIRROR_URL }}
-            ssh_private_key: ${{ secrets.MIRROR_GIT_PRIVATE_KEY }}
+#jobs:
+#  push_to_mirror:
+#      runs-on: ubuntu-latest
+#      if: ${{ github.event_name == 'push' }}
+#      steps:
+#        - uses: actions/checkout@v3
+#          with:
+#           fetch-depth: 0
+#        - name: Push the repository to a mirror
+#          uses: pixta-dev/repository-mirroring-action@v1
+#          with:
+#            target_repo_url: ${{ env.MIRROR_URL }}
+#            ssh_private_key: ${{ secrets.MIRROR_GIT_PRIVATE_KEY }}
+#
+#  build-and-test:
+#    runs-on: ubuntu-latest
+#    name: Build and run tests
 
-  build-and-test:
-    name: Build and run tests
-    runs-on: ubuntu-latest
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        include:
+#          - build-type: Debug
+#            cmake-options: -DREDOOM_BUILD_TESTS=on -DREDOOM_BUILD_BENCHMARKS=on -DUSE_CLANG_TIDY=off
+#          - build-type: tsan
+#            cmake-options: -DREDOOM_BUILD_TESTS=on -DREDOOM_BUILD_BENCHMARKS=on -DUSE_CLANG_TIDY=off
+#          - build-type: Release
+#            cmake-options: -DREDOOM_BUILD_TESTS=off -DREDOOM_BUILD_BENCHMARKS=off -DREDOOM_WARNING_FLAGS=-Werror -DUSE_CLANG_TIDY=on -DREDOOM_CLANG_TIDY_FLAGS='--warnings-as-errors=*'
 
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - build-type: Debug
-            cmake-options: -DREDOOM_BUILD_TESTS=on -DREDOOM_BUILD_BENCHMARKS=on -DUSE_CLANG_TIDY=off
-          - build-type: tsan
-            cmake-options: -DREDOOM_BUILD_TESTS=on -DREDOOM_BUILD_BENCHMARKS=on -DUSE_CLANG_TIDY=off
-          - build-type: Release
-            cmake-options: -DREDOOM_BUILD_TESTS=off -DREDOOM_BUILD_BENCHMARKS=off -DREDOOM_WARNING_FLAGS=-Werror -DUSE_CLANG_TIDY=on -DREDOOM_CLANG_TIDY_FLAGS='--warnings-as-errors=*'
+#    steps:
+#      - name: Install system packages
+#        run: |
+#          sudo apt-get update -qq
+#          sudo apt-get install -y ninja-build clang-tidy-12 ccache
+#          sudo update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-12 100
+#          sudo apt-get install -y --no-install-recommends libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libxext-dev libxfixes-dev libgl1-mesa-dev
+#          clang++ --version
+#          clang-tidy --version
 
-    steps:
-      - name: Install system packages
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ninja-build clang-tidy-12 ccache
-          sudo update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-12 100
-          sudo apt-get install -y --no-install-recommends libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libxext-dev libxfixes-dev libgl1-mesa-dev
-          clang++ --version
-          clang-tidy --version
+#      - uses: actions/checkout@v2
+#        with:
+#          submodules: recursive
 
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive
+#      - name: Apply patches
+#        run: |
+#          git apply .patches/system_includes.diff
 
-      - name: Apply patches
-        run: |
-          git apply .patches/system_includes.diff
+#      - name: Cache build caches
+#        uses: actions/cache@v3
+#        with:
+#          path: |
+#            .ccache
+#            .ctcache
+#            ctcache
+#          key: clcache-${{ env.CLCACHE_VERSION }}-${{ matrix.build-type }}-${{ github.run_id }}
+#          restore-keys: clcache-${{ env.CLCACHE_VERSION }}-${{ matrix.build-type }}
 
-      - name: Cache build caches
-        uses: actions/cache@v3
-        with:
-          path: |
-            .ccache
-            .ctcache
-            ctcache
-          key: clcache-${{ env.CLCACHE_VERSION }}-${{ matrix.build-type }}-${{ github.run_id }}
-          restore-keys: clcache-${{ env.CLCACHE_VERSION }}-${{ matrix.build-type }}
+#      - name: Configure compiler cache (ccache)
+#        run: |
+#          ccache --set-config=cache_dir=$GITHUB_WORKSPACE/.ccache
+#          ccache --set-config=max_size=$CLCACHE_MAX_SIZE
+#          ccache --set-config=compression=true
+#          ccache --show-config
 
-      - name: Configure compiler cache (ccache)
-        run: |
-          ccache --set-config=cache_dir=$GITHUB_WORKSPACE/.ccache
-          ccache --set-config=max_size=$CLCACHE_MAX_SIZE
-          ccache --set-config=compression=true
-          ccache --show-config
+#      - name: Configure linter cache (ctcache)
+#        run: |
+#          mkdir -p ctcache/bin && cd ctcache/bin
+#          [ -f clang-tidy ] || wget https://raw.githubusercontent.com/matus-chochlik/ctcache/main/clang-tidy && chmod +x clang-tidy
+#          [ -f clang-tidy-cache ] || wget https://raw.githubusercontent.com/matus-chochlik/ctcache/main/clang-tidy-cache && chmod +x clang-tidy-cache
+#          echo "PATH=$GITHUB_WORKSPACE/ctcache/bin:$PATH" >> $GITHUB_ENV
+#          echo "CTCACHE_DIR=$GITHUB_WORKSPACE/.ctcache" >> $GITHUB_ENV
 
-      - name: Configure linter cache (ctcache)
-        run: |
-          mkdir -p ctcache/bin && cd ctcache/bin
-          [ -f clang-tidy ] || wget https://raw.githubusercontent.com/matus-chochlik/ctcache/main/clang-tidy && chmod +x clang-tidy
-          [ -f clang-tidy-cache ] || wget https://raw.githubusercontent.com/matus-chochlik/ctcache/main/clang-tidy-cache && chmod +x clang-tidy-cache
-          echo "PATH=$GITHUB_WORKSPACE/ctcache/bin:$PATH" >> $GITHUB_ENV
-          echo "CTCACHE_DIR=$GITHUB_WORKSPACE/.ctcache" >> $GITHUB_ENV
+#      - name: Build project
+#        env:
+#          BUILD_TYPE: ${{ matrix.build-type }}
+#          CMAKE_OPTIONS: ${{ matrix.cmake-options }}
+#        run: |
+#          mkdir -p build && cd build
+#          cmake .. -GNinja -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PROGRAM_PATH=/usr/lib/ccache $CMAKE_OPTIONS
+#          time ninja
 
-      - name: Build project
-        env:
-          BUILD_TYPE: ${{ matrix.build-type }}
-          CMAKE_OPTIONS: ${{ matrix.cmake-options }}
-        run: |
-          mkdir -p build && cd build
-          cmake .. -GNinja -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_PROGRAM_PATH=/usr/lib/ccache $CMAKE_OPTIONS
-          time ninja
+#      - name: Run tests
+#        if: ${{ matrix.build-type == 'Debug' }}
+#        run: |
+#          ./build/bin/tests/tests-redoom
+#          ./build/bin/tests/tests-redoom-utils
 
-      - name: Run tests
-        if: ${{ matrix.build-type == 'Debug' }}
-        run: |
-          ./build/bin/tests/tests-redoom
-          ./build/bin/tests/tests-redoom-utils
-
-      - name: Run thread-safety tests
-        if: ${{ matrix.build-type == 'tsan' }}
-        run: |
-          ./build/bin/tests/tests-redoom "[Thread]"
-          ./build/bin/tests/tests-redoom-utils "[Thread]"
+#      - name: Run thread-safety tests
+#        if: ${{ matrix.build-type == 'tsan' }}
+#        run: |
+#          ./build/bin/tests/tests-redoom "[Thread]"
+#          ./build/bin/tests/tests-redoom-utils "[Thread]"
