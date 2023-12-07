@@ -1,0 +1,47 @@
+name: whanos-cpp
+on:
+  push
+
+jobs:
+  build-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: state
+        shell: bash
+        run: |
+          ls -la
+          ls -la vcpkg
+          cmake --version
+
+      - uses: extractions/setup-just@v1
+      - name: set vcpckg
+        shell: bash
+        run: just set-vcpckg
+
+      - name: install sfml lib dependencies
+        shell: bash
+        run: sudo apt-get install libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev
+
+
+      - name: build project
+        shell: bash
+        run: just cmake
+
+      - name: Cache vcpkg package
+        uses: actions/cache@v3
+        with:
+          path: |
+            vcpkg
+            build
+          key: ${{ runner.os }}-${{ hashFiles('**/vcpkg.json') }}
+
+      - name: state end
+        shell: bash
+        run: |
+          ls -la
