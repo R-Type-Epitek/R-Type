@@ -1,0 +1,25 @@
+name: Push to Epitech organization r-type repository
+
+on:
+  push:
+    branches: [ '**', '!ga-ignore-*' ]
+  pull_request:
+    branches: [ '**', '!ga-ignore-*' ]
+
+env:
+  MIRROR_URL: git@github.com:EpitechPromo2026/B-CPP-500-BDX-5-2-rtype-edouard.pradie.git
+
+jobs:
+  push_to_mirror:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Push the repository to a mirror
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: ${{ env.MIRROR_URL }}
+          ssh_private_key: ${{ secrets.MIRROR_GIT_PRIVATE_KEY }}
+          
