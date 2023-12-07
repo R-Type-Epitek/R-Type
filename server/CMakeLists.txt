@@ -17,6 +17,7 @@ target_include_directories(${EXEC_SERVER}
         PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${Boost_INCLUDE_DIRS}
+        ${RTYPE_GAME_ENGINE_INCLUDE}
 )
 
 target_compile_options(${EXEC_SERVER}
@@ -29,6 +30,7 @@ target_compile_options(${EXEC_SERVER}
 
 target_link_libraries(${EXEC_SERVER}
         PRIVATE
+        GameEngine
         Boost::boost
         Boost::system
 )
