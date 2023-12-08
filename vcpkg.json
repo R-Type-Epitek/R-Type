@@ -1,0 +1,32 @@
+{
+  "name": "rtype-project",
+  "version-string": "0.0.1",
+  "dependencies": [
+    {
+      "name": "gtest"
+    },
+    {
+      "name": "sfml"
+    },
+    {
+      "name": "spdlog"
+    },
+    {
+      "name": "boost-thread"
+    },
+    {
+      "name": "boost-filesystem"
+    },
+    {
+      "name": "boost-asio"
+    },
+    {
+      "name": "boost-uuid"
+    },
+    {
+      "name": "boost-crc"
+    }
+  ],
+  "homepage": "https://github.com/your-username/your-repo",
+  "license": "MIT"
+}
