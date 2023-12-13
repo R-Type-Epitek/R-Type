@@ -24,9 +24,12 @@ target_compile_options(${EXEC_SERVER}
         PRIVATE
         -Wall
         -Wextra
-        -fno-gnu-unique
         -ggdb3
 )
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    add_compile_options(-fno-gnu-unique)
+endif()
 
 target_link_libraries(${EXEC_SERVER}
         PRIVATE

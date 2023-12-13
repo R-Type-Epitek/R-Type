@@ -2,6 +2,10 @@ vcpkg_installed
 r-type_client
 r-type_server
 build*/
+*.cmake
+CMakeCache.txt
+CMakeFiles/
+Makefile
 
 # Used by some IDEs and LSP plugins
 compile_commands.json
