@@ -34,23 +34,48 @@ void Client::Network::send(
     );
 }
 
+void Client::Network::send_message(
+    const std::string& command,
+    const char* data,
+    size_t dataSize
+)
+{
+    size_t totalSize = sizeof(MessageHeader) + dataSize;
+    std::vector<char> messageBuffer(totalSize);
+
+    MessageHeader header;
+    header.client_id = this->client_id;
+    strcpy(header.command, command.c_str());
+    header.dataLength = dataSize;
+
+    memcpy(messageBuffer.data(), &header, sizeof(header));
+    if (dataSize > 0)
+        memcpy(messageBuffer.data() + sizeof(header), data, dataSize);
+
+    this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
+}
+
+Response* Client::Network::receive_and_validate_response(
+    const std::string& expectedCommand
+)
+{
+    boost::array<char, 1024> recv_buffer{};
+    this->socket.receive_from(boost::asio::buffer(recv_buffer), this->receiver_endpoint);
+    Response* response = (Response*)recv_buffer.data();
+
+    if (strcmp(response->header.command, expectedCommand.c_str()) != 0)
+        throw std::runtime_error("Invalid response command");
+
+    if (response->header.status != 200)
+        throw std::runtime_error(response->header.status_message);
+
+    return response;
+}
+
 void Client::Network::connect_to_server()
 {
-    Message message;
-    message.header.client_id = -1;
-    strcpy(message.header.command, HELLO_COMMAND);
-    message.header.dataLength = 0;
-
-    boost::array<char, 1024> recv_buffer{};
-    this->send(boost::asio::buffer(&message, sizeof(message)));
-    this->socket.receive_from(
-        boost::asio::buffer(recv_buffer),
-        this->receiver_endpoint
-    );
-    Response *response = (Response *)recv_buffer.data();
-
-    if (strcmp(response->header.command, HELLO_COMMAND) != 0)
-        throw std::runtime_error("Invalid response command");
+    this->send_message(HELLO_COMMAND, nullptr, 0);
+    Response* response = receive_and_validate_response(HELLO_COMMAND);
 
     this->client_id = response->header.client_id;
 
@@ -61,76 +86,26 @@ void Client::Network::connect_to_server()
 
 void Client::Network::send_name(std::string name)
 {
-    if (this->client_id == -1)
-        throw std::runtime_error("Not connected to server");
-
-    if (name.length() > 32)
-        throw std::runtime_error("Name too long");
-
-    size_t totalSize = sizeof(MessageHeader) + sizeof(SendNameData);
-    std::vector<char> messageBuffer(totalSize);
-
-    MessageHeader header;
-    header.client_id = this->client_id;
-    strcpy(header.command, NAME_COMMAND);
-    header.dataLength = sizeof(SendNameData);
-
-    memcpy(messageBuffer.data(), &header, sizeof(header));
+    if (name.length() > MAX_NAME_LENGTH)
+        throw std::runtime_error(NAME_TOO_LONG);
 
     SendNameData data;
     strcpy(data.name, name.c_str());
-    memcpy(messageBuffer.data() + sizeof(header), &data, sizeof(data));
-    this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
-
-    boost::array<char, 1024> recv_buffer{};
-    this->socket.receive_from(
-        boost::asio::buffer(recv_buffer),
-        this->receiver_endpoint
-    );
-    Response *response = (Response *)recv_buffer.data();
-
-    if (strcmp(response->header.command, NAME_COMMAND) != 0)
-        throw std::runtime_error("Invalid response command");
-
-    if (response->header.status != 200)
-        throw std::runtime_error(response->header.status_message);
+    this->send_message(NAME_COMMAND, (char*)&data, sizeof(data));
+    
+    Response* response = receive_and_validate_response(NAME_COMMAND);
+    this->name = name;
 
     std::cout << "Server response: " << response->header.status_message << std::endl << std::endl;
 }
 
 void Client::Network::join_room(int room_id)
 {
-    if (this->client_id == -1)
-        throw std::runtime_error("Not connected to server");
-
-    size_t totalSize = sizeof(MessageHeader) + sizeof(JoinRoomData);
-    std::vector<char> messageBuffer(totalSize);
-
-    MessageHeader header;
-    header.client_id = this->client_id;
-    strcpy(header.command, JOIN_COMMAND);
-    header.dataLength = sizeof(JoinRoomData);
-
-    memcpy(messageBuffer.data(), &header, sizeof(header));
-
     JoinRoomData data;
     data.room_id = room_id;
-    memcpy(messageBuffer.data() + sizeof(header), &data, sizeof(data));
-    this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
+    this->send_message(JOIN_COMMAND, (char*)&data, sizeof(data));
 
-    boost::array<char, 1024> recv_buffer{};
-    this->socket.receive_from(
-        boost::asio::buffer(recv_buffer),
-        this->receiver_endpoint
-    );
-    Response *response = (Response *)recv_buffer.data();
-
-    if (strcmp(response->header.command, JOIN_COMMAND) != 0)
-        throw std::runtime_error("Invalid response command");
-
-    if (response->header.status != 200)
-        throw std::runtime_error(response->header.status_message);
-
+    Response* response = receive_and_validate_response(JOIN_COMMAND);
     this->room_id = room_id;
 
     std::cout << "Server response: " << response->header.status_message << std::endl << std::endl;

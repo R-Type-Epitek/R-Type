@@ -8,9 +8,9 @@
 #include "network/UDPServer.hpp"
 
 Network::UDPServer::UDPServer(boost::asio::io_context &io):
-    socket(io, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), DEFAULT_PORT))
+    socket(io, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), std::stoi(DEFAULT_PORT)))
 {
-    this->init_server(DEFAULT_PORT);
+    this->init_server(std::stoi(DEFAULT_PORT));
 }
 
 Network::UDPServer::UDPServer(boost::asio::io_context &io, int port):
@@ -105,68 +105,67 @@ void Network::UDPServer::process_message(
     throw std::runtime_error("Invalid command");
 }
 
-void Network::UDPServer::hello_command(Message *message)
+Response Network::UDPServer::create_response(
+    int client_id,
+    const std::string& command,
+    const std::string& status_message,
+    int status = RES_SUCCESS
+)
 {
-    (void)message;
     Response response;
-    response.header.client_id = this->clients.size();
-    strcpy(response.header.command, HELLO_COMMAND);
+
+    response.header.client_id = client_id;
+    strcpy(response.header.command, command.c_str());
     response.header.dataLength = 0;
-    response.header.status = 200;
-    strcpy(response.header.status_message, "User correctly connected to server");
+    response.header.status = status;
+    strcpy(response.header.status_message, status_message.c_str());
+    return response;
+}
 
-    Network::Client client;
-    client.setEndpoint(this->remote_endpoint);
-    client.setId(response.header.client_id);
-    this->clients.push_back(client);
-
+void Network::UDPServer::send_response_and_log(const Response& response)
+{
     this->send_to_client(
         boost::asio::buffer(&response, sizeof(response)),
         response.header.client_id
     );
-
-    std::cout << "Client " << response.header.client_id << " connected: " << this->remote_endpoint << std::endl;
+    std::cout << "Client " << response.header.client_id << ": " << response.header.status_message << std::endl;
     this->start_receive();
+}
+
+void Network::UDPServer::hello_command(Message *message)
+{
+    (void)message;
+
+    int client_id = this->clients.size();
+    std::string status_message = "User correctly connected to server";
+    Response response = create_response(client_id, HELLO_COMMAND, status_message);
+
+    Network::Client client;
+    client.setEndpoint(this->remote_endpoint);
+    client.setId(client_id);
+    this->clients.push_back(client);
+
+    send_response_and_log(response);
 }
 
 void Network::UDPServer::name_command(Message *message)
 {
     SendNameData *data = (SendNameData *)message->data;
-    Response response;
-    response.header.client_id = message->header.client_id;
-    strcpy(response.header.command, NAME_COMMAND);
-    response.header.dataLength = 0;
-    response.header.status = 200;
-    strcpy(response.header.status_message, ("Name correctly set: " + std::string(data->name)).c_str());
+    std::string status_message = "Name correctly set: " + std::string(data->name);
+    Response response = create_response(message->header.client_id, NAME_COMMAND, status_message);
 
     this->clients[message->header.client_id].setName(data->name);
 
-    this->send_to_client(
-        boost::asio::buffer(&response, sizeof(response)),
-        response.header.client_id
-    );
-
-    std::cout << "Client " << response.header.client_id << " set name: " << data->name << std::endl;
-    this->start_receive();
+    send_response_and_log(response);
 }
 
 void Network::UDPServer::join_command(Message *message)
 {
     JoinRoomData *data = (JoinRoomData *)message->data;
-    Response response;
-    response.header.client_id = message->header.client_id;
-    strcpy(response.header.command, JOIN_COMMAND);
-    response.header.dataLength = 0;
-    response.header.status = 200;
-    strcpy(response.header.status_message, ("Joined room: " + std::to_string(data->room_id)).c_str());
+    std::string status_message = "Joined room: " + std::to_string(data->room_id);
+    Response response = create_response(message->header.client_id, JOIN_COMMAND, status_message);
 
     this->rooms[data->room_id].addPlayer(message->header.client_id);
 
-    this->send_to_client(
-        boost::asio::buffer(&response, sizeof(response)),
-        response.header.client_id
-    );
-
-    std::cout << "Client " << response.header.client_id << " joined room: " << data->room_id << std::endl;
-    this->start_receive();
+    send_response_and_log(response);
 }

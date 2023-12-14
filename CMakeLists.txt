@@ -10,6 +10,7 @@ set(Boost_NO_WARN_NEW_VERSIONS 1)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 set(RTYPE_GAME_ENGINE_INCLUDE ${CMAKE_CURRENT_LIST_DIR}/gameEngine/include CACHE PATH "Path to game engine include directory")
+set(RTYPE_NETWORK_INCLUDE ${CMAKE_CURRENT_LIST_DIR}/network CACHE PATH "Path to network include directory")
 
 #[===[ DEPENDENCIES ]===]
 find_package(SFML

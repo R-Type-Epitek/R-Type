@@ -4,53 +4,7 @@
 
 #pragma once
 
-#include <iostream>
-#include <boost/array.hpp>
-#include <boost/asio.hpp>
-
-// Default values
-#define DEFAULT_IP "127.0.0.1"
-#define DEFAULT_PORT "4242"
-
-// Errors
-#define NO_CLIENT_ID "You must connect to the server first"
-
-// Commands
-#define HELLO_COMMAND "/hello"
-#define NAME_COMMAND "/name"
-#define JOIN_COMMAND "/join"
-
-struct MessageHeader {
-  int client_id;
-  char command[32];
-  uint32_t dataLength;
-};
-
-struct Message {
-  MessageHeader header;
-  char data[];
-};
-
-struct ResponseHeader {
-  int client_id;
-  char command[32];
-  uint32_t dataLength;
-  int status;
-  char status_message[128];
-};
-
-struct Response {
-  ResponseHeader header;
-  char data[];
-};
-
-struct SendNameData {
-  char name[32];
-};
-
-struct JoinRoomData {
-  int room_id;
-};
+#include "Constants.hpp"
 
 namespace Client
 {
@@ -63,6 +17,14 @@ namespace Client
             );
             ~Network();
             void send(const boost::asio::const_buffer &buffer);
+            void send_message(
+                const std::string& command,
+                const char* data,
+                size_t dataSize
+            );
+            Response* receive_and_validate_response(
+                const std::string& expectedCommand
+            );
             void connect_to_server();
             void send_name(std::string name);
             void join_room(int room_id);

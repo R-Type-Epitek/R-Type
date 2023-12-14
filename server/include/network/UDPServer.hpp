@@ -7,53 +7,9 @@
 
 #pragma once
 
+#include "Constants.hpp"
 #include "Client.hpp"
 #include "Room.hpp"
-#include <iostream>
-#include <boost/array.hpp>
-#include <boost/bind.hpp>
-#include <boost/asio.hpp>
-
-#define DEFAULT_PORT 4242
-#define DEFAULT_ROOM_SIZE 4
-#define NUMBER_OF_ROOMS 4
-
-// Commands
-#define HELLO_COMMAND "/hello"
-#define NAME_COMMAND "/name"
-#define JOIN_COMMAND "/join"
-
-struct MessageHeader {
-  int client_id;
-  char command[32];
-  uint32_t dataLength;
-};
-
-struct Message {
-  MessageHeader header;
-  char data[];
-};
-
-struct ResponseHeader {
-  int client_id;
-  char command[32];
-  uint32_t dataLength;
-  int status;
-  char status_message[128];
-};
-
-struct Response {
-  ResponseHeader header;
-  char data[];
-};
-
-struct SendNameData {
-  char name[32];
-};
-
-struct JoinRoomData {
-  int room_id;
-};
 
 namespace Network
 {
@@ -84,6 +40,13 @@ namespace Network
             );
             void start_receive();
             void process_message(const boost::asio::const_buffer &buffer);
+            Response create_response(
+                int client_id,
+                const std::string& command,
+                const std::string& status_message,
+                int status
+            );
+            void send_response_and_log(const Response& response);
             void hello_command(Message *message);
             void name_command(Message *message);
             void join_command(Message *message);
