@@ -3,23 +3,23 @@
 client::LobbiesScene::LobbiesScene(client::Scene_name scene_name)
 {
     this->scene_name_ = scene_name;
-    std::string tmpb = "assets/lobbies/lobbies_bg.png";
-    Background tmp_background(sf::Vector2f(0, 0), tmpb);
+    std::string tmp_b = "assets/lobbies/lobbies_bg.png";
+    Background tmp_background(sf::Vector2f(0, 0), tmp_b);
     this->background_ = tmp_background;
-    std::string tmpe = "assets/lobbies/escape_button.png";
-    Button tmp_e_button(sf::Vector2f(1182, 270), sf::Vector2f(31, 31), tmpe);
+    std::string tmp_e_but = "assets/lobbies/escape_button.png";
+    Button tmp_e_button(sf::Vector2f(1182, 270), sf::Vector2f(31, 31), tmp_e_but);
     this->escape_button_ = std::make_shared<Button>(tmp_e_button);
-    std::string tmpa = "assets/lobbies/accept_button.png";
-    Button tmp_a_button(sf::Vector2f(963, 720), sf::Vector2f(156, 50), tmpa);
+    std::string tmp_a_but = "assets/lobbies/accept_button.png";
+    Button tmp_a_button(sf::Vector2f(963, 720), sf::Vector2f(156, 50), tmp_a_but);
     this->accept_button_ = std::make_shared<Button>(tmp_a_button);
-    std::string tmpr = "assets/lobbies/return_button.png";
-    Button tmp_r_button(sf::Vector2f(803, 720), sf::Vector2f(156, 50), tmpr);
+    std::string tmp_r_but = "assets/lobbies/return_button.png";
+    Button tmp_r_button(sf::Vector2f(803, 720), sf::Vector2f(156, 50), tmp_r_but);
     this->return_button_ = std::make_shared<Button>(tmp_r_button);
     std::string font = "assets/font/nasalization-rg.ttf";
     //std::string font = "assets/font/arial.ttf";
-    InputText tmp_pa_input(sf::Vector2f(719, 338), sf::Vector2f(235, 48), font);
+    InputText tmp_pa_input(sf::Vector2f(718, 338), sf::Vector2f(237, 48), font);
     this->path_input_ = std::make_shared<InputText>(tmp_pa_input);
-    InputText tmp_po_input(sf::Vector2f(962, 338), sf::Vector2f(235, 48), font);
+    InputText tmp_po_input(sf::Vector2f(961, 338), sf::Vector2f(237, 48), font);
     this->port_input_ = std::make_shared<InputText>(tmp_po_input);
 }
 
@@ -29,8 +29,8 @@ void client::LobbiesScene::draw(sf::RenderWindow &window)
     this->accept_button_->draw(window);
     this->return_button_->draw(window);
     this->escape_button_->draw(window);
-    //this->path_input_->draw(window);
-    //this->port_input_->draw(window);
+    this->path_input_->draw(window);
+    this->port_input_->draw(window);
 }
 
 bool client::LobbiesScene::is_in_shape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &my_shape)
@@ -52,8 +52,15 @@ int client::LobbiesScene::poll_event(sf::RenderWindow &window)
             // open pop up to ask if user wants to quit if he is in a lobby
             window.close();
         }
+
+        // get text from input slot
         if (this->event_.type == sf::Event::TextEntered && this->event_.text.unicode < 128) {
             if (this->path_input_->is_clicked() && !this->port_input_->is_clicked()) {
+                if (this->event_.text.unicode == 8) { // 8 = Backspace
+                    this->nt_path_.pop_back();
+                    this->path_input_->pop_input();
+                    continue;
+                }
                 if (this->event_.text.unicode != 13) { // 13 = Enter
                     this->nt_path_ += static_cast<char>(this->event_.text.unicode);
                     this->path_input_->set_input(static_cast<char>(this->event_.text.unicode));
@@ -62,6 +69,11 @@ int client::LobbiesScene::poll_event(sf::RenderWindow &window)
                 }
             }
             if (this->port_input_->is_clicked() && !this->path_input_->is_clicked()) {
+                if (this->event_.text.unicode == 8) { // 8 = Backspace
+                    this->nt_port_.pop_back();
+                    this->port_input_->pop_input();
+                    continue;
+                }
                 if (this->event_.text.unicode != 13) { // 13 = Enter
                     this->nt_port_ += static_cast<char>(this->event_.text.unicode);
                     this->port_input_->set_input(static_cast<char>(this->event_.text.unicode));
@@ -70,8 +82,11 @@ int client::LobbiesScene::poll_event(sf::RenderWindow &window)
                 }
             }
         }
+
+        // get mouse event
         if ((this->event_.type == sf::Event::MouseButtonPressed) ||
         (this->event_.type == sf::Event::MouseButtonReleased)) {
+            // Button click
             if (this->is_in_shape(this->event_.mouseButton, *this->escape_button_->get_shape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
                     this->escape_button_->is_release();
@@ -94,12 +109,18 @@ int client::LobbiesScene::poll_event(sf::RenderWindow &window)
                 }
                 this->accept_button_->is_clicked();
             }
-            if (this->is_in_shape(this->event_.mouseButton, *this->path_input_->get_shape()) &&
-            !this->port_input_->is_clicked()) {
+
+            // input slot click
+            if (this->is_in_shape(this->event_.mouseButton, *this->path_input_->get_shape())) {
+                if (this->port_input_->is_clicked()) {
+                    this->port_input_->end_input();
+                }
                 this->path_input_->start_input();
             }
-            if (this->is_in_shape(this->event_.mouseButton, *this->port_input_->get_shape()) &&
-            !this->path_input_->is_clicked()) {
+            if (this->is_in_shape(this->event_.mouseButton, *this->port_input_->get_shape())) {
+                if (this->path_input_->is_clicked()) {
+                    this->path_input_->end_input();
+                }
                 this->port_input_->start_input();
             }
         }

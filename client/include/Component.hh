@@ -64,10 +64,12 @@ namespace client {
             std::string get_input();
             void set_input(char input);
             bool is_clicked() const;
+            void pop_input();
         private:
             std::shared_ptr<sf::RectangleShape> shape_;
-            std::shared_ptr<sf::Text> text_;
             std::string input_;
+            std::string font_path_;
+            sf::Vector2f position_text_;
             bool is_clicked_{false};
     };
 }
