@@ -10,12 +10,8 @@
 int main(int argc, char **argv)
 {
     try {
-        if (argc != 2) {
-            std::cerr << "Usage: network <port>" << std::endl;
-            return 1;
-        }
         boost::asio::io_context io;
-        Network::UDPServer server(io, std::atoi(argv[1]));
+        Network::UDPServer server(io, argv[1] ? std::stoi(argv[1]) : DEFAULT_PORT);
 
         io.run();
     } catch (std::exception &e) {

@@ -1,4 +1,8 @@
-#include <SFML/Graphics.hpp>
+//
+// Created by Xavier VINCENT on 14/12/2023.
+//
+
+/*#include <SFML/Graphics.hpp>
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
@@ -16,4 +20,19 @@ int main() {
     }
 
     return 0;
+}
+*/
+
+#include "Network.hpp"
+
+int main()
+{
+    boost::asio::io_context io;
+    Client::Network network(io, DEFAULT_IP, DEFAULT_PORT);
+
+    io.run();
+
+    network.connect_to_server();
+    network.send_name("John Doe");
+    network.join_room(0);
 }
