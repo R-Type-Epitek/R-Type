@@ -1,16 +1,24 @@
-#include <SFML/Graphics.hpp>
+#include "../include/Client.hh"
+#include "../include/Scene.hh"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML Window");
+    sf::Color color = sf::Color::Black;
+    std::shared_ptr<client::IScene> current_scene = client::SceneManager::creatScene(client::Scene_name::kWelcomeScene);
 
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
+        switch (current_scene->poll_event(window)) {
+            case 1:
+                current_scene = client::SceneManager::creatScene(client::Scene_name::kWelcomeScene);
+                break;
+            case 2:
+                current_scene = client::SceneManager::creatScene(client::Scene_name::kLobbiesScene);
+                break;
+            default:
+                break;
         }
-
-        window.clear(sf::Color::Blue);
+        window.clear(color);
+        current_scene->draw(window);
         // Draw your SFML content here
         window.display();
     }

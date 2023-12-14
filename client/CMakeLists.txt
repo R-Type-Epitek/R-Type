@@ -6,6 +6,10 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/)
 
 add_executable(${EXEC_CLIENT}
         src/main.cpp
+        src/SceneManager/SceneManager.cpp
+        src/Scenes/WelcomeScene.cpp
+        src/Scenes/LobbiesScene.cpp
+        src/Component/Component.cpp
 )
 
 target_include_directories(${EXEC_CLIENT}
