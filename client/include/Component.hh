@@ -51,7 +51,7 @@ namespace client {
     class InputText {
         public:
             InputText() = default;
-            InputText(sf::Vector2f position, sf::Vector2f size, std::string &font_path);
+            InputText(sf::Vector2f position, sf::Vector2f size, std::string &font_path, std::string &default_text);
             ~InputText() = default;
             InputText(InputText const &to_copy) = default;
             InputText(InputText &&to_move) = default;

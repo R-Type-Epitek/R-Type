@@ -10,12 +10,14 @@ add_executable(${EXEC_CLIENT}
         src/Scenes/WelcomeScene.cpp
         src/Scenes/LobbiesScene.cpp
         src/Component/Component.cpp
+        src/Network.cpp
 )
 
 target_include_directories(${EXEC_CLIENT}
         PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${RTYPE_GAME_ENGINE_INCLUDE}
+        ${RTYPE_NETWORK_INCLUDE}
 )
 
 target_compile_options(${EXEC_CLIENT}

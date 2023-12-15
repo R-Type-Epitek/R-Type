@@ -9,6 +9,7 @@ find_package(Boost REQUIRED COMPONENTS system thread regex)
 
 add_executable(${EXEC_SERVER}
         src/network/Client.cpp
+        src/network/Room.cpp
         src/network/UDPServer.cpp
         src/main.cpp
 )
@@ -18,6 +19,7 @@ target_include_directories(${EXEC_SERVER}
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${Boost_INCLUDE_DIRS}
         ${RTYPE_GAME_ENGINE_INCLUDE}
+        ${RTYPE_NETWORK_INCLUDE}
 )
 
 target_compile_options(${EXEC_SERVER}

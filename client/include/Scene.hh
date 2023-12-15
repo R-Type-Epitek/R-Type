@@ -9,6 +9,7 @@
 #include <memory>
 #include <optional>
 #include <functional>
+#include "Network.hpp"
 
 namespace client {
     enum Scene_name {
@@ -22,7 +23,7 @@ namespace client {
         public:
             virtual ~IScene() = default;
 
-            virtual int poll_event(sf::RenderWindow &window) = 0;
+            virtual int poll_event(sf::RenderWindow &window, client::Network &network) = 0;
             virtual void draw(sf::RenderWindow &window) = 0;
     };
 

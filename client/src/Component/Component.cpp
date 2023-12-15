@@ -86,7 +86,7 @@ bool client::InputText::is_clicked() const
     return this->is_clicked_;
 }
 
-client::InputText::InputText(sf::Vector2f position, sf::Vector2f size, std::string &font_path)
+client::InputText::InputText(sf::Vector2f position, sf::Vector2f size, std::string &font_path, std::string &default_text)
 {
     int margin_text = (size.y  - 14) / 2;
 
@@ -95,7 +95,7 @@ client::InputText::InputText(sf::Vector2f position, sf::Vector2f size, std::stri
     this->shape_ = std::make_shared<sf::RectangleShape>(size);
     this->shape_->setPosition(position);
     this->shape_->setFillColor(sf::Color(0, 0, 0, 0));
-    this->input_ = "";
+    this->input_ = default_text;
     this->font_path_ = font_path;
 }
 

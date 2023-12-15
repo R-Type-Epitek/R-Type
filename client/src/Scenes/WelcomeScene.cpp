@@ -27,7 +27,7 @@ bool client::WelcomeScene::is_in_shape(sf::Event::MouseButtonEvent &mouse, sf::R
     return min_x < mouse.x && mouse.x < max_x && min_y < mouse.y && mouse.y < max_y;
 }
 
-int client::WelcomeScene::poll_event(sf::RenderWindow &window)
+int client::WelcomeScene::poll_event(sf::RenderWindow &window, client::Network &network)
 {
     while (window.pollEvent(this->event_)) {
         if ((this->event_.type == sf::Event::Closed) ||

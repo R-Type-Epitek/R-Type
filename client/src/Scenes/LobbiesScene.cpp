@@ -6,6 +6,7 @@ client::LobbiesScene::LobbiesScene(client::Scene_name scene_name)
     std::string tmp_b = "assets/lobbies/lobbies_bg.png";
     Background tmp_background(sf::Vector2f(0, 0), tmp_b);
     this->background_ = tmp_background;
+
     std::string tmp_e_but = "assets/lobbies/escape_button.png";
     Button tmp_e_button(sf::Vector2f(1182, 270), sf::Vector2f(31, 31), tmp_e_but);
     this->escape_button_ = std::make_shared<Button>(tmp_e_button);
@@ -15,11 +16,14 @@ client::LobbiesScene::LobbiesScene(client::Scene_name scene_name)
     std::string tmp_r_but = "assets/lobbies/return_button.png";
     Button tmp_r_button(sf::Vector2f(803, 720), sf::Vector2f(156, 50), tmp_r_but);
     this->return_button_ = std::make_shared<Button>(tmp_r_button);
+
     std::string font = "assets/font/nasalization-rg.ttf";
     //std::string font = "assets/font/arial.ttf";
-    InputText tmp_pa_input(sf::Vector2f(718, 338), sf::Vector2f(237, 48), font);
-    this->path_input_ = std::make_shared<InputText>(tmp_pa_input);
-    InputText tmp_po_input(sf::Vector2f(961, 338), sf::Vector2f(237, 48), font);
+    std::string default_text = DEFAULT_IP;
+    InputText tmp_ip_input(sf::Vector2f(718, 338), sf::Vector2f(237, 48), font, default_text);
+    this->ip_input_ = std::make_shared<InputText>(tmp_ip_input);
+    default_text = DEFAULT_PORT;
+    InputText tmp_po_input(sf::Vector2f(961, 338), sf::Vector2f(237, 48), font, default_text);
     this->port_input_ = std::make_shared<InputText>(tmp_po_input);
 }
 
@@ -29,7 +33,7 @@ void client::LobbiesScene::draw(sf::RenderWindow &window)
     this->accept_button_->draw(window);
     this->return_button_->draw(window);
     this->escape_button_->draw(window);
-    this->path_input_->draw(window);
+    this->ip_input_->draw(window);
     this->port_input_->draw(window);
 }
 
@@ -43,7 +47,7 @@ bool client::LobbiesScene::is_in_shape(sf::Event::MouseButtonEvent &mouse, sf::R
     return min_x < mouse.x && mouse.x < max_x && min_y < mouse.y && mouse.y < max_y;
 }
 
-int client::LobbiesScene::poll_event(sf::RenderWindow &window)
+int client::LobbiesScene::poll_event(sf::RenderWindow &window, client::Network &network)
 {
     while (window.pollEvent(this->event_)) {
         if ((this->event_.type == sf::Event::Closed) ||
@@ -55,20 +59,20 @@ int client::LobbiesScene::poll_event(sf::RenderWindow &window)
 
         // get text from input slot
         if (this->event_.type == sf::Event::TextEntered && this->event_.text.unicode < 128) {
-            if (this->path_input_->is_clicked() && !this->port_input_->is_clicked()) {
+            if (this->ip_input_->is_clicked() && !this->port_input_->is_clicked()) {
                 if (this->event_.text.unicode == 8) { // 8 = Backspace
-                    this->nt_path_.pop_back();
-                    this->path_input_->pop_input();
+                    this->nt_ip_.pop_back();
+                    this->ip_input_->pop_input();
                     continue;
                 }
                 if (this->event_.text.unicode != 13) { // 13 = Enter
-                    this->nt_path_ += static_cast<char>(this->event_.text.unicode);
-                    this->path_input_->set_input(static_cast<char>(this->event_.text.unicode));
+                    this->nt_ip_ += static_cast<char>(this->event_.text.unicode);
+                    this->ip_input_->set_input(static_cast<char>(this->event_.text.unicode));
                 } else {
-                    this->path_input_->end_input();
+                    this->ip_input_->end_input();
                 }
             }
-            if (this->port_input_->is_clicked() && !this->path_input_->is_clicked()) {
+            if (this->port_input_->is_clicked() && !this->ip_input_->is_clicked()) {
                 if (this->event_.text.unicode == 8) { // 8 = Backspace
                     this->nt_port_.pop_back();
                     this->port_input_->pop_input();
@@ -105,21 +109,27 @@ int client::LobbiesScene::poll_event(sf::RenderWindow &window)
             if (this->is_in_shape(this->event_.mouseButton, *this->accept_button_->get_shape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
                     this->accept_button_->is_release();
-                    std::cout << this->nt_path_ << "-" << this->nt_port_ << std::endl;
+                    std::cout << this->nt_ip_ << "-" << this->nt_port_ << std::endl;
+                    if (this->nt_ip_ != DEFAULT_IP || this->nt_port_ != DEFAULT_PORT) {
+                        network.set_endpoint(this->nt_ip_, this->nt_port_);
+                    }
+                    network.connect_to_server();
+                    network.send_name("John Doe");
+                    network.join_room(0);
                 }
                 this->accept_button_->is_clicked();
             }
 
             // input slot click
-            if (this->is_in_shape(this->event_.mouseButton, *this->path_input_->get_shape())) {
+            if (this->is_in_shape(this->event_.mouseButton, *this->ip_input_->get_shape())) {
                 if (this->port_input_->is_clicked()) {
                     this->port_input_->end_input();
                 }
-                this->path_input_->start_input();
+                this->ip_input_->start_input();
             }
             if (this->is_in_shape(this->event_.mouseButton, *this->port_input_->get_shape())) {
-                if (this->path_input_->is_clicked()) {
-                    this->path_input_->end_input();
+                if (this->ip_input_->is_clicked()) {
+                    this->ip_input_->end_input();
                 }
                 this->port_input_->start_input();
             }

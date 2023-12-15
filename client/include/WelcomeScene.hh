@@ -19,7 +19,7 @@ namespace client {
             ~WelcomeScene() override = default;
 
             static bool is_in_shape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &my_shape);
-            int poll_event(sf::RenderWindow &window) override;
+            int poll_event(sf::RenderWindow &window, client::Network &network) override;
             void draw(sf::RenderWindow &window) override;
         private:
             client::Scene_name scene_name_;

@@ -1,0 +1,8 @@
+//
+// Created by X-VINCENT on 12/14/23.
+//
+
+#define RES_SUCCESS 200
+#define RES_NOT_FOUND 404
+#define RES_BAD_REQUEST 400
+#define RES_INTERNAL_ERROR 500
