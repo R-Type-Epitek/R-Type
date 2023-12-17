@@ -10,4 +10,5 @@ class IComponentArray
 public:
     virtual ~IComponentArray() = default;
     virtual void entityDestroyed(Entity entity) = 0;
+    virtual bool hasEntity(Entity entity) = 0;
 };

@@ -14,11 +14,8 @@
 #include "component/Gravity.hpp"
 
 struct Animation : System {
-  void update(std::shared_ptr<Mediator>& mediator, Entity entity, sf::RenderWindow& window)
+  void update(std::unordered_map<const char*, std::shared_ptr<IComponentArray>> components, Entity entity, sf::RenderWindow& window)
   {
-        (void) window;
-        (void) mediator;
-        (void) entity;
     // for (auto const& entity : entities) {
       // auto& sprite = mediator.getComponent<ComponentRType::Sprite>(entity);
     // }

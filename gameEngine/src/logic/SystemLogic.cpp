@@ -18,6 +18,5 @@ SystemLogic::~SystemLogic()
 
 void SystemLogic::launchSystem(std::shared_ptr<Mediator>& mediator, std::vector<Entity> entities, Entity& player)
 {
-  //std::unordered_map<const char*, std::shared_ptr<System>> systems = mediator->getSystems();
-  // compare bit mask of entity with bit mask of system
+  // std::unordered_map<const char*, std::shared_ptr<System>> systems = mediator->getSystems();
 }

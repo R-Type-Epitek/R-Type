@@ -65,6 +65,19 @@ public:
         }
     }
 
+    std::unordered_map<const char*, std::shared_ptr<IComponentArray>> getComponentsWithEntity(Entity entity)
+    {
+      std::unordered_map<const char*, std::shared_ptr<IComponentArray>> components;
+        for (auto const& pair : m_componentArrays)
+        {
+          auto const& component = pair.second;
+          if (component->hasEntity(entity)) {
+            components.insert({pair.first, component});
+          }
+        }
+        return components;
+    }
+
 private:
     std::unordered_map<const char*, ComponentType> m_componentTypes{};
 
