@@ -95,6 +95,31 @@ public:
         m_systemManager->setSignature<T>(signature);
     }
 
+    std::unordered_map<const char*, std::shared_ptr<ISystem>> getSystems()
+    {
+      return m_systemManager->getSystems();
+    }
+
+        std::unordered_map<const char*, Signature> getSignatures()
+        {
+          return m_systemManager->getSignatures();
+        }
+
+        Signature getSystemSignature(const char* name)
+        {
+          return m_systemManager->getSignature(name);
+        }
+
+        Signature getEntitySignature(Entity& entity)
+        {
+          return m_entityManager->getSignature(entity);
+        }
+
+        std::unordered_map<const char*, std::shared_ptr<IComponentArray>> getComponents(Entity& entity)
+        {
+          return m_componentManager->getComponentsWithEntity(entity);
+        }
+
 private:
     std::unique_ptr<ComponentManager> m_componentManager;
     std::unique_ptr<EntityManager> m_entityManager;

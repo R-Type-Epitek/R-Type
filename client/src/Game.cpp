@@ -3,6 +3,7 @@
 //
 
 #include "Game.hpp"
+#include "logic/SystemLogic.hpp"
 
 Game::Game() : window(sf::VideoMode(800, 600), "R-TYPE") {
   mediator = std::make_shared<Mediator>();
@@ -17,6 +18,7 @@ Game::~Game() {
 }
 
 void Game::run() {
+  SystemLogic systemLogic;
   while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -25,6 +27,7 @@ void Game::run() {
       }
     }
     window.clear(sf::Color::White);
+    systemLogic.launchSystem(mediator, entities, window);
     window.display();
   }
 }
