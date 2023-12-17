@@ -4,18 +4,13 @@
 
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Window/Window.hpp>
-#include <iostream>
-#include <memory>
-#include <optional>
-#include <functional>
-#include "Network.hpp"
+#include "RTypeClient.hpp"
 
-namespace Client {
+namespace Client
+{
     enum SceneName {
         kWelcomeScene,
-        kLobbiesScene,
+        kLobbyScene,
         //GAME_SCENE,
         kNullScene
     };
@@ -23,7 +18,6 @@ namespace Client {
     class IScene {
         public:
             virtual ~IScene() = default;
-
             virtual int pollEvent(
                 sf::RenderWindow &window,
                 Client::Network &network
@@ -42,9 +36,11 @@ namespace Client {
             SceneManager &operator=(SceneManager &&toMove) = delete;
 
             static std::shared_ptr<Client::IScene> createScene(SceneName scene);
+
+        protected:
         private:
             static std::shared_ptr<Client::IScene> createWelcomeScene(SceneName scene);
-            static std::shared_ptr<Client::IScene> createLobbiesScene(SceneName scene);
+            static std::shared_ptr<Client::IScene> createLobbyScene(SceneName scene);
             //static std::shared_ptr<Client::IScene> creatGameScene(SceneName scene);
     };
 }

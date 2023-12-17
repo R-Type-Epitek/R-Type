@@ -1,20 +1,31 @@
-#include "Scenes/WelcomeScene.hpp"
+//
+// Created by edouard on 12/12/23.
+//
+
+#include "RTypeClient.hpp"
 
 Client::WelcomeScene::WelcomeScene(Client::SceneName sceneName)
 {
     this->sceneName_ = sceneName;
-    std::string tmp = "assets/welcome/welcome_bg.jpg";
-    Background tmp_background(sf::Vector2f(0, 0), tmp);
+
+    Background tmp_background(
+        sf::Vector2f(0, 0),
+        "assets/welcome/bg.jpg"
+    );
     this->background_ = tmp_background;
-    tmp = "assets/welcome/rtype_button.jpg";
-    Button tmp_button(sf::Vector2f(615, 480), sf::Vector2f(690, 120), tmp);
-    this->play_button_ = std::make_shared<Button>(tmp_button);
+
+    Button tmpButton(
+        sf::Vector2f(615, 480),
+        sf::Vector2f(690, 120),
+        "assets/welcome/rtype_button.jpg"
+    );
+    this->playButton_ = std::make_shared<Button>(tmpButton);
 }
 
 void Client::WelcomeScene::draw(sf::RenderWindow &window)
 {
     this->background_.draw(window);
-    this->play_button_->draw(window);
+    this->playButton_->draw(window);
 }
 
 bool Client::WelcomeScene::isInShape(
@@ -45,12 +56,12 @@ int Client::WelcomeScene::pollEvent(
         }
         if (this->event_.type == sf::Event::MouseButtonPressed ||
             this->event_.type == sf::Event::MouseButtonReleased) {
-            if (this->isInShape(this->event_.mouseButton, *this->play_button_->getShape())) {
+            if (this->isInShape(this->event_.mouseButton, *this->playButton_->getShape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
-                    this->play_button_->isReleased();
-                    return Client::SceneName::kLobbiesScene;
+                    this->playButton_->isReleased();
+                    return Client::SceneName::kLobbyScene;
                 }
-                this->play_button_->isClicked();
+                this->playButton_->isClicked();
             }
         }
     }

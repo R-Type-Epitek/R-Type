@@ -1,11 +1,14 @@
-#include "Scenes/WelcomeScene.hpp"
-#include "Scenes/LobbiesScene.hpp"
+//
+// Created by edouard on 12/12/23.
+//
+
+#include "RTypeClient.hpp"
 
 std::shared_ptr<Client::IScene> Client::SceneManager::createScene(Client::SceneName scene)
 {
     std::map<Client::SceneName, std::function<std::shared_ptr<Client::IScene>(Client::SceneName)>> m{
         {Client::SceneName::kWelcomeScene, createWelcomeScene},
-        {Client::SceneName::kLobbiesScene, createLobbiesScene}
+        {Client::SceneName::kLobbyScene, createLobbyScene}
     };
 
     if (m.find(scene) != m.end()) {
@@ -22,9 +25,9 @@ std::shared_ptr<Client::IScene> Client::SceneManager::createWelcomeScene(Client:
     return scenePtr;
 }
 
-std::shared_ptr<Client::IScene> Client::SceneManager::createLobbiesScene(Client::SceneName scene)
+std::shared_ptr<Client::IScene> Client::SceneManager::createLobbyScene(Client::SceneName scene)
 {
-    std::shared_ptr<Client::IScene> scenePtr = std::make_shared<Client::LobbiesScene>(scene);
+    std::shared_ptr<Client::IScene> scenePtr = std::make_shared<Client::LobbyScene>(scene);
 
     return scenePtr;
 }

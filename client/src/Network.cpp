@@ -2,7 +2,7 @@
 // Created by Xavier VINCENT on 14/12/2023.
 //
 
-#include "../include/Network.hpp"
+#include "RTypeClient.hpp"
 
 Client::Network::Network(
     std::string ip,

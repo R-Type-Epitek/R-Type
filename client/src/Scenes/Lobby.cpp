@@ -1,33 +1,37 @@
-#include "Scenes/LobbiesScene.hpp"
+//
+// Created by edouard on 12/12/23.
+//
 
-Client::LobbiesScene::LobbiesScene(Client::SceneName sceneName)
+#include "RTypeClient.hpp"
+
+Client::LobbyScene::LobbyScene(Client::SceneName sceneName)
 {
     this->sceneName_ = sceneName;
 
     Background tmpBackground(
         sf::Vector2f(0, 0),
-        "assets/lobbies/lobbies_bg.png"
+        "assets/lobby/bg.png"
     );
     this->background_ = tmpBackground;
 
     Button tmpEscapeButton(
         sf::Vector2f(1182, 270),
         sf::Vector2f(31, 31),
-        "assets/lobbies/escape_button.png"
+        "assets/lobby/escape_button.png"
     );
     this->escapeButton_ = std::make_shared<Button>(tmpEscapeButton);
 
     Button tmpAcceptButton(
         sf::Vector2f(963, 720),
         sf::Vector2f(156, 50),
-        "assets/lobbies/accept_button.png"
+        "assets/lobby/accept_button.png"
     );
     this->acceptButton_ = std::make_shared<Button>(tmpAcceptButton);
 
     Button tmpReturnButton(
         sf::Vector2f(803, 720),
         sf::Vector2f(156, 50),
-        "assets/lobbies/return_button.png"
+        "assets/lobby/return_button.png"
     );
     this->returnButton_ = std::make_shared<Button>(tmpReturnButton);
 
@@ -48,7 +52,7 @@ Client::LobbiesScene::LobbiesScene(Client::SceneName sceneName)
     this->portInput_ = std::make_shared<InputText>(tmpPortInput);
 }
 
-void Client::LobbiesScene::draw(sf::RenderWindow &window)
+void Client::LobbyScene::draw(sf::RenderWindow &window)
 {
     this->background_.draw(window);
     this->acceptButton_->draw(window);
@@ -58,7 +62,7 @@ void Client::LobbiesScene::draw(sf::RenderWindow &window)
     this->portInput_->draw(window);
 }
 
-bool Client::LobbiesScene::isInShape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &myShape)
+bool Client::LobbyScene::isInShape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &myShape)
 {
     int minX = myShape.getPosition().x;
     int minY = myShape.getPosition().y;
@@ -68,7 +72,7 @@ bool Client::LobbiesScene::isInShape(sf::Event::MouseButtonEvent &mouse, sf::Rec
     return minX < mouse.x && mouse.x < maxX && minY < mouse.y && mouse.y < maxY;
 }
 
-int Client::LobbiesScene::pollEvent(sf::RenderWindow &window, Client::Network &network)
+int Client::LobbyScene::pollEvent(sf::RenderWindow &window, Client::Network &network)
 {
     while (window.pollEvent(this->event_)) {
         if (this->event_.type == sf::Event::Closed ||
@@ -156,5 +160,5 @@ int Client::LobbiesScene::pollEvent(sf::RenderWindow &window, Client::Network &n
             }
         }
     }
-    return Client::SceneName::kLobbiesScene;
+    return Client::SceneName::kLobbyScene;
 }

@@ -1,7 +1,11 @@
-#include "Scene.hpp"
-#include "Network.hpp"
+//
+// Created by edouard on 12/12/23.
+//
 
-int main() {
+#include "RTypeClient.hpp"
+
+int main()
+{
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "R-Type");
     sf::Color color = sf::Color::Black;
     std::shared_ptr<Client::IScene> current_scene = Client::SceneManager::createScene(Client::SceneName::kWelcomeScene);
@@ -12,8 +16,8 @@ int main() {
             case Client::SceneName::kWelcomeScene:
                 current_scene = Client::SceneManager::createScene(Client::SceneName::kWelcomeScene);
                 break;
-            case Client::SceneName::kLobbiesScene:
-                current_scene = Client::SceneManager::createScene(Client::SceneName::kLobbiesScene);
+            case Client::SceneName::kLobbyScene:
+                current_scene = Client::SceneManager::createScene(Client::SceneName::kLobbyScene);
                 break;
             default:
                 break;
