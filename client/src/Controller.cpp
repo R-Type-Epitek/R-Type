@@ -47,7 +47,7 @@ void Controller::init(sf::RenderWindow& window) {
 }
 
 void Controller::initCRegister() {
-  mediator->registerComponent<sf::Sprite>();
+  mediator->registerComponent<ComponentRType::Sprite>();
   mediator->registerComponent<ComponentRType::Transform>();
   mediator->registerComponent<ComponentRType::Gravity>();
 }
@@ -56,17 +56,17 @@ void Controller::initSRegister() {
   Signature signature_physics;
   Signature signature_animation;
   mediator->registerSystem<Physics>();
-  //mediator->registerSystem<Animation>();
   signature_physics.set(mediator->getComponentType<ComponentRType::Gravity>());
   signature_physics.set(mediator->getComponentType<ComponentRType::Transform>());
   signature_animation.set(mediator->getComponentType<ComponentRType::Sprite>());
   signature_animation.set(mediator->getComponentType<ComponentRType::Transform>());
   mediator->setSystemSignature<Physics>(signature_physics);
-  //mediator->setSystemSignature<Physics>(signature_animation);
 }
 
 void Controller::initPlayer(sf::RenderWindow& window) {
   Entity player = mediator->createEntity();
+  /*
+  request server before
   this->controller_id = player;
   // Engine front
   sf::Texture texture;
@@ -89,5 +89,5 @@ void Controller::initPlayer(sf::RenderWindow& window) {
   transform.position.y = posY;
   mediator->addComponent(player, ComponentRType::Transform(transform));
   mediator->addComponent(player, ComponentRType::Gravity{Vec3{0}});
-  // move
+   */
 }
