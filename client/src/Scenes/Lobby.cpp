@@ -134,18 +134,18 @@ int Client::LobbyScene::pollEvent(sf::RenderWindow &window, Client::Network &net
             if (this->isInShape(this->event_.mouseButton, *this->acceptButton_->getShape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
                     this->acceptButton_->isReleased();
-                    std::cout << "Input address: " << this->ntIp_ << "-" << this->ntPort_ << std::endl;
                     if (this->ntIp_ != DEFAULT_IP || this->ntPort_ != DEFAULT_PORT) {
                         network.setEndpoint(this->ntIp_, this->ntPort_);
                     }
                     network.connectToServer();
                     network.sendName("John Doe");
                     network.joinRoom(0);
+                    return Client::SceneName::kGameScene;
                 }
                 this->acceptButton_->isClicked();
             }
 
-            // input slot click
+            // InputSlot click
             if (this->isInShape(this->event_.mouseButton, *this->ipInput_->getShape())) {
                 if (this->portInput_->isClicked()) {
                     this->portInput_->endInput();

@@ -11,7 +11,7 @@ namespace Client
     enum SceneName {
         kWelcomeScene,
         kLobbyScene,
-        //GAME_SCENE,
+        kGameScene,
         kNullScene
     };
 
@@ -25,8 +25,7 @@ namespace Client
             virtual void draw(sf::RenderWindow &window) = 0;
     };
 
-    class SceneManager
-    {
+    class SceneManager {
         public:
             SceneManager() = delete;
             ~SceneManager() = delete;
@@ -35,12 +34,12 @@ namespace Client
             SceneManager &operator=(SceneManager const &toCopy) = delete;
             SceneManager &operator=(SceneManager &&toMove) = delete;
 
-            static std::shared_ptr<Client::IScene> createScene(SceneName scene);
+            static std::shared_ptr<Client::IScene> createScene(Client::SceneName scene);
 
         protected:
         private:
-            static std::shared_ptr<Client::IScene> createWelcomeScene(SceneName scene);
-            static std::shared_ptr<Client::IScene> createLobbyScene(SceneName scene);
-            //static std::shared_ptr<Client::IScene> creatGameScene(SceneName scene);
+            static std::shared_ptr<Client::IScene> createWelcomeScene(Client::SceneName scene);
+            static std::shared_ptr<Client::IScene> createLobbyScene(Client::SceneName scene);
+            static std::shared_ptr<Client::IScene> createGameScene(Client::SceneName scene);
     };
 }

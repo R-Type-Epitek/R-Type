@@ -40,5 +40,5 @@ void Client::Button::isClicked()
 
 void Client::Button::isReleased()
 {
-    this->alpha_ = 250;
+    this->alpha_ = 255;
 }

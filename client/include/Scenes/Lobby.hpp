@@ -26,7 +26,6 @@ namespace Client
         protected:
         private:
             Client::SceneName sceneName_;
-            std::vector<std::shared_ptr<int>> entity_; // future entity
             Client::Background background_;
             std::shared_ptr<Client::Button> escapeButton_;
             std::shared_ptr<Client::Button> returnButton_;

@@ -8,6 +8,7 @@ add_executable(${EXEC_CLIENT}
         src/Components/Background.cpp
         src/Components/Button.cpp
         src/Components/InputText.cpp
+        src/Scenes/Game.cpp
         src/Scenes/Lobby.cpp
         src/Scenes/Manager.cpp
         src/Scenes/Welcome.cpp

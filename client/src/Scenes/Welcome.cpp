@@ -8,11 +8,11 @@ Client::WelcomeScene::WelcomeScene(Client::SceneName sceneName)
 {
     this->sceneName_ = sceneName;
 
-    Background tmp_background(
+    Background tmpBackground(
         sf::Vector2f(0, 0),
         "assets/welcome/bg.jpg"
     );
-    this->background_ = tmp_background;
+    this->background_ = tmpBackground;
 
     Button tmpButton(
         sf::Vector2f(615, 480),

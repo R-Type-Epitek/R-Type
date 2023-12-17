@@ -8,7 +8,8 @@ std::shared_ptr<Client::IScene> Client::SceneManager::createScene(Client::SceneN
 {
     std::map<Client::SceneName, std::function<std::shared_ptr<Client::IScene>(Client::SceneName)>> m{
         {Client::SceneName::kWelcomeScene, createWelcomeScene},
-        {Client::SceneName::kLobbyScene, createLobbyScene}
+        {Client::SceneName::kLobbyScene, createLobbyScene},
+        {Client::SceneName::kGameScene, createGameScene}
     };
 
     if (m.find(scene) != m.end()) {
@@ -28,6 +29,13 @@ std::shared_ptr<Client::IScene> Client::SceneManager::createWelcomeScene(Client:
 std::shared_ptr<Client::IScene> Client::SceneManager::createLobbyScene(Client::SceneName scene)
 {
     std::shared_ptr<Client::IScene> scenePtr = std::make_shared<Client::LobbyScene>(scene);
+
+    return scenePtr;
+}
+
+std::shared_ptr<Client::IScene> Client::SceneManager::createGameScene(Client::SceneName scene)
+{
+    std::shared_ptr<Client::IScene> scenePtr = std::make_shared<Client::GameScene>(scene);
 
     return scenePtr;
 }

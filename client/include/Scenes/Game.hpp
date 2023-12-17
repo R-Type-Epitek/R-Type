@@ -1,5 +1,5 @@
 //
-// Created by edouard on 12/12/23.
+// Created by X-VINCENT on 12/18/23.
 //
 
 #pragma once
@@ -8,15 +8,11 @@
 
 namespace Client
 {
-    class WelcomeScene : public IScene {
+    class GameScene : public IScene {
         public:
-            explicit WelcomeScene(Client::SceneName sceneName);
-            ~WelcomeScene() override = default;
+            explicit GameScene(Client::SceneName sceneName);
+            ~GameScene() override = default;
 
-            static bool isInShape(
-                sf::Event::MouseButtonEvent &mouse,
-                sf::RectangleShape &myShape
-            );
             int pollEvent(
                 sf::RenderWindow &window,
                 Client::Network &network
@@ -27,7 +23,6 @@ namespace Client
         private:
             Client::SceneName sceneName_;
             Client::Background background_;
-            std::shared_ptr<Client::Button> playButton_;
             sf::Event event_;
     };
 }

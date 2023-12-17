@@ -22,5 +22,6 @@
 
 // Scenes
 #include "Scenes/Manager.hpp"
+#include "Scenes/Game.hpp"
 #include "Scenes/Lobby.hpp"
 #include "Scenes/Welcome.hpp"

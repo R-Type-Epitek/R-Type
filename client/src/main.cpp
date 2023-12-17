@@ -19,6 +19,9 @@ int main()
             case Client::SceneName::kLobbyScene:
                 current_scene = Client::SceneManager::createScene(Client::SceneName::kLobbyScene);
                 break;
+            case Client::SceneName::kGameScene:
+                current_scene = Client::SceneManager::createScene(Client::SceneName::kGameScene);
+                break;
             default:
                 break;
         }
