@@ -1,11 +1,12 @@
-#include "../../include/WelcomeScene.hh"
-#include "../../include/LobbiesScene.hh"
+#include "Scenes/WelcomeScene.hpp"
+#include "Scenes/LobbiesScene.hpp"
 
-std::shared_ptr<client::IScene> client::SceneManager::creatScene(client::Scene_name scene)
+std::shared_ptr<Client::IScene> Client::SceneManager::createScene(Client::SceneName scene)
 {
-    std::map<client::Scene_name, std::function<std::shared_ptr<client::IScene>(client::Scene_name)>> m{
-        {client::Scene_name::kWelcomeScene, creatWelcomeScene},
-        {client::Scene_name::kLobbiesScene, creatLobbiesScene}};
+    std::map<Client::SceneName, std::function<std::shared_ptr<Client::IScene>(Client::SceneName)>> m{
+        {Client::SceneName::kWelcomeScene, createWelcomeScene},
+        {Client::SceneName::kLobbiesScene, createLobbiesScene}
+    };
 
     if (m.find(scene) != m.end()) {
         return m[scene](scene);
@@ -14,14 +15,16 @@ std::shared_ptr<client::IScene> client::SceneManager::creatScene(client::Scene_n
     throw std::exception();
 }
 
-std::shared_ptr<client::IScene> client::SceneManager::creatWelcomeScene(client::Scene_name scene)
+std::shared_ptr<Client::IScene> Client::SceneManager::createWelcomeScene(Client::SceneName scene)
 {
-    std::shared_ptr<client::IScene> scene_ptr = std::make_shared<client::WelcomeScene>(scene);
-    return scene_ptr;
+    std::shared_ptr<Client::IScene> scenePtr = std::make_shared<Client::WelcomeScene>(scene);
+
+    return scenePtr;
 }
 
-std::shared_ptr<client::IScene> client::SceneManager::creatLobbiesScene(client::Scene_name scene)
+std::shared_ptr<Client::IScene> Client::SceneManager::createLobbiesScene(Client::SceneName scene)
 {
-    std::shared_ptr<client::IScene> scene_ptr = std::make_shared<client::LobbiesScene>(scene);
-    return scene_ptr;
+    std::shared_ptr<Client::IScene> scenePtr = std::make_shared<Client::LobbiesScene>(scene);
+
+    return scenePtr;
 }

@@ -4,33 +4,33 @@
 
 #include "../include/Network.hpp"
 
-client::Network::Network(
+Client::Network::Network(
     std::string ip,
     std::string port
 ): socket(io)
 {
     boost::asio::ip::udp::resolver resolver(this->io);
-    this->receiver_endpoint = *resolver.resolve(
+    this->receiverEndpoint = *resolver.resolve(
         boost::asio::ip::udp::v4(),
         ip,
         port
     ).begin();
     this->socket.open(boost::asio::ip::udp::v4());
-    this->client_id = -1;
+    this->clientId = -1;
     this->io.run();
 }
 
-void client::Network::send(
+void Client::Network::send(
   const boost::asio::const_buffer &buffer
 )
 {
     this->socket.send_to(
         buffer,
-        this->receiver_endpoint
+        this->receiverEndpoint
     );
 }
 
-void client::Network::send_message(
+void Client::Network::sendMessage(
     const std::string& command,
     const char* data,
     size_t dataSize
@@ -40,7 +40,7 @@ void client::Network::send_message(
     std::vector<char> messageBuffer(totalSize);
 
     MessageHeader header;
-    header.client_id = this->client_id;
+    header.clientId = this->clientId;
     strcpy(header.command, command.c_str());
     header.dataLength = dataSize;
 
@@ -51,12 +51,12 @@ void client::Network::send_message(
     this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
 }
 
-Response* client::Network::receive_and_validate_response(
+Response* Client::Network::receiveAndValidateResponse(
     const std::string& expectedCommand
 )
 {
     boost::array<char, 1024> recv_buffer{};
-    this->socket.receive_from(boost::asio::buffer(recv_buffer), this->receiver_endpoint);
+    this->socket.receive_from(boost::asio::buffer(recv_buffer), this->receiverEndpoint);
     Response* response = (Response*)recv_buffer.data();
 
     if (strcmp(response->header.command, expectedCommand.c_str()) != 0)
@@ -68,86 +68,86 @@ Response* client::Network::receive_and_validate_response(
     return response;
 }
 
-void client::Network::connect_to_server()
+void Client::Network::connectToServer()
 {
-    this->send_message(HELLO_COMMAND, nullptr, 0);
-    Response* response = receive_and_validate_response(HELLO_COMMAND);
+    this->sendMessage(HELLO_COMMAND, nullptr, 0);
+    Response* response = receiveAndValidateResponse(HELLO_COMMAND);
 
-    this->client_id = response->header.client_id;
+    this->clientId = response->header.clientId;
 
     std::cout << "Server response: " << response->header.status_message << std::endl;
-    std::cout << "Connected to server: " << this->receiver_endpoint << std::endl;
-    std::cout << "Client id: " << this->client_id << std::endl << std::endl;
+    std::cout << "Connected to server: " << this->receiverEndpoint << std::endl;
+    std::cout << "Client id: " << this->clientId << std::endl << std::endl;
 }
 
-void client::Network::send_name(std::string name)
+void Client::Network::sendName(std::string name)
 {
     if (name.length() > MAX_NAME_LENGTH)
         throw std::runtime_error(NAME_TOO_LONG);
 
     SendNameData data;
     strcpy(data.name, name.c_str());
-    this->send_message(NAME_COMMAND, (char*)&data, sizeof(data));
+    this->sendMessage(NAME_COMMAND, (char*)&data, sizeof(data));
     
-    Response* response = receive_and_validate_response(NAME_COMMAND);
+    Response* response = receiveAndValidateResponse(NAME_COMMAND);
     this->name = name;
 
     std::cout << "Server response: " << response->header.status_message << std::endl << std::endl;
 }
 
-void client::Network::join_room(int room_id)
+void Client::Network::joinRoom(int roomId)
 {
     JoinRoomData data;
-    data.room_id = room_id;
-    this->send_message(JOIN_COMMAND, (char*)&data, sizeof(data));
+    data.roomId = roomId;
+    this->sendMessage(JOIN_COMMAND, (char*)&data, sizeof(data));
 
-    Response* response = receive_and_validate_response(JOIN_COMMAND);
-    this->room_id = room_id;
+    Response* response = receiveAndValidateResponse(JOIN_COMMAND);
+    this->roomId = roomId;
 
     std::cout << "Server response: " << response->header.status_message << std::endl << std::endl;
 }
 
-void client::Network::setClientId(int id)
+void Client::Network::setClientId(int id)
 {
-    this->client_id = id;
+    this->clientId = id;
 }
 
-int client::Network::getClientId() const
+int Client::Network::getClientId() const
 {
-    return this->client_id;
+    return this->clientId;
 }
 
-void client::Network::setRoomId(int id)
+void Client::Network::setRoomId(int id)
 {
-    this->room_id = id;
+    this->roomId = id;
 }
 
-int client::Network::getRoomId() const
+int Client::Network::getRoomId() const
 {
-    return this->room_id;
+    return this->roomId;
 }
 
-void client::Network::setName(std::string name)
+void Client::Network::setName(std::string name)
 {
     this->name = name;
 }
 
-std::string client::Network::getName() const
+std::string Client::Network::getName() const
 {
     return this->name;
 }
 
-void client::Network::set_endpoint(
+void Client::Network::setEndpoint(
     std::string &ip,
     std::string &port
 )
 {
     boost::asio::ip::udp::resolver resolver(io);
-    this->receiver_endpoint = *resolver.resolve(
+    this->receiverEndpoint = *resolver.resolve(
         boost::asio::ip::udp::v4(),
         ip,
         port
     ).begin();
     this->socket.open(boost::asio::ip::udp::v4());
-    this->client_id = -1;
+    this->clientId = -1;
 }

@@ -106,7 +106,7 @@ void Network::UDPServer::process_message(
 }
 
 Response Network::UDPServer::create_response(
-    int client_id,
+    int clientId,
     const std::string& command,
     const std::string& status_message,
     int status = RES_SUCCESS
@@ -114,7 +114,7 @@ Response Network::UDPServer::create_response(
 {
     Response response;
 
-    response.header.client_id = client_id;
+    response.header.clientId = clientId;
     strcpy(response.header.command, command.c_str());
     response.header.dataLength = 0;
     response.header.status = status;
@@ -126,9 +126,9 @@ void Network::UDPServer::send_response_and_log(const Response& response)
 {
     this->send_to_client(
         boost::asio::buffer(&response, sizeof(response)),
-        response.header.client_id
+        response.header.clientId
     );
-    std::cout << "Client " << response.header.client_id << ": " << response.header.status_message << std::endl;
+    std::cout << "Client " << response.header.clientId << ": " << response.header.status_message << std::endl;
     this->start_receive();
 }
 
@@ -136,13 +136,13 @@ void Network::UDPServer::hello_command(Message *message)
 {
     (void)message;
 
-    int client_id = this->clients.size();
+    int clientId = this->clients.size();
     std::string status_message = "User correctly connected to server";
-    Response response = create_response(client_id, HELLO_COMMAND, status_message);
+    Response response = create_response(clientId, HELLO_COMMAND, status_message);
 
     Network::Client client;
     client.setEndpoint(this->remote_endpoint);
-    client.setId(client_id);
+    client.setId(clientId);
     this->clients.push_back(client);
 
     send_response_and_log(response);
@@ -152,9 +152,9 @@ void Network::UDPServer::name_command(Message *message)
 {
     SendNameData *data = (SendNameData *)message->data;
     std::string status_message = "Name correctly set: " + std::string(data->name);
-    Response response = create_response(message->header.client_id, NAME_COMMAND, status_message);
+    Response response = create_response(message->header.clientId, NAME_COMMAND, status_message);
 
-    this->clients[message->header.client_id].setName(data->name);
+    this->clients[message->header.clientId].setName(data->name);
 
     send_response_and_log(response);
 }
@@ -162,10 +162,10 @@ void Network::UDPServer::name_command(Message *message)
 void Network::UDPServer::join_command(Message *message)
 {
     JoinRoomData *data = (JoinRoomData *)message->data;
-    std::string status_message = "Joined room: " + std::to_string(data->room_id);
-    Response response = create_response(message->header.client_id, JOIN_COMMAND, status_message);
+    std::string status_message = "Joined room: " + std::to_string(data->roomId);
+    Response response = create_response(message->header.clientId, JOIN_COMMAND, status_message);
 
-    this->rooms[data->room_id].addPlayer(message->header.client_id);
+    this->rooms[data->roomId].addPlayer(message->header.clientId);
 
     send_response_and_log(response);
 }

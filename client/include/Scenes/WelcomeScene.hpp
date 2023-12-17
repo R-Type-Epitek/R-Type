@@ -3,26 +3,29 @@
 //
 
 #pragma once
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Window.hpp>
 #include <iostream>
 #include <memory>
 #include <optional>
 #include <functional>
-#include "Scene.hh"
-#include "Component.hh"
+#include "Scene.hpp"
+#include "Component.hpp"
 
-namespace client {
+namespace Client {
     class WelcomeScene : public IScene {
         public:
-            explicit WelcomeScene(client::Scene_name scene_name);
+            explicit WelcomeScene(Client::SceneName sceneName);
             ~WelcomeScene() override = default;
 
-            static bool is_in_shape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &my_shape);
-            int poll_event(sf::RenderWindow &window, client::Network &network) override;
+            static bool isInShape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &myShape);
+            int pollEvent(sf::RenderWindow &window, Client::Network &network) override;
             void draw(sf::RenderWindow &window) override;
+
+        protected:
         private:
-            client::Scene_name scene_name_;
+            Client::SceneName sceneName_;
             std::vector<std::shared_ptr<int>> entity_; // future entity
             Background background_;
             std::shared_ptr<Button> play_button_;

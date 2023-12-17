@@ -1,139 +1,160 @@
-#include "../../include/LobbiesScene.hh"
+#include "Scenes/LobbiesScene.hpp"
 
-client::LobbiesScene::LobbiesScene(client::Scene_name scene_name)
+Client::LobbiesScene::LobbiesScene(Client::SceneName sceneName)
 {
-    this->scene_name_ = scene_name;
-    std::string tmp_b = "assets/lobbies/lobbies_bg.png";
-    Background tmp_background(sf::Vector2f(0, 0), tmp_b);
-    this->background_ = tmp_background;
+    this->sceneName_ = sceneName;
 
-    std::string tmp_e_but = "assets/lobbies/escape_button.png";
-    Button tmp_e_button(sf::Vector2f(1182, 270), sf::Vector2f(31, 31), tmp_e_but);
-    this->escape_button_ = std::make_shared<Button>(tmp_e_button);
-    std::string tmp_a_but = "assets/lobbies/accept_button.png";
-    Button tmp_a_button(sf::Vector2f(963, 720), sf::Vector2f(156, 50), tmp_a_but);
-    this->accept_button_ = std::make_shared<Button>(tmp_a_button);
-    std::string tmp_r_but = "assets/lobbies/return_button.png";
-    Button tmp_r_button(sf::Vector2f(803, 720), sf::Vector2f(156, 50), tmp_r_but);
-    this->return_button_ = std::make_shared<Button>(tmp_r_button);
+    Background tmpBackground(
+        sf::Vector2f(0, 0),
+        "assets/lobbies/lobbies_bg.png"
+    );
+    this->background_ = tmpBackground;
 
-    std::string font = "assets/font/nasalization-rg.ttf";
-    //std::string font = "assets/font/arial.ttf";
-    std::string default_text = DEFAULT_IP;
-    InputText tmp_ip_input(sf::Vector2f(718, 338), sf::Vector2f(237, 48), font, default_text);
-    this->ip_input_ = std::make_shared<InputText>(tmp_ip_input);
-    default_text = DEFAULT_PORT;
-    InputText tmp_po_input(sf::Vector2f(961, 338), sf::Vector2f(237, 48), font, default_text);
-    this->port_input_ = std::make_shared<InputText>(tmp_po_input);
+    Button tmpEscapeButton(
+        sf::Vector2f(1182, 270),
+        sf::Vector2f(31, 31),
+        "assets/lobbies/escape_button.png"
+    );
+    this->escapeButton_ = std::make_shared<Button>(tmpEscapeButton);
+
+    Button tmpAcceptButton(
+        sf::Vector2f(963, 720),
+        sf::Vector2f(156, 50),
+        "assets/lobbies/accept_button.png"
+    );
+    this->acceptButton_ = std::make_shared<Button>(tmpAcceptButton);
+
+    Button tmpReturnButton(
+        sf::Vector2f(803, 720),
+        sf::Vector2f(156, 50),
+        "assets/lobbies/return_button.png"
+    );
+    this->returnButton_ = std::make_shared<Button>(tmpReturnButton);
+
+    InputText tmpIpInput(
+        sf::Vector2f(718, 338),
+        sf::Vector2f(237, 48),
+        "assets/font/nasalization-rg.ttf",
+        DEFAULT_IP
+    );
+    this->ipInput_ = std::make_shared<InputText>(tmpIpInput);
+
+    InputText tmpPortInput(
+        sf::Vector2f(961, 338),
+        sf::Vector2f(237, 48),
+        "assets/font/nasalization-rg.ttf",
+        DEFAULT_PORT
+    );
+    this->portInput_ = std::make_shared<InputText>(tmpPortInput);
 }
 
-void client::LobbiesScene::draw(sf::RenderWindow &window)
+void Client::LobbiesScene::draw(sf::RenderWindow &window)
 {
     this->background_.draw(window);
-    this->accept_button_->draw(window);
-    this->return_button_->draw(window);
-    this->escape_button_->draw(window);
-    this->ip_input_->draw(window);
-    this->port_input_->draw(window);
+    this->acceptButton_->draw(window);
+    this->returnButton_->draw(window);
+    this->escapeButton_->draw(window);
+    this->ipInput_->draw(window);
+    this->portInput_->draw(window);
 }
 
-bool client::LobbiesScene::is_in_shape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &my_shape)
+bool Client::LobbiesScene::isInShape(sf::Event::MouseButtonEvent &mouse, sf::RectangleShape &myShape)
 {
-    int min_x = my_shape.getPosition().x;
-    int min_y = my_shape.getPosition().y;
-    int max_x = my_shape.getSize().x + min_x;
-    int max_y = my_shape.getSize().y + min_y;
+    int minX = myShape.getPosition().x;
+    int minY = myShape.getPosition().y;
+    int maxX = myShape.getSize().x + minX;
+    int maxY = myShape.getSize().y + minY;
 
-    return min_x < mouse.x && mouse.x < max_x && min_y < mouse.y && mouse.y < max_y;
+    return minX < mouse.x && mouse.x < maxX && minY < mouse.y && mouse.y < maxY;
 }
 
-int client::LobbiesScene::poll_event(sf::RenderWindow &window, client::Network &network)
+int Client::LobbiesScene::pollEvent(sf::RenderWindow &window, Client::Network &network)
 {
     while (window.pollEvent(this->event_)) {
-        if ((this->event_.type == sf::Event::Closed) ||
-        (this->event_.type == sf::Event::KeyPressed &&
-        this->event_.key.code == sf::Keyboard::Escape)){
-            // open pop up to ask if user wants to quit if he is in a lobby
+        if (this->event_.type == sf::Event::Closed ||
+           (this->event_.type == sf::Event::KeyPressed &&
+            this->event_.key.code == sf::Keyboard::Escape)) {
+            // TODO: open pop up to ask if user wants to quit if he is in a lobby
             window.close();
         }
 
         // get text from input slot
         if (this->event_.type == sf::Event::TextEntered && this->event_.text.unicode < 128) {
-            if (this->ip_input_->is_clicked() && !this->port_input_->is_clicked()) {
+            if (this->ipInput_->isClicked() && !this->portInput_->isClicked()) {
                 if (this->event_.text.unicode == 8) { // 8 = Backspace
-                    this->nt_ip_.pop_back();
-                    this->ip_input_->pop_input();
+                    this->ntIp_.pop_back();
+                    this->ipInput_->popInput();
                     continue;
                 }
                 if (this->event_.text.unicode != 13) { // 13 = Enter
-                    this->nt_ip_ += static_cast<char>(this->event_.text.unicode);
-                    this->ip_input_->set_input(static_cast<char>(this->event_.text.unicode));
+                    this->ntIp_ += static_cast<char>(this->event_.text.unicode);
+                    this->ipInput_->setInput(static_cast<char>(this->event_.text.unicode));
                 } else {
-                    this->ip_input_->end_input();
+                    this->ipInput_->endInput();
                 }
             }
-            if (this->port_input_->is_clicked() && !this->ip_input_->is_clicked()) {
+            if (this->portInput_->isClicked() && !this->ipInput_->isClicked()) {
                 if (this->event_.text.unicode == 8) { // 8 = Backspace
-                    this->nt_port_.pop_back();
-                    this->port_input_->pop_input();
+                    this->ntPort_.pop_back();
+                    this->portInput_->popInput();
                     continue;
                 }
                 if (this->event_.text.unicode != 13) { // 13 = Enter
-                    this->nt_port_ += static_cast<char>(this->event_.text.unicode);
-                    this->port_input_->set_input(static_cast<char>(this->event_.text.unicode));
+                    this->ntPort_ += static_cast<char>(this->event_.text.unicode);
+                    this->portInput_->setInput(static_cast<char>(this->event_.text.unicode));
                 } else {
-                    this->port_input_->end_input();
+                    this->portInput_->endInput();
                 }
             }
         }
 
         // get mouse event
-        if ((this->event_.type == sf::Event::MouseButtonPressed) ||
-        (this->event_.type == sf::Event::MouseButtonReleased)) {
+        if (this->event_.type == sf::Event::MouseButtonPressed ||
+            this->event_.type == sf::Event::MouseButtonReleased) {
             // Button click
-            if (this->is_in_shape(this->event_.mouseButton, *this->escape_button_->get_shape())) {
+            if (this->isInShape(this->event_.mouseButton, *this->escapeButton_->getShape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
-                    this->escape_button_->is_release();
-                    // open pop up to ask if user wants to quit if he is in a lobby
+                    this->escapeButton_->isReleased();
+                    // TODO: open pop up to ask if user wants to quit if he is in a lobby
                     window.close();
                 }
-                this->escape_button_->is_clicked();
+                this->escapeButton_->isClicked();
             }
-            if (this->is_in_shape(this->event_.mouseButton, *this->return_button_->get_shape())) {
+            if (this->isInShape(this->event_.mouseButton, *this->returnButton_->getShape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
-                    this->return_button_->is_release();
-                    return 1;
+                    this->returnButton_->isReleased();
+                    return Client::SceneName::kWelcomeScene;
                 }
-                this->return_button_->is_clicked();
+                this->returnButton_->isClicked();
             }
-            if (this->is_in_shape(this->event_.mouseButton, *this->accept_button_->get_shape())) {
+            if (this->isInShape(this->event_.mouseButton, *this->acceptButton_->getShape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
-                    this->accept_button_->is_release();
-                    std::cout << this->nt_ip_ << "-" << this->nt_port_ << std::endl;
-                    if (this->nt_ip_ != DEFAULT_IP || this->nt_port_ != DEFAULT_PORT) {
-                        network.set_endpoint(this->nt_ip_, this->nt_port_);
+                    this->acceptButton_->isReleased();
+                    std::cout << "Input address: " << this->ntIp_ << "-" << this->ntPort_ << std::endl;
+                    if (this->ntIp_ != DEFAULT_IP || this->ntPort_ != DEFAULT_PORT) {
+                        network.setEndpoint(this->ntIp_, this->ntPort_);
                     }
-                    network.connect_to_server();
-                    network.send_name("John Doe");
-                    network.join_room(0);
+                    network.connectToServer();
+                    network.sendName("John Doe");
+                    network.joinRoom(0);
                 }
-                this->accept_button_->is_clicked();
+                this->acceptButton_->isClicked();
             }
 
             // input slot click
-            if (this->is_in_shape(this->event_.mouseButton, *this->ip_input_->get_shape())) {
-                if (this->port_input_->is_clicked()) {
-                    this->port_input_->end_input();
+            if (this->isInShape(this->event_.mouseButton, *this->ipInput_->getShape())) {
+                if (this->portInput_->isClicked()) {
+                    this->portInput_->endInput();
                 }
-                this->ip_input_->start_input();
+                this->ipInput_->startInput();
             }
-            if (this->is_in_shape(this->event_.mouseButton, *this->port_input_->get_shape())) {
-                if (this->ip_input_->is_clicked()) {
-                    this->ip_input_->end_input();
+            if (this->isInShape(this->event_.mouseButton, *this->portInput_->getShape())) {
+                if (this->ipInput_->isClicked()) {
+                    this->ipInput_->endInput();
                 }
-                this->port_input_->start_input();
+                this->portInput_->startInput();
             }
         }
     }
-    return 0;
+    return Client::SceneName::kLobbiesScene;
 }
