@@ -6,7 +6,6 @@ add_definitions(-DBOOST_BIND_GLOBAL_PLACEHOLDERS)
 
 find_package(Boost REQUIRED COMPONENTS system thread regex)
 
-
 add_executable(${EXEC_SERVER}
         src/network/Client.cpp
         src/network/Room.cpp

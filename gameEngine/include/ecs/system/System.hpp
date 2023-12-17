@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <memory>
 #include "ecs/Mediator.hpp"
 #include <set>
 #include "ecs/entity/Entity.hpp"
@@ -14,5 +15,5 @@ class System
 {
 public:
     std::set<Entity> m_entities{};
-    virtual void update(std::shared_ptr<Mediator>& mediator, Entity entity, sf::RenderWindow& window) = 0;
+    // virtual void update(std::shared_ptr<Mediator>& mediator, Entity entity, sf::RenderWindow& window) = 0;
 };

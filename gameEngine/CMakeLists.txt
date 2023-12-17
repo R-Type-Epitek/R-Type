@@ -10,10 +10,12 @@ add_library(${LIBRARY} STATIC
         src/gfx/sfml/SfmlGfx.cpp
         src/logic/SystemLogic.cpp
         include/logic/SystemLogic.hpp
+        include/ecs/system/ISystem.hpp
 )
 
 target_include_directories(${LIBRARY}
         PUBLIC
+        ${CMAKE_CURRENT_LIST_DIR}/include/ecs/system/Mediator
         ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
