@@ -6,11 +6,12 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "constants.hpp"
+#include "constants/constants.hpp"
 
 namespace ComponentRType {
 struct Sprite
 {
+        public:
   Sprite() = default;
   Sprite(const Sprite&) = default;
   Sprite(Sprite&&) noexcept = default;
@@ -27,8 +28,8 @@ struct Sprite
     if (!texture.loadFromFile(path)) {
       std::cerr << "Texture not found" << std::endl;
     }
-    sprite.setTexture(texture);
-    sprite.setScale(scale);
+    object.setTexture(texture);
+    object.setScale(scale);
   }
 };
 }

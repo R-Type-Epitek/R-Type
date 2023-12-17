@@ -21,4 +21,5 @@ class Game {
   sf::RenderWindow window;
   std::unique_ptr<Controller> controller;
   std::shared_ptr<Mediator> mediator;
+  std::vector<Entity> entities;
 };
