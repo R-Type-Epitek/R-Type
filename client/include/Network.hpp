@@ -4,44 +4,44 @@
 
 #pragma once
 
-#include "Constants.hpp"
+#include "RTypeClient.hpp"
 
 namespace Client
 {
     class Network {
         public:
-            Network(
-              boost::asio::io_context &io,
-              std::string ip,
-              std::string port
-            );
-            ~Network();
+            Network(std::string ip, std::string port);
+            ~Network() = default;
             void send(const boost::asio::const_buffer &buffer);
-            void send_message(
+            void sendMessage(
                 const std::string& command,
                 const char* data,
                 size_t dataSize
             );
-            Response* receive_and_validate_response(
+            Response* receiveAndValidateResponse(
                 const std::string& expectedCommand
             );
-            void connect_to_server();
-            void send_name(std::string name);
-            void join_room(int room_id);
+            void connectToServer();
+            void sendName(std::string name);
+            void joinRoom(int roomId);
             void setClientId(int id);
             int getClientId() const;
             void setRoomId(int id);
             int getRoomId() const;
             void setName(std::string name);
             std::string getName() const;
+            void setEndpoint(
+                std::string &ip,
+                std::string &port
+            );
 
         protected:
         private:
             boost::asio::io_context io;
-            boost::asio::ip::udp::endpoint receiver_endpoint;
-            boost::asio::ip::udp::socket socket;
-            int client_id;
-            int room_id;
+            boost::asio::ip::udp::endpoint receiverEndpoint;
+            boost::asio::ip::udp::socket socket{this->io};
+            int clientId;
+            int roomId;
             std::string name;
     };
 }

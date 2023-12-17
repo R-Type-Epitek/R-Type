@@ -5,7 +5,7 @@
 #include <cstdint>
 
 struct ResponseHeader {
-  int client_id;
+  int clientId;
   char command[32];
   uint32_t dataLength;
   int status;

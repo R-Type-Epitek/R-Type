@@ -5,7 +5,7 @@
 #include <cstdint>
 
 struct MessageHeader {
-  int client_id;
+  int clientId;
   char command[32];
   uint32_t dataLength;
 };
@@ -22,5 +22,5 @@ struct SendNameData {
 
 // Join command
 struct JoinRoomData {
-  int room_id;
+  int roomId;
 };

@@ -41,7 +41,7 @@ namespace Network
             void start_receive();
             void process_message(const boost::asio::const_buffer &buffer);
             Response create_response(
-                int client_id,
+                int clientId,
                 const std::string& command,
                 const std::string& status_message,
                 int status

@@ -19,5 +19,6 @@
 #define DEFAULT_PORT "4242"
 #define DEFAULT_ROOM_SIZE 4
 #define NUMBER_OF_ROOMS 4
+#define DEFAULT_IO (boost::asio::io_context){}
 
 #define MAX_NAME_LENGTH 32
