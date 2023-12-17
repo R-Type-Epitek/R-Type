@@ -44,6 +44,11 @@ public:
         --mSize;
     }
 
+        bool hasEntity(Entity entity)
+        {
+                return m_entityToIndexMap.find(entity) != m_entityToIndexMap.end();
+        }
+
     T& getData(Entity entity)
     {
         assert(m_entityToIndexMap.find(entity) != m_entityToIndexMap.end());

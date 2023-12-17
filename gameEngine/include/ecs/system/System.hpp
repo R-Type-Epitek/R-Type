@@ -10,10 +10,12 @@
 #include "ecs/entity/Entity.hpp"
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include "ISystem.hpp"
 
-class System
+class System : public ISystem
 {
-public:
-    std::set<Entity> m_entities{};
-    // virtual void update(std::shared_ptr<Mediator>& mediator, Entity entity, sf::RenderWindow& window) = 0;
+ public:
+  void update(std::unordered_map<const char*, std::shared_ptr<IComponentArray>> components, Entity entity, sf::RenderWindow& window) {
+  }
+  std::vector<Entity> m_entities;
 };

@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include "ecs/Signature.hpp"
 #include "ecs/entity/Entity.hpp"
-#include "System.hpp"
+#include "ISystem.hpp"
 #include <cassert>
 
 class SystemManager
@@ -62,7 +62,7 @@ class SystemManager
 
   }
 
-        /*
+  /*
   std::shared_ptr<System> getSystem(const char* name)
   {
     return m_systems[name];
@@ -86,6 +86,5 @@ class SystemManager
   */
  private:
   std::unordered_map<const char*, Signature> m_signatures{};
-
-  std::unordered_map<const char*, std::shared_ptr<System>> m_systems{};
+  std::unordered_map<const char*, std::shared_ptr<ISystem>> m_systems{};
 };
