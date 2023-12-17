@@ -9,7 +9,7 @@
 namespace Client
 {
     enum SceneName {
-        kWelcomeScene,
+        kWelcomeScene = 1,
         kLobbyScene,
         kGameScene,
         kNullScene

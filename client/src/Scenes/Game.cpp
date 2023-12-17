@@ -34,5 +34,5 @@ int Client::GameScene::pollEvent(
             window.close();
         }
     }
-    return Client::SceneName::kGameScene;
+    return 0;
 }

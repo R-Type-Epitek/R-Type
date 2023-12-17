@@ -113,8 +113,8 @@ int Client::LobbyScene::pollEvent(sf::RenderWindow &window, Client::Network &net
         }
 
         // get mouse event
-        if (this->event_.type == sf::Event::MouseButtonPressed ||
-            this->event_.type == sf::Event::MouseButtonReleased) {
+        if ((this->event_.type == sf::Event::MouseButtonPressed) ||
+            (this->event_.type == sf::Event::MouseButtonReleased)) {
             // Button click
             if (this->isInShape(this->event_.mouseButton, *this->escapeButton_->getShape())) {
                 if (this->event_.type == sf::Event::MouseButtonReleased) {
@@ -160,5 +160,5 @@ int Client::LobbyScene::pollEvent(sf::RenderWindow &window, Client::Network &net
             }
         }
     }
-    return Client::SceneName::kLobbyScene;
+    return 0;
 }

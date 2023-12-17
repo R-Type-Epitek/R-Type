@@ -65,5 +65,5 @@ int Client::WelcomeScene::pollEvent(
             }
         }
     }
-    return Client::SceneName::kWelcomeScene;
+    return 0;
 }
