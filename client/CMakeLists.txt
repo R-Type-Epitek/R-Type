@@ -6,7 +6,10 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/)
 
 add_executable(${EXEC_CLIENT}
         src/main.cpp
-        src/Network.cpp
+        src/Controller.cpp
+        src/network/Network.cpp
+        src/Game.cpp
+        include/Game.hpp
 )
 
 target_include_directories(${EXEC_CLIENT}

@@ -3,8 +3,11 @@
 set(LIBRARY "GameEngine")
 
 add_library(${LIBRARY} STATIC
-        src/testlib.cpp
         src/ecs/entity/EntityManager.cpp
+        src/gfx/sfml/SfmlEvent.cpp
+        src/gfx/sfml/SfmlTexture.cpp
+        src/gfx/sfml/SfmlDisplay.cpp
+        src/gfx/sfml/SfmlGfx.cpp
 )
 
 target_include_directories(${LIBRARY}

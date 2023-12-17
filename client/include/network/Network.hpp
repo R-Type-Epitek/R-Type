@@ -5,6 +5,11 @@
 #pragma once
 
 #include "Constants.hpp"
+#include <boost/asio.hpp>
+#include <boost/array.hpp>
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+
 
 namespace Client
 {

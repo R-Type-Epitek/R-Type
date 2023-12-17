@@ -2,7 +2,7 @@
 // Created by Xavier VINCENT on 14/12/2023.
 //
 
-#include "Network.hpp"
+#include "network/Network.hpp"
 
 Client::Network::Network(
     boost::asio::io_context &io,
