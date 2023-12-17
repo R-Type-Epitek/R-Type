@@ -10,8 +10,8 @@
 
 class SystemLogic {
  public:
-  SystemLogic();
-  ~SystemLogic();
+  SystemLogic() = default;
+  ~SystemLogic() = default;
 
-  void launchSystem(std::shared_ptr<Mediator>& mediator, std::vector<Entity> entities, Entity& entity);
+  void launchSystem(std::shared_ptr<Mediator>& mediator, std::vector<Entity> entities, sf::RenderWindow& window);
 };

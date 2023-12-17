@@ -62,13 +62,12 @@ class SystemManager
 
   }
 
-  /*
-  std::shared_ptr<System> getSystem(const char* name)
+  std::shared_ptr<ISystem> getSystem(const char* name)
   {
     return m_systems[name];
   }
 
-  std::unordered_map<const char*, std::shared_ptr<System>> getSystems()
+  std::unordered_map<const char*, std::shared_ptr<ISystem>> getSystems()
   {
     return m_systems;
   }
@@ -83,7 +82,6 @@ class SystemManager
     return m_signatures;
   }
 
-  */
  private:
   std::unordered_map<const char*, Signature> m_signatures{};
   std::unordered_map<const char*, std::shared_ptr<ISystem>> m_systems{};

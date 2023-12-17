@@ -11,6 +11,7 @@ add_library(${LIBRARY} STATIC
         src/logic/SystemLogic.cpp
         include/logic/SystemLogic.hpp
         include/ecs/system/ISystem.hpp
+        include/ecs/system/ISystem.hpp
 )
 
 target_include_directories(${LIBRARY}
