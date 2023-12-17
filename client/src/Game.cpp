@@ -9,6 +9,7 @@ Game::Game() : window(sf::VideoMode(800, 600), "R-TYPE") {
   controller = std::make_unique<Controller>(mediator);
   mediator->Init();
   controller->init(window);
+  entities.push_back(mediator->createEntity());
 }
 
 Game::~Game() {
@@ -16,6 +17,7 @@ Game::~Game() {
 }
 
 void Game::run() {
+  /*
   sf::Sprite currentSprite =
   mediator->getComponent<sf::Sprite>(controller->getControllerId()); if
   (currentSprite.getTexture() == nullptr) std::cout << "Texture is null" <<
@@ -34,4 +36,14 @@ void Game::run() {
     //window.draw(currentSprite);
     window.display();
   }
+*/
+  std::bitset<MAX_COMPONENTS> mask;
+  mask.set(mediator->getComponentType<sf::Sprite>());
+  mask.set(mediator->getComponentType<ComponentRType::Transform>());
+  mask.set(mediator->getComponentType<ComponentRType::Gravity>());
+  std::bitset<MAX_COMPONENTS> mask2;
+  mask2.set(mediator->getComponentType<ComponentRType::Transform>());
+  mask2.set(mediator->getComponentType<ComponentRType::Gravity>());
+  if ((mask & mask2) == mask2) std::cout << "Mask is equal" <<
+  std::endl; else std::cout << "Mask is not equal" << std::endl;
 }

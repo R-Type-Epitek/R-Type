@@ -6,7 +6,9 @@
 #include "ecs/Mediator.hpp"
 #include "component/Gravity.hpp"
 #include "component/Transform.hpp"
+#include "component/Sprite.hpp"
 #include "system/Physics.hpp"
+#include "system/Animation.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -51,7 +53,16 @@ void Controller::initCRegister() {
 }
 
 void Controller::initSRegister() {
+  Signature signature_physics;
+  Signature signature_animation;
   mediator->registerSystem<Physics>();
+  //mediator->registerSystem<Animation>();
+  signature_physics.set(mediator->getComponentType<ComponentRType::Gravity>());
+  signature_physics.set(mediator->getComponentType<ComponentRType::Transform>());
+  signature_animation.set(mediator->getComponentType<ComponentRType::Sprite>());
+  signature_animation.set(mediator->getComponentType<ComponentRType::Transform>());
+  mediator->setSystemSignature<Physics>(signature_physics);
+  //mediator->setSystemSignature<Physics>(signature_animation);
 }
 
 void Controller::initPlayer(sf::RenderWindow& window) {

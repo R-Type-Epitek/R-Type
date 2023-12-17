@@ -4,7 +4,6 @@
 
 #pragma once
 
-
 #include <memory>
 #include "entity/Entity.hpp"
 #include "Signature.hpp"

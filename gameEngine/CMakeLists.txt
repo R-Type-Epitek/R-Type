@@ -8,6 +8,8 @@ add_library(${LIBRARY} STATIC
         src/gfx/sfml/SfmlTexture.cpp
         src/gfx/sfml/SfmlDisplay.cpp
         src/gfx/sfml/SfmlGfx.cpp
+        src/logic/SystemLogic.cpp
+        include/logic/SystemLogic.hpp
 )
 
 target_include_directories(${LIBRARY}

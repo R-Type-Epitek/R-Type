@@ -13,21 +13,18 @@
 class Physics: public System
 {
  public:
-  static void update(Mediator &mediator, std::vector<Entity> &entities, double delta)
+  void update(std::shared_ptr<Mediator>& mediator, Entity entity, sf::RenderWindow& window)
   {
+    (void) window;
+    double delta = 0.5f;
+    double sub = 1;
     static auto lastUpdate = std::chrono::steady_clock::now();
     auto now = std::chrono::steady_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - lastUpdate);
 
     if (elapsed.count() >= delta) {
-      for (auto const& entity : entities) {
-        auto& transform =
-            mediator.getComponent<ComponentRType::Transform>(entity);
-        auto const& gravity =
-            mediator.getComponent<ComponentRType::Gravity>(entity);
-        transform.position.y += gravity.force;
-      }
-      lastUpdate = now;
+      mediator->getComponent<ComponentRType::Transform>(entity).position.y += sub;
     }
+    lastUpdate = now;
   }
 };
