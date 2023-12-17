@@ -61,6 +61,7 @@ public:
             }
         }
     }
+
 private:
     std::unordered_map<const char*, Signature> m_signatures{};
 

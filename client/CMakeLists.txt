@@ -13,7 +13,10 @@ add_executable(${EXEC_CLIENT}
         src/Scenes/Manager.cpp
         src/Scenes/Welcome.cpp
         src/main.cpp
-        src/Network.cpp
+        src/Controller.cpp
+        src/network/Network.cpp
+        src/Game.cpp
+        include/Game.hpp
 )
 
 target_include_directories(${EXEC_CLIENT}
