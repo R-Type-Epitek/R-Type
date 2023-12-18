@@ -55,15 +55,15 @@ Response* Client::Network::receiveAndValidateResponse(
     const std::string& expectedCommand
 )
 {
-    boost::array<char, 1024> recv_buffer{};
-    this->socket.receive_from(boost::asio::buffer(recv_buffer), this->receiverEndpoint);
-    Response* response = (Response*)recv_buffer.data();
+    boost::array<char, 1024> recvBuffer{};
+    this->socket.receive_from(boost::asio::buffer(recvBuffer), this->receiverEndpoint);
+    Response* response = (Response*)recvBuffer.data();
 
     if (strcmp(response->header.command, expectedCommand.c_str()) != 0)
         throw std::runtime_error("Invalid response command");
 
     if (response->header.status != 200)
-        throw std::runtime_error(response->header.status_message);
+        throw std::runtime_error(response->header.statusMessage);
 
     return response;
 }
@@ -75,7 +75,7 @@ void Client::Network::connectToServer()
 
     this->clientId = response->header.clientId;
 
-    std::cout << "Server response: " << response->header.status_message << std::endl;
+    std::cout << "Server response: " << response->header.statusMessage << std::endl;
     std::cout << "Connected to server: " << this->receiverEndpoint << std::endl;
     std::cout << "Client id: " << this->clientId << std::endl << std::endl;
 }
@@ -92,7 +92,7 @@ void Client::Network::sendName(std::string name)
     Response* response = receiveAndValidateResponse(NAME_COMMAND);
     this->name = name;
 
-    std::cout << "Server response: " << response->header.status_message << std::endl << std::endl;
+    std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
 }
 
 void Client::Network::joinRoom(int roomId)
@@ -104,7 +104,7 @@ void Client::Network::joinRoom(int roomId)
     Response* response = receiveAndValidateResponse(JOIN_COMMAND);
     this->roomId = roomId;
 
-    std::cout << "Server response: " << response->header.status_message << std::endl << std::endl;
+    std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
 }
 
 void Client::Network::setClientId(int id)

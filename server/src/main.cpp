@@ -1,11 +1,8 @@
-/*
-** EPITECH PROJECT, 2023
-** R-Type
-** File description:
-** Server Main
-*/
+//
+// Created by Xavier VINCENT on 12/12/2023.
+//
 
-#include "network/UDPServer.hpp"
+#include "RTypeNetwork.hpp"
 
 int main(int argc, char **argv)
 {

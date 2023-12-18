@@ -2,7 +2,7 @@
 // Created by Xavier VINCENT on 13/12/2023.
 //
 
-#include "network/Room.hpp"
+#include "RTypeNetwork.hpp"
 
 Network::Room::Room(int id, int size): size(size), id(id)
 {

@@ -1,12 +1,10 @@
-///*
-//** EPITECH PROJECT, 2023
-//** R-Type
-//** File description:
-//** Client
-//*/
+//
+// Created by Xavier VINCENT on 13/12/2023.
+//
 
 #pragma once
-#include <boost/asio.hpp>
+
+#include "RTypeNetwork.hpp"
 
 namespace Network
 {

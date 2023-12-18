@@ -1,52 +1,49 @@
-/*
-** EPITECH PROJECT, 2023
-** R-Type
-** File description:
-** UDPServer
-*/
+//
+// Created by Xavier VINCENT on 12/12/2023.
+//
 
-#include "network/UDPServer.hpp"
+#include "RTypeNetwork.hpp"
 
 Network::UDPServer::UDPServer(boost::asio::io_context &io):
     socket(io, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), std::stoi(DEFAULT_PORT)))
 {
-    this->init_server(std::stoi(DEFAULT_PORT));
+    this->initServer(std::stoi(DEFAULT_PORT));
 }
 
 Network::UDPServer::UDPServer(boost::asio::io_context &io, int port):
     socket(io, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port))
 {
-    this->init_server(port);
+    this->initServer(port);
 }
 
 Network::UDPServer::~UDPServer() {
     this->socket.close();
 }
 
-void Network::UDPServer::init_server(int port)
+void Network::UDPServer::initServer(int port)
 {
     std::cout << "Server listening on port " << port << std::endl;
-    this->init_rooms(NUMBER_OF_ROOMS);
-    this->start_receive();
+    this->initRooms(NUMBER_OF_ROOMS);
+    this->startReceive();
 }
 
-void Network::UDPServer::init_rooms(int count)
+void Network::UDPServer::initRooms(int count)
 {
     for (int i = 0; i < count; i++) {
         Network::Room room(i, DEFAULT_ROOM_SIZE);
 
         this->rooms.push_back(room);
     }
-    std::cout << "Rooms initialized" << "(" << count << ")" << std::endl;
+    std::cout << count <<  " rooms initialized" << std::endl;
 }
 
-void Network::UDPServer::start_receive()
+void Network::UDPServer::startReceive()
 {
     this->socket.async_receive_from(
-        boost::asio::buffer(this->recv_buffer),
-        this->remote_endpoint,
+        boost::asio::buffer(this->recvBuffer),
+        this->remoteEndpoint,
         boost::bind(
-            &Network::UDPServer::handle_receive,
+            &Network::UDPServer::handleReceive,
             this,
             boost::asio::placeholders::error,
             boost::asio::placeholders::bytes_transferred
@@ -54,20 +51,20 @@ void Network::UDPServer::start_receive()
     );
 }
 
-void Network::UDPServer::handle_receive(
+void Network::UDPServer::handleReceive(
     const boost::system::error_code &error,
-    std::size_t bytes_transferred
+    std::size_t bytesTransferred
 )
 {
-    (void)bytes_transferred;
+    (void)bytesTransferred;
     if (error && error == boost::asio::error::message_size) {
         std::cout << "Error: " << error << std::endl;
         return;
     }
-    this->process_message(boost::asio::buffer(this->recv_buffer));
+    this->processMessage(boost::asio::buffer(this->recvBuffer));
 }
 
-void Network::UDPServer::send_to_all(
+void Network::UDPServer::sendToAll(
     const boost::asio::const_buffer &buffer
 )
 {
@@ -78,7 +75,7 @@ void Network::UDPServer::send_to_all(
         );
 }
 
-void Network::UDPServer::send_to_client(
+void Network::UDPServer::sendToClient(
     const boost::asio::const_buffer &buffer,
     int id
 )
@@ -89,26 +86,26 @@ void Network::UDPServer::send_to_client(
     );
 }
 
-void Network::UDPServer::process_message(
+void Network::UDPServer::processMessage(
     const boost::asio::const_buffer &buffer
 )
 {
     Message *message = (Message *)buffer.data();
 
     if (!strcmp(message->header.command, HELLO_COMMAND))
-        return this->hello_command(message);
+        return this->helloCommand(message);
     if (!strcmp(message->header.command, NAME_COMMAND))
-        return this->name_command(message);
+        return this->nameCommand(message);
     if (!strcmp(message->header.command, JOIN_COMMAND))
-        return this->join_command(message);
+        return this->joinCommand(message);
 
     throw std::runtime_error("Invalid command");
 }
 
-Response Network::UDPServer::create_response(
+Response Network::UDPServer::createResponse(
     int clientId,
     const std::string& command,
-    const std::string& status_message,
+    const std::string& statusMessage,
     int status = RES_SUCCESS
 )
 {
@@ -118,54 +115,54 @@ Response Network::UDPServer::create_response(
     strcpy(response.header.command, command.c_str());
     response.header.dataLength = 0;
     response.header.status = status;
-    strcpy(response.header.status_message, status_message.c_str());
+    strcpy(response.header.statusMessage, statusMessage.c_str());
     return response;
 }
 
-void Network::UDPServer::send_response_and_log(const Response& response)
+void Network::UDPServer::sendResponseAndLog(const Response& response)
 {
-    this->send_to_client(
+    this->sendToClient(
         boost::asio::buffer(&response, sizeof(response)),
         response.header.clientId
     );
-    std::cout << "Client " << response.header.clientId << ": " << response.header.status_message << std::endl;
-    this->start_receive();
+    std::cout << "Client " << response.header.clientId << ": " << response.header.statusMessage << std::endl;
+    this->startReceive();
 }
 
-void Network::UDPServer::hello_command(Message *message)
+void Network::UDPServer::helloCommand(Message *message)
 {
     (void)message;
 
     int clientId = this->clients.size();
-    std::string status_message = "User correctly connected to server";
-    Response response = create_response(clientId, HELLO_COMMAND, status_message);
+    std::string statusMessage = "User correctly connected to server";
+    Response response = createResponse(clientId, HELLO_COMMAND, statusMessage);
 
     Network::Client client;
-    client.setEndpoint(this->remote_endpoint);
+    client.setEndpoint(this->remoteEndpoint);
     client.setId(clientId);
     this->clients.push_back(client);
 
-    send_response_and_log(response);
+    sendResponseAndLog(response);
 }
 
-void Network::UDPServer::name_command(Message *message)
+void Network::UDPServer::nameCommand(Message *message)
 {
     SendNameData *data = (SendNameData *)message->data;
-    std::string status_message = "Name correctly set: " + std::string(data->name);
-    Response response = create_response(message->header.clientId, NAME_COMMAND, status_message);
+    std::string statusMessage = "Name correctly set: " + std::string(data->name);
+    Response response = createResponse(message->header.clientId, NAME_COMMAND, statusMessage);
 
     this->clients[message->header.clientId].setName(data->name);
 
-    send_response_and_log(response);
+    sendResponseAndLog(response);
 }
 
-void Network::UDPServer::join_command(Message *message)
+void Network::UDPServer::joinCommand(Message *message)
 {
     JoinRoomData *data = (JoinRoomData *)message->data;
-    std::string status_message = "Joined room: " + std::to_string(data->roomId);
-    Response response = create_response(message->header.clientId, JOIN_COMMAND, status_message);
+    std::string statusMessage = "Joined room: " + std::to_string(data->roomId);
+    Response response = createResponse(message->header.clientId, JOIN_COMMAND, statusMessage);
 
     this->rooms[data->roomId].addPlayer(message->header.clientId);
 
-    send_response_and_log(response);
+    sendResponseAndLog(response);
 }

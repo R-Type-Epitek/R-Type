@@ -3,7 +3,8 @@
 //
 
 #pragma once
-#include <vector>
+
+#include "RTypeNetwork.hpp"
 
 namespace Network
 {
