@@ -16,8 +16,15 @@ Network::UDPServer::UDPServer(boost::asio::io_context &io, int port):
     this->initServer(port);
 }
 
-Network::UDPServer::~UDPServer() {
+Network::UDPServer::~UDPServer()
+{
     this->socket.close();
+
+    for (auto& worker : this->workers) {
+        if (worker.joinable()) {
+            worker.join();
+        }
+    }
 }
 
 void Network::UDPServer::initServer(int port)
@@ -25,6 +32,12 @@ void Network::UDPServer::initServer(int port)
     std::cout << "Server listening on port " << port << std::endl;
     this->initRooms(NUMBER_OF_ROOMS);
     this->startReceive();
+
+    int num_threads = std::thread::hardware_concurrency();
+
+    for (int i = 0; i < num_threads; ++i) {
+        workers.emplace_back(&Network::UDPServer::workerFunction, this);
+    }
 }
 
 void Network::UDPServer::initRooms(int count)
@@ -61,7 +74,9 @@ void Network::UDPServer::handleReceive(
         std::cout << "Error: " << error << std::endl;
         return;
     }
-    this->processMessage(boost::asio::buffer(this->recvBuffer));
+    
+    Message *message = (Message *)boost::asio::buffer(this->recvBuffer).data();
+    this->messageQueue.push(message);
 }
 
 void Network::UDPServer::sendToAll(
@@ -80,6 +95,10 @@ void Network::UDPServer::sendToClient(
     int id
 )
 {
+    if (id < 0 || id >= (int)this->clients.size())
+        throw std::runtime_error("Invalid client id");
+    if (!this->socket.is_open())
+        throw std::runtime_error("Socket is not open");
     this->socket.send_to(
         buffer,
         this->clients[id].getEndpoint()
@@ -87,11 +106,9 @@ void Network::UDPServer::sendToClient(
 }
 
 void Network::UDPServer::processMessage(
-    const boost::asio::const_buffer &buffer
+    Message *message
 )
 {
-    Message *message = (Message *)buffer.data();
-
     if (!strcmp(message->header.command, HELLO_COMMAND))
         return this->helloCommand(message);
     if (!strcmp(message->header.command, NAME_COMMAND))
@@ -100,6 +117,20 @@ void Network::UDPServer::processMessage(
         return this->joinCommand(message);
 
     throw std::runtime_error("Invalid command");
+}
+
+void Network::UDPServer::workerFunction()
+{
+    while (true) {
+        Message *message = this->messageQueue.pop();
+
+        std::cout << "Worker " << std::this_thread::get_id() << " processing message" << std::endl;
+        std::cout << "Command: " << message->header.command << std::endl;
+        std::cout << "Data length: " << message->header.dataLength << std::endl;
+        std::cout << "Client id: " << message->header.clientId << std::endl << std::endl;
+
+        this->processMessage(message);
+    }
 }
 
 Response Network::UDPServer::createResponse(

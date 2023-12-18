@@ -20,7 +20,7 @@ namespace Network
             std::vector<Network::Client> clients;
             boost::array<char, 1024> recvBuffer{};
             boost::asio::ip::udp::endpoint remoteEndpoint;
-            Network::ThreadSafeQueue<Message> messageQueue;
+            Network::ThreadSafeQueue<Message *> messageQueue;
             std::vector<std::thread> workers;
             std::vector<Network::Room> rooms;
 
@@ -36,7 +36,8 @@ namespace Network
                 int id
             );
             void startReceive();
-            void processMessage(const boost::asio::const_buffer &buffer);
+            void processMessage(Message *message);
+            void workerFunction();
             Response createResponse(
                 int clientId,
                 const std::string& command,

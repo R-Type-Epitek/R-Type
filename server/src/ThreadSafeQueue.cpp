@@ -21,3 +21,5 @@ T Network::ThreadSafeQueue<T>::pop()
     queue.pop();
     return value;
 }
+
+template class Network::ThreadSafeQueue<Message *>;
