@@ -12,6 +12,6 @@
 class ISystem {
  public:
   virtual ~ISystem() = default;
-  virtual void update(std::unordered_map<const char*, std::shared_ptr<IComponentArray>> components, Entity entity, sf::RenderWindow& window) = 0;
+  virtual void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window) = 0;
   std::set<Entity> m_entities{};
 };

@@ -8,12 +8,13 @@
 #include "component/Transform.hpp"
 #include "component/Sprite.hpp"
 #include "system/Physics.hpp"
-#include "system/Animation.hpp"
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
-Controller::Controller(std::shared_ptr<Mediator>& mediator) {
+Controller::Controller() {
+  mediator = std::make_shared<Mediator>();
+  mediator->Init();
   this->mediator = mediator;
+  init();
 }
 
 void Controller::setClientId(int id) {
@@ -32,18 +33,9 @@ int Controller::getRoomId() const {
   return this->room_id;
 }
 
-void Controller::setControllerId(int id) {
-  this->controller_id = id;
-}
-
-int Controller::getControllerId() const {
-  return this->controller_id;
-}
-
-void Controller::init(sf::RenderWindow& window) {
+void Controller::init() {
   initCRegister();
   initSRegister();
-  initPlayer(window);
 }
 
 void Controller::initCRegister() {
@@ -63,31 +55,3 @@ void Controller::initSRegister() {
   mediator->setSystemSignature<Physics>(signature_physics);
 }
 
-void Controller::initPlayer(sf::RenderWindow& window) {
-  Entity player = mediator->createEntity();
-  /*
-  request server before
-  this->controller_id = player;
-  // Engine front
-  sf::Texture texture;
-  assert(texture.loadFromFile("assets/unknown.png") && "Texture not found");
-  sf::Sprite sprite;
-  sprite.setTexture(texture);
-  float width = 60.0f;
-  float height = 60.0f;
-  sf::Vector2u texture_size = texture.getSize();
-  float factor_x = width / texture_size.x;
-  float factor_y = height / texture_size.y;
-  sprite.setScale(factor_x, factor_y);
-  float posX = (window.getSize().x / 2.0f) - (width / 2.0f);
-  float posY = (window.getSize().y / 2.0f) - (height / 2.0f);
-  sprite.setPosition(posX, posY);
-  // front end
-  mediator->addComponent(player, sf::Sprite());
-  ComponentRType::Transform transform;
-  transform.position.x = posX;
-  transform.position.y = posY;
-  mediator->addComponent(player, ComponentRType::Transform(transform));
-  mediator->addComponent(player, ComponentRType::Gravity{Vec3{0}});
-   */
-}

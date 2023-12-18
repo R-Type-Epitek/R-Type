@@ -13,7 +13,7 @@
 class Physics: public System
 {
  public:
-  void update(std::unordered_map<const char*, std::shared_ptr<IComponentArray>> components, Entity entity, sf::RenderWindow& window) {
+  void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window) {
       double delta = 0.5f;
       double sub = 1;
       static auto lastUpdate = std::chrono::steady_clock::now();
@@ -22,10 +22,8 @@ class Physics: public System
           std::chrono::duration_cast<std::chrono::seconds>(now - lastUpdate);
 
       if (elapsed.count() >= delta) {
-        auto transformComponentArray = std::static_pointer_cast<ComponentArray<ComponentRType::Transform>>(components.at("Transform"));
-        ComponentRType::Transform& transform = transformComponentArray->getData(entity);
-        auto gravityComponentArray = std::static_pointer_cast<ComponentArray<ComponentRType::Gravity>>(components.at("Gravity"));
-        ComponentRType::Gravity& gravity = gravityComponentArray->getData(entity);
+        auto& transform = component_manager->getComponent<ComponentRType::Transform>(entity);
+        auto& gravity = component_manager->getComponent<ComponentRType::Gravity>(entity);
 
         if (transform.position.y < 500) {
           transform.position.y += 1;

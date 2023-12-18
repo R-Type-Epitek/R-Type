@@ -15,7 +15,6 @@
 class System : public ISystem
 {
  public:
-  void update(std::unordered_map<const char*, std::shared_ptr<IComponentArray>> components, Entity entity, sf::RenderWindow& window) {
-  }
+    void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window) {}
   std::vector<Entity> m_entities;
 };
