@@ -1,5 +1,5 @@
 //
-// Created by X-VINCENT on 12/14/23.
+// Created by Xavier VINCENT on 14/12/23.
 //
 
 #include <cstdint>
@@ -9,7 +9,7 @@ struct ResponseHeader {
   char command[32];
   uint32_t dataLength;
   int status;
-  char status_message[128];
+  char statusMessage[128];
 };
 
 struct Response {

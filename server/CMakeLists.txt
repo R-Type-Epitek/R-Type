@@ -8,9 +8,10 @@ find_package(Boost REQUIRED COMPONENTS system thread regex)
 
 
 add_executable(${EXEC_SERVER}
-        src/network/Client.cpp
-        src/network/Room.cpp
-        src/network/UDPServer.cpp
+        src/Client.cpp
+        src/Room.cpp
+        src/ThreadSafeQueue.cpp
+        src/UDPServer.cpp
         src/main.cpp
 )
 

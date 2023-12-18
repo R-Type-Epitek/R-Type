@@ -1,11 +1,8 @@
-///*
-//** EPITECH PROJECT, 2023
-//** R-Type
-//** File description:
-//** Client
-//*/
+//
+// Created by Xavier VINCENT on 13/12/2023.
+//
 
-#include "network/Client.hpp"
+#include "RTypeNetwork.hpp"
 
 Network::Client::Client()
 {
