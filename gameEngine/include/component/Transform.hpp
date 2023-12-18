@@ -14,7 +14,7 @@ namespace ComponentRType {
 struct Transform {
   ge::Position position;
   Vec3 rotation = 0;
-  Vec3 speed = 0;
+  Vec3 speed = 1;
   Vec3 scale = 1;
 };
 }

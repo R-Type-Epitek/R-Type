@@ -57,4 +57,3 @@ void Controller::initSRegister() {
   mediator->setSystemSignature<Physics>(signature_physics);
   mediator->setSystemSignature<Animation>(signature_animation);
 }
-
