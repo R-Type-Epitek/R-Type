@@ -12,14 +12,13 @@
 #include "system/Physics.hpp"
 #include <optional>
 
-class Game {
+class Game : Controller {
  public:
   Game();
   ~Game();
   void run();
+
  private:
+  void initPlayer(sf::RenderWindow& window);
   sf::RenderWindow window;
-  std::unique_ptr<Controller> controller;
-  std::shared_ptr<Mediator> mediator;
-  std::vector<Entity> entities;
 };

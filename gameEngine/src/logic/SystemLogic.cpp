@@ -15,13 +15,11 @@ void SystemLogic::launchSystem(std::shared_ptr<Mediator>& mediator, std::vector<
 
   for (auto& entity: entities) {
     for (auto& system : systems) {
-      std::string current_type = system.first;
-      Signature sys_signature = mediator->getSystemSignature(current_type.c_str());
+      Signature sys_signature = mediator->getSystemSignature(system.first);
       Signature entity_signature = mediator->getEntitySignature(entity);
-        if ((sys_signature & entity_signature) == sys_signature) {
-          // bug here
-          //system.second->update(mediator->getComponents(entity), entity, window);
-        }
+      if ((entity_signature & sys_signature) == sys_signature) {
+        system.second->update(mediator->getComponentManager(), entity, window);
+      }
     }
   }
 }

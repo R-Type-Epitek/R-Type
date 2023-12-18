@@ -7,32 +7,26 @@
 #include <string>
 #include <iostream>
 #include "ecs/Mediator.hpp"
-#include "component/Gravity.hpp"
-#include "component/Transform.hpp"
-#include "system/Physics.hpp"
+
 #include "network/Network.hpp"
 #include <memory>
 
 class Controller {
  public:
-  Controller(std::shared_ptr<Mediator>& mediator);
+  Controller();
   ~Controller() = default;
-  void init(sf::RenderWindow& window);
   void setClientId(int id);
   int getClientId() const;
   void setRoomId(int id);
   int getRoomId() const;
-  void setControllerId(int id);
-  int getControllerId() const;
+
+ protected:
+  int id = 0;
+  int room_id = 0;std::vector<Entity> entities;
+  std::shared_ptr<Mediator> mediator;
 
  private:
-  void initPlayer(sf::RenderWindow& window);
+  void init();
   void initCRegister();
   void initSRegister();
-
-  std::shared_ptr<Mediator> mediator;
-  int id = 0;
-  int controller_id = 0;
-  int room_id = 0;
-  std::vector<Entity> entities;
 };
