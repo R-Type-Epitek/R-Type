@@ -8,6 +8,7 @@
 #include "component/Transform.hpp"
 #include "component/Sprite.hpp"
 #include "system/Physics.hpp"
+#include "system/Animation.hpp"
 #include <iostream>
 
 Controller::Controller() {
@@ -48,10 +49,12 @@ void Controller::initSRegister() {
   Signature signature_physics;
   Signature signature_animation;
   mediator->registerSystem<Physics>();
+  mediator->registerSystem<Animation>();
   signature_physics.set(mediator->getComponentType<ComponentRType::Gravity>());
   signature_physics.set(mediator->getComponentType<ComponentRType::Transform>());
   signature_animation.set(mediator->getComponentType<ComponentRType::Sprite>());
   signature_animation.set(mediator->getComponentType<ComponentRType::Transform>());
   mediator->setSystemSignature<Physics>(signature_physics);
+  mediator->setSystemSignature<Animation>(signature_animation);
 }
 

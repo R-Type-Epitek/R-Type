@@ -8,6 +8,7 @@
 #include <iostream>
 #include <memory>
 #include "ecs/system/ISystem.hpp"
+#include "system/Animation.hpp"
 
 void SystemLogic::launchSystem(std::shared_ptr<Mediator>& mediator, std::vector<Entity> entities, sf::RenderWindow& window)
 {
@@ -18,7 +19,7 @@ void SystemLogic::launchSystem(std::shared_ptr<Mediator>& mediator, std::vector<
       Signature sys_signature = mediator->getSystemSignature(system.first);
       Signature entity_signature = mediator->getEntitySignature(entity);
       if ((entity_signature & sys_signature) == sys_signature) {
-        system.second->update(mediator->getComponentManager(), entity, window);
+          system.second->update(mediator->getComponentManager(), entity, window);
       }
     }
   }

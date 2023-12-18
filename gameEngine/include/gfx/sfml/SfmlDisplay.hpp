@@ -5,6 +5,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "constants/constants.hpp"
 
 class SfmlDisplay {
 
@@ -12,5 +13,6 @@ class SfmlDisplay {
   SfmlDisplay() = default;
   ~SfmlDisplay() = default;
 
-  void display(sf::RenderWindow& window);
+  void display(sf::RenderWindow& window, sf::Sprite& sprite);
+  void setPosition(sf::Sprite& sprite, ge::Position& position);
 };

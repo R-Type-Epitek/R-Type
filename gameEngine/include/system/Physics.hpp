@@ -13,13 +13,18 @@
 class Physics: public System
 {
  public:
+
+  /// \brief apply physic to entity with gravity and transform component
+  /// \param component_manager
+  /// \param entity
+  /// \param window
+
   void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window) {
       double delta = 0.5f;
       double sub = 1;
       static auto lastUpdate = std::chrono::steady_clock::now();
       auto now = std::chrono::steady_clock::now();
-      auto elapsed =
-          std::chrono::duration_cast<std::chrono::seconds>(now - lastUpdate);
+      auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - lastUpdate);
 
       if (elapsed.count() >= delta) {
         auto& transform = component_manager->getComponent<ComponentRType::Transform>(entity);

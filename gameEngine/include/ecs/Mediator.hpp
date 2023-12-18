@@ -45,7 +45,6 @@ class Mediator {
     m_componentManager->registerComponent<T>();
   }
 
-
   template<typename T>
   void addComponent(Entity entity, T component)
   {

@@ -5,8 +5,22 @@
 #include "gfx/sfml/SfmlDisplay.hpp"
 #include "component/Transform.hpp"
 #include <SFML/Graphics.hpp>
+#include "component/Transform.hpp"
 
-void SfmlDisplay::display(sf::RenderWindow& window)
+/// \brief display the sprite
+/// \param window
+/// \param sprite
+
+void SfmlDisplay::display(sf::RenderWindow& window, sf::Sprite& sprite)
 {
-  window.display();
+  window.draw(sprite);
+}
+
+/// \brief set the position of the sprite
+/// \param sprite
+/// \param position
+
+void SfmlDisplay::setPosition(sf::Sprite& sprite, ge::Position& position)
+{
+  sprite.setPosition(position.x, position.y);
 }
