@@ -1,0 +1,48 @@
+\doxysection{Input\+Text.\+hpp}
+\hypertarget{_input_text_8hpp_source}{}\label{_input_text_8hpp_source}\index{client/include/Components/InputText.hpp@{client/include/Components/InputText.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 17/12/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Client}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_input_text}{InputText}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_text}{InputText}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_text}{InputText}}(}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector2f\ position,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector2f\ size,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ fontPath,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ defaultText}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_text}{\string~InputText}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_text}{InputText}}(\mbox{\hyperlink{class_client_1_1_input_text}{InputText}}\ \textcolor{keyword}{const}\ \&toCopy)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_text}{InputText}}(\mbox{\hyperlink{class_client_1_1_input_text}{InputText}}\ \&\&toMove)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_text}{InputText}}\ \&operator=(\mbox{\hyperlink{class_client_1_1_input_text}{InputText}}\ \textcolor{keyword}{const}\ \&toCopy)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_text}{InputText}}\ \&operator=(\mbox{\hyperlink{class_client_1_1_input_text}{InputText}}\ \&\&toMove)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<sf::RectangleShape>\ getShape();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ draw(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ startInput();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ endInput();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ getInput();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setInput(\textcolor{keywordtype}{char}\ input);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isClicked()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ popInput();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<sf::RectangleShape>\ shape\_;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ input\_;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ fontPath\_;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Vector2f\ positionText\_;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isClicked\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}

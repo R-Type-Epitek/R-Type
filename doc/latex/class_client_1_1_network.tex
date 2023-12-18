@@ -1,0 +1,53 @@
+\doxysection{Client\+::Network Class Reference}
+\hypertarget{class_client_1_1_network}{}\label{class_client_1_1_network}\index{Client::Network@{Client::Network}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_client_1_1_network_a27d7f8cf48354afeb62a66326ba7aa46}\label{class_client_1_1_network_a27d7f8cf48354afeb62a66326ba7aa46} 
+{\bfseries Network} (std\+::string ip, std\+::string port)
+\item 
+\Hypertarget{class_client_1_1_network_a867b048a7044633d09979bed3d8ee0a4}\label{class_client_1_1_network_a867b048a7044633d09979bed3d8ee0a4} 
+void {\bfseries send} (const boost\+::asio\+::const\+\_\+buffer \&buffer)
+\item 
+\Hypertarget{class_client_1_1_network_a31c90e60b8fa74ac2948e2b9a9be20bd}\label{class_client_1_1_network_a31c90e60b8fa74ac2948e2b9a9be20bd} 
+void {\bfseries send\+Message} (const std\+::string \&command, const char \texorpdfstring{$\ast$}{*}data, size\+\_\+t data\+Size)
+\item 
+\Hypertarget{class_client_1_1_network_acef16183eb0d0060b769ecbea70a56f9}\label{class_client_1_1_network_acef16183eb0d0060b769ecbea70a56f9} 
+\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*} {\bfseries receive\+And\+Validate\+Response} (const std\+::string \&expected\+Command)
+\item 
+\Hypertarget{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee}\label{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee} 
+void {\bfseries connect\+To\+Server} ()
+\item 
+\Hypertarget{class_client_1_1_network_ae27fd1a5523ae53450c7a1dd150bd410}\label{class_client_1_1_network_ae27fd1a5523ae53450c7a1dd150bd410} 
+void {\bfseries send\+Name} (std\+::string name)
+\item 
+\Hypertarget{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}\label{class_client_1_1_network_af9322d011cea31df49fe776392ad0648} 
+void {\bfseries join\+Room} (int room\+Id)
+\item 
+\Hypertarget{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12}\label{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12} 
+void {\bfseries set\+Client\+Id} (int id)
+\item 
+\Hypertarget{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4}\label{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4} 
+int {\bfseries get\+Client\+Id} () const
+\item 
+\Hypertarget{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c}\label{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c} 
+void {\bfseries set\+Room\+Id} (int id)
+\item 
+\Hypertarget{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5}\label{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5} 
+int {\bfseries get\+Room\+Id} () const
+\item 
+\Hypertarget{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9}\label{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9} 
+void {\bfseries set\+Name} (std\+::string name)
+\item 
+\Hypertarget{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db}\label{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db} 
+std\+::string {\bfseries get\+Name} () const
+\item 
+\Hypertarget{class_client_1_1_network_afcf3bbd9224afa0b3de2856dc1617f10}\label{class_client_1_1_network_afcf3bbd9224afa0b3de2856dc1617f10} 
+void {\bfseries set\+Endpoint} (std\+::string \&ip, std\+::string \&port)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/include/Network.\+hpp\item 
+client/src/Network.\+cpp\end{DoxyCompactItemize}

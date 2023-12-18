@@ -1,0 +1,24 @@
+\doxysection{Responses.\+hpp}
+\hypertarget{_responses_8hpp_source}{}\label{_responses_8hpp_source}\index{network/Responses.hpp@{network/Responses.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 14/12/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ \{}
+\DoxyCodeLine{00008\ \ \ \textcolor{keywordtype}{int}\ clientId;}
+\DoxyCodeLine{00009\ \ \ \textcolor{keywordtype}{char}\ command[32];}
+\DoxyCodeLine{00010\ \ \ uint32\_t\ dataLength;}
+\DoxyCodeLine{00011\ \ \ \textcolor{keywordtype}{int}\ status;}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{char}\ statusMessage[128];}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response}{Response}}\ \{}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ header;}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{char}\ data[];}
+\DoxyCodeLine{00018\ \};}
+
+\end{DoxyCode}

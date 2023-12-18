@@ -1,0 +1,39 @@
+\doxysection{Welcome.\+hpp}
+\hypertarget{_welcome_8hpp_source}{}\label{_welcome_8hpp_source}\index{client/include/Scenes/Welcome.hpp@{client/include/Scenes/Welcome.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ edouard\ on\ 12/12/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Client}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_welcome_scene}{WelcomeScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_client_1_1_i_scene}{IScene}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_client_1_1_welcome_scene}{WelcomeScene}}(Client::SceneName\ sceneName);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_welcome_scene}{\string~WelcomeScene}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isInShape(}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Event::MouseButtonEvent\ \&mouse,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::RectangleShape\ \&myShape}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pollEvent(}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::RenderWindow\ \&window,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Client::Network}}\ \&network}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ )\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ draw(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ Client::SceneName\ sceneName\_;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_background}{Client::Background}}\ background\_;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Client::Button>\ playButton\_;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Event\ event\_;}
+\DoxyCodeLine{00032\ \ \ \ \ \};}
+\DoxyCodeLine{00033\ \}}
+
+\end{DoxyCode}

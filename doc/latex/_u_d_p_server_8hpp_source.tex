@@ -1,0 +1,71 @@
+\doxysection{UDPServer.\+hpp}
+\hypertarget{_u_d_p_server_8hpp_source}{}\label{_u_d_p_server_8hpp_source}\index{server/include/UDPServer.hpp@{server/include/UDPServer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 13/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Network}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}}(boost::asio::io\_context\ \&io);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}}(boost::asio::io\_context\ \&io,\ \textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_u_d_p_server_a6ae6efb6b05e6b6518195512e90a216d}{\string~UDPServer}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::ip::udp::socket\ socket;\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Network::Client>\ clients;\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ boost::array<char,\ 1024>\ recvBuffer\{\};\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::ip::udp::endpoint\ remoteEndpoint;\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_thread_safe_queue}{Network::ThreadSafeQueue<Message\ *>}}\ messageQueue;\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::thread>\ workers;\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Network::Room>\ rooms;\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initServer(\textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initRooms(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleReceive(}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ boost::system::error\_code\ \&error,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ bytesTransferred}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendToAll(\textcolor{keyword}{const}\ boost::asio::const\_buffer\ \&buffer);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendToClient(}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ boost::asio::const\_buffer\ \&buffer,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ startReceive();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processMessage(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ workerFunction();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_response}{Response}}\ createResponse(}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ clientId,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ command,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ statusMessage,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ status}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendResponseAndLog(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_response}{Response}}\&\ response);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Command\ handling\ functions}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ helloCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ nameCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ joinCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00174\ \ \ \ \ \};}
+\DoxyCodeLine{00175\ \}}
+
+\end{DoxyCode}
