@@ -24,3 +24,7 @@ struct SendNameData {
 struct JoinRoomData {
   int roomId;
 };
+
+struct TryMoveData {
+  char key[1];
+};

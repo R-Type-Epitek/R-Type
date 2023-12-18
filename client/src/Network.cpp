@@ -107,6 +107,17 @@ void Client::Network::joinRoom(int roomId)
     std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
 }
 
+void Client::Network::sendKey(std::string key)
+{
+    TryMoveData data;
+    strcpy(data.key, key.c_str());
+    this->sendMessage(KEY_COMMAND, (char*)&data, sizeof(data));
+
+    Response* response = receiveAndValidateResponse(KEY_COMMAND);
+
+    std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
+}
+
 void Client::Network::setClientId(int id)
 {
     this->clientId = id;
