@@ -171,5 +171,6 @@ namespace Network
             void helloCommand(Message *message); ///< Handles 'hello' command.
             void nameCommand(Message *message); ///< Handles 'name' command.
             void joinCommand(Message *message); ///< Handles 'join' command.
+            void keyCommand(Message *message); ///< Handles 'key' command.
     };
 }
