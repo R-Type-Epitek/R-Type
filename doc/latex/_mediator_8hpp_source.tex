@@ -1,0 +1,109 @@
+\doxysection{Mediator.\+hpp}
+\hypertarget{_mediator_8hpp_source}{}\label{_mediator_8hpp_source}\index{gameEngine/include/ecs/Mediator.hpp@{gameEngine/include/ecs/Mediator.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 12/4/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}entity/Entity.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Signature.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}component/ComponentManager.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}entity/EntityManager.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}system/SystemManager.hpp"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mediator}{Mediator}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ Init()}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ m\_componentManager\ =\ std::make\_unique<ComponentManager>();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ m\_entityManager\ =\ std::make\_unique<EntityManager>();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ m\_systemManager\ =\ std::make\_unique<SystemManager>();}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ \ Entities}}
+\DoxyCodeLine{00026\ \ \ \ \ Entity\ createEntity()}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_entityManager-\/>createEntity();}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ destroyEntity(Entity\ entity)}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ m\_entityManager-\/>destroyEntity(entity);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ m\_componentManager-\/>entityDestroyed(entity);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ m\_systemManager-\/>entityDestroyed(entity);}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ \ \ \ Components}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ registerComponent()}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ m\_componentManager-\/>registerComponent<T>();}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ addComponent(Entity\ entity,\ T\ component)}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ m\_componentManager-\/>addComponent<T>(entity,\ component);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ signature\ =\ m\_entityManager-\/>getSignature(entity);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ signature.set(m\_componentManager-\/>getComponentType<T>(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ m\_entityManager-\/>setSignature(entity,\ signature);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ m\_systemManager-\/>entitySignatureChanged(entity,\ signature);}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ removeComponent(Entity\ entity)}
+\DoxyCodeLine{00064\ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ m\_componentManager-\/>removeComponent<T>(entity);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ signature\ =\ m\_entityManager-\/>getSignature(entity);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ signature.set(m\_componentManager-\/>getComponentType<T>(),\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ m\_entityManager-\/>setSignature(entity,\ signature);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ m\_systemManager-\/>entitySignatureChanged(entity,\ signature);}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00075\ \ \ \ \ T\&\ getComponent(Entity\ entity)}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager-\/>getComponent<T>(entity);}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00081\ \ \ \ \ ComponentType\ getComponentType()}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager-\/>getComponentType<T>();}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ \ Systems}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00088\ \ \ \ \ std::shared\_ptr<T>\ registerSystem()}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>registerSystem<T>();}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ setSystemSignature(Signature\ signature)}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ m\_systemManager-\/>setSignature<T>(signature);}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00100\ \ \ \ \ std::unique\_ptr<ComponentManager>\ m\_componentManager;}
+\DoxyCodeLine{00101\ \ \ \ \ std::unique\_ptr<EntityManager>\ m\_entityManager;}
+\DoxyCodeLine{00102\ \ \ \ \ std::unique\_ptr<SystemManager>\ m\_systemManager;}
+\DoxyCodeLine{00103\ \};}
+
+\end{DoxyCode}

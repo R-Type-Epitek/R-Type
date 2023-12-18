@@ -1,0 +1,80 @@
+\doxysection{Network\+::UDPServer Class Reference}
+\hypertarget{class_network_1_1_u_d_p_server}{}\label{class_network_1_1_u_d_p_server}\index{Network::UDPServer@{Network::UDPServer}}
+
+
+Manages a UDP server for handling network communication.  
+
+
+
+
+{\ttfamily \#include $<$UDPServer.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_network_1_1_u_d_p_server_a8e48a3fb2808976e3cb450ad23fddc8e}{UDPServer}} (boost\+::asio\+::io\+\_\+context \&io)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_network_1_1_u_d_p_server}{UDPServer} with a specified I/O context. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_network_1_1_u_d_p_server_afec9bb314cf033eee17817a554124e22}{UDPServer}} (boost\+::asio\+::io\+\_\+context \&io, int port)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_network_1_1_u_d_p_server}{UDPServer} with a specified I/O context and port. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_network_1_1_u_d_p_server_a6ae6efb6b05e6b6518195512e90a216d}{\texorpdfstring{$\sim$}{\string~}\+UDPServer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_network_1_1_u_d_p_server}{UDPServer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a UDP server for handling network communication. 
+
+The \doxylink{class_network_1_1_u_d_p_server}{UDPServer} class provides functionalities to create and manage a server that communicates using the UDP protocol. It handles client connections, data transmission, and room management for network clients. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_network_1_1_u_d_p_server_a8e48a3fb2808976e3cb450ad23fddc8e}\label{class_network_1_1_u_d_p_server_a8e48a3fb2808976e3cb450ad23fddc8e} 
+\index{Network::UDPServer@{Network::UDPServer}!UDPServer@{UDPServer}}
+\index{UDPServer@{UDPServer}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{UDPServer()}{UDPServer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Network\+::\+UDPServer\+::\+UDPServer (\begin{DoxyParamCaption}\item[{boost\+::asio\+::io\+\_\+context \&}]{io }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_network_1_1_u_d_p_server}{UDPServer} with a specified I/O context. 
+
+Initializes a new \doxylink{class_network_1_1_u_d_p_server}{UDPServer} instance using the provided Boost ASIO I/O context. This constructor is typically used when the server\textquotesingle{}s port is set separately.
+
+
+\begin{DoxyParams}{Parameters}
+{\em io} & Reference to boost\+::asio\+::io\+\_\+context for managing I/O operations. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_network_1_1_u_d_p_server_afec9bb314cf033eee17817a554124e22}\label{class_network_1_1_u_d_p_server_afec9bb314cf033eee17817a554124e22} 
+\index{Network::UDPServer@{Network::UDPServer}!UDPServer@{UDPServer}}
+\index{UDPServer@{UDPServer}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{UDPServer()}{UDPServer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Network\+::\+UDPServer\+::\+UDPServer (\begin{DoxyParamCaption}\item[{boost\+::asio\+::io\+\_\+context \&}]{io,  }\item[{int}]{port }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_network_1_1_u_d_p_server}{UDPServer} with a specified I/O context and port. 
+
+Initializes a new \doxylink{class_network_1_1_u_d_p_server}{UDPServer} instance using the provided Boost ASIO I/O context and listens on the specified port. This constructor is convenient for initializing and starting the server in one step.
+
+
+\begin{DoxyParams}{Parameters}
+{\em io} & Reference to boost\+::asio\+::io\+\_\+context for managing I/O operations. \\
+\hline
+{\em port} & Integer specifying the port number on which the server will listen. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_network_1_1_u_d_p_server_a6ae6efb6b05e6b6518195512e90a216d}\label{class_network_1_1_u_d_p_server_a6ae6efb6b05e6b6518195512e90a216d} 
+\index{Network::UDPServer@{Network::UDPServer}!````~UDPServer@{\texorpdfstring{$\sim$}{\string~}UDPServer}}
+\index{````~UDPServer@{\texorpdfstring{$\sim$}{\string~}UDPServer}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UDPServer()}{\string~UDPServer()}}
+{\footnotesize\ttfamily Network\+::\+UDPServer\+::\texorpdfstring{$\sim$}{\string~}\+UDPServer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \doxylink{class_network_1_1_u_d_p_server}{UDPServer}. 
+
+Cleans up resources used by the \doxylink{class_network_1_1_u_d_p_server}{UDPServer} instance. Ensures proper shutdown of the server and releases network resources. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/UDPServer.\+hpp\item 
+server/src/UDPServer.\+cpp\end{DoxyCompactItemize}

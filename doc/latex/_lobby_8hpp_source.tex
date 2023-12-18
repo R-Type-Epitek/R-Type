@@ -1,0 +1,45 @@
+\doxysection{Lobby.\+hpp}
+\hypertarget{_lobby_8hpp_source}{}\label{_lobby_8hpp_source}\index{client/include/Scenes/Lobby.hpp@{client/include/Scenes/Lobby.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ edouard\ on\ 12/12/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Client}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_lobby_scene}{LobbyScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_client_1_1_i_scene}{IScene}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_client_1_1_lobby_scene}{LobbyScene}}(Client::SceneName\ sceneName);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_lobby_scene}{\string~LobbyScene}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isInShape(}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::Event::MouseButtonEvent\ \&mouse,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::RectangleShape\ \&myShape}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pollEvent(}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sf::RenderWindow\ \&window,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Client::Network}}\ \&network}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ )\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ draw(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ Client::SceneName\ sceneName\_;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client_1_1_background}{Client::Background}}\ background\_;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Client::Button>\ escapeButton\_;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Client::Button>\ returnButton\_;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Client::Button>\ acceptButton\_;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Client::InputText>\ ipInput\_;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Client::InputText>\ portInput\_;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ ntIp\_\{DEFAULT\_IP\};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ ntPort\_\{DEFAULT\_PORT\};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ sf::Event\ event\_;}
+\DoxyCodeLine{00038\ \ \ \ \ \};}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}
