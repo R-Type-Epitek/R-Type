@@ -33,6 +33,18 @@ int Client::GameScene::pollEvent(
             // TODO: open pop up to ask if user wants to quit if he is in a lobby
             window.close();
         }
+        if (this->event_.type == sf::Event::KeyPressed) {
+            if (this->event_.key.code == sf::Keyboard::Z)
+                network.sendKey("z");
+            if (this->event_.key.code == sf::Keyboard::Q)
+                network.sendKey("q");
+            if (this->event_.key.code == sf::Keyboard::S)
+                network.sendKey("s");
+            if (this->event_.key.code == sf::Keyboard::D)
+                network.sendKey("d");
+            if (this->event_.key.code == sf::Keyboard::Space)
+                network.sendKey(" ");
+        }
     }
     return 0;
 }

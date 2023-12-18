@@ -5,3 +5,4 @@
 #define HELLO_COMMAND "/hello"
 #define NAME_COMMAND "/name"
 #define JOIN_COMMAND "/join"
+#define KEY_COMMAND "/key"

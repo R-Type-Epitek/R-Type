@@ -48,5 +48,6 @@ namespace Network
             void helloCommand(Message *message);
             void nameCommand(Message *message);
             void joinCommand(Message *message);
+            void keyCommand(Message *message);
     };
 }

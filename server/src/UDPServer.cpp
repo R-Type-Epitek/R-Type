@@ -115,6 +115,8 @@ void Network::UDPServer::processMessage(
         return this->nameCommand(message);
     if (!strcmp(message->header.command, JOIN_COMMAND))
         return this->joinCommand(message);
+    if (!strcmp(message->header.command, KEY_COMMAND))
+        return this->keyCommand(message);
 
     throw std::runtime_error("Invalid command");
 }
@@ -194,6 +196,17 @@ void Network::UDPServer::joinCommand(Message *message)
     Response response = createResponse(message->header.clientId, JOIN_COMMAND, statusMessage);
 
     this->rooms[data->roomId].addPlayer(message->header.clientId);
+
+    sendResponseAndLog(response);
+}
+
+void Network::UDPServer::keyCommand(Message *message)
+{
+    TryMoveData *data = (TryMoveData *)message->data;
+    std::string statusMessage = "Get key: \"" + std::string(data->key) + "\"";
+    Response response = createResponse(message->header.clientId, KEY_COMMAND, statusMessage);
+
+    // Change player position
 
     sendResponseAndLog(response);
 }

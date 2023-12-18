@@ -24,6 +24,7 @@ namespace Client
             void connectToServer();
             void sendName(std::string name);
             void joinRoom(int roomId);
+            void sendKey(std::string key);
             void setClientId(int id);
             int getClientId() const;
             void setRoomId(int id);
