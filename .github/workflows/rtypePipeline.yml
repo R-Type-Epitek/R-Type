@@ -1,6 +1,7 @@
 name: Rtype Epitech repository pipeline
 on:
   push:
+    branches: ["main", "feature/*", "fix/*"]
   pull_request:
     branches: [ '**', '!ga-ignore-*' ]
 
