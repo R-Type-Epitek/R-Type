@@ -80,16 +80,16 @@ void Client::Network::connectToServer()
     std::cout << "Client id: " << this->clientId << std::endl << std::endl;
 }
 
-void Client::Network::sendName(std::string name)
+void Client::Network::updateName(std::string name)
 {
     if (name.length() > MAX_NAME_LENGTH)
         throw std::runtime_error(NAME_TOO_LONG);
 
-    SendNameData data;
+    UpdateNameData data;
     strcpy(data.name, name.c_str());
-    this->sendMessage(NAME_COMMAND, (char*)&data, sizeof(data));
+    this->sendMessage(UPDATE_NAME_COMMAND, (char*)&data, sizeof(data));
     
-    Response* response = receiveAndValidateResponse(NAME_COMMAND);
+    Response* response = receiveAndValidateResponse(UPDATE_NAME_COMMAND);
     this->name = name;
 
     std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
@@ -99,9 +99,9 @@ void Client::Network::joinRoom(int roomId)
 {
     JoinRoomData data;
     data.roomId = roomId;
-    this->sendMessage(JOIN_COMMAND, (char*)&data, sizeof(data));
+    this->sendMessage(JOIN_ROOM_COMMAND, (char*)&data, sizeof(data));
 
-    Response* response = receiveAndValidateResponse(JOIN_COMMAND);
+    Response* response = receiveAndValidateResponse(JOIN_ROOM_COMMAND);
     this->roomId = roomId;
 
     std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
@@ -109,11 +109,22 @@ void Client::Network::joinRoom(int roomId)
 
 void Client::Network::sendKey(std::string key)
 {
-    TryMoveData data;
+    InputData data;
     strcpy(data.key, key.c_str());
-    this->sendMessage(KEY_COMMAND, (char*)&data, sizeof(data));
+    this->sendMessage(INPUT_COMMAND, (char*)&data, sizeof(data));
 
-    Response* response = receiveAndValidateResponse(KEY_COMMAND);
+    Response* response = receiveAndValidateResponse(INPUT_COMMAND);
+
+    std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
+}
+
+void Client::Network::startGame(int roomId)
+{
+    StartGameData data;
+    data.roomId = roomId;
+    this->sendMessage(START_GAME_COMMAND, (char*)&data, sizeof(data));
+
+    Response* response = receiveAndValidateResponse(START_GAME_COMMAND);
 
     std::cout << "Server response: " << response->header.statusMessage << std::endl << std::endl;
 }

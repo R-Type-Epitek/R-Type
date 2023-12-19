@@ -138,8 +138,9 @@ int Client::LobbyScene::pollEvent(sf::RenderWindow &window, Client::Network &net
                         network.setEndpoint(this->ntIp_, this->ntPort_);
                     }
                     network.connectToServer();
-                    network.sendName("John Doe");
+                    network.updateName("John Doe");
                     network.joinRoom(0);
+                    network.startGame(0);
                     return Client::SceneName::kGameScene;
                 }
                 this->acceptButton_->isClicked();

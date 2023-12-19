@@ -1,7 +1,7 @@
 var searchData=
 [
   ['scenemanager_0',['SceneManager',['../class_client_1_1_scene_manager.html',1,'Client']]],
-  ['sendnamedata_1',['SendNameData',['../struct_send_name_data.html',1,'']]],
+  ['updateNamedata_1',['UpdateNameData',['../struct_send_name_data.html',1,'']]],
   ['setendpoint_2',['setEndpoint',['../class_network_1_1_client.html#a8c64f36120e3c8e03b0300c3a5dcef26',1,'Network::Client']]],
   ['setid_3',['setid',['../class_network_1_1_room.html#ac21adfc504a4ef56c960eff9b94b9b33',1,'Network::Room::setId()'],['../class_network_1_1_client.html#af9390388b249ecc73f5585f0c20210cf',1,'Network::Client::setId(int id)']]],
   ['setname_4',['setName',['../class_network_1_1_client.html#a7eab98c178b5ea21dc1363658f9815ea',1,'Network::Client']]],

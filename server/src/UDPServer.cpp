@@ -111,12 +111,14 @@ void Network::UDPServer::processMessage(
 {
     if (!strcmp(message->header.command, HELLO_COMMAND))
         return this->helloCommand(message);
-    if (!strcmp(message->header.command, NAME_COMMAND))
-        return this->nameCommand(message);
-    if (!strcmp(message->header.command, JOIN_COMMAND))
-        return this->joinCommand(message);
-    if (!strcmp(message->header.command, KEY_COMMAND))
-        return this->keyCommand(message);
+    if (!strcmp(message->header.command, UPDATE_NAME_COMMAND))
+        return this->updateNameCommand(message);
+    if (!strcmp(message->header.command, JOIN_ROOM_COMMAND))
+        return this->joinRoomCommand(message);
+    if (!strcmp(message->header.command, INPUT_COMMAND))
+        return this->inputCommand(message);
+    if (!strcmp(message->header.command, START_GAME_COMMAND))
+        return this->startGameCommand(message);
 
     throw std::runtime_error("Invalid command");
 }
@@ -165,7 +167,6 @@ void Network::UDPServer::sendResponseAndLog(const Response& response)
 void Network::UDPServer::helloCommand(Message *message)
 {
     (void)message;
-
     int clientId = this->clients.size();
     std::string statusMessage = "User correctly connected to server";
     Response response = createResponse(clientId, HELLO_COMMAND, statusMessage);
@@ -178,35 +179,48 @@ void Network::UDPServer::helloCommand(Message *message)
     sendResponseAndLog(response);
 }
 
-void Network::UDPServer::nameCommand(Message *message)
+void Network::UDPServer::updateNameCommand(Message *message)
 {
-    SendNameData *data = (SendNameData *)message->data;
+    UpdateNameData *data = (UpdateNameData *)message->data;
     std::string statusMessage = "Name correctly set: " + std::string(data->name);
-    Response response = createResponse(message->header.clientId, NAME_COMMAND, statusMessage);
+    Response response = createResponse(message->header.clientId, UPDATE_NAME_COMMAND, statusMessage);
 
     this->clients[message->header.clientId].setName(data->name);
 
     sendResponseAndLog(response);
 }
 
-void Network::UDPServer::joinCommand(Message *message)
+void Network::UDPServer::joinRoomCommand(Message *message)
 {
     JoinRoomData *data = (JoinRoomData *)message->data;
     std::string statusMessage = "Joined room: " + std::to_string(data->roomId);
-    Response response = createResponse(message->header.clientId, JOIN_COMMAND, statusMessage);
+    Response response = createResponse(message->header.clientId, JOIN_ROOM_COMMAND, statusMessage);
 
     this->rooms[data->roomId].addPlayer(message->header.clientId);
 
     sendResponseAndLog(response);
 }
 
-void Network::UDPServer::keyCommand(Message *message)
+void Network::UDPServer::inputCommand(Message *message)
 {
-    TryMoveData *data = (TryMoveData *)message->data;
+    InputData *data = (InputData *)message->data;
     std::string statusMessage = "Get key: \"" + std::string(data->key) + "\"";
-    Response response = createResponse(message->header.clientId, KEY_COMMAND, statusMessage);
+    Response response = createResponse(message->header.clientId, INPUT_COMMAND, statusMessage);
 
-    // Change player position
+    // Update player position
+
+    sendResponseAndLog(response);
+}
+
+void Network::UDPServer::startGameCommand(Message *message)
+{
+    StartGameData *data = (StartGameData *)message->data;
+    std::string statusMessage = "Start game (room " + std::to_string(data->roomId) + ")";
+    Response response = createResponse(message->header.clientId, START_GAME_COMMAND, statusMessage);
+
+    // Start game
+    // Initialize the map (all the entities)
+    // Initialize the players
 
     sendResponseAndLog(response);
 }

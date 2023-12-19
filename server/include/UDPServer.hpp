@@ -169,8 +169,9 @@ namespace Network
 
             // Command handling functions
             void helloCommand(Message *message); ///< Handles 'hello' command.
-            void nameCommand(Message *message); ///< Handles 'name' command.
-            void joinCommand(Message *message); ///< Handles 'join' command.
-            void keyCommand(Message *message); ///< Handles 'key' command.
+            void updateNameCommand(Message *message); ///< Handles 'updateName' command.
+            void joinRoomCommand(Message *message); ///< Handles 'joinRoom' command.
+            void inputCommand(Message *message); ///< Handles 'input' command.
+            void startGameCommand(Message *message); ///< Handles 'startGame' command.
     };
 }
