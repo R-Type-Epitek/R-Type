@@ -2,7 +2,7 @@
 # Released under the term specified in file LICENSE.txt
 # SPDX short identifier: MIT
 
-name: hosted-ninja_multi-vcpkg_submod-triplet-cacheoff
+name: Test build vcpckg
 on: [push, workflow_dispatch]
 
 jobs:
