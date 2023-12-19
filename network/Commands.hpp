@@ -3,6 +3,7 @@
 //
 
 #define HELLO_COMMAND "/hello"
-#define NAME_COMMAND "/name"
-#define JOIN_COMMAND "/join"
-#define KEY_COMMAND "/key"
+#define UPDATE_NAME_COMMAND "/update_name"
+#define JOIN_ROOM_COMMAND "/join_room"
+#define INPUT_COMMAND "/input"
+#define START_GAME_COMMAND "/start_game"

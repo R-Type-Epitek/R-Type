@@ -16,7 +16,7 @@ struct Message {
 };
 
 // Name command
-struct SendNameData {
+struct UpdateNameData {
   char name[32];
 };
 
@@ -25,6 +25,12 @@ struct JoinRoomData {
   int roomId;
 };
 
-struct TryMoveData {
+// Input command
+struct InputData {
   char key[1];
+};
+
+// Start game command
+struct StartGameData {
+  int roomId;
 };

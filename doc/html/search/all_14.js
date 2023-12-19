@@ -8,5 +8,5 @@ var searchData=
   ['the_20game_20console_5',['Step 2: Assembling the game console',['../index.html#step2',1,'']]],
   ['threadsafequeue_6',['ThreadSafeQueue',['../class_network_1_1_thread_safe_queue.html',1,'Network']]],
   ['threadsafequeue_3c_20message_20_2a_20_3e_7',['ThreadSafeQueue&lt; Message * &gt;',['../class_network_1_1_thread_safe_queue.html',1,'Network']]],
-  ['trymovedata_8',['TryMoveData',['../struct_try_move_data.html',1,'']]]
+  ['InputData_8',['InputData',['../struct_try_move_data.html',1,'']]]
 ];

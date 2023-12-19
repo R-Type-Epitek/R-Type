@@ -21,14 +21,15 @@ var annotated_dup =
     [ "ComponentManager", "class_component_manager.html", null ],
     [ "EntityManager", "class_entity_manager.html", null ],
     [ "IComponentArray", "class_i_component_array.html", null ],
+    [ "InputData", "struct_input_data.html", null ],
     [ "JoinRoomData", "struct_join_room_data.html", null ],
     [ "Mediator", "class_mediator.html", null ],
     [ "Message", "struct_message.html", null ],
     [ "MessageHeader", "struct_message_header.html", null ],
     [ "Response", "struct_response.html", null ],
     [ "ResponseHeader", "struct_response_header.html", null ],
-    [ "SendNameData", "struct_send_name_data.html", null ],
+    [ "StartGameData", "struct_start_game_data.html", null ],
     [ "System", "class_system.html", null ],
     [ "SystemManager", "class_system_manager.html", null ],
-    [ "TryMoveData", "struct_try_move_data.html", null ]
+    [ "UpdateNameData", "struct_update_name_data.html", null ]
 ];

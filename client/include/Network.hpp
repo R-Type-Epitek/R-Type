@@ -22,9 +22,10 @@ namespace Client
                 const std::string& expectedCommand
             );
             void connectToServer();
-            void sendName(std::string name);
+            void updateName(std::string name);
             void joinRoom(int roomId);
             void sendKey(std::string key);
+            void startGame(int roomId);
             void setClientId(int id);
             int getClientId() const;
             void setRoomId(int id);
