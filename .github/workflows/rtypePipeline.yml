@@ -26,6 +26,7 @@ jobs:
 
   build-project:
     runs-on: ${{ matrix.os }}
+    needs: cpp-linter
     strategy:
       fail-fast: false
       matrix:
