@@ -1,0 +1,84 @@
+name: Rtype Epitech repository pipeline
+on:
+  push:
+    branches: ["main", "feature/*", "fix/*"]
+  pull_request:
+    branches: [ '**', '!ga-ignore-*' ]
+
+env:
+  MIRROR_URL: git@github.com:EpitechPromo2026/B-CPP-500-BDX-5-2-rtype-edouard.pradie.git
+
+jobs:
+  cpp-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cpp-linter/cpp-linter-action@v2
+        id: linter
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          style: file
+
+      - name: Fail fast?!
+        if: steps.linter.outputs.checks-failed > 0
+        run: echo "Some files failed the linting checks!"
+
+  build-project:
+    runs-on: ${{ matrix.os }}
+    needs: cpp-linter
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      #      for Ubuntu
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: sudo apt-get install libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev freeglut3-dev
+
+      #      for MacOs
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install sfml
+
+      #     for Windows
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'windows-latest'
+        run: |
+          choco install glfw3
+
+      - uses: lukka/get-cmake@latest
+
+      - name: Restore from cache and setup vcpkg executable and data files.
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgJsonGlob: 'vcpkg.json'
+
+      - name: Run CMake+vcpkg+Ninja+CTest to build packages and generate/build/test the code.
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: 'ninja-multi-vcpkg'
+          buildPreset: 'ninja-vcpkg-release'
+          testPreset: 'test-release'
+
+  push_to_mirror:
+    runs-on: ubuntu-latest
+    needs: build-project
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Push the repository to a mirror
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: ${{ env.MIRROR_URL }}
+          ssh_private_key: ${{ secrets.MIRROR_GIT_PRIVATE_KEY }}
