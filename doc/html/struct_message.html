@@ -111,18 +111,28 @@ $(document).ready(function(){initNavTree('struct_message.html',''); initResizabl
   <div class="headertitle"><div class="title">Message Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure representing a complete network message.  
+ <a href="struct_message.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_messages_8hpp_source.html">Messages.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a704863f3c71f270459d015102d61f7c8" id="r_a704863f3c71f270459d015102d61f7c8"><td class="memItemLeft" align="right" valign="top"><a id="a704863f3c71f270459d015102d61f7c8" name="a704863f3c71f270459d015102d61f7c8"></a>
 <a class="el" href="struct_message_header.html">MessageHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><b>header</b></td></tr>
+<tr class="memdesc:a704863f3c71f270459d015102d61f7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header of the message. <br /></td></tr>
 <tr class="separator:a704863f3c71f270459d015102d61f7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5226de4e2ee84b6813ae068bcccc211" id="r_ae5226de4e2ee84b6813ae068bcccc211"><td class="memItemLeft" align="right" valign="top"><a id="ae5226de4e2ee84b6813ae068bcccc211" name="ae5226de4e2ee84b6813ae068bcccc211"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> []</td></tr>
+<tr class="memdesc:ae5226de4e2ee84b6813ae068bcccc211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable-length data payload. <br /></td></tr>
 <tr class="separator:ae5226de4e2ee84b6813ae068bcccc211"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>network/<a class="el" href="_messages_8hpp_source.html">Messages.hpp</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure representing a complete network message. </p>
+<p>This structure combines the <a class="el" href="struct_message_header.html" title="Structure representing the header of a network message.">MessageHeader</a> with the actual data payload, allowing for easy manipulation and transmission of network messages. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>gameEngine/include/network/<a class="el" href="_messages_8hpp_source.html">Messages.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

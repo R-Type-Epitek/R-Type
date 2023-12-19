@@ -7,12 +7,22 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Window.hpp>
 
+#include <boost/array.hpp>
+#include <boost/bind.hpp>
+#include <boost/asio.hpp>
 #include <iostream>
 #include <memory>
 #include <optional>
 #include <functional>
 
-#include "../../network/Constants.hpp"
+// Game Engine Network
+#include "../../gameEngine/include/network/Commands.hpp"
+#include "../../gameEngine/include/network/Errors.hpp"
+#include "../../gameEngine/include/network/Messages.hpp"
+#include "../../gameEngine/include/network/Responses.hpp"
+#include "../../gameEngine/include/network/Status.hpp"
+
+#include "Constants.hpp"
 #include "Network.hpp"
 
 // Components

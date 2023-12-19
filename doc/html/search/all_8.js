@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lobbyscene_0',['LobbyScene',['../class_client_1_1_lobby_scene.html',1,'Client']]]
+  ['joinroomdata_0',['JoinRoomData',['../struct_join_room_data.html',1,'']]]
 ];

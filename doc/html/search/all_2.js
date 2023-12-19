@@ -1,8 +1,10 @@
 var searchData=
 [
   ['client_0',['client',['../class_network_1_1_client.html',1,'Network::Client'],['../class_network_1_1_client.html#a1bfaed07b94b9fc835b6667efd0b705d',1,'Network::Client::Client()']]],
-  ['componentarray_1',['ComponentArray',['../class_component_array.html',1,'']]],
-  ['componentmanager_2',['ComponentManager',['../class_component_manager.html',1,'']]],
-  ['conclusion_3',['Conclusion',['../md_doc_2_r_e_a_d_m_e.html#autotoc_md5',1,'']]],
-  ['contributions_4',['Support and Contributions',['../md_doc_2_r_e_a_d_m_e.html#autotoc_md4',1,'']]]
+  ['clientid_1',['clientId',['../struct_message_header.html#a705418d85961d98b6f84f4fba9f9f799',1,'MessageHeader']]],
+  ['command_2',['command',['../struct_message_header.html#a19f672c6735d819940166a11e25a321b',1,'MessageHeader']]],
+  ['componentarray_3',['ComponentArray',['../class_component_array.html',1,'']]],
+  ['componentmanager_4',['ComponentManager',['../class_component_manager.html',1,'']]],
+  ['conclusion_5',['Conclusion',['../md_doc_2_r_e_a_d_m_e.html#autotoc_md5',1,'']]],
+  ['contributions_6',['Support and Contributions',['../md_doc_2_r_e_a_d_m_e.html#autotoc_md4',1,'']]]
 ];

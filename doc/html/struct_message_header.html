@@ -111,21 +111,32 @@ $(document).ready(function(){initNavTree('struct_message_header.html',''); initR
   <div class="headertitle"><div class="title">MessageHeader Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure representing the header of a network message.  
+ <a href="struct_message_header.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_messages_8hpp_source.html">Messages.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a705418d85961d98b6f84f4fba9f9f799" id="r_a705418d85961d98b6f84f4fba9f9f799"><td class="memItemLeft" align="right" valign="top"><a id="a705418d85961d98b6f84f4fba9f9f799" name="a705418d85961d98b6f84f4fba9f9f799"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>clientId</b></td></tr>
+<tr class="memdesc:a705418d85961d98b6f84f4fba9f9f799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for the client. <br /></td></tr>
 <tr class="separator:a705418d85961d98b6f84f4fba9f9f799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19f672c6735d819940166a11e25a321b" id="r_a19f672c6735d819940166a11e25a321b"><td class="memItemLeft" align="right" valign="top"><a id="a19f672c6735d819940166a11e25a321b" name="a19f672c6735d819940166a11e25a321b"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>command</b> [32]</td></tr>
+<tr class="memdesc:a19f672c6735d819940166a11e25a321b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command type in ASCII format. <br /></td></tr>
 <tr class="separator:a19f672c6735d819940166a11e25a321b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac81cf10687f6cf52e454e4dec5a5cd6e" id="r_ac81cf10687f6cf52e454e4dec5a5cd6e"><td class="memItemLeft" align="right" valign="top"><a id="ac81cf10687f6cf52e454e4dec5a5cd6e" name="ac81cf10687f6cf52e454e4dec5a5cd6e"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>dataLength</b></td></tr>
+<tr class="memdesc:ac81cf10687f6cf52e454e4dec5a5cd6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the following data in bytes. <br /></td></tr>
 <tr class="separator:ac81cf10687f6cf52e454e4dec5a5cd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>network/<a class="el" href="_messages_8hpp_source.html">Messages.hpp</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure representing the header of a network message. </p>
+<p>This structure contains the client identifier, command, and length of the data that follows in the message. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>gameEngine/include/network/<a class="el" href="_messages_8hpp_source.html">Messages.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

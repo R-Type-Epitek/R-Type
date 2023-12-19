@@ -1,16 +1,30 @@
 \doxysection{Message Struct Reference}
 \hypertarget{struct_message}{}\label{struct_message}\index{Message@{Message}}
+
+
+Structure representing a complete network message.  
+
+
+
+
+{\ttfamily \#include $<$Messages.\+hpp$>$}
+
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{struct_message_a704863f3c71f270459d015102d61f7c8}\label{struct_message_a704863f3c71f270459d015102d61f7c8} 
 \mbox{\hyperlink{struct_message_header}{Message\+Header}} {\bfseries header}
-\item 
+\begin{DoxyCompactList}\small\item\em Header of the message. \end{DoxyCompactList}\item 
 \Hypertarget{struct_message_ae5226de4e2ee84b6813ae068bcccc211}\label{struct_message_ae5226de4e2ee84b6813ae068bcccc211} 
 char {\bfseries data} \mbox{[}$\,$\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Variable-\/length data payload. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Structure representing a complete network message. 
+
+This structure combines the \doxylink{struct_message_header}{Message\+Header} with the actual data payload, allowing for easy manipulation and transmission of network messages. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-network/Messages.\+hpp\end{DoxyCompactItemize}
+game\+Engine/include/network/Messages.\+hpp\end{DoxyCompactItemize}
