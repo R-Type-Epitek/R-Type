@@ -25,6 +25,7 @@ jobs:
 
   build-project:
     runs-on: ubuntu-latest
+    needs: cpp-linter
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -68,6 +69,7 @@ jobs:
 
   push_to_mirror:
     runs-on: ubuntu-latest
+    needs: build-project
     if: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v3
