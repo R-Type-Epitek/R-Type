@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['background_0',['Background',['../class_client_1_1_background.html',1,'Client']]],
-  ['button_1',['Button',['../class_client_1_1_button.html',1,'Client']]]
+  ['addplayer_0',['addPlayer',['../class_network_1_1_room.html#ae37c0b6e8381ffa76dd8ffa7032351fd',1,'Network::Room']]],
+  ['and_20contributions_1',['Support and Contributions',['../md_doc_2_r_e_a_d_m_e.html#autotoc_md4',1,'']]]
 ];

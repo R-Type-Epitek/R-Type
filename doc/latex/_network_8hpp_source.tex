@@ -28,26 +28,27 @@
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ connectToServer();}
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendName(std::string\ name);}
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ joinRoom(\textcolor{keywordtype}{int}\ roomId);}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setClientId(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getClientId()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setRoomId(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getRoomId()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setName(std::string\ name);}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ getName()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setEndpoint(}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&ip,}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&port}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::io\_context\ io;}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::ip::udp::endpoint\ receiverEndpoint;}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::ip::udp::socket\ socket\{this-\/>io\};}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ clientId;}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ name;}
-\DoxyCodeLine{00046\ \ \ \ \ \};}
-\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendKey(std::string\ key);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setClientId(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getClientId()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setRoomId(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getRoomId()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setName(std::string\ name);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ getName()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setEndpoint(}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&ip,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&port}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::io\_context\ io;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::ip::udp::endpoint\ receiverEndpoint;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ boost::asio::ip::udp::socket\ socket\{this-\/>io\};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ clientId;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00047\ \ \ \ \ \};}
+\DoxyCodeLine{00048\ \}}
 
 \end{DoxyCode}

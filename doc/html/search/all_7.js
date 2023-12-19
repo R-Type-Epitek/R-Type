@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['mediator_0',['Mediator',['../class_mediator.html',1,'']]],
-  ['message_1',['Message',['../struct_message.html',1,'']]],
-  ['messageheader_2',['MessageHeader',['../struct_message_header.html',1,'']]]
+  ['joinroomdata_0',['JoinRoomData',['../struct_join_room_data.html',1,'']]]
 ];

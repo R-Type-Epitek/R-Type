@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['network_0',['Network',['../class_client_1_1_network.html',1,'Client']]]
+  ['lobbyscene_0',['LobbyScene',['../class_client_1_1_lobby_scene.html',1,'Client']]]
 ];

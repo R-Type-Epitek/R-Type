@@ -1,26 +1,139 @@
 \doxysection{Network\+::Client Class Reference}
 \hypertarget{class_network_1_1_client}{}\label{class_network_1_1_client}\index{Network::Client@{Network::Client}}
+
+
+Represents a network client.  
+
+
+
+
+{\ttfamily \#include $<$Client.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_network_1_1_client_a1bfaed07b94b9fc835b6667efd0b705d}{Client}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_network_1_1_client}{Client}. \end{DoxyCompactList}\item 
+\Hypertarget{class_network_1_1_client_a4e8e5fe86070c5996e49e02bea3abd02}\label{class_network_1_1_client_a4e8e5fe86070c5996e49e02bea3abd02} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Client} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_network_1_1_client}{Client}. \end{DoxyCompactList}\item 
+boost\+::asio\+::ip\+::udp\+::endpoint \mbox{\hyperlink{class_network_1_1_client_a67507fa077e2a1781500207e08dc46b3}{get\+Endpoint}} () const
+\begin{DoxyCompactList}\small\item\em Gets the network endpoint of the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26}{set\+Endpoint}} (boost\+::asio\+::ip\+::udp\+::endpoint endpoint)
+\begin{DoxyCompactList}\small\item\em Sets the network endpoint of the client. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_network_1_1_client_a1b788b125572f455745b4d9d537fc0cb}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the identifier of the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_af9390388b249ecc73f5585f0c20210cf}{set\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Sets the identifier of the client. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_network_1_1_client_a436cfc281877445713aa8d63cc5fa52b}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_a7eab98c178b5ea21dc1363658f9815ea}{set\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Sets the name of the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a network client. 
+
+This class encapsulates the details of a network client, including its endpoint, identifier, and name. It provides methods to get and set these properties. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_network_1_1_client_a1bfaed07b94b9fc835b6667efd0b705d}\label{class_network_1_1_client_a1bfaed07b94b9fc835b6667efd0b705d} 
+\index{Network::Client@{Network::Client}!Client@{Client}}
+\index{Client@{Client}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{Client()}{Client()}}
+{\footnotesize\ttfamily Network\+::\+Client\+::\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_network_1_1_client}{Client}. 
+
+Initializes a new \doxylink{class_network_1_1_client}{Client} instance with default values. 
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_network_1_1_client_a67507fa077e2a1781500207e08dc46b3}\label{class_network_1_1_client_a67507fa077e2a1781500207e08dc46b3} 
-boost\+::asio\+::ip\+::udp\+::endpoint {\bfseries get\+Endpoint} () const
-\item 
-\Hypertarget{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26}\label{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26} 
-void {\bfseries set\+Endpoint} (boost\+::asio\+::ip\+::udp\+::endpoint endpoint)
-\item 
+\index{Network::Client@{Network::Client}!getEndpoint@{getEndpoint}}
+\index{getEndpoint@{getEndpoint}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getEndpoint()}{getEndpoint()}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::udp\+::endpoint Network\+::\+Client\+::get\+Endpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the network endpoint of the client. 
+
+\begin{DoxyReturn}{Returns}
+boost\+::asio\+::ip\+::udp\+::endpoint The endpoint of the client. 
+\end{DoxyReturn}
 \Hypertarget{class_network_1_1_client_a1b788b125572f455745b4d9d537fc0cb}\label{class_network_1_1_client_a1b788b125572f455745b4d9d537fc0cb} 
-int {\bfseries get\+Id} () const
-\item 
-\Hypertarget{class_network_1_1_client_af9390388b249ecc73f5585f0c20210cf}\label{class_network_1_1_client_af9390388b249ecc73f5585f0c20210cf} 
-void {\bfseries set\+Id} (int id)
-\item 
+\index{Network::Client@{Network::Client}!getId@{getId}}
+\index{getId@{getId}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int Network\+::\+Client\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the identifier of the client. 
+
+\begin{DoxyReturn}{Returns}
+int The identifier of the client. 
+\end{DoxyReturn}
 \Hypertarget{class_network_1_1_client_a436cfc281877445713aa8d63cc5fa52b}\label{class_network_1_1_client_a436cfc281877445713aa8d63cc5fa52b} 
-std\+::string {\bfseries get\+Name} () const
-\item 
+\index{Network::Client@{Network::Client}!getName@{getName}}
+\index{getName@{getName}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Network\+::\+Client\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of the client. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string The name of the client. 
+\end{DoxyReturn}
+\Hypertarget{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26}\label{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26} 
+\index{Network::Client@{Network::Client}!setEndpoint@{setEndpoint}}
+\index{setEndpoint@{setEndpoint}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setEndpoint()}{setEndpoint()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Endpoint (\begin{DoxyParamCaption}\item[{boost\+::asio\+::ip\+::udp\+::endpoint}]{endpoint }\end{DoxyParamCaption})}
+
+
+
+Sets the network endpoint of the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em endpoint} & The new endpoint to be set for the client. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_network_1_1_client_af9390388b249ecc73f5585f0c20210cf}\label{class_network_1_1_client_af9390388b249ecc73f5585f0c20210cf} 
+\index{Network::Client@{Network::Client}!setId@{setId}}
+\index{setId@{setId}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the identifier of the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The new identifier to be set for the client. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_network_1_1_client_a7eab98c178b5ea21dc1363658f9815ea}\label{class_network_1_1_client_a7eab98c178b5ea21dc1363658f9815ea} 
-void {\bfseries set\+Name} (std\+::string name)
-\end{DoxyCompactItemize}
+\index{Network::Client@{Network::Client}!setName@{setName}}
+\index{setName@{setName}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Sets the name of the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The new name to be set for the client. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['client_0',['Client',['../class_network_1_1_client.html',1,'Network']]],
-  ['componentarray_1',['ComponentArray',['../class_component_array.html',1,'']]],
-  ['componentmanager_2',['ComponentManager',['../class_component_manager.html',1,'']]]
+  ['background_0',['Background',['../class_client_1_1_background.html',1,'Client']]],
+  ['button_1',['Button',['../class_client_1_1_button.html',1,'Client']]]
 ];

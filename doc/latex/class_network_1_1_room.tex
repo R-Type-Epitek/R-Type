@@ -1,32 +1,165 @@
 \doxysection{Network\+::Room Class Reference}
 \hypertarget{class_network_1_1_room}{}\label{class_network_1_1_room}\index{Network::Room@{Network::Room}}
+
+
+Represents a room in the network context.  
+
+
+
+
+{\ttfamily \#include $<$Room.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_network_1_1_room_a921559d500021651da4203e4b3e44336}{Room}} (int id, int size)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_network_1_1_room}{Room}. \end{DoxyCompactList}\item 
+\Hypertarget{class_network_1_1_room_aa6449f53d721de21a5a08aa032acc00a}\label{class_network_1_1_room_aa6449f53d721de21a5a08aa032acc00a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Room} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_network_1_1_room}{Room}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_room_ae37c0b6e8381ffa76dd8ffa7032351fd}{add\+Player}} (int id)
+\begin{DoxyCompactList}\small\item\em Adds a player to the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_room_a1fcbc27e73b2fd043942dd607040c2e6}{remove\+Player}} (int id)
+\begin{DoxyCompactList}\small\item\em Removes a player from the room. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_network_1_1_room_a4194c540b15a95da36bbfcebcb2e8ce5}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the ID of the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_room_ac21adfc504a4ef56c960eff9b94b9b33}{set\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Sets the ID of the room. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_network_1_1_room_a24e2920279a125d79efd2474c1778d7e}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the size of the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_room_aea2f2865062de4920d71d55399eea862}{set\+Size}} (int size)
+\begin{DoxyCompactList}\small\item\em Sets the size of the room. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_network_1_1_room_a92553cf90665a33507b0b976d3b577a6}{get\+Players}} ()
+\begin{DoxyCompactList}\small\item\em Gets the list of players in the room. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a room in the network context. 
+
+This class encapsulates the properties of a room in a networked environment, including its ID, size, and the players within the room. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_network_1_1_room_a921559d500021651da4203e4b3e44336}\label{class_network_1_1_room_a921559d500021651da4203e4b3e44336} 
-{\bfseries Room} (int id, int size)
-\item 
+\index{Network::Room@{Network::Room}!Room@{Room}}
+\index{Room@{Room}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{Room()}{Room()}}
+{\footnotesize\ttfamily Network\+::\+Room\+::\+Room (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_network_1_1_room}{Room}. 
+
+Initializes a \doxylink{class_network_1_1_room}{Room} with a given ID and size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier for the room. \\
+\hline
+{\em size} & The size of the room, typically representing its capacity. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_network_1_1_room_ae37c0b6e8381ffa76dd8ffa7032351fd}\label{class_network_1_1_room_ae37c0b6e8381ffa76dd8ffa7032351fd} 
-void {\bfseries add\+Player} (int id)
-\item 
-\Hypertarget{class_network_1_1_room_a1fcbc27e73b2fd043942dd607040c2e6}\label{class_network_1_1_room_a1fcbc27e73b2fd043942dd607040c2e6} 
-void {\bfseries remove\+Player} (int id)
-\item 
+\index{Network::Room@{Network::Room}!addPlayer@{addPlayer}}
+\index{addPlayer@{addPlayer}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{addPlayer()}{addPlayer()}}
+{\footnotesize\ttfamily void Network\+::\+Room\+::add\+Player (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Adds a player to the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the player to be added. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_network_1_1_room_a4194c540b15a95da36bbfcebcb2e8ce5}\label{class_network_1_1_room_a4194c540b15a95da36bbfcebcb2e8ce5} 
-int {\bfseries get\+Id} () const
-\item 
-\Hypertarget{class_network_1_1_room_ac21adfc504a4ef56c960eff9b94b9b33}\label{class_network_1_1_room_ac21adfc504a4ef56c960eff9b94b9b33} 
-void {\bfseries set\+Id} (int id)
-\item 
-\Hypertarget{class_network_1_1_room_a24e2920279a125d79efd2474c1778d7e}\label{class_network_1_1_room_a24e2920279a125d79efd2474c1778d7e} 
-int {\bfseries get\+Size} () const
-\item 
-\Hypertarget{class_network_1_1_room_aea2f2865062de4920d71d55399eea862}\label{class_network_1_1_room_aea2f2865062de4920d71d55399eea862} 
-void {\bfseries set\+Size} (int size)
-\item 
+\index{Network::Room@{Network::Room}!getId@{getId}}
+\index{getId@{getId}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int Network\+::\+Room\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the ID of the room. 
+
+\begin{DoxyReturn}{Returns}
+int The ID of the room. 
+\end{DoxyReturn}
 \Hypertarget{class_network_1_1_room_a92553cf90665a33507b0b976d3b577a6}\label{class_network_1_1_room_a92553cf90665a33507b0b976d3b577a6} 
-std\+::vector$<$ int $>$ {\bfseries get\+Players} ()
-\end{DoxyCompactItemize}
+\index{Network::Room@{Network::Room}!getPlayers@{getPlayers}}
+\index{getPlayers@{getPlayers}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{getPlayers()}{getPlayers()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Network\+::\+Room\+::get\+Players (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the list of players in the room. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ A vector containing the IDs of the players in the room. 
+\end{DoxyReturn}
+\Hypertarget{class_network_1_1_room_a24e2920279a125d79efd2474c1778d7e}\label{class_network_1_1_room_a24e2920279a125d79efd2474c1778d7e} 
+\index{Network::Room@{Network::Room}!getSize@{getSize}}
+\index{getSize@{getSize}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int Network\+::\+Room\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the size of the room. 
+
+\begin{DoxyReturn}{Returns}
+int The size of the room. 
+\end{DoxyReturn}
+\Hypertarget{class_network_1_1_room_a1fcbc27e73b2fd043942dd607040c2e6}\label{class_network_1_1_room_a1fcbc27e73b2fd043942dd607040c2e6} 
+\index{Network::Room@{Network::Room}!removePlayer@{removePlayer}}
+\index{removePlayer@{removePlayer}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{removePlayer()}{removePlayer()}}
+{\footnotesize\ttfamily void Network\+::\+Room\+::remove\+Player (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Removes a player from the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the player to be removed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_network_1_1_room_ac21adfc504a4ef56c960eff9b94b9b33}\label{class_network_1_1_room_ac21adfc504a4ef56c960eff9b94b9b33} 
+\index{Network::Room@{Network::Room}!setId@{setId}}
+\index{setId@{setId}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void Network\+::\+Room\+::set\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets the ID of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The new ID of the room. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_network_1_1_room_aea2f2865062de4920d71d55399eea862}\label{class_network_1_1_room_aea2f2865062de4920d71d55399eea862} 
+\index{Network::Room@{Network::Room}!setSize@{setSize}}
+\index{setSize@{setSize}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void Network\+::\+Room\+::set\+Size (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Sets the size of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The new size of the room. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
