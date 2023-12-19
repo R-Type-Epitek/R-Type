@@ -1,0 +1,82 @@
+name: Rtype Epitech repository pipeline
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [ '**', '!ga-ignore-*' ]
+
+env:
+  MIRROR_URL: git@github.com:EpitechPromo2026/B-CPP-500-BDX-5-2-rtype-edouard.pradie.git
+
+jobs:
+  cpp-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cpp-linter/cpp-linter-action@v2
+        id: linter
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          style: file
+
+      - name: Fail fast?!
+        if: steps.linter.outputs.checks-failed > 0
+        run: echo "Some files failed the linting checks!"
+
+  build-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: state
+        shell: bash
+        run: |
+          ls -la
+          ls -la vcpkg
+          cmake --version
+
+      - uses: extractions/setup-just@v1
+      - name: set vcpckg
+        shell: bash
+        run: just set-vcpckg
+
+      - name: install sfml lib dependencies
+        shell: bash
+        run: sudo apt-get install libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev
+
+
+      - name: build project
+        shell: bash
+        run: just cmake
+
+      - name: Cache vcpkg package
+        uses: actions/cache@v3
+        with:
+          path: |
+            vcpkg
+            build
+          key: ${{ runner.os }}-${{ hashFiles('**/vcpkg.json') }}
+
+      - name: state end
+        shell: bash
+        run: |
+          ls -la
+
+  push_to_mirror:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Push the repository to a mirror
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: ${{ env.MIRROR_URL }}
+          ssh_private_key: ${{ secrets.MIRROR_GIT_PRIVATE_KEY }}
