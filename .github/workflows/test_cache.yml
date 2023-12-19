@@ -12,17 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        include:
-          - os: ubuntu-latest
-            triplet: x64-linux
-#          - os: windows-latest
-#            triplet: x64-windows
-#          - os: macos-latest
-#            triplet: x64-osx
-
-    env:
-      VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }}
+        os: [ubuntu-latest, macos-latest, windows-latest, buildjet-2vcpu-ubuntu-2204-arm]
 
     steps:
       - uses: actions/checkout@v3
@@ -30,27 +20,21 @@ jobs:
           submodules: true
 
       - uses: lukka/get-cmake@latest
-      - name: dir
-        run: find $RUNNER_WORKSPACE
-        shell: bash
 
-      - name: Setup vcpkg
-        uses: lukka/run-vcpkg@main
-        id: runvcpkg
+      - name: Restore from cache and setup vcpkg executable and data files.
+        uses: lukka/run-vcpkg@v11
         with:
-          vcpkgJsonGlob: '**/cmakepresets/vcpkg.json'
+          vcpkgJsonGlob: 'vcpkg.json'
 
-      - name: List $RUNNER_WORKSPACE before build
-        run: find $RUNNER_WORKSPACE
-        shell: bash
-      - name: Prints output of run-vcpkg's action.
-        run: echo "root='${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_ROOT_OUT }}', triplet='${{ steps.runvcpkg.outputs.RUNVCPKG_VCPKG_DEFAULT_TRIPLET_OUT }}' "
-
-      - name: build project
-        shell: bash
-        run: |
-          cmake -DCMAKE_TOOLCHAIN_FILE:STRING="/home/runner/work/R-Type/R-Type/vcpkg/scripts/buildsystems/vcpkg.cmake" -S . -B ./build
-
-      - name: List $RUNNER_WORKSPACE after build
-        run: find $RUNNER_WORKSPACE
-        shell: bash
+      # Note: if the preset misses the "configuration", it is possible to explicitly select the
+      # configuration with the additional `--config` flag, e.g.:
+      #   buildPreset: 'ninja-vcpkg'
+      #   buildPresetAdditionalArgs: "[`--config`, `Release`]"
+      #   testPreset: 'ninja-vcpkg'
+      #   testPresetAdditionalArgs: "[`--config`, `Release`]"
+      - name: Run CMake+vcpkg+Ninja+CTest to build packages and generate/build/test the code.
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: 'ninja-multi-vcpkg'
+          buildPreset: 'ninja-vcpkg-release'
+          testPreset: 'test-release'
