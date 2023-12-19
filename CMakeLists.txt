@@ -21,6 +21,9 @@ find_package(SFML
         network
         audio
 )
+
+add_definitions("-DBOOST_ALLOW_DEPRECATED_HEADERS")
+add_definitions("-DBOOST_BIND_GLOBAL_PLACEHOLDERS")
 find_package(Boost
         REQUIRED COMPONENTS
         system
