@@ -12,16 +12,31 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest, buildjet-2vcpu-ubuntu-2204-arm]
+        os: [ubuntu-latest]
+#        os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
 
+#      for Ubuntu
       - name: Install sfml lib dependencies
+        if: matrix.os == 'ubuntu-latest'
         shell: bash
         run: sudo apt-get install libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev freeglut3-dev
+
+#      for MacOs
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install sfml
+
+#     for Windows
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'windows-latest'
+        run: |
+          choco install glfw3
 
       - uses: lukka/get-cmake@latest
 
@@ -30,12 +45,6 @@ jobs:
         with:
           vcpkgJsonGlob: 'vcpkg.json'
 
-      # Note: if the preset misses the "configuration", it is possible to explicitly select the
-      # configuration with the additional `--config` flag, e.g.:
-      #   buildPreset: 'ninja-vcpkg'
-      #   buildPresetAdditionalArgs: "[`--config`, `Release`]"
-      #   testPreset: 'ninja-vcpkg'
-      #   testPresetAdditionalArgs: "[`--config`, `Release`]"
       - name: Run CMake+vcpkg+Ninja+CTest to build packages and generate/build/test the code.
         uses: lukka/run-cmake@v10
         with:
