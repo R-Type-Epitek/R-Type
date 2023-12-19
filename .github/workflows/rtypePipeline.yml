@@ -24,48 +24,48 @@ jobs:
         run: echo "Some files failed the linting checks!"
 
   build-project:
-    runs-on: ubuntu-latest
-    needs: cpp-linter
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          submodules: recursive
+          submodules: true
 
-      - name: state
+      #      for Ubuntu
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'ubuntu-latest'
         shell: bash
+        run: sudo apt-get install libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev freeglut3-dev
+
+      #      for MacOs
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'macos-latest'
         run: |
-          ls -la
-          ls -la vcpkg
-          cmake --version
+          brew install sfml
 
-      - uses: extractions/setup-just@v1
-      - name: set vcpckg
-        shell: bash
-        run: just set-vcpckg
+      #     for Windows
+      - name: Install sfml lib dependencies
+        if: matrix.os == 'windows-latest'
+        run: |
+          choco install glfw3
 
-      - name: install sfml lib dependencies
-        shell: bash
-        run: sudo apt-get install libx11-dev libxrandr-dev libxcursor-dev libxi-dev libudev-dev libgl1-mesa-dev
+      - uses: lukka/get-cmake@latest
 
-
-      - name: build project
-        shell: bash
-        run: just cmake
-
-      - name: Cache vcpkg package
-        uses: actions/cache@v3
+      - name: Restore from cache and setup vcpkg executable and data files.
+        uses: lukka/run-vcpkg@v11
         with:
-          path: |
-            vcpkg
-            build
-          key: ${{ runner.os }}-${{ hashFiles('**/vcpkg.json') }}
+          vcpkgJsonGlob: 'vcpkg.json'
 
-      - name: state end
-        shell: bash
-        run: |
-          ls -la
+      - name: Run CMake+vcpkg+Ninja+CTest to build packages and generate/build/test the code.
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: 'ninja-multi-vcpkg'
+          buildPreset: 'ninja-vcpkg-release'
+          testPreset: 'test-release'
 
   push_to_mirror:
     runs-on: ubuntu-latest
