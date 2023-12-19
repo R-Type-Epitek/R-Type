@@ -7,6 +7,5 @@
 namespace MathRType {
   class Physics {
   public:
-    static void update(std::chrono::duration<double> delta);
   };
 }
