@@ -2,9 +2,11 @@
 
 set(LIBRARY "GameEngine")
 
-add_library(${LIBRARY} STATIC
+add_library(GameEngine STATIC
         src/testlib.cpp
         src/ecs/entity/EntityManager.cpp
+        src/scene/SceneManager.cpp
+        src/UI/Window.cpp
 )
 
 target_include_directories(${LIBRARY}
