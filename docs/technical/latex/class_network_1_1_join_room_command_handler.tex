@@ -1,0 +1,80 @@
+\doxysection{Network\+::Join\+Room\+Command\+Handler Class Reference}
+\hypertarget{class_network_1_1_join_room_command_handler}{}\label{class_network_1_1_join_room_command_handler}\index{Network::JoinRoomCommandHandler@{Network::JoinRoomCommandHandler}}
+Inheritance diagram for Network\+::Join\+Room\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_network_1_1_join_room_command_handler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_network_1_1_join_room_command_handler_ae04ba145367c8c15411857f55c3fdd2c}\label{class_network_1_1_join_room_command_handler_ae04ba145367c8c15411857f55c3fdd2c} 
+{\bfseries Join\+Room\+Command\+Handler} (\mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}} \&server)
+\item 
+bool \mbox{\hyperlink{class_network_1_1_join_room_command_handler_a7097c949d5cce3914afcbe21cd0d2ee2}{is\+Authorized}} (int client\+Id) override
+\begin{DoxyCompactList}\small\item\em Checks if a client is authorized. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_response}{Response}} \mbox{\hyperlink{class_network_1_1_join_room_command_handler_ad1c0db618b7504b58d8cb17dac568a72}{handle\+Command}} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message) override
+\begin{DoxyCompactList}\small\item\em Handles a received command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_network_1_1_i_command_handler}{Network\+::\+ICommand\+Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_network_1_1_join_room_command_handler_ad1c0db618b7504b58d8cb17dac568a72}\label{class_network_1_1_join_room_command_handler_ad1c0db618b7504b58d8cb17dac568a72} 
+\index{Network::JoinRoomCommandHandler@{Network::JoinRoomCommandHandler}!handleCommand@{handleCommand}}
+\index{handleCommand@{handleCommand}!Network::JoinRoomCommandHandler@{Network::JoinRoomCommandHandler}}
+\doxysubsubsection{\texorpdfstring{handleCommand()}{handleCommand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_response}{Response}} Network\+::\+Join\+Room\+Command\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles a received command. 
+
+Processes the given command message and generates a response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the message to be handled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{struct_response}{Response} object representing the outcome of the command. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_network_1_1_i_command_handler_aa5b52b3d2b867473810e41974c12fc29}{Network\+::\+ICommand\+Handler}}.
+
+\Hypertarget{class_network_1_1_join_room_command_handler_a7097c949d5cce3914afcbe21cd0d2ee2}\label{class_network_1_1_join_room_command_handler_a7097c949d5cce3914afcbe21cd0d2ee2} 
+\index{Network::JoinRoomCommandHandler@{Network::JoinRoomCommandHandler}!isAuthorized@{isAuthorized}}
+\index{isAuthorized@{isAuthorized}!Network::JoinRoomCommandHandler@{Network::JoinRoomCommandHandler}}
+\doxysubsubsection{\texorpdfstring{isAuthorized()}{isAuthorized()}}
+{\footnotesize\ttfamily bool Network\+::\+Join\+Room\+Command\+Handler\+::is\+Authorized (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if a client is authorized. 
+
+Determines if the given client is authorized to execute commands.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The identifier of the client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the client is authorized, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_network_1_1_i_command_handler_a2247483da1e56599d5fd9a2e891e0767}{Network\+::\+ICommand\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/include/\+Commands/Join\+Room.\+hpp\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/src/\+Commands/Join\+Room.\+cpp\end{DoxyCompactItemize}

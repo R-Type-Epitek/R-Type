@@ -27,10 +27,41 @@ Network::UDPServer::~UDPServer()
     }
 }
 
+boost::asio::ip::udp::socket& Network::UDPServer::getSocket()
+{
+    return this->socket;
+}
+
+std::vector<Network::Client> Network::UDPServer::getClients() const
+{
+    return this->clients;
+}
+
+boost::array<char, 1024> Network::UDPServer::getRecvBuffer() const
+{
+    return this->recvBuffer;
+}
+
+boost::asio::ip::udp::endpoint Network::UDPServer::getRemoteEndpoint() const
+{
+    return this->remoteEndpoint;
+}
+
+std::vector<Network::Room> Network::UDPServer::getRooms() const
+{
+    return this->rooms;
+}
+
+void Network::UDPServer::addClient(Network::Client client)
+{
+    this->clients.push_back(client);
+}
+
 void Network::UDPServer::initServer(int port)
 {
     std::cout << "Server listening on port " << port << std::endl;
     this->initRooms(NUMBER_OF_ROOMS);
+    this->registerCommandHandlers();
     this->startReceive();
 
     int num_threads = std::thread::hardware_concurrency();
@@ -76,7 +107,8 @@ void Network::UDPServer::handleReceive(
     }
     
     Message *message = (Message *)boost::asio::buffer(this->recvBuffer).data();
-    this->messageQueue.push(message);
+    TimedMessage timedMessage = { message, std::chrono::high_resolution_clock::now() };
+    this->messageQueue.push(timedMessage);
 }
 
 void Network::UDPServer::sendToAll(
@@ -87,6 +119,20 @@ void Network::UDPServer::sendToAll(
         this->socket.send_to(
             buffer,
             client.getEndpoint()
+        );
+}
+
+void Network::UDPServer::sendToAllClientsInRoom(
+    const boost::asio::const_buffer &buffer,
+    int roomId
+)
+{
+    if (roomId < 0 || roomId >= (int)this->rooms.size())
+        throw std::runtime_error("Invalid room id");
+    for (auto &clientId : this->rooms[roomId].getPlayers())
+        this->socket.send_to(
+            buffer,
+            this->clients[clientId].getEndpoint()
         );
 }
 
@@ -106,34 +152,42 @@ void Network::UDPServer::sendToClient(
 }
 
 void Network::UDPServer::processMessage(
-    Message *message
+    TimedMessage timedMessage
 )
 {
-    if (!strcmp(message->header.command, HELLO_COMMAND))
-        return this->helloCommand(message);
-    if (!strcmp(message->header.command, UPDATE_NAME_COMMAND))
-        return this->updateNameCommand(message);
-    if (!strcmp(message->header.command, JOIN_ROOM_COMMAND))
-        return this->joinRoomCommand(message);
-    if (!strcmp(message->header.command, INPUT_COMMAND))
-        return this->inputCommand(message);
-    if (!strcmp(message->header.command, START_GAME_COMMAND))
-        return this->startGameCommand(message);
+    Message *message = timedMessage.message;
 
-    throw std::runtime_error("Invalid command");
+    auto it = this->commandHandlers.find(message->header.command);
+    if (it != this->commandHandlers.end()) {
+        if (!it->second->isAuthorized(message->header.clientId))
+            return this->handleInvalidClient(timedMessage);
+        Response response = it->second->handleCommand(message);
+        this->sendResponseAndLog(timedMessage, response);
+    } else {
+        return this->handleInvalidCommand(timedMessage);
+    }
 }
 
 void Network::UDPServer::workerFunction()
 {
+    const int width = 20;
+
     while (true) {
-        Message *message = this->messageQueue.pop();
+        TimedMessage timedMessage = this->messageQueue.pop();
+        Message *message = timedMessage.message;
 
-        std::cout << "Worker " << std::this_thread::get_id() << " processing message" << std::endl;
-        std::cout << "Command: " << message->header.command << std::endl;
-        std::cout << "Data length: " << message->header.dataLength << std::endl;
-        std::cout << "Client id: " << message->header.clientId << std::endl << std::endl;
+        std::stringstream ss;
+        ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
+        ss << GREEN << "Worker Thread: " << std::this_thread::get_id() << RESET << "\n";
+        ss << CYAN << std::string(60, '-') << RESET << "\n";
+        ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << message->header.command << "\n";
+        ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << message->header.dataLength << "\n";
+        ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << message->header.clientId << "\n";
+        ss << CYAN << std::string(60, '-') << RESET << "\n";
 
-        this->processMessage(message);
+        std::cout << ss.str();
+
+        this->processMessage(timedMessage);
     }
 }
 
@@ -141,7 +195,7 @@ Response Network::UDPServer::createResponse(
     int clientId,
     const std::string& command,
     const std::string& statusMessage,
-    int status = RES_SUCCESS
+    int status
 )
 {
     Response response;
@@ -154,73 +208,77 @@ Response Network::UDPServer::createResponse(
     return response;
 }
 
-void Network::UDPServer::sendResponseAndLog(const Response& response)
+void Network::UDPServer::sendResponseAndLog(
+    TimedMessage timedMessage,
+    const Response& response
+)
 {
+    const int width = 20;
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - timedMessage.timestamp).count();
+
     this->sendToClient(
         boost::asio::buffer(&response, sizeof(response)),
         response.header.clientId
     );
-    std::cout << "Client " << response.header.clientId << ": " << response.header.statusMessage << std::endl;
+
+    std::stringstream ss;
+    ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
+    ss << GREEN << "Server Response: " << RESET << "\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << response.header.command << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << response.header.dataLength << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << response.header.clientId << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Status:" << RESET << response.header.status << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Status Message:" << RESET << response.header.statusMessage << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Duration:" << RESET << duration << "ms\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+
+    std::cout << ss.str();
+
     this->startReceive();
 }
 
-void Network::UDPServer::helloCommand(Message *message)
+bool Network::UDPServer::isClientConnected(int clientId)
 {
-    (void)message;
-    int clientId = this->clients.size();
-    std::string statusMessage = "User correctly connected to server";
-    Response response = createResponse(clientId, HELLO_COMMAND, statusMessage);
-
-    Network::Client client;
-    client.setEndpoint(this->remoteEndpoint);
-    client.setId(clientId);
-    this->clients.push_back(client);
-
-    sendResponseAndLog(response);
+    for (const auto& client : this->clients)
+        if (client.getId() == clientId)
+            return true;
+    return false;
 }
 
-void Network::UDPServer::updateNameCommand(Message *message)
+void Network::UDPServer::registerCommandHandlers()
 {
-    UpdateNameData *data = (UpdateNameData *)message->data;
-    std::string statusMessage = "Name correctly set: " + std::string(data->name);
-    Response response = createResponse(message->header.clientId, UPDATE_NAME_COMMAND, statusMessage);
-
-    this->clients[message->header.clientId].setName(data->name);
-
-    sendResponseAndLog(response);
+    this->commandHandlers[HELLO_COMMAND] = std::make_unique<HelloCommandHandler>(*this);
+    this->commandHandlers[UPDATE_NAME_COMMAND] = std::make_unique<UpdateNameCommandHandler>(*this);
+    this->commandHandlers[JOIN_ROOM_COMMAND] = std::make_unique<JoinRoomCommandHandler>(*this);
+    this->commandHandlers[INPUT_COMMAND] = std::make_unique<InputCommandHandler>(*this);
+    this->commandHandlers[START_GAME_COMMAND] = std::make_unique<StartGameCommandHandler>(*this);
 }
 
-void Network::UDPServer::joinRoomCommand(Message *message)
+void Network::UDPServer::handleInvalidClient(TimedMessage timedMessage)
 {
-    JoinRoomData *data = (JoinRoomData *)message->data;
-    std::string statusMessage = "Joined room: " + std::to_string(data->roomId);
-    Response response = createResponse(message->header.clientId, JOIN_ROOM_COMMAND, statusMessage);
+    int clientId = timedMessage.message->header.clientId;
+    std::string statusMessage = clientId < 0
+        ? "Invalid client ID"
+        : "Client not connected. Use " HELLO_COMMAND " command to connect";
 
-    this->rooms[data->roomId].addPlayer(message->header.clientId);
-
-    sendResponseAndLog(response);
+    Response response = this->createResponse(
+        clientId,
+        timedMessage.message->header.command,
+        statusMessage,
+        RES_UNAUTHORIZED
+    );
+    return this->sendResponseAndLog(timedMessage, response);
 }
 
-void Network::UDPServer::inputCommand(Message *message)
+void Network::UDPServer::handleInvalidCommand(TimedMessage timedMessage)
 {
-    InputData *data = (InputData *)message->data;
-    std::string statusMessage = "Get key: \"" + std::string(data->key) + "\"";
-    Response response = createResponse(message->header.clientId, INPUT_COMMAND, statusMessage);
-
-    // Update player position
-
-    sendResponseAndLog(response);
-}
-
-void Network::UDPServer::startGameCommand(Message *message)
-{
-    StartGameData *data = (StartGameData *)message->data;
-    std::string statusMessage = "Start game (room " + std::to_string(data->roomId) + ")";
-    Response response = createResponse(message->header.clientId, START_GAME_COMMAND, statusMessage);
-
-    // Start game
-    // Initialize the map (all the entities)
-    // Initialize the players
-
-    sendResponseAndLog(response);
+    Response response = this->createResponse(
+        timedMessage.message->header.clientId,
+        timedMessage.message->header.command,
+        "Invalid command",
+        RES_BAD_REQUEST
+    );
+    return this->sendResponseAndLog(timedMessage, response);
 }

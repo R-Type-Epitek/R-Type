@@ -1,5 +1,5 @@
 \doxysection{RType\+Network.\+hpp}
-\hypertarget{_r_type_network_8hpp_source}{}\label{_r_type_network_8hpp_source}\index{server/include/RTypeNetwork.hpp@{server/include/RTypeNetwork.hpp}}
+\hypertarget{_r_type_network_8hpp_source}{}\label{_r_type_network_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/RTypeNetwork.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/RTypeNetwork.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -12,23 +12,33 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <boost/bind.hpp>}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <boost/asio.hpp>}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <queue>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <mutex>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <thread>}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{comment}{//\ Game\ Engine\ Network}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Commands.hpp"{}}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Errors.hpp"{}}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Messages.hpp"{}}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Responses.hpp"{}}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Status.hpp"{}}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}Constants.hpp"{}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}Client.hpp"{}}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}Room.hpp"{}}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}ThreadSafeQueue.hpp"{}}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}UDPServer.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Game\ Engine\ Network}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Commands.hpp"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Messages.hpp"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Responses.hpp"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Statuses.hpp"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}Commands/IHandler.hpp"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}Constants.hpp"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}Client.hpp"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}Room.hpp"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}ThreadSafeQueue.hpp"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}UDPServer.hpp"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Commands}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}Commands/Hello.hpp"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}Commands/Input.hpp"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}Commands/JoinRoom.hpp"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}Commands/StartGame.hpp"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}Commands/UpdateName.hpp"{}}}
 
 \end{DoxyCode}

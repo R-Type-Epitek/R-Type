@@ -8,6 +8,11 @@ find_package(Boost REQUIRED COMPONENTS system thread regex)
 
 
 add_executable(${EXEC_SERVER}
+        src/Commands/Hello.cpp
+        src/Commands/Input.cpp
+        src/Commands/JoinRoom.cpp
+        src/Commands/StartGame.cpp
+        src/Commands/UpdateName.cpp
         src/Client.cpp
         src/Room.cpp
         src/ThreadSafeQueue.cpp

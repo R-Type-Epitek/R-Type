@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['udpserver_0',['UDPServer',['../classNetwork_1_1UDPServer.html',1,'Network']]],
-  ['updatenamedata_1',['UpdateNameData',['../structUpdateNameData.html',1,'']]]
+  ['threadsafequeue_0',['ThreadSafeQueue',['../class_network_1_1_thread_safe_queue.html',1,'Network']]],
+  ['threadsafequeue_3c_20timedmessage_20_3e_1',['ThreadSafeQueue&lt; TimedMessage &gt;',['../class_network_1_1_thread_safe_queue.html',1,'Network']]],
+  ['timedmessage_2',['TimedMessage',['../struct_timed_message.html',1,'']]]
 ];

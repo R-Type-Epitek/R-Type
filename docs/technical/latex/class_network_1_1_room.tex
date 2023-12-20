@@ -30,7 +30,13 @@ int \mbox{\hyperlink{class_network_1_1_room_a24e2920279a125d79efd2474c1778d7e}{g
 void \mbox{\hyperlink{class_network_1_1_room_aea2f2865062de4920d71d55399eea862}{set\+Size}} (int size)
 \begin{DoxyCompactList}\small\item\em Sets the size of the room. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \mbox{\hyperlink{class_network_1_1_room_a92553cf90665a33507b0b976d3b577a6}{get\+Players}} ()
-\begin{DoxyCompactList}\small\item\em Gets the list of players in the room. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the list of players in the room. \end{DoxyCompactList}\item 
+Room\+State \mbox{\hyperlink{class_network_1_1_room_abe4ddca044c548d5658ea8d8e24e624a}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em Gets the state of the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_room_a450ff0773926707112db25e3e40eb227}{set\+State}} (Room\+State state)
+\begin{DoxyCompactList}\small\item\em Sets the state of the room. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_network_1_1_room_aec809e76b88ff1fb19c652c8d6da9e13}{is\+Full}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the room is full. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -115,6 +121,34 @@ Gets the size of the room.
 \begin{DoxyReturn}{Returns}
 int The size of the room. 
 \end{DoxyReturn}
+\Hypertarget{class_network_1_1_room_abe4ddca044c548d5658ea8d8e24e624a}\label{class_network_1_1_room_abe4ddca044c548d5658ea8d8e24e624a} 
+\index{Network::Room@{Network::Room}!getState@{getState}}
+\index{getState@{getState}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily Network\+::\+Room\+State Network\+::\+Room\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the state of the room. 
+
+\begin{DoxyReturn}{Returns}
+Room\+State The state of the room. 
+\end{DoxyReturn}
+\Hypertarget{class_network_1_1_room_aec809e76b88ff1fb19c652c8d6da9e13}\label{class_network_1_1_room_aec809e76b88ff1fb19c652c8d6da9e13} 
+\index{Network::Room@{Network::Room}!isFull@{isFull}}
+\index{isFull@{isFull}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{isFull()}{isFull()}}
+{\footnotesize\ttfamily bool Network\+::\+Room\+::is\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the room is full. 
+
+\begin{DoxyReturn}{Returns}
+true If the room is full. 
+
+false If the room is not full. 
+\end{DoxyReturn}
 \Hypertarget{class_network_1_1_room_a1fcbc27e73b2fd043942dd607040c2e6}\label{class_network_1_1_room_a1fcbc27e73b2fd043942dd607040c2e6} 
 \index{Network::Room@{Network::Room}!removePlayer@{removePlayer}}
 \index{removePlayer@{removePlayer}!Network::Room@{Network::Room}}
@@ -160,9 +194,24 @@ Sets the size of the room.
 {\em size} & The new size of the room. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_network_1_1_room_a450ff0773926707112db25e3e40eb227}\label{class_network_1_1_room_a450ff0773926707112db25e3e40eb227} 
+\index{Network::Room@{Network::Room}!setState@{setState}}
+\index{setState@{setState}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Network\+::\+Room\+::set\+State (\begin{DoxyParamCaption}\item[{Room\+State}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the state of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The new state of the room. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-server/include/Room.\+hpp\item 
-server/src/Room.\+cpp\end{DoxyCompactItemize}
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/include/Room.\+hpp\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/src/Room.\+cpp\end{DoxyCompactItemize}

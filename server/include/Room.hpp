@@ -9,6 +9,18 @@
 namespace Network
 {
     /**
+     * @brief Represents the state of a room.
+     *
+     * This enum is used to represent the state of a room in a networked environment.
+     * The states are WAITING, IN_GAME, and FINISHED.
+     */
+    enum RoomState {
+        WAITING,
+        IN_GAME,
+        FINISHED
+    };
+
+    /**
      * @brief Represents a room in the network context.
      *
      * This class encapsulates the properties of a room in a networked environment,
@@ -80,10 +92,33 @@ namespace Network
              */
             std::vector<int> getPlayers();
 
+            /**
+             * @brief Gets the state of the room.
+             * 
+             * @return RoomState The state of the room.
+             */
+            RoomState getState() const;
+
+            /**
+             * @brief Sets the state of the room.
+             * 
+             * @param state The new state of the room.
+             */
+            void setState(RoomState state);
+
+            /**
+             * @brief Checks if the room is full.
+             * 
+             * @return true If the room is full.
+             * @return false If the room is not full.
+             */
+            bool isFull() const;
+
         protected:
         private:
             int size; ///< The size of the room, typically its capacity.
             int id; ///< The unique identifier of the room.
             std::vector<int> players; ///< A vector of player IDs currently in the room.
+            RoomState state; ///< The state of the room.
     };
 }

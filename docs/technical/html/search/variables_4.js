@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../structUpdateNameData.html#a0a653a11d78a9e6be30feb49636bdfd3',1,'UpdateNameData']]]
+  ['message_0',['message',['../struct_timed_message.html#a2c1d25c80436512087308a036f01e86a',1,'TimedMessage']]]
 ];

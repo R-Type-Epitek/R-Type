@@ -147,6 +147,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a92553cf90665a33507b0b976d3b577a6" id="r_a92553cf90665a33507b0b976d3b577a6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_room.html#a92553cf90665a33507b0b976d3b577a6">getPlayers</a> ()</td></tr>
 <tr class="memdesc:a92553cf90665a33507b0b976d3b577a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of players in the room.  <br /></td></tr>
 <tr class="separator:a92553cf90665a33507b0b976d3b577a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe4ddca044c548d5658ea8d8e24e624a" id="r_abe4ddca044c548d5658ea8d8e24e624a"><td class="memItemLeft" align="right" valign="top">RoomState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_room.html#abe4ddca044c548d5658ea8d8e24e624a">getState</a> () const</td></tr>
+<tr class="memdesc:abe4ddca044c548d5658ea8d8e24e624a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state of the room.  <br /></td></tr>
+<tr class="separator:abe4ddca044c548d5658ea8d8e24e624a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a450ff0773926707112db25e3e40eb227" id="r_a450ff0773926707112db25e3e40eb227"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_room.html#a450ff0773926707112db25e3e40eb227">setState</a> (RoomState state)</td></tr>
+<tr class="memdesc:a450ff0773926707112db25e3e40eb227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the state of the room.  <br /></td></tr>
+<tr class="separator:a450ff0773926707112db25e3e40eb227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec809e76b88ff1fb19c652c8d6da9e13" id="r_aec809e76b88ff1fb19c652c8d6da9e13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_room.html#aec809e76b88ff1fb19c652c8d6da9e13">isFull</a> () const</td></tr>
+<tr class="memdesc:aec809e76b88ff1fb19c652c8d6da9e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the room is full.  <br /></td></tr>
+<tr class="separator:aec809e76b88ff1fb19c652c8d6da9e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a room in the network context. </p>
@@ -277,6 +286,48 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="abe4ddca044c548d5658ea8d8e24e624a" name="abe4ddca044c548d5658ea8d8e24e624a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4ddca044c548d5658ea8d8e24e624a">&#9670;&#160;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Network::RoomState Network::Room::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the state of the room. </p>
+<dl class="section return"><dt>Returns</dt><dd>RoomState The state of the room. </dd></dl>
+
+</div>
+</div>
+<a id="aec809e76b88ff1fb19c652c8d6da9e13" name="aec809e76b88ff1fb19c652c8d6da9e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec809e76b88ff1fb19c652c8d6da9e13">&#9670;&#160;</a></span>isFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Room::isFull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the room is full. </p>
+<dl class="section return"><dt>Returns</dt><dd>true If the room is full. </dd>
+<dd>
+false If the room is not full. </dd></dl>
+
+</div>
+</div>
 <a id="a1fcbc27e73b2fd043942dd607040c2e6" name="a1fcbc27e73b2fd043942dd607040c2e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1fcbc27e73b2fd043942dd607040c2e6">&#9670;&#160;</a></span>removePlayer()</h2>
 
@@ -355,12 +406,38 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a450ff0773926707112db25e3e40eb227" name="a450ff0773926707112db25e3e40eb227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a450ff0773926707112db25e3e40eb227">&#9670;&#160;</a></span>setState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Room::setState </td>
+          <td>(</td>
+          <td class="paramtype">RoomState&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the state of the room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>The new state of the room. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>server/include/<a class="el" href="_room_8hpp_source.html">Room.hpp</a></li>
-<li>server/src/<b>Room.cpp</b></li>
+<li>/Users/xavierv/Developer/EPITECH/R-Type/server/include/<a class="el" href="_room_8hpp_source.html">Room.hpp</a></li>
+<li>/Users/xavierv/Developer/EPITECH/R-Type/server/src/<b>Room.cpp</b></li>
 </ul>
 </div><!-- contents -->
-</div><!-- docs-content -->
+</div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

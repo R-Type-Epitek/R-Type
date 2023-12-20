@@ -83,7 +83,7 @@ void Client::Network::connectToServer()
 void Client::Network::updateName(std::string name)
 {
     if (name.length() > MAX_NAME_LENGTH)
-        throw std::runtime_error(NAME_TOO_LONG);
+        throw std::runtime_error("The name is too long");
 
     UpdateNameData data;
     strcpy(data.name, name.c_str());
