@@ -2,8 +2,7 @@
 // Created by raphael on 12/20/23.
 //
 
-#include "UI/Window.hpp"
-#include
+#include "gameEngine/UI/Window.hpp"
 
 namespace GameEngine::UI {
 Window::Window(int width, int height, std::string& name, float screenRatio)
@@ -26,7 +25,6 @@ void Window::subscribeDisplay(std::function<void(WindowContext&)>& closure) { m_
 void Window::unsubscribeDisplay() { m_closureDisplay = {}; };
 
 void Window::launch() {
-#pragma unroll
   while (m_windowContext.window.isOpen()) {
     m_closureUpdate(m_windowContext);
     this->handleEvent();
@@ -34,7 +32,6 @@ void Window::launch() {
 }
 
 void Window::handleEvent() {
-#pragma unroll
   while (m_windowContext.window.pollEvent(m_windowContext.event)) {
     switch (m_windowContext.event.type) {
       case sf::Event::Closed:
