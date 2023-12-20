@@ -10,6 +10,11 @@
 #include "ecs/system/ISystem.hpp"
 #include "system/Animation.hpp"
 
+/// \brief Launches the system and updates each entity using the relevant systems.
+/// \param std::shared_ptr<Mediator>& - A shared pointer to the Mediator object.
+/// \param std::vector<Entity> - A vector of Entity objects.
+/// \param sf::RenderWindow& - A reference to the RenderWindow object.
+
 void SystemLogic::launchSystem(std::shared_ptr<Mediator>& mediator, std::vector<Entity> entities, sf::RenderWindow& window)
 {
   std::unordered_map<const char*, std::shared_ptr<ISystem>> systems = mediator->getSystems();

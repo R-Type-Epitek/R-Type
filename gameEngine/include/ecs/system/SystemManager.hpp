@@ -13,6 +13,8 @@
 class SystemManager
 {
  public:
+  /// \brief Registers a new system and returns a shared pointer to it.
+  /// \return std::shared_ptr<T>
   template <typename T>
   std::shared_ptr<T> registerSystem()
   {
@@ -25,6 +27,8 @@ class SystemManager
     return system;
   }
 
+  /// \brief Sets the signature for a system.
+  /// \param Signature
   template<typename T>
   void setSignature(Signature signature)
   {

@@ -10,7 +10,7 @@
 using Vec3 = int;
 
 namespace ComponentRType {
-
+/// \brief A component representing the transformation properties of an entity.
 struct Transform {
   ge::Position position;
   Vec3 rotation = 0;

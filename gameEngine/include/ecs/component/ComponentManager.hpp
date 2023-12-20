@@ -14,6 +14,7 @@
 class ComponentManager
 {
 public:
+    /// \brief Registers a new component type.
     template<typename T>
     void registerComponent()
     {
@@ -26,6 +27,8 @@ public:
         ++m_nextComponentType;
     }
 
+    /// \brief Retrieves the type ID of a component.
+    /// \return ComponentType
     template<typename T>
     ComponentType getComponentType()
     {
@@ -37,6 +40,9 @@ public:
         return m_componentTypes[typeName];
     }
 
+    /// \brief Adds a component to an entity.
+    /// \param Entity
+    /// \param T - Component data
     template<typename T>
     void addComponent(Entity entity, T component)
     {
@@ -44,18 +50,25 @@ public:
         getComponentArray<T>()->insertData(entity, component);
     }
 
+    /// \brief Removes a component from an entity.
+    /// \param Entity
     template<typename T>
     void removeComponent(Entity entity)
     {
         getComponentArray<T>()->removeData(entity);
     }
 
+    /// \brief Retrieves a reference to an entity's component.
+    /// \param Entity
+    /// \return T&
     template<typename T>
     T& getComponent(Entity entity)
     {
         return getComponentArray<T>()->getData(entity);
     }
 
+    /// \brief Notifies the component arrays that an entity has been destroyed.
+    /// \param Entity
     void entityDestroyed(Entity entity)
     {
         for (auto const& pair : m_componentArrays)
@@ -65,6 +78,9 @@ public:
         }
     }
 
+    /// \brief Retrieves all components associated with a specific entity.
+    /// \param Entity
+    /// \return std::unordered_map<const char*, std::shared_ptr<IComponentArray>>
     std::unordered_map<const char*, std::shared_ptr<IComponentArray>> getComponentsWithEntity(Entity entity)
     {
       std::unordered_map<const char*, std::shared_ptr<IComponentArray>> components;

@@ -18,5 +18,5 @@ namespace ge {
     Position(float x, float y) : x(x), y(y) {};
   };
 
-  using VectorVariant = std::variant<sf::Vector2f, sf::Vector2i, sf::Vector2u>;
+  using VectorVariant = std::variant<sf::Vector2f, aaaaaf::Vector2i, sf::Vector2u>;
 }

@@ -14,10 +14,10 @@ class Physics: public System
 {
  public:
 
-  /// \brief apply physic to entity with gravity and transform component
-  /// \param component_manager
-  /// \param entity
-  /// \param window
+  /// \brief Apply the physics to the entity
+  /// \param std::shared_ptr<ComponentManager>&
+  /// \param Entity
+  /// \param sf::RenderWindow&
 
   void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window) {
       double delta = 0.5f;

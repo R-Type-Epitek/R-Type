@@ -2,18 +2,17 @@
 // Created by Alexandre Decobert on 17/12/2023.
 //
 
-#include <iostream>
 #include "Game.hpp"
-#include "logic/SystemLogic.hpp"
 #include "component/Gravity.hpp"
+#include "component/Sprite.hpp"
 #include "component/Transform.hpp"
 #include "constants/constants.hpp"
-#include "component/Sprite.hpp"
+#include "logic/SystemLogic.hpp"
+#include <iostream>
 
 Game::Game() : window(sf::VideoMode(800, 600), "R-Type") {}
 
-void Game::initPlayer(sf::RenderWindow& window)
-{
+void Game::initPlayer(sf::RenderWindow& window) {
   Entity player = mediator->createEntity();
   sf::Texture* texture = new sf::Texture();
   assert(texture->loadFromFile("assets/unknown.png") && "Texture not found");
@@ -37,9 +36,7 @@ void Game::initPlayer(sf::RenderWindow& window)
   mediator->addComponent(player, ComponentRType::Transform(transform));
 }
 
-Game::~Game() {
-  window.close();
-}
+Game::~Game() { window.close(); }
 
 void Game::run() {
   SystemLogic systemLogic;

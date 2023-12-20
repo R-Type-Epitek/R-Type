@@ -14,13 +14,13 @@
 #include "component/Gravity.hpp"
 
 class Animation : public System {
-
-  /// \brief update the position of the sprite and display it
-  /// \param component_manager
-  /// \param entity
-  /// \param window
-
  public:
+
+  /// \brief Updates the position and display of an entity's sprite based on its components.
+  /// \param std::shared_ptr<ComponentManager>&
+  /// \param Entity
+  /// \param sf::RenderWindow&
+
   void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window)
   {
         SfmlDisplay sfml_display;
