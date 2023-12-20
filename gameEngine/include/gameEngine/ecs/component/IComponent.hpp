@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "ecs/entity/Entity.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
 
 class IComponentArray {
  public:

@@ -5,7 +5,7 @@
 #pragma once
 
 #include "Entity.hpp"
-#include "ecs/Signature.hpp"
+#include "gameEngine/ecs/Signature.hpp"
 #include <array>
 #include <queue>
 

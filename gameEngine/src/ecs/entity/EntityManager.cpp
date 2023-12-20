@@ -2,7 +2,7 @@
 // Created by raphael on 12/4/23.
 //
 
-#include "ecs/entity/EntityManager.hpp"
+#include "gameEngine/ecs/entity/EntityManager.hpp"
 #include <cassert>
 
 EntityManager::EntityManager() {
@@ -12,8 +12,7 @@ EntityManager::EntityManager() {
 }
 
 Entity EntityManager::createEntity() {
-  assert(m_livingEntityCount < MAX_ENTITIES &&
-         "Too many entities in existence.");
+  assert(m_livingEntityCount < MAX_ENTITIES && "Too many entities in existence.");
 
   Entity id = m_availableEntities.front();
   m_availableEntities.pop();

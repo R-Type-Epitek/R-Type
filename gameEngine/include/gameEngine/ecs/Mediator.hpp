@@ -5,10 +5,10 @@
 #pragma once
 
 #include "Signature.hpp"
-#include "component/ComponentManager.hpp"
-#include "entity/Entity.hpp"
-#include "entity/EntityManager.hpp"
-#include "system/SystemManager.hpp"
+#include "gameEngine/ecs/component/ComponentManager.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
+#include "gameEngine/ecs/entity/EntityManager.hpp"
+#include "gameEngine/ecs/system/SystemManager.hpp"
 #include <memory>
 
 class Mediator {

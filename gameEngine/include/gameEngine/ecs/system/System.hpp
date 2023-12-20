@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/entity/Entity.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
 #include <set>
 
 class System {

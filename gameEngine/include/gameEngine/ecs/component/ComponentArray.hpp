@@ -6,7 +6,7 @@
 
 #include "Component.hpp"
 #include "IComponent.hpp"
-#include "ecs/entity/Entity.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
 #include <array>
 #include <cassert>
 #include <unordered_map>
@@ -29,8 +29,7 @@ class ComponentArray : public IComponentArray {
 
     size_t indexOfRemovedEntity = m_entityToIndexMap[entity];
     size_t indexOfLastElement = mSize - 1;
-    m_componentArray[indexOfRemovedEntity] =
-        m_componentArray[indexOfLastElement];
+    m_componentArray[indexOfRemovedEntity] = m_componentArray[indexOfLastElement];
 
     Entity entityOfLastElement = m_indexToEntityMap[indexOfLastElement];
     m_entityToIndexMap[entityOfLastElement] = indexOfRemovedEntity;

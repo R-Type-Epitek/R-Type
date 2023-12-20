@@ -4,8 +4,8 @@
 
 #pragma once
 #include "System.hpp"
-#include "ecs/Signature.hpp"
-#include "ecs/entity/Entity.hpp"
+#include "gameEngine/ecs/Signature.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
 #include <cassert>
 #include <memory>
 #include <unordered_map>
@@ -16,8 +16,7 @@ class SystemManager {
   std::shared_ptr<T> registerSystem() {
     char const* typeName = typeid(T).name();
 
-    assert(m_systems.find(typeName) == m_systems.end() &&
-           "Registering system more than once.");
+    assert(m_systems.find(typeName) == m_systems.end() && "Registering system more than once.");
 
     auto system = std::make_shared<T>();
     m_systems.insert({typeName, system});
@@ -28,8 +27,7 @@ class SystemManager {
   void setSignature(Signature signature) {
     char const* typeName = typeid(T).name();
 
-    assert(m_systems.find(typeName) != m_systems.end() &&
-           "System used before registered.");
+    assert(m_systems.find(typeName) != m_systems.end() && "System used before registered.");
 
     m_signatures.insert({typeName, signature});
   }

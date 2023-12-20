@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "component/Component.hpp"
+#include "gameEngine/ecs/component/Component.hpp"
 #include <bitset>
 
 using Signature = std::bitset<MAX_COMPONENTS>;
