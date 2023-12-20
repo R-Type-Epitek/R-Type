@@ -1,5 +1,5 @@
 \doxysection{UDPServer.\+hpp}
-\hypertarget{_u_d_p_server_8hpp_source}{}\label{_u_d_p_server_8hpp_source}\index{server/include/UDPServer.hpp@{server/include/UDPServer.hpp}}
+\hypertarget{_u_d_p_server_8hpp_source}{}\label{_u_d_p_server_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/UDPServer.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/UDPServer.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -61,13 +61,17 @@
 \DoxyCodeLine{00160\ }
 \DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sendResponseAndLog(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_response}{Response}}\&\ response);}
 \DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Command\ handling\ functions}}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ helloCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateNameCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ joinRoomCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ inputCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ startGameCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
-\DoxyCodeLine{00176\ \ \ \ \ \};}
-\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isClientConnected(\textcolor{keywordtype}{int}\ clientId);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleInvalidClient(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Command\ handling\ functions}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ helloCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateNameCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ joinRoomCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ inputCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ startGameCommand(\mbox{\hyperlink{struct_message}{Message}}\ *message);\ }
+\DoxyCodeLine{00195\ \ \ \ \ \};}
+\DoxyCodeLine{00196\ \}}
 
 \end{DoxyCode}

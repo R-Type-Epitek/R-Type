@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['background_0',['Background',['../classClient_1_1Background.html',1,'Client']]],
-  ['button_1',['Button',['../classClient_1_1Button.html',1,'Client']]]
+  ['background_0',['Background',['../class_client_1_1_background.html',1,'Client']]],
+  ['button_1',['Button',['../class_client_1_1_button.html',1,'Client']]]
 ];

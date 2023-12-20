@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joinroomdata_0',['JoinRoomData',['../structJoinRoomData.html',1,'']]]
+  ['joinroomdata_0',['JoinRoomData',['../struct_join_room_data.html',1,'']]]
 ];

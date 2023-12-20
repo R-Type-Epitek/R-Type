@@ -4,7 +4,10 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::Room::Room(int id, int size): size(size), id(id)
+Network::Room::Room(int id, int size):
+    size(size),
+    id(id),
+    state(WAITING)
 {
 }
 
@@ -50,4 +53,19 @@ void Network::Room::setSize(int size)
 std::vector<int> Network::Room::getPlayers()
 {
     return this->players;
+}
+
+Network::RoomState Network::Room::getState() const
+{
+    return this->state;
+}
+
+void Network::Room::setState(RoomState state)
+{
+    this->state = state;
+}
+
+bool Network::Room::isFull() const
+{
+    return (int)this->players.size() == this->size;
 }

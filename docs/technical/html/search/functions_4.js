@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['removeplayer_0',['removePlayer',['../classNetwork_1_1Room.html#a1fcbc27e73b2fd043942dd607040c2e6',1,'Network::Room']]],
-  ['room_1',['Room',['../classNetwork_1_1Room.html#a921559d500021651da4203e4b3e44336',1,'Network::Room']]]
+  ['pop_0',['pop',['../class_network_1_1_thread_safe_queue.html#a38d6f4d684ae1aaa02aaf71d0091f22a',1,'Network::ThreadSafeQueue']]],
+  ['push_1',['push',['../class_network_1_1_thread_safe_queue.html#a410f64f6c8bae7cbf7df18a39ed46b1b',1,'Network::ThreadSafeQueue']]]
 ];

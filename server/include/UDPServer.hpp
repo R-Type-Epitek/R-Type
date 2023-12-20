@@ -167,6 +167,25 @@ namespace Network
              */
             void sendResponseAndLog(const Response& response);
 
+            /**
+             * @brief Checks if a client is connected.
+             * 
+             * Checks if a client is currently connected to the server. This is used to validate client requests.
+             * 
+             * @param clientId Integer ID of the client to check.
+             * @return True if the client is connected, false otherwise.
+             */
+            bool isClientConnected(int clientId);
+
+            /**
+             * @brief Handles invalid client requests.
+             * 
+             * Handles requests from clients that are not connected to the server or have an invalid ID.
+             * 
+             * @param message Pointer to Message object containing the request.
+             */
+            void handleInvalidClient(Message *message);
+
             // Command handling functions
             void helloCommand(Message *message); ///< Handles 'hello' command.
             void updateNameCommand(Message *message); ///< Handles 'updateName' command.

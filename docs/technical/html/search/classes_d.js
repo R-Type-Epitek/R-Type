@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['welcomescene_0',['WelcomeScene',['../classClient_1_1WelcomeScene.html',1,'Client']]]
+  ['welcomescene_0',['WelcomeScene',['../class_client_1_1_welcome_scene.html',1,'Client']]]
 ];
