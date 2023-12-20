@@ -6,8 +6,6 @@
 
 namespace rtype::engine {
 
-  void testlibfunction() {
-    std::cout << "Library linked" << std::endl;
-  }
+void testlibfunction() { std::cout << "Library linked" << std::endl; }
 
-}
+}  // namespace rtype::engine

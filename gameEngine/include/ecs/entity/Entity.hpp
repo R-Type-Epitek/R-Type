@@ -3,9 +3,8 @@
 //
 
 #pragma once
-#include <cstdint>
 #include <cstddef>
-
+#include <cstdint>
 
 using Entity = std::uint32_t;
 

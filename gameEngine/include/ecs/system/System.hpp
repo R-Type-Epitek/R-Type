@@ -4,11 +4,10 @@
 
 #pragma once
 
-#include <set>
 #include "ecs/entity/Entity.hpp"
+#include <set>
 
-class System
-{
-public:
-    std::set<Entity> m_entities{};
+class System {
+ public:
+  std::set<Entity> m_entities{};
 };

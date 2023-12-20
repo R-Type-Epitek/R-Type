@@ -3,8 +3,8 @@
 //
 
 #pragma once
-#include <cstdint>
 #include <cstddef>
+#include <cstdint>
 
 using ComponentType = std::uint8_t;
 
