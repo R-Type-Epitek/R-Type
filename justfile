@@ -22,5 +22,12 @@ generate-doc:
     cd docs && doxygen Doxyfile
     @echo -e "\nfile://$(realpath docs/technical/html/index.html)"
 
+clang-format-run-dir path:
+    find {{path}} -name "*.cpp" -o -name "*.hpp" | xargs clang-format -style=file -i
+
+clang-format-run:
+    just clang-format-run-dir ./client
+    just clang-format-run-dir ./server
+    just clang-format-run-dir ./gameEngine
 
 default: start
