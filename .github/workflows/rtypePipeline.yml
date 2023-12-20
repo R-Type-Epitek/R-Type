@@ -1,9 +1,9 @@
 name: Rtype Epitech repository pipeline
 on:
   push:
-    branches: ["main", "feature/*", "fix/*"]
-  pull_request:
-    branches: [ '**', '!ga-ignore-*' ]
+    branches: ["main", "fix/*"]
+#  pull_request:
+#    branches: [ '**', '!ga-ignore-*' ]
 
 env:
   MIRROR_URL: git@github.com:EpitechPromo2026/B-CPP-500-BDX-5-2-rtype-edouard.pradie.git
