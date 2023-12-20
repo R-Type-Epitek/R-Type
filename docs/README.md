@@ -8,7 +8,7 @@ Welcome to the RType project! This project aims to create the rtype game.
 - [Prerequisites]('#Prerequisites')
 - [Installation](#Installation)
     - [Project Structure](./structures.md)
-    - [Technical Documentation](./docs/technical/README.md)
+    - [Technical Documentation](./technical/README.md)
 - [Contributing](#contributing)
 - [License](#license)
 
