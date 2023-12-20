@@ -1,0 +1,75 @@
+\hypertarget{ComponentArray_8hpp_source}{}\doxysection{Component\+Array.\+hpp}
+\label{ComponentArray_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ecs/component/ComponentArray.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ecs/component/ComponentArray.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 11/28/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Component.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}IComponent.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classComponentArray}{ComponentArray}} : \textcolor{keyword}{public} \mbox{\hyperlink{classIComponentArray}{IComponentArray}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} insertData(Entity entity, T component)}
+\DoxyCodeLine{19     \{}
+\DoxyCodeLine{20         assert(m\_entityToIndexMap.find(entity) == m\_entityToIndexMap.end());}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{keywordtype}{size\_t} newIndex = mSize;}
+\DoxyCodeLine{23         m\_entityToIndexMap[entity] = newIndex;}
+\DoxyCodeLine{24         m\_indexToEntityMap[newIndex] = entity;}
+\DoxyCodeLine{25         m\_componentArray[newIndex] = component;}
+\DoxyCodeLine{26         ++mSize;}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} removeData(Entity entity)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         assert(m\_entityToIndexMap.find(entity) != m\_entityToIndexMap.end());}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{keywordtype}{size\_t} indexOfRemovedEntity = m\_entityToIndexMap[entity];}
+\DoxyCodeLine{34         \textcolor{keywordtype}{size\_t} indexOfLastElement = mSize -\/ 1;}
+\DoxyCodeLine{35         m\_componentArray[indexOfRemovedEntity] = m\_componentArray[indexOfLastElement];}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         Entity entityOfLastElement = m\_indexToEntityMap[indexOfLastElement];}
+\DoxyCodeLine{38         m\_entityToIndexMap[entityOfLastElement] = indexOfRemovedEntity;}
+\DoxyCodeLine{39         m\_indexToEntityMap[indexOfRemovedEntity] = entityOfLastElement;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         m\_entityToIndexMap.erase(entity);}
+\DoxyCodeLine{42         m\_indexToEntityMap.erase(indexOfLastElement);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         -\/-\/mSize;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     T\& getData(Entity entity)}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         assert(m\_entityToIndexMap.find(entity) != m\_entityToIndexMap.end());}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{keywordflow}{return} m\_componentArray[m\_entityToIndexMap[entity]];}
+\DoxyCodeLine{52     \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} entityDestroyed(Entity entity)\textcolor{keyword}{ override}}
+\DoxyCodeLine{55 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{56         \textcolor{keywordflow}{if} (m\_entityToIndexMap.find(entity) != m\_entityToIndexMap.end()) \{}
+\DoxyCodeLine{57             removeData(entity);}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     std::array<T, MAX\_ENTITIES> m\_componentArray;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     std::unordered\_map<Entity, size\_t> m\_entityToIndexMap;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     std::unordered\_map<size\_t, Entity> m\_indexToEntityMap;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{size\_t} mSize\{\};}
+\DoxyCodeLine{69 \};}
+
+\end{DoxyCode}

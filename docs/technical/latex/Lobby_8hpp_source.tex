@@ -1,0 +1,45 @@
+\hypertarget{Lobby_8hpp_source}{}\doxysection{Lobby.\+hpp}
+\label{Lobby_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Scenes/Lobby.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Scenes/Lobby.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by edouard on 12/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1LobbyScene}{LobbyScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClient_1_1IScene}{IScene}} \{}
+\DoxyCodeLine{12         \textcolor{keyword}{public}:}
+\DoxyCodeLine{13             \textcolor{keyword}{explicit} \mbox{\hyperlink{classClient_1_1LobbyScene}{LobbyScene}}(Client::SceneName sceneName);}
+\DoxyCodeLine{14             \mbox{\hyperlink{classClient_1_1LobbyScene}{\string~LobbyScene}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16             \textcolor{keyword}{static} \textcolor{keywordtype}{bool} isInShape(}
+\DoxyCodeLine{17                 sf::Event::MouseButtonEvent \&mouse,}
+\DoxyCodeLine{18                 sf::RectangleShape \&myShape}
+\DoxyCodeLine{19             );}
+\DoxyCodeLine{20             \textcolor{keywordtype}{int} pollEvent(}
+\DoxyCodeLine{21                 sf::RenderWindow \&window,}
+\DoxyCodeLine{22                 \mbox{\hyperlink{classClient_1_1Network}{Client::Network}} \&network}
+\DoxyCodeLine{23             ) \textcolor{keyword}{override};}
+\DoxyCodeLine{24             \textcolor{keywordtype}{void} draw(sf::RenderWindow \&window) \textcolor{keyword}{override};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{27         \textcolor{keyword}{private}:}
+\DoxyCodeLine{28             Client::SceneName sceneName\_;}
+\DoxyCodeLine{29             \mbox{\hyperlink{classClient_1_1Background}{Client::Background}} background\_;}
+\DoxyCodeLine{30             std::shared\_ptr<Client::Button> escapeButton\_;}
+\DoxyCodeLine{31             std::shared\_ptr<Client::Button> returnButton\_;}
+\DoxyCodeLine{32             std::shared\_ptr<Client::Button> acceptButton\_;}
+\DoxyCodeLine{33             std::shared\_ptr<Client::InputText> ipInput\_;}
+\DoxyCodeLine{34             std::shared\_ptr<Client::InputText> portInput\_;}
+\DoxyCodeLine{35             std::string ntIp\_\{DEFAULT\_IP\};}
+\DoxyCodeLine{36             std::string ntPort\_\{DEFAULT\_PORT\};}
+\DoxyCodeLine{37             sf::Event event\_;}
+\DoxyCodeLine{38     \};}
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}

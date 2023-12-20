@@ -1,0 +1,75 @@
+\hypertarget{classNetwork_1_1ThreadSafeQueue}{}\doxysection{Network\+::Thread\+Safe\+Queue\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classNetwork_1_1ThreadSafeQueue}\index{Network::ThreadSafeQueue$<$ T $>$@{Network::ThreadSafeQueue$<$ T $>$}}
+
+
+A thread-\/safe queue implementation.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+Safe\+Queue.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue_a410f64f6c8bae7cbf7df18a39ed46b1b}{push}} (T value)
+\begin{DoxyCompactList}\small\item\em Pushes an element into the queue. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue_a38d6f4d684ae1aaa02aaf71d0091f22a}{pop}} ()
+\begin{DoxyCompactList}\small\item\em Pops an element from the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Network\+::\+Thread\+Safe\+Queue$<$ T $>$}
+A thread-\/safe queue implementation. 
+
+This template class implements a thread-\/safe queue using std\+::queue. It uses a mutex and a condition variable to ensure thread safety during push and pop operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & Type of the elements in the queue. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetwork_1_1ThreadSafeQueue_a38d6f4d684ae1aaa02aaf71d0091f22a}\label{classNetwork_1_1ThreadSafeQueue_a38d6f4d684ae1aaa02aaf71d0091f22a}} 
+\index{Network::ThreadSafeQueue$<$ T $>$@{Network::ThreadSafeQueue$<$ T $>$}!pop@{pop}}
+\index{pop@{pop}!Network::ThreadSafeQueue$<$ T $>$@{Network::ThreadSafeQueue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue}{Network\+::\+Thread\+Safe\+Queue}}$<$ T $>$\+::pop}
+
+
+
+Pops an element from the queue. 
+
+This method waits for an element to be available if the queue is empty. It locks the queue, pops the element, and then unlocks it.
+
+\begin{DoxyReturn}{Returns}
+T The popped element from the queue. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1ThreadSafeQueue_a410f64f6c8bae7cbf7df18a39ed46b1b}\label{classNetwork_1_1ThreadSafeQueue_a410f64f6c8bae7cbf7df18a39ed46b1b}} 
+\index{Network::ThreadSafeQueue$<$ T $>$@{Network::ThreadSafeQueue$<$ T $>$}!push@{push}}
+\index{push@{push}!Network::ThreadSafeQueue$<$ T $>$@{Network::ThreadSafeQueue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue}{Network\+::\+Thread\+Safe\+Queue}}$<$ T $>$\+::push (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})}
+
+
+
+Pushes an element into the queue. 
+
+This method locks the queue, pushes the element, and then unlocks it. After pushing the element, it notifies one waiting thread, if any.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to be pushed into the queue. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/include/Thread\+Safe\+Queue.\+hpp\item 
+/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/src/Thread\+Safe\+Queue.\+cpp\end{DoxyCompactItemize}

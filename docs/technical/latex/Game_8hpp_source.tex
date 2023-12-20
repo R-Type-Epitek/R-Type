@@ -1,0 +1,34 @@
+\hypertarget{Game_8hpp_source}{}\doxysection{Game.\+hpp}
+\label{Game_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Scenes/Game.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Scenes/Game.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 18/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1GameScene}{GameScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClient_1_1IScene}{IScene}} \{}
+\DoxyCodeLine{12         \textcolor{keyword}{public}:}
+\DoxyCodeLine{13             \textcolor{keyword}{explicit} \mbox{\hyperlink{classClient_1_1GameScene}{GameScene}}(Client::SceneName sceneName);}
+\DoxyCodeLine{14             \mbox{\hyperlink{classClient_1_1GameScene}{\string~GameScene}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16             \textcolor{keywordtype}{int} pollEvent(}
+\DoxyCodeLine{17                 sf::RenderWindow \&window,}
+\DoxyCodeLine{18                 \mbox{\hyperlink{classClient_1_1Network}{Client::Network}} \&network}
+\DoxyCodeLine{19             ) \textcolor{keyword}{override};}
+\DoxyCodeLine{20             \textcolor{keywordtype}{void} draw(sf::RenderWindow \&window) \textcolor{keyword}{override};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{23         \textcolor{keyword}{private}:}
+\DoxyCodeLine{24             Client::SceneName sceneName\_;}
+\DoxyCodeLine{25             \mbox{\hyperlink{classClient_1_1Background}{Client::Background}} background\_;}
+\DoxyCodeLine{26             sf::Event event\_;}
+\DoxyCodeLine{27     \};}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}

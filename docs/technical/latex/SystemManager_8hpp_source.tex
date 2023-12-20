@@ -1,0 +1,74 @@
+\hypertarget{SystemManager_8hpp_source}{}\doxysection{System\+Manager.\+hpp}
+\label{SystemManager_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ecs/system/SystemManager.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ecs/system/SystemManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 11/28/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}ecs/Signature.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}System.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classSystemManager}{SystemManager}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{17     std::shared\_ptr<T> registerSystem()}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         assert(m\_systems.find(typeName) == m\_systems.end() \&\& \textcolor{stringliteral}{"{}Registering system more than once."{}});}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         \textcolor{keyword}{auto} system = std::make\_shared<T>();}
+\DoxyCodeLine{24         m\_systems.insert(\{typeName, system\});}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} system;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} setSignature(Signature signature)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         assert(m\_systems.find(typeName) != m\_systems.end() \&\& \textcolor{stringliteral}{"{}System used before registered."{}});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         m\_signatures.insert(\{typeName, signature\});}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} entityDestroyed(Entity entity)}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& pair : m\_systems)}
+\DoxyCodeLine{41         \{}
+\DoxyCodeLine{42             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& system = pair.second;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44             system-\/>m\_entities.erase(entity);}
+\DoxyCodeLine{45         \}}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} entitySignatureChanged(Entity entity, Signature entitySignature)}
+\DoxyCodeLine{49     \{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& pair : m\_systems)}
+\DoxyCodeLine{51         \{}
+\DoxyCodeLine{52             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& type = pair.first;}
+\DoxyCodeLine{53             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& system = pair.second;}
+\DoxyCodeLine{54             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& systemSignature = m\_signatures[type];}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56             \textcolor{keywordflow}{if} ((entitySignature \& systemSignature) == systemSignature) \{}
+\DoxyCodeLine{57                 system-\/>m\_entities.insert(entity);}
+\DoxyCodeLine{58             \}}
+\DoxyCodeLine{59             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{60                 system-\/>m\_entities.erase(entity);}
+\DoxyCodeLine{61             \}}
+\DoxyCodeLine{62         \}}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 \textcolor{keyword}{private}:}
+\DoxyCodeLine{65     std::unordered\_map<const char*, Signature> m\_signatures\{\};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     std::unordered\_map<const char*, std::shared\_ptr<System>> m\_systems\{\};}
+\DoxyCodeLine{68 \};}
+
+\end{DoxyCode}

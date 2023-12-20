@@ -1,0 +1,33 @@
+\hypertarget{structMessageHeader}{}\doxysection{Message\+Header Struct Reference}
+\label{structMessageHeader}\index{MessageHeader@{MessageHeader}}
+
+
+Structure representing the header of a network message.  
+
+
+
+
+{\ttfamily \#include $<$Messages.\+hpp$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structMessageHeader_a705418d85961d98b6f84f4fba9f9f799}\label{structMessageHeader_a705418d85961d98b6f84f4fba9f9f799}} 
+int {\bfseries client\+Id}
+\begin{DoxyCompactList}\small\item\em Unique identifier for the client. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMessageHeader_a19f672c6735d819940166a11e25a321b}\label{structMessageHeader_a19f672c6735d819940166a11e25a321b}} 
+char {\bfseries command} \mbox{[}32\mbox{]}
+\begin{DoxyCompactList}\small\item\em Command type in ASCII format. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMessageHeader_ac81cf10687f6cf52e454e4dec5a5cd6e}\label{structMessageHeader_ac81cf10687f6cf52e454e4dec5a5cd6e}} 
+uint32\+\_\+t {\bfseries data\+Length}
+\begin{DoxyCompactList}\small\item\em Length of the following data in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure representing the header of a network message. 
+
+This structure contains the client identifier, command, and length of the data that follows in the message. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/game\+Engine/include/network/Messages.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,39 @@
+\hypertarget{Welcome_8hpp_source}{}\doxysection{Welcome.\+hpp}
+\label{Welcome_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Scenes/Welcome.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Scenes/Welcome.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by edouard on 12/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1WelcomeScene}{WelcomeScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClient_1_1IScene}{IScene}} \{}
+\DoxyCodeLine{12         \textcolor{keyword}{public}:}
+\DoxyCodeLine{13             \textcolor{keyword}{explicit} \mbox{\hyperlink{classClient_1_1WelcomeScene}{WelcomeScene}}(Client::SceneName sceneName);}
+\DoxyCodeLine{14             \mbox{\hyperlink{classClient_1_1WelcomeScene}{\string~WelcomeScene}}() \textcolor{keyword}{override} = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16             \textcolor{keyword}{static} \textcolor{keywordtype}{bool} isInShape(}
+\DoxyCodeLine{17                 sf::Event::MouseButtonEvent \&mouse,}
+\DoxyCodeLine{18                 sf::RectangleShape \&myShape}
+\DoxyCodeLine{19             );}
+\DoxyCodeLine{20             \textcolor{keywordtype}{int} pollEvent(}
+\DoxyCodeLine{21                 sf::RenderWindow \&window,}
+\DoxyCodeLine{22                 \mbox{\hyperlink{classClient_1_1Network}{Client::Network}} \&network}
+\DoxyCodeLine{23             ) \textcolor{keyword}{override};}
+\DoxyCodeLine{24             \textcolor{keywordtype}{void} draw(sf::RenderWindow \&window) \textcolor{keyword}{override};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{27         \textcolor{keyword}{private}:}
+\DoxyCodeLine{28             Client::SceneName sceneName\_;}
+\DoxyCodeLine{29             \mbox{\hyperlink{classClient_1_1Background}{Client::Background}} background\_;}
+\DoxyCodeLine{30             std::shared\_ptr<Client::Button> playButton\_;}
+\DoxyCodeLine{31             sf::Event event\_;}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
