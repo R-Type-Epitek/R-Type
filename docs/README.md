@@ -1,6 +1,6 @@
-# Project Whanos EPITECH
+# Project RType EPITECH
 
-Welcome to the Whanos project! This project aims to create a DevOps solution to run build and deploy by just adding your git repository URL.
+Welcome to the RType project! This project aims to create the rtype game.
 
 # Table of Contents
 
@@ -8,8 +8,7 @@ Welcome to the Whanos project! This project aims to create a DevOps solution to 
 - [Prerequisites]('#Prerequisites')
 - [Installation](#Installation)
     - [Project Structure](./structures.md)
-    - [How to add a repository](./add_repository.md)
-    - [Add a deployment language](./add_language.md)
+    - [Technical Documentation](./docs/technical/README.md)
 - [Contributing](#contributing)
 - [License](#license)
 
