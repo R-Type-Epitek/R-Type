@@ -20,7 +20,7 @@ start: init-remote init-vcpckg build
 
 generate-doc:
     cd docs && doxygen Doxyfile
-    @realpath docs/technical/html/index.html
+    @echo -e "\nfile://$(realpath docs/technical/html/index.html)"
 
 
 default: start
