@@ -16,6 +16,7 @@
 #include <condition_variable>
 #include <thread>
 #include <chrono>
+#include <unordered_map>
 
 // Game Engine Network
 #include "../../gameEngine/include/network/Commands.hpp"
