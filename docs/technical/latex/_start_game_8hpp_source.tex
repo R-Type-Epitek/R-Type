@@ -1,0 +1,27 @@
+\doxysection{Start\+Game.\+hpp}
+\hypertarget{_start_game_8hpp_source}{}\label{_start_game_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/Commands/StartGame.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/Commands/StartGame.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 20/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Network}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_start_game_command_handler}{StartGameCommandHandler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_network_1_1_i_command_handler}{ICommandHandler}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_start_game_command_handler}{StartGameCommandHandler}}(\mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}}\&\ server);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_start_game_command_handler_ae0109f7dd128d5a3c3488bc997f76637}{isAuthorized}}(\textcolor{keywordtype}{int}\ clientId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_response}{Response}}\ \mbox{\hyperlink{class_network_1_1_start_game_command_handler_a0ccb6f48a75b0bf05d2a15495f0a3ceb}{handleCommand}}(\mbox{\hyperlink{struct_message}{Message}}*\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}}\&\ server;}
+\DoxyCodeLine{00020\ \ \ \ \ \};}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}

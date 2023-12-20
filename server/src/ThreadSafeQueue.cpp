@@ -22,4 +22,4 @@ T Network::ThreadSafeQueue<T>::pop()
     return value;
 }
 
-template class Network::ThreadSafeQueue<Message *>;
+template class Network::ThreadSafeQueue<TimedMessage>;

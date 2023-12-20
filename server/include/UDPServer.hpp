@@ -6,6 +6,19 @@
 
 #include "RTypeNetwork.hpp"
 
+/**
+ * @brief Used to represent a message with a timestamp.
+ * 
+ * This struct is used to represent a message with a timestamp. It is used to
+ * track the time at which a message was received.
+ * 
+ * @see Message
+*/
+struct TimedMessage {
+    Message *message; ///< Pointer to the message.
+    std::chrono::high_resolution_clock::time_point timestamp; ///< Timestamp of the message.
+};
+
 namespace Network
 {
     /**
@@ -48,149 +61,212 @@ namespace Network
              */
             ~UDPServer();
 
-        protected:
-        private:
-            boost::asio::ip::udp::socket socket; ///< UDP socket for communication.
-            std::vector<Network::Client> clients; ///< List of connected clients.
-            boost::array<char, 1024> recvBuffer{}; ///< Buffer for receiving data.
-            boost::asio::ip::udp::endpoint remoteEndpoint; ///< Endpoint for the remote connection.
-            Network::ThreadSafeQueue<Message *> messageQueue; ///< Queue for thread-safe message handling.
-            std::vector<std::thread> workers; ///< Worker threads for processing messages.
-            std::vector<Network::Room> rooms; ///< Rooms available for client grouping.
+            /**
+             * @brief Gets the UDP socket used by the server.
+             * 
+             * Returns a reference to the UDP socket used by the server for communication.
+             * 
+             * @return Reference to the UDP socket.
+             */
+            boost::asio::ip::udp::socket& getSocket();
 
             /**
-             * @brief Initializes the server on a specified port.
+             * @brief Gets the list of connected clients.
              * 
-             * Sets up the server to listen on the given port. This includes binding the socket 
-             * and preparing it to receive incoming connections and data.
+             * Returns a vector containing the list of clients currently connected to the server.
              * 
-             * @param port Integer specifying the port number to listen on.
+             * @return Vector containing the list of connected clients.
              */
+            std::vector<Network::Client> getClients() const;
+
+            /**
+             * @brief Gets the receive buffer.
+             * 
+             * Returns a boost::array containing the receive buffer used by the server.
+             * 
+             * @return boost::array containing the receive buffer.
+             */
+            boost::array<char, 1024> getRecvBuffer() const;
+
+            /**
+             * @brief Gets the remote endpoint.
+             * 
+             * Returns a boost::asio::ip::udp::endpoint containing the remote endpoint.
+             * 
+             * @return boost::asio::ip::udp::endpoint containing the remote endpoint.
+             */
+            boost::asio::ip::udp::endpoint getRemoteEndpoint() const;
+
+            /**
+             * @brief Gets the list of rooms.
+             * 
+             * Returns a vector containing the list of rooms currently available on the server.
+             * 
+             * @return Vector containing the list of rooms.
+             */
+            std::vector<Network::Room> getRooms() const;
+
+            /**
+             * @brief Adds a client.
+             * 
+             * Adds the specified client to the list of connected clients.
+             * 
+             * @param client Network::Client to add.
+            */
+            void addClient(Network::Client client);
+
+            /**
+             * @brief Initializes the server.
+             * 
+             * Initializes the server by binding the socket to the specified port and
+             * starting the worker threads.
+             * 
+             * @param port Integer specifying the port number on which the server will listen.
+            */
             void initServer(int port);
 
             /**
-             * @brief Initializes a specified number of rooms.
+             * @brief Init the rooms.
              * 
-             * Creates and prepares a defined number of rooms for client interaction and game management.
+             * Initializes the rooms by creating the specified number of rooms.
              * 
-             * @param count Integer specifying the number of rooms to initialize.
+             * @param count Integer specifying the number of rooms to create.
              */
             void initRooms(int count);
 
             /**
-             * @brief Handles incoming data packets.
+             * @brief Start to receive data.
              * 
-             * Processes received data from clients, handling any errors and managing the 
-             * transfer of bytes. This function is called back by the Boost ASIO service.
+             * Start to listen for incoming data on the socket.
+            */
+            void startReceive();
+
+            /**
+             * @brief Handle receive data.
              * 
-             * @param error boost::system::error_code representing the error state.
-             * @param bytesTransferred Size_t representing the number of bytes received.
-             */
+             * Handle the received data by creating a new TimedMessage and pushing it into the message queue.
+            */
             void handleReceive(
                 const boost::system::error_code &error,
-                std::size_t bytesTransferred
+                std::size_t bytes_transferred
             );
 
             /**
-             * @brief Sends data to all connected clients.
+             * @brief Send data to all clients.
              * 
-             * Broadcasts a given data buffer to all clients currently connected to the server.
+             * Send the specified data to all clients connected to the server.
              * 
-             * @param buffer const boost::asio::const_buffer& containing the data to send.
-             */
-            void sendToAll(const boost::asio::const_buffer &buffer);
+             * @param buffer boost::asio::const_buffer containing the data to send.
+            */
+            void sendToAll(
+                const boost::asio::const_buffer &buffer
+            );
 
             /**
-             * @brief Sends data to a specific client.
+             * @brief Send data to all clients in a room.
              * 
-             * Sends a data buffer to a client identified by its unique ID. This is used for targeted communication.
+             * Send the specified data to all clients in the room with the specified ID.
              * 
-             * @param buffer const boost::asio::const_buffer& containing the data to send.
-             * @param id Integer ID of the client to send data to.
-             */
+             * @param buffer boost::asio::const_buffer containing the data to send.
+             * @param roomId Integer specifying the ID of the room to send the data to.
+            */
+            void sendToAllClientsInRoom(
+                const boost::asio::const_buffer &buffer,
+                int roomId
+            );
+
+            /**
+             * @brief Send data to a specific client.
+             * 
+             * Send the specified data to the client with the specified ID.
+             * 
+             * @param buffer boost::asio::const_buffer containing the data to send.
+             * @param id Integer specifying the ID of the client to send the data to.
+            */
             void sendToClient(
                 const boost::asio::const_buffer &buffer,
                 int id
             );
 
             /**
-             * @brief Starts the asynchronous receive operation.
+             * @brief Process a TimedMessage.
              * 
-             * Prepares the server to begin receiving data asynchronously. This sets up the 
-             * socket to listen for incoming data and handle it appropriately.
-             */
-            void startReceive();
-
-            /**
-             * @brief Processes messages in the queue.
-             * 
-             * Takes messages from the queue and processes them accordingly. This function is 
-             * typically run in a separate thread to handle client requests.
-             * 
-             * @param message Pointer to Message object to be processed.
-             */
-            void processMessage(Message *message);
+             * Process the specified TimedMessage by calling the appropriate command handler.
+            */
+            void processMessage(TimedMessage message);
 
             /**
              * @brief Function executed by worker threads.
              * 
-             * Defines the tasks that worker threads will perform. This includes message processing 
-             * and other server maintenance tasks.
-             */
+             * Function executed by worker threads. It pops a TimedMessage from the message queue,
+             * logged the message header and calls the processMessage function.
+            */
             void workerFunction();
 
             /**
-             * @brief Creates a response message.
+             * @brief Create a response.
              * 
-             * Constructs a response message to be sent to clients. This includes client ID, command details, 
-             * status message, and status code.
+             * Create a response to a client command.
              * 
-             * @param clientId Integer ID of the client to receive the response.
-             * @param command String representing the command to respond to.
-             * @param statusMessage String containing a message describing the response status.
-             * @param status Integer status code representing the outcome of the command.
-             * @return Response object ready to be sent to the client.
-             */
+             * @param clientId Integer specifying the ID of the client to send the response to.
+             * @param command String containing the command to which the response is sent.
+             * @param statusMessage String containing the status message to send.
+             * @param status Integer specifying the status code to send.
+             * 
+             * @return Response containing the response to send.
+            */
             Response createResponse(
                 int clientId,
                 const std::string& command,
                 const std::string& statusMessage,
-                int status
+                int status = RES_SUCCESS
             );
 
             /**
-             * @brief Sends a response to a client and logs it.
+             * @brief Send a response and log it.
              * 
-             * Sends a constructed Response object to the appropriate client and logs the action for server records.
+             * Send the specified response to the client with the specified ID and log it.
              * 
-             * @param response const Response& object containing the response data.
-             */
-            void sendResponseAndLog(const Response& response);
+             * @param timedMessage TimedMessage containing the message to which the response is sent.
+             * @param response Response containing the response to send.
+            */
+            void sendResponseAndLog(
+                TimedMessage timedMessage,
+                const Response& response
+            );
 
             /**
-             * @brief Checks if a client is connected.
+             * @brief Check if a client is connected.
              * 
-             * Checks if a client is currently connected to the server. This is used to validate client requests.
+             * Check if the client with the specified ID is connected to the server.
              * 
-             * @param clientId Integer ID of the client to check.
-             * @return True if the client is connected, false otherwise.
-             */
+             * @param clientId Integer specifying the ID of the client to check.
+             * 
+             * @return Boolean indicating whether the client is connected.
+            */
             bool isClientConnected(int clientId);
 
             /**
-             * @brief Handles invalid client requests.
+             * @brief Register command handlers.
              * 
-             * Handles requests from clients that are not connected to the server or have an invalid ID.
+             * Register all command handlers for the server.
              * 
-             * @param message Pointer to Message object containing the request.
-             */
-            void handleInvalidClient(Message *message);
+             * @see ICommandHandler
+            */
+            void registerCommandHandlers();
 
-            // Command handling functions
-            void helloCommand(Message *message); ///< Handles 'hello' command.
-            void updateNameCommand(Message *message); ///< Handles 'updateName' command.
-            void joinRoomCommand(Message *message); ///< Handles 'joinRoom' command.
-            void inputCommand(Message *message); ///< Handles 'input' command.
-            void startGameCommand(Message *message); ///< Handles 'startGame' command.
+        protected:
+        private:
+            boost::asio::ip::udp::socket socket; ///< UDP socket for communication.
+            std::vector<Network::Client> clients; ///< List of connected clients.
+            boost::array<char, 1024> recvBuffer{}; ///< Buffer for receiving data.
+            boost::asio::ip::udp::endpoint remoteEndpoint; ///< Endpoint for the remote connection.
+            Network::ThreadSafeQueue<TimedMessage> messageQueue; ///< Queue for thread-safe message handling.
+            std::vector<std::thread> workers; ///< Worker threads for processing messages.
+            std::vector<Network::Room> rooms; ///< Rooms available for client grouping.
+            std::unordered_map<std::string, std::unique_ptr<ICommandHandler>> commandHandlers; ///< Command handlers for the server.
+
+            void handleInvalidClient(TimedMessage timedMessage); ///< Handles invalid client.
+            void handleInvalidCommand(TimedMessage timedMessage); ///< Handles invalid command.
     };
 }

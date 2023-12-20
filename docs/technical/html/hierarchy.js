@@ -5,6 +5,13 @@ var hierarchy =
     [ "Network::Client", "class_network_1_1_client.html", null ],
     [ "ComponentManager", "class_component_manager.html", null ],
     [ "EntityManager", "class_entity_manager.html", null ],
+    [ "Network::ICommandHandler", "class_network_1_1_i_command_handler.html", [
+      [ "Network::HelloCommandHandler", "class_network_1_1_hello_command_handler.html", null ],
+      [ "Network::InputCommandHandler", "class_network_1_1_input_command_handler.html", null ],
+      [ "Network::JoinRoomCommandHandler", "class_network_1_1_join_room_command_handler.html", null ],
+      [ "Network::StartGameCommandHandler", "class_network_1_1_start_game_command_handler.html", null ],
+      [ "Network::UpdateNameCommandHandler", "class_network_1_1_update_name_command_handler.html", null ]
+    ] ],
     [ "IComponentArray", "class_i_component_array.html", [
       [ "ComponentArray< T >", "class_component_array.html", null ]
     ] ],
@@ -28,7 +35,8 @@ var hierarchy =
     [ "System", "class_system.html", null ],
     [ "SystemManager", "class_system_manager.html", null ],
     [ "Network::ThreadSafeQueue< T >", "class_network_1_1_thread_safe_queue.html", null ],
-    [ "Network::ThreadSafeQueue< Message * >", "class_network_1_1_thread_safe_queue.html", null ],
+    [ "Network::ThreadSafeQueue< TimedMessage >", "class_network_1_1_thread_safe_queue.html", null ],
+    [ "TimedMessage", "struct_timed_message.html", null ],
     [ "Network::UDPServer", "class_network_1_1_u_d_p_server.html", null ],
     [ "UpdateNameData", "struct_update_name_data.html", null ]
 ];

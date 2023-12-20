@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['scenemanager_0',['SceneManager',['../class_client_1_1_scene_manager.html',1,'Client']]],
-  ['startgamedata_1',['StartGameData',['../struct_start_game_data.html',1,'']]],
-  ['system_2',['System',['../class_system.html',1,'']]],
-  ['systemmanager_3',['SystemManager',['../class_system_manager.html',1,'']]]
+  ['response_0',['Response',['../struct_response.html',1,'']]],
+  ['responseheader_1',['ResponseHeader',['../struct_response_header.html',1,'']]],
+  ['room_2',['Room',['../class_network_1_1_room.html',1,'Network']]]
 ];

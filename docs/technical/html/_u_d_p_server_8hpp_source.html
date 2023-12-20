@@ -121,76 +121,125 @@ $(document).ready(function(){initNavTree('_u_d_p_server_8hpp_source.html',''); i
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;RTypeNetwork.hpp&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>Network</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_network_1_1_u_d_p_server.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_network_1_1_u_d_p_server.html">UDPServer</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_class" href="class_network_1_1_u_d_p_server.html">UDPServer</a>(boost::asio::io_context &amp;io);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <a class="code hl_class" href="class_network_1_1_u_d_p_server.html">UDPServer</a>(boost::asio::io_context &amp;io, <span class="keywordtype">int</span> port);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a6ae6efb6b05e6b6518195512e90a216d">~UDPServer</a>();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            boost::asio::ip::udp::socket socket; </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            std::vector&lt;Network::Client&gt; clients; </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            boost::array&lt;char, 1024&gt; recvBuffer{}; </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            boost::asio::ip::udp::endpoint remoteEndpoint; </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <a class="code hl_class" href="class_network_1_1_thread_safe_queue.html">Network::ThreadSafeQueue&lt;Message *&gt;</a> messageQueue; </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            std::vector&lt;std::thread&gt; workers; </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            std::vector&lt;Network::Room&gt; rooms; </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordtype">void</span> initServer(<span class="keywordtype">int</span> port);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordtype">void</span> initRooms(<span class="keywordtype">int</span> count);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordtype">void</span> handleReceive(</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                <span class="keyword">const</span> boost::system::error_code &amp;error,</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                std::size_t bytesTransferred</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            );</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordtype">void</span> sendToAll(<span class="keyword">const</span> boost::asio::const_buffer &amp;buffer);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordtype">void</span> sendToClient(</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                <span class="keyword">const</span> boost::asio::const_buffer &amp;buffer,</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                <span class="keywordtype">int</span> <span class="keywordtype">id</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            );</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keywordtype">void</span> startReceive();</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordtype">void</span> processMessage(<a class="code hl_struct" href="struct_message.html">Message</a> *message);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keywordtype">void</span> workerFunction();</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <a class="code hl_struct" href="struct_response.html">Response</a> createResponse(</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                <span class="keywordtype">int</span> clientId,</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="keyword">const</span> std::string&amp; command,</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                <span class="keyword">const</span> std::string&amp; statusMessage,</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                <span class="keywordtype">int</span> status</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            );</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="keywordtype">void</span> sendResponseAndLog(<span class="keyword">const</span> <a class="code hl_struct" href="struct_response.html">Response</a>&amp; response);</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            <span class="keywordtype">bool</span> isClientConnected(<span class="keywordtype">int</span> clientId);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <span class="keywordtype">void</span> handleInvalidClient(<a class="code hl_struct" href="struct_message.html">Message</a> *message);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            <span class="comment">// Command handling functions</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            <span class="keywordtype">void</span> helloCommand(<a class="code hl_struct" href="struct_message.html">Message</a> *message); </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            <span class="keywordtype">void</span> updateNameCommand(<a class="code hl_struct" href="struct_message.html">Message</a> *message); </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            <span class="keywordtype">void</span> joinRoomCommand(<a class="code hl_struct" href="struct_message.html">Message</a> *message); </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            <span class="keywordtype">void</span> inputCommand(<a class="code hl_struct" href="struct_message.html">Message</a> *message); </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keywordtype">void</span> startGameCommand(<a class="code hl_struct" href="struct_message.html">Message</a> *message); </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    };</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="struct_timed_message.html">   17</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_timed_message.html#a2c1d25c80436512087308a036f01e86a">   18</a></span>    <a class="code hl_struct" href="struct_message.html">Message</a> *<a class="code hl_variable" href="struct_timed_message.html#a2c1d25c80436512087308a036f01e86a">message</a>; </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct_timed_message.html#abd5fd4e205672e1fdd572a47e7736e67">   19</a></span>    std::chrono::high_resolution_clock::time_point <a class="code hl_variable" href="struct_timed_message.html#abd5fd4e205672e1fdd572a47e7736e67">timestamp</a>; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
 </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span>Network</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_network_1_1_u_d_p_server.html">   32</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_network_1_1_u_d_p_server.html">UDPServer</a> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <a class="code hl_class" href="class_network_1_1_u_d_p_server.html">UDPServer</a>(boost::asio::io_context &amp;io);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <a class="code hl_class" href="class_network_1_1_u_d_p_server.html">UDPServer</a>(boost::asio::io_context &amp;io, <span class="keywordtype">int</span> port);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a6ae6efb6b05e6b6518195512e90a216d">~UDPServer</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            boost::asio::ip::udp::socket&amp; <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#ac32cc82757d28952e4429a16189b4216">getSocket</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            std::vector&lt;Network::Client&gt; <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a161e71b519cd2fdff825fff150daa178">getClients</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            boost::array&lt;char, 1024&gt; <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f">getRecvBuffer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            boost::asio::ip::udp::endpoint <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a9f7a52213bf27b1cd095cf526d6736ac">getRemoteEndpoint</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            std::vector&lt;Network::Room&gt; <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a83416c5a4694e958f4a84de833123217">getRooms</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#abdff6274a3af6cd99c418197c4630a75">addClient</a>(<a class="code hl_class" href="class_network_1_1_client.html">Network::Client</a> client);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a8d43c1630c01f9eefa4909772057e9c8">initServer</a>(<span class="keywordtype">int</span> port);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#ac4b4c1cd19635deb604ceb2a63839f4d">initRooms</a>(<span class="keywordtype">int</span> count);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#ac2a6fa9962f244fd7ba8578d89296874">startReceive</a>();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a1021f21a7a80c314f012336c456910ad">handleReceive</a>(</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                <span class="keyword">const</span> boost::system::error_code &amp;error,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                std::size_t bytes_transferred</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            );</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#ad4a7829a14bcc49630c18a59553fb765">sendToAll</a>(</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                <span class="keyword">const</span> boost::asio::const_buffer &amp;buffer</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            );</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a89898f37c3b431af91d70976fb9df528">sendToAllClientsInRoom</a>(</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                <span class="keyword">const</span> boost::asio::const_buffer &amp;buffer,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                <span class="keywordtype">int</span> roomId</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            );</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#ad308b901f24d10d50960571cd55f1494">sendToClient</a>(</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                <span class="keyword">const</span> boost::asio::const_buffer &amp;buffer,</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                <span class="keywordtype">int</span> <span class="keywordtype">id</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            );</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#ad31c0be7001a0123b1fe8434161665de">processMessage</a>(<a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> message);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#aabec654d8576481b31d0c1e689b66699">workerFunction</a>();</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <a class="code hl_struct" href="struct_response.html">Response</a> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#ace20a81cb7ed776463aaf539dbd0f123">createResponse</a>(</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                <span class="keywordtype">int</span> clientId,</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                <span class="keyword">const</span> std::string&amp; command,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                <span class="keyword">const</span> std::string&amp; statusMessage,</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                <span class="keywordtype">int</span> status = RES_SUCCESS</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            );</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#aaea5f5e4974578868fef7cb9384a75d3">sendResponseAndLog</a>(</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                <a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> timedMessage,</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                <span class="keyword">const</span> <a class="code hl_struct" href="struct_response.html">Response</a>&amp; response</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            );</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a2db9f8510e50ae6dcf8d13f68bd97668">isClientConnected</a>(<span class="keywordtype">int</span> clientId);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_u_d_p_server.html#a82f424a15da216aade28273353dad9eb">registerCommandHandlers</a>();</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            boost::asio::ip::udp::socket socket; </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            std::vector&lt;Network::Client&gt; clients; </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            boost::array&lt;char, 1024&gt; recvBuffer{}; </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            boost::asio::ip::udp::endpoint remoteEndpoint; </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            <a class="code hl_class" href="class_network_1_1_thread_safe_queue.html">Network::ThreadSafeQueue&lt;TimedMessage&gt;</a> messageQueue; </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            std::vector&lt;std::thread&gt; workers; </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            std::vector&lt;Network::Room&gt; rooms; </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            std::unordered_map&lt;std::string, std::unique_ptr&lt;ICommandHandler&gt;&gt; commandHandlers; </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <span class="keywordtype">void</span> handleInvalidClient(<a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> timedMessage); </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <span class="keywordtype">void</span> handleInvalidCommand(<a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> timedMessage); </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    };</div>
+</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>}</div>
+<div class="ttc" id="aclass_network_1_1_client_html"><div class="ttname"><a href="class_network_1_1_client.html">Network::Client</a></div><div class="ttdoc">Represents a network client.</div><div class="ttdef"><b>Definition</b> Client.hpp:17</div></div>
 <div class="ttc" id="aclass_network_1_1_thread_safe_queue_html"><div class="ttname"><a href="class_network_1_1_thread_safe_queue.html">Network::ThreadSafeQueue</a></div><div class="ttdoc">A thread-safe queue implementation.</div><div class="ttdef"><b>Definition</b> ThreadSafeQueue.hpp:20</div></div>
-<div class="ttc" id="aclass_network_1_1_u_d_p_server_html"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html">Network::UDPServer</a></div><div class="ttdoc">Manages a UDP server for handling network communication.</div><div class="ttdef"><b>Definition</b> UDPServer.hpp:19</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html">Network::UDPServer</a></div><div class="ttdoc">Manages a UDP server for handling network communication.</div><div class="ttdef"><b>Definition</b> UDPServer.hpp:32</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a1021f21a7a80c314f012336c456910ad"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a1021f21a7a80c314f012336c456910ad">Network::UDPServer::handleReceive</a></div><div class="ttdeci">void handleReceive(const boost::system::error_code &amp;error, std::size_t bytes_transferred)</div><div class="ttdoc">Handle receive data.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:98</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a161e71b519cd2fdff825fff150daa178"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a161e71b519cd2fdff825fff150daa178">Network::UDPServer::getClients</a></div><div class="ttdeci">std::vector&lt; Network::Client &gt; getClients() const</div><div class="ttdoc">Gets the list of connected clients.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:35</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a2009531677d046860f0c67ff3e32d03f"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f">Network::UDPServer::getRecvBuffer</a></div><div class="ttdeci">boost::array&lt; char, 1024 &gt; getRecvBuffer() const</div><div class="ttdoc">Gets the receive buffer.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:40</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a2db9f8510e50ae6dcf8d13f68bd97668"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a2db9f8510e50ae6dcf8d13f68bd97668">Network::UDPServer::isClientConnected</a></div><div class="ttdeci">bool isClientConnected(int clientId)</div><div class="ttdoc">Check if a client is connected.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:242</div></div>
 <div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a6ae6efb6b05e6b6518195512e90a216d"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a6ae6efb6b05e6b6518195512e90a216d">Network::UDPServer::~UDPServer</a></div><div class="ttdeci">~UDPServer()</div><div class="ttdoc">Destructor for UDPServer.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:19</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a82f424a15da216aade28273353dad9eb"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a82f424a15da216aade28273353dad9eb">Network::UDPServer::registerCommandHandlers</a></div><div class="ttdeci">void registerCommandHandlers()</div><div class="ttdoc">Register command handlers.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:250</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a83416c5a4694e958f4a84de833123217"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a83416c5a4694e958f4a84de833123217">Network::UDPServer::getRooms</a></div><div class="ttdeci">std::vector&lt; Network::Room &gt; getRooms() const</div><div class="ttdoc">Gets the list of rooms.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:50</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a89898f37c3b431af91d70976fb9df528"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a89898f37c3b431af91d70976fb9df528">Network::UDPServer::sendToAllClientsInRoom</a></div><div class="ttdeci">void sendToAllClientsInRoom(const boost::asio::const_buffer &amp;buffer, int roomId)</div><div class="ttdoc">Send data to all clients in a room.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:125</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a8d43c1630c01f9eefa4909772057e9c8"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a8d43c1630c01f9eefa4909772057e9c8">Network::UDPServer::initServer</a></div><div class="ttdeci">void initServer(int port)</div><div class="ttdoc">Initializes the server.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:60</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_a9f7a52213bf27b1cd095cf526d6736ac"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#a9f7a52213bf27b1cd095cf526d6736ac">Network::UDPServer::getRemoteEndpoint</a></div><div class="ttdeci">boost::asio::ip::udp::endpoint getRemoteEndpoint() const</div><div class="ttdoc">Gets the remote endpoint.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:45</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_aabec654d8576481b31d0c1e689b66699"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#aabec654d8576481b31d0c1e689b66699">Network::UDPServer::workerFunction</a></div><div class="ttdeci">void workerFunction()</div><div class="ttdoc">Function executed by worker threads.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:171</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_aaea5f5e4974578868fef7cb9384a75d3"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#aaea5f5e4974578868fef7cb9384a75d3">Network::UDPServer::sendResponseAndLog</a></div><div class="ttdeci">void sendResponseAndLog(TimedMessage timedMessage, const Response &amp;response)</div><div class="ttdoc">Send a response and log it.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:211</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_abdff6274a3af6cd99c418197c4630a75"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#abdff6274a3af6cd99c418197c4630a75">Network::UDPServer::addClient</a></div><div class="ttdeci">void addClient(Network::Client client)</div><div class="ttdoc">Adds a client.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:55</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_ac2a6fa9962f244fd7ba8578d89296874"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#ac2a6fa9962f244fd7ba8578d89296874">Network::UDPServer::startReceive</a></div><div class="ttdeci">void startReceive()</div><div class="ttdoc">Start to receive data.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:84</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_ac32cc82757d28952e4429a16189b4216"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#ac32cc82757d28952e4429a16189b4216">Network::UDPServer::getSocket</a></div><div class="ttdeci">boost::asio::ip::udp::socket &amp; getSocket()</div><div class="ttdoc">Gets the UDP socket used by the server.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:30</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_ac4b4c1cd19635deb604ceb2a63839f4d"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#ac4b4c1cd19635deb604ceb2a63839f4d">Network::UDPServer::initRooms</a></div><div class="ttdeci">void initRooms(int count)</div><div class="ttdoc">Init the rooms.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:74</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_ace20a81cb7ed776463aaf539dbd0f123"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#ace20a81cb7ed776463aaf539dbd0f123">Network::UDPServer::createResponse</a></div><div class="ttdeci">Response createResponse(int clientId, const std::string &amp;command, const std::string &amp;statusMessage, int status=RES_SUCCESS)</div><div class="ttdoc">Create a response.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:194</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_ad308b901f24d10d50960571cd55f1494"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#ad308b901f24d10d50960571cd55f1494">Network::UDPServer::sendToClient</a></div><div class="ttdeci">void sendToClient(const boost::asio::const_buffer &amp;buffer, int id)</div><div class="ttdoc">Send data to a specific client.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:139</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_ad31c0be7001a0123b1fe8434161665de"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#ad31c0be7001a0123b1fe8434161665de">Network::UDPServer::processMessage</a></div><div class="ttdeci">void processMessage(TimedMessage message)</div><div class="ttdoc">Process a TimedMessage.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:154</div></div>
+<div class="ttc" id="aclass_network_1_1_u_d_p_server_html_ad4a7829a14bcc49630c18a59553fb765"><div class="ttname"><a href="class_network_1_1_u_d_p_server.html#ad4a7829a14bcc49630c18a59553fb765">Network::UDPServer::sendToAll</a></div><div class="ttdeci">void sendToAll(const boost::asio::const_buffer &amp;buffer)</div><div class="ttdoc">Send data to all clients.</div><div class="ttdef"><b>Definition</b> UDPServer.cpp:114</div></div>
 <div class="ttc" id="astruct_message_html"><div class="ttname"><a href="struct_message.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition</b> Messages.hpp:25</div></div>
 <div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:15</div></div>
+<div class="ttc" id="astruct_timed_message_html"><div class="ttname"><a href="struct_timed_message.html">TimedMessage</a></div><div class="ttdoc">Used to represent a message with a timestamp.</div><div class="ttdef"><b>Definition</b> UDPServer.hpp:17</div></div>
+<div class="ttc" id="astruct_timed_message_html_a2c1d25c80436512087308a036f01e86a"><div class="ttname"><a href="struct_timed_message.html#a2c1d25c80436512087308a036f01e86a">TimedMessage::message</a></div><div class="ttdeci">Message * message</div><div class="ttdoc">Pointer to the message.</div><div class="ttdef"><b>Definition</b> UDPServer.hpp:18</div></div>
+<div class="ttc" id="astruct_timed_message_html_abd5fd4e205672e1fdd572a47e7736e67"><div class="ttname"><a href="struct_timed_message.html#abd5fd4e205672e1fdd572a47e7736e67">TimedMessage::timestamp</a></div><div class="ttdeci">std::chrono::high_resolution_clock::time_point timestamp</div><div class="ttdoc">Timestamp of the message.</div><div class="ttdef"><b>Definition</b> UDPServer.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
