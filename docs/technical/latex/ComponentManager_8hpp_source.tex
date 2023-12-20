@@ -1,0 +1,90 @@
+\hypertarget{ComponentManager_8hpp_source}{}\doxysection{Component\+Manager.\+hpp}
+\label{ComponentManager_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ecs/component/ComponentManager.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ecs/component/ComponentManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 11/28/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Component.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}ComponentArray.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <typeinfo>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classComponentManager}{ComponentManager}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} registerComponent()}
+\DoxyCodeLine{19     \{}
+\DoxyCodeLine{20         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         assert(m\_componentTypes.find(typeName) == m\_componentTypes.end() \&\& \textcolor{stringliteral}{"{}Registering component type more than once."{}});}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         m\_componentTypes.insert(\{typeName, m\_nextComponentType\});}
+\DoxyCodeLine{25         m\_componentArrays.insert(\{typeName, std::make\_shared<ComponentArray<T>>()\});}
+\DoxyCodeLine{26         ++m\_nextComponentType;}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{30     ComponentType getComponentType()}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         assert(m\_componentTypes.find(typeName) != m\_componentTypes.end() \&\& \textcolor{stringliteral}{"{}ComponentRType not registered before use."{}});}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \textcolor{comment}{// Return this component's type -\/ used for creating signatures}}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} m\_componentTypes[typeName];}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} addComponent(Entity entity, T component)}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         \textcolor{comment}{// Add a component to the array for an entity}}
+\DoxyCodeLine{44         getComponentArray<T>()-\/>insertData(entity, component);}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} removeComponent(Entity entity)}
+\DoxyCodeLine{49     \{}
+\DoxyCodeLine{50         getComponentArray<T>()-\/>removeData(entity);}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{54     T\& getComponent(Entity entity)}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \textcolor{keywordflow}{return} getComponentArray<T>()-\/>getData(entity);}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} entityDestroyed(Entity entity)}
+\DoxyCodeLine{60     \{}
+\DoxyCodeLine{61         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& pair : m\_componentArrays)}
+\DoxyCodeLine{62         \{}
+\DoxyCodeLine{63             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& component = pair.second;}
+\DoxyCodeLine{64             component-\/>entityDestroyed(entity);}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{private}:}
+\DoxyCodeLine{69     std::unordered\_map<const char*, ComponentType> m\_componentTypes\{\};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     std::unordered\_map<const char*, std::shared\_ptr<IComponentArray>> m\_componentArrays\{\};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     ComponentType m\_nextComponentType\{\};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{76     std::shared\_ptr<ComponentArray<T>> getComponentArray()}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         assert(m\_componentTypes.find(typeName) != m\_componentTypes.end() \&\& \textcolor{stringliteral}{"{}ComponentRType not registered before use."{}});}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} std::static\_pointer\_cast<ComponentArray<T>>(m\_componentArrays[typeName]);}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84 \};}
+
+\end{DoxyCode}

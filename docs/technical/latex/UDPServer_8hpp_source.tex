@@ -1,0 +1,73 @@
+\hypertarget{UDPServer_8hpp_source}{}\doxysection{UDPServer.\+hpp}
+\label{UDPServer_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/UDPServer.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/UDPServer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 13/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \{}
+\DoxyCodeLine{20         \textcolor{keyword}{public}:}
+\DoxyCodeLine{29             \mbox{\hyperlink{classNetwork_1_1UDPServer_a8e48a3fb2808976e3cb450ad23fddc8e}{UDPServer}}(boost::asio::io\_context \&io);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{41             \mbox{\hyperlink{classNetwork_1_1UDPServer_a8e48a3fb2808976e3cb450ad23fddc8e}{UDPServer}}(boost::asio::io\_context \&io, \textcolor{keywordtype}{int} port);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{49             \mbox{\hyperlink{classNetwork_1_1UDPServer_a6ae6efb6b05e6b6518195512e90a216d}{\string~UDPServer}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{52         \textcolor{keyword}{private}:}
+\DoxyCodeLine{53             boost::asio::ip::udp::socket socket; }
+\DoxyCodeLine{54             std::vector<Network::Client> clients; }
+\DoxyCodeLine{55             boost::array<char, 1024> recvBuffer\{\}; }
+\DoxyCodeLine{56             boost::asio::ip::udp::endpoint remoteEndpoint; }
+\DoxyCodeLine{57             \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue}{Network::ThreadSafeQueue<Message *>}} messageQueue; }
+\DoxyCodeLine{58             std::vector<std::thread> workers; }
+\DoxyCodeLine{59             std::vector<Network::Room> rooms; }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{69             \textcolor{keywordtype}{void} initServer(\textcolor{keywordtype}{int} port);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{78             \textcolor{keywordtype}{void} initRooms(\textcolor{keywordtype}{int} count);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{89             \textcolor{keywordtype}{void} handleReceive(}
+\DoxyCodeLine{90                 \textcolor{keyword}{const} boost::system::error\_code \&error,}
+\DoxyCodeLine{91                 std::size\_t bytesTransferred}
+\DoxyCodeLine{92             );}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{101             \textcolor{keywordtype}{void} sendToAll(\textcolor{keyword}{const} boost::asio::const\_buffer \&buffer);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{111             \textcolor{keywordtype}{void} sendToClient(}
+\DoxyCodeLine{112                 \textcolor{keyword}{const} boost::asio::const\_buffer \&buffer,}
+\DoxyCodeLine{113                 \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}}
+\DoxyCodeLine{114             );}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{122             \textcolor{keywordtype}{void} startReceive();}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{132             \textcolor{keywordtype}{void} processMessage(\mbox{\hyperlink{structMessage}{Message}} *message);}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{140             \textcolor{keywordtype}{void} workerFunction();}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{154             \mbox{\hyperlink{structResponse}{Response}} createResponse(}
+\DoxyCodeLine{155                 \textcolor{keywordtype}{int} clientId,}
+\DoxyCodeLine{156                 \textcolor{keyword}{const} std::string\& command,}
+\DoxyCodeLine{157                 \textcolor{keyword}{const} std::string\& statusMessage,}
+\DoxyCodeLine{158                 \textcolor{keywordtype}{int} status}
+\DoxyCodeLine{159             );}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{168             \textcolor{keywordtype}{void} sendResponseAndLog(\textcolor{keyword}{const} \mbox{\hyperlink{structResponse}{Response}}\& response);}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170             \textcolor{comment}{// Command handling functions}}
+\DoxyCodeLine{171             \textcolor{keywordtype}{void} helloCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
+\DoxyCodeLine{172             \textcolor{keywordtype}{void} updateNameCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
+\DoxyCodeLine{173             \textcolor{keywordtype}{void} joinRoomCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
+\DoxyCodeLine{174             \textcolor{keywordtype}{void} inputCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
+\DoxyCodeLine{175             \textcolor{keywordtype}{void} startGameCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
+\DoxyCodeLine{176     \};}
+\DoxyCodeLine{177 \}}
+
+\end{DoxyCode}

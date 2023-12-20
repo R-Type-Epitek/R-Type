@@ -1,0 +1,24 @@
+\hypertarget{Responses_8hpp_source}{}\doxysection{Responses.\+hpp}
+\label{Responses_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/network/Responses.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/network/Responses.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 14/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{struct }\mbox{\hyperlink{structResponseHeader}{ResponseHeader}} \{}
+\DoxyCodeLine{8   \textcolor{keywordtype}{int} clientId;}
+\DoxyCodeLine{9   \textcolor{keywordtype}{char} command[32];}
+\DoxyCodeLine{10   uint32\_t dataLength;}
+\DoxyCodeLine{11   \textcolor{keywordtype}{int} status;}
+\DoxyCodeLine{12   \textcolor{keywordtype}{char} statusMessage[128];}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{struct }\mbox{\hyperlink{structResponse}{Response}} \{}
+\DoxyCodeLine{16   \mbox{\hyperlink{structResponseHeader}{ResponseHeader}} header;}
+\DoxyCodeLine{17   \textcolor{keywordtype}{char} data[];}
+\DoxyCodeLine{18 \};}
+
+\end{DoxyCode}

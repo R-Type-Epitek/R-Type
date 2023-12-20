@@ -1,0 +1,42 @@
+\hypertarget{Button_8hpp_source}{}\doxysection{Button.\+hpp}
+\label{Button_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Components/Button.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Components/Button.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 17/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1Button}{Button}} \{}
+\DoxyCodeLine{12         \textcolor{keyword}{public}:}
+\DoxyCodeLine{13             \mbox{\hyperlink{classClient_1_1Button}{Button}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{14             \mbox{\hyperlink{classClient_1_1Button}{Button}}(}
+\DoxyCodeLine{15                 sf::Vector2f position,}
+\DoxyCodeLine{16                 sf::Vector2f size,}
+\DoxyCodeLine{17                 std::string assetPath}
+\DoxyCodeLine{18             );}
+\DoxyCodeLine{19             \mbox{\hyperlink{classClient_1_1Button}{\string~Button}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{20             \mbox{\hyperlink{classClient_1_1Button}{Button}}(\mbox{\hyperlink{classClient_1_1Button}{Button}} \textcolor{keyword}{const} \&toCopy) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{21             \mbox{\hyperlink{classClient_1_1Button}{Button}}(\mbox{\hyperlink{classClient_1_1Button}{Button}} \&\&toMove) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{22             \mbox{\hyperlink{classClient_1_1Button}{Button}} \&operator=(\mbox{\hyperlink{classClient_1_1Button}{Button}} \textcolor{keyword}{const} \&toCopy) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{23             \mbox{\hyperlink{classClient_1_1Button}{Button}} \&operator=(\mbox{\hyperlink{classClient_1_1Button}{Button}} \&\&toMove) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{24             std::shared\_ptr<sf::RectangleShape> getShape();}
+\DoxyCodeLine{25             \textcolor{keywordtype}{void} draw(sf::RenderWindow \&window);}
+\DoxyCodeLine{26             \textcolor{keywordtype}{void} isClicked();}
+\DoxyCodeLine{27             \textcolor{keywordtype}{void} isReleased();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{30         \textcolor{keyword}{private}:}
+\DoxyCodeLine{31             std::shared\_ptr<sf::Sprite> sprite\_;}
+\DoxyCodeLine{32             std::shared\_ptr<sf::RectangleShape> shape\_;}
+\DoxyCodeLine{33             sf::Texture texture\_;}
+\DoxyCodeLine{34             \textcolor{keywordtype}{int} alpha\_\{250\};}
+\DoxyCodeLine{35     \};}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}

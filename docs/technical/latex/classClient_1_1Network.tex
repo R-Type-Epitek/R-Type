@@ -1,0 +1,59 @@
+\hypertarget{classClient_1_1Network}{}\doxysection{Client\+::Network Class Reference}
+\label{classClient_1_1Network}\index{Client::Network@{Client::Network}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a27d7f8cf48354afeb62a66326ba7aa46}\label{classClient_1_1Network_a27d7f8cf48354afeb62a66326ba7aa46}} 
+{\bfseries Network} (std\+::string ip, std\+::string port)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a867b048a7044633d09979bed3d8ee0a4}\label{classClient_1_1Network_a867b048a7044633d09979bed3d8ee0a4}} 
+void {\bfseries send} (const boost\+::asio\+::const\+\_\+buffer \&buffer)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a31c90e60b8fa74ac2948e2b9a9be20bd}\label{classClient_1_1Network_a31c90e60b8fa74ac2948e2b9a9be20bd}} 
+void {\bfseries send\+Message} (const std\+::string \&command, const char $\ast$data, size\+\_\+t data\+Size)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_acef16183eb0d0060b769ecbea70a56f9}\label{classClient_1_1Network_acef16183eb0d0060b769ecbea70a56f9}} 
+\mbox{\hyperlink{structResponse}{Response}} $\ast$ {\bfseries receive\+And\+Validate\+Response} (const std\+::string \&expected\+Command)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a4e6e450be2f058ef29e21b5a17f3e5ee}\label{classClient_1_1Network_a4e6e450be2f058ef29e21b5a17f3e5ee}} 
+void {\bfseries connect\+To\+Server} ()
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a9090adb4709e633a7787595896adcc07}\label{classClient_1_1Network_a9090adb4709e633a7787595896adcc07}} 
+void {\bfseries update\+Name} (std\+::string name)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_af9322d011cea31df49fe776392ad0648}\label{classClient_1_1Network_af9322d011cea31df49fe776392ad0648}} 
+void {\bfseries join\+Room} (int room\+Id)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a834301699563164adcfb6f34e95bba2c}\label{classClient_1_1Network_a834301699563164adcfb6f34e95bba2c}} 
+void {\bfseries send\+Key} (std\+::string key)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_ac8d152775dc2181fc2989709f3dfd204}\label{classClient_1_1Network_ac8d152775dc2181fc2989709f3dfd204}} 
+void {\bfseries start\+Game} (int room\+Id)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a02b0fb41b307eb039b3e91026497ff12}\label{classClient_1_1Network_a02b0fb41b307eb039b3e91026497ff12}} 
+void {\bfseries set\+Client\+Id} (int id)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_ad7a790ce27c24b4e06ca2527e1ef60b4}\label{classClient_1_1Network_ad7a790ce27c24b4e06ca2527e1ef60b4}} 
+int {\bfseries get\+Client\+Id} () const
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a32740d05d50258cbe320af2a3d82529c}\label{classClient_1_1Network_a32740d05d50258cbe320af2a3d82529c}} 
+void {\bfseries set\+Room\+Id} (int id)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_aa901bacaeffbed0bbfc51820065deab5}\label{classClient_1_1Network_aa901bacaeffbed0bbfc51820065deab5}} 
+int {\bfseries get\+Room\+Id} () const
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a17f5c274ef1658e21cba3c1b96a06ef9}\label{classClient_1_1Network_a17f5c274ef1658e21cba3c1b96a06ef9}} 
+void {\bfseries set\+Name} (std\+::string name)
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_a22fd352e18ad5618d8b7e5eb233ff1db}\label{classClient_1_1Network_a22fd352e18ad5618d8b7e5eb233ff1db}} 
+std\+::string {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classClient_1_1Network_afcf3bbd9224afa0b3de2856dc1617f10}\label{classClient_1_1Network_afcf3bbd9224afa0b3de2856dc1617f10}} 
+void {\bfseries set\+Endpoint} (std\+::string \&ip, std\+::string \&port)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/client/include/Network.\+hpp\item 
+/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/client/src/Network.\+cpp\end{DoxyCompactItemize}

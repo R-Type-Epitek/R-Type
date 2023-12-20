@@ -1,0 +1,34 @@
+\hypertarget{Background_8hpp_source}{}\doxysection{Background.\+hpp}
+\label{Background_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Components/Background.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Components/Background.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 17/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1Background}{Background}} \{}
+\DoxyCodeLine{12         \textcolor{keyword}{public}:}
+\DoxyCodeLine{13             \mbox{\hyperlink{classClient_1_1Background}{Background}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{14             \mbox{\hyperlink{classClient_1_1Background}{Background}}(sf::Vector2f position, std::string assetPath);}
+\DoxyCodeLine{15             \mbox{\hyperlink{classClient_1_1Background}{\string~Background}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{16             \mbox{\hyperlink{classClient_1_1Background}{Background}}(\mbox{\hyperlink{classClient_1_1Background}{Background}} \textcolor{keyword}{const} \&toCopy) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{17             \mbox{\hyperlink{classClient_1_1Background}{Background}}(\mbox{\hyperlink{classClient_1_1Background}{Background}} \&\&toMove) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{18             \mbox{\hyperlink{classClient_1_1Background}{Background}} \&operator=(\mbox{\hyperlink{classClient_1_1Background}{Background}} \textcolor{keyword}{const} \&toCopy) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{19             \mbox{\hyperlink{classClient_1_1Background}{Background}} \&operator=(\mbox{\hyperlink{classClient_1_1Background}{Background}} \&\&toMove) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21             \textcolor{keywordtype}{void} draw(sf::RenderWindow \&window);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{24         \textcolor{keyword}{private}:}
+\DoxyCodeLine{25             std::shared\_ptr<sf::Sprite> sprite\_;}
+\DoxyCodeLine{26             sf::Texture texture\_;}
+\DoxyCodeLine{27     \};}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}

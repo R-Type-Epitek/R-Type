@@ -1,32 +1,82 @@
-# Technical Documentation
+# Project Whanos EPITECH
 
-### Introduction
-Welcome to the comprehensive documentation for our project. This guide is designed to provide you with all the necessary information to install, understand, and effectively utilize our software.
+Welcome to the Whanos project! This project aims to create a DevOps solution to run build and deploy by just adding your git repository URL.
 
-[TOC]
+# Table of Contents
 
-### Installation Guide
+- [Technologies](#technologies)
+- [Prerequisites]('#Prerequisites')
+- [Installation](#Installation)
+    - [Project Structure](./structures.md)
+    - [How to add a repository](./add_repository.md)
+    - [Add a deployment language](./add_language.md)
+- [Contributing](#contributing)
+- [License](#license)
 
-To install the project, please use the following command:
+---
 
-```bash
-justfile
-```
+# Technologies
 
-### Project Structure
-Our project is structured into three main components, each serving a unique purpose in the overall functionality of the software.
+The developed solution uses the following technologies:
 
-1. **The ECS (Entity Component System):** This part focuses on handling the data processing and logic of the software.
-   
-2. **The Server:** Responsible for managing the backend processes, the server can be launched using the command:
-```bash
-./r-type_server
-```
+- [C++](): Object-oriented programming language.
+- [CMake](https://cmake.org/): Cross-platform build system generator.
+- [Justfile](https://just.systems/man/en/): Task automation tool for project workflows.
+- [Docker](https://www.docker.com/): Containerization platform.
+- [Doxygene](https://www.doxygen.nl/): Documentation generator for source code.
 
-1. **The Client:** The user interface and interaction component of our software. Start the client using:
-```bash
-./r-type_client
-```
+
+# Prerequisites
+
+Before getting started, ensure you have the following dependencies installed:
+
+- **Justfile**
+- **C++**
+- **CMake**
+
+### Optional Dependencies
+
+These are optional dependencies, useful for local development:
+
+- **Doxygen**
+- **Docker**
+
+
+# Installation
+
+To launch the project, follow these steps:
+
+1. ### Clone the repository:
+   ```bash
+   git clone git@github.com:R-Type-Epitek/R-Type.git
+   ```
+
+2. ### Navigate to the project directory:
+   ```bash
+   cd R-Type
+   ```
+3. ### Init the project:
+    ```bash
+      just 
+    ```
+   Or
+    ```bash
+      just start
+    ```
+
+4. ### You are all set up to using the rtype:
+   Launch the server
+    ```bash
+      ./r-type_server
+    ```
+   Launch client(s)
+   ```bash
+      ./r-type_client
+   ```
+---
+### Check the [justfile](../../justfile) recipes
+
+---
 
 ### Support and Contributions
 For any assistance, queries, or contributions, please refer to our support guidelines or contact our team. We welcome contributions and feedback to improve the project.
@@ -35,9 +85,9 @@ For any assistance, queries, or contributions, please refer to our support guide
 We hope this documentation provides a clear understanding of our project and assists you in its effective utilization. Thank you for choosing our software.
 
 <div class="section_buttons">
- 
+
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
 | [Home](README.md) | [Customization](customization.md) |
- 
+
 </div>

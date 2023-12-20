@@ -1,0 +1,48 @@
+\hypertarget{InputText_8hpp_source}{}\doxysection{Input\+Text.\+hpp}
+\label{InputText_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Components/InputText.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Components/InputText.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 17/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1InputText}{InputText}} \{}
+\DoxyCodeLine{12         \textcolor{keyword}{public}:}
+\DoxyCodeLine{13             \mbox{\hyperlink{classClient_1_1InputText}{InputText}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{14             \mbox{\hyperlink{classClient_1_1InputText}{InputText}}(}
+\DoxyCodeLine{15                 sf::Vector2f position,}
+\DoxyCodeLine{16                 sf::Vector2f size,}
+\DoxyCodeLine{17                 std::string fontPath,}
+\DoxyCodeLine{18                 std::string defaultText}
+\DoxyCodeLine{19             );}
+\DoxyCodeLine{20             \mbox{\hyperlink{classClient_1_1InputText}{\string~InputText}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{21             \mbox{\hyperlink{classClient_1_1InputText}{InputText}}(\mbox{\hyperlink{classClient_1_1InputText}{InputText}} \textcolor{keyword}{const} \&toCopy) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{22             \mbox{\hyperlink{classClient_1_1InputText}{InputText}}(\mbox{\hyperlink{classClient_1_1InputText}{InputText}} \&\&toMove) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{23             \mbox{\hyperlink{classClient_1_1InputText}{InputText}} \&operator=(\mbox{\hyperlink{classClient_1_1InputText}{InputText}} \textcolor{keyword}{const} \&toCopy) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{24             \mbox{\hyperlink{classClient_1_1InputText}{InputText}} \&operator=(\mbox{\hyperlink{classClient_1_1InputText}{InputText}} \&\&toMove) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{25             std::shared\_ptr<sf::RectangleShape> getShape();}
+\DoxyCodeLine{26             \textcolor{keywordtype}{void} draw(sf::RenderWindow \&window);}
+\DoxyCodeLine{27             \textcolor{keywordtype}{void} startInput();}
+\DoxyCodeLine{28             \textcolor{keywordtype}{void} endInput();}
+\DoxyCodeLine{29             std::string getInput();}
+\DoxyCodeLine{30             \textcolor{keywordtype}{void} setInput(\textcolor{keywordtype}{char} input);}
+\DoxyCodeLine{31             \textcolor{keywordtype}{bool} isClicked() \textcolor{keyword}{const};}
+\DoxyCodeLine{32             \textcolor{keywordtype}{void} popInput();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{35         \textcolor{keyword}{private}:}
+\DoxyCodeLine{36             std::shared\_ptr<sf::RectangleShape> shape\_;}
+\DoxyCodeLine{37             std::string input\_;}
+\DoxyCodeLine{38             std::string fontPath\_;}
+\DoxyCodeLine{39             sf::Vector2f positionText\_;}
+\DoxyCodeLine{40             \textcolor{keywordtype}{bool} isClicked\_\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{41     \};}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}

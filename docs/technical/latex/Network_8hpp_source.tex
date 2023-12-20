@@ -1,0 +1,55 @@
+\hypertarget{Network_8hpp_source}{}\doxysection{Network.\+hpp}
+\label{Network_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Network.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/client/include/Network.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 14/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeClient.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1Network}{Network}} \{}
+\DoxyCodeLine{12         \textcolor{keyword}{public}:}
+\DoxyCodeLine{13             \mbox{\hyperlink{classClient_1_1Network}{Network}}(std::string ip, std::string port);}
+\DoxyCodeLine{14             \mbox{\hyperlink{classClient_1_1Network}{\string~Network}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15             \textcolor{keywordtype}{void} send(\textcolor{keyword}{const} boost::asio::const\_buffer \&buffer);}
+\DoxyCodeLine{16             \textcolor{keywordtype}{void} sendMessage(}
+\DoxyCodeLine{17                 \textcolor{keyword}{const} std::string\& command,}
+\DoxyCodeLine{18                 \textcolor{keyword}{const} \textcolor{keywordtype}{char}* data,}
+\DoxyCodeLine{19                 \textcolor{keywordtype}{size\_t} dataSize}
+\DoxyCodeLine{20             );}
+\DoxyCodeLine{21             \mbox{\hyperlink{structResponse}{Response}}* receiveAndValidateResponse(}
+\DoxyCodeLine{22                 \textcolor{keyword}{const} std::string\& expectedCommand}
+\DoxyCodeLine{23             );}
+\DoxyCodeLine{24             \textcolor{keywordtype}{void} connectToServer();}
+\DoxyCodeLine{25             \textcolor{keywordtype}{void} updateName(std::string name);}
+\DoxyCodeLine{26             \textcolor{keywordtype}{void} joinRoom(\textcolor{keywordtype}{int} roomId);}
+\DoxyCodeLine{27             \textcolor{keywordtype}{void} sendKey(std::string key);}
+\DoxyCodeLine{28             \textcolor{keywordtype}{void} startGame(\textcolor{keywordtype}{int} roomId);}
+\DoxyCodeLine{29             \textcolor{keywordtype}{void} setClientId(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{30             \textcolor{keywordtype}{int} getClientId() \textcolor{keyword}{const};}
+\DoxyCodeLine{31             \textcolor{keywordtype}{void} setRoomId(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{32             \textcolor{keywordtype}{int} getRoomId() \textcolor{keyword}{const};}
+\DoxyCodeLine{33             \textcolor{keywordtype}{void} setName(std::string name);}
+\DoxyCodeLine{34             std::string getName() \textcolor{keyword}{const};}
+\DoxyCodeLine{35             \textcolor{keywordtype}{void} setEndpoint(}
+\DoxyCodeLine{36                 std::string \&ip,}
+\DoxyCodeLine{37                 std::string \&port}
+\DoxyCodeLine{38             );}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keyword}{protected}:}
+\DoxyCodeLine{41         \textcolor{keyword}{private}:}
+\DoxyCodeLine{42             boost::asio::io\_context io;}
+\DoxyCodeLine{43             boost::asio::ip::udp::endpoint receiverEndpoint;}
+\DoxyCodeLine{44             boost::asio::ip::udp::socket socket\{this-\/>io\};}
+\DoxyCodeLine{45             \textcolor{keywordtype}{int} clientId;}
+\DoxyCodeLine{46             \textcolor{keywordtype}{int} roomId;}
+\DoxyCodeLine{47             std::string name;}
+\DoxyCodeLine{48     \};}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
