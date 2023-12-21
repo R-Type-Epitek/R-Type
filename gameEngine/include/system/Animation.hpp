@@ -29,7 +29,7 @@ class Animation : public System {
         auto& sprite = component_manager->getComponent<ComponentRType::Sprite>(entity);
         auto& gravity = component_manager->getComponent<ComponentRType::Gravity>(entity);
 
-        sfml_display.setPosition(sprite.object, transform.position);
-        sfml_display.display(window, sprite.object);
+        sfml_display.setPosition(sprite.m_object, transform.position);
+        sfml_display.display(window, sprite.m_object);
   }
 };

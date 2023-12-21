@@ -12,6 +12,10 @@ add_library(${LIBRARY} STATIC
         include/logic/SystemLogic.hpp
         include/ecs/system/ISystem.hpp
         include/ecs/system/ISystem.hpp
+        include/component/ComponentBuilder.hpp
+        include/ecs/TextureManager.hpp
+        include/ecs/TextureManager.hpp
+        src/TextureManager.cpp
 )
 
 target_include_directories(${LIBRARY}
