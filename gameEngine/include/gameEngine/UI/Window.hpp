@@ -9,7 +9,6 @@
 #include <string>
 
 namespace GameEngine::UI {
-#define DEFAULT_RATIO (16.f / 9.f)
 
 struct WindowContext {
   sf::RenderWindow window;
@@ -20,7 +19,9 @@ struct WindowContext {
 
 class Window {
  public:
-  Window(int width, int height, std::string& name, float screenRatio = DEFAULT_RATIO);
+  using ClosureType = std::function<void(WindowContext&)>;
+
+  Window(int width, int height, std::string& name, float screenRatio);
 
   void setFrameRate(int);
 
@@ -39,11 +40,12 @@ class Window {
  private:
   void handleEvent();
   void onResize();
+  void invokeClosure(ClosureType closure);
 
   WindowContext m_windowContext;
-  std::function<void(WindowContext&)> m_closureEvent;
-  std::function<void(WindowContext&)> m_closureUpdate;
-  std::function<void(WindowContext&)> m_closureDisplay;
+  ClosureType m_closureEvent;
+  ClosureType m_closureUpdate;
+  ClosureType m_closureDisplay;
 };
 
 }  // namespace GameEngine::UI

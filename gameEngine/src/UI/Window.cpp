@@ -26,7 +26,7 @@ void Window::unsubscribeDisplay() { m_closureDisplay = {}; };
 
 void Window::launch() {
   while (m_windowContext.window.isOpen()) {
-    m_closureUpdate(m_windowContext);
+    invokeClosure(m_closureUpdate);
     this->handleEvent();
   }
 }
@@ -39,9 +39,8 @@ void Window::handleEvent() {
       case sf::Event::Resized:
         return this->onResize();
       default:
-        break;
+        invokeClosure(m_closureEvent);
     }
-    m_closureEvent(m_windowContext);
   }
 }
 
@@ -69,8 +68,14 @@ void Window::onResize() {
 
 void Window::display() {
   m_windowContext.window.clear();
-  m_closureDisplay(m_windowContext);
+  invokeClosure(m_closureDisplay);
   m_windowContext.window.display();
+}
+
+void Window::invokeClosure(ClosureType closure) {
+  if (closure) {
+    closure(m_windowContext);
+  }
 };
 
 };  // namespace GameEngine::UI
