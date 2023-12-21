@@ -32,4 +32,5 @@ target_link_libraries(${EXEC_CLIENT}
         sfml-network
         sfml-graphics
         sfml-window
+        spdlog::spdlog
 )

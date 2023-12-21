@@ -3,11 +3,11 @@
 //
 
 #pragma once
-#include "gameEngine/UI/Window.hpp"
 #include "gameEngine/scene/SceneManager.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Network.hpp"
 #include <memory>
+#include <string>
 
 #define DEFAULT_RATIO (16.f / 9.f)
 
