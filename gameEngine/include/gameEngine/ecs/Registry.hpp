@@ -11,7 +11,7 @@
 #include "gameEngine/ecs/system/SystemManager.hpp"
 #include <memory>
 
-class Mediator {
+class Registry {
  public:
   void Init() {
     m_componentManager = std::make_unique<ComponentManager>();
