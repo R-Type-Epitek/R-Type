@@ -9,6 +9,8 @@
 #include "network/Network.hpp"
 #include <memory>
 
+#define DEFAULT_RATIO (16.f / 9.f)
+
 namespace Client {
 class Client {
  public:

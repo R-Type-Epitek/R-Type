@@ -3,16 +3,38 @@
 //
 
 #include "Client.hpp"
-#define DEFAULT_RATIO (16.f / 9.f)
+#include "spdlog/spdlog.h"
 
 namespace Client {
 
-Client::Client() = default;
-void Client::initNetwork() { m_network = std::make_unique<Network>(DEFAULT_IP, DEFAULT_PORT); }
+Client::Client() { spdlog::info("Starting Client..."); };
 
-void Client::initGUI() { m_gui = std::make_unique<GUI>(1920, 1080, appName, DEFAULT_RATIO); }
+void Client::initNetwork() {
+  spdlog::info("Starting Network...");
+  try {
+    m_network = std::make_unique<Network>(DEFAULT_IP, DEFAULT_PORT);
+  } catch (std::exception) {
+    spdlog::error("Failed to initialize Network");
+  }
+}
 
-void Client::initScenes() {}
+void Client::initGUI() {
+  spdlog::info("Starting GUI...");
+  try {
+    m_gui = std::make_unique<GUI>(1920, 1080, appName, DEFAULT_RATIO);
+  } catch (std::exception) {
+    spdlog::error("Failed to initialize GUI");
+  }
+}
+
+void Client::initScenes() {
+  spdlog::info("Starting Scenes...");
+  try {
+    m_gui = std::make_unique<GUI>(1920, 1080, appName, DEFAULT_RATIO);
+  } catch (std::exception) {
+    spdlog::error("Failed to initialize Scenes");
+  }
+}
 
 void Client::run() { m_gui->launch(); }
 
