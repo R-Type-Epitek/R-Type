@@ -2,6 +2,8 @@
 // Created by Xavier VINCENT on 14/12/23.
 //
 
+#include <cstdint>
+
 /**
  * @struct MessageHeader
  * @brief Structure representing the header of a network message.
