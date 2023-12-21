@@ -9,6 +9,8 @@ add_executable(${EXEC_CLIENT}
         src/Client.cpp
         src/network/Network.cpp
         src/graphics/GUI.cpp
+        src/scene/GameScene.cpp
+        src/scene/SceneManager.cpp
 )
 
 target_include_directories(${EXEC_CLIENT}

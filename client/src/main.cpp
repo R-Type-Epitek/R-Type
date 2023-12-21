@@ -12,5 +12,6 @@ int main() {
   client.initNetwork();
   client.initGUI();
   client.initScenes();
+  client.link();
   client.run();
 };

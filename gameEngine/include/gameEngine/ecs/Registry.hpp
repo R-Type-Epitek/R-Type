@@ -13,7 +13,7 @@
 
 class Registry {
  public:
-  void Init() {
+  void init() {
     m_componentManager = std::make_unique<ComponentManager>();
     m_entityManager = std::make_unique<EntityManager>();
     m_systemManager = std::make_unique<SystemManager>();

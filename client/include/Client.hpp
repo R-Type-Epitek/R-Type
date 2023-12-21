@@ -3,9 +3,10 @@
 //
 
 #pragma once
-#include "gameEngine/scene/SceneManager.hpp"
+#include "gameEngine/UI/Window.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Network.hpp"
+#include "scene/SceneManager.hpp"
 #include <memory>
 #include <string>
 
@@ -18,12 +19,20 @@ class Client {
   void initNetwork();
   void initGUI();
   void initScenes();
+  void link();
   void run();
+
+  void testNetwork();
+
+  //  Closure
+  void update(GameEngine::UI::WindowContext&);
+  void event(GameEngine::UI::WindowContext&);
+  void display(GameEngine::UI::WindowContext&);
 
  private:
   std::string appName = "Rtype client";
   std::unique_ptr<Network> m_network;
   std::unique_ptr<GUI> m_gui;
-  //  std::unique_ptr<cLAAS> m_scenes;
+  std::unique_ptr<SceneManager> m_sceneManager;
 };
 }  // namespace Client

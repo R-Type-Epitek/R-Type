@@ -5,6 +5,7 @@ set(LIBRARY "GameEngine")
 add_library(GameEngine STATIC
         src/testlib.cpp
         src/ecs/entity/EntityManager.cpp
+        src/scene/SceneContainer.cpp
         src/scene/SceneManager.cpp
         src/UI/Window.cpp
 )

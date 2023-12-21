@@ -4,7 +4,8 @@
 
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window.hpp>
 #include <functional>
 #include <string>
 
@@ -25,13 +26,13 @@ class Window {
 
   void setFrameRate(int);
 
-  void subscribeEvent(std::function<void(WindowContext&)>& closure);
+  void subscribeEvent(std::function<void(WindowContext&)> closure);
   void unsubscribeEvent();
 
-  void subscribeUpdate(std::function<void(WindowContext&)>& closure);
+  void subscribeUpdate(std::function<void(WindowContext&)> closure);
   void unsubscribeUpdate();
 
-  void subscribeDisplay(std::function<void(WindowContext&)>& closure);
+  void subscribeDisplay(std::function<void(WindowContext&)> closure);
   void unsubscribeDisplay();
 
   void launch();

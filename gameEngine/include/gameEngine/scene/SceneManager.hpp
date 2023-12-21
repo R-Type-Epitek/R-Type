@@ -1,33 +1,28 @@
 //
-// Created by raphael on 12/20/23.
+// Created by raphael on 12/21/23.
 //
 
 #pragma once
-
 #include "IScene.hpp"
-#include <map>
-#include <memory>
-#include <string>
+#include "SceneContainer.hpp"
 
 namespace GameEngine::Scene {
+
+//  TODO: implement with template enum class
+// template <typename EnumClass, EnumClass EnumVal>
 class SceneManager {
  public:
   SceneManager() = default;
 
-  void addScene(std::string const& name, std::unique_ptr<IScene> scene);
-  void deleteScene(std::string const& name);
-  IScene& getScene(std::string const& name);
+  virtual void initScenes(){};
+  IScene& getCurrent();
+  void setCurrent(std::string name);
 
-  typename std::map<std::string, std::unique_ptr<IScene>>::iterator begin() {
-    return m_scenes.begin();
-  }
-  typename std::map<std::string, std::unique_ptr<IScene>>::iterator end() {
-    return m_scenes.end();
-  }
+ protected:
+  SceneContainer m_scenes;
 
  private:
-  bool exist(std::string const& name);
-  std::map<std::string, std::unique_ptr<IScene>> m_scenes;
+  std::string m_currentSceneName;
 };
 
-}  // namespace GameEngine::Scene
+};  // namespace GameEngine::Scene

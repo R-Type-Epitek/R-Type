@@ -3,6 +3,8 @@
 //
 
 #include "gameEngine/UI/Window.hpp"
+#include <functional>
+#include <utility>
 
 namespace GameEngine::UI {
 Window::Window(int width, int height, std::string& name, float screenRatio)
@@ -15,19 +17,20 @@ Window::Window(int width, int height, std::string& name, float screenRatio)
 
 void Window::setFrameRate(int limit) { m_windowContext.window.setFramerateLimit(limit); }
 
-void Window::subscribeEvent(std::function<void(WindowContext&)>& closure) { m_closureEvent = closure; }
+void Window::subscribeEvent(std::function<void(WindowContext&)> closure) { m_closureEvent = std::move(closure); }
 void Window::unsubscribeEvent() { m_closureEvent = {}; }
 
-void Window::subscribeUpdate(std::function<void(WindowContext&)>& closure) { m_closureEvent = closure; };
+void Window::subscribeUpdate(std::function<void(WindowContext&)> closure) { m_closureUpdate = std::move(closure); };
 void Window::unsubscribeUpdate() { m_closureUpdate = {}; };
 
-void Window::subscribeDisplay(std::function<void(WindowContext&)>& closure) { m_closureDisplay = closure; };
+void Window::subscribeDisplay(std::function<void(WindowContext&)> closure) { m_closureDisplay = std::move(closure); };
 void Window::unsubscribeDisplay() { m_closureDisplay = {}; };
 
 void Window::launch() {
   while (m_windowContext.window.isOpen()) {
+    handleEvent();
     invokeClosure(m_closureUpdate);
-    this->handleEvent();
+    display();
   }
 }
 
