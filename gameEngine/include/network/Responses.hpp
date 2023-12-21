@@ -2,6 +2,7 @@
 // Created by Xavier VINCENT on 14/12/23.
 //
 
+#pragma once
 #include <cstdint>
 
 struct ResponseHeader {
