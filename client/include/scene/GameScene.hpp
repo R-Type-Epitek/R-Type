@@ -13,7 +13,6 @@ namespace Client {
 class GameScene : public GameEngine::Scene::IScene {
  public:
   GameScene();
-  void update() final;
 
   void initRegistry() final;
 
