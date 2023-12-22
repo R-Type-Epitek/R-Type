@@ -3,6 +3,7 @@
 //
 
 #include "Client.hpp"
+#include "gameEngine/UI/Window.hpp"
 #include "spdlog/spdlog.h"
 #include <exception>
 #include <memory>

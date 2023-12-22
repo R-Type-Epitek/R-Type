@@ -3,6 +3,7 @@
 //
 #pragma once
 #include "gameEngine/ecs/Registry.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
 #include <memory>
 #include <vector>
 
