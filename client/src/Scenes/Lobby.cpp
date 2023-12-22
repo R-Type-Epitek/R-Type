@@ -7,23 +7,22 @@
 Client::LobbyScene::LobbyScene(Client::SceneName sceneName) {
   this->sceneName_ = sceneName;
 
-  Background tmpBackground(sf::Vector2f(0, 0), "assets/lobby/bg.png");
+  Background tmpBackground(sf::Vector2f(0, 0), "asset/lobby/bg.png");
   this->background_ = tmpBackground;
 
-  Button tmpEscapeButton(sf::Vector2f(1182, 270), sf::Vector2f(31, 31), "assets/lobby/escape_button.png");
+  Button tmpEscapeButton(sf::Vector2f(1182, 270), sf::Vector2f(31, 31), "asset/lobby/escape_button.png");
   this->escapeButton_ = std::make_shared<Button>(tmpEscapeButton);
 
-  Button tmpAcceptButton(sf::Vector2f(963, 720), sf::Vector2f(156, 50), "assets/lobby/accept_button.png");
+  Button tmpAcceptButton(sf::Vector2f(963, 720), sf::Vector2f(156, 50), "asset/lobby/accept_button.png");
   this->acceptButton_ = std::make_shared<Button>(tmpAcceptButton);
 
-  Button tmpReturnButton(sf::Vector2f(803, 720), sf::Vector2f(156, 50), "assets/lobby/return_button.png");
+  Button tmpReturnButton(sf::Vector2f(803, 720), sf::Vector2f(156, 50), "asset/lobby/return_button.png");
   this->returnButton_ = std::make_shared<Button>(tmpReturnButton);
 
-  InputText tmpIpInput(sf::Vector2f(718, 338), sf::Vector2f(237, 48), "assets/font/nasalization-rg.ttf", DEFAULT_IP);
+  InputText tmpIpInput(sf::Vector2f(718, 338), sf::Vector2f(237, 48), "asset/font/nasalization-rg.ttf", DEFAULT_IP);
   this->ipInput_ = std::make_shared<InputText>(tmpIpInput);
 
-  InputText tmpPortInput(sf::Vector2f(961, 338), sf::Vector2f(237, 48), "assets/font/nasalization-rg.ttf",
-                         DEFAULT_PORT);
+  InputText tmpPortInput(sf::Vector2f(961, 338), sf::Vector2f(237, 48), "asset/font/nasalization-rg.ttf", DEFAULT_PORT);
   this->portInput_ = std::make_shared<InputText>(tmpPortInput);
 }
 

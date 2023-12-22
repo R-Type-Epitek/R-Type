@@ -7,10 +7,10 @@
 Client::WelcomeScene::WelcomeScene(Client::SceneName sceneName) {
   this->sceneName_ = sceneName;
 
-  Background tmpBackground(sf::Vector2f(0, 0), "assets/welcome/bg.jpg");
+  Background tmpBackground(sf::Vector2f(0, 0), "asset/welcome/bg.jpg");
   this->background_ = tmpBackground;
 
-  Button tmpButton(sf::Vector2f(615, 480), sf::Vector2f(690, 120), "assets/welcome/rtype_button.jpg");
+  Button tmpButton(sf::Vector2f(615, 480), sf::Vector2f(690, 120), "asset/welcome/rtype_button.jpg");
   this->playButton_ = std::make_shared<Button>(tmpButton);
 }
 

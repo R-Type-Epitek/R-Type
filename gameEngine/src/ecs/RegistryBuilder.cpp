@@ -2,11 +2,6 @@
 // Created by raphael on 12/22/23.
 //
 
-//
-// Created by raphael on 12/22/23.
-//
-
-#pragma once
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/Sprite.hpp"

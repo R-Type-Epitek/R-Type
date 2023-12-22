@@ -33,21 +33,22 @@ void GameScene::initRegistry() {
 }
 
 void GameScene::initEntities() {
+  //  TODO generate entities from network
   auto entt = m_registry->createEntity();
   m_entities.push_back(entt);
   m_registry->addComponent(entt, ComponentRType::Gravity{Vec3{1}});
   m_registry->addComponent(entt, ComponentRType::Transform{{0, 0}});
-  m_registry->addComponent(entt, ComponentRType::Sprite{1});
+  m_registry->addComponent(entt, ComponentRType::Sprite{});
 
   auto entt2 = m_registry->createEntity();
   m_entities.push_back(entt2);
   m_registry->addComponent(entt2, ComponentRType::Gravity{Vec3{1}});
   m_registry->addComponent(entt2, ComponentRType::Transform{{0, 0}});
-  m_registry->addComponent(entt2, ComponentRType::Sprite{2});
+  m_registry->addComponent(entt2, ComponentRType::Sprite{});
 
   auto entt1 = m_registry->createEntity();
   m_entities.push_back(entt1);
-  m_registry->addComponent(entt1, ComponentRType::Sprite{3});
+  m_registry->addComponent(entt1, ComponentRType::Sprite{});
 }
 
 void GameScene::update() {}

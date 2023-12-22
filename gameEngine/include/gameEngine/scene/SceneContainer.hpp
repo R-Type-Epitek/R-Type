@@ -17,7 +17,7 @@ class SceneContainer {
   void addScene(std::string const& name, std::unique_ptr<IScene> scene);
   void deleteScene(std::string const& name);
   IScene& getScene(std::string const& name);
-  IScene& find(std::string name);
+  IScene& find(std::string const& name);
 
   typename std::map<std::string, std::unique_ptr<IScene>>::iterator begin() { return m_scenes.begin(); }
   typename std::map<std::string, std::unique_ptr<IScene>>::iterator end() { return m_scenes.end(); }

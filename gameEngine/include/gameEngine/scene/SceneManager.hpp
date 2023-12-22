@@ -9,7 +9,6 @@
 namespace GameEngine::Scene {
 
 //  TODO: implement with template enum class
-// template <typename EnumClass, EnumClass EnumVal>
 class SceneManager {
  public:
   SceneManager() = default;

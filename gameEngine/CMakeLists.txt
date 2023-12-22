@@ -13,6 +13,7 @@ add_library(${LIBRARY} STATIC
         src/scene/SceneContainer.cpp
         src/scene/SceneManager.cpp
         src/UI/Window.cpp
+        src/asset/AssetManager.cpp
         include/gameEngine/ecs/Registry.hpp
 )
 

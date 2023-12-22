@@ -18,20 +18,13 @@ namespace GameEngine::System {
 
 class Animation : public GameEngine::ECS::System {
  public:
-  /// \brief Updates the position and display of an entity's sprite based on its components.
-  /// \param std::shared_ptr<ComponentManager>&
-  /// \param Entity
-  /// \param sf::RenderWindow&
+  void update(GameEngine::ECS::Registry& registry) {
+    auto& componentManager = registry.getComponentManager();
 
-  void update() {
-    //    SfmlDisplay sfml_display;
-    //
-    //    auto& transform = component_manager->getComponent<ComponentRType::Transform>(entity);
-    //    auto& sprite = component_manager->getComponent<ComponentRType::Sprite>(entity);
-    //    //    auto& gravity = component_manager->getComponent<ComponentRType::Gravity>(entity);
-    //
-    //    sfml_display.setPosition(sprite.m_object, transform.position);
-    //    sfml_display.display(window, sprite.m_object);
+    for (auto const& entity : m_entities) {
+      auto& spriteC = componentManager->getComponent<ComponentRType::Sprite>(entity);
+      spriteC.sprite.setPosition(120, 130);
+    }
   }
 };
 

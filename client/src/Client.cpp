@@ -4,8 +4,12 @@
 
 #include "Client.hpp"
 #include "gameEngine/UI/Window.hpp"
+#include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
+#include "graphics/GUI.hpp"
+#include "network/Network.hpp"
+#include "scene/SceneManager.hpp"
 #include "spdlog/spdlog.h"
 #include <exception>
 #include <memory>
@@ -59,9 +63,11 @@ void Client::update(GameEngine::UI::WindowContext& ctx) {
     spdlog::info(typeId);
 
     if (auto sys_physics = std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
-      sys_physics->update(1, 2);
+      sys_physics->update();
     } else if (auto sys_renderer = std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
       sys_renderer->update(ecs, ctx);
+    } else if (auto sys_animation = std::dynamic_pointer_cast<GameEngine::System::Animation>(system_ptr)) {
+      sys_animation->update(ecs);
     }
   }
 }

@@ -9,8 +9,8 @@ int main() {
   Client::Client client = Client::Client();
 
   client.initNetwork();
-  client.initGUI();
   client.initScenes();
+  client.initGUI();
   client.link();
   client.run();
 };

@@ -7,7 +7,7 @@
 Client::GameScene::GameScene(Client::SceneName sceneName) {
   this->sceneName_ = sceneName;
 
-  Background tmpBackground(sf::Vector2f(0, 0), "assets/welcome/bg.jpg");
+  Background tmpBackground(sf::Vector2f(0, 0), "asset/welcome/bg.jpg");
   this->background_ = tmpBackground;
 }
 

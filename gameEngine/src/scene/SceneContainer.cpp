@@ -24,12 +24,13 @@ IScene& SceneContainer::getScene(std::string const& name) { return *m_scenes[nam
 
 bool SceneContainer::exist(std::string const& name) { return m_scenes.contains(name); }
 
-IScene& SceneContainer::find(std::string name) {
+IScene& SceneContainer::find(std::string const& name) {
   auto it = m_scenes.find(name);
   if (it != m_scenes.end()) {
     return *(it->second);
   } else {
-    throw std::out_of_range("Scene with the specified name not found");
+    std::string msg = "Scene with the specified name not found" + name;
+    throw std::out_of_range(msg);
   }
 };
 
