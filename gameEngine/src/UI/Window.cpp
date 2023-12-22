@@ -35,13 +35,14 @@ void Window::launch() {
 
 void Window::handleEvent() {
   while (m_windowContext.window.pollEvent(m_windowContext.event)) {
+    invokeClosure(m_closureEvent);
     switch (m_windowContext.event.type) {
       case sf::Event::Closed:
         return m_windowContext.window.close();
       case sf::Event::Resized:
         return this->onResize();
       default:
-        invokeClosure(m_closureEvent);
+        break;
     }
   }
 }

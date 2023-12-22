@@ -5,6 +5,7 @@
 #include "Client.hpp"
 #include "gameEngine/UI/Window.hpp"
 #include "gameEngine/system/Animation.hpp"
+#include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include "graphics/GUI.hpp"
@@ -60,8 +61,6 @@ void Client::update(GameEngine::UI::WindowContext& ctx) {
   auto&& systems = ecs.getSystems();
 
   for (auto& [typeId, system_ptr] : systems) {
-    spdlog::info(typeId);
-
     if (auto sys_physics = std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
       sys_physics->update();
     } else if (auto sys_renderer = std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
@@ -72,9 +71,18 @@ void Client::update(GameEngine::UI::WindowContext& ctx) {
   }
 }
 
-void Client::event(GameEngine::UI::WindowContext&) { auto& scene = this->m_sceneManager->getCurrent(); }
+void Client::event(GameEngine::UI::WindowContext& ctx) {
+  auto& ecs = this->m_sceneManager->getCurrent().getECS();
+  auto&& systems = ecs.getSystems();
 
-void Client::display(GameEngine::UI::WindowContext&) { auto& scene = this->m_sceneManager->getCurrent(); }
+  for (auto& [typeId, system_ptr] : systems) {
+    if (auto sys_keyboard = std::dynamic_pointer_cast<GameEngine::System::Keyboard>(system_ptr)) {
+      sys_keyboard->update(ecs, ctx);
+    }
+  }
+}
+
+void Client::display(GameEngine::UI::WindowContext&) { return; }
 
 void Client::testNetwork() {}
 

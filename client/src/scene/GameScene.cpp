@@ -29,6 +29,7 @@ void GameScene::initRegistry() {
   builder.buildSystemPhysics();
   builder.buildSystemAnimation();
   builder.buildSystemRenderer();
+  builder.buildSystemKeyboard();
   m_registry = builder.getResult();
 }
 

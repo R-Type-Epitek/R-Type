@@ -16,6 +16,6 @@ namespace GameEngine::System {
 
 class Physics : public GameEngine::ECS::System {
  public:
-  void update() { std::cout << "Physics entity count:" << m_entities.size() << std::endl; }
+  void update() { return; }
 };
 }  // namespace GameEngine::System

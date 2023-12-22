@@ -9,6 +9,7 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/Signature.hpp"
 #include "gameEngine/system/Animation.hpp"
+#include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include <memory>
@@ -44,6 +45,14 @@ void RegistryBuilder::buildSystemPhysics() {
   signature.set(m_registry->getComponentType<ComponentRType::Gravity>());
   signature.set(m_registry->getComponentType<ComponentRType::Transform>());
   m_registry->setSystemSignature<GameEngine::System::Physics>(signature);
+}
+
+void RegistryBuilder::buildSystemKeyboard() {
+  GameEngine::ECS::Signature signature;
+  m_registry->registerSystem<GameEngine::System::Keyboard>();
+  //  System components
+  signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+  m_registry->setSystemSignature<GameEngine::System::Keyboard>(signature);
 }
 
 };  // namespace GameEngine::Builder

@@ -20,6 +20,7 @@ class RegistryBuilder {
   void buildSystemRenderer();
   void buildSystemAnimation();
   void buildSystemPhysics();
+  void buildSystemKeyboard();
 
  private:
   std::unique_ptr<GameEngine::ECS::Registry> m_registry;

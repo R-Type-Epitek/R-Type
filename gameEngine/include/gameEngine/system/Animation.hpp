@@ -18,14 +18,7 @@ namespace GameEngine::System {
 
 class Animation : public GameEngine::ECS::System {
  public:
-  void update(GameEngine::ECS::Registry& registry) {
-    auto& componentManager = registry.getComponentManager();
-
-    for (auto const& entity : m_entities) {
-      auto& spriteC = componentManager->getComponent<ComponentRType::Sprite>(entity);
-      spriteC.sprite.setPosition(120, 130);
-    }
-  }
+  void update(GameEngine::ECS::Registry&) {}
 };
 
 }  // namespace GameEngine::System
