@@ -5,8 +5,7 @@
 #pragma once
 #include "Renderer.hpp"
 
-class IRenderer : Renderer
-{
+class IRenderer : Renderer {
  public:
   virtual ~IRenderer() = default;
   virtual void clear() = 0;

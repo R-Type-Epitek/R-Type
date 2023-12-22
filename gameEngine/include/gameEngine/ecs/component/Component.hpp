@@ -6,6 +6,9 @@
 #include <cstddef>
 #include <cstdint>
 
+namespace GameEngine::ECS {
+
 using ComponentType = std::uint8_t;
 
-const size_t MAX_COMPONENTS = 32;
+size_t constexpr MAX_COMPONENTS = 32;
+};  // namespace GameEngine::ECS

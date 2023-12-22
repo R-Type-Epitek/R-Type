@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "gfx/Audio.hpp"
+#include "gameEngine/gfx/Audio.hpp"
 
-class SfmlAudio : public Audio {
-};
+class SfmlAudio : public Audio {};

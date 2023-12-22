@@ -17,4 +17,4 @@ struct Transform {
   Vec3 speed = 1;
   Vec3 scale = 1;
 };
-}
+}  // namespace ComponentRType

@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "gfx/Event.hpp"
+#include "gameEngine/gfx/Event.hpp"
 
-class SfmlEvent : public Event {
-};
+class SfmlEvent : public Event {};

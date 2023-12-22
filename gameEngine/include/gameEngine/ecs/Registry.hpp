@@ -4,17 +4,18 @@
 
 #pragma once
 
-#include "Signature.hpp"
+#include "gameEngine/ecs/Signature.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/ecs/entity/EntityManager.hpp"
 #include "gameEngine/ecs/system/SystemManager.hpp"
 #include <memory>
 
+namespace GameEngine::ECS {
 class Registry {
  public:
-  void init() {
-    m_componentManager = std::make_unique<ComponentManager>();
+  Registry() {
+    m_componentManager = std::make_shared<ComponentManager>();
     m_entityManager = std::make_unique<EntityManager>();
     m_systemManager = std::make_unique<SystemManager>();
   }
@@ -64,7 +65,7 @@ class Registry {
   }
 
   template <typename T>
-  ComponentType getComponentType() {
+  T getComponentType() {
     return m_componentManager->getComponentType<T>();
   }
 
@@ -79,8 +80,23 @@ class Registry {
     m_systemManager->setSignature<T>(signature);
   }
 
+  std::unordered_map<char const*, std::shared_ptr<System>> getSystems() { return m_systemManager->getSystems(); }
+
+  std::unordered_map<char const*, Signature> getSignatures() { return m_systemManager->getSignatures(); }
+
+  Signature getSystemSignature(char const* name) { return m_systemManager->getSignature(name); }
+
+  Signature getEntitySignature(Entity& entity) { return m_entityManager->getSignature(entity); }
+
+  std::unordered_map<char const*, std::shared_ptr<IComponentArray>> getComponents(Entity& entity) {
+    return m_componentManager->getComponentsWithEntity(entity);
+  }
+
+  std::shared_ptr<ComponentManager>& getComponentManager() { return m_componentManager; }
+
  private:
-  std::unique_ptr<ComponentManager> m_componentManager;
+  std::shared_ptr<ComponentManager> m_componentManager;
   std::unique_ptr<EntityManager> m_entityManager;
   std::unique_ptr<SystemManager> m_systemManager;
 };
+};  // namespace GameEngine::ECS

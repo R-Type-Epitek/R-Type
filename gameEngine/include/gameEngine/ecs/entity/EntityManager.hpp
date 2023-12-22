@@ -7,8 +7,10 @@
 #include "Entity.hpp"
 #include "gameEngine/ecs/Signature.hpp"
 #include <array>
+#include <cstdint>
 #include <queue>
 
+namespace GameEngine::ECS {
 class EntityManager {
  public:
   EntityManager();
@@ -24,7 +26,8 @@ class EntityManager {
  private:
   std::queue<Entity> m_availableEntities{};
 
-  std::array<Signature, MAX_ENTITIES> m_signatures{};
+  std::array<Signature, ECS::MAX_ENTITIES> m_signatures{};
 
   uint32_t m_livingEntityCount{};
 };
+}  // namespace GameEngine::ECS

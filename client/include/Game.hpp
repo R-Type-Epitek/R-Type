@@ -4,12 +4,12 @@
 
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include "Controller.hpp"
-#include "ecs/Mediator.hpp"
 #include "component/Gravity.hpp"
 #include "component/Transform.hpp"
-#include "system/Physics.hpp"
+#include "ecs/Mediator.hpp"
+#include "gameEngine/system/Physics.hpp"
+#include <SFML/Graphics.hpp>
 #include <optional>
 
 class Game : Controller {

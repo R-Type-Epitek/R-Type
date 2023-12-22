@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "sfml/SfmlRenderer.hpp"
+#include "gameEngine/gfx/sfml/SfmlRenderer.hpp"
 
 class Renderer : SfmlRenderer {
  public:

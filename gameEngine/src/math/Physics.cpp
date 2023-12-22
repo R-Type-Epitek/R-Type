@@ -4,10 +4,9 @@
 
 #include <chrono>
 
-
 namespace MathRType {
-  class Physics {
-  public:
-    static void update(std::chrono::duration<double> delta);
-  };
-}
+class Physics {
+ public:
+  static void update(std::chrono::duration<double> delta);
+};
+}  // namespace MathRType

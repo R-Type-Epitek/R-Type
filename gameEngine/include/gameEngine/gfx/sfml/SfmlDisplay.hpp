@@ -4,11 +4,10 @@
 
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include "constants/constants.hpp"
+#include <SFML/Graphics.hpp>
 
 class SfmlDisplay {
-
  public:
   SfmlDisplay() = default;
   ~SfmlDisplay() = default;

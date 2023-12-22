@@ -11,9 +11,14 @@
 #include <cassert>
 #include <unordered_map>
 
+namespace GameEngine::ECS {
+
 template <typename T>
 class ComponentArray : public IComponentArray {
  public:
+  /// \brief Inserts new component data for an entity.
+  /// \param Entity
+  /// \param T - Component data
   void insertData(Entity entity, T component) {
     assert(m_entityToIndexMap.find(entity) == m_entityToIndexMap.end());
 
@@ -24,6 +29,8 @@ class ComponentArray : public IComponentArray {
     ++mSize;
   }
 
+  /// \brief Removes component data of a specific entity.
+  /// \param Entity
   void removeData(Entity entity) {
     assert(m_entityToIndexMap.find(entity) != m_entityToIndexMap.end());
 
@@ -41,12 +48,22 @@ class ComponentArray : public IComponentArray {
     --mSize;
   }
 
+  /// \brief Checks if a component exists for an entity.
+  /// \param Entity
+  /// \return bool
+  bool hasEntity(Entity entity) override { return m_entityToIndexMap.find(entity) != m_entityToIndexMap.end(); }
+
+  /// \brief Retrieves the component data for an entity.
+  /// \param Entity
+  /// \return T&
   T& getData(Entity entity) {
     assert(m_entityToIndexMap.find(entity) != m_entityToIndexMap.end());
 
     return m_componentArray[m_entityToIndexMap[entity]];
   }
 
+  /// \brief Handles the case when an entity is destroyed.
+  /// \param Entity
   void entityDestroyed(Entity entity) override {
     if (m_entityToIndexMap.find(entity) != m_entityToIndexMap.end()) {
       removeData(entity);
@@ -54,7 +71,7 @@ class ComponentArray : public IComponentArray {
   }
 
  private:
-  std::array<T, MAX_ENTITIES> m_componentArray;
+  std::array<T, ECS::MAX_COMPONENTS> m_componentArray{};
 
   std::unordered_map<Entity, size_t> m_entityToIndexMap;
 
@@ -62,3 +79,4 @@ class ComponentArray : public IComponentArray {
 
   size_t mSize{};
 };
+}  // namespace GameEngine::ECS

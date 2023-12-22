@@ -3,12 +3,12 @@
 //
 
 #include "Controller.hpp"
-#include "ecs/Mediator.hpp"
 #include "component/Gravity.hpp"
-#include "component/Transform.hpp"
 #include "component/Sprite.hpp"
-#include "system/Physics.hpp"
-#include "system/Animation.hpp"
+#include "component/Transform.hpp"
+#include "ecs/Mediator.hpp"
+#include "gameEngine/system/Animation.hpp"
+#include "gameEngine/system/Physics.hpp"
 #include <iostream>
 
 Controller::Controller() {
@@ -18,21 +18,13 @@ Controller::Controller() {
   init();
 }
 
-void Controller::setClientId(int id) {
-  this->id = id;
-}
+void Controller::setClientId(int id) { this->id = id; }
 
-int Controller::getClientId() const {
-  return this->id;
-}
+int Controller::getClientId() const { return this->id; }
 
-void Controller::setRoomId(int id) {
-  this->room_id = id;
-}
+void Controller::setRoomId(int id) { this->room_id = id; }
 
-int Controller::getRoomId() const {
-  return this->room_id;
-}
+int Controller::getRoomId() const { return this->room_id; }
 
 void Controller::init() {
   initCRegister();

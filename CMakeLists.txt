@@ -44,7 +44,7 @@ add_subdirectory(gameEngine)
 #add_subdirectory(server)
 
 #[===[ CLIENT ]===]
-add_subdirectory(client)
+#add_subdirectory(client)
 
 #[===[ EXTERN ]===]
 #add_subdirectory(lib/etc)
