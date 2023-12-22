@@ -15,7 +15,5 @@ class IScene {
   virtual void initEntities() = 0;
 
   virtual ECS::Registry& getECS() = 0;
-
-  virtual void update() = 0;
 };
 }  // namespace GameEngine::Scene

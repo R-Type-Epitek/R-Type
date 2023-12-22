@@ -52,6 +52,4 @@ void GameScene::initEntities() {
   m_registry->addComponent(entt1, ComponentRType::Sprite{});
 }
 
-void GameScene::update() {}
-
 }  // namespace Client
