@@ -4,30 +4,20 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::InputCommandHandler::InputCommandHandler(
-    Network::UDPServer& server
-): server(server)
-{
+Network::InputCommandHandler::InputCommandHandler(Network::UDPServer& server) : server(server) {}
+
+bool Network::InputCommandHandler::isAuthorized(int clientId) {
+  for (auto& client : this->server.getClients())
+    if (client.getId() == clientId) return true;
+  return false;
 }
 
-bool Network::InputCommandHandler::isAuthorized(int clientId)
-{
-    for (auto& client : this->server.getClients())
-        if (client.getId() == clientId)
-            return true;
-    return false;
-}
+Response Network::InputCommandHandler::handleCommand(Message* message) {
+  InputData* data = (InputData*)message->data;
 
-Response Network::InputCommandHandler::handleCommand(Message* message)
-{
-    InputData *data = (InputData *)message->data;
+  // Update player position
+  std::cout << "Player " << message->header.clientId << " pressed key: " << data->key << std::endl;
 
-    // Update player position
-    std::cout << "Player " << message->header.clientId << " pressed key: " << data->key << std::endl;
-
-    return this->server.createResponse(
-        message->header.clientId,
-        INPUT_COMMAND,
-        "Get key: \"" + std::string(data->key) + "\""
-    );
+  return this->server.createResponse(message->header.clientId, INPUT_COMMAND,
+                                     "Get key: \"" + std::string(data->key) + "\"");
 }

@@ -4,31 +4,21 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::StartGameCommandHandler::StartGameCommandHandler(
-    Network::UDPServer& server
-): server(server)
-{
+Network::StartGameCommandHandler::StartGameCommandHandler(Network::UDPServer& server) : server(server) {}
+
+bool Network::StartGameCommandHandler::isAuthorized(int clientId) {
+  for (auto& client : this->server.getClients())
+    if (client.getId() == clientId) return true;
+  return false;
 }
 
-bool Network::StartGameCommandHandler::isAuthorized(int clientId)
-{
-    for (auto& client : this->server.getClients())
-        if (client.getId() == clientId)
-            return true;
-    return false;
-}
+Response Network::StartGameCommandHandler::handleCommand(Message* message) {
+  StartGameData* data = (StartGameData*)message->data;
 
-Response Network::StartGameCommandHandler::handleCommand(Message* message)
-{
-    StartGameData *data = (StartGameData *)message->data;
+  // Start game
+  // Initialize the map (all the m_entities)
+  // Initialize the players
 
-    // Start game
-    // Initialize the map (all the entities)
-    // Initialize the players
-
-    return this->server.createResponse(
-        message->header.clientId,
-        START_GAME_COMMAND,
-        "Start game (room " + std::to_string(data->roomId) + ")"
-    );
+  return this->server.createResponse(message->header.clientId, START_GAME_COMMAND,
+                                     "Start game (room " + std::to_string(data->roomId) + ")");
 }

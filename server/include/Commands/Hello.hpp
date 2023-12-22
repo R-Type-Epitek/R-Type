@@ -6,16 +6,15 @@
 
 #include "RTypeNetwork.hpp"
 
-namespace Network
-{
-    class HelloCommandHandler : public ICommandHandler {
-        public:
-            HelloCommandHandler(UDPServer& server);
-            bool isAuthorized(int clientId) override;
-            Response handleCommand(Message* message) override;
+namespace Network {
+class HelloCommandHandler : public ICommandHandler {
+ public:
+  HelloCommandHandler(UDPServer& server);
+  bool isAuthorized(int clientId) override;
+  Response handleCommand(Message* message) override;
 
-        protected:
-        private:
-            UDPServer& server;
-    };
-}
+ protected:
+ private:
+  UDPServer& server;
+};
+}  // namespace Network

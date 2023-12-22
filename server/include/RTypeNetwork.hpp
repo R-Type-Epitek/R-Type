@@ -5,30 +5,29 @@
 #pragma once
 
 #include <boost/array.hpp>
-#include <boost/bind.hpp>
 #include <boost/asio.hpp>
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <vector>
-#include <queue>
-#include <mutex>
-#include <condition_variable>
-#include <thread>
+#include <boost/bind.hpp>
 #include <chrono>
+#include <condition_variable>
+#include <iomanip>
+#include <iostream>
+#include <mutex>
+#include <queue>
+#include <sstream>
+#include <thread>
+#include <vector>
 
 // Game Engine Network
-#include "../../gameEngine/include/network/Commands.hpp"
-#include "../../gameEngine/include/network/Messages.hpp"
-#include "../../gameEngine/include/network/Responses.hpp"
-#include "../../gameEngine/include/network/Statuses.hpp"
-
+#include "Client.hpp"
 #include "Commands/IHandler.hpp"
 #include "Constants.hpp"
-#include "Client.hpp"
 #include "Room.hpp"
 #include "ThreadSafeQueue.hpp"
 #include "UDPServer.hpp"
+#include "gameEngine/network/Commands.hpp"
+#include "gameEngine/network/Messages.hpp"
+#include "gameEngine/network/Responses.hpp"
+#include "gameEngine/network/Statuses.hpp"
 
 // Commands
 #include "Commands/Hello.hpp"
