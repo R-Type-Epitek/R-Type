@@ -23,6 +23,7 @@ void Client::initNetwork() {
   spdlog::info("Starting Network...");
   try {
     m_network = std::make_unique<Network>(DEFAULT_IP, DEFAULT_PORT);
+    spdlog::info("Done");
   } catch (std::exception const&) {
     spdlog::error("Failed to initialize Network");
   }
@@ -32,6 +33,7 @@ void Client::initGUI() {
   spdlog::info("Starting GUI...");
   try {
     m_gui = std::make_unique<GUI>(1920, 1080, appName, DEFAULT_RATIO);
+    spdlog::info("Done");
   } catch (std::exception const&) {
     spdlog::error("Failed to initialize GUI");
   }
@@ -42,16 +44,18 @@ void Client::initScenes() {
   try {
     m_sceneManager = std::make_unique<SceneManager>();
     m_sceneManager->initScenes();
-
+    spdlog::info("Done");
   } catch (std::exception const&) {
     spdlog::error("Failed to initialize Scenes");
   }
 }
 
 void Client::link() {
+  spdlog::info("Linking Everything to GUI...");
   m_gui->subscribeUpdate([this](GameEngine::UI::WindowContext& ctx) { this->update(ctx); });
   m_gui->subscribeEvent([this](GameEngine::UI::WindowContext& ctx) { this->event(ctx); });
   m_gui->subscribeDisplay([this](GameEngine::UI::WindowContext& ctx) { this->display(ctx); });
+  spdlog::info("Done");
 };
 
 void Client::run() { m_gui->launch(); }
