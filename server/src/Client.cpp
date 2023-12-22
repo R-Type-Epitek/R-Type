@@ -4,7 +4,7 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::Client::Client()
+Network::Client::Client(): id(-1), name(""), roomId(-1)
 {
 }
 
@@ -40,4 +40,14 @@ std::string Network::Client::getName() const
 void Network::Client::setName(std::string name)
 {
     this->name = name;
+}
+
+void Network::Client::setRoomId(int roomId)
+{
+    this->roomId = roomId;
+}
+
+int Network::Client::getRoomId() const
+{
+    return this->roomId;
 }

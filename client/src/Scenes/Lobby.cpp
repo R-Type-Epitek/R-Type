@@ -138,6 +138,7 @@ int Client::LobbyScene::pollEvent(sf::RenderWindow &window, Client::Network &net
                         network.setEndpoint(this->ntIp_, this->ntPort_);
                     }
                     network.connectToServer();
+                    while (network.getClientId() == -1);
                     network.updateName("John Doe");
                     network.joinRoom(0);
                     network.startGame(0);

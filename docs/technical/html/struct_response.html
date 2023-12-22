@@ -111,17 +111,31 @@ $(document).ready(function(){initNavTree('struct_response.html',''); initResizab
   <div class="headertitle"><div class="title">Response Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure representing a complete network response sent by the server.  
+ <a href="struct_response.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_responses_8hpp_source.html">Responses.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:aa29a7420e9ad3fddb7e699f8c1cdb3f1" id="r_aa29a7420e9ad3fddb7e699f8c1cdb3f1"><td class="memItemLeft" align="right" valign="top"><a id="aa29a7420e9ad3fddb7e699f8c1cdb3f1" name="aa29a7420e9ad3fddb7e699f8c1cdb3f1"></a>
+const MessageType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> = MessageType::Response</td></tr>
+<tr class="memdesc:aa29a7420e9ad3fddb7e699f8c1cdb3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the message. <br /></td></tr>
+<tr class="separator:aa29a7420e9ad3fddb7e699f8c1cdb3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60f46003fc199ff082e72cb0c0aa5d00" id="r_a60f46003fc199ff082e72cb0c0aa5d00"><td class="memItemLeft" align="right" valign="top"><a id="a60f46003fc199ff082e72cb0c0aa5d00" name="a60f46003fc199ff082e72cb0c0aa5d00"></a>
 <a class="el" href="struct_response_header.html">ResponseHeader</a>&#160;</td><td class="memItemRight" valign="bottom"><b>header</b></td></tr>
+<tr class="memdesc:a60f46003fc199ff082e72cb0c0aa5d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header of the message. <br /></td></tr>
 <tr class="separator:a60f46003fc199ff082e72cb0c0aa5d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb5c2eaf9db838a63d3f830a75c5804b" id="r_abb5c2eaf9db838a63d3f830a75c5804b"><td class="memItemLeft" align="right" valign="top"><a id="abb5c2eaf9db838a63d3f830a75c5804b" name="abb5c2eaf9db838a63d3f830a75c5804b"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> []</td></tr>
+<tr class="memdesc:abb5c2eaf9db838a63d3f830a75c5804b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable-length data payload. <br /></td></tr>
 <tr class="separator:abb5c2eaf9db838a63d3f830a75c5804b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure representing a complete network response sent by the server. </p>
+<p>This structure combines the <a class="el" href="struct_response_header.html" title="Structure representing the header of a network response sent by the server.">ResponseHeader</a> with the actual data payload, allowing for easy manipulation and transmission of network responses. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/Users/xavierv/Developer/EPITECH/R-Type/gameEngine/include/network/<a class="el" href="_responses_8hpp_source.html">Responses.hpp</a></li>
 </ul>
 </div><!-- contents -->

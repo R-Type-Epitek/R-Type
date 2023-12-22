@@ -31,10 +31,13 @@ Response Network::HelloCommandHandler::handleCommand(Message* message)
         this->server.addClient(client);
     }
 
-    return this->server.createResponse(
+    Response response = this->server.createResponse(
         clientId,
-        HELLO_COMMAND,
+        CONNECT_TO_SERVER_COMMAND,
         statusMessage,
+        nullptr,
         status
     );
+    std::cout << "Client " << response.header.clientId << " connected to server" << std::endl;
+    return response;
 }

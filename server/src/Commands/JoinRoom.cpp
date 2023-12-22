@@ -33,13 +33,18 @@ Response Network::JoinRoomCommandHandler::handleCommand(Message* message)
         status = RES_BAD_REQUEST;
     } else {
         statusMessage = "Joined room " + std::to_string(data->roomId);
+        this->server.getClients()[message->header.clientId].setRoomId(data->roomId);
         rooms[data->roomId].addPlayer(message->header.clientId);
     }
+
+    std::vector<char> dataToSend(sizeof(*data));
+    memcpy(dataToSend.data(), data, sizeof(*data));
 
     return this->server.createResponse(
         message->header.clientId,
         JOIN_ROOM_COMMAND,
         statusMessage,
+        dataToSend.data(),
         status
     );
 }

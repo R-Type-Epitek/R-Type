@@ -1,24 +1,38 @@
 \doxysection{Response\+Header Struct Reference}
 \hypertarget{struct_response_header}{}\label{struct_response_header}\index{ResponseHeader@{ResponseHeader}}
+
+
+Structure representing the header of a network response sent by the server.  
+
+
+
+
+{\ttfamily \#include $<$Responses.\+hpp$>$}
+
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{struct_response_header_ad4e2006d15648172d22b8d20b3ef4620}\label{struct_response_header_ad4e2006d15648172d22b8d20b3ef4620} 
 int {\bfseries client\+Id}
-\item 
+\begin{DoxyCompactList}\small\item\em Identifier of the client that sent the command. \end{DoxyCompactList}\item 
 \Hypertarget{struct_response_header_a00075c0555fe33707c7ceda8dd4c9b4a}\label{struct_response_header_a00075c0555fe33707c7ceda8dd4c9b4a} 
 char {\bfseries command} \mbox{[}32\mbox{]}
-\item 
+\begin{DoxyCompactList}\small\item\em Command type in ASCII format. \end{DoxyCompactList}\item 
 \Hypertarget{struct_response_header_a296b49d4a863241ed16882995986f977}\label{struct_response_header_a296b49d4a863241ed16882995986f977} 
 uint32\+\_\+t {\bfseries data\+Length}
-\item 
+\begin{DoxyCompactList}\small\item\em Length of the following data in bytes. \end{DoxyCompactList}\item 
 \Hypertarget{struct_response_header_adb599931da8f178e612807762eab84d1}\label{struct_response_header_adb599931da8f178e612807762eab84d1} 
 int {\bfseries status}
-\item 
+\begin{DoxyCompactList}\small\item\em Status code of the response. \end{DoxyCompactList}\item 
 \Hypertarget{struct_response_header_a4c2e15ad2d4f5b30f2802dfc3f9e1ceb}\label{struct_response_header_a4c2e15ad2d4f5b30f2802dfc3f9e1ceb} 
 char {\bfseries status\+Message} \mbox{[}128\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Status message of the response. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Structure representing the header of a network response sent by the server. 
+
+This structure contains the client identifier, command, the length of the data, the status code and the status\+Message that follows in the message. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

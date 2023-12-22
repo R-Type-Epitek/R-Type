@@ -70,10 +70,25 @@ namespace Network
              */
             void setName(std::string name);
 
+            /**
+             * @brief Sets the identifier of the room.
+             * 
+             * @param roomId The new identifier to be set for the room.
+             */
+            void setRoomId(int roomId);
+
+            /**
+             * @brief Gets the identifier of the room.
+             * 
+             * @return int The identifier of the room.
+             */
+            int getRoomId() const;
+
         protected:
         private:
             boost::asio::ip::udp::endpoint endpoint; ///< The network endpoint of the client.
             int id; ///< The identifier of the client.
             std::string name; ///< The name of the client.
+            int roomId; ///< The identifier of the room.
     };
 }

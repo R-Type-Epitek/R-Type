@@ -6,19 +6,22 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 14/12/23.}}
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ \{}
-\DoxyCodeLine{00008\ \ \ \textcolor{keywordtype}{int}\ clientId;}
-\DoxyCodeLine{00009\ \ \ \textcolor{keywordtype}{char}\ command[32];}
-\DoxyCodeLine{00010\ \ \ uint32\_t\ dataLength;}
-\DoxyCodeLine{00011\ \ \ \textcolor{keywordtype}{int}\ status;}
-\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{char}\ statusMessage[128];}
-\DoxyCodeLine{00013\ \};}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response}{Response}}\ \{}
-\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ header;}
-\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{char}\ data[];}
-\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}MessageType.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_response_header_ad4e2006d15648172d22b8d20b3ef4620}{clientId}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_response_header_a00075c0555fe33707c7ceda8dd4c9b4a}{command}}[32];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ uint32\_t\ \mbox{\hyperlink{struct_response_header_a296b49d4a863241ed16882995986f977}{dataLength}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_response_header_adb599931da8f178e612807762eab84d1}{status}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_response_header_a4c2e15ad2d4f5b30f2802dfc3f9e1ceb}{statusMessage}}[128];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response}{Response}}\ \{}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{const}\ MessageType\ \mbox{\hyperlink{struct_response_aa29a7420e9ad3fddb7e699f8c1cdb3f1}{type}}\ =\ MessageType::Response;\ }
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ \mbox{\hyperlink{struct_response_a60f46003fc199ff082e72cb0c0aa5d00}{header}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_response_abb5c2eaf9db838a63d3f830a75c5804b}{data}}[];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \};}
 
 \end{DoxyCode}

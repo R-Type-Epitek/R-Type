@@ -24,9 +24,13 @@ Response Network::UpdateNameCommandHandler::handleCommand(Message* message)
 
     this->server.getClients()[message->header.clientId].setName(data->name);
 
+    std::vector<char> dataToSend(sizeof(*data));
+    memcpy(dataToSend.data(), data, sizeof(*data));
+
     return this->server.createResponse(
         message->header.clientId,
         UPDATE_NAME_COMMAND,
-        "Name correctly set: " + std::string(data->name)
+        "Name correctly set: " + std::string(data->name),
+        dataToSend.data()
     );
 }

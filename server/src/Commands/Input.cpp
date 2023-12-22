@@ -25,9 +25,13 @@ Response Network::InputCommandHandler::handleCommand(Message* message)
     // Update player position
     std::cout << "Player " << message->header.clientId << " pressed key: " << data->key << std::endl;
 
+    std::vector<char> dataToSend(sizeof(*data));
+    memcpy(dataToSend.data(), data, sizeof(*data));
+
     return this->server.createResponse(
         message->header.clientId,
         INPUT_COMMAND,
-        "Get key: \"" + std::string(data->key) + "\""
+        "Get key: \"" + std::string(data->key) + "\"",
+        dataToSend.data()
     );
 }

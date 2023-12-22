@@ -2,6 +2,10 @@
 // Created by Xavier VINCENT on 14/12/23.
 //
 
+#pragma once
+
+#include "MessageType.hpp"
+
 /**
  * @struct MessageHeader
  * @brief Structure representing the header of a network message.
@@ -23,6 +27,7 @@ struct MessageHeader {
  * for easy manipulation and transmission of network messages.
  */
 struct Message {
+  const MessageType type = MessageType::Message; ///< Type of the message.
   MessageHeader header; ///< Header of the message.
   char data[];          ///< Variable-length data payload.
 };
@@ -65,4 +70,14 @@ struct InputData {
  */
 struct StartGameData {
   int roomId; ///< Identifier of the room where the game will start.
+};
+
+/**
+ * @struct ServerClientDisconnectedData
+ * @brief Structure for data related to a 'Client Disconnected' command.
+ * 
+ * This structure is used when the server sends a notification that a client has disconnected.
+ */
+struct ServerClientDisconnectedData {
+  int clientId; ///< Identifier of the client that disconnected.
 };

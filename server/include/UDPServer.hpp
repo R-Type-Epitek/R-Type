@@ -77,7 +77,7 @@ namespace Network
              * 
              * @return Vector containing the list of connected clients.
              */
-            std::vector<Network::Client> getClients() const;
+            std::vector<Network::Client>& getClients();
 
             /**
              * @brief Gets the receive buffer.
@@ -104,7 +104,7 @@ namespace Network
              * 
              * @return Vector containing the list of rooms.
              */
-            std::vector<Network::Room> getRooms() const;
+            std::vector<Network::Room>& getRooms();
 
             /**
              * @brief Adds a client.
@@ -211,6 +211,7 @@ namespace Network
              * @param clientId Integer specifying the ID of the client to send the response to.
              * @param command String containing the command to which the response is sent.
              * @param statusMessage String containing the status message to send.
+             * @param data Pointer to the data to send.
              * @param status Integer specifying the status code to send.
              * 
              * @return Response containing the response to send.
@@ -219,6 +220,7 @@ namespace Network
                 int clientId,
                 const std::string& command,
                 const std::string& statusMessage,
+                const char *data = nullptr,
                 int status = RES_SUCCESS
             );
 
@@ -236,15 +238,40 @@ namespace Network
             );
 
             /**
+             * @brief Check if a client is registered.
+             * 
+             * Check if the client with the specified ID is registered to the server.
+             * 
+             * @param clientId Integer specifying the ID of the client to check.
+             * 
+             * @return Boolean indicating whether the client is registered.
+            */
+            bool isClientRegistered(int clientId);
+
+            /**
              * @brief Check if a client is connected.
              * 
-             * Check if the client with the specified ID is connected to the server.
+             * Check if the specified client is connected to the server.
              * 
              * @param clientId Integer specifying the ID of the client to check.
              * 
              * @return Boolean indicating whether the client is connected.
-            */
+             */
             bool isClientConnected(int clientId);
+
+            /**
+             * @brief Start clientsConnectionTimer.
+             * 
+             * Start the timer for checking client connections.
+             */
+            void startCheckClientsConnectionTimer();
+
+            /**
+             * @brief Check clients.
+             * 
+             * Check the list of clients and remove disconnected clients.
+             */
+            void checkClients();
 
             /**
              * @brief Register command handlers.
@@ -265,6 +292,7 @@ namespace Network
             std::vector<std::thread> workers; ///< Worker threads for processing messages.
             std::vector<Network::Room> rooms; ///< Rooms available for client grouping.
             std::unordered_map<std::string, std::unique_ptr<ICommandHandler>> commandHandlers; ///< Command handlers for the server.
+            boost::asio::steady_timer clientsConnectionTimer; ///< Timer for checking client connections.
 
             void handleInvalidClient(TimedMessage timedMessage); ///< Handles invalid client.
             void handleInvalidCommand(TimedMessage timedMessage); ///< Handles invalid command.

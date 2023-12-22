@@ -28,7 +28,11 @@ void \mbox{\hyperlink{class_network_1_1_client_af9390388b249ecc73f5585f0c20210cf
 std\+::string \mbox{\hyperlink{class_network_1_1_client_a436cfc281877445713aa8d63cc5fa52b}{get\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Gets the name of the client. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_client_a7eab98c178b5ea21dc1363658f9815ea}{set\+Name}} (std\+::string name)
-\begin{DoxyCompactList}\small\item\em Sets the name of the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the name of the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_a6421f3fe7f031be9ab47ec1c34b04cf0}{set\+Room\+Id}} (int room\+Id)
+\begin{DoxyCompactList}\small\item\em Sets the identifier of the room. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_network_1_1_client_a3226b24dbca2a87dcca3f9ba02394b7c}{get\+Room\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the identifier of the room. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -89,6 +93,19 @@ Gets the name of the client.
 \begin{DoxyReturn}{Returns}
 std\+::string The name of the client. 
 \end{DoxyReturn}
+\Hypertarget{class_network_1_1_client_a3226b24dbca2a87dcca3f9ba02394b7c}\label{class_network_1_1_client_a3226b24dbca2a87dcca3f9ba02394b7c} 
+\index{Network::Client@{Network::Client}!getRoomId@{getRoomId}}
+\index{getRoomId@{getRoomId}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getRoomId()}{getRoomId()}}
+{\footnotesize\ttfamily int Network\+::\+Client\+::get\+Room\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the identifier of the room. 
+
+\begin{DoxyReturn}{Returns}
+int The identifier of the room. 
+\end{DoxyReturn}
 \Hypertarget{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26}\label{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26} 
 \index{Network::Client@{Network::Client}!setEndpoint@{setEndpoint}}
 \index{setEndpoint@{setEndpoint}!Network::Client@{Network::Client}}
@@ -132,6 +149,21 @@ Sets the name of the client.
 
 \begin{DoxyParams}{Parameters}
 {\em name} & The new name to be set for the client. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_network_1_1_client_a6421f3fe7f031be9ab47ec1c34b04cf0}\label{class_network_1_1_client_a6421f3fe7f031be9ab47ec1c34b04cf0} 
+\index{Network::Client@{Network::Client}!setRoomId@{setRoomId}}
+\index{setRoomId@{setRoomId}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setRoomId()}{setRoomId()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Room\+Id (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Sets the identifier of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The new identifier to be set for the room. \\
 \hline
 \end{DoxyParams}
 

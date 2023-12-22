@@ -11,21 +11,46 @@ namespace Client
     class Network {
         public:
             Network(std::string ip, std::string port);
-            ~Network() = default;
+            ~Network();
             void send(const boost::asio::const_buffer &buffer);
             void sendMessage(
                 const std::string& command,
-                const char* data,
-                size_t dataSize
+                const char* data
             );
-            Response* receiveAndValidateResponse(
-                const std::string& expectedCommand
+            Response createResponse(
+                const std::string& command,
+                const std::string& statusMessage,
+                const char *data = nullptr,
+                int status = 200
             );
+            void sendResponse(const Response& response);
+            void startReceive();
+            void onReceive(
+                const boost::system::error_code& error,
+                std::size_t bytesTransferred
+            );
+            void onServerResponse(Response *response);
+            void onServerMessage(Message *message);
+
+            /* ------------------ Server Message ----------------- */
             void connectToServer();
+            void onConnectToServerResponse(Response *response);
+
             void updateName(std::string name);
+            void onUpdateNameResponse(Response *response);
+
             void joinRoom(int roomId);
+            void onJoinRoomResponse(Response *response);
+
             void sendKey(std::string key);
+            void onSendKeyResponse(Response *response);
+
             void startGame(int roomId);
+            void onStartGameResponse(Response *response);
+            /* --------------------------------------------------- */
+
+            void onCheckConnectionMessage(Message* message);
+
             void setClientId(int id);
             int getClientId() const;
             void setRoomId(int id);
@@ -40,8 +65,10 @@ namespace Client
         protected:
         private:
             boost::asio::io_context io;
-            boost::asio::ip::udp::endpoint receiverEndpoint;
+            boost::array<char, 1024> recvBuffer{};
+            boost::asio::ip::udp::endpoint remoteEndpoint;
             boost::asio::ip::udp::socket socket{this->io};
+            std::thread receiveThread;
             int clientId;
             int roomId;
             std::string name;

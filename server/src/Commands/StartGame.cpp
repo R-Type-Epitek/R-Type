@@ -26,9 +26,13 @@ Response Network::StartGameCommandHandler::handleCommand(Message* message)
     // Initialize the map (all the entities)
     // Initialize the players
 
+    std::vector<char> dataToSend(sizeof(*data));
+    memcpy(dataToSend.data(), data, sizeof(*data));
+
     return this->server.createResponse(
         message->header.clientId,
         START_GAME_COMMAND,
-        "Start game (room " + std::to_string(data->roomId) + ")"
+        "Start game (room " + std::to_string(data->roomId) + ")",
+        dataToSend.data()
     );
 }

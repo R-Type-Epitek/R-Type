@@ -2,8 +2,13 @@
 // Created by Xavier VINCENT on 14/12/23.
 //
 
-#define HELLO_COMMAND "/hello"
+// Client -> Server
+#define CONNECT_TO_SERVER_COMMAND "/connect"
 #define UPDATE_NAME_COMMAND "/update_name"
 #define JOIN_ROOM_COMMAND "/join_room"
 #define INPUT_COMMAND "/input"
 #define START_GAME_COMMAND "/start_game"
+
+// Server -> Client
+#define SERVER_COMMAND_CHECK_CONNECTION "/check_connection"
+#define SERVER_COMMAND_CLIENT_DISCONNECTED "/client_disconnected"

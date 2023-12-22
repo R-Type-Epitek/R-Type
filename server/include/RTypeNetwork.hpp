@@ -21,6 +21,7 @@
 // Game Engine Network
 #include "../../gameEngine/include/network/Commands.hpp"
 #include "../../gameEngine/include/network/Messages.hpp"
+#include "../../gameEngine/include/network/MessageType.hpp"
 #include "../../gameEngine/include/network/Responses.hpp"
 #include "../../gameEngine/include/network/Statuses.hpp"
 

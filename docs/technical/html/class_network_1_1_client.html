@@ -144,6 +144,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7eab98c178b5ea21dc1363658f9815ea" id="r_a7eab98c178b5ea21dc1363658f9815ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#a7eab98c178b5ea21dc1363658f9815ea">setName</a> (std::string name)</td></tr>
 <tr class="memdesc:a7eab98c178b5ea21dc1363658f9815ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the client.  <br /></td></tr>
 <tr class="separator:a7eab98c178b5ea21dc1363658f9815ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6421f3fe7f031be9ab47ec1c34b04cf0" id="r_a6421f3fe7f031be9ab47ec1c34b04cf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#a6421f3fe7f031be9ab47ec1c34b04cf0">setRoomId</a> (int roomId)</td></tr>
+<tr class="memdesc:a6421f3fe7f031be9ab47ec1c34b04cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the identifier of the room.  <br /></td></tr>
+<tr class="separator:a6421f3fe7f031be9ab47ec1c34b04cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3226b24dbca2a87dcca3f9ba02394b7c" id="r_a3226b24dbca2a87dcca3f9ba02394b7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#a3226b24dbca2a87dcca3f9ba02394b7c">getRoomId</a> () const</td></tr>
+<tr class="memdesc:a3226b24dbca2a87dcca3f9ba02394b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the identifier of the room.  <br /></td></tr>
+<tr class="separator:a3226b24dbca2a87dcca3f9ba02394b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a network client. </p>
@@ -230,6 +236,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a3226b24dbca2a87dcca3f9ba02394b7c" name="a3226b24dbca2a87dcca3f9ba02394b7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3226b24dbca2a87dcca3f9ba02394b7c">&#9670;&#160;</a></span>getRoomId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Network::Client::getRoomId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the identifier of the room. </p>
+<dl class="section return"><dt>Returns</dt><dd>int The identifier of the room. </dd></dl>
+
+</div>
+</div>
 <a id="a8c64f36120e3c8e03b0300c3a5dcef26" name="a8c64f36120e3c8e03b0300c3a5dcef26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c64f36120e3c8e03b0300c3a5dcef26">&#9670;&#160;</a></span>setEndpoint()</h2>
 
@@ -302,6 +328,32 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>The new name to be set for the client. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6421f3fe7f031be9ab47ec1c34b04cf0" name="a6421f3fe7f031be9ab47ec1c34b04cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6421f3fe7f031be9ab47ec1c34b04cf0">&#9670;&#160;</a></span>setRoomId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::setRoomId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>roomId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the identifier of the room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomId</td><td>The new identifier to be set for the room. </td></tr>
   </table>
   </dd>
 </dl>
