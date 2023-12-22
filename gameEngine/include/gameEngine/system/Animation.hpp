@@ -23,15 +23,15 @@ class Animation : public GameEngine::ECS::System {
   /// \param Entity
   /// \param sf::RenderWindow&
 
-  void update(std::shared_ptr<ECS::ComponentManager>& component_manager, ECS::Entity entity, sf::RenderWindow& window) {
-    SfmlDisplay sfml_display;
-
-    auto& transform = component_manager->getComponent<ComponentRType::Transform>(entity);
-    auto& sprite = component_manager->getComponent<ComponentRType::Sprite>(entity);
-    //    auto& gravity = component_manager->getComponent<ComponentRType::Gravity>(entity);
-
-    sfml_display.setPosition(sprite.m_object, transform.position);
-    sfml_display.display(window, sprite.m_object);
+  void update() {
+    //    SfmlDisplay sfml_display;
+    //
+    //    auto& transform = component_manager->getComponent<ComponentRType::Transform>(entity);
+    //    auto& sprite = component_manager->getComponent<ComponentRType::Sprite>(entity);
+    //    //    auto& gravity = component_manager->getComponent<ComponentRType::Gravity>(entity);
+    //
+    //    sfml_display.setPosition(sprite.m_object, transform.position);
+    //    sfml_display.display(window, sprite.m_object);
   }
 };
 

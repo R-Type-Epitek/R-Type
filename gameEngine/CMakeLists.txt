@@ -4,11 +4,12 @@ set(LIBRARY "GameEngine")
 
 add_library(${LIBRARY} STATIC
         src/ecs/entity/EntityManager.cpp
+        src/ecs/RegistryBuilder.cpp
+        src/ecs/EntityBuilder.cpp
         src/gfx/sfml/SfmlEvent.cpp
         src/gfx/sfml/SfmlTexture.cpp
         src/gfx/sfml/SfmlDisplay.cpp
         src/gfx/sfml/SfmlGfx.cpp
-        src/logic/SystemLogic.cpp
         src/scene/SceneContainer.cpp
         src/scene/SceneManager.cpp
         src/UI/Window.cpp

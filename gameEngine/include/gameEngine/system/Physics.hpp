@@ -12,9 +12,9 @@
 #include <iostream>
 #include <memory>
 
-namespace GameEngine::ECS {
+namespace GameEngine::System {
 
-class Physics : public System {
+class Physics : public GameEngine::ECS::System {
  public:
   /// \brief Apply the physics to the entity
   /// \param std::shared_ptr<ComponentManager>&
@@ -22,8 +22,7 @@ class Physics : public System {
   /// \param sf::RenderWindow&
 
   void update(int test1, int test2) {
-    std::cout << "test " << test1 << " " << test2 << std::endl;
-    std::cout << "size " << m_entities.size() << std::endl;
+    std::cout << "Physics entity count:" << m_entities.size() << std::endl;
     //    double delta = 0.5f;
     //
     //    static auto lastUpdate = std::chrono::steady_clock::now();
@@ -41,4 +40,4 @@ class Physics : public System {
     //    }
   }
 };
-}  // namespace GameEngine::ECS
+}  // namespace GameEngine::System
