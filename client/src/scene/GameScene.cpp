@@ -3,6 +3,8 @@
 //
 
 #include "scene/GameScene.hpp"
+#include "gameEngine/ecs/Registry.hpp"
+#include "spdlog/spdlog.h"
 
 namespace Client {
 
@@ -10,6 +12,6 @@ GameScene::GameScene() {}
 
 void GameScene::update() {}
 
-GameEngine::ECS::Registry& GameScene::getECS() { return m_registry; }
+GameEngine::ECS::Registry& GameScene::getECS() { return m_ecsController.getECS(); }
 
 }  // namespace Client

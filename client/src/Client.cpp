@@ -4,6 +4,7 @@
 
 #include "Client.hpp"
 #include "gameEngine/UI/Window.hpp"
+#include "gameEngine/system/Physics.hpp"
 #include "spdlog/spdlog.h"
 #include <exception>
 #include <memory>
@@ -49,11 +50,21 @@ void Client::link() {
 
 void Client::run() { m_gui->launch(); }
 
-void Client::update(GameEngine::UI::WindowContext&) { this->m_sceneManager.get(); }
+void Client::update(GameEngine::UI::WindowContext&) {
+  auto& ecs = this->m_sceneManager->getCurrent().getECS();
+  auto&& systems = ecs.getSystems();
+  for (auto& system : systems) {
+    auto sys = std::dynamic_pointer_cast<GameEngine::ECS::Physics>(system.second);
+    if (sys) {
+      spdlog::info("System found!");
+      sys.get()->update(1, 2);
+    }
+  }
+}
 
-void Client::event(GameEngine::UI::WindowContext&) { this->m_sceneManager.get(); }
+void Client::event(GameEngine::UI::WindowContext&) { auto& scene = this->m_sceneManager->getCurrent(); }
 
-void Client::display(GameEngine::UI::WindowContext&) { this->m_sceneManager.get(); }
+void Client::display(GameEngine::UI::WindowContext&) { auto& scene = this->m_sceneManager->getCurrent(); }
 
 void Client::testNetwork() {}
 

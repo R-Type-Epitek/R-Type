@@ -36,7 +36,7 @@ class Window {
   void unsubscribeDisplay();
 
   void launch();
-  void display();
+  void update();
 
  private:
   void handleEvent();

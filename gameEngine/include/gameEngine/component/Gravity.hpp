@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <cstdlib>
 namespace ComponentRType {
 
 /// \brief A component representing gravity with a force value.

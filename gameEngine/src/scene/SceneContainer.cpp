@@ -22,5 +22,15 @@ void SceneContainer::deleteScene(std::string const& name) {
 
 IScene& SceneContainer::getScene(std::string const& name) { return *m_scenes[name]; };
 
-bool SceneContainer::exist(std::string const& name) { return m_scenes.contains(name); };
+bool SceneContainer::exist(std::string const& name) { return m_scenes.contains(name); }
+
+IScene& SceneContainer::find(std::string name) {
+  auto it = m_scenes.find(name);
+  if (it != m_scenes.end()) {
+    return *(it->second);
+  } else {
+    throw std::out_of_range("Scene with the specified name not found");
+  }
+};
+
 }  // namespace GameEngine::Scene

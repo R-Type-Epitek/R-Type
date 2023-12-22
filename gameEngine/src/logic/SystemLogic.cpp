@@ -24,11 +24,11 @@ void SystemLogic::launchSystem(std::shared_ptr<Registry>& mediator, std::vector<
 
   for (auto& entity : entities) {
     for (auto& system : systems) {
-      Signature sys_signature = mediator->getSystemSignature(system.first);
-      Signature entity_signature = mediator->getEntitySignature(entity);
-      if ((entity_signature & sys_signature) == sys_signature) {
-        system.second->update(mediator->getComponentManager(), entity, window);
-      }
+      //      Signature sys_signature = mediator->getSystemSignature(system.first);
+      //      Signature entity_signature = mediator->getEntitySignature(entity);
+      //      if ((entity_signature & sys_signature) == sys_signature) {
+      //        system.second->update(mediator->getComponentManager(), entity, window);
+      //      }
     }
   }
 }

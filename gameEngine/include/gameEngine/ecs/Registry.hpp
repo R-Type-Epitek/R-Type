@@ -5,11 +5,13 @@
 #pragma once
 
 #include "gameEngine/ecs/Signature.hpp"
+#include "gameEngine/ecs/component/Component.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/ecs/entity/EntityManager.hpp"
 #include "gameEngine/ecs/system/SystemManager.hpp"
 #include <memory>
+#include <unordered_map>
 
 namespace GameEngine::ECS {
 class Registry {

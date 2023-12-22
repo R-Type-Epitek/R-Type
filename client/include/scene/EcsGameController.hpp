@@ -7,24 +7,27 @@
 #include <memory>
 #include <vector>
 
-class Controller {
+namespace Client::ECS {
+class EcsGameController {
  public:
-  Controller();
-  ~Controller() = default;
+  friend class GameScene;
+
+  EcsGameController();
+  ~EcsGameController() = default;
   void setClientId(int identifier);
   int getClientId() const;
   void setRoomId(int identifier);
   int getRoomId() const;
-
- protected:
-  std::vector<GameEngine::ECS::Entity> entities;
-  std::shared_ptr<GameEngine::ECS::Registry> registry;
+  GameEngine::ECS::Registry& getECS();
 
  private:
   void init();
   void initCRegister();
   void initSRegister();
 
-  int id = 0;
-  int room_id = 0;
+  std::vector<GameEngine::ECS::Entity> m_entities;
+  GameEngine::ECS::Registry m_registry;
+  int m_id = 0;
+  int m_roomId = 0;
 };
+}  // namespace Client::ECS

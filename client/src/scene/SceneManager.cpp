@@ -11,5 +11,6 @@ void SceneManager::initScenes() {
   m_scenes.addScene("GameTest0", std::make_unique<GameScene>());
   m_scenes.addScene("GameTest1", std::make_unique<GameScene>());
   m_scenes.addScene("GameTest2", std::make_unique<GameScene>());
+  setCurrent("GameTest0");
 }
 }  // namespace Client

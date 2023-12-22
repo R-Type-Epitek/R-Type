@@ -6,7 +6,7 @@
 #include "gameEngine/scene/SceneManager.hpp"
 
 namespace Client {
-class SceneManager : GameEngine::Scene::SceneManager {
+class SceneManager : public GameEngine::Scene::SceneManager {
  public:
   void initScenes() final;
 };

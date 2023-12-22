@@ -4,11 +4,11 @@
 
 #pragma once
 
-#include "Controller.hpp"
 #include "component/Gravity.hpp"
 #include "component/Transform.hpp"
 #include "ecs/Mediator.hpp"
 #include "gameEngine/system/Physics.hpp"
+#include "scene/EcsGameController.hpp"
 #include <SFML/Graphics.hpp>
 #include <optional>
 

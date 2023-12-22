@@ -29,8 +29,7 @@ void Window::unsubscribeDisplay() { m_closureDisplay = {}; };
 void Window::launch() {
   while (m_windowContext.window.isOpen()) {
     handleEvent();
-    invokeClosure(m_closureUpdate);
-    display();
+    update();
   }
 }
 
@@ -69,8 +68,9 @@ void Window::onResize() {
   m_windowContext.window.setPosition(sf::Vector2i(offsetX, offsetY));
 }
 
-void Window::display() {
+void Window::update() {
   m_windowContext.window.clear();
+  invokeClosure(m_closureUpdate);
   invokeClosure(m_closureDisplay);
   m_windowContext.window.display();
 }

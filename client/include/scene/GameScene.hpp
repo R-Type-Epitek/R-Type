@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "EcsGameController.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/scene/IScene.hpp"
 
@@ -14,6 +15,7 @@ class GameScene : public GameEngine::Scene::IScene {
   GameEngine::ECS::Registry& getECS() final;
 
  private:
-  GameEngine::ECS::Registry m_registry;
+  ECS::EcsGameController m_ecsController;
+  //  GameEngine::ECS::Registry m_registry;
 };
 }  // namespace Client

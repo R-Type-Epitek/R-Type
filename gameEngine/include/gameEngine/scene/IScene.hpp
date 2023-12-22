@@ -11,6 +11,7 @@ class IScene {
   virtual ~IScene() = default;
 
   virtual void update() = 0;
+
   virtual ECS::Registry& getECS() = 0;
   // TODO  ADD ECS Method
 };
