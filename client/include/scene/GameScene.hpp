@@ -11,9 +11,9 @@ class GameScene : public GameEngine::Scene::IScene {
  public:
   GameScene();
   void update() final;
-  Registry& getECS() final;
+  GameEngine::ECS::Registry& getECS() final;
 
  private:
-  Registry m_registry;
+  GameEngine::ECS::Registry m_registry;
 };
 }  // namespace Client

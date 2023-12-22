@@ -65,7 +65,7 @@ class Registry {
   }
 
   template <typename T>
-  T getComponentType() {
+  ComponentType getComponentType() {
     return m_componentManager->getComponentType<T>();
   }
 

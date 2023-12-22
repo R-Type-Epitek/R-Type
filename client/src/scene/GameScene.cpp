@@ -6,10 +6,10 @@
 
 namespace Client {
 
-GameScene::GameScene() { m_registry.init(); }
+GameScene::GameScene() {}
 
 void GameScene::update() {}
 
-Registry& GameScene::getECS() { return m_registry; }
+GameEngine::ECS::Registry& GameScene::getECS() { return m_registry; }
 
 }  // namespace Client

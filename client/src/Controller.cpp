@@ -3,26 +3,24 @@
 //
 
 #include "Controller.hpp"
-#include "component/Gravity.hpp"
-#include "component/Sprite.hpp"
-#include "component/Transform.hpp"
-#include "ecs/Mediator.hpp"
+#include "gameEngine/component/Gravity.hpp"
+#include "gameEngine/component/Sprite.hpp"
+#include "gameEngine/component/Transform.hpp"
+#include "gameEngine/ecs/Signature.hpp"
 #include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include <iostream>
 
 Controller::Controller() {
-  mediator = std::make_shared<Mediator>();
-  mediator->Init();
-  this->mediator = mediator;
+  this->registry = std::make_shared<GameEngine::ECS::Registry>();
   init();
 }
 
-void Controller::setClientId(int id) { this->id = id; }
+void Controller::setClientId(int identifier) { this->id = identifier; }
 
 int Controller::getClientId() const { return this->id; }
 
-void Controller::setRoomId(int id) { this->room_id = id; }
+void Controller::setRoomId(int identifier) { this->room_id = identifier; }
 
 int Controller::getRoomId() const { return this->room_id; }
 
@@ -32,20 +30,20 @@ void Controller::init() {
 }
 
 void Controller::initCRegister() {
-  mediator->registerComponent<ComponentRType::Sprite>();
-  mediator->registerComponent<ComponentRType::Transform>();
-  mediator->registerComponent<ComponentRType::Gravity>();
+  registry->registerComponent<ComponentRType::Sprite>();
+  registry->registerComponent<ComponentRType::Transform>();
+  registry->registerComponent<ComponentRType::Gravity>();
 }
 
 void Controller::initSRegister() {
-  Signature signature_physics;
-  Signature signature_animation;
-  mediator->registerSystem<Physics>();
-  mediator->registerSystem<Animation>();
-  signature_physics.set(mediator->getComponentType<ComponentRType::Gravity>());
-  signature_physics.set(mediator->getComponentType<ComponentRType::Transform>());
-  signature_animation.set(mediator->getComponentType<ComponentRType::Sprite>());
-  signature_animation.set(mediator->getComponentType<ComponentRType::Transform>());
-  mediator->setSystemSignature<Physics>(signature_physics);
-  mediator->setSystemSignature<Animation>(signature_animation);
+  GameEngine::ECS::Signature signature_physics;
+  GameEngine::ECS::Signature signature_animation;
+  registry->registerSystem<GameEngine::ECS::Physics>();
+  registry->registerSystem<GameEngine::System::Animation>();
+  signature_physics.set(registry->getComponentType<ComponentRType::Gravity>());
+  signature_physics.set(registry->getComponentType<ComponentRType::Transform>());
+  signature_animation.set(registry->getComponentType<ComponentRType::Sprite>());
+  signature_animation.set(registry->getComponentType<ComponentRType::Transform>());
+  registry->setSystemSignature<GameEngine::ECS::Physics>(signature_physics);
+  registry->setSystemSignature<GameEngine::System::Animation>(signature_animation);
 }

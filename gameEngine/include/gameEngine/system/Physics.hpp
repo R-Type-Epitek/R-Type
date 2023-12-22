@@ -8,6 +8,10 @@
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
+#include <chrono>
+#include <memory>
+
+namespace GameEngine::ECS {
 
 class Physics : public System {
  public:
@@ -16,16 +20,16 @@ class Physics : public System {
   /// \param Entity
   /// \param sf::RenderWindow&
 
-  void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window) {
+  void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow&) {
     double delta = 0.5f;
-    double sub = 1;
+
     static auto lastUpdate = std::chrono::steady_clock::now();
     auto now = std::chrono::steady_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - lastUpdate);
 
     if (elapsed.count() >= delta) {
       auto& transform = component_manager->getComponent<ComponentRType::Transform>(entity);
-      auto& gravity = component_manager->getComponent<ComponentRType::Gravity>(entity);
+      //      auto& gravity = component_manager->getComponent<ComponentRType::Gravity>(entity);
 
       if (transform.position.y < 500) {
         transform.position.y += 1;
@@ -34,3 +38,4 @@ class Physics : public System {
     }
   }
 };
+}  // namespace GameEngine::ECS

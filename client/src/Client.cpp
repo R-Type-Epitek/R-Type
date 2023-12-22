@@ -48,11 +48,11 @@ void Client::link() {
 
 void Client::run() { m_gui->launch(); }
 
-void Client::update(GameEngine::UI::WindowContext& ctx) { this->m_sceneManager.get(); }
+void Client::update(GameEngine::UI::WindowContext&) { this->m_sceneManager.get(); }
 
-void Client::event(GameEngine::UI::WindowContext& ctx) { this->m_sceneManager.get(); }
+void Client::event(GameEngine::UI::WindowContext&) { this->m_sceneManager.get(); }
 
-void Client::display(GameEngine::UI::WindowContext& ctx) { this->m_sceneManager.get(); }
+void Client::display(GameEngine::UI::WindowContext&) { this->m_sceneManager.get(); }
 
 void Client::testNetwork() {}
 

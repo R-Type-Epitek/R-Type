@@ -2,31 +2,28 @@
 // Created by Alexandre Decobert on 16/12/2023.
 //
 #pragma once
-#include <boost/asio.hpp>
-#include <SFML/Graphics.hpp>
-#include <string>
-#include <iostream>
-#include "ecs/Mediator.hpp"
-
-#include "network/Network.hpp"
+#include "gameEngine/ecs/Registry.hpp"
 #include <memory>
+#include <vector>
 
 class Controller {
  public:
   Controller();
   ~Controller() = default;
-  void setClientId(int id);
+  void setClientId(int identifier);
   int getClientId() const;
-  void setRoomId(int id);
+  void setRoomId(int identifier);
   int getRoomId() const;
 
  protected:
-  int id = 0;
-  int room_id = 0;std::vector<Entity> entities;
-  std::shared_ptr<Mediator> mediator;
+  std::vector<GameEngine::ECS::Entity> entities;
+  std::shared_ptr<GameEngine::ECS::Registry> registry;
 
  private:
   void init();
   void initCRegister();
   void initSRegister();
+
+  int id = 0;
+  int room_id = 0;
 };
