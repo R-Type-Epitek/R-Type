@@ -41,10 +41,10 @@ endif ()
 add_subdirectory(gameEngine)
 
 #[===[ SERVER ]===]
-#add_subdirectory(server)
+add_subdirectory(server)
 
 #[===[ CLIENT ]===]
-#add_subdirectory(client)
+add_subdirectory(client)
 
 #[===[ EXTERN ]===]
 #add_subdirectory(lib/etc)
