@@ -170,6 +170,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad31c0be7001a0123b1fe8434161665de" id="r_ad31c0be7001a0123b1fe8434161665de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ad31c0be7001a0123b1fe8434161665de">processMessage</a> (<a class="el" href="struct_timed_message.html">TimedMessage</a> message)</td></tr>
 <tr class="memdesc:ad31c0be7001a0123b1fe8434161665de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a <a class="el" href="struct_timed_message.html" title="Used to represent a message with a timestamp.">TimedMessage</a>.  <br /></td></tr>
 <tr class="separator:ad31c0be7001a0123b1fe8434161665de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16bd0e5a013230d835b30a3b0cfd86d9" id="r_a16bd0e5a013230d835b30a3b0cfd86d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a16bd0e5a013230d835b30a3b0cfd86d9">processResponse</a> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
+<tr class="memdesc:a16bd0e5a013230d835b30a3b0cfd86d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a <a class="el" href="struct_response.html" title="Structure representing a complete network response sent by the server.">Response</a>.  <br /></td></tr>
+<tr class="separator:a16bd0e5a013230d835b30a3b0cfd86d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabec654d8576481b31d0c1e689b66699" id="r_aabec654d8576481b31d0c1e689b66699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#aabec654d8576481b31d0c1e689b66699">workerFunction</a> ()</td></tr>
 <tr class="memdesc:aabec654d8576481b31d0c1e689b66699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function executed by worker threads.  <br /></td></tr>
 <tr class="separator:aabec654d8576481b31d0c1e689b66699"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -656,6 +659,33 @@ Public Member Functions</h2></td></tr>
 
 <p>Process a <a class="el" href="struct_timed_message.html" title="Used to represent a message with a timestamp.">TimedMessage</a>. </p>
 <p>Process the specified <a class="el" href="struct_timed_message.html" title="Used to represent a message with a timestamp.">TimedMessage</a> by calling the appropriate command handler. </p>
+
+</div>
+</div>
+<a id="a16bd0e5a013230d835b30a3b0cfd86d9" name="a16bd0e5a013230d835b30a3b0cfd86d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16bd0e5a013230d835b30a3b0cfd86d9">&#9670;&#160;</a></span>processResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::processResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_response.html">Response</a> *&#160;</td>
+          <td class="paramname"><em>response</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Process a <a class="el" href="struct_response.html" title="Structure representing a complete network response sent by the server.">Response</a>. </p>
+<p>Process the specified <a class="el" href="struct_response.html" title="Structure representing a complete network response sent by the server.">Response</a> by sending it to the client and logging it.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">response</td><td><a class="el" href="struct_response.html" title="Structure representing a complete network response sent by the server.">Response</a> to process. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

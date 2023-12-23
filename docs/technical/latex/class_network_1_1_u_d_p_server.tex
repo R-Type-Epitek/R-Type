@@ -46,6 +46,8 @@ void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ad308b901f24d10d50960571cd5
 \begin{DoxyCompactList}\small\item\em Send data to a specific client. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ad31c0be7001a0123b1fe8434161665de}{process\+Message}} (\mbox{\hyperlink{struct_timed_message}{Timed\+Message}} message)
 \begin{DoxyCompactList}\small\item\em Process a \doxylink{struct_timed_message}{Timed\+Message}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a16bd0e5a013230d835b30a3b0cfd86d9}{process\+Response}} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
+\begin{DoxyCompactList}\small\item\em Process a \doxylink{struct_response}{Response}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_aabec654d8576481b31d0c1e689b66699}{worker\+Function}} ()
 \begin{DoxyCompactList}\small\item\em Function executed by worker threads. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_response}{Response}} \mbox{\hyperlink{class_network_1_1_u_d_p_server_a02c128198cb78a131c7e142186e7ea9c}{create\+Response}} (int client\+Id, const std\+::string \&command, const std\+::string \&status\+Message, const char \texorpdfstring{$\ast$}{*}data=nullptr, int status=RES\+\_\+\+SUCCESS)
@@ -343,7 +345,24 @@ Boolean indicating whether the client is registered.
 
 Process a \doxylink{struct_timed_message}{Timed\+Message}. 
 
-Process the specified \doxylink{struct_timed_message}{Timed\+Message} by calling the appropriate command handler. \Hypertarget{class_network_1_1_u_d_p_server_a82f424a15da216aade28273353dad9eb}\label{class_network_1_1_u_d_p_server_a82f424a15da216aade28273353dad9eb} 
+Process the specified \doxylink{struct_timed_message}{Timed\+Message} by calling the appropriate command handler. \Hypertarget{class_network_1_1_u_d_p_server_a16bd0e5a013230d835b30a3b0cfd86d9}\label{class_network_1_1_u_d_p_server_a16bd0e5a013230d835b30a3b0cfd86d9} 
+\index{Network::UDPServer@{Network::UDPServer}!processResponse@{processResponse}}
+\index{processResponse@{processResponse}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{processResponse()}{processResponse()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::process\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}}]{response }\end{DoxyParamCaption})}
+
+
+
+Process a \doxylink{struct_response}{Response}. 
+
+Process the specified \doxylink{struct_response}{Response} by sending it to the client and logging it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & \doxylink{struct_response}{Response} to process. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_network_1_1_u_d_p_server_a82f424a15da216aade28273353dad9eb}\label{class_network_1_1_u_d_p_server_a82f424a15da216aade28273353dad9eb} 
 \index{Network::UDPServer@{Network::UDPServer}!registerCommandHandlers@{registerCommandHandlers}}
 \index{registerCommandHandlers@{registerCommandHandlers}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{registerCommandHandlers()}{registerCommandHandlers()}}

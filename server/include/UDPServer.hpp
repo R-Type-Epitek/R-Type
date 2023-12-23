@@ -196,6 +196,15 @@ namespace Network
             void processMessage(TimedMessage message);
 
             /**
+             * @brief Process a Response.
+             * 
+             * Process the specified Response by sending it to the client and logging it.
+             * 
+             * @param response Response to process.
+            */
+            void processResponse(Response *response);
+
+            /**
              * @brief Function executed by worker threads.
              * 
              * Function executed by worker threads. It pops a TimedMessage from the message queue,

@@ -11,6 +11,8 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <memory>
 #include <optional>
 #include <functional>

@@ -109,10 +109,22 @@ void Network::UDPServer::handleReceive(
         std::cout << "Error: " << error << std::endl;
         return;
     }
-    
-    Message *message = (Message *)boost::asio::buffer(this->recvBuffer).data();
-    TimedMessage timedMessage = { message, std::chrono::high_resolution_clock::now() };
-    this->messageQueue.push(timedMessage);
+
+    char *data = this->recvBuffer.data();
+    MessageType* type = (MessageType*)data;
+
+    switch (*type) {
+        case MessageType::Response:
+            return this->processResponse((Response *)data);
+            break;
+        case MessageType::Message:
+            return this->messageQueue.push((TimedMessage){
+                (Message *)data,
+                std::chrono::high_resolution_clock::now()
+            });
+        default:
+            throw std::runtime_error("Invalid message type");
+    }
 }
 
 void Network::UDPServer::sendToAll(
@@ -172,6 +184,30 @@ void Network::UDPServer::processMessage(
     }
 }
 
+void Network::UDPServer::processResponse(Response *response)
+{
+    const int width = 20;
+
+    std::stringstream ss;
+    ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
+    ss << GREEN << "Worker Thread: " << std::this_thread::get_id() << RESET << "\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << response->header.command << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << response->header.dataLength << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << response->header.clientId << "\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+    std::cout << ss.str();
+
+    if (!strcmp(response->header.command, SERVER_COMMAND_CHECK_CONNECTION)) {
+        if (response->header.status == RES_SUCCESS) {
+            std::cout << "Client " << response->header.clientId << " is connected" << std::endl;
+        } else {
+            std::cout << "Client " << response->header.clientId << " is not connected" << std::endl;
+        }
+    }
+    std::cout << "Unknown command: " << response->header.command << std::endl;
+}
+
 void Network::UDPServer::workerFunction()
 {
     const int width = 20;
@@ -188,7 +224,6 @@ void Network::UDPServer::workerFunction()
         ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << message->header.dataLength << "\n";
         ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << message->header.clientId << "\n";
         ss << CYAN << std::string(60, '-') << RESET << "\n";
-
         std::cout << ss.str();
 
         this->processMessage(timedMessage);

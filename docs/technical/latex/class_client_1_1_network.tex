@@ -9,14 +9,11 @@
 \Hypertarget{class_client_1_1_network_a867b048a7044633d09979bed3d8ee0a4}\label{class_client_1_1_network_a867b048a7044633d09979bed3d8ee0a4} 
 void {\bfseries send} (const boost\+::asio\+::const\+\_\+buffer \&buffer)
 \item 
-\Hypertarget{class_client_1_1_network_a51782319548acd1d5f3874c7d16e410e}\label{class_client_1_1_network_a51782319548acd1d5f3874c7d16e410e} 
-void {\bfseries send\+Message} (const std\+::string \&command, const char \texorpdfstring{$\ast$}{*}data)
+\Hypertarget{class_client_1_1_network_a31b56f08e9f5890e3faa1cc2e6a72779}\label{class_client_1_1_network_a31b56f08e9f5890e3faa1cc2e6a72779} 
+void {\bfseries send\+Message} (const std\+::string \&command, const char data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0)
 \item 
-\Hypertarget{class_client_1_1_network_ad5cd3b07d735999e37fb46f5575e4dd8}\label{class_client_1_1_network_ad5cd3b07d735999e37fb46f5575e4dd8} 
-\mbox{\hyperlink{struct_response}{Response}} {\bfseries create\+Response} (const std\+::string \&command, const std\+::string \&status\+Message, const char \texorpdfstring{$\ast$}{*}data=nullptr, int status=200)
-\item 
-\Hypertarget{class_client_1_1_network_afbc0637be92cfb590170ea5607d2dcc9}\label{class_client_1_1_network_afbc0637be92cfb590170ea5607d2dcc9} 
-void {\bfseries send\+Response} (const \mbox{\hyperlink{struct_response}{Response}} \&response)
+\Hypertarget{class_client_1_1_network_a45cc0e5d12a0a71908ae8f56e9d08ba5}\label{class_client_1_1_network_a45cc0e5d12a0a71908ae8f56e9d08ba5} 
+void {\bfseries send\+Response} (const std\+::string \&command, const std\+::string \&status\+Message, const char data\mbox{[}$\,$\mbox{]}, int data\+Size, int status)
 \item 
 \Hypertarget{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c}\label{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c} 
 void {\bfseries start\+Receive} ()

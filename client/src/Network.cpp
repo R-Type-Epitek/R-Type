@@ -41,7 +41,8 @@ void Client::Network::send(
 
 void Client::Network::sendMessage(
     const std::string& command,
-    const char* data
+    const char data[],
+    int dataSize
 )
 {
     MessageType type = MessageType::Message;
@@ -49,52 +50,43 @@ void Client::Network::sendMessage(
     MessageHeader header;
     header.clientId = this->clientId;
     strcpy(header.command, command.c_str());
-    header.dataLength = sizeof(data);
+    header.dataLength = dataSize;
 
-    size_t totalSize = sizeof(type) + sizeof(header) + sizeof(data);
+    size_t totalSize = sizeof(type) + sizeof(header) + dataSize;
     std::vector<char> messageBuffer(totalSize);
 
     memcpy(messageBuffer.data(), &type, sizeof(type));
     memcpy(messageBuffer.data() + sizeof(type), &header, sizeof(header));
     if (data != nullptr)
-        memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, sizeof(data));
+        memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
     this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
 }
 
-Response Client::Network::createResponse(
+void Client::Network::sendResponse(
     const std::string& command,
     const std::string& statusMessage,
-    const char* data,
+    const char data[],
+    int dataSize,
     int status
-)
-{
-    ResponseHeader header;
-    header.clientId = this->clientId;
-    strcpy(header.command, command.c_str());
-    header.dataLength = sizeof(data);
-    header.status = status;
-    strcpy(header.statusMessage, statusMessage.c_str());
-
-    Response response;
-    response.header = header;
-    if (data != nullptr)
-        memcpy(response.data, data, sizeof(data));
-
-    return response;
-}
-
-void Client::Network::sendResponse(
-    const Response& response
 )
 {
     MessageType type = MessageType::Response;
 
-    size_t totalSize = sizeof(type) + sizeof(Response);
+    ResponseHeader header;
+    header.clientId = this->clientId;
+    strcpy(header.command, command.c_str());
+    header.dataLength = dataSize;
+    header.status = status;
+    strcpy(header.statusMessage, statusMessage.c_str());
+
+    size_t totalSize = sizeof(type) + sizeof(header) + dataSize;
     std::vector<char> messageBuffer(totalSize);
 
     memcpy(messageBuffer.data(), &type, sizeof(type));
-    memcpy(messageBuffer.data() + sizeof(type), &response, sizeof(response));
+    memcpy(messageBuffer.data() + sizeof(type), &header, sizeof(header));
+    if (data != nullptr)
+        memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
     this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
 }
@@ -145,6 +137,18 @@ void Client::Network::onReceive(
 
 void Client::Network::onServerResponse(Response* response)
 {
+    const int width = 20;
+
+    std::stringstream ss;
+    ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
+    ss << GREEN << "Worker Thread: " << std::this_thread::get_id() << RESET << "\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << response->header.command << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << response->header.dataLength << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << response->header.clientId << "\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+    std::cout << ss.str();
+
     switch (response->header.status) {
         case RES_SUCCESS:
             break;
@@ -175,6 +179,18 @@ void Client::Network::onServerResponse(Response* response)
 
 void Client::Network::onServerMessage(Message* message)
 {
+    const int width = 20;
+
+    std::stringstream ss;
+    ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
+    ss << GREEN << "Worker Thread: " << std::this_thread::get_id() << RESET << "\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << message->header.command << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << message->header.dataLength << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << message->header.clientId << "\n";
+    ss << CYAN << std::string(60, '-') << RESET << "\n";
+    std::cout << ss.str();
+
     if (!strcmp(message->header.command, SERVER_COMMAND_CHECK_CONNECTION))
         return this->onCheckConnectionMessage(message);
     else
@@ -190,7 +206,7 @@ void Client::Network::onServerMessage(Message* message)
 /* --------------------------------------------------- */
 void Client::Network::connectToServer()
 {
-    this->sendMessage(CONNECT_TO_SERVER_COMMAND, nullptr);
+    this->sendMessage(CONNECT_TO_SERVER_COMMAND);
 }
 
 void Client::Network::onConnectToServerResponse(Response* response)
@@ -217,7 +233,10 @@ void Client::Network::updateName(std::string name)
 
     UpdateNameData data;
     strcpy(data.name, name.c_str());
-    this->sendMessage(UPDATE_NAME_COMMAND, (char*)&data);
+    char dataBuffer[sizeof(data)];
+    memcpy(dataBuffer, &data, sizeof(data));
+
+    this->sendMessage(UPDATE_NAME_COMMAND, dataBuffer, sizeof(data));
 }
 
 void Client::Network::onUpdateNameResponse(Response* response)
@@ -240,7 +259,10 @@ void Client::Network::joinRoom(int roomId)
 {
     JoinRoomData data;
     data.roomId = roomId;
-    this->sendMessage(JOIN_ROOM_COMMAND, (char*)&data);
+    char dataBuffer[sizeof(data)];
+    memcpy(dataBuffer, &data, sizeof(data));
+
+    this->sendMessage(JOIN_ROOM_COMMAND, dataBuffer, sizeof(data));
 }
 
 void Client::Network::onJoinRoomResponse(Response* response)
@@ -263,7 +285,10 @@ void Client::Network::sendKey(std::string key)
 {
     InputData data;
     strcpy(data.key, key.c_str());
-    this->sendMessage(INPUT_COMMAND, (char*)&data);
+    char dataBuffer[sizeof(data)];
+    memcpy(dataBuffer, &data, sizeof(data));
+
+    this->sendMessage(INPUT_COMMAND, dataBuffer, sizeof(data));
 }
 
 void Client::Network::onSendKeyResponse(Response* response)
@@ -285,7 +310,10 @@ void Client::Network::startGame(int roomId)
 {
     StartGameData data;
     data.roomId = roomId;
-    this->sendMessage(START_GAME_COMMAND, (char*)&data);
+    char dataBuffer[sizeof(data)];
+    memcpy(dataBuffer, &data, sizeof(data));
+
+    this->sendMessage(START_GAME_COMMAND, dataBuffer, sizeof(data));
 }
 
 void Client::Network::onStartGameResponse(Response* response)
@@ -301,13 +329,10 @@ void Client::Network::onStartGameResponse(Response* response)
 
 void Client::Network::onCheckConnectionMessage(Message* message)
 {
-    (void)message;
-    Response response = this->createResponse(
-        SERVER_COMMAND_CHECK_CONNECTION,
+    return this->sendResponse(
+        message->header.command,
         "OK"
     );
-
-    return this->sendResponse(response);
 }
 
 void Client::Network::setClientId(int id)

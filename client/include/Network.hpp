@@ -15,15 +15,16 @@ namespace Client
             void send(const boost::asio::const_buffer &buffer);
             void sendMessage(
                 const std::string& command,
-                const char* data
+                const char data[] = nullptr,
+                int dataSize = 0
             );
-            Response createResponse(
+            void sendResponse(
                 const std::string& command,
                 const std::string& statusMessage,
-                const char *data = nullptr,
-                int status = 200
+                const char data[],
+                int dataSize,
+                int status
             );
-            void sendResponse(const Response& response);
             void startReceive();
             void onReceive(
                 const boost::system::error_code& error,

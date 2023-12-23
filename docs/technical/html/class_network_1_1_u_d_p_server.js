@@ -17,6 +17,7 @@ var class_network_1_1_u_d_p_server =
     [ "isClientConnected", "class_network_1_1_u_d_p_server.html#a2db9f8510e50ae6dcf8d13f68bd97668", null ],
     [ "isClientRegistered", "class_network_1_1_u_d_p_server.html#ab2d04421510f1fd72b2158aa171241e9", null ],
     [ "processMessage", "class_network_1_1_u_d_p_server.html#ad31c0be7001a0123b1fe8434161665de", null ],
+    [ "processResponse", "class_network_1_1_u_d_p_server.html#a16bd0e5a013230d835b30a3b0cfd86d9", null ],
     [ "registerCommandHandlers", "class_network_1_1_u_d_p_server.html#a82f424a15da216aade28273353dad9eb", null ],
     [ "sendResponseAndLog", "class_network_1_1_u_d_p_server.html#aaea5f5e4974578868fef7cb9384a75d3", null ],
     [ "sendToAll", "class_network_1_1_u_d_p_server.html#ad4a7829a14bcc49630c18a59553fb765", null ],
