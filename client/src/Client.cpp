@@ -91,7 +91,7 @@ void Client::event(GameEngine::UI::WindowContext& ctx) {
       sys_keyboard->update(ecs, ctx);
     }
     if (auto sys_keyboard_net = std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
-      sys_keyboard_net->update(ecs, ctx, *m_network);
+      sys_keyboard_net->update(ctx, *m_network);
     }
   }
 }
