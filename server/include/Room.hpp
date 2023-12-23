@@ -5,6 +5,7 @@
 #pragma once
 
 #include "RTypeNetwork.hpp"
+#include "game/IGame.hpp"
 
 namespace Network {
 /**
@@ -115,5 +116,6 @@ class Room {
   int id;                    ///< The unique identifier of the room.
   std::vector<int> players;  ///< A vector of player IDs currently in the room.
   RoomState state;           ///< The state of the room.
+  //  std::unique_ptr<Server::Game::IGame> m_game;  ///< the current room game
 };
 }  // namespace Network

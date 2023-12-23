@@ -12,6 +12,8 @@ add_executable(${EXEC_SERVER}
         src/Commands/JoinRoom.cpp
         src/Commands/StartGame.cpp
         src/Commands/UpdateName.cpp
+        src/game/rtype/RtypeScene.cpp
+        src/game/rtype/RtypeGame.cpp
         src/Client.cpp
         src/Room.cpp
         src/ThreadSafeQueue.cpp

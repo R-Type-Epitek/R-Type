@@ -5,8 +5,11 @@
 #pragma once
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
+#include <exception>
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
+#include <string>
 #include <type_traits>
 
 namespace GameEngine::Serialize {

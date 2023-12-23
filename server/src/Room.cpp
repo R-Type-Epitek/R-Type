@@ -3,6 +3,8 @@
 //
 
 #include "RTypeNetwork.hpp"
+#include "game/rtype/RtypeGame.hpp"
+#include <memory>
 
 Network::Room::Room(int id, int size) : size(size), id(id), state(WAITING) {}
 
