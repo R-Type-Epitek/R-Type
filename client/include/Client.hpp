@@ -17,8 +17,8 @@ class Client {
  public:
   Client();
   void initNetwork();
-  void initGUI();
   void initScenes();
+  void initGUI();
   void link();
   void run();
 

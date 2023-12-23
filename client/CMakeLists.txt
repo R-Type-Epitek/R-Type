@@ -5,13 +5,6 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/)
 
 
 add_executable(${EXEC_CLIENT}
-        #        src/Components/Background.cpp
-        #        src/Components/Button.cpp
-        #        src/Components/InputText.cpp
-        #        src/Scenes/Game.cpp
-        #        src/Scenes/Lobby.cpp
-        #        src/Scenes/Manager.cpp
-        #        src/Scenes/Welcome.cpp
         src/main.cpp
         src/Client.cpp
         src/scene/SceneManager.cpp

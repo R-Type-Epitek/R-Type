@@ -13,6 +13,7 @@
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
 #include <iostream>
+#include <string>
 
 namespace Client {
 class Network {
@@ -35,7 +36,6 @@ class Network {
   std::string getName() const;
   void setEndpoint(std::string& ip, std::string& port);
 
- protected:
  private:
   boost::asio::io_context io;
   boost::asio::ip::udp::endpoint receiverEndpoint;

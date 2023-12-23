@@ -8,11 +8,13 @@
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
+#include "gameEngine/ecs/Signature.hpp"
+#include "network/system/Keyboard.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Client {
 
-GameScene::GameScene() {
+GameScene::GameScene(Network& network) : m_network{network} {
   initRegistry();
   initEntities();
 }
@@ -31,6 +33,8 @@ void GameScene::initRegistry() {
   builder.buildSystemRenderer();
   builder.buildSystemKeyboard();
   m_registry = builder.getResult();
+  // Custom client System
+  initCustomSystem();
 }
 
 void GameScene::initEntities() {
@@ -50,6 +54,14 @@ void GameScene::initEntities() {
   auto entt1 = m_registry->createEntity();
   m_entities.push_back(entt1);
   m_registry->addComponent(entt1, ComponentRType::Sprite{});
+}
+
+void GameScene::initCustomSystem() {
+  GameEngine::ECS::Signature signature;
+  m_registry->registerSystem<Client::System::Network::Keyboard>();
+  //  System components
+  signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+  m_registry->setSystemSignature<Client::System::Network::Keyboard>(signature);
 }
 
 }  // namespace Client

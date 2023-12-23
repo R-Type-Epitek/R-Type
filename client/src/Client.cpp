@@ -10,6 +10,7 @@
 #include "gameEngine/system/Renderer.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Network.hpp"
+#include "network/system/Keyboard.hpp"
 #include "scene/SceneManager.hpp"
 #include "spdlog/spdlog.h"
 #include <exception>
@@ -20,33 +21,39 @@ namespace Client {
 Client::Client() { spdlog::info("Starting Client..."); };
 
 void Client::initNetwork() {
-  spdlog::info("Starting Network...");
   try {
+    spdlog::info("Starting Network...");
     m_network = std::make_unique<Network>(DEFAULT_IP, DEFAULT_PORT);
     spdlog::info("Done");
+
+    spdlog::info("Establishing Network connection...");
+    m_network->connectToServer();
+    spdlog::info("Done");
+
   } catch (std::exception const&) {
     spdlog::error("Failed to initialize Network");
   }
 }
 
-void Client::initGUI() {
-  spdlog::info("Starting GUI...");
+void Client::initScenes() {
   try {
+    spdlog::info("Starting Scenes...");
+    m_sceneManager = std::make_unique<SceneManager>();
+    m_sceneManager->initScenes();
+    m_sceneManager->initScenesWithNetwork(*m_network);
+    spdlog::info("Done");
+  } catch (std::exception const&) {
+    spdlog::error("Failed to initialize Scenes");
+  }
+}
+
+void Client::initGUI() {
+  try {
+    spdlog::info("Starting GUI...");
     m_gui = std::make_unique<GUI>(1920, 1080, appName, DEFAULT_RATIO);
     spdlog::info("Done");
   } catch (std::exception const&) {
     spdlog::error("Failed to initialize GUI");
-  }
-}
-
-void Client::initScenes() {
-  spdlog::info("Starting Scenes...");
-  try {
-    m_sceneManager = std::make_unique<SceneManager>();
-    m_sceneManager->initScenes();
-    spdlog::info("Done");
-  } catch (std::exception const&) {
-    spdlog::error("Failed to initialize Scenes");
   }
 }
 
@@ -82,6 +89,9 @@ void Client::event(GameEngine::UI::WindowContext& ctx) {
   for (auto& [typeId, system_ptr] : systems) {
     if (auto sys_keyboard = std::dynamic_pointer_cast<GameEngine::System::Keyboard>(system_ptr)) {
       sys_keyboard->update(ecs, ctx);
+    }
+    if (auto sys_keyboard_net = std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
+      sys_keyboard_net->update(ecs, ctx, *m_network);
     }
   }
 }
