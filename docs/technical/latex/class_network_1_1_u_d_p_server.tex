@@ -50,7 +50,7 @@ void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a16bd0e5a013230d835b30a3b0c
 \begin{DoxyCompactList}\small\item\em Process a \doxylink{struct_response}{Response}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_aabec654d8576481b31d0c1e689b66699}{worker\+Function}} ()
 \begin{DoxyCompactList}\small\item\em Function executed by worker threads. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_response}{Response}} \mbox{\hyperlink{class_network_1_1_u_d_p_server_a02c128198cb78a131c7e142186e7ea9c}{create\+Response}} (int client\+Id, const std\+::string \&command, const std\+::string \&status\+Message, const char \texorpdfstring{$\ast$}{*}data=nullptr, int status=RES\+\_\+\+SUCCESS)
+\mbox{\hyperlink{struct_response}{Response}} \mbox{\hyperlink{class_network_1_1_u_d_p_server_a412fd8e032812429dc6bef7be78e2fe4}{create\+Response}} (int client\+Id, const std\+::string \&command, const std\+::string \&status\+Message, const char data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
 \begin{DoxyCompactList}\small\item\em Create a response. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_aaea5f5e4974578868fef7cb9384a75d3}{send\+Response\+And\+Log}} (\mbox{\hyperlink{struct_timed_message}{Timed\+Message}} timed\+Message, const \mbox{\hyperlink{struct_response}{Response}} \&response)
 \begin{DoxyCompactList}\small\item\em Send a response and log it. \end{DoxyCompactList}\item 
@@ -148,11 +148,11 @@ Adds the specified client to the list of connected clients.
 
 Check clients. 
 
-Check the list of clients and remove disconnected clients. \Hypertarget{class_network_1_1_u_d_p_server_a02c128198cb78a131c7e142186e7ea9c}\label{class_network_1_1_u_d_p_server_a02c128198cb78a131c7e142186e7ea9c} 
+Check the list of clients and remove disconnected clients. \Hypertarget{class_network_1_1_u_d_p_server_a412fd8e032812429dc6bef7be78e2fe4}\label{class_network_1_1_u_d_p_server_a412fd8e032812429dc6bef7be78e2fe4} 
 \index{Network::UDPServer@{Network::UDPServer}!createResponse@{createResponse}}
 \index{createResponse@{createResponse}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{createResponse()}{createResponse()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_response}{Response}} Network\+::\+UDPServer\+::create\+Response (\begin{DoxyParamCaption}\item[{int}]{client\+Id,  }\item[{const std\+::string \&}]{command,  }\item[{const std\+::string \&}]{status\+Message,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{data = {\ttfamily nullptr},  }\item[{int}]{status = {\ttfamily RES\+\_\+SUCCESS} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_response}{Response}} Network\+::\+UDPServer\+::create\+Response (\begin{DoxyParamCaption}\item[{int}]{client\+Id,  }\item[{const std\+::string \&}]{command,  }\item[{const std\+::string \&}]{status\+Message,  }\item[{const char}]{data\mbox{[}$\,$\mbox{]} = {\ttfamily nullptr},  }\item[{int}]{data\+Size = {\ttfamily 0},  }\item[{int}]{status = {\ttfamily RES\+\_\+SUCCESS} }\end{DoxyParamCaption})}
 
 
 

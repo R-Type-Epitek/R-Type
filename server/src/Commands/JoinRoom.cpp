@@ -45,6 +45,7 @@ Response Network::JoinRoomCommandHandler::handleCommand(Message* message)
         JOIN_ROOM_COMMAND,
         statusMessage,
         dataToSend.data(),
+        dataToSend.size(),
         status
     );
 }

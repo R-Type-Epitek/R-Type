@@ -195,6 +195,8 @@ void Network::UDPServer::processResponse(Response *response)
     ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << response->header.command << "\n";
     ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << response->header.dataLength << "\n";
     ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << response->header.clientId << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Status:" << RESET << response->header.status << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Status Message:" << RESET << response->header.statusMessage << "\n";
     ss << CYAN << std::string(60, '-') << RESET << "\n";
     std::cout << ss.str();
 
@@ -234,7 +236,8 @@ Response Network::UDPServer::createResponse(
     int clientId,
     const std::string& command,
     const std::string& statusMessage,
-    const char* data,
+    const char data[],
+    int dataSize,
     int status
 )
 {
@@ -243,17 +246,17 @@ Response Network::UDPServer::createResponse(
     ResponseHeader header;
     header.clientId = clientId;
     strcpy(header.command, command.c_str());
-    header.dataLength = sizeof(data);
+    header.dataLength = dataSize;
     header.status = status;
     strcpy(header.statusMessage, statusMessage.c_str());
 
-    size_t totalSize = sizeof(type) + sizeof(header) + sizeof(data);
+    size_t totalSize = sizeof(type) + sizeof(header) + dataSize;
     std::vector<char> messageBuffer(totalSize);
 
     memcpy(messageBuffer.data(), &type, sizeof(type));
     memcpy(messageBuffer.data() + sizeof(type), &header, sizeof(header));
     if (data != nullptr)
-        memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, sizeof(data));
+        memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
     Response *response = (Response *)messageBuffer.data();
 
@@ -276,7 +279,7 @@ void Network::UDPServer::sendResponseAndLog(
 
     std::stringstream ss;
     ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
-    ss << GREEN << "Server Response: " << RESET << "\n";
+    ss << GREEN << "Response: " << RESET << "\n";
     ss << CYAN << std::string(60, '-') << RESET << "\n";
     ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << response.header.command << "\n";
     ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << response.header.dataLength << "\n";
@@ -376,6 +379,7 @@ void Network::UDPServer::handleInvalidClient(TimedMessage timedMessage)
         timedMessage.message->header.command,
         statusMessage,
         nullptr,
+        0,
         RES_UNAUTHORIZED
     );
 
@@ -389,6 +393,7 @@ void Network::UDPServer::handleInvalidCommand(TimedMessage timedMessage)
         timedMessage.message->header.command,
         "Invalid command",
         nullptr,
+        0,
         RES_BAD_REQUEST
     );
 

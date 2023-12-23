@@ -229,7 +229,8 @@ namespace Network
                 int clientId,
                 const std::string& command,
                 const std::string& statusMessage,
-                const char *data = nullptr,
+                const char data[] = nullptr,
+                int dataSize = 0,
                 int status = RES_SUCCESS
             );
 

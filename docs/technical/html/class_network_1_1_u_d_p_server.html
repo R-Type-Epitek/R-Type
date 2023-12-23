@@ -176,9 +176,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aabec654d8576481b31d0c1e689b66699" id="r_aabec654d8576481b31d0c1e689b66699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#aabec654d8576481b31d0c1e689b66699">workerFunction</a> ()</td></tr>
 <tr class="memdesc:aabec654d8576481b31d0c1e689b66699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function executed by worker threads.  <br /></td></tr>
 <tr class="separator:aabec654d8576481b31d0c1e689b66699"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02c128198cb78a131c7e142186e7ea9c" id="r_a02c128198cb78a131c7e142186e7ea9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a02c128198cb78a131c7e142186e7ea9c">createResponse</a> (int clientId, const std::string &amp;command, const std::string &amp;statusMessage, const char *data=nullptr, int status=RES_SUCCESS)</td></tr>
-<tr class="memdesc:a02c128198cb78a131c7e142186e7ea9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a response.  <br /></td></tr>
-<tr class="separator:a02c128198cb78a131c7e142186e7ea9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412fd8e032812429dc6bef7be78e2fe4" id="r_a412fd8e032812429dc6bef7be78e2fe4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a412fd8e032812429dc6bef7be78e2fe4">createResponse</a> (int clientId, const std::string &amp;command, const std::string &amp;statusMessage, const char data[]=nullptr, int dataSize=0, int status=RES_SUCCESS)</td></tr>
+<tr class="memdesc:a412fd8e032812429dc6bef7be78e2fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a response.  <br /></td></tr>
+<tr class="separator:a412fd8e032812429dc6bef7be78e2fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaea5f5e4974578868fef7cb9384a75d3" id="r_aaea5f5e4974578868fef7cb9384a75d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#aaea5f5e4974578868fef7cb9384a75d3">sendResponseAndLog</a> (<a class="el" href="struct_timed_message.html">TimedMessage</a> timedMessage, const <a class="el" href="struct_response.html">Response</a> &amp;response)</td></tr>
 <tr class="memdesc:aaea5f5e4974578868fef7cb9384a75d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a response and log it.  <br /></td></tr>
 <tr class="separator:aaea5f5e4974578868fef7cb9384a75d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -335,8 +335,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a02c128198cb78a131c7e142186e7ea9c" name="a02c128198cb78a131c7e142186e7ea9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02c128198cb78a131c7e142186e7ea9c">&#9670;&#160;</a></span>createResponse()</h2>
+<a id="a412fd8e032812429dc6bef7be78e2fe4" name="a412fd8e032812429dc6bef7be78e2fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a412fd8e032812429dc6bef7be78e2fe4">&#9670;&#160;</a></span>createResponse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -362,8 +362,14 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>data</em> = <code>nullptr</code>, </td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>data</em>[] = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dataSize</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

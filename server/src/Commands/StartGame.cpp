@@ -33,6 +33,7 @@ Response Network::StartGameCommandHandler::handleCommand(Message* message)
         message->header.clientId,
         START_GAME_COMMAND,
         "Start game (room " + std::to_string(data->roomId) + ")",
-        dataToSend.data()
+        dataToSend.data(),
+        dataToSend.size()
     );
 }

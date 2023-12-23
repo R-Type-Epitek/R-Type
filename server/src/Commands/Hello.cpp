@@ -36,6 +36,7 @@ Response Network::HelloCommandHandler::handleCommand(Message* message)
         CONNECT_TO_SERVER_COMMAND,
         statusMessage,
         nullptr,
+        0,
         status
     );
     std::cout << "Client " << response.header.clientId << " connected to server" << std::endl;

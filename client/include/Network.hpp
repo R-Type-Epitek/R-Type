@@ -21,9 +21,9 @@ namespace Client
             void sendResponse(
                 const std::string& command,
                 const std::string& statusMessage,
-                const char data[],
-                int dataSize,
-                int status
+                const char data[] = nullptr,
+                int dataSize = 0,
+                int status = RES_SUCCESS
             );
             void startReceive();
             void onReceive(

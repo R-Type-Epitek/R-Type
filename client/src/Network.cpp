@@ -141,11 +141,13 @@ void Client::Network::onServerResponse(Response* response)
 
     std::stringstream ss;
     ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
-    ss << GREEN << "Worker Thread: " << std::this_thread::get_id() << RESET << "\n";
+    ss << GREEN << "Server response: " << std::this_thread::get_id() << RESET << "\n";
     ss << CYAN << std::string(60, '-') << RESET << "\n";
     ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << response->header.command << "\n";
     ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << response->header.dataLength << "\n";
     ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << response->header.clientId << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Status:" << RESET << response->header.status << "\n";
+    ss << YELLOW << std::left << std::setw(width) << "Status Message:" << RESET << response->header.statusMessage << "\n";
     ss << CYAN << std::string(60, '-') << RESET << "\n";
     std::cout << ss.str();
 
@@ -213,7 +215,6 @@ void Client::Network::onConnectToServerResponse(Response* response)
 {
     this->clientId = response->header.clientId;
 
-    std::cout << "Server response: " << response->header.statusMessage << std::endl;
     std::cout << "Connected to server: " << this->remoteEndpoint << std::endl;
     std::cout << "Client id: " << this->clientId << std::endl << std::endl;
 }
@@ -244,7 +245,7 @@ void Client::Network::onUpdateNameResponse(Response* response)
     UpdateNameData* data = (UpdateNameData*)response->data;
     this->name = data->name;
 
-    std::cout << "Name successfully updated: " << this->name << std::endl;
+    std::cout << "Name successfully updated: " << data << std::endl;
 }
 /* --------------------------------------------------- */
 /* --------------------------------------------------- */

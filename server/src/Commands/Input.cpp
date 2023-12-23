@@ -32,6 +32,7 @@ Response Network::InputCommandHandler::handleCommand(Message* message)
         message->header.clientId,
         INPUT_COMMAND,
         "Get key: \"" + std::string(data->key) + "\"",
-        dataToSend.data()
+        dataToSend.data(),
+        dataToSend.size()
     );
 }
