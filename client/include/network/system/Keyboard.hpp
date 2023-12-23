@@ -16,11 +16,10 @@ namespace Client::System::Network {
 
 class Keyboard : public GameEngine::ECS::System {
  public:
-  void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx, ::Client::Network& network) {
+  void update(GameEngine::UI::WindowContext& ctx, ::Client::Network& network) {
     if (ctx.event.type != sf::Event::KeyPressed) {
       return;
     }
-    sf::Vector2f posEnd{0, 0};
     auto& eventKey = ctx.event.key.code;
     if (eventKey == sf::Keyboard::Up) network.sendKey("UP");
     if (eventKey == sf::Keyboard::Down) network.sendKey("DOWN");
