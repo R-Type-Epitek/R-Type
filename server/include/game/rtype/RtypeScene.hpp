@@ -9,21 +9,22 @@
 #include <memory>
 #include <vector>
 
-namespace Server::Game::Rtype {
+namespace Server::Game::Rtype
+{
 
-class RtypeScene : public GameEngine::Scene::IScene {
- public:
-  void initRegistry() final;
+  class RtypeScene : public GameEngine::Scene::IScene {
+  public:
+    void initRegistry() final;
 
-  void initEntities() final;
+    void initEntities() final;
 
-  GameEngine::ECS::Registry& getECS() final;
+    GameEngine::ECS::Registry& getECS() final;
 
-  void serializeEntities();
+    void serializeEntities();
 
- private:
-  std::vector<GameEngine::ECS::Entity> m_entities;
-  std::unique_ptr<GameEngine::ECS::Registry> m_registry;
-};
+  private:
+    std::vector<GameEngine::ECS::Entity> m_entities;
+    std::unique_ptr<GameEngine::ECS::Registry> m_registry;
+  };
 
-}  // namespace Server::Game::Rtype
+} // namespace Server::Game::Rtype

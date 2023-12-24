@@ -4,12 +4,13 @@
 
 #pragma once
 
-namespace Server::Game {
-class IGame {
- public:
-  virtual ~IGame() = default;
+namespace Server::Game
+{
+  class IGame {
+  public:
+    virtual ~IGame() = default;
 
-  virtual void load() = 0;
-};
+    virtual void load() = 0;
+  };
 
-}  // namespace Server::Game
+} // namespace Server::Game

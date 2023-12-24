@@ -6,13 +6,14 @@
 #include "gameEngine/scene/SceneManager.hpp"
 #include "network/Network.hpp"
 
-namespace Client {
-class SceneManager : public GameEngine::Scene::SceneManager {
- public:
-  ~SceneManager() = default;
+namespace Client
+{
+  class SceneManager : public GameEngine::Scene::SceneManager {
+  public:
+    ~SceneManager() = default;
 
-  void initScenes() final;
-  void initScenesWithNetwork(Network& network);
-};
+    void initScenes() final;
+    void initScenesWithNetwork(Network& network);
+  };
 
-}  // namespace Client
+} // namespace Client

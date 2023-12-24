@@ -7,13 +7,14 @@
 #include "RtypeScene.hpp"
 #include "game/IGame.hpp"
 
-namespace Server::Game {
+namespace Server::Game
+{
 
-class RtypeGame : public IGame {
- public:
-  void load() final;
+  class RtypeGame : public IGame {
+  public:
+    void load() final;
 
- private:
-  Rtype::RtypeScene m_scene;
-};
-}  // namespace Server::Game
+  private:
+    Rtype::RtypeScene m_scene;
+  };
+} // namespace Server::Game

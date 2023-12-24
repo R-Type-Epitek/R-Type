@@ -7,17 +7,23 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-namespace ComponentRType {
+namespace ComponentRType
+{
 
-struct Sprite {
-  sf::Sprite sprite;
+  struct Sprite {
+    sf::Sprite sprite;
 
-  Sprite() { sprite.setTexture(LOAD_TEXTURE(DEFAULT_TEXTURE)); }
+    Sprite()
+    {
+      sprite.setTexture(LOAD_TEXTURE(DEFAULT_TEXTURE));
+    }
 
-  Sprite(sf::Texture& texture, sf::IntRect const& rect) {
-    sprite.setTexture(texture);
-    if (rect.width > 0 || rect.height < 0) sprite.setTextureRect(rect);
-  }
-};
+    Sprite(sf::Texture& texture, sf::IntRect const& rect)
+    {
+      sprite.setTexture(texture);
+      if (rect.width > 0 || rect.height < 0)
+        sprite.setTextureRect(rect);
+    }
+  };
 
-}  // namespace ComponentRType
+} // namespace ComponentRType

@@ -7,9 +7,9 @@
 #include "ITexture.hpp"
 
 class Texture : ITexture {
- public:
+public:
   virtual void loadTexture() = 0;
   virtual void unloadTexture() = 0;
 
- private:
+private:
 };

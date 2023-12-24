@@ -12,15 +12,17 @@
 #include <sstream>
 #include <string>
 
-namespace ComponentRType {
+namespace ComponentRType
+{
 
-struct MetaData {
-  std::string name;
+  struct MetaData {
+    std::string name;
 
-  template <class Archive>
-  void serialize(Archive& ar, unsigned int const version) {
-    ar & name;
-  }
-};
+    template<class Archive>
+    void serialize(Archive& ar, unsigned int const version)
+    {
+      ar& name;
+    }
+  };
 
-}  // namespace ComponentRType
+} // namespace ComponentRType

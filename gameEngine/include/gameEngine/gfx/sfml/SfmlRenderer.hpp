@@ -9,9 +9,9 @@
 #include "SfmlTexture.hpp"
 
 class SfmlRenderer {
- public:
+public:
   SfmlRenderer();
   ~SfmlRenderer();
 
- private:
+private:
 };

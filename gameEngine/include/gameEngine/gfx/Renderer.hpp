@@ -6,10 +6,10 @@
 #include "gameEngine/gfx/sfml/SfmlRenderer.hpp"
 
 class Renderer : SfmlRenderer {
- public:
+public:
   Renderer();
   ~Renderer();
   void clear() override;
 
- private:
+private:
 };

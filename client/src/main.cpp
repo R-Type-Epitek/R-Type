@@ -4,7 +4,8 @@
 #include "Client.hpp"
 #include "spdlog/spdlog.h"
 
-int main() {
+int main()
+{
   spdlog::set_level(spdlog::level::debug);
   Client::Client client = Client::Client();
 

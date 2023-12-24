@@ -12,10 +12,14 @@
 #include <iostream>
 #include <memory>
 
-namespace GameEngine::System {
+namespace GameEngine::System
+{
 
-class Physics : public GameEngine::ECS::System {
- public:
-  void update() { return; }
-};
-}  // namespace GameEngine::System
+  class Physics : public GameEngine::ECS::System {
+  public:
+    void update()
+    {
+      return;
+    }
+  };
+} // namespace GameEngine::System

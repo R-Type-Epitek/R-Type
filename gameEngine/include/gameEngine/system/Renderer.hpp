@@ -9,18 +9,23 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 
-namespace GameEngine::System {
+namespace GameEngine::System
+{
 
-class Renderer : public GameEngine::ECS::System {
- public:
-  void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx) {
-    auto& componentManager = registry.getComponentManager();
+  class Renderer : public GameEngine::ECS::System {
+  public:
+    void update(
+      GameEngine::ECS::Registry& registry,
+      GameEngine::UI::WindowContext& ctx)
+    {
+      auto& componentManager = registry.getComponentManager();
 
-    for (auto const& entity : m_entities) {
-      auto& spriteC = componentManager->getComponent<ComponentRType::Sprite>(entity);
-      ctx.window.draw(spriteC.sprite);
+      for (auto const& entity : m_entities) {
+        auto& spriteC =
+          componentManager->getComponent<ComponentRType::Sprite>(entity);
+        ctx.window.draw(spriteC.sprite);
+      }
     }
-  }
-};
+  };
 
-}  // namespace GameEngine::System
+} // namespace GameEngine::System

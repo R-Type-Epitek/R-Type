@@ -8,15 +8,18 @@
 
 using Vec3 = int;
 
-namespace ge {
-struct Position {
-  float x = 0;
-  float y = 0;
+namespace ge
+{
+  struct Position {
+    float x = 0;
+    float y = 0;
 
-  Position() = default;
+    Position() = default;
 
-  Position(float x, float y) : x(x), y(y){};
-};
+    Position(float x, float y)
+      : x(x)
+      , y(y) {};
+  };
 
-using VectorVariant = std::variant<sf::Vector2f, sf::Vector2i, sf::Vector2u>;
-}  // namespace ge
+  using VectorVariant = std::variant<sf::Vector2f, sf::Vector2i, sf::Vector2u>;
+} // namespace ge

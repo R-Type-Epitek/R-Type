@@ -9,44 +9,45 @@
 #include <functional>
 #include <string>
 
-namespace GameEngine::UI {
+namespace GameEngine::UI
+{
 
-struct WindowContext {
-  sf::RenderWindow window;
-  sf::Event event;
-  sf::Clock deltaClock;
-  float screenRatio;
-};
+  struct WindowContext {
+    sf::RenderWindow window;
+    sf::Event event;
+    sf::Clock deltaClock;
+    float screenRatio;
+  };
 
-class Window {
- public:
-  using ClosureType = std::function<void(WindowContext&)>;
+  class Window {
+  public:
+    using ClosureType = std::function<void(WindowContext&)>;
 
-  Window(int width, int height, std::string& name, float screenRatio);
+    Window(int width, int height, std::string& name, float screenRatio);
 
-  void setFrameRate(int);
+    void setFrameRate(int);
 
-  void subscribeEvent(std::function<void(WindowContext&)> closure);
-  void unsubscribeEvent();
+    void subscribeEvent(std::function<void(WindowContext&)> closure);
+    void unsubscribeEvent();
 
-  void subscribeUpdate(std::function<void(WindowContext&)> closure);
-  void unsubscribeUpdate();
+    void subscribeUpdate(std::function<void(WindowContext&)> closure);
+    void unsubscribeUpdate();
 
-  void subscribeDisplay(std::function<void(WindowContext&)> closure);
-  void unsubscribeDisplay();
+    void subscribeDisplay(std::function<void(WindowContext&)> closure);
+    void unsubscribeDisplay();
 
-  void launch();
-  void update();
+    void launch();
+    void update();
 
- private:
-  void handleEvent();
-  void onResize();
-  void invokeClosure(ClosureType closure);
+  private:
+    void handleEvent();
+    void onResize();
+    void invokeClosure(ClosureType closure);
 
-  WindowContext m_windowContext;
-  ClosureType m_closureEvent;
-  ClosureType m_closureUpdate;
-  ClosureType m_closureDisplay;
-};
+    WindowContext m_windowContext;
+    ClosureType m_closureEvent;
+    ClosureType m_closureUpdate;
+    ClosureType m_closureDisplay;
+  };
 
-}  // namespace GameEngine::UI
+} // namespace GameEngine::UI

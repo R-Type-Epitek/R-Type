@@ -4,11 +4,13 @@
 
 #include "game/rtype/RtypeGame.hpp"
 
-namespace Server::Game {
+namespace Server::Game
+{
 
-void RtypeGame::load() {
-  m_scene.initRegistry();
-  m_scene.initEntities();
-}
+  void RtypeGame::load()
+  {
+    m_scene.initRegistry();
+    m_scene.initEntities();
+  }
 
-}  // namespace Server::Game
+} // namespace Server::Game

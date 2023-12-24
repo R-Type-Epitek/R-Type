@@ -12,27 +12,28 @@
 
 #define DEFAULT_RATIO (16.f / 9.f)
 
-namespace Client {
-class Client {
- public:
-  Client();
-  void initNetwork();
-  void initScenes();
-  void initGUI();
-  void link();
-  void run();
+namespace Client
+{
+  class Client {
+  public:
+    Client();
+    void initNetwork();
+    void initScenes();
+    void initGUI();
+    void link();
+    void run();
 
-  void testNetwork();
+    void testNetwork();
 
-  //  Closure
-  void update(GameEngine::UI::WindowContext&);
-  void event(GameEngine::UI::WindowContext&);
-  void display(GameEngine::UI::WindowContext&);
+    //  Closure
+    void update(GameEngine::UI::WindowContext &);
+    void event(GameEngine::UI::WindowContext &);
+    void display(GameEngine::UI::WindowContext &);
 
- private:
-  std::string appName = "Rtype client";
-  std::unique_ptr<Network> m_network;
-  std::unique_ptr<GUI> m_gui;
-  std::unique_ptr<SceneManager> m_sceneManager;
-};
-}  // namespace Client
+  private:
+    std::string appName = "Rtype client";
+    std::unique_ptr<Network> m_network;
+    std::unique_ptr<GUI> m_gui;
+    std::unique_ptr<SceneManager> m_sceneManager;
+  };
+} // namespace Client

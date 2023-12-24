@@ -6,22 +6,23 @@
 #include "IScene.hpp"
 #include "SceneContainer.hpp"
 
-namespace GameEngine::Scene {
+namespace GameEngine::Scene
+{
 
-//  TODO: implement with template enum class
-class SceneManager {
- public:
-  SceneManager() = default;
+  //  TODO: implement with template enum class
+  class SceneManager {
+  public:
+    SceneManager() = default;
 
-  virtual void initScenes(){};
-  IScene& getCurrent();
-  void setCurrent(std::string name);
+    virtual void initScenes() {};
+    IScene& getCurrent();
+    void setCurrent(std::string name);
 
- protected:
-  SceneContainer m_scenes;
+  protected:
+    SceneContainer m_scenes;
 
- private:
-  std::string m_currentSceneName;
-};
+  private:
+    std::string m_currentSceneName;
+  };
 
-};  // namespace GameEngine::Scene
+}; // namespace GameEngine::Scene

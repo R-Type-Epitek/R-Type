@@ -5,10 +5,10 @@
 #pragma once
 
 class IDisplay {
- public:
+public:
   virtual ~IDisplay() = default;
   virtual void draw() = 0;
   virtual void clear() = 0;
 
- private:
+private:
 };

@@ -8,7 +8,7 @@
 #include <SFML/Graphics.hpp>
 
 class SfmlDisplay {
- public:
+public:
   SfmlDisplay() = default;
   ~SfmlDisplay() = default;
 
