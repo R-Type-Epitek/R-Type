@@ -23,6 +23,7 @@ namespace GameEngine::Builder
     void buildSystemAnimation();
     void buildSystemPhysics();
     void buildSystemKeyboard();
+    void buildSystemEcsSerializer();
 
   private:
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
