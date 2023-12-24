@@ -11,6 +11,8 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <memory>
 #include <optional>
 #include <functional>
@@ -18,6 +20,7 @@
 // Game Engine Network
 #include "../../gameEngine/include/network/Commands.hpp"
 #include "../../gameEngine/include/network/Messages.hpp"
+#include "../../gameEngine/include/network/MessageType.hpp"
 #include "../../gameEngine/include/network/Responses.hpp"
 #include "../../gameEngine/include/network/Statuses.hpp"
 

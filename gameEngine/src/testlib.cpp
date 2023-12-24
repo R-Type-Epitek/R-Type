@@ -4,10 +4,12 @@
 
 #include <iostream>
 
-namespace rtype::engine {
+namespace rtype::engine
+{
 
-  void testlibfunction() {
+  void testlibfunction()
+  {
     std::cout << "Library linked" << std::endl;
   }
 
-}
+} // namespace rtype::engine

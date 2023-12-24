@@ -120,27 +120,57 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a867b048a7044633d09979bed3d8ee0a4" id="r_a867b048a7044633d09979bed3d8ee0a4"><td class="memItemLeft" align="right" valign="top"><a id="a867b048a7044633d09979bed3d8ee0a4" name="a867b048a7044633d09979bed3d8ee0a4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>send</b> (const boost::asio::const_buffer &amp;buffer)</td></tr>
 <tr class="separator:a867b048a7044633d09979bed3d8ee0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31c90e60b8fa74ac2948e2b9a9be20bd" id="r_a31c90e60b8fa74ac2948e2b9a9be20bd"><td class="memItemLeft" align="right" valign="top"><a id="a31c90e60b8fa74ac2948e2b9a9be20bd" name="a31c90e60b8fa74ac2948e2b9a9be20bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sendMessage</b> (const std::string &amp;command, const char *data, size_t dataSize)</td></tr>
-<tr class="separator:a31c90e60b8fa74ac2948e2b9a9be20bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acef16183eb0d0060b769ecbea70a56f9" id="r_acef16183eb0d0060b769ecbea70a56f9"><td class="memItemLeft" align="right" valign="top"><a id="acef16183eb0d0060b769ecbea70a56f9" name="acef16183eb0d0060b769ecbea70a56f9"></a>
-<a class="el" href="struct_response.html">Response</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>receiveAndValidateResponse</b> (const std::string &amp;expectedCommand)</td></tr>
-<tr class="separator:acef16183eb0d0060b769ecbea70a56f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b56f08e9f5890e3faa1cc2e6a72779" id="r_a31b56f08e9f5890e3faa1cc2e6a72779"><td class="memItemLeft" align="right" valign="top"><a id="a31b56f08e9f5890e3faa1cc2e6a72779" name="a31b56f08e9f5890e3faa1cc2e6a72779"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sendMessage</b> (const std::string &amp;command, const char data[]=nullptr, int dataSize=0)</td></tr>
+<tr class="separator:a31b56f08e9f5890e3faa1cc2e6a72779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a641f7ca1017521905b2f903b7c715e" id="r_a5a641f7ca1017521905b2f903b7c715e"><td class="memItemLeft" align="right" valign="top"><a id="a5a641f7ca1017521905b2f903b7c715e" name="a5a641f7ca1017521905b2f903b7c715e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sendResponse</b> (const std::string &amp;command, const std::string &amp;statusMessage, const char data[]=nullptr, int dataSize=0, int status=RES_SUCCESS)</td></tr>
+<tr class="separator:a5a641f7ca1017521905b2f903b7c715e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0adb2e5baaca04802dd5b2a99e2599c" id="r_ab0adb2e5baaca04802dd5b2a99e2599c"><td class="memItemLeft" align="right" valign="top"><a id="ab0adb2e5baaca04802dd5b2a99e2599c" name="ab0adb2e5baaca04802dd5b2a99e2599c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>startReceive</b> ()</td></tr>
+<tr class="separator:ab0adb2e5baaca04802dd5b2a99e2599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a24a09c56dd8635cac7c1483a9fb5bd" id="r_a2a24a09c56dd8635cac7c1483a9fb5bd"><td class="memItemLeft" align="right" valign="top"><a id="a2a24a09c56dd8635cac7c1483a9fb5bd" name="a2a24a09c56dd8635cac7c1483a9fb5bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onReceive</b> (const boost::system::error_code &amp;error, std::size_t bytesTransferred)</td></tr>
+<tr class="separator:a2a24a09c56dd8635cac7c1483a9fb5bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1445fd7305ca6060d759731f24c2be3" id="r_aa1445fd7305ca6060d759731f24c2be3"><td class="memItemLeft" align="right" valign="top"><a id="aa1445fd7305ca6060d759731f24c2be3" name="aa1445fd7305ca6060d759731f24c2be3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onServerResponse</b> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
+<tr class="separator:aa1445fd7305ca6060d759731f24c2be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c9d8c820efe4258bd5149aa73398807" id="r_a5c9d8c820efe4258bd5149aa73398807"><td class="memItemLeft" align="right" valign="top"><a id="a5c9d8c820efe4258bd5149aa73398807" name="a5c9d8c820efe4258bd5149aa73398807"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onServerMessage</b> (<a class="el" href="struct_message.html">Message</a> *message)</td></tr>
+<tr class="separator:a5c9d8c820efe4258bd5149aa73398807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e6e450be2f058ef29e21b5a17f3e5ee" id="r_a4e6e450be2f058ef29e21b5a17f3e5ee"><td class="memItemLeft" align="right" valign="top"><a id="a4e6e450be2f058ef29e21b5a17f3e5ee" name="a4e6e450be2f058ef29e21b5a17f3e5ee"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>connectToServer</b> ()</td></tr>
 <tr class="separator:a4e6e450be2f058ef29e21b5a17f3e5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94c81883dd5806bdacbd5abcbb13059d" id="r_a94c81883dd5806bdacbd5abcbb13059d"><td class="memItemLeft" align="right" valign="top"><a id="a94c81883dd5806bdacbd5abcbb13059d" name="a94c81883dd5806bdacbd5abcbb13059d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onConnectToServerResponse</b> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
+<tr class="separator:a94c81883dd5806bdacbd5abcbb13059d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9090adb4709e633a7787595896adcc07" id="r_a9090adb4709e633a7787595896adcc07"><td class="memItemLeft" align="right" valign="top"><a id="a9090adb4709e633a7787595896adcc07" name="a9090adb4709e633a7787595896adcc07"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>updateName</b> (std::string name)</td></tr>
 <tr class="separator:a9090adb4709e633a7787595896adcc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3bda8634f40b7f979419f7c55bf4b01" id="r_ae3bda8634f40b7f979419f7c55bf4b01"><td class="memItemLeft" align="right" valign="top"><a id="ae3bda8634f40b7f979419f7c55bf4b01" name="ae3bda8634f40b7f979419f7c55bf4b01"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onUpdateNameResponse</b> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
+<tr class="separator:ae3bda8634f40b7f979419f7c55bf4b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9322d011cea31df49fe776392ad0648" id="r_af9322d011cea31df49fe776392ad0648"><td class="memItemLeft" align="right" valign="top"><a id="af9322d011cea31df49fe776392ad0648" name="af9322d011cea31df49fe776392ad0648"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>joinRoom</b> (int roomId)</td></tr>
 <tr class="separator:af9322d011cea31df49fe776392ad0648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0a3ae94061c8b6a0c2f42fcf77f0a0" id="r_a6d0a3ae94061c8b6a0c2f42fcf77f0a0"><td class="memItemLeft" align="right" valign="top"><a id="a6d0a3ae94061c8b6a0c2f42fcf77f0a0" name="a6d0a3ae94061c8b6a0c2f42fcf77f0a0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onJoinRoomResponse</b> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
+<tr class="separator:a6d0a3ae94061c8b6a0c2f42fcf77f0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a834301699563164adcfb6f34e95bba2c" id="r_a834301699563164adcfb6f34e95bba2c"><td class="memItemLeft" align="right" valign="top"><a id="a834301699563164adcfb6f34e95bba2c" name="a834301699563164adcfb6f34e95bba2c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sendKey</b> (std::string key)</td></tr>
 <tr class="separator:a834301699563164adcfb6f34e95bba2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473ae82ee6ab13186c3de6842128306c" id="r_a473ae82ee6ab13186c3de6842128306c"><td class="memItemLeft" align="right" valign="top"><a id="a473ae82ee6ab13186c3de6842128306c" name="a473ae82ee6ab13186c3de6842128306c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onSendKeyResponse</b> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
+<tr class="separator:a473ae82ee6ab13186c3de6842128306c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d152775dc2181fc2989709f3dfd204" id="r_ac8d152775dc2181fc2989709f3dfd204"><td class="memItemLeft" align="right" valign="top"><a id="ac8d152775dc2181fc2989709f3dfd204" name="ac8d152775dc2181fc2989709f3dfd204"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>startGame</b> (int roomId)</td></tr>
 <tr class="separator:ac8d152775dc2181fc2989709f3dfd204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a350bd91e8e6114c3f8625c1569ab01f0" id="r_a350bd91e8e6114c3f8625c1569ab01f0"><td class="memItemLeft" align="right" valign="top"><a id="a350bd91e8e6114c3f8625c1569ab01f0" name="a350bd91e8e6114c3f8625c1569ab01f0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onStartGameResponse</b> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
+<tr class="separator:a350bd91e8e6114c3f8625c1569ab01f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36443c385e3362690cbbc6a2ab8c16d6" id="r_a36443c385e3362690cbbc6a2ab8c16d6"><td class="memItemLeft" align="right" valign="top"><a id="a36443c385e3362690cbbc6a2ab8c16d6" name="a36443c385e3362690cbbc6a2ab8c16d6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onCheckConnectionMessage</b> (<a class="el" href="struct_message.html">Message</a> *message)</td></tr>
+<tr class="separator:a36443c385e3362690cbbc6a2ab8c16d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02b0fb41b307eb039b3e91026497ff12" id="r_a02b0fb41b307eb039b3e91026497ff12"><td class="memItemLeft" align="right" valign="top"><a id="a02b0fb41b307eb039b3e91026497ff12" name="a02b0fb41b307eb039b3e91026497ff12"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setClientId</b> (int id)</td></tr>
 <tr class="separator:a02b0fb41b307eb039b3e91026497ff12"><td class="memSeparator" colspan="2">&#160;</td></tr>

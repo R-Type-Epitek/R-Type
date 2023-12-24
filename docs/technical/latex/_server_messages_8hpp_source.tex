@@ -1,0 +1,26 @@
+\doxysection{Server\+Messages.\+hpp}
+\hypertarget{_server_messages_8hpp_source}{}\label{_server_messages_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/network/ServerMessages.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/network/ServerMessages.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 20/12/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}MessageType.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_server_message_header}{ServerMessageHeader}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_server_message_header_a2e14a8bc5c8494fafa6c2fc89e166e71}{command}}[32];\ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ uint32\_t\ \mbox{\hyperlink{struct_server_message_header_ab2f485873253d71290d49a824e8c0091}{dataLength}};\ \ }
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_server_message}{ServerMessage}}\ \{}
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{const}\ MessageType\ \mbox{\hyperlink{struct_server_message_a16ce45d85c58263b9aba9581d4501f6e}{type}}\ =\ MessageType::ServerMessage;\ }
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{struct_server_message_header}{ServerMessageHeader}}\ \mbox{\hyperlink{struct_server_message_ad3a59fc410bebe593d5add8af4b54616}{header}};\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_server_message_acc4b51602f34833bf70ab1efefac0e4e}{data}}[];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_server_client_disconnected_data}{ServerClientDisconnectedData}}\ \{}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_server_client_disconnected_data_ab7add0e6744c6743af2b71a5780ba4a8}{clientId}};\ }
+\DoxyCodeLine{00040\ \};}
+
+\end{DoxyCode}

@@ -8,26 +8,22 @@
 
 namespace Client
 {
-    class WelcomeScene : public IScene {
-        public:
-            explicit WelcomeScene(Client::SceneName sceneName);
-            ~WelcomeScene() override = default;
+  class WelcomeScene : public IScene {
+  public:
+    explicit WelcomeScene(Client::SceneName sceneName);
+    ~WelcomeScene() override = default;
 
-            static bool isInShape(
-                sf::Event::MouseButtonEvent &mouse,
-                sf::RectangleShape &myShape
-            );
-            int pollEvent(
-                sf::RenderWindow &window,
-                Client::Network &network
-            ) override;
-            void draw(sf::RenderWindow &window) override;
+    static bool isInShape(
+      sf::Event::MouseButtonEvent &mouse,
+      sf::RectangleShape &myShape);
+    int pollEvent(sf::RenderWindow &window, Client::Network &network) override;
+    void draw(sf::RenderWindow &window) override;
 
-        protected:
-        private:
-            Client::SceneName sceneName_;
-            Client::Background background_;
-            std::shared_ptr<Client::Button> playButton_;
-            sf::Event event_;
-    };
-}
+  protected:
+  private:
+    Client::SceneName sceneName_;
+    Client::Background background_;
+    std::shared_ptr<Client::Button> playButton_;
+    sf::Event event_;
+  };
+} // namespace Client

@@ -3,10 +3,9 @@
 //
 
 #pragma once
-#include <cstdint>
 #include <cstddef>
-
+#include <cstdint>
 
 using Entity = std::uint32_t;
 
-const size_t MAX_ENTITIES = 5000;
+size_t const MAX_ENTITIES = 5000;
