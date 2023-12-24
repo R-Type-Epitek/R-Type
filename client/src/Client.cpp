@@ -30,6 +30,17 @@ void Client::initNetwork() {
     m_network->connectToServer();
     spdlog::info("Done");
 
+    spdlog::info("Getting Server id...");
+    while (m_network->getClientId() == -1) {
+    }
+    spdlog::info("Done");
+
+    spdlog::info("Connecting to game room [0]...");
+    m_network->updateName("John Doe");
+    m_network->joinRoom(0);
+    m_network->startGame(0);
+    spdlog::info("Done");
+
   } catch (std::exception const&) {
     spdlog::error("Failed to initialize Network");
   }
