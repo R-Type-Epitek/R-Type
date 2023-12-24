@@ -4,16 +4,24 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::JoinRoomCommandHandler::JoinRoomCommandHandler(Network::UDPServer& server) : server(server) {}
+Network::JoinRoomCommandHandler::JoinRoomCommandHandler(
+  Network::UDPServer &server)
+  : server(server)
+{
+}
 
-bool Network::JoinRoomCommandHandler::isAuthorized(int clientId) {
-  for (auto& client : this->server.getClients())
-    if (client.getId() == clientId) return true;
+bool Network::JoinRoomCommandHandler::isAuthorized(int clientId)
+{
+  for (auto &client : this->server.getClients())
+    if (client.getId() == clientId)
+      return true;
   return false;
 }
 
-Response Network::JoinRoomCommandHandler::handleCommand(Message* message) {
-  JoinRoomData* data = (JoinRoomData*)message->data;
+std::vector<char> Network::JoinRoomCommandHandler::handleCommand(
+  Message *message)
+{
+  JoinRoomData *data = (JoinRoomData *)message->data;
   std::string statusMessage = "";
   int status = RES_SUCCESS;
   std::vector<Room> rooms = this->server.getRooms();
@@ -26,8 +34,18 @@ Response Network::JoinRoomCommandHandler::handleCommand(Message* message) {
     status = RES_BAD_REQUEST;
   } else {
     statusMessage = "Joined room " + std::to_string(data->roomId);
+    this->server.getClients()[message->header.clientId].setRoomId(data->roomId);
     rooms[data->roomId].addPlayer(message->header.clientId);
   }
 
-  return this->server.createResponse(message->header.clientId, JOIN_ROOM_COMMAND, statusMessage, status);
+  std::vector<char> dataToSend(sizeof(*data));
+  memcpy(dataToSend.data(), data, sizeof(*data));
+
+  return this->server.createResponseBuffer(
+    message->header.clientId,
+    JOIN_ROOM_COMMAND,
+    statusMessage,
+    dataToSend.data(),
+    dataToSend.size(),
+    status);
 }

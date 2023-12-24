@@ -6,31 +6,40 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 14/12/23.}}
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_message_header}{MessageHeader}}\ \{}
-\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_message_header_a705418d85961d98b6f84f4fba9f9f799}{clientId}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_message_header_a19f672c6735d819940166a11e25a321b}{command}}[32];\ \ \ \ \ }
-\DoxyCodeLine{00015\ \ \ uint32\_t\ \mbox{\hyperlink{struct_message_header_ac81cf10687f6cf52e454e4dec5a5cd6e}{dataLength}};\ \ }
-\DoxyCodeLine{00016\ \};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_message}{Message}}\ \{}
-\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{struct_message_header}{MessageHeader}}\ \mbox{\hyperlink{struct_message_a704863f3c71f270459d015102d61f7c8}{header}};\ }
-\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_message_ae5226de4e2ee84b6813ae068bcccc211}{data}}[];\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00028\ \};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_update_name_data}{UpdateNameData}}\ \{}
-\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_update_name_data_a0a653a11d78a9e6be30feb49636bdfd3}{name}}[32];\ }
-\DoxyCodeLine{00038\ \};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_join_room_data}{JoinRoomData}}\ \{}
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_join_room_data_a9f0b47d9ccc022ca8ad92bc38d0ae5aa}{roomId}};\ }
-\DoxyCodeLine{00048\ \};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00056\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_input_data}{InputData}}\ \{}
-\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_input_data_a63bb754a4032d719b927887a99e7d7d0}{key}}[1];\ }
-\DoxyCodeLine{00058\ \};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00066\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_start_game_data}{StartGameData}}\ \{}
-\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_start_game_data_ade25ba277a3f0b013fccf404d0de39e2}{roomId}};\ }
-\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}MessageType.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_message_header}{MessageHeader}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_message_header_a705418d85961d98b6f84f4fba9f9f799}{clientId}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_message_header_a19f672c6735d819940166a11e25a321b}{command}}[32];\ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ uint32\_t\ \mbox{\hyperlink{struct_message_header_ac81cf10687f6cf52e454e4dec5a5cd6e}{dataLength}};\ \ }
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_message}{Message}}\ \{}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{const}\ MessageType\ \mbox{\hyperlink{struct_message_a998d0b678278f5077458ac2a18ee2657}{type}}\ =\ MessageType::Message;\ }
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{struct_message_header}{MessageHeader}}\ \mbox{\hyperlink{struct_message_a704863f3c71f270459d015102d61f7c8}{header}};\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_message_ae5226de4e2ee84b6813ae068bcccc211}{data}}[];\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_update_name_data}{UpdateNameData}}\ \{}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_update_name_data_a0a653a11d78a9e6be30feb49636bdfd3}{name}}[32];\ }
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_join_room_data}{JoinRoomData}}\ \{}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_join_room_data_a9f0b47d9ccc022ca8ad92bc38d0ae5aa}{roomId}};\ }
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_input_data}{InputData}}\ \{}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_input_data_a63bb754a4032d719b927887a99e7d7d0}{key}}[1];\ }
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_start_game_data}{StartGameData}}\ \{}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_start_game_data_ade25ba277a3f0b013fccf404d0de39e2}{roomId}};\ }
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_server_client_disconnected_data}{ServerClientDisconnectedData}}\ \{}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_server_client_disconnected_data_ab7add0e6744c6743af2b71a5780ba4a8}{clientId}};\ }
+\DoxyCodeLine{00083\ \};}
 
 \end{DoxyCode}

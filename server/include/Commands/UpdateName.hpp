@@ -6,15 +6,16 @@
 
 #include "RTypeNetwork.hpp"
 
-namespace Network {
-class UpdateNameCommandHandler : public ICommandHandler {
- public:
-  UpdateNameCommandHandler(UDPServer& server);
-  bool isAuthorized(int clientId) override;
-  Response handleCommand(Message* message) override;
+namespace Network
+{
+  class UpdateNameCommandHandler : public ICommandHandler {
+  public:
+    UpdateNameCommandHandler(UDPServer &server);
+    bool isAuthorized(int clientId) override;
+    std::vector<char> handleCommand(Message *message) override;
 
- protected:
- private:
-  UDPServer& server;
-};
-}  // namespace Network
+  protected:
+  private:
+    UDPServer &server;
+  };
+} // namespace Network

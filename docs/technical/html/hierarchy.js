@@ -31,6 +31,7 @@ var hierarchy =
     [ "ResponseHeader", "struct_response_header.html", null ],
     [ "Network::Room", "class_network_1_1_room.html", null ],
     [ "Client::SceneManager", "class_client_1_1_scene_manager.html", null ],
+    [ "ServerClientDisconnectedData", "struct_server_client_disconnected_data.html", null ],
     [ "StartGameData", "struct_start_game_data.html", null ],
     [ "System", "class_system.html", null ],
     [ "SystemManager", "class_system_manager.html", null ],

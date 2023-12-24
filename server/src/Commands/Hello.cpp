@@ -4,11 +4,18 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::HelloCommandHandler::HelloCommandHandler(UDPServer& server) : server(server) {}
+Network::HelloCommandHandler::HelloCommandHandler(UDPServer &server)
+  : server(server)
+{
+}
 
-bool Network::HelloCommandHandler::isAuthorized(int clientId) { return clientId == -1; }
+bool Network::HelloCommandHandler::isAuthorized(int clientId)
+{
+  return clientId == -1;
+}
 
-Response Network::HelloCommandHandler::handleCommand(Message* message) {
+std::vector<char> Network::HelloCommandHandler::handleCommand(Message *message)
+{
   int clientId = this->server.getClients().size();
   std::string statusMessage;
   int status = RES_SUCCESS;
@@ -24,5 +31,11 @@ Response Network::HelloCommandHandler::handleCommand(Message* message) {
     this->server.addClient(client);
   }
 
-  return this->server.createResponse(clientId, HELLO_COMMAND, statusMessage, status);
+  return this->server.createResponseBuffer(
+    clientId,
+    CONNECT_TO_SERVER_COMMAND,
+    statusMessage,
+    nullptr,
+    0,
+    status);
 }

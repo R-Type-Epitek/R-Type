@@ -1,51 +1,76 @@
-# Use the Google style in this project.
-BasedOnStyle: Google
-
-# Some folks prefer to write "int& foo" while others prefer "int &foo".  The
-# Google Style Guide only asks for consistency within a project, we chose
-# "int& foo" for this project:
-DerivePointerAlignment: false
-PointerAlignment: Left
-
-# The Google Style Guide only asks for consistency w.r.t. "east const" vs.
-# "const west" alignment of cv-qualifiers. In this project we use "east const".
-QualifierAlignment: Right
-
-IncludeBlocks: Merge
-IncludeCategories:
-  # Matches common headers first, but sorts them after project includes
-  - Regex: '^\"google/cloud/internal/disable_deprecation_warnings.inc\"$'
-    Priority: -1
-  - Regex: '^\"google/cloud/(internal/|grpc_utils/|testing_util/|[^/]+\.h)'
-    Priority: 1000
-  - Regex: '^\"google/cloud/'  # project includes should sort first
-    Priority: 500
-  - Regex: '^\"generator/'     # project includes should sort first
-    Priority: 500
-  - Regex: '^\"generator/internal/' # project internals second
-    Priority: 1000
-  - Regex: '^\"generator/testing/'  # testing helpers third
-    Priority: 1100
-  - Regex: '^\"'         # And then includes from other projects or the system
-    Priority: 1500
-  - Regex: '^<grpc/'
-    Priority: 2000
-  - Regex: '^<google/*'
-    Priority: 3000
-  - Regex: '^<.*/.*'
-    Priority: 4000
-  - Regex: '^<.*.hpp>'
-    Priority: 4000
-  - Regex: '^<[^/]*>'
-    Priority: 5000
-
-# Format raw string literals with a `pb` or `proto` tag as proto.
-RawStringFormats:
-  - Language: TextProto
-    Delimiters:
-      - 'pb'
-      - 'proto'
-    BasedOnStyle: Google
-CommentPragmas: '(@copydoc|@copybrief|@see|@overload|@snippet)'
-
-ColumnLimit: 120
+BasedOnStyle: Mozilla
+AccessModifierOffset: -2
+AlignAfterOpenBracket: AlwaysBreak
+AlignConsecutiveMacros: true
+AlignEscapedNewlines: Left
+AlignOperands: false
+AlignTrailingComments: true
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: None
+AllowShortLoopsOnASingleLine: true
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+BreakAfterJavaFieldAnnotations: true
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterEnum: true
+  AfterClass: false
+  AfterFunction: true
+  AfterNamespace: true
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeComma
+ColumnLimit: 80
+CompactNamespaces: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ConstructorInitializerIndentWidth: 2
+ContinuationIndentWidth: 2
+Cpp11BracedListStyle: true
+DerivePointerAlignment: true
+IncludeBlocks: Regroup
+IndentCaseLabels: true
+IndentPPDirectives: AfterHash
+IndentWidth: 2
+IndentWrappedFunctionNames: false
+JavaScriptQuotes: Double
+JavaScriptWrapImports: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+Language: Cpp
+MaxEmptyLinesToKeep: 1
+NamespaceIndentation: All
+ObjCSpaceAfterProperty: true
+ObjCSpaceBeforeProtocolList: false
+PointerAlignment: Right
+ReflowComments: false
+SortIncludes: false
+SortUsingDeclarations: false
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+TabWidth: 4
+UseTab: Never

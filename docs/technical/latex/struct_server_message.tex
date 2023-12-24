@@ -1,0 +1,33 @@
+\doxysection{Server\+Message Struct Reference}
+\hypertarget{struct_server_message}{}\label{struct_server_message}\index{ServerMessage@{ServerMessage}}
+
+
+Structure representing a complete network message sent by the server.  
+
+
+
+
+{\ttfamily \#include $<$Server\+Messages.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_server_message_a16ce45d85c58263b9aba9581d4501f6e}\label{struct_server_message_a16ce45d85c58263b9aba9581d4501f6e} 
+const Message\+Type {\bfseries type} = Message\+Type\+::\+Server\+Message
+\begin{DoxyCompactList}\small\item\em Type of the message. \end{DoxyCompactList}\item 
+\Hypertarget{struct_server_message_ad3a59fc410bebe593d5add8af4b54616}\label{struct_server_message_ad3a59fc410bebe593d5add8af4b54616} 
+\mbox{\hyperlink{struct_server_message_header}{Server\+Message\+Header}} {\bfseries header}
+\begin{DoxyCompactList}\small\item\em Header of the message. \end{DoxyCompactList}\item 
+\Hypertarget{struct_server_message_acc4b51602f34833bf70ab1efefac0e4e}\label{struct_server_message_acc4b51602f34833bf70ab1efefac0e4e} 
+char {\bfseries data} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Variable-\/length data payload. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure representing a complete network message sent by the server. 
+
+This structure combines the \doxylink{struct_server_message_header}{Server\+Message\+Header} with the actual data payload, allowing for easy manipulation and transmission of network messages. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/game\+Engine/include/network/Server\+Messages.\+hpp\end{DoxyCompactItemize}

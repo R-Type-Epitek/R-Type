@@ -1,0 +1,30 @@
+\doxysection{Server\+Message\+Header Struct Reference}
+\hypertarget{struct_server_message_header}{}\label{struct_server_message_header}\index{ServerMessageHeader@{ServerMessageHeader}}
+
+
+Structure representing the header of a network message sent by the server.  
+
+
+
+
+{\ttfamily \#include $<$Server\+Messages.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_server_message_header_a2e14a8bc5c8494fafa6c2fc89e166e71}\label{struct_server_message_header_a2e14a8bc5c8494fafa6c2fc89e166e71} 
+char {\bfseries command} \mbox{[}32\mbox{]}
+\begin{DoxyCompactList}\small\item\em Command type in ASCII format. \end{DoxyCompactList}\item 
+\Hypertarget{struct_server_message_header_ab2f485873253d71290d49a824e8c0091}\label{struct_server_message_header_ab2f485873253d71290d49a824e8c0091} 
+uint32\+\_\+t {\bfseries data\+Length}
+\begin{DoxyCompactList}\small\item\em Length of the following data in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure representing the header of a network message sent by the server. 
+
+This structure contains the client identifier, command, and length of the data that follows in the message. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/game\+Engine/include/network/Server\+Messages.\+hpp\end{DoxyCompactItemize}
