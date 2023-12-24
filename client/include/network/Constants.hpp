@@ -1,6 +1,8 @@
 //
 // Created by Xavier VINCENT on 19/12/23.
 //
+#pragma once
+#include <string>
 
 #define DEFAULT_IP        "127.0.0.1"
 #define DEFAULT_PORT      "4242"

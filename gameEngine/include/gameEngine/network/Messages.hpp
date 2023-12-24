@@ -13,9 +13,9 @@
  * that follows in the message.
  */
 struct MessageHeader {
-  int clientId;         ///< Unique identifier for the client.
-  char command[32];     ///< Command type in ASCII format.
-  uint32_t dataLength;  ///< Length of the following data in bytes.
+  int clientId;        ///< Unique identifier for the client.
+  char command[32];    ///< Command type in ASCII format.
+  uint32_t dataLength; ///< Length of the following data in bytes.
 };
 
 /**
@@ -26,8 +26,8 @@ struct MessageHeader {
  * for easy manipulation and transmission of network messages.
  */
 struct Message {
-  MessageHeader header;  ///< Header of the message.
-  char data[];           ///< Variable-length data payload.
+  MessageHeader header; ///< Header of the message.
+  char data[];          ///< Variable-length data payload.
 };
 
 /**
@@ -37,7 +37,7 @@ struct Message {
  * This structure is used when the command involves updating a client's name.
  */
 struct UpdateNameData {
-  char name[32];  ///< New name for the client.
+  char name[32]; ///< New name for the client.
 };
 
 /**
@@ -47,7 +47,7 @@ struct UpdateNameData {
  * This structure is used when a client sends a request to join a specific room.
  */
 struct JoinRoomData {
-  int roomId;  ///< Identifier of the room to join.
+  int roomId; ///< Identifier of the room to join.
 };
 
 /**
@@ -57,7 +57,7 @@ struct JoinRoomData {
  * This structure is used to transmit client's input, typically a single character.
  */
 struct InputData {
-  char key[1];  ///< The input key or command.
+  char key[1]; ///< The input key or command.
 };
 
 /**
@@ -67,5 +67,9 @@ struct InputData {
  * This structure is used when initiating a game within a specific room.
  */
 struct StartGameData {
-  int roomId;  ///< Identifier of the room where the game will start.
+  int roomId; ///< Identifier of the room where the game will start.
+};
+
+struct ServerClientDisconnectedData {
+  int clientId;
 };
