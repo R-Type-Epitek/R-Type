@@ -8,6 +8,7 @@
 #include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
+#include "gameEngine/system/EcsSerializer.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Network.hpp"
 #include "network/system/Keyboard.hpp"
@@ -101,19 +102,15 @@ namespace Client
     auto&& systems = ecs.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
-      if (
-        auto sys_physics =
-          std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
+      if (auto sys_physics = std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
         sys_physics->update();
-      } else if (
-        auto sys_renderer =
-          std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
+      } else if (auto sys_renderer = std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
         sys_renderer->update(ecs, ctx);
-      } else if (
-        auto sys_animation =
-          std::dynamic_pointer_cast<GameEngine::System::Animation>(
-            system_ptr)) {
+      } else if (auto sys_animation = std::dynamic_pointer_cast<GameEngine::System::Animation>(system_ptr)) {
         sys_animation->update(ecs);
+      } else if (
+        auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
+        auto vec = sys_serializer->serialise(ecs);
       }
     }
   }
@@ -124,14 +121,10 @@ namespace Client
     auto&& systems = ecs.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
-      if (
-        auto sys_keyboard =
-          std::dynamic_pointer_cast<GameEngine::System::Keyboard>(system_ptr)) {
+      if (auto sys_keyboard = std::dynamic_pointer_cast<GameEngine::System::Keyboard>(system_ptr)) {
         sys_keyboard->update(ecs, ctx);
       }
-      if (
-        auto sys_keyboard_net =
-          std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
+      if (auto sys_keyboard_net = std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
         sys_keyboard_net->update(ctx, *m_network);
       }
     }
