@@ -2,23 +2,10 @@
 // Created by raphael on 12/20/23.
 //
 
-#include "Client.hpp"
-#include "gameEngine/UI/Window.hpp"
-#include "gameEngine/system/Animation.hpp"
-#include "gameEngine/system/Keyboard.hpp"
-#include "gameEngine/system/Physics.hpp"
-#include "gameEngine/system/Renderer.hpp"
-#include "graphics/GUI.hpp"
-#include "network/Network.hpp"
-#include "network/system/Keyboard.hpp"
-#include "scene/SceneManager.hpp"
-#include "spdlog/spdlog.h"
-#include <exception>
-#include <memory>
+#include "RTypeClient.hpp"
 
 namespace Client
 {
-
   Client::Client()
   {
     spdlog::info("Starting Client...");
@@ -40,12 +27,9 @@ namespace Client
       };
       spdlog::info("Done");
 
-      spdlog::info("Connecting to game room [0]...");
       m_network->updateName("John Doe");
       m_network->joinRoom(0);
       m_network->startGame(0);
-      spdlog::info("Done");
-
     } catch (std::exception const&) {
       spdlog::error("Failed to initialize Network");
     }
@@ -145,5 +129,4 @@ namespace Client
   void Client::testNetwork()
   {
   }
-
 }; // namespace Client

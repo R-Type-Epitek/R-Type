@@ -8,9 +8,9 @@
 
 namespace Network
 {
-  class HelloCommandHandler : public ICommandHandler {
+  class ConnectToServerCommandHandler : public ICommandHandler {
   public:
-    HelloCommandHandler(UDPServer &server);
+    ConnectToServerCommandHandler(UDPServer &server);
     bool isAuthorized(int clientId) override;
     std::vector<char> handleCommand(Message *message) override;
 

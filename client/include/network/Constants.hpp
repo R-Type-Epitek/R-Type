@@ -1,6 +1,7 @@
 //
 // Created by Xavier VINCENT on 19/12/23.
 //
+
 #pragma once
 #include <string>
 
@@ -10,6 +11,8 @@
 #define NUMBER_OF_ROOMS   4
 
 #define MAX_NAME_LENGTH 32
+
+#define DEFAULT_RATIO (16.f / 9.f)
 
 // Colors
 std::string const RED = "\033[31m";

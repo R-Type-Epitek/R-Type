@@ -2,13 +2,10 @@
 // Created by raphael on 12/21/23.
 //
 
-#include "scene/SceneManager.hpp"
-#include "scene/GameScene.hpp"
-#include <memory>
+#include "RTypeClient.hpp"
 
 namespace Client
 {
-
   void SceneManager::initScenes()
   {
   }
