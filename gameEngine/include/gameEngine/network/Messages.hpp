@@ -4,6 +4,7 @@
 
 #pragma once
 #include <cstdint>
+#include "MessageType.hpp"
 
 /**
  * @struct MessageHeader
@@ -26,8 +27,9 @@ struct MessageHeader {
  * for easy manipulation and transmission of network messages.
  */
 struct Message {
-  MessageHeader header; ///< Header of the message.
-  char data[];          ///< Variable-length data payload.
+  MessageType type = MessageType::Message; ///< Type of the message.
+  MessageHeader header;                    ///< Header of the message.
+  char data[];                             ///< Variable-length data payload.
 };
 
 /**

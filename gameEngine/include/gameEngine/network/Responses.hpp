@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "MessageType.hpp"
 #include <cstdint>
 
 struct ResponseHeader {
@@ -14,6 +15,7 @@ struct ResponseHeader {
 };
 
 struct Response {
+  MessageType type = MessageType::Message; ///< Type of the message.
   ResponseHeader header;
   char data[];
 };
