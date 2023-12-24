@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <vector>
 namespace Server::Game
 {
   class IGame {
@@ -11,6 +12,8 @@ namespace Server::Game
     virtual ~IGame() = default;
 
     virtual void load() = 0;
+
+    virtual std::vector<std::vector<char>> getEntities() = 0;
   };
 
 } // namespace Server::Game

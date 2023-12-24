@@ -9,7 +9,7 @@
 #include <memory>
 #include <vector>
 
-namespace Server::Game::Rtype
+namespace Server::Game
 {
 
   class RtypeScene : public GameEngine::Scene::IScene {
@@ -18,9 +18,7 @@ namespace Server::Game::Rtype
 
     void initEntities() final;
 
-    GameEngine::ECS::Registry& getECS() final;
-
-    void serializeEntities();
+    GameEngine::ECS::Registry &getECS() final;
 
   private:
     std::vector<GameEngine::ECS::Entity> m_entities;

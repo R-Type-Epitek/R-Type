@@ -11,13 +11,8 @@
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "gameEngine/network/serialize.hpp"
 
-namespace Server::Game::Rtype
+namespace Server::Game
 {
-  GameEngine::ECS::Registry& RtypeScene::getECS()
-  {
-    return *m_registry;
-  }
-
   void RtypeScene::initRegistry()
   {
     auto builder = GameEngine::Builder::RegistryBuilder();
@@ -51,16 +46,12 @@ namespace Server::Game::Rtype
 
     auto entt1 = m_registry->createEntity();
     m_entities.push_back(entt1);
-    m_registry->addComponent(
-      entt1,
-      ComponentRType::MetaData {"test send components data"});
+    m_registry->addComponent(entt1, ComponentRType::MetaData {"test send components data"});
   }
 
-  void RtypeScene::serializeEntities()
+  GameEngine::ECS::Registry& RtypeScene::getECS()
   {
-    for (auto& entity : m_entities) {
-      auto components = m_registry->getComponents(entity);
-    }
+    return *m_registry;
   }
 
 } // namespace Server::Game::Rtype

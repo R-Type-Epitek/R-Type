@@ -13,8 +13,9 @@ namespace Server::Game
   class RtypeGame : public IGame {
   public:
     void load() final;
+    std::vector<std::vector<char>> getEntities() final;
 
   private:
-    Rtype::RtypeScene m_scene;
+    Server::Game::RtypeScene m_scene;
   };
 } // namespace Server::Game
