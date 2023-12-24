@@ -1,0 +1,80 @@
+\doxysection{Network\+::Connect\+To\+Server\+Command\+Handler Class Reference}
+\hypertarget{class_network_1_1_connect_to_server_command_handler}{}\label{class_network_1_1_connect_to_server_command_handler}\index{Network::ConnectToServerCommandHandler@{Network::ConnectToServerCommandHandler}}
+Inheritance diagram for Network\+::Connect\+To\+Server\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_network_1_1_connect_to_server_command_handler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_network_1_1_connect_to_server_command_handler_a1a57826749fbd1ccf59308fb5662373a}\label{class_network_1_1_connect_to_server_command_handler_a1a57826749fbd1ccf59308fb5662373a} 
+{\bfseries Connect\+To\+Server\+Command\+Handler} (\mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}} \&server)
+\item 
+bool \mbox{\hyperlink{class_network_1_1_connect_to_server_command_handler_a13cddd20b6262ab6ef871fb9fa8963fc}{is\+Authorized}} (int client\+Id) override
+\begin{DoxyCompactList}\small\item\em Checks if a client is authorized. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{class_network_1_1_connect_to_server_command_handler_acfe75182ccaa6e576fbf222b24754a86}{handle\+Command}} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message) override
+\begin{DoxyCompactList}\small\item\em Handles a received command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_network_1_1_i_command_handler}{Network\+::\+ICommand\+Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_network_1_1_connect_to_server_command_handler_acfe75182ccaa6e576fbf222b24754a86}\label{class_network_1_1_connect_to_server_command_handler_acfe75182ccaa6e576fbf222b24754a86} 
+\index{Network::ConnectToServerCommandHandler@{Network::ConnectToServerCommandHandler}!handleCommand@{handleCommand}}
+\index{handleCommand@{handleCommand}!Network::ConnectToServerCommandHandler@{Network::ConnectToServerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{handleCommand()}{handleCommand()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+Connect\+To\+Server\+Command\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles a received command. 
+
+Processes the given command message and generates a response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the message to be handled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The response to the command. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_network_1_1_i_command_handler_a03d397e650d6d2bad03f4a9fae2ef916}{Network\+::\+ICommand\+Handler}}.
+
+\Hypertarget{class_network_1_1_connect_to_server_command_handler_a13cddd20b6262ab6ef871fb9fa8963fc}\label{class_network_1_1_connect_to_server_command_handler_a13cddd20b6262ab6ef871fb9fa8963fc} 
+\index{Network::ConnectToServerCommandHandler@{Network::ConnectToServerCommandHandler}!isAuthorized@{isAuthorized}}
+\index{isAuthorized@{isAuthorized}!Network::ConnectToServerCommandHandler@{Network::ConnectToServerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{isAuthorized()}{isAuthorized()}}
+{\footnotesize\ttfamily bool Network\+::\+Connect\+To\+Server\+Command\+Handler\+::is\+Authorized (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if a client is authorized. 
+
+Determines if the given client is authorized to execute commands.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The identifier of the client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the client is authorized, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_network_1_1_i_command_handler_a2247483da1e56599d5fd9a2e891e0767}{Network\+::\+ICommand\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/include/commands/Connect\+To\+Server.\+hpp\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/src/commands/Connect\+To\+Server.\+cpp\end{DoxyCompactItemize}

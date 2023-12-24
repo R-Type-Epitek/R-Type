@@ -1,0 +1,31 @@
+\doxysection{constants.\+hpp}
+\hypertarget{game_engine_2include_2constants_2_constants_8hpp_source}{}\label{game_engine_2include_2constants_2_constants_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/constants/constants.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/constants/constants.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Alexandre\ Decobert\ on\ 17/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }Vec3\ =\ int;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }ge}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structge_1_1_position}{Position}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ 0;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structge_1_1_position}{Position}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{structge_1_1_position}{Position}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ :\ x(x)}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ ,\ y(y)\ \{\};}
+\DoxyCodeLine{00022\ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{using\ }VectorVariant\ =\ std::variant<sf::Vector2f,\ sf::Vector2i,\ sf::Vector2u>;}
+\DoxyCodeLine{00025\ \}\ \textcolor{comment}{//\ namespace\ ge}}
+
+\end{DoxyCode}

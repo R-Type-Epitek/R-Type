@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['response_0',['Response',['../struct_response.html',1,'']]],
-  ['responseheader_1',['ResponseHeader',['../struct_response_header.html',1,'']]],
-  ['room_2',['Room',['../class_network_1_1_room.html',1,'Network']]]
+  ['network_0',['Network',['../class_client_1_1_network.html',1,'Client']]]
 ];

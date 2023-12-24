@@ -1,0 +1,27 @@
+\doxysection{Input.\+hpp}
+\hypertarget{server_2include_2commands_2_input_8hpp_source}{}\label{server_2include_2commands_2_input_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/commands/Input.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/commands/Input.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 20/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Network}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_input_command_handler}{InputCommandHandler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_network_1_1_i_command_handler}{ICommandHandler}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_network_1_1_input_command_handler}{InputCommandHandler}}(\mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}}\ \&server);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_input_command_handler_a8e7839a15d2b62473b67b4296b388534}{isAuthorized}}(\textcolor{keywordtype}{int}\ clientId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ \ \ \ \ std::vector<char>\ \mbox{\hyperlink{class_network_1_1_input_command_handler_adce9b62c17afac99bd069b2092efebe8}{handleCommand}}(\mbox{\hyperlink{struct_message}{Message}}\ *message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_network_1_1_u_d_p_server}{UDPServer}}\ \&server;}
+\DoxyCodeLine{00020\ \ \ \};}
+\DoxyCodeLine{00021\ \}\ \textcolor{comment}{//\ namespace\ Network}}
+
+\end{DoxyCode}

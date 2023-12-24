@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('class_client_1_1_game_scene.html','');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_client_1_1_game_scene-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Client::GameScene Class Reference</div></div>
 </div><!--header-->
@@ -117,23 +118,31 @@ Inheritance diagram for Client::GameScene:</div>
  <div class="center">
   <img src="class_client_1_1_game_scene.png" usemap="#Client::GameScene_map" alt=""/>
   <map id="Client::GameScene_map" name="Client::GameScene_map">
-<area href="class_client_1_1_i_scene.html" alt="Client::IScene" shape="rect" coords="0,0,118,24"/>
+<area href="class_game_engine_1_1_scene_1_1_i_scene.html" alt="GameEngine::Scene::IScene" shape="rect" coords="0,0,170,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acecd74f1202fb739c4754c6075b3b83c" id="r_acecd74f1202fb739c4754c6075b3b83c"><td class="memItemLeft" align="right" valign="top"><a id="acecd74f1202fb739c4754c6075b3b83c" name="acecd74f1202fb739c4754c6075b3b83c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (Client::SceneName sceneName)</td></tr>
-<tr class="separator:acecd74f1202fb739c4754c6075b3b83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4bea8622a95ad57a51c32867644e1ea" id="r_ac4bea8622a95ad57a51c32867644e1ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#ac4bea8622a95ad57a51c32867644e1ea">pollEvent</a> (sf::RenderWindow &amp;window, <a class="el" href="class_client_1_1_network.html">Client::Network</a> &amp;network) override</td></tr>
-<tr class="separator:ac4bea8622a95ad57a51c32867644e1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e153175f164a436d5ac7aeefa94f1e7" id="r_a7e153175f164a436d5ac7aeefa94f1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#a7e153175f164a436d5ac7aeefa94f1e7">draw</a> (sf::RenderWindow &amp;window) override</td></tr>
-<tr class="separator:a7e153175f164a436d5ac7aeefa94f1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50211f9f8e6789d7a6d295d0ce3f5fad" id="r_a50211f9f8e6789d7a6d295d0ce3f5fad"><td class="memItemLeft" align="right" valign="top"><a id="a50211f9f8e6789d7a6d295d0ce3f5fad" name="a50211f9f8e6789d7a6d295d0ce3f5fad"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (<a class="el" href="class_client_1_1_network.html">Network</a> &amp;network)</td></tr>
+<tr class="separator:a50211f9f8e6789d7a6d295d0ce3f5fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dd6cd95f688f3fe6da927897069c8c0" id="r_a4dd6cd95f688f3fe6da927897069c8c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#a4dd6cd95f688f3fe6da927897069c8c0">initRegistry</a> () final</td></tr>
+<tr class="separator:a4dd6cd95f688f3fe6da927897069c8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb69a43caae2035567e9fd504d84ffa1" id="r_aeb69a43caae2035567e9fd504d84ffa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#aeb69a43caae2035567e9fd504d84ffa1">initEntities</a> () final</td></tr>
+<tr class="separator:aeb69a43caae2035567e9fd504d84ffa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3069752ebd793958ea978cdd3bf46edf" id="r_a3069752ebd793958ea978cdd3bf46edf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_engine_1_1_e_c_s_1_1_registry.html">GameEngine::ECS::Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#a3069752ebd793958ea978cdd3bf46edf">getECS</a> () final</td></tr>
+<tr class="separator:a3069752ebd793958ea978cdd3bf46edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1ed3532042dc68a41dec6abf93726b72" id="r_a1ed3532042dc68a41dec6abf93726b72"><td class="memItemLeft" align="right" valign="top"><a id="a1ed3532042dc68a41dec6abf93726b72" name="a1ed3532042dc68a41dec6abf93726b72"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initCustomSystem</b> ()</td></tr>
+<tr class="separator:a1ed3532042dc68a41dec6abf93726b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7e153175f164a436d5ac7aeefa94f1e7" name="a7e153175f164a436d5ac7aeefa94f1e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e153175f164a436d5ac7aeefa94f1e7">&#9670;&#160;</a></span>draw()</h2>
+<a id="a3069752ebd793958ea978cdd3bf46edf" name="a3069752ebd793958ea978cdd3bf46edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3069752ebd793958ea978cdd3bf46edf">&#9670;&#160;</a></span>getECS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,26 +151,25 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Client::GameScene::draw </td>
+          <td class="memname"><a class="el" href="class_game_engine_1_1_e_c_s_1_1_registry.html">GameEngine::ECS::Registry</a> &amp; Client::GameScene::getECS </td>
           <td>(</td>
-          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
-          <td class="paramname"><em>window</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_client_1_1_i_scene.html">Client::IScene</a>.</p>
+<p>Implements <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a>.</p>
 
 </div>
 </div>
-<a id="ac4bea8622a95ad57a51c32867644e1ea" name="ac4bea8622a95ad57a51c32867644e1ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4bea8622a95ad57a51c32867644e1ea">&#9670;&#160;</a></span>pollEvent()</h2>
+<a id="aeb69a43caae2035567e9fd504d84ffa1" name="aeb69a43caae2035567e9fd504d84ffa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb69a43caae2035567e9fd504d84ffa1">&#9670;&#160;</a></span>initEntities()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,37 +178,53 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Client::GameScene::pollEvent </td>
+          <td class="memname">void Client::GameScene::initEntities </td>
           <td>(</td>
-          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
-          <td class="paramname"><em>window</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_client_1_1_network.html">Client::Network</a> &amp;&#160;</td>
-          <td class="paramname"><em>network</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_client_1_1_i_scene.html">Client::IScene</a>.</p>
+<p>Implements <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a>.</p>
+
+</div>
+</div>
+<a id="a4dd6cd95f688f3fe6da927897069c8c0" name="a4dd6cd95f688f3fe6da927897069c8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dd6cd95f688f3fe6da927897069c8c0">&#9670;&#160;</a></span>initRegistry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::GameScene::initRegistry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/client/include/Scenes/<a class="el" href="_game_8hpp_source.html">Game.hpp</a></li>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/client/src/Scenes/<b>Game.cpp</b></li>
+<li>/Users/xavierv/Developer/EPITECH/R-Type/client/include/scene/<a class="el" href="_game_8hpp_source.html">Game.hpp</a></li>
+<li>/Users/xavierv/Developer/EPITECH/R-Type/client/src/scene/<b>Game.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

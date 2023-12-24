@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['network_0',['Network',['../class_client_1_1_network.html',1,'Client']]]
+  ['message_0',['Message',['../struct_message.html',1,'']]],
+  ['messageheader_1',['MessageHeader',['../struct_message_header.html',1,'']]],
+  ['metadata_2',['MetaData',['../struct_component_r_type_1_1_meta_data.html',1,'ComponentRType']]]
 ];

@@ -1,0 +1,25 @@
+\doxysection{IHandler.\+hpp}
+\hypertarget{server_2include_2commands_2_i_handler_8hpp_source}{}\label{server_2include_2commands_2_i_handler_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/commands/IHandler.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/commands/IHandler.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 20/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Network}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_i_command_handler}{ICommandHandler}}\ \{}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_network_1_1_i_command_handler_ac588e08e2986f5eff95e59cde7cb4439}{\string~ICommandHandler}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_i_command_handler_a2247483da1e56599d5fd9a2e891e0767}{isAuthorized}}(\textcolor{keywordtype}{int}\ clientId)\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<char>\ \mbox{\hyperlink{class_network_1_1_i_command_handler_a03d397e650d6d2bad03f4a9fae2ef916}{handleCommand}}(\mbox{\hyperlink{struct_message}{Message}}\ *message)\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \};}
+\DoxyCodeLine{00046\ \}\ \textcolor{comment}{//\ namespace\ Network}}
+
+\end{DoxyCode}

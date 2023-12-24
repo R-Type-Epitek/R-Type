@@ -9,37 +9,71 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Window/Window.hpp>}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <boost/array.hpp>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <boost/bind.hpp>}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <boost/asio.hpp>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <iomanip>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <sstream>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <optional>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/System.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SFML/Window/Window.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SFML/Window/Keyboard.hpp>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <boost/array.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <boost/bind.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <boost/asio.hpp>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <boost/bind.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <spdlog/spdlog.h>}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{comment}{//\ Game\ Engine\ Network}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Commands.hpp"{}}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Messages.hpp"{}}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/MessageType.hpp"{}}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Responses.hpp"{}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}../../gameEngine/include/network/Statuses.hpp"{}}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}Constants.hpp"{}}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}Network.hpp"{}}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{comment}{//\ Components}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}Components/Background.hpp"{}}}
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}Components/Button.hpp"{}}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}Components/InputText.hpp"{}}}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{comment}{//\ Scenes}}
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}Scenes/Manager.hpp"{}}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}Scenes/Game.hpp"{}}}
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}Scenes/Lobby.hpp"{}}}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}Scenes/Welcome.hpp"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Game\ Engine}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Gravity.hpp"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Sprite.hpp"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Transform.hpp"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/component/Component.hpp"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/component/ComponentManager.hpp"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/EntityManager.hpp"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/RegistryBuilder.hpp"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Signature.hpp"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Commands.hpp"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Messages.hpp"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/MessageType.hpp"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Responses.hpp"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Statuses.hpp"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}gameEngine/scene/IScene.hpp"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}gameEngine/scene/SceneManager.hpp"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Animation.hpp"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Keyboard.hpp"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Physics.hpp"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Renderer.hpp"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}gameEngine/UI/Window.hpp"{}}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ Client}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}graphics/GUI.hpp"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}network/tools/Logs.hpp"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}network/Constants.hpp"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}network/Network.hpp"{}}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ "{}network/system/Keyboard.hpp"{}}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ "{}scene/Manager.hpp"{}}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ "{}scene/Game.hpp"{}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}Client.hpp"{}}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ Commands}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#include\ "{}network/commands/ConnectToServer.hpp"{}}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#include\ "{}network/commands/Input.hpp"{}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#include\ "{}network/commands/JoinRoom.hpp"{}}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#include\ "{}network/commands/StartGame.hpp"{}}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#include\ "{}network/commands/UpdateName.hpp"{}}}
 
 \end{DoxyCode}

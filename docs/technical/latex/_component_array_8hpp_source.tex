@@ -1,5 +1,5 @@
 \doxysection{Component\+Array.\+hpp}
-\hypertarget{_component_array_8hpp_source}{}\label{_component_array_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/ECS/component/ComponentArray.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/ECS/component/ComponentArray.hpp}}
+\hypertarget{_component_array_8hpp_source}{}\label{_component_array_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/component/ComponentArray.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/component/ComponentArray.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -8,68 +8,77 @@
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <array>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cassert>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}IComponent.hpp"{}}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}ECS/entity/Entity.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Component.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}IComponent.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_component_array}{ComponentArray}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_component_array}{IComponentArray}}}
-\DoxyCodeLine{00016\ \{}
-\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ insertData(Entity\ entity,\ T\ component)}
-\DoxyCodeLine{00019\ \ \ \ \ \{}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ assert(m\_entityToIndexMap.find(entity)\ ==\ m\_entityToIndexMap.end());}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ newIndex\ =\ mSize;}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ m\_entityToIndexMap[entity]\ =\ newIndex;}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ m\_indexToEntityMap[newIndex]\ =\ entity;}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ m\_componentArray[newIndex]\ =\ component;}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ ++mSize;}
-\DoxyCodeLine{00027\ \ \ \ \ \}}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ removeData(Entity\ entity)}
-\DoxyCodeLine{00030\ \ \ \ \ \{}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ assert(m\_entityToIndexMap.find(entity)\ !=\ m\_entityToIndexMap.end());}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ indexOfRemovedEntity\ =\ m\_entityToIndexMap[entity];}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ indexOfLastElement\ =\ mSize\ -\/\ 1;}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ m\_componentArray[indexOfRemovedEntity]\ =\ m\_componentArray[indexOfLastElement];}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ Entity\ entityOfLastElement\ =\ m\_indexToEntityMap[indexOfLastElement];}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ m\_entityToIndexMap[entityOfLastElement]\ =\ indexOfRemovedEntity;}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ m\_indexToEntityMap[indexOfRemovedEntity]\ =\ entityOfLastElement;}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ m\_entityToIndexMap.erase(entity);}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ m\_indexToEntityMap.erase(indexOfLastElement);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ -\/-\/mSize;}
-\DoxyCodeLine{00045\ \ \ \ \ \}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ T\&\ getData(Entity\ entity)}
-\DoxyCodeLine{00048\ \ \ \ \ \{}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ assert(m\_entityToIndexMap.find(entity)\ !=\ m\_entityToIndexMap.end());}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentArray[m\_entityToIndexMap[entity]];}
-\DoxyCodeLine{00052\ \ \ \ \ \}}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ entityDestroyed(Entity\ entity)\textcolor{keyword}{\ override}}
-\DoxyCodeLine{00055\ \textcolor{keyword}{\ \ \ \ }\{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndexMap.find(entity)\ !=\ m\_entityToIndexMap.end())\ \{}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ removeData(entity);}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00059\ \ \ \ \ \}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00062\ \ \ \ \ std::array<T,\ MAX\_ENTITIES>\ m\_componentArray;}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ std::unordered\_map<Entity,\ size\_t>\ m\_entityToIndexMap;}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ std::unordered\_map<size\_t,\ Entity>\ m\_indexToEntityMap;}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ mSize\{\};}
-\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }GameEngine::ECS}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array}{ComponentArray}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_i_component_array}{IComponentArray}}\ \{}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_a92f8193397104051eb969b8162cce627}{insertData}}(Entity\ entity,\ T\ component)}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ assert(m\_entityToIndexMap.find(entity)\ ==\ m\_entityToIndexMap.end());}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ newIndex\ =\ mSize;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ m\_entityToIndexMap[entity]\ =\ newIndex;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ m\_indexToEntityMap[newIndex]\ =\ entity;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ m\_componentArray[newIndex]\ =\ component;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ ++mSize;}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_ac2f601f40903418ae4597bf18f33f461}{removeData}}(Entity\ entity)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ assert(m\_entityToIndexMap.find(entity)\ !=\ m\_entityToIndexMap.end());}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ indexOfRemovedEntity\ =\ m\_entityToIndexMap[entity];}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ indexOfLastElement\ =\ mSize\ -\/\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ m\_componentArray[indexOfRemovedEntity]\ =}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ m\_componentArray[indexOfLastElement];}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ Entity\ entityOfLastElement\ =\ m\_indexToEntityMap[indexOfLastElement];}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ m\_entityToIndexMap[entityOfLastElement]\ =\ indexOfRemovedEntity;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ m\_indexToEntityMap[indexOfRemovedEntity]\ =\ entityOfLastElement;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ m\_entityToIndexMap.erase(entity);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ m\_indexToEntityMap.erase(indexOfLastElement);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ -\/-\/mSize;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_a07ad76a7e957754b34ba05942420f942}{hasEntity}}(Entity\ entity)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_entityToIndexMap.find(entity)\ !=\ m\_entityToIndexMap.end();}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ T\&\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_af91a0a288eee11891c0b2f7bda0fbee2}{getData}}(Entity\ entity)}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ assert(m\_entityToIndexMap.find(entity)\ !=\ m\_entityToIndexMap.end());}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentArray[m\_entityToIndexMap[entity]];}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_a38c0057a84585d484ee5320940cb8bd3}{entityDestroyed}}(Entity\ entity)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndexMap.find(entity)\ !=\ m\_entityToIndexMap.end())\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_ac2f601f40903418ae4597bf18f33f461}{removeData}}(entity);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ std::array<T,\ ECS::MAX\_COMPONENTS>\ m\_componentArray\ \{\};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ std::unordered\_map<Entity,\ size\_t>\ m\_entityToIndexMap;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ std::unordered\_map<size\_t,\ Entity>\ m\_indexToEntityMap;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ mSize\ \{\};}
+\DoxyCodeLine{00090\ \ \ \};}
+\DoxyCodeLine{00091\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
 
 \end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{Sprite.\+hpp}
+\hypertarget{_sprite_8hpp_source}{}\label{_sprite_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/component/Sprite.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/component/Sprite.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Alexandre\ Decobert\ on\ 17/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }ComponentRType}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_component_r_type_1_1_sprite}{Sprite}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ sf::Sprite\ sprite;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_sprite}{Sprite}}()}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ sprite.setTexture(LOAD\_TEXTURE(DEFAULT\_TEXTURE));}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_sprite}{Sprite}}(sf::Texture\&\ texture,\ sf::IntRect\ \textcolor{keyword}{const}\&\ rect)}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ sprite.setTexture(texture);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rect.width\ >\ 0\ ||\ rect.height\ <\ 0)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ sprite.setTextureRect(rect);}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \}\ \textcolor{comment}{//\ namespace\ ComponentRType}}
+
+\end{DoxyCode}

@@ -1,0 +1,36 @@
+\doxysection{Registry\+Builder.\+hpp}
+\hypertarget{_registry_builder_8hpp_source}{}\label{_registry_builder_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/RegistryBuilder.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/RegistryBuilder.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 12/22/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Registry.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }GameEngine::Builder}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_builder_1_1_registry_builder}{RegistryBuilder}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_builder_1_1_registry_builder}{RegistryBuilder}}();}
+\DoxyCodeLine{00014\ \ \ \ \ std::unique\_ptr<GameEngine::ECS::Registry>\ getResult();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ registerComponent()}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ m\_registry-\/>registerComponent<T>();}
+\DoxyCodeLine{00020\ \ \ \ \ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ buildSystemRenderer();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ buildSystemAnimation();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ buildSystemPhysics();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ buildSystemKeyboard();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ std::unique\_ptr<GameEngine::ECS::Registry>\ m\_registry;}
+\DoxyCodeLine{00029\ \ \ \};}
+\DoxyCodeLine{00030\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::Builder}}
+
+\end{DoxyCode}

@@ -1,0 +1,47 @@
+\doxysection{Client.\+hpp}
+\hypertarget{server_2include_2_client_8hpp_source}{}\label{server_2include_2_client_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/Client.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/Client.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 13/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Network}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_client}{Client}}\ \{}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_network_1_1_client_a1bfaed07b94b9fc835b6667efd0b705d}{Client}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_network_1_1_client_a4e8e5fe86070c5996e49e02bea3abd02}{\string~Client}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \ \ boost::asio::ip::udp::endpoint\ \mbox{\hyperlink{class_network_1_1_client_a67507fa077e2a1781500207e08dc46b3}{getEndpoint}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_client_a8c64f36120e3c8e03b0300c3a5dcef26}{setEndpoint}}(boost::asio::ip::udp::endpoint\ endpoint);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_network_1_1_client_a1b788b125572f455745b4d9d537fc0cb}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_client_af9390388b249ecc73f5585f0c20210cf}{setId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::string\ \mbox{\hyperlink{class_network_1_1_client_a436cfc281877445713aa8d63cc5fa52b}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_client_a7eab98c178b5ea21dc1363658f9815ea}{setName}}(std::string\ name);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_client_a6421f3fe7f031be9ab47ec1c34b04cf0}{setRoomId}}(\textcolor{keywordtype}{int}\ roomId);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_network_1_1_client_a3226b24dbca2a87dcca3f9ba02394b7c}{getRoomId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ boost::asio::ip::udp::endpoint}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ endpoint;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ std::string\ name;\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \};}
+\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ Network}}
+
+\end{DoxyCode}

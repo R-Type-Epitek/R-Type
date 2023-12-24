@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['initrooms_0',['initRooms',['../class_network_1_1_u_d_p_server.html#ac4b4c1cd19635deb604ceb2a63839f4d',1,'Network::UDPServer']]],
-  ['initserver_1',['initServer',['../class_network_1_1_u_d_p_server.html#a8d43c1630c01f9eefa4909772057e9c8',1,'Network::UDPServer']]],
-  ['isauthorized_2',['isauthorized',['../class_network_1_1_hello_command_handler.html#a3f8d0c7f18614f4778b55bda72ec6001',1,'Network::HelloCommandHandler::isAuthorized()'],['../class_network_1_1_i_command_handler.html#a2247483da1e56599d5fd9a2e891e0767',1,'Network::ICommandHandler::isAuthorized()'],['../class_network_1_1_input_command_handler.html#a8e7839a15d2b62473b67b4296b388534',1,'Network::InputCommandHandler::isAuthorized()'],['../class_network_1_1_join_room_command_handler.html#a7097c949d5cce3914afcbe21cd0d2ee2',1,'Network::JoinRoomCommandHandler::isAuthorized()'],['../class_network_1_1_start_game_command_handler.html#ae0109f7dd128d5a3c3488bc997f76637',1,'Network::StartGameCommandHandler::isAuthorized()'],['../class_network_1_1_update_name_command_handler.html#a7e232f2ad3480ba5f6ba8fb58fd4bcb5',1,'Network::UpdateNameCommandHandler::isAuthorized()']]],
-  ['isclientconnected_3',['isClientConnected',['../class_network_1_1_u_d_p_server.html#a2db9f8510e50ae6dcf8d13f68bd97668',1,'Network::UDPServer']]],
-  ['isclientregistered_4',['isClientRegistered',['../class_network_1_1_u_d_p_server.html#ab2d04421510f1fd72b2158aa171241e9',1,'Network::UDPServer']]],
-  ['isfull_5',['isFull',['../class_network_1_1_room.html#aec809e76b88ff1fb19c652c8d6da9e13',1,'Network::Room']]]
+  ['getclients_0',['getClients',['../class_network_1_1_u_d_p_server.html#a6577105fddee863d8d7bbae6f7bac2f7',1,'Network::UDPServer']]],
+  ['getcomponent_1',['getComponent',['../class_game_engine_1_1_e_c_s_1_1_component_manager.html#a7e56e2c36fa9b19c916d958334c5e7d7',1,'GameEngine::ECS::ComponentManager']]],
+  ['getcomponentswithentity_2',['getComponentsWithEntity',['../class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34',1,'GameEngine::ECS::ComponentManager']]],
+  ['getcomponenttype_3',['getComponentType',['../class_game_engine_1_1_e_c_s_1_1_component_manager.html#aaac9ecf193ba6bc59cc52b25beb10bb5',1,'GameEngine::ECS::ComponentManager']]],
+  ['getdata_4',['getData',['../class_game_engine_1_1_e_c_s_1_1_component_array.html#af91a0a288eee11891c0b2f7bda0fbee2',1,'GameEngine::ECS::ComponentArray']]],
+  ['getendpoint_5',['getEndpoint',['../class_network_1_1_client.html#a67507fa077e2a1781500207e08dc46b3',1,'Network::Client']]],
+  ['getid_6',['getid',['../class_network_1_1_client.html#a1b788b125572f455745b4d9d537fc0cb',1,'Network::Client::getId()'],['../class_network_1_1_room.html#a4194c540b15a95da36bbfcebcb2e8ce5',1,'Network::Room::getId()']]],
+  ['getname_7',['getName',['../class_network_1_1_client.html#a436cfc281877445713aa8d63cc5fa52b',1,'Network::Client']]],
+  ['getplayers_8',['getPlayers',['../class_network_1_1_room.html#a92553cf90665a33507b0b976d3b577a6',1,'Network::Room']]],
+  ['getrecvbuffer_9',['getRecvBuffer',['../class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f',1,'Network::UDPServer']]],
+  ['getremoteendpoint_10',['getRemoteEndpoint',['../class_network_1_1_u_d_p_server.html#a9f7a52213bf27b1cd095cf526d6736ac',1,'Network::UDPServer']]],
+  ['getroomid_11',['getRoomId',['../class_network_1_1_client.html#a3226b24dbca2a87dcca3f9ba02394b7c',1,'Network::Client']]],
+  ['getrooms_12',['getRooms',['../class_network_1_1_u_d_p_server.html#a421b82239515eafa196dc68cc573fc2b',1,'Network::UDPServer']]],
+  ['getsignature_13',['getSignature',['../class_game_engine_1_1_e_c_s_1_1_entity_manager.html#ab59e2fca1086949aa1997fd10e358c3d',1,'GameEngine::ECS::EntityManager']]],
+  ['getsize_14',['getSize',['../class_network_1_1_room.html#a24e2920279a125d79efd2474c1778d7e',1,'Network::Room']]],
+  ['getsocket_15',['getSocket',['../class_network_1_1_u_d_p_server.html#ac32cc82757d28952e4429a16189b4216',1,'Network::UDPServer']]],
+  ['getstate_16',['getState',['../class_network_1_1_room.html#abe4ddca044c548d5658ea8d8e24e624a',1,'Network::Room']]]
 ];

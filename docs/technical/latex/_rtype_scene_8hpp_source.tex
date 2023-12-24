@@ -1,0 +1,36 @@
+\doxysection{Rtype\+Scene.\+hpp}
+\hypertarget{_rtype_scene_8hpp_source}{}\label{_rtype_scene_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/game/rtype/RtypeScene.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/game/rtype/RtypeScene.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 12/22/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/scene/IScene.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }Server::Game::Rtype}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_server_1_1_game_1_1_rtype_1_1_rtype_scene}{RtypeScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{GameEngine::Scene::IScene}}\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ initRegistry()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ initEntities()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ getECS()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ serializeEntities();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<GameEngine::ECS::Entity>\ m\_entities;}
+\DoxyCodeLine{00027\ \ \ \ \ std::unique\_ptr<GameEngine::ECS::Registry>\ m\_registry;}
+\DoxyCodeLine{00028\ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \}\ \textcolor{comment}{//\ namespace\ Server::Game::Rtype}}
+
+\end{DoxyCode}
