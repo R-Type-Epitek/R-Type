@@ -359,7 +359,7 @@ void Network::UDPServer::checkClients()
 void Network::UDPServer::registerCommandHandlers()
 {
   this->commandHandlers[CONNECT_TO_SERVER_COMMAND] =
-    std::make_unique<HelloCommandHandler>(*this);
+    std::make_unique<ConnectToServerCommandHandler>(*this);
   this->commandHandlers[UPDATE_NAME_COMMAND] =
     std::make_unique<UpdateNameCommandHandler>(*this);
   this->commandHandlers[JOIN_ROOM_COMMAND] =

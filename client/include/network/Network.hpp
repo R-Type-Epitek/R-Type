@@ -3,38 +3,7 @@
 //
 
 #pragma once
-
-#include "Constants.hpp"
-#include "gameEngine/network/Commands.hpp"
-#include "gameEngine/network/Messages.hpp"
-#include "gameEngine/network/Responses.hpp"
-#include <boost/array.hpp>
-#include <boost/asio.hpp>
-#include <boost/asio/buffer.hpp>
-#include <boost/bind.hpp>
-#include <boost/shared_ptr.hpp>
-#include <iostream>
-#include <string>
-
-//
-// Created by Xavier VINCENT on 14/12/2023.
-//
-
-#pragma once
-
-#include <iostream>
-#include "Constants.hpp"
-#include <boost/asio.hpp>
-#include <boost/array.hpp>
-#include "gameEngine/network/Commands.hpp"
-#include "gameEngine/network/Responses.hpp"
-#include "gameEngine/network/MessageType.hpp"
-#include "gameEngine/network/Messages.hpp"
-#include "gameEngine/network/Statuses.hpp"
-#include <boost/bind.hpp>
-#include <boost/shared_ptr.hpp>
-
-#include <boost/array.hpp>
+#include "RTypeClient.hpp"
 
 namespace Client
 {
@@ -42,6 +11,8 @@ namespace Client
   public:
     Network(std::string ip, std::string port);
     ~Network();
+    void registerCommandHandlers();
+    std::shared_ptr<ICommandHandler> getCommandHandler(std::string const &name);
     void send(boost::asio::const_buffer const &buffer);
     void sendMessage(
       std::string const &command,
@@ -60,23 +31,6 @@ namespace Client
     void onServerResponse(Response *response);
     void onServerMessage(Message *message);
 
-    /* ------------------ Server Message ----------------- */
-    void connectToServer();
-    void onConnectToServerResponse(Response *response);
-
-    void updateName(std::string name);
-    void onUpdateNameResponse(Response *response);
-
-    void joinRoom(int roomId);
-    void onJoinRoomResponse(Response *response);
-
-    void sendKey(std::string key);
-    void onSendKeyResponse(Response *response);
-
-    void startGame(int roomId);
-    void onStartGameResponse(Response *response);
-    /* --------------------------------------------------- */
-
     void onCheckConnectionMessage(Message *message);
 
     void setClientId(int id);
@@ -85,7 +39,17 @@ namespace Client
     int getRoomId() const;
     void setName(std::string name);
     std::string getName() const;
-    void setEndpoint(std::string &ip, std::string &port);
+    void setRemoteEndpoint(std::string &ip, std::string &port);
+    boost::asio::ip::udp::endpoint getRemoteEndpoint() const;
+
+    // Commands
+    template<typename T, typename Func>
+    void executeCommand(const std::string &commandName, Func action);
+    void connectToServer();
+    void updateName(std::string name);
+    void joinRoom(int roomId);
+    void sendKey(std::string key);
+    void startGame(int roomId);
 
   protected:
   private:
@@ -93,6 +57,8 @@ namespace Client
     boost::array<char, 1024> recvBuffer {};
     boost::asio::ip::udp::endpoint remoteEndpoint;
     boost::asio::ip::udp::socket socket {this->io};
+    std::unordered_map<std::string, std::shared_ptr<ICommandHandler>>
+      commandHandlers;
     std::thread receiveThread;
     int clientId;
     int roomId;

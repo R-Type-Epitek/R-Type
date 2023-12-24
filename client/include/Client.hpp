@@ -3,14 +3,7 @@
 //
 
 #pragma once
-#include "gameEngine/UI/Window.hpp"
-#include "graphics/GUI.hpp"
-#include "network/Network.hpp"
-#include "scene/SceneManager.hpp"
-#include <memory>
-#include <string>
-
-#define DEFAULT_RATIO (16.f / 9.f)
+#include "RTypeClient.hpp"
 
 namespace Client
 {

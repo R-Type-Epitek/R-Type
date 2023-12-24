@@ -3,8 +3,7 @@
 //
 
 #pragma once
-#include "gameEngine/scene/SceneManager.hpp"
-#include "network/Network.hpp"
+#include "RTypeClient.hpp"
 
 namespace Client
 {
