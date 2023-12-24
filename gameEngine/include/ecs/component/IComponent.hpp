@@ -5,9 +5,8 @@
 #pragma once
 #include "ecs/entity/Entity.hpp"
 
-class IComponentArray
-{
+class IComponentArray {
 public:
-    virtual ~IComponentArray() = default;
-    virtual void entityDestroyed(Entity entity) = 0;
+  virtual ~IComponentArray() = default;
+  virtual void entityDestroyed(Entity entity) = 0;
 };

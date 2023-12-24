@@ -8,21 +8,18 @@
 
 namespace Client
 {
-    class GameScene : public IScene {
-        public:
-            explicit GameScene(Client::SceneName sceneName);
-            ~GameScene() override = default;
+  class GameScene : public IScene {
+  public:
+    explicit GameScene(Client::SceneName sceneName);
+    ~GameScene() override = default;
 
-            int pollEvent(
-                sf::RenderWindow &window,
-                Client::Network &network
-            ) override;
-            void draw(sf::RenderWindow &window) override;
+    int pollEvent(sf::RenderWindow &window, Client::Network &network) override;
+    void draw(sf::RenderWindow &window) override;
 
-        protected:
-        private:
-            Client::SceneName sceneName_;
-            Client::Background background_;
-            sf::Event event_;
-    };
-}
+  protected:
+  private:
+    Client::SceneName sceneName_;
+    Client::Background background_;
+    sf::Event event_;
+  };
+} // namespace Client

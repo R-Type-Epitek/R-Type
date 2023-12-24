@@ -4,7 +4,8 @@
 
 #pragma once
 
-enum class MessageType {
-    Message,
-    Response
+enum class MessageType
+{
+  Message,
+  Response
 };

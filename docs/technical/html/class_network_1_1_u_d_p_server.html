@@ -176,12 +176,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aabec654d8576481b31d0c1e689b66699" id="r_aabec654d8576481b31d0c1e689b66699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#aabec654d8576481b31d0c1e689b66699">workerFunction</a> ()</td></tr>
 <tr class="memdesc:aabec654d8576481b31d0c1e689b66699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function executed by worker threads.  <br /></td></tr>
 <tr class="separator:aabec654d8576481b31d0c1e689b66699"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a412fd8e032812429dc6bef7be78e2fe4" id="r_a412fd8e032812429dc6bef7be78e2fe4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a412fd8e032812429dc6bef7be78e2fe4">createResponse</a> (int clientId, const std::string &amp;command, const std::string &amp;statusMessage, const char data[]=nullptr, int dataSize=0, int status=RES_SUCCESS)</td></tr>
-<tr class="memdesc:a412fd8e032812429dc6bef7be78e2fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a response.  <br /></td></tr>
-<tr class="separator:a412fd8e032812429dc6bef7be78e2fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaea5f5e4974578868fef7cb9384a75d3" id="r_aaea5f5e4974578868fef7cb9384a75d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#aaea5f5e4974578868fef7cb9384a75d3">sendResponseAndLog</a> (<a class="el" href="struct_timed_message.html">TimedMessage</a> timedMessage, const <a class="el" href="struct_response.html">Response</a> &amp;response)</td></tr>
-<tr class="memdesc:aaea5f5e4974578868fef7cb9384a75d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a response and log it.  <br /></td></tr>
-<tr class="separator:aaea5f5e4974578868fef7cb9384a75d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7c59d63925e230b99995658700b198" id="r_a7d7c59d63925e230b99995658700b198"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a7d7c59d63925e230b99995658700b198">createResponseBuffer</a> (int clientId, const std::string &amp;command, const std::string &amp;statusMessage, const char data[]=nullptr, int dataSize=0, int status=RES_SUCCESS)</td></tr>
+<tr class="memdesc:a7d7c59d63925e230b99995658700b198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a response to a client command.  <br /></td></tr>
+<tr class="separator:a7d7c59d63925e230b99995658700b198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6df6365d9c49e58434876ef104817a9" id="r_ae6df6365d9c49e58434876ef104817a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ae6df6365d9c49e58434876ef104817a9">sendResponseAndLog</a> (<a class="el" href="struct_timed_message.html">TimedMessage</a> timedMessage, std::vector&lt; char &gt; responseBuffer)</td></tr>
+<tr class="memdesc:ae6df6365d9c49e58434876ef104817a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a response and log it.  <br /></td></tr>
+<tr class="separator:ae6df6365d9c49e58434876ef104817a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2d04421510f1fd72b2158aa171241e9" id="r_ab2d04421510f1fd72b2158aa171241e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ab2d04421510f1fd72b2158aa171241e9">isClientRegistered</a> (int clientId)</td></tr>
 <tr class="memdesc:ab2d04421510f1fd72b2158aa171241e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a client is registered.  <br /></td></tr>
 <tr class="separator:ab2d04421510f1fd72b2158aa171241e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -335,14 +335,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a412fd8e032812429dc6bef7be78e2fe4" name="a412fd8e032812429dc6bef7be78e2fe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a412fd8e032812429dc6bef7be78e2fe4">&#9670;&#160;</a></span>createResponse()</h2>
+<a id="a7d7c59d63925e230b99995658700b198" name="a7d7c59d63925e230b99995658700b198"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7c59d63925e230b99995658700b198">&#9670;&#160;</a></span>createResponseBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_response.html">Response</a> Network::UDPServer::createResponse </td>
+          <td class="memname">std::vector&lt; char &gt; Network::UDPServer::createResponseBuffer </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>clientId</em>, </td>
@@ -385,8 +385,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create a response. </p>
-<p>Create a response to a client command.</p>
+<p>Create a response to a client command. </p>
+<p>Create a response buffer to send to the client with the specified ID.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">clientId</td><td>Integer specifying the ID of the client to send the response to. </td></tr>
@@ -397,7 +397,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_response.html" title="Structure representing a complete network response sent by the server.">Response</a> containing the response to send. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing the response. </dd></dl>
 
 </div>
 </div>
@@ -716,8 +716,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaea5f5e4974578868fef7cb9384a75d3" name="aaea5f5e4974578868fef7cb9384a75d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaea5f5e4974578868fef7cb9384a75d3">&#9670;&#160;</a></span>sendResponseAndLog()</h2>
+<a id="ae6df6365d9c49e58434876ef104817a9" name="ae6df6365d9c49e58434876ef104817a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6df6365d9c49e58434876ef104817a9">&#9670;&#160;</a></span>sendResponseAndLog()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -731,8 +731,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="struct_response.html">Response</a> &amp;&#160;</td>
-          <td class="paramname"><em>response</em>&#160;</td>
+          <td class="paramtype">std::vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>responseBuffer</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -747,7 +747,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timedMessage</td><td><a class="el" href="struct_timed_message.html" title="Used to represent a message with a timestamp.">TimedMessage</a> containing the message to which the response is sent. </td></tr>
-    <tr><td class="paramname">response</td><td><a class="el" href="struct_response.html" title="Structure representing a complete network response sent by the server.">Response</a> containing the response to send. </td></tr>
+    <tr><td class="paramname">responseBuffer</td><td>Vector containing the response to send. </td></tr>
   </table>
   </dd>
 </dl>

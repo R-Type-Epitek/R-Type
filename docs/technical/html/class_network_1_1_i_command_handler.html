@@ -139,16 +139,16 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ICommandHandler</
 <tr class="memitem:a2247483da1e56599d5fd9a2e891e0767" id="r_a2247483da1e56599d5fd9a2e891e0767"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_i_command_handler.html#a2247483da1e56599d5fd9a2e891e0767">isAuthorized</a> (int clientId)=0</td></tr>
 <tr class="memdesc:a2247483da1e56599d5fd9a2e891e0767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a client is authorized.  <br /></td></tr>
 <tr class="separator:a2247483da1e56599d5fd9a2e891e0767"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5b52b3d2b867473810e41974c12fc29" id="r_aa5b52b3d2b867473810e41974c12fc29"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_response.html">Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_i_command_handler.html#aa5b52b3d2b867473810e41974c12fc29">handleCommand</a> (<a class="el" href="struct_message.html">Message</a> *message)=0</td></tr>
-<tr class="memdesc:aa5b52b3d2b867473810e41974c12fc29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a received command.  <br /></td></tr>
-<tr class="separator:aa5b52b3d2b867473810e41974c12fc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03d397e650d6d2bad03f4a9fae2ef916" id="r_a03d397e650d6d2bad03f4a9fae2ef916"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_i_command_handler.html#a03d397e650d6d2bad03f4a9fae2ef916">handleCommand</a> (<a class="el" href="struct_message.html">Message</a> *message)=0</td></tr>
+<tr class="memdesc:a03d397e650d6d2bad03f4a9fae2ef916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a received command.  <br /></td></tr>
+<tr class="separator:a03d397e650d6d2bad03f4a9fae2ef916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for handling network commands. </p>
 <p><a class="el" href="class_network_1_1_i_command_handler.html" title="Interface for handling network commands.">ICommandHandler</a> provides an interface for processing network commands received from clients. It includes methods for checking authorization and handling specific commands. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa5b52b3d2b867473810e41974c12fc29" name="aa5b52b3d2b867473810e41974c12fc29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5b52b3d2b867473810e41974c12fc29">&#9670;&#160;</a></span>handleCommand()</h2>
+<a id="a03d397e650d6d2bad03f4a9fae2ef916" name="a03d397e650d6d2bad03f4a9fae2ef916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03d397e650d6d2bad03f4a9fae2ef916">&#9670;&#160;</a></span>handleCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +157,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ICommandHandler</
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="struct_response.html">Response</a> Network::ICommandHandler::handleCommand </td>
+          <td class="memname">virtual std::vector&lt; char &gt; Network::ICommandHandler::handleCommand </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
@@ -175,13 +175,13 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ICommandHandler</
 <p>Processes the given command message and generates a response.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Pointer to the message to be handled. </td></tr>
+    <tr><td class="paramname">message</td><td>Pointer to the message to be handled.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_response.html" title="Structure representing a complete network response sent by the server.">Response</a> object representing the outcome of the command. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The response to the command. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_network_1_1_hello_command_handler.html#a5895140e293a993c7394fe7f2a0378d8">Network::HelloCommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#a931e191870e40c69b02722124f6dd5fa">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#ad1c0db618b7504b58d8cb17dac568a72">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#a0ccb6f48a75b0bf05d2a15495f0a3ceb">Network::StartGameCommandHandler</a>, and <a class="el" href="class_network_1_1_update_name_command_handler.html#abce641898d3a9e54c767895eb1adb443">Network::UpdateNameCommandHandler</a>.</p>
+<p>Implemented in <a class="el" href="class_network_1_1_hello_command_handler.html#ac2cf6d313927eba3bb659a61254adf6b">Network::HelloCommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#a6e49a13cd60b8428f12129a82d9c81f2">Network::StartGameCommandHandler</a>, and <a class="el" href="class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a>.</p>
 
 </div>
 </div>

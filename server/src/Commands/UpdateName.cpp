@@ -5,35 +5,35 @@
 #include "RTypeNetwork.hpp"
 
 Network::UpdateNameCommandHandler::UpdateNameCommandHandler(
-    Network::UDPServer& server
-): server(server)
+  Network::UDPServer &server)
+  : server(server)
 {
 }
 
 bool Network::UpdateNameCommandHandler::isAuthorized(int clientId)
 {
-    for (auto& client : this->server.getClients())
-        if (client.getId() == clientId)
-            return true;
-    return false;
+  for (auto &client : this->server.getClients())
+    if (client.getId() == clientId)
+      return true;
+  return false;
 }
 
-Response Network::UpdateNameCommandHandler::handleCommand(Message* message)
+std::vector<char> Network::UpdateNameCommandHandler::handleCommand(
+  Message *message)
 {
-    UpdateNameData *data = (UpdateNameData *)message->data;
+  UpdateNameData *data = (UpdateNameData *)message->data;
 
-    this->server.getClients()[message->header.clientId].setName(data->name);
+  this->server.getClients()[message->header.clientId].setName(data->name);
 
-    UpdateNameData dataToSend;
-    strcpy(dataToSend.name, data->name);
-    char dataBuffer[sizeof(message->header.dataLength)];
-    memcpy(dataBuffer, &dataToSend, sizeof(dataToSend));
+  UpdateNameData dataToSend;
+  strcpy(dataToSend.name, data->name);
+  char dataBuffer[sizeof(dataToSend)];
+  memcpy(dataBuffer, &dataToSend, sizeof(dataToSend));
 
-    return this->server.createResponse(
-        message->header.clientId,
-        UPDATE_NAME_COMMAND,
-        "Name correctly set: " + std::string(data->name),
-        dataBuffer,
-        sizeof(dataToSend)
-    );
+  return this->server.createResponseBuffer(
+    message->header.clientId,
+    UPDATE_NAME_COMMAND,
+    "Name correctly set: " + std::string(data->name),
+    dataBuffer,
+    sizeof(dataToSend));
 }

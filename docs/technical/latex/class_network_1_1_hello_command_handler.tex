@@ -14,7 +14,7 @@ Inheritance diagram for Network\+::Hello\+Command\+Handler\+:\begin{figure}[H]
 \item 
 bool \mbox{\hyperlink{class_network_1_1_hello_command_handler_a3f8d0c7f18614f4778b55bda72ec6001}{is\+Authorized}} (int client\+Id) override
 \begin{DoxyCompactList}\small\item\em Checks if a client is authorized. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_response}{Response}} \mbox{\hyperlink{class_network_1_1_hello_command_handler_a5895140e293a993c7394fe7f2a0378d8}{handle\+Command}} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message) override
+std\+::vector$<$ char $>$ \mbox{\hyperlink{class_network_1_1_hello_command_handler_ac2cf6d313927eba3bb659a61254adf6b}{handle\+Command}} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message) override
 \begin{DoxyCompactList}\small\item\em Handles a received command. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_network_1_1_i_command_handler}{Network\+::\+ICommand\+Handler}}}
 \begin{DoxyCompactItemize}
@@ -24,11 +24,11 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler} ()=defa
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_network_1_1_hello_command_handler_a5895140e293a993c7394fe7f2a0378d8}\label{class_network_1_1_hello_command_handler_a5895140e293a993c7394fe7f2a0378d8} 
+\Hypertarget{class_network_1_1_hello_command_handler_ac2cf6d313927eba3bb659a61254adf6b}\label{class_network_1_1_hello_command_handler_ac2cf6d313927eba3bb659a61254adf6b} 
 \index{Network::HelloCommandHandler@{Network::HelloCommandHandler}!handleCommand@{handleCommand}}
 \index{handleCommand@{handleCommand}!Network::HelloCommandHandler@{Network::HelloCommandHandler}}
 \doxysubsubsection{\texorpdfstring{handleCommand()}{handleCommand()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_response}{Response}} Network\+::\+Hello\+Command\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+Hello\+Command\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -38,15 +38,15 @@ Processes the given command message and generates a response.
 
 
 \begin{DoxyParams}{Parameters}
-{\em message} & Pointer to the message to be handled. \\
+{\em message} & Pointer to the message to be handled.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A \doxylink{struct_response}{Response} object representing the outcome of the command. 
+The response to the command. 
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{class_network_1_1_i_command_handler_aa5b52b3d2b867473810e41974c12fc29}{Network\+::\+ICommand\+Handler}}.
+Implements \mbox{\hyperlink{class_network_1_1_i_command_handler_a03d397e650d6d2bad03f4a9fae2ef916}{Network\+::\+ICommand\+Handler}}.
 
 \Hypertarget{class_network_1_1_hello_command_handler_a3f8d0c7f18614f4778b55bda72ec6001}\label{class_network_1_1_hello_command_handler_a3f8d0c7f18614f4778b55bda72ec6001} 
 \index{Network::HelloCommandHandler@{Network::HelloCommandHandler}!isAuthorized@{isAuthorized}}
