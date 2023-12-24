@@ -8,11 +8,15 @@
 /// \brief Display sprite in a SFML RenderWindow
 /// \param sf::RenderWindow&
 /// \param sf::Sprite&
-void SfmlDisplay::display(sf::RenderWindow& window, sf::Sprite& sprite) { window.draw(sprite); }
+void SfmlDisplay::display(sf::RenderWindow& window, sf::Sprite& sprite)
+{
+  window.draw(sprite);
+}
 
 /// \brief Set the position of a SFML Sprite
 /// \param sf::Sprite&
 /// \param ge::Position&
-void SfmlDisplay::setPosition(sf::Sprite& sprite, ge::Position& position) {
+void SfmlDisplay::setPosition(sf::Sprite& sprite, ge::Position& position)
+{
   sprite.setPosition(position.x, position.y);
 }

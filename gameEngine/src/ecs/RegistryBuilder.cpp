@@ -15,44 +15,55 @@
 #include <memory>
 #include <utility>
 
-namespace GameEngine::Builder {
+namespace GameEngine::Builder
+{
 
-RegistryBuilder::RegistryBuilder() : m_registry{std::make_unique<GameEngine::ECS::Registry>()} {}
+  RegistryBuilder::RegistryBuilder()
+    : m_registry {std::make_unique<GameEngine::ECS::Registry>()}
+  {
+  }
 
-std::unique_ptr<GameEngine::ECS::Registry> RegistryBuilder::getResult() { return std::move(m_registry); }
+  std::unique_ptr<GameEngine::ECS::Registry> RegistryBuilder::getResult()
+  {
+    return std::move(m_registry);
+  }
 
-void RegistryBuilder::buildSystemRenderer() {
-  GameEngine::ECS::Signature signature;
-  m_registry->registerSystem<GameEngine::System::Renderer>();
-  //  System components
-  signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
-  m_registry->setSystemSignature<GameEngine::System::Renderer>(signature);
-}
+  void RegistryBuilder::buildSystemRenderer()
+  {
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<GameEngine::System::Renderer>();
+    //  System components
+    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+    m_registry->setSystemSignature<GameEngine::System::Renderer>(signature);
+  }
 
-void RegistryBuilder::buildSystemAnimation() {
-  GameEngine::ECS::Signature signature;
-  m_registry->registerSystem<GameEngine::System::Animation>();
-  //  System components
-  signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
-  signature.set(m_registry->getComponentType<ComponentRType::Transform>());
-  m_registry->setSystemSignature<GameEngine::System::Animation>(signature);
-}
+  void RegistryBuilder::buildSystemAnimation()
+  {
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<GameEngine::System::Animation>();
+    //  System components
+    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
+    m_registry->setSystemSignature<GameEngine::System::Animation>(signature);
+  }
 
-void RegistryBuilder::buildSystemPhysics() {
-  GameEngine::ECS::Signature signature;
-  m_registry->registerSystem<GameEngine::System::Physics>();
-  //  System components
-  signature.set(m_registry->getComponentType<ComponentRType::Gravity>());
-  signature.set(m_registry->getComponentType<ComponentRType::Transform>());
-  m_registry->setSystemSignature<GameEngine::System::Physics>(signature);
-}
+  void RegistryBuilder::buildSystemPhysics()
+  {
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<GameEngine::System::Physics>();
+    //  System components
+    signature.set(m_registry->getComponentType<ComponentRType::Gravity>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
+    m_registry->setSystemSignature<GameEngine::System::Physics>(signature);
+  }
 
-void RegistryBuilder::buildSystemKeyboard() {
-  GameEngine::ECS::Signature signature;
-  m_registry->registerSystem<GameEngine::System::Keyboard>();
-  //  System components
-  signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
-  m_registry->setSystemSignature<GameEngine::System::Keyboard>(signature);
-}
+  void RegistryBuilder::buildSystemKeyboard()
+  {
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<GameEngine::System::Keyboard>();
+    //  System components
+    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+    m_registry->setSystemSignature<GameEngine::System::Keyboard>(signature);
+  }
 
-};  // namespace GameEngine::Builder
+}; // namespace GameEngine::Builder

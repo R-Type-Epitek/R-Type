@@ -7,9 +7,9 @@
 #include "IEvent.hpp"
 
 class Event : public IEvent {
- public:
+public:
   void updateEvent();
   void getEvent();
 
- private:
+private:
 };

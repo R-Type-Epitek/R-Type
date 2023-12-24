@@ -6,7 +6,7 @@
 #include "Renderer.hpp"
 
 class IRenderer : Renderer {
- public:
+public:
   virtual ~IRenderer() = default;
   virtual void clear() = 0;
 };

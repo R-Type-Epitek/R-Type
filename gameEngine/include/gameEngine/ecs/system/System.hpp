@@ -11,12 +11,13 @@
 #include <memory>
 #include <set>
 
-namespace GameEngine::ECS {
-class System {
- public:
-  virtual ~System() = default;
+namespace GameEngine::ECS
+{
+  class System {
+  public:
+    virtual ~System() = default;
 
-  std::set<Entity> m_entities{};
-};
+    std::set<Entity> m_entities {};
+  };
 
-}  // namespace GameEngine::ECS
+} // namespace GameEngine::ECS

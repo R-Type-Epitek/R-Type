@@ -7,9 +7,9 @@
 #include "IDisplay.hpp"
 
 class Display : public IDisplay {
- public:
+public:
   void draw();
   void clear();
 
- private:
+private:
 };

@@ -7,16 +7,17 @@
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include <vector>
 
-namespace GameEngine::Builder {
+namespace GameEngine::Builder
+{
 
-class EntityBuilder {
- public:
-  EntityBuilder(GameEngine::ECS::Registry& registry);
-  GameEngine::ECS::Entity getResult();
+  class EntityBuilder {
+  public:
+    EntityBuilder(GameEngine::ECS::Registry& registry);
+    GameEngine::ECS::Entity getResult();
 
- private:
-  GameEngine::ECS::Entity m_entity;
-  GameEngine::ECS::Registry& m_registry;
-};
+  private:
+    GameEngine::ECS::Entity m_entity;
+    GameEngine::ECS::Registry& m_registry;
+  };
 
-}  // namespace GameEngine::Builder
+} // namespace GameEngine::Builder

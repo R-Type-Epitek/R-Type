@@ -5,11 +5,12 @@
 #pragma once
 
 #include <cstdlib>
-namespace ComponentRType {
+namespace ComponentRType
+{
 
-/// \brief A component representing gravity with a force value.
-struct Gravity {
-  u_int16_t force;
-};
+  /// \brief A component representing gravity with a force value.
+  struct Gravity {
+    u_int16_t force;
+  };
 
-}  // namespace ComponentRType
+} // namespace ComponentRType

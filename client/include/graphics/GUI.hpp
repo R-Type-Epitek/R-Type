@@ -6,10 +6,11 @@
 #include "gameEngine/UI/Window.hpp"
 #include <string>
 
-namespace Client {
+namespace Client
+{
 
-class GUI : public GameEngine::UI::Window {
- public:
-  GUI(int width, int height, std::string& name, float screenRatio);
-};
-}  // namespace Client
+  class GUI : public GameEngine::UI::Window {
+  public:
+    GUI(int width, int height, std::string& name, float screenRatio);
+  };
+} // namespace Client

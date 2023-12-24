@@ -14,11 +14,14 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-namespace GameEngine::System {
+namespace GameEngine::System
+{
 
-class Animation : public GameEngine::ECS::System {
- public:
-  void update(GameEngine::ECS::Registry&) {}
-};
+  class Animation : public GameEngine::ECS::System {
+  public:
+    void update(GameEngine::ECS::Registry &)
+    {
+    }
+  };
 
-}  // namespace GameEngine::System
+} // namespace GameEngine::System

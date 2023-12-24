@@ -5,10 +5,10 @@
 #pragma once
 
 class IEvent {
- public:
+public:
   virtual ~IEvent() = default;
   virtual void updateEvent() = 0;
   virtual void getEvent() = 0;
 
- private:
+private:
 };

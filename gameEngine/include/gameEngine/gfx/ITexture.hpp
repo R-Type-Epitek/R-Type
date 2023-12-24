@@ -5,10 +5,10 @@
 #pragma once
 
 class ITexture {
- public:
+public:
   virtual ~ITexture() = default;
   virtual void loadTexture() = 0;
   virtual void unloadTexture() = 0;
 
- private:
+private:
 };
