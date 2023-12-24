@@ -4,16 +4,21 @@
 
 #pragma once
 
-#include "Component.hpp"
-#include "IComponent.hpp"
-#include "ecs/entity/Entity.hpp"
 #include <array>
 #include <cassert>
 #include <unordered_map>
+#include "Component.hpp"
+#include "IComponent.hpp"
+#include "ecs/entity/Entity.hpp"
 
 template<typename T>
-class ComponentArray : public IComponentArray {
-public:
+class ComponentArray : public IComponentArray
+{
+ public:
+
+  /// \brief Inserts new component data for an entity.
+  /// \param Entity
+  /// \param T - Component data
   void insertData(Entity entity, T component)
   {
     assert(m_entityToIndexMap.find(entity) == m_entityToIndexMap.end());
@@ -25,14 +30,15 @@ public:
     ++mSize;
   }
 
+  /// \brief Removes component data of a specific entity.
+  /// \param Entity
   void removeData(Entity entity)
   {
     assert(m_entityToIndexMap.find(entity) != m_entityToIndexMap.end());
 
     size_t indexOfRemovedEntity = m_entityToIndexMap[entity];
     size_t indexOfLastElement = mSize - 1;
-    m_componentArray[indexOfRemovedEntity] =
-      m_componentArray[indexOfLastElement];
+    m_componentArray[indexOfRemovedEntity] = m_componentArray[indexOfLastElement];
 
     Entity entityOfLastElement = m_indexToEntityMap[indexOfLastElement];
     m_entityToIndexMap[entityOfLastElement] = indexOfRemovedEntity;
@@ -44,13 +50,26 @@ public:
     --mSize;
   }
 
-  T &getData(Entity entity)
+  /// \brief Checks if a component exists for an entity.
+  /// \param Entity
+  /// \return bool
+  bool hasEntity(Entity entity) override
+  {
+    return m_entityToIndexMap.find(entity) != m_entityToIndexMap.end();
+  }
+
+  /// \brief Retrieves the component data for an entity.
+  /// \param Entity
+  /// \return T&
+  T& getData(Entity entity)
   {
     assert(m_entityToIndexMap.find(entity) != m_entityToIndexMap.end());
 
     return m_componentArray[m_entityToIndexMap[entity]];
   }
 
+  /// \brief Handles the case when an entity is destroyed.
+  /// \param Entity
   void entityDestroyed(Entity entity) override
   {
     if (m_entityToIndexMap.find(entity) != m_entityToIndexMap.end()) {
@@ -58,12 +77,12 @@ public:
     }
   }
 
-private:
+ private:
   std::array<T, MAX_ENTITIES> m_componentArray;
 
   std::unordered_map<Entity, size_t> m_entityToIndexMap;
 
   std::unordered_map<size_t, Entity> m_indexToEntityMap;
 
-  size_t mSize {};
+  size_t mSize{};
 };

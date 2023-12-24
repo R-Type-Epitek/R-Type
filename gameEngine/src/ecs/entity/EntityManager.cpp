@@ -7,15 +7,17 @@
 
 EntityManager::EntityManager()
 {
-  for (Entity entity = 0; entity < MAX_ENTITIES; ++entity) {
+  for (Entity entity = 0; entity < MAX_ENTITIES; ++entity)
+  {
     m_availableEntities.push(entity);
   }
 }
 
+/// \brief Creates a new entity and returns its ID.
+/// \return Entity
 Entity EntityManager::createEntity()
 {
-  assert(
-    m_livingEntityCount < MAX_ENTITIES && "Too many entities in existence.");
+  assert(m_livingEntityCount < MAX_ENTITIES && "Too many entities in existence.");
 
   Entity id = m_availableEntities.front();
   m_availableEntities.pop();
@@ -24,6 +26,8 @@ Entity EntityManager::createEntity()
   return id;
 }
 
+/// \brief Destroys an entity, making its ID available again.
+/// \param Entity
 void EntityManager::destroyEntity(Entity entity)
 {
   assert(entity < MAX_ENTITIES && "Entity out of range.");
@@ -33,6 +37,9 @@ void EntityManager::destroyEntity(Entity entity)
   --m_livingEntityCount;
 }
 
+/// \brief Sets the signature of an entity.
+/// \param Entity
+/// \param Signature
 void EntityManager::setSignature(Entity entity, Signature signature)
 {
   assert(entity < MAX_ENTITIES && "Entity out of range.");
@@ -40,6 +47,9 @@ void EntityManager::setSignature(Entity entity, Signature signature)
   m_signatures[entity] = signature;
 }
 
+/// \brief Gets the signature of an entity.
+/// \param Entity
+/// \return Signature
 Signature EntityManager::getSignature(Entity entity)
 {
   assert(entity < MAX_ENTITIES && "Entity out of range.");

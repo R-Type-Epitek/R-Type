@@ -6,7 +6,6 @@ add_definitions(-DBOOST_BIND_GLOBAL_PLACEHOLDERS)
 
 find_package(Boost REQUIRED COMPONENTS system thread regex)
 
-
 add_executable(${EXEC_SERVER}
         src/Commands/Hello.cpp
         src/Commands/Input.cpp

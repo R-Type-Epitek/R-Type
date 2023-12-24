@@ -4,23 +4,24 @@
 
 #pragma once
 
+#include <memory>
+#include "entity/Entity.hpp"
 #include "Signature.hpp"
 #include "component/ComponentManager.hpp"
-#include "entity/Entity.hpp"
 #include "entity/EntityManager.hpp"
 #include "system/SystemManager.hpp"
-#include <memory>
 
 class Mediator {
-public:
+ public:
+
   void Init()
   {
-    m_componentManager = std::make_unique<ComponentManager>();
+    m_componentManager = std::make_shared<ComponentManager>();
     m_entityManager = std::make_unique<EntityManager>();
     m_systemManager = std::make_unique<SystemManager>();
   }
 
-  //  Entities
+//  Entities
   Entity createEntity()
   {
     return m_entityManager->createEntity();
@@ -35,7 +36,9 @@ public:
     m_systemManager->entityDestroyed(entity);
   }
 
-  //    Components
+
+
+//    Components
   template<typename T>
   void registerComponent()
   {
@@ -67,7 +70,7 @@ public:
   }
 
   template<typename T>
-  T &getComponent(Entity entity)
+  T& getComponent(Entity entity)
   {
     return m_componentManager->getComponent<T>(entity);
   }
@@ -91,8 +94,38 @@ public:
     m_systemManager->setSignature<T>(signature);
   }
 
-private:
-  std::unique_ptr<ComponentManager> m_componentManager;
+  std::unordered_map<const char*, std::shared_ptr<ISystem>> getSystems()
+  {
+    return m_systemManager->getSystems();
+  }
+
+  std::unordered_map<const char*, Signature> getSignatures()
+  {
+    return m_systemManager->getSignatures();
+  }
+
+  Signature getSystemSignature(const char* name)
+  {
+    return m_systemManager->getSignature(name);
+  }
+
+  Signature getEntitySignature(Entity& entity)
+  {
+    return m_entityManager->getSignature(entity);
+  }
+
+  std::unordered_map<const char*, std::shared_ptr<IComponentArray>> getComponents(Entity& entity)
+  {
+    return m_componentManager->getComponentsWithEntity(entity);
+  }
+
+  std::shared_ptr<ComponentManager>& getComponentManager()
+  {
+    return m_componentManager;
+  }
+
+ private:
+  std::shared_ptr<ComponentManager> m_componentManager;
   std::unique_ptr<EntityManager> m_entityManager;
   std::unique_ptr<SystemManager> m_systemManager;
 };

@@ -4,10 +4,17 @@
 
 #pragma once
 
-#include "ecs/entity/Entity.hpp"
+#include <memory>
+#include "ecs/Mediator.hpp"
 #include <set>
+#include "ecs/entity/Entity.hpp"
+#include <SFML/Graphics.hpp>
+#include <memory>
+#include "ISystem.hpp"
 
-class System {
-public:
-  std::set<Entity> m_entities {};
+class System : public ISystem
+{
+ public:
+    void update(std::shared_ptr<ComponentManager>& component_manager, Entity entity, sf::RenderWindow& window) {}
+  std::vector<Entity> m_entities;
 };

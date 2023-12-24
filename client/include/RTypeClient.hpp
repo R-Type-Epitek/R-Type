@@ -25,7 +25,7 @@
 #include "../../gameEngine/include/network/Statuses.hpp"
 
 #include "Constants.hpp"
-#include "Network.hpp"
+#include "network/Network.hpp"
 
 // Components
 #include "Components/Background.hpp"

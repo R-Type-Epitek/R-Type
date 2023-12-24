@@ -4,7 +4,16 @@
 
 #pragma once
 
-#include "RTypeClient.hpp"
+#include <iostream>
+#include "Constants.hpp"
+#include "network/Commands.hpp"
+#include <boost/asio.hpp>
+#include <boost/array.hpp>
+#include "network/Responses.hpp"
+#include "network/Messages.hpp"
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+
 
 namespace Client
 {
