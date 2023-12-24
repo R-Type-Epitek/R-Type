@@ -4,5 +4,5 @@
 
 #include "RTypeClient.hpp"
 
-void logMessage(Message *message, const int width = 20);
-void logResponse(Response *response, const int width = 20);
+void logMessage(std::string prefix, Message *message, const int width = 20);
+void logResponse(std::string prefix, Response *response, const int width = 20);

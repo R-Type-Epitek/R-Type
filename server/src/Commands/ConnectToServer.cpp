@@ -35,7 +35,7 @@ std::vector<char> Network::ConnectToServerCommandHandler::handleCommand(
 
   return this->server.createResponseBuffer(
     clientId,
-    CONNECT_TO_SERVER_COMMAND,
+    message->header,
     statusMessage,
     nullptr,
     0,

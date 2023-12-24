@@ -9,6 +9,7 @@
 struct ResponseHeader {
   int clientId;
   char command[32];
+  int commandId;
   uint32_t dataLength;
   int status;
   char statusMessage[128];

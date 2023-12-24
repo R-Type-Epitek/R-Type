@@ -120,5 +120,4 @@ namespace GameEngine::UI
       closure(m_windowContext);
     }
   };
-
 }; // namespace GameEngine::UI

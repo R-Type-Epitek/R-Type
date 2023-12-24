@@ -43,7 +43,7 @@ std::vector<char> Network::JoinRoomCommandHandler::handleCommand(
 
   return this->server.createResponseBuffer(
     message->header.clientId,
-    JOIN_ROOM_COMMAND,
+    message->header,
     statusMessage,
     dataToSend.data(),
     dataToSend.size(),

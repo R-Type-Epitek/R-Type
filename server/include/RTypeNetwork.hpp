@@ -33,6 +33,7 @@
 #include "Room.hpp"
 #include "ThreadSafeQueue.hpp"
 #include "UDPServer.hpp"
+#include "tools/Logs.hpp"
 
 // Commands
 #include "commands/ConnectToServer.hpp"

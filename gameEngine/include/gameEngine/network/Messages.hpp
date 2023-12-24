@@ -16,6 +16,7 @@
 struct MessageHeader {
   int clientId;        ///< Unique identifier for the client.
   char command[32];    ///< Command type in ASCII format.
+  int commandId;       ///< Unique identifier for the command.
   uint32_t dataLength; ///< Length of the following data in bytes.
 };
 
