@@ -4,12 +4,11 @@
 
 #include "RTypeClient.hpp"
 
-void logMessage(Message *message, const int width)
+void logMessage(std::string prefix, Message *message, const int width)
 {
   std::stringstream ss;
   ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
-  ss << GREEN
-     << "Server message - Worker Thread: " << std::this_thread::get_id()
+  ss << GREEN << prefix << " - Worker Thread: " << std::this_thread::get_id()
      << RESET << "\n";
   ss << CYAN << std::string(60, '-') << RESET << "\n";
   ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET
@@ -22,12 +21,11 @@ void logMessage(Message *message, const int width)
   std::cout << ss.str();
 }
 
-void logResponse(Response *response, const int width)
+void logResponse(std::string prefix, Response *response, const int width)
 {
   std::stringstream ss;
   ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
-  ss << GREEN
-     << "Server response - Worker Thread: " << std::this_thread::get_id()
+  ss << GREEN << prefix << " - Worker Thread: " << std::this_thread::get_id()
      << RESET << "\n";
   ss << CYAN << std::string(60, '-') << RESET << "\n";
   ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET

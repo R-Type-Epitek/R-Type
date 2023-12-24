@@ -32,7 +32,7 @@ std::vector<char> Network::StartGameCommandHandler::handleCommand(
 
   return this->server.createResponseBuffer(
     message->header.clientId,
-    START_GAME_COMMAND,
+    message->header,
     "Start game (room " + std::to_string(data->roomId) + ")",
     dataToSend.data(),
     dataToSend.size());

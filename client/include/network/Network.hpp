@@ -59,6 +59,8 @@ namespace Client
     boost::asio::ip::udp::socket socket {this->io};
     std::unordered_map<std::string, std::shared_ptr<ICommandHandler>>
       commandHandlers;
+    std::map<int, std::shared_ptr<CommandTracker>> commandTrackers;
+    int nextCommandId = 0;
     std::thread receiveThread;
     int clientId;
     int roomId;

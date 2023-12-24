@@ -59,12 +59,16 @@ void Client::Network::sendMessage(
   char const data[],
   int dataSize)
 {
+  int commandId = this->nextCommandId++;
+  this->commandTrackers[commandId] = std::make_shared<CommandTracker>(command);
+
   MessageType type = MessageType::Message;
 
   MessageHeader header;
   header.clientId = this->clientId;
   strcpy(header.command, command.c_str());
   header.dataLength = dataSize;
+  header.commandId = commandId;
 
   size_t totalSize = sizeof(type) + sizeof(header) + dataSize;
   std::vector<char> messageBuffer(totalSize);
@@ -77,7 +81,18 @@ void Client::Network::sendMessage(
       data,
       dataSize);
 
+  Message *message = (Message *)messageBuffer.data();
+  logMessage("Client message", message);
+
   this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
+
+  std::thread([this, commandId, command]() {
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    if (!commandTrackers[commandId]->getIsCompleted()) {
+      std::cout << "Command " << command << " timed out" << std::endl;
+    }
+    commandTrackers.erase(commandId);
+  }).detach();
 }
 
 void Client::Network::sendResponse(
@@ -153,7 +168,7 @@ void Client::Network::onReceive(
 
 void Client::Network::onServerResponse(Response *response)
 {
-  logResponse(response);
+  logResponse("Server response", response);
 
   switch (response->header.status) {
     case RES_SUCCESS:
@@ -170,6 +185,12 @@ void Client::Network::onServerResponse(Response *response)
 
   for (auto &handler : this->commandHandlers) {
     if (handler.first == std::string(response->header.command)) {
+      int commandId = response->header.commandId;
+
+      if (commandTrackers.find(commandId) != commandTrackers.end()) {
+        commandTrackers[commandId]->setIsCompleted(true);
+      }
+
       return handler.second->onResponse(response);
     }
   }
@@ -179,7 +200,7 @@ void Client::Network::onServerResponse(Response *response)
 
 void Client::Network::onServerMessage(Message *message)
 {
-  logMessage(message);
+  logMessage("Server message", message);
 
   if (!strcmp(message->header.command, SERVER_COMMAND_CHECK_CONNECTION))
     return this->onCheckConnectionMessage(message);

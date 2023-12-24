@@ -32,7 +32,7 @@ std::vector<char> Network::UpdateNameCommandHandler::handleCommand(
 
   return this->server.createResponseBuffer(
     message->header.clientId,
-    UPDATE_NAME_COMMAND,
+    message->header,
     "Name correctly set: " + std::string(data->name),
     dataBuffer,
     sizeof(dataToSend));

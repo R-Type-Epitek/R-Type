@@ -57,6 +57,7 @@
 // Client
 #include "graphics/GUI.hpp"
 #include "network/commands/IHandler.hpp"
+#include "network/commands/Tracker.hpp"
 #include "network/tools/Logs.hpp"
 #include "network/Constants.hpp"
 #include "network/Network.hpp"
