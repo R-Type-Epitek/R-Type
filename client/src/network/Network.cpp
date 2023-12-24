@@ -3,6 +3,24 @@
 //
 
 #include "network/Network.hpp"
+#include "gameEngine/network/MessageType.hpp"
+#include <boost/asio/buffer.hpp>
+#include <boost/asio/ip/udp.hpp>
+#include "gameEngine/network/Messages.hpp"
+#include "gameEngine/network/Responses.hpp"
+#include "gameEngine/network/Commands.hpp"
+#include "gameEngine/network/Statuses.hpp"
+
+#include <boost/array.hpp>
+#include <boost/bind.hpp>
+#include <boost/asio.hpp>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <vector>
+#include <thread>
+#include <ostream>
+#include <string>
 
 Client::Network::Network(std::string ip, std::string port)
   : socket(io)

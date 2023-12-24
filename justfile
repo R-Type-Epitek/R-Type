@@ -30,5 +30,4 @@ clang-format-run:
     just clang-format-run-dir ./server
     just clang-format-run-dir ./gameEngine
 
-
 default: start

@@ -31,10 +31,11 @@ find_package(Boost
 )
 find_package(Threads REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
-if(BUILD_TESTS)
+if (BUILD_TESTS)
     find_package(GTest REQUIRED)
 endif ()
 #[===[ END DEPENDENCIES ]===]
+
 
 #[===[ GAME ENGINE ]===]
 add_subdirectory(gameEngine)

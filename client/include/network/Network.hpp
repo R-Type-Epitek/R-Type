@@ -4,16 +4,37 @@
 
 #pragma once
 
+#include "Constants.hpp"
+#include "gameEngine/network/Commands.hpp"
+#include "gameEngine/network/Messages.hpp"
+#include "gameEngine/network/Responses.hpp"
+#include <boost/array.hpp>
+#include <boost/asio.hpp>
+#include <boost/asio/buffer.hpp>
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+#include <iostream>
+#include <string>
+
+//
+// Created by Xavier VINCENT on 14/12/2023.
+//
+
+#pragma once
+
 #include <iostream>
 #include "Constants.hpp"
-#include "network/Commands.hpp"
 #include <boost/asio.hpp>
 #include <boost/array.hpp>
-#include "network/Responses.hpp"
-#include "network/Messages.hpp"
+#include "gameEngine/network/Commands.hpp"
+#include "gameEngine/network/Responses.hpp"
+#include "gameEngine/network/MessageType.hpp"
+#include "gameEngine/network/Messages.hpp"
+#include "gameEngine/network/Statuses.hpp"
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
 
+#include <boost/array.hpp>
 
 namespace Client
 {

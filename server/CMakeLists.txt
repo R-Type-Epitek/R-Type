@@ -12,6 +12,8 @@ add_executable(${EXEC_SERVER}
         src/Commands/JoinRoom.cpp
         src/Commands/StartGame.cpp
         src/Commands/UpdateName.cpp
+        src/game/rtype/RtypeScene.cpp
+        src/game/rtype/RtypeGame.cpp
         src/Client.cpp
         src/Room.cpp
         src/ThreadSafeQueue.cpp
@@ -35,11 +37,12 @@ target_compile_options(${EXEC_SERVER}
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     add_compile_options(-fno-gnu-unique)
-endif()
+endif ()
 
 target_link_libraries(${EXEC_SERVER}
         PRIVATE
         GameEngine
         Boost::boost
         Boost::system
+        spdlog::spdlog
 )

@@ -19,11 +19,11 @@
 #include <unordered_map>
 
 // Game Engine Network
-#include "../../gameEngine/include/network/Commands.hpp"
-#include "../../gameEngine/include/network/Messages.hpp"
-#include "../../gameEngine/include/network/MessageType.hpp"
-#include "../../gameEngine/include/network/Responses.hpp"
-#include "../../gameEngine/include/network/Statuses.hpp"
+#include "gameEngine/network/Commands.hpp"
+#include "gameEngine/network/Messages.hpp"
+#include "gameEngine/network/MessageType.hpp"
+#include "gameEngine/network/Responses.hpp"
+#include "gameEngine/network/Statuses.hpp"
 
 #include "Commands/IHandler.hpp"
 #include "Constants.hpp"

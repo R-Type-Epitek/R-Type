@@ -1,10 +1,16 @@
 //
 // Created by edouard on 12/12/23.
 //
-#include "Game.hpp"
+#include "Client.hpp"
+#include "spdlog/spdlog.h"
 
 int main() {
-  Game game;
-  game.run();
-  return 0;
-}
+  spdlog::set_level(spdlog::level::debug);
+  Client::Client client = Client::Client();
+
+  client.initNetwork();
+  client.initScenes();
+  client.initGUI();
+  client.link();
+  client.run();
+};
