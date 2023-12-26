@@ -22,8 +22,10 @@ std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
   InputData *data = (InputData *)message->data;
 
   // Update player position
-  std::cout << "Player " << message->header.clientId
-            << " pressed key: " << data->key << std::endl;
+  spdlog::info(
+    "Player {} pressed key: {}",
+    message->header.clientId,
+    data->key);
 
   std::vector<char> dataToSend(sizeof(*data));
   memcpy(dataToSend.data(), data, sizeof(*data));

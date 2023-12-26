@@ -54,3 +54,16 @@ int Network::Client::getRoomId() const
 {
   return this->roomId;
 }
+
+void Network::Client::updateLastMessageTime()
+{
+  this->lastMessageTime = std::chrono::steady_clock::now();
+}
+
+bool Network::Client::isInactiveFor(long milliseconds)
+{
+  auto now = std::chrono::steady_clock::now();
+  return std::chrono::duration_cast<std::chrono::milliseconds>(
+           now - this->lastMessageTime)
+           .count() > milliseconds;
+}
