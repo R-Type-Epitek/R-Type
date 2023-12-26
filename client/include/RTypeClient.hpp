@@ -66,7 +66,7 @@
 #include "scene/Game.hpp"
 #include "Client.hpp"
 
-// Commands
+// commands
 #include "network/commands/ConnectToServer.hpp"
 #include "network/commands/Input.hpp"
 #include "network/commands/JoinRoom.hpp"

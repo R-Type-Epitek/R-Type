@@ -2,7 +2,7 @@
 // Created by Xavier VINCENT on 24/12/23.
 //
 
-#include "RTypeClient.hpp"
+#include "network/commands/ConnectToServer.hpp"
 
 namespace Client
 {
@@ -20,8 +20,7 @@ namespace Client
   {
     this->network.setClientId(response->header.clientId);
 
-    std::string address =
-      this->network.getRemoteEndpoint().address().to_string();
+    std::string address = this->network.getRemoteEndpoint().address().to_string();
     std::string port = std::to_string(this->network.getRemoteEndpoint().port());
     spdlog::info("Connected to server: {}:{}", address, port);
     spdlog::info("Client id: {}", this->network.getClientId());

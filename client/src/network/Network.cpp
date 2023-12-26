@@ -8,8 +8,7 @@ Client::Network::Network(std::string ip, std::string port)
   : socket(io)
 {
   boost::asio::ip::udp::resolver resolver(this->io);
-  this->remoteEndpoint =
-    *resolver.resolve(boost::asio::ip::udp::v4(), ip, port).begin();
+  this->remoteEndpoint = *resolver.resolve(boost::asio::ip::udp::v4(), ip, port).begin();
   this->socket.open(boost::asio::ip::udp::v4());
   this->clientId = -1;
   this->registerCommandHandlers();
@@ -27,20 +26,14 @@ Client::Network::~Network()
 
 void Client::Network::registerCommandHandlers()
 {
-  this->commandHandlers[CONNECT_TO_SERVER_COMMAND] =
-    std::make_shared<ConnectToServerCommandHandler>(*this);
-  this->commandHandlers[UPDATE_NAME_COMMAND] =
-    std::make_shared<UpdateNameCommandHandler>(*this);
-  this->commandHandlers[JOIN_ROOM_COMMAND] =
-    std::make_shared<JoinRoomCommandHandler>(*this);
-  this->commandHandlers[INPUT_COMMAND] =
-    std::make_shared<InputCommandHandler>(*this);
-  this->commandHandlers[START_GAME_COMMAND] =
-    std::make_shared<StartGameCommandHandler>(*this);
+  this->commandHandlers[CONNECT_TO_SERVER_COMMAND] = std::make_shared<ConnectToServerCommandHandler>(*this);
+  this->commandHandlers[UPDATE_NAME_COMMAND] = std::make_shared<UpdateNameCommandHandler>(*this);
+  this->commandHandlers[JOIN_ROOM_COMMAND] = std::make_shared<JoinRoomCommandHandler>(*this);
+  this->commandHandlers[INPUT_COMMAND] = std::make_shared<InputCommandHandler>(*this);
+  this->commandHandlers[START_GAME_COMMAND] = std::make_shared<StartGameCommandHandler>(*this);
 }
 
-std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(
-  const std::string &name)
+std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(const std::string &name)
 {
   auto it = this->commandHandlers.find(name);
   if (it != this->commandHandlers.end()) {
@@ -54,10 +47,7 @@ void Client::Network::send(boost::asio::const_buffer const &buffer)
   this->socket.send_to(buffer, this->remoteEndpoint);
 }
 
-void Client::Network::sendMessage(
-  std::string const &command,
-  char const data[],
-  int dataSize)
+void Client::Network::sendMessage(std::string const &command, char const data[], int dataSize)
 {
   int commandId = this->nextCommandId++;
   this->commandTrackers[commandId] = std::make_shared<CommandTracker>(command);
@@ -76,10 +66,7 @@ void Client::Network::sendMessage(
   memcpy(messageBuffer.data(), &type, sizeof(type));
   memcpy(messageBuffer.data() + sizeof(type), &header, sizeof(header));
   if (data != nullptr)
-    memcpy(
-      messageBuffer.data() + sizeof(type) + sizeof(header),
-      data,
-      dataSize);
+    memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
   Message *message = (Message *)messageBuffer.data();
   logMessage("Client message", message);
@@ -117,10 +104,7 @@ void Client::Network::sendResponse(
   memcpy(messageBuffer.data(), &type, sizeof(type));
   memcpy(messageBuffer.data() + sizeof(type), &header, sizeof(header));
   if (data != nullptr)
-    memcpy(
-      messageBuffer.data() + sizeof(type) + sizeof(header),
-      data,
-      dataSize);
+    memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
   this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
 }
@@ -144,9 +128,7 @@ void Client::Network::startReceive()
   });
 }
 
-void Client::Network::onReceive(
-  boost::system::error_code const &error,
-  std::size_t bytesTransferred)
+void Client::Network::onReceive(boost::system::error_code const &error, std::size_t bytesTransferred)
 {
   (void)bytesTransferred;
   if (error && error == boost::asio::error::message_size) {
@@ -179,8 +161,7 @@ void Client::Network::onServerResponse(Response *response)
     case RES_INTERNAL_ERROR:
       throw std::runtime_error(response->header.statusMessage);
     default:
-      throw std::runtime_error(
-        "Invalid response status: " + std::to_string(response->header.status));
+      throw std::runtime_error("Invalid response status: " + std::to_string(response->header.status));
   }
 
   for (auto &handler : this->commandHandlers) {
@@ -248,8 +229,7 @@ std::string Client::Network::getName() const
 void Client::Network::setRemoteEndpoint(std::string &ip, std::string &port)
 {
   boost::asio::ip::udp::resolver resolver(io);
-  this->remoteEndpoint =
-    *resolver.resolve(boost::asio::ip::udp::v4(), ip, port).begin();
+  this->remoteEndpoint = *resolver.resolve(boost::asio::ip::udp::v4(), ip, port).begin();
   this->socket.open(boost::asio::ip::udp::v4());
   this->clientId = -1;
 }
@@ -260,12 +240,10 @@ boost::asio::ip::udp::endpoint Client::Network::getRemoteEndpoint() const
 }
 
 /* -------------------------------------------------- */
-/* --------------------- Commands ------------------- */
+/* --------------------- commands ------------------- */
 /* -------------------------------------------------- */
 template<typename T, typename Func>
-void Client::Network::executeCommand(
-  const std::string &commandName,
-  Func action)
+void Client::Network::executeCommand(const std::string &commandName, Func action)
 {
   auto command = this->getCommandHandler(commandName);
   auto specificCommandHandler = std::dynamic_pointer_cast<T>(command);
@@ -278,49 +256,39 @@ void Client::Network::executeCommand(
 
 void Client::Network::connectToServer()
 {
-  this->executeCommand<ConnectToServerCommandHandler>(
-    CONNECT_TO_SERVER_COMMAND,
-    [](auto commandHandler) {
-      commandHandler->send();
-    });
+  this->executeCommand<ConnectToServerCommandHandler>(CONNECT_TO_SERVER_COMMAND, [](auto commandHandler) {
+    commandHandler->send();
+  });
 }
 
 void Client::Network::updateName(std::string name)
 {
-  this->executeCommand<UpdateNameCommandHandler>(
-    UPDATE_NAME_COMMAND,
-    [name](auto commandHandler) {
-      commandHandler->setName(name);
-      commandHandler->send();
-    });
+  this->executeCommand<UpdateNameCommandHandler>(UPDATE_NAME_COMMAND, [name](auto commandHandler) {
+    commandHandler->setName(name);
+    commandHandler->send();
+  });
 }
 
 void Client::Network::joinRoom(int roomId)
 {
-  this->executeCommand<JoinRoomCommandHandler>(
-    JOIN_ROOM_COMMAND,
-    [roomId](auto commandHandler) {
-      commandHandler->setRoomId(roomId);
-      commandHandler->send();
-    });
+  this->executeCommand<JoinRoomCommandHandler>(JOIN_ROOM_COMMAND, [roomId](auto commandHandler) {
+    commandHandler->setRoomId(roomId);
+    commandHandler->send();
+  });
 }
 
 void Client::Network::sendKey(std::string key)
 {
-  this->executeCommand<InputCommandHandler>(
-    INPUT_COMMAND,
-    [key](auto commandHandler) {
-      commandHandler->setKey(key);
-      commandHandler->send();
-    });
+  this->executeCommand<InputCommandHandler>(INPUT_COMMAND, [key](auto commandHandler) {
+    commandHandler->setKey(key);
+    commandHandler->send();
+  });
 }
 
 void Client::Network::startGame(int roomId)
 {
-  this->executeCommand<StartGameCommandHandler>(
-    START_GAME_COMMAND,
-    [roomId](auto commandHandler) {
-      commandHandler->setRoomId(roomId);
-      commandHandler->send();
-    });
+  this->executeCommand<StartGameCommandHandler>(START_GAME_COMMAND, [roomId](auto commandHandler) {
+    commandHandler->setRoomId(roomId);
+    commandHandler->send();
+  });
 }
