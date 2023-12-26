@@ -63,11 +63,13 @@
 \DoxyCodeLine{00059\ \ \ \ \ boost::asio::ip::udp::socket\ socket\ \{this-\/>io\};}
 \DoxyCodeLine{00060\ \ \ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<ICommandHandler>>}
 \DoxyCodeLine{00061\ \ \ \ \ \ \ commandHandlers;}
-\DoxyCodeLine{00062\ \ \ \ \ std::thread\ receiveThread;}
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ clientId;}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;}
-\DoxyCodeLine{00065\ \ \ \ \ std::string\ name;}
-\DoxyCodeLine{00066\ \ \ \};}
-\DoxyCodeLine{00067\ \}\ \textcolor{comment}{//\ namespace\ Client}}
+\DoxyCodeLine{00062\ \ \ \ \ std::map<int,\ std::shared\_ptr<CommandTracker>>\ commandTrackers;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ nextCommandId\ =\ 0;}
+\DoxyCodeLine{00064\ \ \ \ \ std::thread\ receiveThread;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ clientId;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;}
+\DoxyCodeLine{00067\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00068\ \ \ \};}
+\DoxyCodeLine{00069\ \}\ \textcolor{comment}{//\ namespace\ Client}}
 
 \end{DoxyCode}

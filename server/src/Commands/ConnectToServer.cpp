@@ -18,7 +18,7 @@ bool Network::ConnectToServerCommandHandler::isAuthorized(int clientId)
 std::vector<char> Network::ConnectToServerCommandHandler::handleCommand(
   Message *message)
 {
-  int clientId = this->server.getClients().size();
+  int clientId = this->server.getNextClientIdAndIncrement();
   std::string statusMessage;
   int status = RES_SUCCESS;
 

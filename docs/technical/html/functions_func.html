@@ -115,10 +115,11 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>checkClients()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a969806b68815385e196569f31d66a3a4">Network::UDPServer</a></li>
+<li>checkClientTimers()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#af9906b402d8c7af8b1b6f9d4332bb60c">Network::UDPServer</a></li>
 <li>Client()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a1bfaed07b94b9fc835b6667efd0b705d">Network::Client</a></li>
 <li>createEntity()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_entity_manager.html#af5887b54d1a418ebe06ab588b4c1f1d4">GameEngine::ECS::EntityManager</a></li>
-<li>createResponseBuffer()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ae39c8403eb951167f8b1255efad19880">Network::UDPServer</a></li>
+<li>createMessageBuffer()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a4031d156ae82ff57038b16f3d214d781">Network::UDPServer</a></li>
+<li>createResponseBuffer()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a0a2583c36c354de1725dcfab25c5e14d">Network::UDPServer</a></li>
 </ul>
 
 
@@ -142,6 +143,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>getEndpoint()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a67507fa077e2a1781500207e08dc46b3">Network::Client</a></li>
 <li>getId()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a1b788b125572f455745b4d9d537fc0cb">Network::Client</a>, <a class="el" href="class_network_1_1_room.html#a4194c540b15a95da36bbfcebcb2e8ce5">Network::Room</a></li>
 <li>getName()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a436cfc281877445713aa8d63cc5fa52b">Network::Client</a></li>
+<li>getNextClientIdAndIncrement()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a2c13629ee0ccbf4d9b12deb117080603">Network::UDPServer</a></li>
 <li>getPlayers()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#a92553cf90665a33507b0b976d3b577a6">Network::Room</a></li>
 <li>getRecvBuffer()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f">Network::UDPServer</a></li>
 <li>getRemoteEndpoint()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a9f7a52213bf27b1cd095cf526d6736ac">Network::UDPServer</a></li>
@@ -157,6 +159,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
 <li>handleCommand()&#160;:&#160;<a class="el" href="class_network_1_1_connect_to_server_command_handler.html#acfe75182ccaa6e576fbf222b24754a86">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_i_command_handler.html#a03d397e650d6d2bad03f4a9fae2ef916">Network::ICommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#a6e49a13cd60b8428f12129a82d9c81f2">Network::StartGameCommandHandler</a>, <a class="el" href="class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a></li>
 <li>handleReceive()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac97d512d745687229613d23b27a71bae">Network::UDPServer</a></li>
+<li>handleSend()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a7d721dae9793f447e2199f8780096e53">Network::UDPServer</a></li>
 <li>hasEntity()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_array.html#a07ad76a7e957754b34ba05942420f942">GameEngine::ECS::ComponentArray&lt; T &gt;</a></li>
 </ul>
 
@@ -169,6 +172,12 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>isClientConnected()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a2db9f8510e50ae6dcf8d13f68bd97668">Network::UDPServer</a></li>
 <li>isClientRegistered()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ab2d04421510f1fd72b2158aa171241e9">Network::UDPServer</a></li>
 <li>isFull()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#aec809e76b88ff1fb19c652c8d6da9e13">Network::Room</a></li>
+<li>isInactiveFor()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#aaccc5c179993bbffb72618702127adc9">Network::Client</a></li>
+</ul>
+
+
+<h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
+<li>notifyAndRemoveClient()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac1d3c03a7b8e6d002d8938e70fd4ba36">Network::UDPServer</a></li>
 </ul>
 
 
@@ -192,6 +201,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>sendCheckConnection()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a60ae214e6da64da40df29b14970b25a1">Network::UDPServer</a></li>
 <li>sendResponseAndLog()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ae6df6365d9c49e58434876ef104817a9">Network::UDPServer</a></li>
 <li>sendToAll()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac811ac0c540ab08eeb7fd4002e4af9d4">Network::UDPServer</a></li>
 <li>sendToAllClientsInRoom()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a9a296cd50ace6d20256e4a94290bf1b4">Network::UDPServer</a></li>
@@ -204,13 +214,15 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>setSignature()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_entity_manager.html#afef51dc211cfcc97f0a3fb476dcb58fc">GameEngine::ECS::EntityManager</a>, <a class="el" href="class_game_engine_1_1_e_c_s_1_1_system_manager.html#afed8684f95cf9609929106ea5fd17bd6">GameEngine::ECS::SystemManager</a></li>
 <li>setSize()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#aea2f2865062de4920d71d55399eea862">Network::Room</a></li>
 <li>setState()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#a450ff0773926707112db25e3e40eb227">Network::Room</a></li>
-<li>startCheckClientsConnectionTimer()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a645d58ffa062a8bcab8450c04a1b30a7">Network::UDPServer</a></li>
+<li>startClientTimerCheck()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ace11e347c4bfbad29bfe8d1cb6f2bba2">Network::UDPServer</a></li>
 <li>startReceive()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac2a6fa9962f244fd7ba8578d89296874">Network::UDPServer</a></li>
 </ul>
 
 
 <h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
 <li>UDPServer()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a8e48a3fb2808976e3cb450ad23fddc8e">Network::UDPServer</a></li>
+<li>updateClientLastMessageTimeFromData()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a4928e7aa98d5e037872d25cff45c9f8a">Network::UDPServer</a></li>
+<li>updateLastMessageTime()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#ad3be4336d2684741cbc37d8eea26df1d">Network::Client</a></li>
 </ul>
 
 

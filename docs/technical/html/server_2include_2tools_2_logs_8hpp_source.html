@@ -119,10 +119,16 @@ $(document).ready(function(){initNavTree('server_2include_2tools_2_logs_8hpp_sou
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;RTypeNetwork.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> logMessage(<a class="code hl_struct" href="struct_message.html">Message</a> *message, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> logResponse(<a class="code hl_struct" href="struct_response.html">Response</a> *response, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
-<div class="ttc" id="astruct_message_html"><div class="ttname"><a href="struct_message.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition</b> Messages.hpp:29</div></div>
-<div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:17</div></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> logMessage(std::string prefix, <a class="code hl_struct" href="struct_message.html">Message</a> *message, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> logResponse(std::string prefix, <a class="code hl_struct" href="struct_response.html">Response</a> *response, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span> logTimedMessage(</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  std::string prefix,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> timedMessage,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <a class="code hl_struct" href="struct_response.html">Response</a> response,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
+<div class="ttc" id="astruct_message_html"><div class="ttname"><a href="struct_message.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition</b> Messages.hpp:30</div></div>
+<div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:18</div></div>
+<div class="ttc" id="astruct_timed_message_html"><div class="ttname"><a href="struct_timed_message.html">TimedMessage</a></div><div class="ttdoc">Used to represent a message with a timestamp.</div><div class="ttdef"><b>Definition</b> UDPServer.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

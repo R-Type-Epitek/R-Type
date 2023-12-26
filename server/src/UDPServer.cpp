@@ -10,6 +10,7 @@ Network::UDPServer::UDPServer(boost::asio::io_context &io)
       boost::asio::ip::udp::endpoint(
         boost::asio::ip::udp::v4(),
         std::stoi(DEFAULT_PORT)))
+  , nextClientId(0)
   , clientsConnectionTimer(io)
 {
   this->initServer(std::stoi(DEFAULT_PORT));
@@ -17,6 +18,7 @@ Network::UDPServer::UDPServer(boost::asio::io_context &io)
 
 Network::UDPServer::UDPServer(boost::asio::io_context &io, int port)
   : socket(io, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), port))
+  , nextClientId(0)
   , clientsConnectionTimer(io)
 {
   this->initServer(port);
@@ -57,6 +59,11 @@ boost::asio::ip::udp::endpoint Network::UDPServer::getRemoteEndpoint() const
 std::vector<Network::Room> &Network::UDPServer::getRooms()
 {
   return this->rooms;
+}
+
+int Network::UDPServer::getNextClientIdAndIncrement()
+{
+  return this->nextClientId++;
 }
 
 void Network::UDPServer::addClient(Network::Client client)
@@ -172,8 +179,12 @@ void Network::UDPServer::sendToClient(
   boost::asio::const_buffer const &buffer,
   int id)
 {
-  if (id < 0 || id >= (int)this->clients.size())
-    throw std::runtime_error("Invalid client id");
+  std::vector<char> messageBuffer(buffer.size());
+  memcpy(messageBuffer.data(), buffer.data(), buffer.size());
+  logMessage("Server message", (Message *)messageBuffer.data());
+
+  if (!this->isClientRegistered(id))
+    return spdlog::warn("Client {} is not connected", id);
   if (!this->socket.is_open())
     throw std::runtime_error("Socket is not open");
   this->socket.async_send_to(
@@ -190,7 +201,7 @@ void Network::UDPServer::handleSend(
   boost::system::error_code const &error,
   std::size_t bytesTransferred)
 {
-  if (error)
+  if (error && error == boost::asio::error::message_size)
     return spdlog::error(
       "handleSend: Error: {} ({} bytes)",
       error.message(),
@@ -317,19 +328,6 @@ bool Network::UDPServer::isClientRegistered(int clientId)
   return false;
 }
 
-bool Network::UDPServer::isClientConnected(int clientId)
-{
-  Message message = {
-    .header = {
-      .clientId = clientId,
-      .command = SERVER_COMMAND_CHECK_CONNECTION,
-      .dataLength = 0}};
-
-  this->sendToClient(boost::asio::buffer(&message, sizeof(message)), clientId);
-
-  return true;
-}
-
 void Network::UDPServer::registerCommandHandlers()
 {
   this->commandHandlers[CONNECT_TO_SERVER_COMMAND] =
@@ -347,10 +345,14 @@ void Network::UDPServer::registerCommandHandlers()
 void Network::UDPServer::checkClientTimers()
 {
   for (auto &client : this->clients) {
-    if (client.isInactiveFor(CLIENT_INACTIVE_TIMEOUT))
-      return this->notifyAndRemoveClient(client.getId());
-    if (client.isInactiveFor(CLIENT_INACTIVE_CHECK_INTERVAL))
-      return this->sendCheckConnection(client.getId());
+    if (client.isInactiveFor(CLIENT_INACTIVE_TIMEOUT)) {
+      this->notifyAndRemoveClient(client.getId());
+      continue;
+    }
+    if (client.isInactiveFor(CLIENT_INACTIVE_CHECK_INTERVAL)) {
+      this->sendCheckConnection(client.getId());
+      continue;
+    }
   }
 }
 
@@ -381,11 +383,18 @@ void Network::UDPServer::notifyAndRemoveClient(int clientId)
     dataToSend,
     sizeof(data));
 
+  spdlog::info("Client {} disconnected", clientId);
+  this->rooms[client.getRoomId()].removePlayer(clientId);
   this->sendToAllClientsInRoom(
     boost::asio::buffer(messageBuffer.data(), messageBuffer.size()),
     client.getRoomId());
-  this->rooms[client.getRoomId()].removePlayer(clientId);
-  this->clients.erase(this->clients.begin() + clientId);
+
+  for (size_t i = 0; i < this->clients.size(); i++) {
+    if (this->clients[i].getId() == clientId) {
+      this->clients.erase(this->clients.begin() + i);
+      break;
+    }
+  }
 }
 
 void Network::UDPServer::sendCheckConnection(int clientId)
@@ -395,8 +404,6 @@ void Network::UDPServer::sendCheckConnection(int clientId)
     SERVER_COMMAND_CHECK_CONNECTION,
     nullptr,
     0);
-
-  logMessage("Server message", (Message *)messageBuffer.data());
 
   this->sendToClient(
     boost::asio::buffer(messageBuffer.data(), messageBuffer.size()),

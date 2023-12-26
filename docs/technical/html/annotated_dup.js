@@ -7,6 +7,7 @@ var annotated_dup =
         ] ]
       ] ],
       [ "Client", "class_client_1_1_client.html", null ],
+      [ "CommandTracker", "class_client_1_1_command_tracker.html", null ],
       [ "ConnectToServerCommandHandler", "class_client_1_1_connect_to_server_command_handler.html", null ],
       [ "GameScene", "class_client_1_1_game_scene.html", null ],
       [ "GUI", "class_client_1_1_g_u_i.html", null ],

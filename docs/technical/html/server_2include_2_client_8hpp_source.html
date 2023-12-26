@@ -146,16 +146,22 @@ $(document).ready(function(){initNavTree('server_2include_2_client_8hpp_source.h
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_network_1_1_client.html#a3226b24dbca2a87dcca3f9ba02394b7c">getRoomId</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    boost::asio::ip::udp::endpoint</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      endpoint;       </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">int</span> id;           </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    std::string name; </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">int</span> roomId;       </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  };</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_network_1_1_client.html#ad3be4336d2684741cbc37d8eea26df1d">updateLastMessageTime</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_network_1_1_client.html#aaccc5c179993bbffb72618702127adc9">isInactiveFor</a>(<span class="keywordtype">long</span> milliseconds);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    boost::asio::ip::udp::endpoint</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      endpoint;       </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">int</span> id;           </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::string name; </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">int</span> roomId;       </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::chrono::steady_clock::time_point</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      lastMessageTime; </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  };</div>
 </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>} <span class="comment">// namespace Network</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>} <span class="comment">// namespace Network</span></div>
 <div class="ttc" id="aclass_network_1_1_client_html"><div class="ttname"><a href="class_network_1_1_client.html">Network::Client</a></div><div class="ttdoc">Represents a network client.</div><div class="ttdef"><b>Definition</b> Client.hpp:18</div></div>
 <div class="ttc" id="aclass_network_1_1_client_html_a1b788b125572f455745b4d9d537fc0cb"><div class="ttname"><a href="class_network_1_1_client.html#a1b788b125572f455745b4d9d537fc0cb">Network::Client::getId</a></div><div class="ttdeci">int getId() const</div><div class="ttdoc">Gets the identifier of the client.</div><div class="ttdef"><b>Definition</b> Client.cpp:28</div></div>
 <div class="ttc" id="aclass_network_1_1_client_html_a1bfaed07b94b9fc835b6667efd0b705d"><div class="ttname"><a href="class_network_1_1_client.html#a1bfaed07b94b9fc835b6667efd0b705d">Network::Client::Client</a></div><div class="ttdeci">Client()</div><div class="ttdoc">Constructor for Client.</div><div class="ttdef"><b>Definition</b> Client.cpp:7</div></div>
@@ -166,6 +172,8 @@ $(document).ready(function(){initNavTree('server_2include_2_client_8hpp_source.h
 <div class="ttc" id="aclass_network_1_1_client_html_a67507fa077e2a1781500207e08dc46b3"><div class="ttname"><a href="class_network_1_1_client.html#a67507fa077e2a1781500207e08dc46b3">Network::Client::getEndpoint</a></div><div class="ttdeci">boost::asio::ip::udp::endpoint getEndpoint() const</div><div class="ttdoc">Gets the network endpoint of the client.</div><div class="ttdef"><b>Definition</b> Client.cpp:18</div></div>
 <div class="ttc" id="aclass_network_1_1_client_html_a7eab98c178b5ea21dc1363658f9815ea"><div class="ttname"><a href="class_network_1_1_client.html#a7eab98c178b5ea21dc1363658f9815ea">Network::Client::setName</a></div><div class="ttdeci">void setName(std::string name)</div><div class="ttdoc">Sets the name of the client.</div><div class="ttdef"><b>Definition</b> Client.cpp:43</div></div>
 <div class="ttc" id="aclass_network_1_1_client_html_a8c64f36120e3c8e03b0300c3a5dcef26"><div class="ttname"><a href="class_network_1_1_client.html#a8c64f36120e3c8e03b0300c3a5dcef26">Network::Client::setEndpoint</a></div><div class="ttdeci">void setEndpoint(boost::asio::ip::udp::endpoint endpoint)</div><div class="ttdoc">Sets the network endpoint of the client.</div><div class="ttdef"><b>Definition</b> Client.cpp:23</div></div>
+<div class="ttc" id="aclass_network_1_1_client_html_aaccc5c179993bbffb72618702127adc9"><div class="ttname"><a href="class_network_1_1_client.html#aaccc5c179993bbffb72618702127adc9">Network::Client::isInactiveFor</a></div><div class="ttdeci">bool isInactiveFor(long milliseconds)</div><div class="ttdoc">Checks if the client has been inactive for a given amount of milliseconds.</div><div class="ttdef"><b>Definition</b> Client.cpp:63</div></div>
+<div class="ttc" id="aclass_network_1_1_client_html_ad3be4336d2684741cbc37d8eea26df1d"><div class="ttname"><a href="class_network_1_1_client.html#ad3be4336d2684741cbc37d8eea26df1d">Network::Client::updateLastMessageTime</a></div><div class="ttdeci">void updateLastMessageTime()</div><div class="ttdoc">Updates the last message time of the client.</div><div class="ttdef"><b>Definition</b> Client.cpp:58</div></div>
 <div class="ttc" id="aclass_network_1_1_client_html_af9390388b249ecc73f5585f0c20210cf"><div class="ttname"><a href="class_network_1_1_client.html#af9390388b249ecc73f5585f0c20210cf">Network::Client::setId</a></div><div class="ttdeci">void setId(int id)</div><div class="ttdoc">Sets the identifier of the client.</div><div class="ttdef"><b>Definition</b> Client.cpp:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -150,6 +150,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3226b24dbca2a87dcca3f9ba02394b7c" id="r_a3226b24dbca2a87dcca3f9ba02394b7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#a3226b24dbca2a87dcca3f9ba02394b7c">getRoomId</a> () const</td></tr>
 <tr class="memdesc:a3226b24dbca2a87dcca3f9ba02394b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the identifier of the room.  <br /></td></tr>
 <tr class="separator:a3226b24dbca2a87dcca3f9ba02394b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3be4336d2684741cbc37d8eea26df1d" id="r_ad3be4336d2684741cbc37d8eea26df1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#ad3be4336d2684741cbc37d8eea26df1d">updateLastMessageTime</a> ()</td></tr>
+<tr class="memdesc:ad3be4336d2684741cbc37d8eea26df1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the last message time of the client.  <br /></td></tr>
+<tr class="separator:ad3be4336d2684741cbc37d8eea26df1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaccc5c179993bbffb72618702127adc9" id="r_aaccc5c179993bbffb72618702127adc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#aaccc5c179993bbffb72618702127adc9">isInactiveFor</a> (long milliseconds)</td></tr>
+<tr class="memdesc:aaccc5c179993bbffb72618702127adc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client has been inactive for a given amount of milliseconds.  <br /></td></tr>
+<tr class="separator:aaccc5c179993bbffb72618702127adc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a network client. </p>
@@ -256,6 +262,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aaccc5c179993bbffb72618702127adc9" name="aaccc5c179993bbffb72618702127adc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaccc5c179993bbffb72618702127adc9">&#9670;&#160;</a></span>isInactiveFor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Client::isInactiveFor </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>milliseconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client has been inactive for a given amount of milliseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">milliseconds</td><td>The amount of milliseconds to check for.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client has been inactive for the given amount of milliseconds, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a8c64f36120e3c8e03b0300c3a5dcef26" name="a8c64f36120e3c8e03b0300c3a5dcef26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c64f36120e3c8e03b0300c3a5dcef26">&#9670;&#160;</a></span>setEndpoint()</h2>
 
@@ -357,6 +390,26 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ad3be4336d2684741cbc37d8eea26df1d" name="ad3be4336d2684741cbc37d8eea26df1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3be4336d2684741cbc37d8eea26df1d">&#9670;&#160;</a></span>updateLastMessageTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::updateLastMessageTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the last message time of the client. </p>
+<p>This method is called whenever the client sends a message to the server. It updates the last message time of the client to the current time. </p>
 
 </div>
 </div>
