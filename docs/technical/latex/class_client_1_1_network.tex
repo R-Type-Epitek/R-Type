@@ -6,56 +6,32 @@
 \Hypertarget{class_client_1_1_network_a27d7f8cf48354afeb62a66326ba7aa46}\label{class_client_1_1_network_a27d7f8cf48354afeb62a66326ba7aa46} 
 {\bfseries Network} (std\+::string ip, std\+::string port)
 \item 
-\Hypertarget{class_client_1_1_network_a867b048a7044633d09979bed3d8ee0a4}\label{class_client_1_1_network_a867b048a7044633d09979bed3d8ee0a4} 
-void {\bfseries send} (const boost\+::asio\+::const\+\_\+buffer \&buffer)
+\Hypertarget{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9}\label{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9} 
+void {\bfseries register\+Command\+Handlers} ()
 \item 
-\Hypertarget{class_client_1_1_network_a31b56f08e9f5890e3faa1cc2e6a72779}\label{class_client_1_1_network_a31b56f08e9f5890e3faa1cc2e6a72779} 
-void {\bfseries send\+Message} (const std\+::string \&command, const char data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0)
+\Hypertarget{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff}\label{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_client_1_1_i_command_handler}{ICommand\+Handler}} $>$ {\bfseries get\+Command\+Handler} (std\+::string const \&name)
 \item 
-\Hypertarget{class_client_1_1_network_a5a641f7ca1017521905b2f903b7c715e}\label{class_client_1_1_network_a5a641f7ca1017521905b2f903b7c715e} 
-void {\bfseries send\+Response} (const std\+::string \&command, const std\+::string \&status\+Message, const char data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
+\Hypertarget{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609}\label{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609} 
+void {\bfseries send} (boost\+::asio\+::const\+\_\+buffer const \&buffer)
+\item 
+\Hypertarget{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c}\label{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c} 
+void {\bfseries send\+Message} (std\+::string const \&command, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0)
+\item 
+\Hypertarget{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246}\label{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246} 
+void {\bfseries send\+Response} (std\+::string const \&command, std\+::string const \&status\+Message, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
 \item 
 \Hypertarget{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c}\label{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c} 
 void {\bfseries start\+Receive} ()
 \item 
-\Hypertarget{class_client_1_1_network_a2a24a09c56dd8635cac7c1483a9fb5bd}\label{class_client_1_1_network_a2a24a09c56dd8635cac7c1483a9fb5bd} 
-void {\bfseries on\+Receive} (const boost\+::system\+::error\+\_\+code \&error, std\+::size\+\_\+t bytes\+Transferred)
+\Hypertarget{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d}\label{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d} 
+void {\bfseries on\+Receive} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+Transferred)
 \item 
 \Hypertarget{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3}\label{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3} 
 void {\bfseries on\+Server\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
 \item 
 \Hypertarget{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807}\label{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807} 
 void {\bfseries on\+Server\+Message} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message)
-\item 
-\Hypertarget{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee}\label{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee} 
-void {\bfseries connect\+To\+Server} ()
-\item 
-\Hypertarget{class_client_1_1_network_a94c81883dd5806bdacbd5abcbb13059d}\label{class_client_1_1_network_a94c81883dd5806bdacbd5abcbb13059d} 
-void {\bfseries on\+Connect\+To\+Server\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
-\item 
-\Hypertarget{class_client_1_1_network_a9090adb4709e633a7787595896adcc07}\label{class_client_1_1_network_a9090adb4709e633a7787595896adcc07} 
-void {\bfseries update\+Name} (std\+::string name)
-\item 
-\Hypertarget{class_client_1_1_network_ae3bda8634f40b7f979419f7c55bf4b01}\label{class_client_1_1_network_ae3bda8634f40b7f979419f7c55bf4b01} 
-void {\bfseries on\+Update\+Name\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
-\item 
-\Hypertarget{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}\label{class_client_1_1_network_af9322d011cea31df49fe776392ad0648} 
-void {\bfseries join\+Room} (int room\+Id)
-\item 
-\Hypertarget{class_client_1_1_network_a6d0a3ae94061c8b6a0c2f42fcf77f0a0}\label{class_client_1_1_network_a6d0a3ae94061c8b6a0c2f42fcf77f0a0} 
-void {\bfseries on\+Join\+Room\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
-\item 
-\Hypertarget{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}\label{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c} 
-void {\bfseries send\+Key} (std\+::string key)
-\item 
-\Hypertarget{class_client_1_1_network_a473ae82ee6ab13186c3de6842128306c}\label{class_client_1_1_network_a473ae82ee6ab13186c3de6842128306c} 
-void {\bfseries on\+Send\+Key\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
-\item 
-\Hypertarget{class_client_1_1_network_ac8d152775dc2181fc2989709f3dfd204}\label{class_client_1_1_network_ac8d152775dc2181fc2989709f3dfd204} 
-void {\bfseries start\+Game} (int room\+Id)
-\item 
-\Hypertarget{class_client_1_1_network_a350bd91e8e6114c3f8625c1569ab01f0}\label{class_client_1_1_network_a350bd91e8e6114c3f8625c1569ab01f0} 
-void {\bfseries on\+Start\+Game\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
 \item 
 \Hypertarget{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6}\label{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6} 
 void {\bfseries on\+Check\+Connection\+Message} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message)
@@ -78,12 +54,33 @@ void {\bfseries set\+Name} (std\+::string name)
 \Hypertarget{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db}\label{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db} 
 std\+::string {\bfseries get\+Name} () const
 \item 
-\Hypertarget{class_client_1_1_network_afcf3bbd9224afa0b3de2856dc1617f10}\label{class_client_1_1_network_afcf3bbd9224afa0b3de2856dc1617f10} 
-void {\bfseries set\+Endpoint} (std\+::string \&ip, std\+::string \&port)
+\Hypertarget{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da}\label{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da} 
+void {\bfseries set\+Remote\+Endpoint} (std\+::string \&ip, std\+::string \&port)
+\item 
+\Hypertarget{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6}\label{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6} 
+boost\+::asio\+::ip\+::udp\+::endpoint {\bfseries get\+Remote\+Endpoint} () const
+\item 
+\Hypertarget{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57}\label{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57} 
+{\footnotesize template$<$typename T , typename Func $>$ }\\void {\bfseries execute\+Command} (const std\+::string \&command\+Name, Func action)
+\item 
+\Hypertarget{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee}\label{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee} 
+void {\bfseries connect\+To\+Server} ()
+\item 
+\Hypertarget{class_client_1_1_network_a9090adb4709e633a7787595896adcc07}\label{class_client_1_1_network_a9090adb4709e633a7787595896adcc07} 
+void {\bfseries update\+Name} (std\+::string name)
+\item 
+\Hypertarget{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}\label{class_client_1_1_network_af9322d011cea31df49fe776392ad0648} 
+void {\bfseries join\+Room} (int room\+Id)
+\item 
+\Hypertarget{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}\label{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c} 
+void {\bfseries send\+Key} (std\+::string key)
+\item 
+\Hypertarget{class_client_1_1_network_ac8d152775dc2181fc2989709f3dfd204}\label{class_client_1_1_network_ac8d152775dc2181fc2989709f3dfd204} 
+void {\bfseries start\+Game} (int room\+Id)
 \end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/include/Network.\+hpp\item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/src/Network.\+cpp\end{DoxyCompactItemize}
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/include/network/Network.\+hpp\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/src/network/Network.\+cpp\end{DoxyCompactItemize}

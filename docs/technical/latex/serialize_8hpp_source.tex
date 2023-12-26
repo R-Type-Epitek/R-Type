@@ -1,0 +1,81 @@
+\doxysection{serialize.\+hpp}
+\hypertarget{serialize_8hpp_source}{}\label{serialize_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/network/serialize.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/network/serialize.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 12/23/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <boost/archive/text\_iarchive.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <boost/archive/text\_oarchive.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }GameEngine::Serialize}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_engine_1_1_serialize_1_1has_serialize_method}{hasSerializeMethod}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_engine_1_1_serialize_1_1has_serialize_method}{hasSerializeMethod}}<}
+\DoxyCodeLine{00023\ \ \ \ \ T,}
+\DoxyCodeLine{00024\ \ \ \ \ decltype(std::declval<T>().serialize(std::declval<void*>(),\ std::declval<unsigned\ int>()),\ void())>}
+\DoxyCodeLine{00025\ \ \ \ \ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00028\ \ \ std::string\ serialize(T\ \textcolor{keyword}{const}\&\ \textcolor{keywordtype}{object})}
+\DoxyCodeLine{00029\ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{struct_game_engine_1_1_serialize_1_1has_serialize_method}{hasSerializeMethod<T>::value}})\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ trySerialize(\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00032\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Serialization\ not\ supported\ for\ this\ type."{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ deserialize(std::string\ \textcolor{keyword}{const}\&\ serializedData,\ T\&\ deserializedObject)}
+\DoxyCodeLine{00039\ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (hasSerializeMethod<T>::value)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ tryDeserialize(serializedData,\ deserializedObject);}
+\DoxyCodeLine{00042\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Deserialization\ not\ supported\ for\ this\ type."{}});}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00048\ \ \ std::string\ trySerialize(T\ \textcolor{keyword}{const}\&\ \textcolor{keywordtype}{object})}
+\DoxyCodeLine{00049\ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ std::ostringstream\ outputStream;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ boost::archive::text\_oarchive\ \textcolor{keyword}{const}\ archive(outputStream);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ archive\ <<\ object;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ outputStream.str();}
+\DoxyCodeLine{00056\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (std::exception\ \textcolor{keyword}{const}\&\ e)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Serialization\ failed:\ "{}}\ +\ std::string(e.what()));}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ tryDeserialize(std::string\ \textcolor{keyword}{const}\&\ serializedData,\ T\&\ deserializedObject)}
+\DoxyCodeLine{00064\ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ std::istringstream\ inputStream(serializedData);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ boost::archive::text\_iarchive\ \textcolor{keyword}{const}\ archive(inputStream);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ archive\ >>\ deserializedObject;}
+\DoxyCodeLine{00069\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (std::exception\ \textcolor{keyword}{const}\&\ e)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Deserialization\ failed:\ "{}}\ +\ std::string(e.what()));}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Serialize}}
+
+\end{DoxyCode}

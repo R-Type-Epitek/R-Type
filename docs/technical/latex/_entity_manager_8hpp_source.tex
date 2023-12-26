@@ -1,5 +1,5 @@
 \doxysection{Entity\+Manager.\+hpp}
-\hypertarget{_entity_manager_8hpp_source}{}\label{_entity_manager_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/ECS/entity/EntityManager.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/ECS/entity/EntityManager.hpp}}
+\hypertarget{_entity_manager_8hpp_source}{}\label{_entity_manager_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/entity/EntityManager.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/entity/EntityManager.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -8,30 +8,33 @@
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <queue>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <array>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Entity.hpp"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}ECS/Signature.hpp"{}}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity_manager}{EntityManager}}}
-\DoxyCodeLine{00013\ \{}
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_entity_manager}{EntityManager}}();}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ Entity\ createEntity();}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Entity.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Signature.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }GameEngine::ECS}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_entity_manager}{EntityManager}}\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_entity_manager}{EntityManager}}();}
 \DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ destroyEntity(Entity\ entity);}
+\DoxyCodeLine{00019\ \ \ \ \ Entity\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_entity_manager_af5887b54d1a418ebe06ab588b4c1f1d4}{createEntity}}();}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ setSignature(Entity\ entity,\ Signature\ signature);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_entity_manager_a5ef9d8f50b1b211edc91a4a52d25a53d}{destroyEntity}}(Entity\ entity);}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ Signature\ getSignature(Entity\ entity);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_entity_manager_afef51dc211cfcc97f0a3fb476dcb58fc}{setSignature}}(Entity\ entity,\ Signature\ signature);}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00026\ \ \ \ \ std::queue<Entity>\ m\_availableEntities\{\};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ std::array<Signature,\ MAX\_ENTITIES>\ m\_signatures\{\};}
+\DoxyCodeLine{00025\ \ \ \ \ Signature\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_entity_manager_ab59e2fca1086949aa1997fd10e358c3d}{getSignature}}(Entity\ entity);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ std::queue<Entity>\ m\_availableEntities\ \{\};}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ uint32\_t\ m\_livingEntityCount\{\};}
-\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00030\ \ \ \ \ std::array<Signature,\ ECS::MAX\_ENTITIES>\ m\_signatures\ \{\};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ uint32\_t\ m\_livingEntityCount\ \{\};}
+\DoxyCodeLine{00033\ \ \ \};}
+\DoxyCodeLine{00034\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
 
 \end{DoxyCode}

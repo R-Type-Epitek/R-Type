@@ -1,0 +1,59 @@
+\doxysection{Window.\+hpp}
+\hypertarget{_window_8hpp_source}{}\label{_window_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/UI/Window.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/UI/Window.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 12/20/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }GameEngine::UI}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{WindowContext}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ sf::RenderWindow\ window;}
+\DoxyCodeLine{00017\ \ \ \ \ sf::Event\ event;}
+\DoxyCodeLine{00018\ \ \ \ \ sf::Clock\ deltaClock;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ screenRatio;}
+\DoxyCodeLine{00020\ \ \ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_u_i_1_1_window}{Window}}\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{using\ }ClosureType\ =\ std::function<void(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{WindowContext}}\&)>;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_u_i_1_1_window}{Window}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ screenRatio);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ setFrameRate(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ subscribeEvent(std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{WindowContext}}\&)>\ closure);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ unsubscribeEvent();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ subscribeUpdate(std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{WindowContext}}\&)>\ closure);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ unsubscribeUpdate();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ subscribeDisplay(std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{WindowContext}}\&)>\ closure);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ unsubscribeDisplay();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ launch();}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ handleEvent();}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ onResize();}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ invokeClosure(ClosureType\ closure);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{WindowContext}}\ m\_windowContext;}
+\DoxyCodeLine{00048\ \ \ \ \ ClosureType\ m\_closureEvent;}
+\DoxyCodeLine{00049\ \ \ \ \ ClosureType\ m\_closureUpdate;}
+\DoxyCodeLine{00050\ \ \ \ \ ClosureType\ m\_closureDisplay;}
+\DoxyCodeLine{00051\ \ \ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::UI}}
+
+\end{DoxyCode}

@@ -7,6 +7,7 @@
 #include <boost/array.hpp>
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
+
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -17,6 +18,7 @@
 #include <thread>
 #include <chrono>
 #include <unordered_map>
+#include <spdlog/spdlog.h>
 
 // Game Engine Network
 #include "gameEngine/network/Commands.hpp"
@@ -25,16 +27,17 @@
 #include "gameEngine/network/Responses.hpp"
 #include "gameEngine/network/Statuses.hpp"
 
-#include "Commands/IHandler.hpp"
+#include "commands/IHandler.hpp"
 #include "Constants.hpp"
 #include "Client.hpp"
 #include "Room.hpp"
 #include "ThreadSafeQueue.hpp"
 #include "UDPServer.hpp"
+#include "tools/Logs.hpp"
 
 // Commands
-#include "Commands/Hello.hpp"
-#include "Commands/Input.hpp"
-#include "Commands/JoinRoom.hpp"
-#include "Commands/StartGame.hpp"
-#include "Commands/UpdateName.hpp"
+#include "commands/ConnectToServer.hpp"
+#include "commands/Input.hpp"
+#include "commands/JoinRoom.hpp"
+#include "commands/StartGame.hpp"
+#include "commands/UpdateName.hpp"

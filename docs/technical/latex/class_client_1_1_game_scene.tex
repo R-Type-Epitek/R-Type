@@ -9,39 +9,57 @@ Inheritance diagram for Client\+::Game\+Scene\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_game_scene_acecd74f1202fb739c4754c6075b3b83c}\label{class_client_1_1_game_scene_acecd74f1202fb739c4754c6075b3b83c} 
-{\bfseries Game\+Scene} (Client\+::\+Scene\+Name scene\+Name)
+\Hypertarget{class_client_1_1_game_scene_a50211f9f8e6789d7a6d295d0ce3f5fad}\label{class_client_1_1_game_scene_a50211f9f8e6789d7a6d295d0ce3f5fad} 
+{\bfseries Game\+Scene} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
 \item 
-int \mbox{\hyperlink{class_client_1_1_game_scene_ac4bea8622a95ad57a51c32867644e1ea}{poll\+Event}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{class_client_1_1_network}{Client\+::\+Network}} \&network) override
+void \mbox{\hyperlink{class_client_1_1_game_scene_a4dd6cd95f688f3fe6da927897069c8c0}{init\+Registry}} () final
 \item 
-void \mbox{\hyperlink{class_client_1_1_game_scene_a7e153175f164a436d5ac7aeefa94f1e7}{draw}} (sf\+::\+Render\+Window \&window) override
+void \mbox{\hyperlink{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1}{init\+Entities}} () final
+\item 
+\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{Game\+Engine\+::\+ECS\+::\+Registry}} \& \mbox{\hyperlink{class_client_1_1_game_scene_a3069752ebd793958ea978cdd3bf46edf}{get\+ECS}} () final
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72}\label{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72} 
+void {\bfseries init\+Custom\+System} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_client_1_1_game_scene_a7e153175f164a436d5ac7aeefa94f1e7}\label{class_client_1_1_game_scene_a7e153175f164a436d5ac7aeefa94f1e7} 
-\index{Client::GameScene@{Client::GameScene}!draw@{draw}}
-\index{draw@{draw}!Client::GameScene@{Client::GameScene}}
-\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Client\+::\+Game\+Scene\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+\Hypertarget{class_client_1_1_game_scene_a3069752ebd793958ea978cdd3bf46edf}\label{class_client_1_1_game_scene_a3069752ebd793958ea978cdd3bf46edf} 
+\index{Client::GameScene@{Client::GameScene}!getECS@{getECS}}
+\index{getECS@{getECS}!Client::GameScene@{Client::GameScene}}
+\doxysubsubsection{\texorpdfstring{getECS()}{getECS()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{Game\+Engine\+::\+ECS\+::\+Registry}} \& Client\+::\+Game\+Scene\+::get\+ECS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_scene}{Client\+::\+IScene}}.
+Implements \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{Game\+Engine\+::\+Scene\+::\+IScene}}.
 
-\Hypertarget{class_client_1_1_game_scene_ac4bea8622a95ad57a51c32867644e1ea}\label{class_client_1_1_game_scene_ac4bea8622a95ad57a51c32867644e1ea} 
-\index{Client::GameScene@{Client::GameScene}!pollEvent@{pollEvent}}
-\index{pollEvent@{pollEvent}!Client::GameScene@{Client::GameScene}}
-\doxysubsubsection{\texorpdfstring{pollEvent()}{pollEvent()}}
-{\footnotesize\ttfamily int Client\+::\+Game\+Scene\+::poll\+Event (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{\mbox{\hyperlink{class_client_1_1_network}{Client\+::\+Network}} \&}]{network }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+\Hypertarget{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1}\label{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1} 
+\index{Client::GameScene@{Client::GameScene}!initEntities@{initEntities}}
+\index{initEntities@{initEntities}!Client::GameScene@{Client::GameScene}}
+\doxysubsubsection{\texorpdfstring{initEntities()}{initEntities()}}
+{\footnotesize\ttfamily void Client\+::\+Game\+Scene\+::init\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_scene}{Client\+::\+IScene}}.
+Implements \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{Game\+Engine\+::\+Scene\+::\+IScene}}.
+
+\Hypertarget{class_client_1_1_game_scene_a4dd6cd95f688f3fe6da927897069c8c0}\label{class_client_1_1_game_scene_a4dd6cd95f688f3fe6da927897069c8c0} 
+\index{Client::GameScene@{Client::GameScene}!initRegistry@{initRegistry}}
+\index{initRegistry@{initRegistry}!Client::GameScene@{Client::GameScene}}
+\doxysubsubsection{\texorpdfstring{initRegistry()}{initRegistry()}}
+{\footnotesize\ttfamily void Client\+::\+Game\+Scene\+::init\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{Game\+Engine\+::\+Scene\+::\+IScene}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/include/\+Scenes/Game.\+hpp\item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/src/\+Scenes/Game.\+cpp\end{DoxyCompactItemize}
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/include/scene/Game.\+hpp\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/src/scene/Game.\+cpp\end{DoxyCompactItemize}

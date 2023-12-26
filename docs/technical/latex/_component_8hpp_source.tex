@@ -1,5 +1,5 @@
 \doxysection{Component.\+hpp}
-\hypertarget{_component_8hpp_source}{}\label{_component_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/ECS/component/Component.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/ECS/component/Component.hpp}}
+\hypertarget{_component_8hpp_source}{}\label{_component_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/component/Component.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/component/Component.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -7,11 +7,15 @@
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdint>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstdint>}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }ComponentType\ =\ std::uint8\_t;}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ MAX\_COMPONENTS\ =\ 32;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }GameEngine::ECS}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{using\ }ComponentType\ =\ std::uint8\_t;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{size\_t}\ \textcolor{keyword}{constexpr}\ MAX\_COMPONENTS\ =\ 32;}
+\DoxyCodeLine{00015\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
 
 \end{DoxyCode}

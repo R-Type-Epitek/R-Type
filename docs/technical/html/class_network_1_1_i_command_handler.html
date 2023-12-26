@@ -115,18 +115,18 @@ $(document).ready(function(){initNavTree('class_network_1_1_i_command_handler.ht
 <p>Interface for handling network commands.  
  <a href="class_network_1_1_i_command_handler.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_i_handler_8hpp_source.html">IHandler.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="server_2include_2commands_2_i_handler_8hpp_source.html">IHandler.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Network::ICommandHandler:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_network_1_1_i_command_handler.png" usemap="#Network::ICommandHandler_map" alt=""/>
   <map id="Network::ICommandHandler_map" name="Network::ICommandHandler_map">
-<area href="class_network_1_1_hello_command_handler.html" alt="Network::HelloCommandHandler" shape="rect" coords="0,56,235,80"/>
-<area href="class_network_1_1_input_command_handler.html" alt="Network::InputCommandHandler" shape="rect" coords="245,56,480,80"/>
-<area href="class_network_1_1_join_room_command_handler.html" alt="Network::JoinRoomCommandHandler" shape="rect" coords="490,56,725,80"/>
-<area href="class_network_1_1_start_game_command_handler.html" alt="Network::StartGameCommandHandler" shape="rect" coords="735,56,970,80"/>
-<area href="class_network_1_1_update_name_command_handler.html" alt="Network::UpdateNameCommandHandler" shape="rect" coords="980,56,1215,80"/>
+<area href="class_network_1_1_connect_to_server_command_handler.html" alt="Network::ConnectToServerCommandHandler" shape="rect" coords="0,56,264,80"/>
+<area href="class_network_1_1_input_command_handler.html" alt="Network::InputCommandHandler" shape="rect" coords="274,56,538,80"/>
+<area href="class_network_1_1_join_room_command_handler.html" alt="Network::JoinRoomCommandHandler" shape="rect" coords="548,56,812,80"/>
+<area href="class_network_1_1_start_game_command_handler.html" alt="Network::StartGameCommandHandler" shape="rect" coords="822,56,1086,80"/>
+<area href="class_network_1_1_update_name_command_handler.html" alt="Network::UpdateNameCommandHandler" shape="rect" coords="1096,56,1360,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -181,7 +181,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ICommandHandler</
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The response to the command. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_network_1_1_hello_command_handler.html#ac2cf6d313927eba3bb659a61254adf6b">Network::HelloCommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#a6e49a13cd60b8428f12129a82d9c81f2">Network::StartGameCommandHandler</a>, and <a class="el" href="class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a>.</p>
+<p>Implemented in <a class="el" href="class_network_1_1_connect_to_server_command_handler.html#acfe75182ccaa6e576fbf222b24754a86">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#a6e49a13cd60b8428f12129a82d9c81f2">Network::StartGameCommandHandler</a>, and <a class="el" href="class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a>.</p>
 
 </div>
 </div>
@@ -219,12 +219,12 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ICommandHandler</
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the client is authorized, false otherwise. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_network_1_1_hello_command_handler.html#a3f8d0c7f18614f4778b55bda72ec6001">Network::HelloCommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#a8e7839a15d2b62473b67b4296b388534">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a7097c949d5cce3914afcbe21cd0d2ee2">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#ae0109f7dd128d5a3c3488bc997f76637">Network::StartGameCommandHandler</a>, and <a class="el" href="class_network_1_1_update_name_command_handler.html#a7e232f2ad3480ba5f6ba8fb58fd4bcb5">Network::UpdateNameCommandHandler</a>.</p>
+<p>Implemented in <a class="el" href="class_network_1_1_connect_to_server_command_handler.html#a13cddd20b6262ab6ef871fb9fa8963fc">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#a8e7839a15d2b62473b67b4296b388534">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a7097c949d5cce3914afcbe21cd0d2ee2">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#ae0109f7dd128d5a3c3488bc997f76637">Network::StartGameCommandHandler</a>, and <a class="el" href="class_network_1_1_update_name_command_handler.html#a7e232f2ad3480ba5f6ba8fb58fd4bcb5">Network::UpdateNameCommandHandler</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/server/include/Commands/<a class="el" href="_i_handler_8hpp_source.html">IHandler.hpp</a></li>
+<li>/Users/xavierv/Developer/EPITECH/R-Type/server/include/commands/<a class="el" href="server_2include_2commands_2_i_handler_8hpp_source.html">IHandler.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

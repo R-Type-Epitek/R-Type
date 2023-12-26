@@ -3,8 +3,7 @@
 //
 
 #pragma once
-#include "gameEngine/UI/Window.hpp"
-#include <string>
+#include "RTypeClient.hpp"
 
 namespace Client
 {

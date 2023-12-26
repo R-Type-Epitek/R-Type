@@ -36,13 +36,13 @@ void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac4b4c1cd19635deb604ceb2a63
 \begin{DoxyCompactList}\small\item\em Init the rooms. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac2a6fa9962f244fd7ba8578d89296874}{start\+Receive}} ()
 \begin{DoxyCompactList}\small\item\em Start to receive data. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a1021f21a7a80c314f012336c456910ad}{handle\+Receive}} (const boost\+::system\+::error\+\_\+code \&error, std\+::size\+\_\+t bytes\+\_\+transferred)
+void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac97d512d745687229613d23b27a71bae}{handle\+Receive}} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+\_\+transferred)
 \begin{DoxyCompactList}\small\item\em Handle receive data. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ad4a7829a14bcc49630c18a59553fb765}{send\+To\+All}} (const boost\+::asio\+::const\+\_\+buffer \&buffer)
+void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac811ac0c540ab08eeb7fd4002e4af9d4}{send\+To\+All}} (boost\+::asio\+::const\+\_\+buffer const \&buffer)
 \begin{DoxyCompactList}\small\item\em Send data to all clients. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a89898f37c3b431af91d70976fb9df528}{send\+To\+All\+Clients\+In\+Room}} (const boost\+::asio\+::const\+\_\+buffer \&buffer, int room\+Id)
+void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a9a296cd50ace6d20256e4a94290bf1b4}{send\+To\+All\+Clients\+In\+Room}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int room\+Id)
 \begin{DoxyCompactList}\small\item\em Send data to all clients in a room. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ad308b901f24d10d50960571cd55f1494}{send\+To\+Client}} (const boost\+::asio\+::const\+\_\+buffer \&buffer, int id)
+void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a9c2f0877b54c60de4ca0a2d21696ba93}{send\+To\+Client}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int id)
 \begin{DoxyCompactList}\small\item\em Send data to a specific client. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ad31c0be7001a0123b1fe8434161665de}{process\+Message}} (\mbox{\hyperlink{struct_timed_message}{Timed\+Message}} message)
 \begin{DoxyCompactList}\small\item\em Process a \doxylink{struct_timed_message}{Timed\+Message}. \end{DoxyCompactList}\item 
@@ -50,7 +50,7 @@ void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a16bd0e5a013230d835b30a3b0c
 \begin{DoxyCompactList}\small\item\em Process a \doxylink{struct_response}{Response}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_aabec654d8576481b31d0c1e689b66699}{worker\+Function}} ()
 \begin{DoxyCompactList}\small\item\em Function executed by worker threads. \end{DoxyCompactList}\item 
-std\+::vector$<$ char $>$ \mbox{\hyperlink{class_network_1_1_u_d_p_server_a7d7c59d63925e230b99995658700b198}{create\+Response\+Buffer}} (int client\+Id, const std\+::string \&command, const std\+::string \&status\+Message, const char data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
+std\+::vector$<$ char $>$ \mbox{\hyperlink{class_network_1_1_u_d_p_server_ae39c8403eb951167f8b1255efad19880}{create\+Response\+Buffer}} (int client\+Id, std\+::string const \&command, std\+::string const \&status\+Message, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
 \begin{DoxyCompactList}\small\item\em Create a response to a client command. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ae6df6365d9c49e58434876ef104817a9}{send\+Response\+And\+Log}} (\mbox{\hyperlink{struct_timed_message}{Timed\+Message}} timed\+Message, std\+::vector$<$ char $>$ response\+Buffer)
 \begin{DoxyCompactList}\small\item\em Send a response and log it. \end{DoxyCompactList}\item 
@@ -148,11 +148,11 @@ Adds the specified client to the list of connected clients.
 
 Check clients. 
 
-Check the list of clients and remove disconnected clients. \Hypertarget{class_network_1_1_u_d_p_server_a7d7c59d63925e230b99995658700b198}\label{class_network_1_1_u_d_p_server_a7d7c59d63925e230b99995658700b198} 
+Check the list of clients and remove disconnected clients. \Hypertarget{class_network_1_1_u_d_p_server_ae39c8403eb951167f8b1255efad19880}\label{class_network_1_1_u_d_p_server_ae39c8403eb951167f8b1255efad19880} 
 \index{Network::UDPServer@{Network::UDPServer}!createResponseBuffer@{createResponseBuffer}}
 \index{createResponseBuffer@{createResponseBuffer}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{createResponseBuffer()}{createResponseBuffer()}}
-{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+UDPServer\+::create\+Response\+Buffer (\begin{DoxyParamCaption}\item[{int}]{client\+Id,  }\item[{const std\+::string \&}]{command,  }\item[{const std\+::string \&}]{status\+Message,  }\item[{const char}]{data\mbox{[}$\,$\mbox{]} = {\ttfamily nullptr},  }\item[{int}]{data\+Size = {\ttfamily 0},  }\item[{int}]{status = {\ttfamily RES\+\_\+SUCCESS} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+UDPServer\+::create\+Response\+Buffer (\begin{DoxyParamCaption}\item[{int}]{client\+Id,  }\item[{std\+::string const \&}]{command,  }\item[{std\+::string const \&}]{status\+Message,  }\item[{char const}]{data\mbox{[}$\,$\mbox{]} = {\ttfamily nullptr},  }\item[{int}]{data\+Size = {\ttfamily 0},  }\item[{int}]{status = {\ttfamily RES\+\_\+SUCCESS} }\end{DoxyParamCaption})}
 
 
 
@@ -251,11 +251,11 @@ Returns a reference to the UDP socket used by the server for communication.
 \begin{DoxyReturn}{Returns}
 Reference to the UDP socket. 
 \end{DoxyReturn}
-\Hypertarget{class_network_1_1_u_d_p_server_a1021f21a7a80c314f012336c456910ad}\label{class_network_1_1_u_d_p_server_a1021f21a7a80c314f012336c456910ad} 
+\Hypertarget{class_network_1_1_u_d_p_server_ac97d512d745687229613d23b27a71bae}\label{class_network_1_1_u_d_p_server_ac97d512d745687229613d23b27a71bae} 
 \index{Network::UDPServer@{Network::UDPServer}!handleReceive@{handleReceive}}
 \index{handleReceive@{handleReceive}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{handleReceive()}{handleReceive()}}
-{\footnotesize\ttfamily void Network\+::\+UDPServer\+::handle\+Receive (\begin{DoxyParamCaption}\item[{const boost\+::system\+::error\+\_\+code \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+\_\+transferred }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::handle\+Receive (\begin{DoxyParamCaption}\item[{boost\+::system\+::error\+\_\+code const \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+\_\+transferred }\end{DoxyParamCaption})}
 
 
 
@@ -396,11 +396,11 @@ Send the specified response to the client with the specified ID and log it.
 {\em response\+Buffer} & Vector containing the response to send. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_network_1_1_u_d_p_server_ad4a7829a14bcc49630c18a59553fb765}\label{class_network_1_1_u_d_p_server_ad4a7829a14bcc49630c18a59553fb765} 
+\Hypertarget{class_network_1_1_u_d_p_server_ac811ac0c540ab08eeb7fd4002e4af9d4}\label{class_network_1_1_u_d_p_server_ac811ac0c540ab08eeb7fd4002e4af9d4} 
 \index{Network::UDPServer@{Network::UDPServer}!sendToAll@{sendToAll}}
 \index{sendToAll@{sendToAll}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{sendToAll()}{sendToAll()}}
-{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All (\begin{DoxyParamCaption}\item[{const boost\+::asio\+::const\+\_\+buffer \&}]{buffer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer }\end{DoxyParamCaption})}
 
 
 
@@ -413,11 +413,11 @@ Send the specified data to all clients connected to the server.
 {\em buffer} & boost\+::asio\+::const\+\_\+buffer containing the data to send. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_network_1_1_u_d_p_server_a89898f37c3b431af91d70976fb9df528}\label{class_network_1_1_u_d_p_server_a89898f37c3b431af91d70976fb9df528} 
+\Hypertarget{class_network_1_1_u_d_p_server_a9a296cd50ace6d20256e4a94290bf1b4}\label{class_network_1_1_u_d_p_server_a9a296cd50ace6d20256e4a94290bf1b4} 
 \index{Network::UDPServer@{Network::UDPServer}!sendToAllClientsInRoom@{sendToAllClientsInRoom}}
 \index{sendToAllClientsInRoom@{sendToAllClientsInRoom}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{sendToAllClientsInRoom()}{sendToAllClientsInRoom()}}
-{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All\+Clients\+In\+Room (\begin{DoxyParamCaption}\item[{const boost\+::asio\+::const\+\_\+buffer \&}]{buffer,  }\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All\+Clients\+In\+Room (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer,  }\item[{int}]{room\+Id }\end{DoxyParamCaption})}
 
 
 
@@ -432,11 +432,11 @@ Send the specified data to all clients in the room with the specified ID.
 {\em room\+Id} & Integer specifying the ID of the room to send the data to. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_network_1_1_u_d_p_server_ad308b901f24d10d50960571cd55f1494}\label{class_network_1_1_u_d_p_server_ad308b901f24d10d50960571cd55f1494} 
+\Hypertarget{class_network_1_1_u_d_p_server_a9c2f0877b54c60de4ca0a2d21696ba93}\label{class_network_1_1_u_d_p_server_a9c2f0877b54c60de4ca0a2d21696ba93} 
 \index{Network::UDPServer@{Network::UDPServer}!sendToClient@{sendToClient}}
 \index{sendToClient@{sendToClient}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{sendToClient()}{sendToClient()}}
-{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+Client (\begin{DoxyParamCaption}\item[{const boost\+::asio\+::const\+\_\+buffer \&}]{buffer,  }\item[{int}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+Client (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer,  }\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 

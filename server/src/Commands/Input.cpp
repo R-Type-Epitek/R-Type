@@ -30,7 +30,7 @@ std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
 
   return this->server.createResponseBuffer(
     message->header.clientId,
-    INPUT_COMMAND,
+    message->header,
     "Get key: \"" + std::string(data->key) + "\"",
     dataToSend.data(),
     dataToSend.size());

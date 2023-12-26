@@ -1,0 +1,65 @@
+\doxysection{Game\+Engine\+::ECS\+::System\+Manager Class Reference}
+\hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager}{}\label{class_game_engine_1_1_e_c_s_1_1_system_manager}\index{GameEngine::ECS::SystemManager@{GameEngine::ECS::SystemManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager_af21cd2c42b305c50bef9313ddfbab646}{register\+System}} ()
+\begin{DoxyCompactList}\small\item\em Registers a new system and returns a shared pointer to it. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager_afed8684f95cf9609929106ea5fd17bd6}{set\+Signature}} (Signature signature)
+\begin{DoxyCompactList}\small\item\em Sets the signature for a system. \end{DoxyCompactList}\item 
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_a48c8225c2b31f4780bd10d52b71fba4a}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_a48c8225c2b31f4780bd10d52b71fba4a} 
+void {\bfseries entity\+Destroyed} (Entity entity)
+\item 
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_abf8d2d4b6da23d0d22def855123e1b57}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_abf8d2d4b6da23d0d22def855123e1b57} 
+void {\bfseries entity\+Signature\+Changed} (Entity entity, Signature entity\+Signature)
+\item 
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_a12b2508239637b89a2aee2837ce139a0}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_a12b2508239637b89a2aee2837ce139a0} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{System}} $>$ {\bfseries get\+System} (char const \texorpdfstring{$\ast$}{*}name)
+\item 
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_a65545678d95743d9a3ce56baea318fe5}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_a65545678d95743d9a3ce56baea318fe5} 
+std\+::unordered\+\_\+map$<$ char const \texorpdfstring{$\ast$}{*}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{System}} $>$ $>$ {\bfseries get\+Systems} ()
+\item 
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_acb723bf24ed4742e2a9c2b866b3059ad}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_acb723bf24ed4742e2a9c2b866b3059ad} 
+Signature {\bfseries get\+Signature} (char const \texorpdfstring{$\ast$}{*}name)
+\item 
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_a66a694f863c4d568e56542354a195f88}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_a66a694f863c4d568e56542354a195f88} 
+std\+::unordered\+\_\+map$<$ char const \texorpdfstring{$\ast$}{*}, Signature $>$ {\bfseries get\+Signatures} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_af21cd2c42b305c50bef9313ddfbab646}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_af21cd2c42b305c50bef9313ddfbab646} 
+\index{GameEngine::ECS::SystemManager@{GameEngine::ECS::SystemManager}!registerSystem@{registerSystem}}
+\index{registerSystem@{registerSystem}!GameEngine::ECS::SystemManager@{GameEngine::ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{registerSystem()}{registerSystem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::shared\+\_\+ptr$<$ T $>$ Game\+Engine\+::\+ECS\+::\+System\+Manager\+::register\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers a new system and returns a shared pointer to it. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+T$>$ 
+\end{DoxyReturn}
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_system_manager_afed8684f95cf9609929106ea5fd17bd6}\label{class_game_engine_1_1_e_c_s_1_1_system_manager_afed8684f95cf9609929106ea5fd17bd6} 
+\index{GameEngine::ECS::SystemManager@{GameEngine::ECS::SystemManager}!setSignature@{setSignature}}
+\index{setSignature@{setSignature}!GameEngine::ECS::SystemManager@{GameEngine::ECS::SystemManager}}
+\doxysubsubsection{\texorpdfstring{setSignature()}{setSignature()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Game\+Engine\+::\+ECS\+::\+System\+Manager\+::set\+Signature (\begin{DoxyParamCaption}\item[{Signature}]{signature }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the signature for a system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Signature} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/game\+Engine/include/game\+Engine/ecs/system/System\+Manager.\+hpp\end{DoxyCompactItemize}

@@ -7,10 +7,17 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/)
 add_executable(${EXEC_CLIENT}
         src/main.cpp
         src/Client.cpp
-        src/scene/SceneManager.cpp
-        src/scene/GameScene.cpp
-        src/network/Network.cpp
         src/graphics/GUI.cpp
+        src/network/commands/ConnectToServer.cpp
+        src/network/commands/Input.cpp
+        src/network/commands/JoinRoom.cpp
+        src/network/commands/StartGame.cpp
+        src/network/commands/Tracker.cpp
+        src/network/commands/UpdateName.cpp
+        src/network/tools/Logs.cpp
+        src/network/Network.cpp
+        src/scene/Game.cpp
+        src/scene/Manager.cpp
 )
 
 target_include_directories(${EXEC_CLIENT}

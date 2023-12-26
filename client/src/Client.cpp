@@ -2,6 +2,7 @@
 // Created by raphael on 12/20/23.
 //
 
+#include "RTypeClient.hpp"
 #include "Client.hpp"
 #include "gameEngine/UI/Window.hpp"
 #include "gameEngine/system/Animation.hpp"
@@ -138,5 +139,4 @@ namespace Client
   void Client::testNetwork()
   {
   }
-
 }; // namespace Client

@@ -1,0 +1,125 @@
+\doxysection{Game\+Engine\+::ECS\+::Component\+Array\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_game_engine_1_1_e_c_s_1_1_component_array}{}\label{class_game_engine_1_1_e_c_s_1_1_component_array}\index{GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}}
+Inheritance diagram for Game\+Engine\+::ECS\+::Component\+Array\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_engine_1_1_e_c_s_1_1_component_array}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_a92f8193397104051eb969b8162cce627}{insert\+Data}} (Entity entity, T component)
+\begin{DoxyCompactList}\small\item\em Inserts new component data for an entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_ac2f601f40903418ae4597bf18f33f461}{remove\+Data}} (Entity entity)
+\begin{DoxyCompactList}\small\item\em Removes component data of a specific entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_a07ad76a7e957754b34ba05942420f942}{has\+Entity}} (Entity entity) override
+\begin{DoxyCompactList}\small\item\em Checks if a component exists for an entity. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_af91a0a288eee11891c0b2f7bda0fbee2}{get\+Data}} (Entity entity)
+\begin{DoxyCompactList}\small\item\em Retrieves the component data for an entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array_a38c0057a84585d484ee5320940cb8bd3}{entity\+Destroyed}} (Entity entity) override
+\begin{DoxyCompactList}\small\item\em Handles the case when an entity is destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_component_array_a38c0057a84585d484ee5320940cb8bd3}\label{class_game_engine_1_1_e_c_s_1_1_component_array_a38c0057a84585d484ee5320940cb8bd3} 
+\index{GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}!entityDestroyed@{entityDestroyed}}
+\index{entityDestroyed@{entityDestroyed}!GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{entityDestroyed()}{entityDestroyed()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array}{Game\+Engine\+::\+ECS\+::\+Component\+Array}}$<$ T $>$\+::entity\+Destroyed (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles the case when an entity is destroyed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_i_component_array}{Game\+Engine\+::\+ECS\+::\+IComponent\+Array}}.
+
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_component_array_af91a0a288eee11891c0b2f7bda0fbee2}\label{class_game_engine_1_1_e_c_s_1_1_component_array_af91a0a288eee11891c0b2f7bda0fbee2} 
+\index{GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}!getData@{getData}}
+\index{getData@{getData}!GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array}{Game\+Engine\+::\+ECS\+::\+Component\+Array}}$<$ T $>$\+::get\+Data (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the component data for an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& 
+\end{DoxyReturn}
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_component_array_a07ad76a7e957754b34ba05942420f942}\label{class_game_engine_1_1_e_c_s_1_1_component_array_a07ad76a7e957754b34ba05942420f942} 
+\index{GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}!hasEntity@{hasEntity}}
+\index{hasEntity@{hasEntity}!GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{hasEntity()}{hasEntity()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array}{Game\+Engine\+::\+ECS\+::\+Component\+Array}}$<$ T $>$\+::has\+Entity (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if a component exists for an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_i_component_array}{Game\+Engine\+::\+ECS\+::\+IComponent\+Array}}.
+
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_component_array_a92f8193397104051eb969b8162cce627}\label{class_game_engine_1_1_e_c_s_1_1_component_array_a92f8193397104051eb969b8162cce627} 
+\index{GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}!insertData@{insertData}}
+\index{insertData@{insertData}!GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertData()}{insertData()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array}{Game\+Engine\+::\+ECS\+::\+Component\+Array}}$<$ T $>$\+::insert\+Data (\begin{DoxyParamCaption}\item[{Entity}]{entity,  }\item[{T}]{component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts new component data for an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+{\em T} & -\/ Component data \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_engine_1_1_e_c_s_1_1_component_array_ac2f601f40903418ae4597bf18f33f461}\label{class_game_engine_1_1_e_c_s_1_1_component_array_ac2f601f40903418ae4597bf18f33f461} 
+\index{GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}!removeData@{removeData}}
+\index{removeData@{removeData}!GameEngine::ECS::ComponentArray$<$ T $>$@{GameEngine::ECS::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeData()}{removeData()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_array}{Game\+Engine\+::\+ECS\+::\+Component\+Array}}$<$ T $>$\+::remove\+Data (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes component data of a specific entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/game\+Engine/include/game\+Engine/ecs/component/Component\+Array.\+hpp\end{DoxyCompactItemize}

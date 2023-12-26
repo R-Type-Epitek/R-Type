@@ -70,7 +70,7 @@ void Network::UDPServer::initServer(int port)
   this->initRooms(NUMBER_OF_ROOMS);
   this->registerCommandHandlers();
   this->startReceive();
-  this->startCheckClientsConnectionTimer();
+  // this->startCheckClientsConnectionTimer();
 
   int num_threads = std::thread::hardware_concurrency();
 
@@ -171,25 +171,7 @@ void Network::UDPServer::processMessage(TimedMessage timedMessage)
 
 void Network::UDPServer::processResponse(Response *response)
 {
-  int const width = 20;
-
-  std::stringstream ss;
-  ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
-  ss << GREEN << "Worker Thread: " << std::this_thread::get_id() << RESET
-     << "\n";
-  ss << CYAN << std::string(60, '-') << RESET << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET
-     << response->header.command << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET
-     << response->header.dataLength << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET
-     << response->header.clientId << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Status:" << RESET
-     << response->header.status << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Status Message:" << RESET
-     << response->header.statusMessage << "\n";
-  ss << CYAN << std::string(60, '-') << RESET << "\n";
-  std::cout << ss.str();
+  logResponse("Client response", response);
 
   if (!strcmp(response->header.command, SERVER_COMMAND_CHECK_CONNECTION)) {
     if (response->header.status == RES_SUCCESS) {
@@ -204,25 +186,11 @@ void Network::UDPServer::processResponse(Response *response)
 
 void Network::UDPServer::workerFunction()
 {
-  int const width = 20;
-
   while (true) {
     TimedMessage timedMessage = this->messageQueue.pop();
     Message *message = timedMessage.message;
 
-    std::stringstream ss;
-    ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
-    ss << GREEN << "Worker Thread: " << std::this_thread::get_id() << RESET
-       << "\n";
-    ss << CYAN << std::string(60, '-') << RESET << "\n";
-    ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET
-       << message->header.command << "\n";
-    ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET
-       << message->header.dataLength << "\n";
-    ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET
-       << message->header.clientId << "\n";
-    ss << CYAN << std::string(60, '-') << RESET << "\n";
-    std::cout << ss.str();
+    logMessage("Client message", message);
 
     this->processMessage(timedMessage);
   }
@@ -230,7 +198,7 @@ void Network::UDPServer::workerFunction()
 
 std::vector<char> Network::UDPServer::createResponseBuffer(
   int clientId,
-  std::string const &command,
+  MessageHeader const &messageHeader,
   std::string const &statusMessage,
   char const data[],
   int dataSize,
@@ -240,7 +208,8 @@ std::vector<char> Network::UDPServer::createResponseBuffer(
 
   ResponseHeader header;
   header.clientId = clientId;
-  strcpy(header.command, command.c_str());
+  strcpy(header.command, messageHeader.command);
+  header.commandId = messageHeader.commandId;
   header.dataLength = dataSize;
   header.status = status;
   strcpy(header.statusMessage, statusMessage.c_str());
@@ -263,38 +232,13 @@ void Network::UDPServer::sendResponseAndLog(
   TimedMessage timedMessage,
   std::vector<char> responseBuffer)
 {
-  int const width = 20;
-  auto end = std::chrono::high_resolution_clock::now();
-  auto duration_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
-                       end - timedMessage.timestamp)
-                       .count();
-  auto milliseconds = duration_ns / 1000000;
-  auto remaining_ns = duration_ns % 1000000;
-
   Response response = *(Response *)responseBuffer.data();
+
+  logTimedMessage("Server response", timedMessage, response);
+
   this->sendToClient(
     boost::asio::buffer(responseBuffer.data(), responseBuffer.size()),
     response.header.clientId);
-
-  std::stringstream ss;
-  ss << "\n" << CYAN << std::string(60, '=') << RESET << "\n";
-  ss << GREEN << "Response: " << RESET << "\n";
-  ss << CYAN << std::string(60, '-') << RESET << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET
-     << response.header.command << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET
-     << response.header.dataLength << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET
-     << response.header.clientId << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Status:" << RESET
-     << response.header.status << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Status Message:" << RESET
-     << response.header.statusMessage << "\n";
-  ss << YELLOW << std::left << std::setw(width) << "Duration:" << milliseconds
-     << "," << remaining_ns << " ms\n";
-  ss << CYAN << std::string(60, '-') << RESET << "\n";
-
-  std::cout << ss.str();
 
   this->startReceive();
 }
@@ -359,7 +303,7 @@ void Network::UDPServer::checkClients()
 void Network::UDPServer::registerCommandHandlers()
 {
   this->commandHandlers[CONNECT_TO_SERVER_COMMAND] =
-    std::make_unique<HelloCommandHandler>(*this);
+    std::make_unique<ConnectToServerCommandHandler>(*this);
   this->commandHandlers[UPDATE_NAME_COMMAND] =
     std::make_unique<UpdateNameCommandHandler>(*this);
   this->commandHandlers[JOIN_ROOM_COMMAND] =
@@ -380,7 +324,7 @@ void Network::UDPServer::handleInvalidClient(TimedMessage timedMessage)
 
   std::vector<char> responseBuffer = this->createResponseBuffer(
     clientId,
-    timedMessage.message->header.command,
+    timedMessage.message->header,
     statusMessage,
     nullptr,
     0,
@@ -393,7 +337,7 @@ void Network::UDPServer::handleInvalidCommand(TimedMessage timedMessage)
 {
   std::vector<char> responseBuffer = this->createResponseBuffer(
     timedMessage.message->header.clientId,
-    timedMessage.message->header.command,
+    timedMessage.message->header,
     "Invalid command",
     nullptr,
     0,

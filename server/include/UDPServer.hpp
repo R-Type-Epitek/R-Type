@@ -231,8 +231,8 @@ namespace Network
          *
          * @param clientId Integer specifying the ID of the client to send the
          * response to.
-         * @param command String containing the command to which the response is
-         * sent.
+         * @param messageHeader MessageHeader containing the header of the
+         * message to which the response is sent.
          * @param statusMessage String containing the status message to send.
          * @param data Pointer to the data to send.
          * @param status Integer specifying the status code to send.
@@ -241,7 +241,7 @@ namespace Network
          */
     std::vector<char> createResponseBuffer(
       int clientId,
-      std::string const &command,
+      MessageHeader const &messageHeader,
       std::string const &statusMessage,
       char const data[] = nullptr,
       int dataSize = 0,

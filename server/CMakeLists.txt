@@ -7,13 +7,14 @@ add_definitions(-DBOOST_BIND_GLOBAL_PLACEHOLDERS)
 find_package(Boost REQUIRED COMPONENTS system thread regex)
 
 add_executable(${EXEC_SERVER}
-        src/Commands/Hello.cpp
-        src/Commands/Input.cpp
-        src/Commands/JoinRoom.cpp
-        src/Commands/StartGame.cpp
-        src/Commands/UpdateName.cpp
+        src/commands/ConnectToServer.cpp
+        src/commands/Input.cpp
+        src/commands/JoinRoom.cpp
+        src/commands/StartGame.cpp
+        src/commands/UpdateName.cpp
         src/game/rtype/RtypeScene.cpp
         src/game/rtype/RtypeGame.cpp
+        src/tools/Logs.cpp
         src/Client.cpp
         src/Room.cpp
         src/ThreadSafeQueue.cpp
