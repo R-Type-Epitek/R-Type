@@ -34,14 +34,20 @@
 \DoxyCodeLine{00080\ }
 \DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_network_1_1_client_a3226b24dbca2a87dcca3f9ba02394b7c}{getRoomId}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00090\ \ \ \ \ boost::asio::ip::udp::endpoint}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ endpoint;\ \ \ \ \ \ \ }
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00093\ \ \ \ \ std::string\ name;\ }
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;\ \ \ \ \ \ \ }
-\DoxyCodeLine{00095\ \ \ \};}
-\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ Network}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_client_ad3be4336d2684741cbc37d8eea26df1d}{updateLastMessageTime}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_client_aaccc5c179993bbffb72618702127adc9}{isInactiveFor}}(\textcolor{keywordtype}{long}\ milliseconds);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00108\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00109\ \ \ \ \ boost::asio::ip::udp::endpoint}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ endpoint;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ std::string\ name;\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ std::chrono::steady\_clock::time\_point}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ lastMessageTime;\ }
+\DoxyCodeLine{00116\ \ \ \};}
+\DoxyCodeLine{00117\ \}\ \textcolor{comment}{//\ namespace\ Network}}
 
 \end{DoxyCode}

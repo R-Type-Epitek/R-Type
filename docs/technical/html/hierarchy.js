@@ -3,6 +3,7 @@ var hierarchy =
     [ "GameEngine::Asset::AssetManager::AssetManager", "class_game_engine_1_1_asset_1_1_asset_manager_1_1_asset_manager.html", null ],
     [ "Client::Client", "class_client_1_1_client.html", null ],
     [ "Network::Client", "class_network_1_1_client.html", null ],
+    [ "Client::CommandTracker", "class_client_1_1_command_tracker.html", null ],
     [ "GameEngine::Component::ComponentBuilder", "class_game_engine_1_1_component_1_1_component_builder.html", null ],
     [ "GameEngine::ECS::ComponentManager", "class_game_engine_1_1_e_c_s_1_1_component_manager.html", null ],
     [ "GameEngine::Builder::EntityBuilder", "class_game_engine_1_1_builder_1_1_entity_builder.html", null ],

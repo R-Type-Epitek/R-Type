@@ -118,6 +118,16 @@ namespace Network
     std::vector<Network::Room> &getRooms();
 
     /**
+      * @brief Gets the next client ID.
+      *
+      * Returns the ID of the next client to connect to the server and
+      * increments the ID.
+      *
+      * @return Integer specifying the ID of the next client to connect.
+      */
+    int getNextClientIdAndIncrement();
+
+    /**
       * @brief Adds a client.
       *
       * Adds the specified client to the list of connected clients.
@@ -315,17 +325,6 @@ namespace Network
     bool isClientRegistered(int clientId);
 
     /**
-      * @brief Check if a client is connected.
-      *
-      * Check if the specified client is connected to the server.
-      *
-      * @param clientId Integer specifying the ID of the client to check.
-      *
-      * @return Boolean indicating whether the client is connected.
-      */
-    bool isClientConnected(int clientId);
-
-    /**
       * @brief Register command handlers.
       *
       * Register all command handlers for the server.
@@ -380,7 +379,8 @@ namespace Network
     Network::ThreadSafeQueue<TimedMessage>
       messageQueue; ///< Queue for thread-safe message handling.
     std::vector<std::thread>
-      workers; ///< Worker threads for processing messages.
+      workers;        ///< Worker threads for processing messages.
+    int nextClientId; ///< ID of the next client to connect.
     std::vector<Network::Room> rooms; ///< Rooms available for client grouping.
     std::unordered_map<std::string, std::unique_ptr<ICommandHandler>>
       commandHandlers; ///< Command handlers for the server.

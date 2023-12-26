@@ -175,16 +175,18 @@ $(document).ready(function(){initNavTree('_network_8hpp_source.html',''); initRe
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    boost::asio::ip::udp::socket socket {this-&gt;io};</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::unordered_map&lt;std::string, std::shared_ptr&lt;ICommandHandler&gt;&gt;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      commandHandlers;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::thread receiveThread;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> clientId;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">int</span> roomId;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::string name;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  };</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::map&lt;int, std::shared_ptr&lt;CommandTracker&gt;&gt; commandTrackers;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> nextCommandId = 0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::thread receiveThread;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">int</span> clientId;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">int</span> roomId;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    std::string name;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  };</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>} <span class="comment">// namespace Client</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>} <span class="comment">// namespace Client</span></div>
 <div class="ttc" id="aclass_client_1_1_network_html"><div class="ttname"><a href="class_client_1_1_network.html">Client::Network</a></div><div class="ttdef"><b>Definition</b> Network.hpp:10</div></div>
-<div class="ttc" id="astruct_message_html"><div class="ttname"><a href="struct_message.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition</b> Messages.hpp:29</div></div>
-<div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:17</div></div>
+<div class="ttc" id="astruct_message_html"><div class="ttname"><a href="struct_message.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition</b> Messages.hpp:30</div></div>
+<div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

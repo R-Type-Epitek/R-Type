@@ -8,7 +8,12 @@
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}RTypeNetwork.hpp"{}}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ logMessage(\mbox{\hyperlink{struct_message}{Message}}\ *message,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
-\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ logResponse(\mbox{\hyperlink{struct_response}{Response}}\ *response,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ logMessage(std::string\ prefix,\ \mbox{\hyperlink{struct_message}{Message}}\ *message,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ logResponse(std::string\ prefix,\ \mbox{\hyperlink{struct_response}{Response}}\ *response,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
+\DoxyCodeLine{00009\ \textcolor{keywordtype}{void}\ logTimedMessage(}
+\DoxyCodeLine{00010\ \ \ std::string\ prefix,}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{struct_timed_message}{TimedMessage}}\ timedMessage,}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{struct_response}{Response}}\ response,}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
 
 \end{DoxyCode}

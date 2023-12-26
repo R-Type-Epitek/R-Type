@@ -13,15 +13,16 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ \{}
 \DoxyCodeLine{00010\ \ \ \textcolor{keywordtype}{int}\ clientId;}
 \DoxyCodeLine{00011\ \ \ \textcolor{keywordtype}{char}\ command[32];}
-\DoxyCodeLine{00012\ \ \ uint32\_t\ dataLength;}
-\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{int}\ status;}
-\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{char}\ statusMessage[128];}
-\DoxyCodeLine{00015\ \};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response}{Response}}\ \{}
-\DoxyCodeLine{00018\ \ \ MessageType\ \mbox{\hyperlink{struct_response_a08ce134a630bc34de033eb6e0f10255e}{type}}\ =\ MessageType::Message;\ }
-\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ header;}
-\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{char}\ data[];}
-\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{int}\ commandId;}
+\DoxyCodeLine{00013\ \ \ uint32\_t\ dataLength;}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{int}\ status;}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{char}\ statusMessage[128];}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_response}{Response}}\ \{}
+\DoxyCodeLine{00019\ \ \ MessageType\ \mbox{\hyperlink{struct_response_a08ce134a630bc34de033eb6e0f10255e}{type}}\ =\ MessageType::Message;\ }
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{struct_response_header}{ResponseHeader}}\ header;}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{char}\ data[];}
+\DoxyCodeLine{00022\ \};}
 
 \end{DoxyCode}
