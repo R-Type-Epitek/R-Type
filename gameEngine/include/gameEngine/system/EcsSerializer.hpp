@@ -6,12 +6,10 @@
 
 #include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/NetworkedEntity.hpp"
-
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/ecs/system/System.hpp"
-
 #include "gameEngine/network/Serializer.hpp"
 
 #include <algorithm>

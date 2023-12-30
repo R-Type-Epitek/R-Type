@@ -5,6 +5,7 @@
 #pragma once
 
 #include "constants/constants.hpp"
+
 #include <utility>
 
 using Vec3 = int;

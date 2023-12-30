@@ -6,6 +6,7 @@
 
 #include "Entity.hpp"
 #include "gameEngine/ecs/Signature.hpp"
+
 #include <array>
 #include <cstdint>
 #include <queue>

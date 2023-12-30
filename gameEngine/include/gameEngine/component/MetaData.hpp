@@ -5,6 +5,7 @@
 #pragma once
 
 #include "gameEngine/network/Serializer.hpp"
+
 #include <cstdlib>
 #include <string>
 #include <utility>

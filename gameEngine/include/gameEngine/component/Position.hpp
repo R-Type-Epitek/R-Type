@@ -10,6 +10,7 @@
 
 #pragma once
 
+#include <SFML/System/Vector2.hpp>
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/serialization/string.hpp>
@@ -17,7 +18,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <SFML/System/Vector2.hpp>
 
 namespace ComponentRType
 {

@@ -5,6 +5,7 @@
 #pragma once
 
 #include "gameEngine/ecs/component/Component.hpp"
+
 #include <bitset>
 
 namespace GameEngine::ECS

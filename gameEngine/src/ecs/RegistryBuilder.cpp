@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/ecs/RegistryBuilder.hpp"
+
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/Sprite.hpp"
@@ -10,10 +11,11 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/Signature.hpp"
 #include "gameEngine/system/Animation.hpp"
+#include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
-#include "gameEngine/system/EcsSerializer.hpp"
+
 #include <memory>
 #include <utility>
 

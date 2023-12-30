@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/scene/SceneContainer.hpp"
+
 #include <stdexcept>
 
 namespace GameEngine::Scene

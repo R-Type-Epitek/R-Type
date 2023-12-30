@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/asset/AssetManager.hpp"
+
 #include <exception>
 #include <filesystem>
 #include <iostream>

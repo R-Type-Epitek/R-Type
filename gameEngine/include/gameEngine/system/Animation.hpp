@@ -11,6 +11,7 @@
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/gfx/sfml/SfmlDisplay.hpp"
+
 #include <SFML/Graphics.hpp>
 #include <memory>
 

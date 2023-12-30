@@ -3,8 +3,9 @@
 //
 
 #pragma once
-#include <cstddef>
 #include "gameEngine/network/Serializer.hpp"
+
+#include <cstddef>
 
 namespace ComponentRType
 {

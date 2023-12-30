@@ -7,6 +7,7 @@
 #include "Component.hpp"
 #include "IComponent.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
+
 #include <array>
 #include <cassert>
 #include <unordered_map>

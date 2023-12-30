@@ -5,6 +5,7 @@
 #pragma once
 
 #include "IScene.hpp"
+
 #include <map>
 #include <memory>
 #include <string>

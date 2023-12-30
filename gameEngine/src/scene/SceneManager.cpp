@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/scene/SceneManager.hpp"
+
 #include <cassert>
 #include <string>
 #include <utility>

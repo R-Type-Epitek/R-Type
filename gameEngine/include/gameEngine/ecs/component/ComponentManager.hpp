@@ -7,6 +7,7 @@
 #include "ComponentArray.hpp"
 #include "gameEngine/ecs/component/IComponent.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
+
 #include <cassert>
 #include <memory>
 #include <typeinfo>

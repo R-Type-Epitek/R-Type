@@ -5,6 +5,7 @@
 #pragma once
 
 #include "constants/constants.hpp"
+
 #include <SFML/Graphics.hpp>
 
 class SfmlDisplay {

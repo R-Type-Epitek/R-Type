@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/ecs/EntityBuilder.hpp"
+
 #include "gameEngine/ecs/Registry.hpp"
 
 namespace GameEngine::Builder

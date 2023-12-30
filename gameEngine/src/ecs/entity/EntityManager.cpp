@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/ecs/entity/EntityManager.hpp"
+
 #include <cassert>
 
 namespace GameEngine::ECS
