@@ -19,6 +19,7 @@ namespace GameEngine::Builder
       m_registry->registerComponent<T>();
     };
 
+    void registerAllMandatoryComponent();
     void buildSystemRenderer();
     void buildSystemAnimation();
     void buildSystemPhysics();
