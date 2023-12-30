@@ -139,9 +139,8 @@ void Client::Network::sendMessage(std::string const &command, char const data[],
 
   std::thread([this, commandId, command]() {
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    if (!commandTrackers[commandId]->getIsCompleted()) {
-      std::cout << "Command " << command << " timed out" << std::endl;
-    }
+    if (!commandTrackers[commandId]->getIsCompleted())
+      spdlog::error("Command {} timed out", command);
     commandTrackers.erase(commandId);
   }).detach();
 }
@@ -194,11 +193,11 @@ void Client::Network::startReceive()
 
 void Client::Network::onReceive(boost::system::error_code const &error, std::size_t bytesTransferred)
 {
-  (void)bytesTransferred;
-  if (error && error == boost::asio::error::message_size) {
-    std::cout << "Error: " << error << std::endl;
-    return;
-  }
+  if (error && error == boost::asio::error::message_size)
+    return spdlog::error(
+      "Error: {} ({} bytes)",
+      error.message(),
+      bytesTransferred);
 
   MessageType *type = (MessageType *)this->recvBuffer.data();
 

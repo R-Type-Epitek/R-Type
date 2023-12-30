@@ -125,22 +125,23 @@ $(document).ready(function(){initNavTree('_responses_8hpp_source.html',''); init
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="struct_response_header.html">    9</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_response_header.html">ResponseHeader</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keywordtype">int</span> clientId;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="keywordtype">char</span> command[32];</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  uint32_t dataLength;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keywordtype">int</span> status;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordtype">char</span> statusMessage[128];</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keywordtype">int</span> commandId;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  uint32_t dataLength;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordtype">int</span> status;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordtype">char</span> statusMessage[128];</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
 </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="struct_response.html">   17</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_response.html">Response</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_response.html#a08ce134a630bc34de033eb6e0f10255e">   18</a></span>  MessageType <a class="code hl_variable" href="struct_response.html#a08ce134a630bc34de033eb6e0f10255e">type</a> = MessageType::Message; </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <a class="code hl_struct" href="struct_response_header.html">ResponseHeader</a> header;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">char</span> data[];</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_response.html">   18</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_response.html">Response</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="struct_response.html#a08ce134a630bc34de033eb6e0f10255e">   19</a></span>  MessageType <a class="code hl_variable" href="struct_response.html#a08ce134a630bc34de033eb6e0f10255e">type</a> = MessageType::Message; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_struct" href="struct_response_header.html">ResponseHeader</a> header;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keywordtype">char</span> data[];</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
 </div>
 <div class="ttc" id="astruct_response_header_html"><div class="ttname"><a href="struct_response_header.html">ResponseHeader</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:9</div></div>
-<div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:17</div></div>
-<div class="ttc" id="astruct_response_html_a08ce134a630bc34de033eb6e0f10255e"><div class="ttname"><a href="struct_response.html#a08ce134a630bc34de033eb6e0f10255e">Response::type</a></div><div class="ttdeci">MessageType type</div><div class="ttdoc">Type of the message.</div><div class="ttdef"><b>Definition</b> Responses.hpp:18</div></div>
+<div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:18</div></div>
+<div class="ttc" id="astruct_response_html_a08ce134a630bc34de033eb6e0f10255e"><div class="ttname"><a href="struct_response.html#a08ce134a630bc34de033eb6e0f10255e">Response::type</a></div><div class="ttdeci">MessageType type</div><div class="ttdoc">Type of the message.</div><div class="ttdef"><b>Definition</b> Responses.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

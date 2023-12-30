@@ -9,6 +9,9 @@
 
 #define MAX_NAME_LENGTH 32
 
+#define CLIENT_INACTIVE_CHECK_INTERVAL 1000
+#define CLIENT_INACTIVE_TIMEOUT        3000
+
 // Colors
 std::string const RED = "\033[31m";
 std::string const GREEN = "\033[32m";
