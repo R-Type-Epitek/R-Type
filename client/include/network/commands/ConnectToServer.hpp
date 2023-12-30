@@ -3,7 +3,10 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+
+// Client
+#include "network/Network.hpp"
+#include "network/commands/IHandler.hpp"
 
 namespace Client
 {

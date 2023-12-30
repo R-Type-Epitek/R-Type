@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "network/commands/IHandler.hpp"
 
 namespace Client
 {
@@ -16,7 +16,6 @@ namespace Client
     bool getIsCompleted() const;
     void setIsCompleted(bool isCompleted);
 
-   protected:
    private:
     std::string command;
     std::chrono::steady_clock::time_point sendTime;

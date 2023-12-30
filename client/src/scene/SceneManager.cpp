@@ -2,7 +2,11 @@
 // Created by raphael on 12/21/23.
 //
 
-#include "RTypeClient.hpp"
+#include "scene/SceneManager.hpp"
+
+#include "scene/GameScene.hpp"
+
+#include <memory>
 
 namespace Client::Scene
 {

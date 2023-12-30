@@ -1,7 +1,10 @@
 //
 // Created by edouard on 12/12/23.
 //
-#include "RTypeClient.hpp"
+
+#include "Client.hpp"
+
+#include <spdlog/spdlog.h>
 
 int main()
 {

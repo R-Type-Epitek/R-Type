@@ -3,7 +3,22 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "Constants.hpp"
+#include "gameEngine/network/Commands.hpp"
+#include "gameEngine/network/Messages.hpp"
+#include "gameEngine/network/Responses.hpp"
+#include "gameEngine/network/Statuses.hpp"
+#include "network/commands/IHandler.hpp"
+#include "network/commands/Tracker.hpp"
+
+#include <boost/array.hpp>
+#include <boost/asio.hpp>
+#include <boost/asio/buffer.hpp>
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+#include <iostream>
+#include <map>
+#include <string>
 
 namespace Client
 {

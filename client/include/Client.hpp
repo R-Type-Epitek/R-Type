@@ -3,7 +3,13 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "gameEngine/UI/Window.hpp"
+#include "graphics/GUI.hpp"
+#include "network/Network.hpp"
+#include "scene/SceneManager.hpp"
+
+#include <memory>
+#include <string>
 
 namespace Client
 {

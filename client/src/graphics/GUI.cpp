@@ -1,7 +1,7 @@
 //
 // Created by raphael on 12/20/23.
 //
-#include "RTypeClient.hpp"
+#include "graphics/GUI.hpp"
 
 namespace Client
 {

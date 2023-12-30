@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "gameEngine/network/Responses.hpp"
 
 namespace Client
 {

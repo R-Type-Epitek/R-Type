@@ -3,17 +3,20 @@
 //
 
 #include "Client.hpp"
+
 #include "gameEngine/UI/Window.hpp"
 #include "gameEngine/system/Animation.hpp"
+#include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
-#include "gameEngine/system/EcsSerializer.hpp"
 #include "graphics/GUI.hpp"
+#include "network/Constants.hpp"
 #include "network/Network.hpp"
 #include "network/system/Keyboard.hpp"
 #include "scene/SceneManager.hpp"
 #include "spdlog/spdlog.h"
+
 #include <exception>
 #include <memory>
 
