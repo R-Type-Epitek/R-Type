@@ -5,7 +5,7 @@
 #pragma once
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/archive/text_oarchive.hpp>
-#include <boost/serialization/string.hpp>
+#include <boost/serialization/access.hpp>
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
@@ -13,71 +13,58 @@
 #include <cstring>
 #include <memory>
 #include <sstream>
-#include <stdexcept>
 #include <string>
 #include <vector>
-#include <memory>
 
 namespace GameEngine::Network::Serializer
 {
+  class BaseNetworkComponent {
+  public:
+    virtual ~BaseNetworkComponent() = default;
+
+  private:
+    friend class boost::serialization::access;
+    template<class Archive>
+    void serialize(Archive &, const unsigned int)
+    {
+      // Base class has no data to serialize
+    }
+  };
+
   class EcsSerializer {
   public:
     template<typename T, typename Archive>
     static void serializeComponent(
-      std::shared_ptr<GameEngine::ECS::ComponentManager> &componentManager,
+      GameEngine::ECS::ComponentManager &componentManager,
       const GameEngine::ECS::Entity &entity,
       Archive &archive)
     {
-      auto &component = componentManager->getComponent<T>(entity);
+      auto &component = componentManager.getComponent<T>(entity);
       archive << component;
     }
 
-    template<typename T>
-    static void deserializeComponent(
-      std::shared_ptr<GameEngine::ECS::ComponentManager> &componentManager,
-      const std::vector<char> &serializedData,
-      size_t &currentIndex)
+    template<typename T, typename Archive>
+    static T deserializeComponent(Archive &archive)
     {
-      std::istringstream inputStream;
-      inputStream.rdbuf()->pubsetbuf(
-        const_cast<char *>(&serializedData[currentIndex]),
-        serializedData.size() - currentIndex);
-
-      boost::archive::text_iarchive const currentArchive(inputStream);
       T component;
-      currentArchive >> component;
-
-      // Add the deserialized component to the entity
-      //      auto entity = createEntity(); // Implement this function to create an entity
-      //      componentManager->addComponent<T>(entity, std::move(component));
-
-      currentIndex += inputStream.tellg();
+      archive >> component;
+      return component;
     }
 
-    // Helper function to append a type identifier to the buffer
-    template<typename T>
-    static void appendTypeIdentifier(std::vector<char> &buffer)
+    template<typename T, typename Archive>
+    static T &deserializeComponentToEntity(
+      GameEngine::ECS::ComponentManager &componentManager,
+      const GameEngine::ECS::Entity &entity,
+      Archive &archive)
     {
-      int typeId = getTypeIdentifier<T>();
-      buffer.insert(
-        buffer.end(),
-        reinterpret_cast<char *>(&typeId),
-        reinterpret_cast<char *>(&typeId) + sizeof(int));
-    }
+      auto &component = componentManager.getComponent<T>(entity);
+      T componentData;
+      archive >> componentData;
+      component = componentData;
+      return componentData;
 
-    // Helper function to append serialized data to the buffer
-    static void appendSerializedData(const std::string &data, std::vector<char> &buffer)
-    {
-      buffer.insert(buffer.end(), data.begin(), data.end());
-    }
-
-    // Helper function to get a unique type identifier for each component type
-    template<typename T>
-    static int getTypeIdentifier()
-    {
-      static int typeIdCounter = 0;
-      static const int typeId = typeIdCounter++;
-      return typeId;
+      //      archive >> component;
+      //      return component;
     }
   };
-}
+}; // namespace GameEngine::Network::Serializer
