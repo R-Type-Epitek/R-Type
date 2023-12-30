@@ -4,8 +4,7 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::StartGameCommandHandler::StartGameCommandHandler(
-  Network::UDPServer &server)
+Network::StartGameCommandHandler::StartGameCommandHandler(Network::UDPServer &server)
   : server(server)
 {
 }
@@ -18,8 +17,7 @@ bool Network::StartGameCommandHandler::isAuthorized(int clientId)
   return false;
 }
 
-std::vector<char> Network::StartGameCommandHandler::handleCommand(
-  Message *message)
+std::vector<char> Network::StartGameCommandHandler::handleCommand(Message *message)
 {
   StartGameData *data = (StartGameData *)message->data;
 

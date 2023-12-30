@@ -2,10 +2,27 @@
 // Created by raphael on 12/20/23.
 //
 
-#include "RTypeClient.hpp"
+#include "Client.hpp"
+
+#include "gameEngine/UI/Window.hpp"
+#include "gameEngine/system/Animation.hpp"
+#include "gameEngine/system/EcsSerializer.hpp"
+#include "gameEngine/system/Keyboard.hpp"
+#include "gameEngine/system/Physics.hpp"
+#include "gameEngine/system/Renderer.hpp"
+#include "graphics/GUI.hpp"
+#include "network/Constants.hpp"
+#include "network/Network.hpp"
+#include "network/system/Keyboard.hpp"
+#include "scene/SceneManager.hpp"
+#include "spdlog/spdlog.h"
+
+#include <exception>
+#include <memory>
 
 namespace Client
 {
+
   Client::Client()
   {
     spdlog::info("Starting Client...");
@@ -27,9 +44,12 @@ namespace Client
       };
       spdlog::info("Done");
 
+      spdlog::info("Connecting to game room [0]...");
       m_network->updateName("John Doe");
       m_network->joinRoom(0);
       m_network->startGame(0);
+      spdlog::info("Done");
+
     } catch (std::exception const&) {
       spdlog::error("Failed to initialize Network");
     }
@@ -39,7 +59,7 @@ namespace Client
   {
     try {
       spdlog::info("Starting Scenes...");
-      m_sceneManager = std::make_unique<SceneManager>();
+      m_sceneManager = std::make_unique<Scene::SceneManager>();
       m_sceneManager->initScenes();
       m_sceneManager->initScenesWithNetwork(*m_network);
       spdlog::info("Done");
@@ -79,25 +99,20 @@ namespace Client
     m_gui->launch();
   }
 
-  void Client::update(GameEngine::UI::WindowContext& ctx)
+  void Client::update(GameEngine::UI::WindowContext&)
   {
     auto& ecs = this->m_sceneManager->getCurrent().getECS();
     auto&& systems = ecs.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
-      if (
-        auto sys_physics =
-          std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
+      if (auto sys_physics = std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
         sys_physics->update();
       } else if (
-        auto sys_renderer =
-          std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
-        sys_renderer->update(ecs, ctx);
-      } else if (
-        auto sys_animation =
-          std::dynamic_pointer_cast<GameEngine::System::Animation>(
-            system_ptr)) {
-        sys_animation->update(ecs);
+        auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
+        auto vec = sys_serializer->serialise(ecs);
+
+        //        For Tests only
+        sys_serializer->deserialize(ecs, vec);
       }
     }
   }
@@ -108,22 +123,27 @@ namespace Client
     auto&& systems = ecs.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
-      if (
-        auto sys_keyboard =
-          std::dynamic_pointer_cast<GameEngine::System::Keyboard>(system_ptr)) {
+      if (auto sys_keyboard = std::dynamic_pointer_cast<GameEngine::System::Keyboard>(system_ptr)) {
         sys_keyboard->update(ecs, ctx);
       }
-      if (
-        auto sys_keyboard_net =
-          std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
+      if (auto sys_keyboard_net = std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
         sys_keyboard_net->update(ctx, *m_network);
       }
     }
   }
 
-  void Client::display(GameEngine::UI::WindowContext&)
+  void Client::display(GameEngine::UI::WindowContext& ctx)
   {
-    return;
+    auto& ecs = this->m_sceneManager->getCurrent().getECS();
+    auto&& systems = ecs.getSystems();
+
+    for (auto& [typeId, system_ptr] : systems) {
+      if (auto sys_renderer = std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
+        sys_renderer->update(ecs, ctx);
+      } else if (auto sys_animation = std::dynamic_pointer_cast<GameEngine::System::Animation>(system_ptr)) {
+        sys_animation->update(ecs);
+      }
+    }
   }
 
   void Client::testNetwork()

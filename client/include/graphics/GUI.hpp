@@ -3,13 +3,15 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "gameEngine/UI/Window.hpp"
+
+#include <string>
 
 namespace Client
 {
 
   class GUI : public GameEngine::UI::Window {
-  public:
+   public:
     GUI(int width, int height, std::string& name, float screenRatio);
   };
 } // namespace Client

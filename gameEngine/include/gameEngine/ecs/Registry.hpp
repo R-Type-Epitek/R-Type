@@ -10,13 +10,14 @@
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/ecs/entity/EntityManager.hpp"
 #include "gameEngine/ecs/system/SystemManager.hpp"
+
 #include <memory>
 #include <unordered_map>
 
 namespace GameEngine::ECS
 {
   class Registry {
-  public:
+   public:
     Registry()
     {
       m_componentManager = std::make_shared<ComponentManager>();
@@ -115,8 +116,7 @@ namespace GameEngine::ECS
       return m_entityManager->getSignature(entity);
     }
 
-    std::unordered_map<char const*, std::shared_ptr<IComponentArray>>
-    getComponents(Entity& entity)
+    std::unordered_map<char const*, std::shared_ptr<IComponentArray>> getComponents(Entity& entity)
     {
       return m_componentManager->getComponentsWithEntity(entity);
     }
@@ -126,7 +126,7 @@ namespace GameEngine::ECS
       return m_componentManager;
     }
 
-  private:
+   private:
     std::shared_ptr<ComponentManager> m_componentManager;
     std::unique_ptr<EntityManager> m_entityManager;
     std::unique_ptr<SystemManager> m_systemManager;

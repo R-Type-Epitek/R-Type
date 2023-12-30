@@ -3,8 +3,9 @@
 //
 
 #pragma once
-#include <cstdint>
 #include "MessageType.hpp"
+
+#include <cstdint>
 
 /**
  * @struct MessageHeader

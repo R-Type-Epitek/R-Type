@@ -3,12 +3,15 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "network/commands/IHandler.hpp"
+
+#include <chrono>
+#include <string>
 
 namespace Client
 {
   class CommandTracker {
-  public:
+   public:
     CommandTracker(const std::string &command);
     ~CommandTracker() = default;
     const std::string &getCommand() const;
@@ -16,8 +19,7 @@ namespace Client
     bool getIsCompleted() const;
     void setIsCompleted(bool isCompleted);
 
-  protected:
-  private:
+   private:
     std::string command;
     std::chrono::steady_clock::time_point sendTime;
     bool isCompleted;

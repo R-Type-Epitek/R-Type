@@ -2,9 +2,13 @@
 // Created by raphael on 12/21/23.
 //
 
-#include "RTypeClient.hpp"
+#include "scene/SceneManager.hpp"
 
-namespace Client
+#include "scene/GameScene.hpp"
+
+#include <memory>
+
+namespace Client::Scene
 {
   void SceneManager::initScenes()
   {
@@ -14,7 +18,6 @@ namespace Client
   {
     m_scenes.addScene("GameTest0", std::make_unique<GameScene>(network));
     m_scenes.addScene("GameTest1", std::make_unique<GameScene>(network));
-    m_scenes.addScene("GameTest2", std::make_unique<GameScene>(network));
     setCurrent("GameTest0");
   }
 } // namespace Client

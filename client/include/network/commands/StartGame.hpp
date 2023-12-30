@@ -3,20 +3,21 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "network/Network.hpp"
+#include "network/commands/IHandler.hpp"
 
 namespace Client
 {
   class StartGameCommandHandler : public ICommandHandler {
-  public:
+   public:
     StartGameCommandHandler(Network& network);
     void setRoomId(int roomId);
     int getRoomId() const;
     void send() override;
     void onResponse(Response* response) override;
 
-  protected:
-  private:
+   protected:
+   private:
     Network& network;
     int roomId;
   };

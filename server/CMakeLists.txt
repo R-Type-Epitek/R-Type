@@ -45,5 +45,6 @@ target_link_libraries(${EXEC_SERVER}
         GameEngine
         Boost::boost
         Boost::system
+        Boost::serialization
         spdlog::spdlog
 )

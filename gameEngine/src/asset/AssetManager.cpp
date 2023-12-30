@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/asset/AssetManager.hpp"
+
 #include <exception>
 #include <filesystem>
 #include <iostream>
@@ -38,9 +39,7 @@ namespace GameEngine::Asset::AssetManager
     m_textures.erase(textureId);
   }
 
-  void AssetManager::loadTexture(
-    std::string const& path,
-    std::string const& textureId)
+  void AssetManager::loadTexture(std::string const& path, std::string const& textureId)
   {
     sf::Texture texture;
     if (texture.loadFromFile(path)) {

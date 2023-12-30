@@ -26,6 +26,7 @@ add_definitions("-DBOOST_BIND_GLOBAL_PLACEHOLDERS")
 find_package(Boost
         REQUIRED COMPONENTS
         system
+        serialization
         thread
         regex
 )

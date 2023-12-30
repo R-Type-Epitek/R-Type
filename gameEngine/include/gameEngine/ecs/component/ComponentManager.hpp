@@ -7,6 +7,7 @@
 #include "ComponentArray.hpp"
 #include "gameEngine/ecs/component/IComponent.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
+
 #include <cassert>
 #include <memory>
 #include <typeinfo>
@@ -15,7 +16,7 @@
 namespace GameEngine::ECS
 {
   class ComponentManager {
-  public:
+   public:
     /// \brief Registers a new component type.
     template<typename T>
     void registerComponent()
@@ -27,8 +28,7 @@ namespace GameEngine::ECS
         "Registering component type more than once.");
 
       m_componentTypes.insert({typeName, m_nextComponentType});
-      m_componentArrays.insert(
-        {typeName, std::make_shared<ComponentArray<T>>()});
+      m_componentArrays.insert({typeName, std::make_shared<ComponentArray<T>>()});
       ++m_nextComponentType;
     }
 
@@ -87,11 +87,9 @@ namespace GameEngine::ECS
     /// \brief Retrieves all components associated with a specific entity.
     /// \param Entity
     /// \return std::unordered_map<const char*, std::shared_ptr<IComponentArray>>
-    std::unordered_map<char const*, std::shared_ptr<IComponentArray>>
-    getComponentsWithEntity(Entity entity)
+    std::unordered_map<char const*, std::shared_ptr<IComponentArray>> getComponentsWithEntity(Entity entity)
     {
-      std::unordered_map<char const*, std::shared_ptr<IComponentArray>>
-        components;
+      std::unordered_map<char const*, std::shared_ptr<IComponentArray>> components;
       for (auto const& pair : m_componentArrays) {
         auto const& component = pair.second;
         if (component->hasEntity(entity)) {
@@ -101,11 +99,10 @@ namespace GameEngine::ECS
       return components;
     }
 
-  private:
+   private:
     std::unordered_map<char const*, ComponentType> m_componentTypes {};
 
-    std::unordered_map<char const*, std::shared_ptr<IComponentArray>>
-      m_componentArrays {};
+    std::unordered_map<char const*, std::shared_ptr<IComponentArray>> m_componentArrays {};
 
     ComponentType m_nextComponentType {};
 
@@ -118,8 +115,7 @@ namespace GameEngine::ECS
         m_componentTypes.find(typeName) != m_componentTypes.end() &&
         "ComponentRType not registered before use.");
 
-      return std::static_pointer_cast<ComponentArray<T>>(
-        m_componentArrays[typeName]);
+      return std::static_pointer_cast<ComponentArray<T>>(m_componentArrays[typeName]);
     }
   };
 }; // namespace GameEngine::ECS

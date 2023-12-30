@@ -12,9 +12,6 @@
       "name": "spdlog"
     },
     {
-      "name": "boost-serialization"
-    },
-    {
       "name": "boost-thread"
     },
     {
@@ -28,6 +25,9 @@
     },
     {
       "name": "boost-crc"
+    },
+    {
+      "name": "boost-serialization"
     }
   ],
   "homepage": "https://github.com/your-username/your-repo",

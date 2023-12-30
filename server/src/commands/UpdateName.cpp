@@ -4,8 +4,7 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::UpdateNameCommandHandler::UpdateNameCommandHandler(
-  Network::UDPServer &server)
+Network::UpdateNameCommandHandler::UpdateNameCommandHandler(Network::UDPServer &server)
   : server(server)
 {
 }
@@ -18,8 +17,7 @@ bool Network::UpdateNameCommandHandler::isAuthorized(int clientId)
   return false;
 }
 
-std::vector<char> Network::UpdateNameCommandHandler::handleCommand(
-  Message *message)
+std::vector<char> Network::UpdateNameCommandHandler::handleCommand(Message *message)
 {
   UpdateNameData *data = (UpdateNameData *)message->data;
 

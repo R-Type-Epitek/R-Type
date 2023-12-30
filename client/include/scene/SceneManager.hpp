@@ -3,12 +3,13 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "gameEngine/scene/SceneManager.hpp"
+#include "network/Network.hpp"
 
-namespace Client
+namespace Client::Scene
 {
   class SceneManager : public GameEngine::Scene::SceneManager {
-  public:
+   public:
     ~SceneManager() = default;
 
     void initScenes() final;

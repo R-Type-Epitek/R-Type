@@ -8,6 +8,7 @@
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
+
 #include <chrono>
 #include <iostream>
 #include <memory>
@@ -16,7 +17,7 @@ namespace GameEngine::System
 {
 
   class Physics : public GameEngine::ECS::System {
-  public:
+   public:
     void update()
     {
       return;

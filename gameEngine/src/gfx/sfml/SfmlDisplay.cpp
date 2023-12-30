@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/gfx/sfml/SfmlDisplay.hpp"
+
 #include <SFML/Graphics.hpp>
 
 /// \brief Display sprite in a SFML RenderWindow

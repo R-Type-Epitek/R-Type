@@ -3,18 +3,21 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+
+// Client
+#include "network/Network.hpp"
+#include "network/commands/IHandler.hpp"
 
 namespace Client
 {
   class ConnectToServerCommandHandler : public ICommandHandler {
-  public:
+   public:
     ConnectToServerCommandHandler(Network& network);
     void send() override;
     void onResponse(Response* response) override;
 
-  protected:
-  private:
+   protected:
+   private:
     Network& network;
   };
 }

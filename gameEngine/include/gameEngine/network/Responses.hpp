@@ -4,6 +4,7 @@
 
 #pragma once
 #include "MessageType.hpp"
+
 #include <cstdint>
 
 struct ResponseHeader {

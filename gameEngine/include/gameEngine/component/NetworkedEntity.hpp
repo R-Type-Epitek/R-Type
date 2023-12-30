@@ -1,25 +1,27 @@
 //
-// Created by raphael on 12/23/23.
+// Created by raphael on 12/28/23.
 //
 
 #pragma once
-
 #include "gameEngine/network/Serializer.hpp"
 
-#include <cstdlib>
-#include <string>
-#include <utility>
+#include <cstddef>
 
 namespace ComponentRType
 {
 
-  struct MetaData : public GameEngine::Network::Serializer::BaseNetworkComponent {
-    std::string name;
+  struct NetworkedEntity : public GameEngine::Network::Serializer::BaseNetworkComponent {
+    size_t id;
 
-    MetaData() = default;
-    explicit MetaData(std::string n)
-      : name(std::move(n))
+    NetworkedEntity() = default;
+    explicit NetworkedEntity(size_t id)
+      : id(id)
     {
+    }
+
+    friend bool operator==(const NetworkedEntity &lhs, const NetworkedEntity &rhs)
+    {
+      return lhs.id == rhs.id;
     }
 
    private:
@@ -29,7 +31,7 @@ namespace ComponentRType
     {
       archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
         *this);
-      archive &name;
+      archive &id;
     }
   };
 

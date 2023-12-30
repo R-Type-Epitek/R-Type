@@ -8,14 +8,14 @@
 
 namespace Network
 {
-  class UpdateNameCommandHandler : public ICommandHandler {
-  public:
-    UpdateNameCommandHandler(UDPServer &server);
+  class JoinRoomCommandHandler : public ICommandHandler {
+   public:
+    JoinRoomCommandHandler(UDPServer &server);
     bool isAuthorized(int clientId) override;
     std::vector<char> handleCommand(Message *message) override;
 
-  protected:
-  private:
+   protected:
+   private:
     UDPServer &server;
   };
 } // namespace Network

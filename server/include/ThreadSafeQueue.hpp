@@ -19,7 +19,7 @@ namespace Network
      */
   template<typename T>
   class ThreadSafeQueue {
-  public:
+   public:
     /**
          * @brief Pushes an element into the queue.
          *
@@ -40,12 +40,11 @@ namespace Network
          */
     T pop();
 
-  protected:
-  private:
-    std::queue<T>
-      queue;          ///< Standard queue used as the underlying data structure.
-    std::mutex mutex; ///< Mutex for ensuring thread safety during push and
-                      ///< pop operations.
+   protected:
+   private:
+    std::queue<T> queue;          ///< Standard queue used as the underlying data structure.
+    std::mutex mutex;             ///< Mutex for ensuring thread safety during push and
+                                  ///< pop operations.
     std::condition_variable cond; ///< Condition variable used to wait for
                                   ///< and notify about queue operations.
   };

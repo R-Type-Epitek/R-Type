@@ -5,6 +5,7 @@
 #pragma once
 
 #include "IScene.hpp"
+
 #include <map>
 #include <memory>
 #include <string>
@@ -12,7 +13,7 @@
 namespace GameEngine::Scene
 {
   class SceneContainer {
-  public:
+   public:
     SceneContainer() = default;
 
     void addScene(std::string const& name, std::unique_ptr<IScene> scene);
@@ -29,7 +30,7 @@ namespace GameEngine::Scene
       return m_scenes.end();
     }
 
-  private:
+   private:
     bool exist(std::string const& name);
     std::map<std::string, std::unique_ptr<IScene>> m_scenes;
   };

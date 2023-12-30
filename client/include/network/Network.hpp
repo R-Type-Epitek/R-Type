@@ -3,21 +3,33 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "Constants.hpp"
+#include "gameEngine/network/Commands.hpp"
+#include "gameEngine/network/Messages.hpp"
+#include "gameEngine/network/Responses.hpp"
+#include "gameEngine/network/Statuses.hpp"
+#include "network/commands/IHandler.hpp"
+#include "network/commands/Tracker.hpp"
+
+#include <boost/array.hpp>
+#include <boost/asio.hpp>
+#include <boost/asio/buffer.hpp>
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+#include <iostream>
+#include <map>
+#include <string>
 
 namespace Client
 {
   class Network {
-  public:
+   public:
     Network(std::string ip, std::string port);
     ~Network();
     void registerCommandHandlers();
     std::shared_ptr<ICommandHandler> getCommandHandler(std::string const &name);
     void send(boost::asio::const_buffer const &buffer);
-    void sendMessage(
-      std::string const &command,
-      char const data[] = nullptr,
-      int dataSize = 0);
+    void sendMessage(std::string const &command, char const data[] = nullptr, int dataSize = 0);
     void sendResponse(
       std::string const &command,
       std::string const &statusMessage,
@@ -25,9 +37,7 @@ namespace Client
       int dataSize = 0,
       int status = RES_SUCCESS);
     void startReceive();
-    void onReceive(
-      boost::system::error_code const &error,
-      std::size_t bytesTransferred);
+    void onReceive(boost::system::error_code const &error, std::size_t bytesTransferred);
     void onServerResponse(Response *response);
     void onServerMessage(Message *message);
 
@@ -42,7 +52,7 @@ namespace Client
     void setRemoteEndpoint(std::string &ip, std::string &port);
     boost::asio::ip::udp::endpoint getRemoteEndpoint() const;
 
-    // Commands
+    // commands
     template<typename T, typename Func>
     void executeCommand(const std::string &commandName, Func action);
     void connectToServer();
@@ -51,14 +61,13 @@ namespace Client
     void sendKey(std::string key);
     void startGame(int roomId);
 
-  protected:
-  private:
+   protected:
+   private:
     boost::asio::io_context io;
     boost::array<char, 1024> recvBuffer {};
     boost::asio::ip::udp::endpoint remoteEndpoint;
     boost::asio::ip::udp::socket socket {this->io};
-    std::unordered_map<std::string, std::shared_ptr<ICommandHandler>>
-      commandHandlers;
+    std::unordered_map<std::string, std::shared_ptr<ICommandHandler>> commandHandlers;
     std::map<int, std::shared_ptr<CommandTracker>> commandTrackers;
     int nextCommandId = 0;
     std::thread receiveThread;

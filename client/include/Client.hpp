@@ -3,12 +3,18 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "gameEngine/UI/Window.hpp"
+#include "graphics/GUI.hpp"
+#include "network/Network.hpp"
+#include "scene/SceneManager.hpp"
+
+#include <memory>
+#include <string>
 
 namespace Client
 {
   class Client {
-  public:
+   public:
     Client();
     void initNetwork();
     void initScenes();
@@ -23,10 +29,10 @@ namespace Client
     void event(GameEngine::UI::WindowContext &);
     void display(GameEngine::UI::WindowContext &);
 
-  private:
+   private:
     std::string appName = "Rtype client";
     std::unique_ptr<Network> m_network;
     std::unique_ptr<GUI> m_gui;
-    std::unique_ptr<SceneManager> m_sceneManager;
+    std::unique_ptr<Scene::SceneManager> m_sceneManager;
   };
 } // namespace Client

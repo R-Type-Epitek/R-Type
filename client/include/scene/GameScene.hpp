@@ -3,12 +3,18 @@
 //
 
 #pragma once
-#include "RTypeClient.hpp"
+#include "gameEngine/ecs/Registry.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
+#include "gameEngine/scene/IScene.hpp"
+#include "network/Network.hpp"
+
+#include <memory>
+#include <vector>
 
 namespace Client
 {
   class GameScene : public GameEngine::Scene::IScene {
-  public:
+   public:
     GameScene(Network& network);
 
     void initRegistry() final;
@@ -17,10 +23,10 @@ namespace Client
 
     GameEngine::ECS::Registry& getECS() final;
 
-  protected:
+   protected:
     void initCustomSystem();
 
-  private:
+   private:
     std::vector<GameEngine::ECS::Entity> m_entities;
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
     Network& m_network;

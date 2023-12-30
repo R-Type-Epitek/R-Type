@@ -11,17 +11,17 @@ namespace GameEngine::Scene
 
   //  TODO: implement with template enum class
   class SceneManager {
-  public:
+   public:
     SceneManager() = default;
 
     virtual void initScenes() {};
     IScene& getCurrent();
     void setCurrent(std::string name);
 
-  protected:
+   protected:
     SceneContainer m_scenes;
 
-  private:
+   private:
     std::string m_currentSceneName;
   };
 

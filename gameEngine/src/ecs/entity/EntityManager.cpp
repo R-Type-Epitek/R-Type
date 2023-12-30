@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/ecs/entity/EntityManager.hpp"
+
 #include <cassert>
 
 namespace GameEngine::ECS
@@ -18,9 +19,7 @@ namespace GameEngine::ECS
   /// \return Entity
   Entity EntityManager::createEntity()
   {
-    assert(
-      m_livingEntityCount < MAX_ENTITIES &&
-      "Too many m_entities in existence.");
+    assert(m_livingEntityCount < MAX_ENTITIES && "Too many m_entities in existence.");
 
     Entity id = m_availableEntities.front();
     m_availableEntities.pop();

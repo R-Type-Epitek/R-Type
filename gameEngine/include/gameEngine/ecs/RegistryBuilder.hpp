@@ -4,12 +4,13 @@
 
 #pragma once
 #include "Registry.hpp"
+
 #include <memory>
 
 namespace GameEngine::Builder
 {
   class RegistryBuilder {
-  public:
+   public:
     RegistryBuilder();
     std::unique_ptr<GameEngine::ECS::Registry> getResult();
 
@@ -19,12 +20,14 @@ namespace GameEngine::Builder
       m_registry->registerComponent<T>();
     };
 
+    void registerAllMandatoryComponent();
     void buildSystemRenderer();
     void buildSystemAnimation();
     void buildSystemPhysics();
     void buildSystemKeyboard();
+    void buildSystemEcsSerializer();
 
-  private:
+   private:
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
   };
 }; // namespace GameEngine::Builder

@@ -35,7 +35,7 @@
 #include "UDPServer.hpp"
 #include "tools/Logs.hpp"
 
-// Commands
+// commands
 #include "commands/ConnectToServer.hpp"
 #include "commands/Input.hpp"
 #include "commands/JoinRoom.hpp"
