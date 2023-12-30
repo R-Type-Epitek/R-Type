@@ -5,6 +5,9 @@
 #pragma once
 #include "network/commands/IHandler.hpp"
 
+#include <chrono>
+#include <string>
+
 namespace Client
 {
   class CommandTracker {
