@@ -5,20 +5,25 @@
 #pragma once
 
 #include "gameEngine/component/MetaData.hpp"
+#include "gameEngine/component/NetworkedEntity.hpp"
+
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/ecs/system/System.hpp"
+
 #include "gameEngine/network/Serializer.hpp"
 
-#include <boost/archive/text_iarchive.hpp>
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/serialization/string.hpp>
+#include <algorithm>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
 #include <cstdlib>
 #include <cstring>
-#include <memory>
+#include <functional>
+#include <functional>
 #include <sstream>
-#include <stdexcept>
 #include <string>
+#include <utility>
 #include <vector>
 
 namespace GameEngine::System
@@ -30,57 +35,90 @@ namespace GameEngine::System
     std::vector<std::vector<char>> serialise(GameEngine::ECS::Registry &registry)
     {
       auto &componentManager = registry.getComponentManager();
-      std::vector<std::vector<char>> serializedData;
+      std::vector<std::vector<char>> serializedDataFinal;
 
       for (auto const &entity : m_entities) {
-        std::ostringstream outputStream;
-        boost::archive::text_oarchive currentArchive(outputStream);
-        std::vector<char> currentSerializedData;
-
-        // Serialize Components
-        Serializer::serializeComponent<ComponentRType::MetaData>(componentManager, entity, currentArchive);
-        Serializer::appendTypeIdentifier<ComponentRType::MetaData>(currentSerializedData);
-
-        Serializer::serializeComponent<ComponentRType::MetaDataTest>(
-          componentManager,
-          entity,
-          currentArchive);
-        Serializer::appendTypeIdentifier<ComponentRType::MetaDataTest>(currentSerializedData);
-
-        Serializer::appendSerializedData(outputStream.str(), currentSerializedData);
-        serializedData.push_back(currentSerializedData);
+        serializedDataFinal.push_back(serializeEntity(*componentManager, entity));
       }
 
+      return serializedDataFinal;
+    }
+
+    void deserialize(
+      GameEngine::ECS::Registry &registry,
+      const std::vector<std::vector<char>> &serializedData)
+    {
+      auto &componentManager = registry.getComponentManager();
+
+      for (const auto &serializedEntityData : serializedData) {
+        deserializeEntity(registry, *componentManager, serializedEntityData);
+      }
+    }
+
+  protected:
+    static std::vector<char> serializeEntity(
+      ECS::ComponentManager &componentManager,
+      GameEngine::ECS::Entity entity)
+    {
+      std::vector<char> serializedData;
+      std::ostringstream oss;
+      boost::archive::binary_oarchive archive(oss);
+
+      Serializer::serializeComponent<ComponentRType::NetworkedEntity>(componentManager, entity, archive);
+      Serializer::serializeComponent<ComponentRType::MetaData>(componentManager, entity, archive);
+
+      std::string dataStr = oss.str();
+      serializedData.assign(dataStr.begin(), dataStr.end());
       return serializedData;
     }
 
-    void deserialize(GameEngine::ECS::Registry &registry, std::vector<std::vector<char>> serializedData)
+    void deserializeEntity(
+      GameEngine::ECS::Registry &registry,
+      ECS::ComponentManager &componentManager,
+      const std::vector<char> &serializedData)
     {
-      //      auto &componentManager = registry.getComponentManager();
-      //
-      //      for (const auto &entityData : serializedData) {
-      //        size_t currentIndex = 0;
-      //
-      //        // Deserialize and extract the entity ID
-      //        GameEngine::ECS::Entity entity;
-      //        Serializer::deserializeComponent<GameEngine::ECS::Entity>(
-      //          componentManager, entityData, currentIndex);
-      //
-      //        if (componentManager->entityExists(entity)) {
-      //          // If the entity exists, update its components
-      //          GameEngine::Network::Serializer::EcsSerializer::deserializeComponent<ComponentRType::MetaData>(
-      //            componentManager, entityData, currentIndex);
-      //          GameEngine::Network::Serializer::EcsSerializer::deserializeComponent<ComponentRType::MetaDataTest>(
-      //            componentManager, entityData, currentIndex);
-      //          // Add more deserializeComponent calls for other components
-      //
-      //        } else {
-      //          // If the entity doesn't exist, create it
-      //          GameEngine::Network::Serializer::EcsSerializer::deserializeComponent<ComponentRType::MetaData>(
-      //            componentManager, entityData, currentIndex);
-      //          GameEngine::Network::Serializer::EcsSerializer::deserializeComponent<ComponentRType::MetaDataTest>(
-      //            componentManager, entityData, currentIndex);
-      //        }
+      std::istringstream iss(std::string(serializedData.begin(), serializedData.end()));
+      boost::archive::binary_iarchive archive(iss);
+
+      auto componentNE = Serializer::deserializeComponent<ComponentRType::NetworkedEntity>(archive);
+      auto entity = getEntity(registry, componentManager, componentNE);
+
+      Serializer::deserializeComponentToEntity<ComponentRType::MetaData>(componentManager, entity, archive);
+    }
+
+  private:
+    ECS::Entity getEntity(
+      GameEngine::ECS::Registry &registry,
+      ECS::ComponentManager &componentManager,
+      ComponentRType::NetworkedEntity componentId)
+    {
+      GameEngine::ECS::Entity entity = 0;
+      auto entityOpt = getNetworkedEntityById(componentId, componentManager);
+
+      if (entityOpt.has_value()) {
+        entity = entityOpt.value();
+      } else {
+        entity = registry.createEntity();
+        registry.addComponent(entity, std::move(componentId));
+        registry.addComponent(entity, ComponentRType::MetaData {});
+      }
+      return entity;
+    }
+
+    std::optional<const ECS::Entity> getNetworkedEntityById(
+      ComponentRType::NetworkedEntity id,
+      ECS::ComponentManager &componentManager)
+    {
+      auto it = std::find_if(
+        m_entities.begin(),
+        m_entities.end(),
+        [&componentManager, &id](const GameEngine::ECS::Entity &entity) {
+          auto currentId = componentManager.getComponent<ComponentRType::NetworkedEntity>(entity);
+          return id == currentId;
+        });
+
+      static std::optional<const GameEngine::ECS::Entity> emptyOptional;
+      return (it != m_entities.end()) ? std::ref(*it) : emptyOptional;
     }
   };
 }; // namespace GameEngine::System
