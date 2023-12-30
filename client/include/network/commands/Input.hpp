@@ -8,15 +8,15 @@
 namespace Client
 {
   class InputCommandHandler : public ICommandHandler {
-  public:
+   public:
     InputCommandHandler(Network& network);
     void setKey(std::string key);
     const std::string& getKey() const;
     void send() override;
     void onResponse(Response* response) override;
 
-  protected:
-  private:
+   protected:
+   private:
     Network& network;
     std::string key;
   };

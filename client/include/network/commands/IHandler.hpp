@@ -8,7 +8,7 @@
 namespace Client
 {
   class ICommandHandler {
-  public:
+   public:
     virtual void send() = 0;
     virtual void onResponse(Response *response) = 0;
     virtual ~ICommandHandler() = default;

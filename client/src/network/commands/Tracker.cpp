@@ -19,8 +19,7 @@ namespace Client
     return this->command;
   }
 
-  const std::chrono::steady_clock::time_point &CommandTracker::getSendTime()
-    const
+  const std::chrono::steady_clock::time_point &CommandTracker::getSendTime() const
   {
     return this->sendTime;
   }

@@ -18,7 +18,7 @@ namespace GameEngine::System
 {
 
   class Animation : public GameEngine::ECS::System {
-  public:
+   public:
     void update(GameEngine::ECS::Registry &)
     {
     }

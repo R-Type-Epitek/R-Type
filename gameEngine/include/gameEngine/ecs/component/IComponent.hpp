@@ -9,7 +9,7 @@ namespace GameEngine::ECS
 {
 
   class IComponentArray {
-  public:
+   public:
     virtual ~IComponentArray() = default;
 
     virtual void entityDestroyed(Entity entity) = 0;

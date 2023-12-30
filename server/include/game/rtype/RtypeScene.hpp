@@ -13,14 +13,14 @@ namespace Server::Game
 {
 
   class RtypeScene : public GameEngine::Scene::IScene {
-  public:
+   public:
     void initRegistry() final;
 
     void initEntities() final;
 
     GameEngine::ECS::Registry &getECS() final;
 
-  private:
+   private:
     std::vector<GameEngine::ECS::Entity> m_entities;
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
   };

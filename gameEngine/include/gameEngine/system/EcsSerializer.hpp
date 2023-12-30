@@ -31,7 +31,7 @@ namespace GameEngine::System
   class EcsSerializer : public GameEngine::ECS::System {
     using Serializer = GameEngine::Network::Serializer::EcsSerializer;
 
-  public:
+   public:
     std::vector<std::vector<char>> serialise(GameEngine::ECS::Registry &registry)
     {
       auto &componentManager = registry.getComponentManager();
@@ -55,7 +55,7 @@ namespace GameEngine::System
       }
     }
 
-  protected:
+   protected:
     static std::vector<char> serializeEntity(
       ECS::ComponentManager &componentManager,
       GameEngine::ECS::Entity entity)
@@ -86,7 +86,7 @@ namespace GameEngine::System
       Serializer::deserializeComponentToEntity<ComponentRType::MetaData>(componentManager, entity, archive);
     }
 
-  private:
+   private:
     ECS::Entity getEntity(
       GameEngine::ECS::Registry &registry,
       ECS::ComponentManager &componentManager,

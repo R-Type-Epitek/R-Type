@@ -1,5 +1,5 @@
 BasedOnStyle: Mozilla
-AccessModifierOffset: -2
+AccessModifierOffset: -1
 AlignAfterOpenBracket: AlwaysBreak
 AlignConsecutiveMacros: true
 AlignEscapedNewlines: Left

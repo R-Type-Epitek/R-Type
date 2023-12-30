@@ -9,7 +9,7 @@ namespace Client
 {
 
   class GUI : public GameEngine::UI::Window {
-  public:
+   public:
     GUI(int width, int height, std::string& name, float screenRatio);
   };
 } // namespace Client

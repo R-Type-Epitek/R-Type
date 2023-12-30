@@ -16,7 +16,7 @@ namespace GameEngine::System
 {
 
   class Physics : public GameEngine::ECS::System {
-  public:
+   public:
     void update()
     {
       return;

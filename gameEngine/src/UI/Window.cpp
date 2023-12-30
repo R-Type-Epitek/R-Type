@@ -77,31 +77,22 @@ namespace GameEngine::UI
   {
     float targetRatio = m_windowContext.screenRatio;
     float currentRatio =
-      static_cast<float>(m_windowContext.window.getSize().x) /
-      m_windowContext.window.getSize().y;
+      static_cast<float>(m_windowContext.window.getSize().x) / m_windowContext.window.getSize().y;
     int newWidth = 0;
     int newHeight = 0;
 
     if (currentRatio > targetRatio) {
-      newWidth =
-        static_cast<int>(m_windowContext.window.getSize().y * targetRatio);
+      newWidth = static_cast<int>(m_windowContext.window.getSize().y * targetRatio);
       newHeight = m_windowContext.window.getSize().y;
     } else {
       newWidth = m_windowContext.window.getSize().x;
-      newHeight =
-        static_cast<int>(m_windowContext.window.getSize().x / targetRatio);
+      newHeight = static_cast<int>(m_windowContext.window.getSize().x / targetRatio);
     }
 
-    int offsetX =
-      static_cast<int>(m_windowContext.window.getSize().x - newWidth) / 2;
-    int offsetY =
-      static_cast<int>(m_windowContext.window.getSize().y - newHeight) / 2;
+    int offsetX = static_cast<int>(m_windowContext.window.getSize().x - newWidth) / 2;
+    int offsetY = static_cast<int>(m_windowContext.window.getSize().y - newHeight) / 2;
 
-    sf::View view(sf::FloatRect(
-      0.f,
-      0.f,
-      static_cast<float>(newWidth),
-      static_cast<float>(newHeight)));
+    sf::View view(sf::FloatRect(0.f, 0.f, static_cast<float>(newWidth), static_cast<float>(newHeight)));
     m_windowContext.window.setView(view);
     m_windowContext.window.setPosition(sf::Vector2i(offsetX, offsetY));
   }

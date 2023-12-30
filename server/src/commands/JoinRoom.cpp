@@ -4,8 +4,7 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::JoinRoomCommandHandler::JoinRoomCommandHandler(
-  Network::UDPServer &server)
+Network::JoinRoomCommandHandler::JoinRoomCommandHandler(Network::UDPServer &server)
   : server(server)
 {
 }
@@ -18,8 +17,7 @@ bool Network::JoinRoomCommandHandler::isAuthorized(int clientId)
   return false;
 }
 
-std::vector<char> Network::JoinRoomCommandHandler::handleCommand(
-  Message *message)
+std::vector<char> Network::JoinRoomCommandHandler::handleCommand(Message *message)
 {
   JoinRoomData *data = (JoinRoomData *)message->data;
   std::string statusMessage = "";

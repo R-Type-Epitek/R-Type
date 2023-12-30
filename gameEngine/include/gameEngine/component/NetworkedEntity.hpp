@@ -23,14 +23,14 @@ namespace ComponentRType
       return lhs.id == rhs.id;
     }
 
-  private:
+   private:
     friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive &archive, const unsigned int)
     {
       archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
         *this);
-      archive & id;
+      archive &id;
     }
   };
 

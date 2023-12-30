@@ -7,22 +7,18 @@
 
 namespace GameEngine::Scene
 {
-  void SceneContainer::addScene(
-    std::string const& name,
-    std::unique_ptr<IScene> scene)
+  void SceneContainer::addScene(std::string const& name, std::unique_ptr<IScene> scene)
   {
     auto result = m_scenes.emplace(name, std::move(scene));
     if (!result.second) {
-      throw std::invalid_argument(
-        "Scene with the same name:" + name + "already exists");
+      throw std::invalid_argument("Scene with the same name:" + name + "already exists");
     }
   };
 
   void SceneContainer::deleteScene(std::string const& name)
   {
     if (!m_scenes.contains(name)) {
-      throw std::invalid_argument(
-        "Scene with the name: " + name + " doesn't exists");
+      throw std::invalid_argument("Scene with the name: " + name + " doesn't exists");
     }
     m_scenes.erase(name);
   };

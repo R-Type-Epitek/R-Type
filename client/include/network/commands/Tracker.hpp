@@ -8,7 +8,7 @@
 namespace Client
 {
   class CommandTracker {
-  public:
+   public:
     CommandTracker(const std::string &command);
     ~CommandTracker() = default;
     const std::string &getCommand() const;
@@ -16,8 +16,8 @@ namespace Client
     bool getIsCompleted() const;
     void setIsCompleted(bool isCompleted);
 
-  protected:
-  private:
+   protected:
+   private:
     std::string command;
     std::chrono::steady_clock::time_point sendTime;
     bool isCompleted;

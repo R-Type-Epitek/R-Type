@@ -8,7 +8,7 @@
 namespace Client
 {
   class Network {
-  public:
+   public:
     Network(std::string ip, std::string port);
     ~Network();
     void registerCommandHandlers();
@@ -46,8 +46,8 @@ namespace Client
     void sendKey(std::string key);
     void startGame(int roomId);
 
-  protected:
-  private:
+   protected:
+   private:
     boost::asio::io_context io;
     boost::array<char, 1024> recvBuffer {};
     boost::asio::ip::udp::endpoint remoteEndpoint;

@@ -13,7 +13,7 @@
 namespace GameEngine::ECS
 {
   class SystemManager {
-  public:
+   public:
     /// \brief Registers a new system and returns a shared pointer to it.
     /// \return std::shared_ptr<T>
     template<typename T>
@@ -21,9 +21,7 @@ namespace GameEngine::ECS
     {
       char const* typeName = typeid(T).name();
 
-      assert(
-        m_systems.find(typeName) == m_systems.end() &&
-        "Registering system more than once.");
+      assert(m_systems.find(typeName) == m_systems.end() && "Registering system more than once.");
 
       auto system = std::make_shared<T>();
       m_systems.insert({typeName, system});
@@ -37,9 +35,7 @@ namespace GameEngine::ECS
     {
       char const* typeName = typeid(T).name();
 
-      assert(
-        m_systems.find(typeName) != m_systems.end() &&
-        "System used before registered.");
+      assert(m_systems.find(typeName) != m_systems.end() && "System used before registered.");
       m_signatures.insert({typeName, signature});
     }
 
@@ -87,7 +83,7 @@ namespace GameEngine::ECS
       return m_signatures;
     }
 
-  private:
+   private:
     std::unordered_map<char const*, Signature> m_signatures {};
     std::unordered_map<char const*, std::shared_ptr<System>> m_systems {};
   };

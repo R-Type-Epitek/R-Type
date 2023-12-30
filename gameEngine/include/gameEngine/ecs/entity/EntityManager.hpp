@@ -13,7 +13,7 @@
 namespace GameEngine::ECS
 {
   class EntityManager {
-  public:
+   public:
     EntityManager();
 
     Entity createEntity();
@@ -24,7 +24,7 @@ namespace GameEngine::ECS
 
     Signature getSignature(Entity entity);
 
-  private:
+   private:
     std::queue<Entity> m_availableEntities {};
 
     std::array<Signature, ECS::MAX_ENTITIES> m_signatures {};

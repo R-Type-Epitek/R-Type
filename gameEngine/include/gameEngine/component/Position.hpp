@@ -28,7 +28,7 @@ namespace ComponentRType
     template<class Archive>
     void serialize(Archive& ar, unsigned int const version)
     {
-      ar & position;
+      ar& position;
     }
   };
 

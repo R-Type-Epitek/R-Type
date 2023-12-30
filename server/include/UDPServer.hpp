@@ -15,9 +15,8 @@
  * @see Message
  */
 struct TimedMessage {
-  Message *message; ///< Pointer to the message.
-  std::chrono::high_resolution_clock::time_point
-    timestamp; ///< Timestamp of the message.
+  Message *message;                                         ///< Pointer to the message.
+  std::chrono::high_resolution_clock::time_point timestamp; ///< Timestamp of the message.
 };
 
 namespace Network
@@ -31,7 +30,7 @@ namespace Network
      * connections, data transmission, and room management for network clients.
      */
   class UDPServer {
-  public:
+   public:
     /**
          * @brief Constructs a UDPServer with a specified I/O context.
          *
@@ -159,9 +158,7 @@ namespace Network
          * Handle the received data by creating a new TimedMessage and pushing
          * it into the message queue.
          */
-    void handleReceive(
-      boost::system::error_code const &error,
-      std::size_t bytes_transferred);
+    void handleReceive(boost::system::error_code const &error, std::size_t bytes_transferred);
 
     /**
          * @brief Send data to all clients.
@@ -182,9 +179,7 @@ namespace Network
          * @param roomId Integer specifying the ID of the room to send the data
          * to.
          */
-    void sendToAllClientsInRoom(
-      boost::asio::const_buffer const &buffer,
-      int roomId);
+    void sendToAllClientsInRoom(boost::asio::const_buffer const &buffer, int roomId);
 
     /**
          * @brief Send data to a specific client.
@@ -257,9 +252,7 @@ namespace Network
          * response is sent.
          * @param responseBuffer Vector containing the response to send.
          */
-    void sendResponseAndLog(
-      TimedMessage timedMessage,
-      std::vector<char> responseBuffer);
+    void sendResponseAndLog(TimedMessage timedMessage, std::vector<char> responseBuffer);
 
     /**
          * @brief Check if a client is registered.
@@ -307,26 +300,20 @@ namespace Network
          */
     void registerCommandHandlers();
 
-  protected:
-  private:
-    boost::asio::ip::udp::socket socket;    ///< UDP socket for communication.
-    std::vector<Network::Client> clients;   ///< List of connected clients.
-    boost::array<char, 1024> recvBuffer {}; ///< Buffer for receiving data.
-    boost::asio::ip::udp::endpoint
-      remoteEndpoint; ///< Endpoint for the remote connection.
-    Network::ThreadSafeQueue<TimedMessage>
-      messageQueue; ///< Queue for thread-safe message handling.
-    std::vector<std::thread>
-      workers; ///< Worker threads for processing messages.
-    std::vector<Network::Room> rooms; ///< Rooms available for client grouping.
+   protected:
+   private:
+    boost::asio::ip::udp::socket socket;                 ///< UDP socket for communication.
+    std::vector<Network::Client> clients;                ///< List of connected clients.
+    boost::array<char, 1024> recvBuffer {};              ///< Buffer for receiving data.
+    boost::asio::ip::udp::endpoint remoteEndpoint;       ///< Endpoint for the remote connection.
+    Network::ThreadSafeQueue<TimedMessage> messageQueue; ///< Queue for thread-safe message handling.
+    std::vector<std::thread> workers;                    ///< Worker threads for processing messages.
+    std::vector<Network::Room> rooms;                    ///< Rooms available for client grouping.
     std::unordered_map<std::string, std::unique_ptr<ICommandHandler>>
-      commandHandlers; ///< Command handlers for the server.
-    boost::asio::steady_timer
-      clientsConnectionTimer; ///< Timer for checking client connections.
+      commandHandlers;                                ///< Command handlers for the server.
+    boost::asio::steady_timer clientsConnectionTimer; ///< Timer for checking client connections.
 
-    void handleInvalidClient(
-      TimedMessage timedMessage); ///< Handles invalid client.
-    void handleInvalidCommand(
-      TimedMessage timedMessage); ///< Handles invalid command.
+    void handleInvalidClient(TimedMessage timedMessage);  ///< Handles invalid client.
+    void handleInvalidCommand(TimedMessage timedMessage); ///< Handles invalid command.
   };
 } // namespace Network

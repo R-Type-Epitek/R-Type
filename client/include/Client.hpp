@@ -8,7 +8,7 @@
 namespace Client
 {
   class Client {
-  public:
+   public:
     Client();
     void initNetwork();
     void initScenes();
@@ -23,7 +23,7 @@ namespace Client
     void event(GameEngine::UI::WindowContext &);
     void display(GameEngine::UI::WindowContext &);
 
-  private:
+   private:
     std::string appName = "Rtype client";
     std::unique_ptr<Network> m_network;
     std::unique_ptr<GUI> m_gui;

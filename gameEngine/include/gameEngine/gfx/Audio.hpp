@@ -7,10 +7,10 @@
 #include "IAudio.hpp"
 
 class Audio : public IAudio {
-public:
+ public:
   void playAudio();
   void pauseAudio();
   void stopAudio();
 
-private:
+ private:
 };

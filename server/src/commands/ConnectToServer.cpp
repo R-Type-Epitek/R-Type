@@ -4,8 +4,7 @@
 
 #include "RTypeNetwork.hpp"
 
-Network::ConnectToServerCommandHandler::ConnectToServerCommandHandler(
-  UDPServer &server)
+Network::ConnectToServerCommandHandler::ConnectToServerCommandHandler(UDPServer &server)
   : server(server)
 {
 }
@@ -15,8 +14,7 @@ bool Network::ConnectToServerCommandHandler::isAuthorized(int clientId)
   return clientId == -1;
 }
 
-std::vector<char> Network::ConnectToServerCommandHandler::handleCommand(
-  Message *message)
+std::vector<char> Network::ConnectToServerCommandHandler::handleCommand(Message *message)
 {
   int clientId = this->server.getClients().size();
   std::string statusMessage;
@@ -33,11 +31,5 @@ std::vector<char> Network::ConnectToServerCommandHandler::handleCommand(
     this->server.addClient(client);
   }
 
-  return this->server.createResponseBuffer(
-    clientId,
-    message->header,
-    statusMessage,
-    nullptr,
-    0,
-    status);
+  return this->server.createResponseBuffer(clientId, message->header, statusMessage, nullptr, 0, status);
 }

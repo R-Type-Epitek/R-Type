@@ -13,16 +13,13 @@ namespace GameEngine::System
 {
 
   class Renderer : public GameEngine::ECS::System {
-  public:
-    void update(
-      GameEngine::ECS::Registry& registry,
-      GameEngine::UI::WindowContext& ctx)
+   public:
+    void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx)
     {
       auto& componentManager = registry.getComponentManager();
 
       for (auto const& entity : m_entities) {
-        auto& spriteC =
-          componentManager->getComponent<ComponentRType::Sprite>(entity);
+        auto& spriteC = componentManager->getComponent<ComponentRType::Sprite>(entity);
         ctx.window.draw(spriteC.sprite);
       }
     }

@@ -8,7 +8,7 @@
 namespace GameEngine::Scene
 {
   class IScene {
-  public:
+   public:
     virtual ~IScene() = default;
 
     virtual void initRegistry() = 0;

@@ -16,7 +16,7 @@ namespace Network
      * and handling specific commands.
      */
   class ICommandHandler {
-  public:
+   public:
     /**
          * @brief Virtual destructor for interface.
          */

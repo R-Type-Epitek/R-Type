@@ -8,7 +8,7 @@
 namespace Client::Scene
 {
   class SceneManager : public GameEngine::Scene::SceneManager {
-  public:
+   public:
     ~SceneManager() = default;
 
     void initScenes() final;

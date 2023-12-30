@@ -21,14 +21,14 @@ namespace ComponentRType
     {
     }
 
-  private:
+   private:
     friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive &archive, const unsigned int)
     {
       archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
         *this);
-      archive & name;
+      archive &name;
     }
   };
 

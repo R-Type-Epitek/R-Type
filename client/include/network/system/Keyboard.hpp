@@ -8,7 +8,7 @@
 namespace Client::System::Network
 {
   class Keyboard : public GameEngine::ECS::System {
-  public:
+   public:
     void update(GameEngine::UI::WindowContext& ctx, ::Client::Network& network)
     {
       if (ctx.event.type != sf::Event::KeyPressed)

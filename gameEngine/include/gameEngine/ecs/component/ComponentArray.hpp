@@ -16,7 +16,7 @@ namespace GameEngine::ECS
 
   template<typename T>
   class ComponentArray : public IComponentArray {
-  public:
+   public:
     /// \brief Inserts new component data for an entity.
     /// \param Entity
     /// \param T - Component data
@@ -39,8 +39,7 @@ namespace GameEngine::ECS
 
       size_t indexOfRemovedEntity = m_entityToIndexMap[entity];
       size_t indexOfLastElement = mSize - 1;
-      m_componentArray[indexOfRemovedEntity] =
-        m_componentArray[indexOfLastElement];
+      m_componentArray[indexOfRemovedEntity] = m_componentArray[indexOfLastElement];
 
       Entity entityOfLastElement = m_indexToEntityMap[indexOfLastElement];
       m_entityToIndexMap[entityOfLastElement] = indexOfRemovedEntity;
@@ -79,7 +78,7 @@ namespace GameEngine::ECS
       }
     }
 
-  private:
+   private:
     std::array<T, ECS::MAX_COMPONENTS> m_componentArray {};
 
     std::unordered_map<Entity, size_t> m_entityToIndexMap;

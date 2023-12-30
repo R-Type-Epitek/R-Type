@@ -9,13 +9,13 @@
 namespace Network
 {
   class InputCommandHandler : public ICommandHandler {
-  public:
+   public:
     InputCommandHandler(UDPServer &server);
     bool isAuthorized(int clientId) override;
     std::vector<char> handleCommand(Message *message) override;
 
-  protected:
-  private:
+   protected:
+   private:
     UDPServer &server;
   };
 } // namespace Network

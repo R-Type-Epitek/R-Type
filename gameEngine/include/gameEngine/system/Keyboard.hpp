@@ -15,10 +15,8 @@ namespace GameEngine::System
 {
 
   class Keyboard : public GameEngine::ECS::System {
-  public:
-    void update(
-      GameEngine::ECS::Registry& registry,
-      GameEngine::UI::WindowContext& ctx)
+   public:
+    void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx)
     {
       if (ctx.event.type != sf::Event::KeyPressed) {
         return;
@@ -36,8 +34,7 @@ namespace GameEngine::System
 
       auto& componentManager = registry.getComponentManager();
       for (auto const& entity : m_entities) {
-        auto& spriteC =
-          componentManager->getComponent<ComponentRType::Sprite>(entity);
+        auto& spriteC = componentManager->getComponent<ComponentRType::Sprite>(entity);
         spriteC.sprite.setPosition(spriteC.sprite.getPosition() + posEnd);
       }
     };

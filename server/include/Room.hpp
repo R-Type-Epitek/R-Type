@@ -29,7 +29,7 @@ namespace Network
      * environment, including its ID, size, and the players within the room.
      */
   class Room {
-  public:
+   public:
     /**
          * @brief Constructor for Room.
          *
@@ -118,8 +118,8 @@ namespace Network
          */
     bool isFull() const;
 
-  protected:
-  private:
+   protected:
+   private:
     int size;                 ///< The size of the room, typically its capacity.
     int id;                   ///< The unique identifier of the room.
     std::vector<int> players; ///< A vector of player IDs currently in the room.

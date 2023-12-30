@@ -20,7 +20,7 @@ namespace GameEngine::UI
   };
 
   class Window {
-  public:
+   public:
     using ClosureType = std::function<void(WindowContext&)>;
 
     Window(int width, int height, std::string& name, float screenRatio);
@@ -39,7 +39,7 @@ namespace GameEngine::UI
     void launch();
     void update();
 
-  private:
+   private:
     void handleEvent();
     void onResize();
     void invokeClosure(ClosureType closure);

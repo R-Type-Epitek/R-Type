@@ -8,7 +8,7 @@
 namespace Server::Game
 {
   class IGame {
-  public:
+   public:
     virtual ~IGame() = default;
 
     virtual void load() = 0;

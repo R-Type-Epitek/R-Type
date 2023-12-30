@@ -9,9 +9,7 @@ int main(int argc, char **argv)
   try {
     boost::asio::io_context io;
     boost::asio::io_context::work idleWork(io);
-    Network::UDPServer server(
-      io,
-      argc > 1 ? std::stoi(argv[1]) : std::stoi(DEFAULT_PORT));
+    Network::UDPServer server(io, argc > 1 ? std::stoi(argv[1]) : std::stoi(DEFAULT_PORT));
 
     std::vector<std::thread> threads;
     int num_threads = std::thread::hardware_concurrency();

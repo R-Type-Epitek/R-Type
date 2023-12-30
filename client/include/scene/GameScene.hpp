@@ -8,7 +8,7 @@
 namespace Client
 {
   class GameScene : public GameEngine::Scene::IScene {
-  public:
+   public:
     GameScene(Network& network);
 
     void initRegistry() final;
@@ -17,10 +17,10 @@ namespace Client
 
     GameEngine::ECS::Registry& getECS() final;
 
-  protected:
+   protected:
     void initCustomSystem();
 
-  private:
+   private:
     std::vector<GameEngine::ECS::Entity> m_entities;
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
     Network& m_network;

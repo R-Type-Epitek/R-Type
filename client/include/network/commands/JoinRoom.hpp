@@ -8,15 +8,15 @@
 namespace Client
 {
   class JoinRoomCommandHandler : public ICommandHandler {
-  public:
+   public:
     JoinRoomCommandHandler(Network& network);
     void setRoomId(int roomId);
     int getRoomId() const;
     void send() override;
     void onResponse(Response* response) override;
 
-  protected:
-  private:
+   protected:
+   private:
     Network& network;
     int roomId;
   };

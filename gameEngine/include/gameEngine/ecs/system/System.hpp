@@ -14,7 +14,7 @@
 namespace GameEngine::ECS
 {
   class System {
-  public:
+   public:
     virtual ~System() = default;
 
     std::set<Entity> m_entities {};

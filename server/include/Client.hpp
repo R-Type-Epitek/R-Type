@@ -16,7 +16,7 @@ namespace Network
      * properties.
      */
   class Client {
-  public:
+   public:
     /**
          * @brief Constructor for Client.
          *
@@ -85,12 +85,11 @@ namespace Network
          */
     int getRoomId() const;
 
-  protected:
-  private:
-    boost::asio::ip::udp::endpoint
-      endpoint;       ///< The network endpoint of the client.
-    int id;           ///< The identifier of the client.
-    std::string name; ///< The name of the client.
-    int roomId;       ///< The identifier of the room.
+   protected:
+   private:
+    boost::asio::ip::udp::endpoint endpoint; ///< The network endpoint of the client.
+    int id;                                  ///< The identifier of the client.
+    std::string name;                        ///< The name of the client.
+    int roomId;                              ///< The identifier of the room.
   };
 } // namespace Network

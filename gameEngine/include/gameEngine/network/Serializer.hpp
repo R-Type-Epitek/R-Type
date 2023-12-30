@@ -19,10 +19,10 @@
 namespace GameEngine::Network::Serializer
 {
   class BaseNetworkComponent {
-  public:
+   public:
     virtual ~BaseNetworkComponent() = default;
 
-  private:
+   private:
     friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive &, const unsigned int)
@@ -32,7 +32,7 @@ namespace GameEngine::Network::Serializer
   };
 
   class EcsSerializer {
-  public:
+   public:
     template<typename T, typename Archive>
     static void serializeComponent(
       GameEngine::ECS::ComponentManager &componentManager,

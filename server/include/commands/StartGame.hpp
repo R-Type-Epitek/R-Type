@@ -9,13 +9,13 @@
 namespace Network
 {
   class StartGameCommandHandler : public ICommandHandler {
-  public:
+   public:
     StartGameCommandHandler(UDPServer &server);
     bool isAuthorized(int clientId) override;
     std::vector<char> handleCommand(Message *message) override;
 
-  protected:
-  private:
+   protected:
+   private:
     UDPServer &server;
   };
 } // namespace Network
