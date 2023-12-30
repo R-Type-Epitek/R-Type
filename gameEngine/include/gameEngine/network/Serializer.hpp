@@ -61,7 +61,7 @@ namespace GameEngine::Network::Serializer
       T componentData;
       archive >> componentData;
       component = componentData;
-      return componentData;
+      return component;
     }
   };
 }; // namespace GameEngine::Network::Serializer
