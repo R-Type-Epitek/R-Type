@@ -62,8 +62,8 @@
 #include "network/Constants.hpp"
 #include "network/Network.hpp"
 #include "network/system/Keyboard.hpp"
-#include "scene/Manager.hpp"
-#include "scene/Game.hpp"
+#include "scene/SceneManager.hpp"
+#include "scene/GameScene.hpp"
 #include "Client.hpp"
 
 // commands

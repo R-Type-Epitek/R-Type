@@ -27,6 +27,6 @@ namespace Client
     std::string appName = "Rtype client";
     std::unique_ptr<Network> m_network;
     std::unique_ptr<GUI> m_gui;
-    std::unique_ptr<SceneManager> m_sceneManager;
+    std::unique_ptr<Scene::SceneManager> m_sceneManager;
   };
 } // namespace Client

@@ -16,8 +16,8 @@ add_executable(${EXEC_CLIENT}
         src/network/commands/UpdateName.cpp
         src/network/tools/Logs.cpp
         src/network/Network.cpp
-        src/scene/Game.cpp
-        src/scene/Manager.cpp
+        src/scene/GameScene.cpp
+        src/scene/SceneManager.cpp
 )
 
 target_include_directories(${EXEC_CLIENT}

@@ -57,7 +57,7 @@ namespace Client
   {
     try {
       spdlog::info("Starting Scenes...");
-      m_sceneManager = std::make_unique<SceneManager>();
+      m_sceneManager = std::make_unique<Scene::SceneManager>();
       m_sceneManager->initScenes();
       m_sceneManager->initScenesWithNetwork(*m_network);
       spdlog::info("Done");
@@ -97,7 +97,7 @@ namespace Client
     m_gui->launch();
   }
 
-  void Client::update(GameEngine::UI::WindowContext& ctx)
+  void Client::update(GameEngine::UI::WindowContext&)
   {
     auto& ecs = this->m_sceneManager->getCurrent().getECS();
     auto&& systems = ecs.getSystems();
@@ -105,13 +105,12 @@ namespace Client
     for (auto& [typeId, system_ptr] : systems) {
       if (auto sys_physics = std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
         sys_physics->update();
-      } else if (auto sys_renderer = std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
-        sys_renderer->update(ecs, ctx);
-      } else if (auto sys_animation = std::dynamic_pointer_cast<GameEngine::System::Animation>(system_ptr)) {
-        sys_animation->update(ecs);
       } else if (
         auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
         auto vec = sys_serializer->serialise(ecs);
+
+        //        For Tests only
+        sys_serializer->deserialize(ecs, vec);
       }
     }
   }
@@ -131,9 +130,18 @@ namespace Client
     }
   }
 
-  void Client::display(GameEngine::UI::WindowContext&)
+  void Client::display(GameEngine::UI::WindowContext& ctx)
   {
-    return;
+    auto& ecs = this->m_sceneManager->getCurrent().getECS();
+    auto&& systems = ecs.getSystems();
+
+    for (auto& [typeId, system_ptr] : systems) {
+      if (auto sys_renderer = std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
+        sys_renderer->update(ecs, ctx);
+      } else if (auto sys_animation = std::dynamic_pointer_cast<GameEngine::System::Animation>(system_ptr)) {
+        sys_animation->update(ecs);
+      }
+    }
   }
 
   void Client::testNetwork()

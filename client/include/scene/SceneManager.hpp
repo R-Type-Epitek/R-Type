@@ -5,7 +5,7 @@
 #pragma once
 #include "RTypeClient.hpp"
 
-namespace Client
+namespace Client::Scene
 {
   class SceneManager : public GameEngine::Scene::SceneManager {
   public:
