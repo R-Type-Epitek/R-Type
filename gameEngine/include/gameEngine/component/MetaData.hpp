@@ -4,20 +4,15 @@
 
 #pragma once
 
-#include <boost/archive/text_iarchive.hpp>
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/serialization/string.hpp>
-#include "gameEngine/network/serialize.hpp"
+#include "gameEngine/network/Serializer.hpp"
 #include <cstdlib>
-#include <iostream>
-#include <sstream>
 #include <string>
 #include <utility>
 
 namespace ComponentRType
 {
 
-  struct MetaData : public GameEngine::Serialize::NetworkBaseSerializer {
+  struct MetaData : public GameEngine::Network::Serializer::BaseNetworkComponent {
     std::string name;
 
     MetaData() = default;
@@ -26,38 +21,14 @@ namespace ComponentRType
     {
     }
 
-    void serialize(NetworkBaseSerializer::ArchiveO &ar, unsigned int const) const final
+  private:
+    friend class boost::serialization::access;
+    template<class Archive>
+    void serialize(Archive &archive, const unsigned int)
     {
-      ar & name;
-    }
-
-    void deserialize(NetworkBaseSerializer::ArchiveI &ar, unsigned int const) final
-    {
-      ar & name;
-    }
-  };
-
-  struct MetaDataTest : public GameEngine::Serialize::NetworkBaseSerializer {
-    std::string name;
-    int nbr = 0;
-
-    MetaDataTest() = default;
-    explicit MetaDataTest(std::string name, int nbr)
-      : name(std::move(name))
-      , nbr(nbr)
-    {
-    }
-
-    void serialize(NetworkBaseSerializer::ArchiveO &ar, unsigned int const) const final
-    {
-      ar & name;
-      ar & nbr;
-    }
-
-    void deserialize(NetworkBaseSerializer::ArchiveI &ar, unsigned int const) final
-    {
-      ar & name;
-      ar & nbr;
+      archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
+        *this);
+      archive & name;
     }
   };
 
