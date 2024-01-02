@@ -14,18 +14,17 @@
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00020\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
 \DoxyCodeLine{00021\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_network_1_1_thread_safe_queue}{ThreadSafeQueue}}\ \{}
-\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_thread_safe_queue_a410f64f6c8bae7cbf7df18a39ed46b1b}{push}}(T\ value);}
 \DoxyCodeLine{00032\ }
 \DoxyCodeLine{00041\ \ \ \ \ T\ \mbox{\hyperlink{class_network_1_1_thread_safe_queue_a38d6f4d684ae1aaa02aaf71d0091f22a}{pop}}();}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00045\ \ \ \ \ std::queue<T>}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ queue;\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00047\ \ \ \ \ std::mutex\ mutex;\ }
-\DoxyCodeLine{00049\ \ \ \ \ std::condition\_variable\ cond;\ }
-\DoxyCodeLine{00051\ \ \ \};}
-\DoxyCodeLine{00052\ \}\ \textcolor{comment}{//\ namespace\ Network}}
+\DoxyCodeLine{00043\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00044\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ std::queue<T>\ queue;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ std::mutex\ mutex;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ std::condition\_variable\ cond;\ }
+\DoxyCodeLine{00050\ \ \ \};}
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ Network}}
 
 \end{DoxyCode}

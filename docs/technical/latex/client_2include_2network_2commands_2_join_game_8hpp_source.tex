@@ -1,0 +1,30 @@
+\doxysection{Join\+Game.\+hpp}
+\hypertarget{client_2include_2network_2commands_2_join_game_8hpp_source}{}\label{client_2include_2network_2commands_2_join_game_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/commands/JoinGame.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/commands/JoinGame.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 24/12/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}network/Network.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }Client}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_join_game_command_handler}{JoinGameCommandHandler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_client_1_1_i_command_handler}{ICommandHandler}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_join_game_command_handler}{JoinGameCommandHandler}}(\mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ network);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ setRoomId(\textcolor{keywordtype}{int}\ roomId);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ getRoomId()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ send()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ onResponse(\mbox{\hyperlink{struct_response}{Response}}*\ response)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00020\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ network;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;}
+\DoxyCodeLine{00023\ \ \ \};}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}

@@ -7,7 +7,7 @@
 #define UPDATE_NAME_COMMAND       "/update_name"
 #define JOIN_ROOM_COMMAND         "/join_room"
 #define INPUT_COMMAND             "/input"
-#define START_GAME_COMMAND        "/start_game"
+#define JOIN_GAME_COMMAND         "/join_game"
 
 // Server -> Client
 #define SERVER_COMMAND_CHECK_CONNECTION    "/check_connection"

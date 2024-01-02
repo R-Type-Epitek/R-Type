@@ -10,7 +10,7 @@ add_executable(${EXEC_SERVER}
         src/commands/ConnectToServer.cpp
         src/commands/Input.cpp
         src/commands/JoinRoom.cpp
-        src/commands/StartGame.cpp
+        src/commands/JoinGame.cpp
         src/commands/UpdateName.cpp
         src/game/rtype/RtypeScene.cpp
         src/game/rtype/RtypeGame.cpp

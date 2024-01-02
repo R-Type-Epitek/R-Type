@@ -65,13 +65,13 @@ struct InputData {
 };
 
 /**
- * @struct StartGameData
- * @brief Structure for data related to a 'Start Game' command.
+ * @struct JoinGameData
+ * @brief Structure for data related to a 'Join Game' command.
  *
  * This structure is used when initiating a game within a specific room.
  */
-struct StartGameData {
-  int roomId; ///< Identifier of the room where the game will start.
+struct JoinGameData {
+  int roomId; ///< Identifier of the room the player will join.
 };
 
 struct ServerClientDisconnectedData {

@@ -10,88 +10,85 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}System.hpp"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Signature.hpp"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cassert>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }GameEngine::ECS}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager}{SystemManager}}\ \{}
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00020\ \ \ \ \ std::shared\_ptr<T>\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager_af21cd2c42b305c50bef9313ddfbab646}{registerSystem}}()}
-\DoxyCodeLine{00021\ \ \ \ \ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ typeName\ =\ \textcolor{keyword}{typeid}(T).name();}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ assert(}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ m\_systems.find(typeName)\ ==\ m\_systems.end()\ \&\&}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Registering\ system\ more\ than\ once."{}});}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ system\ =\ std::make\_shared<T>();}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ m\_systems.insert(\{typeName,\ system\});}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ system;}
-\DoxyCodeLine{00031\ \ \ \ \ \}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager_afed8684f95cf9609929106ea5fd17bd6}{setSignature}}(Signature\ signature)}
-\DoxyCodeLine{00037\ \ \ \ \ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ typeName\ =\ \textcolor{keyword}{typeid}(T).name();}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \ \ assert(}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ m\_systems.find(typeName)\ !=\ m\_systems.end()\ \&\&}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}System\ used\ before\ registered."{}});}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ m\_signatures.insert(\{typeName,\ signature\});}
-\DoxyCodeLine{00044\ \ \ \ \ \}}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ entityDestroyed(Entity\ entity)}
-\DoxyCodeLine{00047\ \ \ \ \ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pair\ :\ m\_systems)\ \{}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ system\ =\ pair.second;}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ system-\/>m\_entities.erase(entity);}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00053\ \ \ \ \ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ entitySignatureChanged(Entity\ entity,\ Signature\ entitySignature)}
-\DoxyCodeLine{00056\ \ \ \ \ \{}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pair\ :\ m\_systems)\ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ type\ =\ pair.first;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ system\ =\ pair.second;}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ systemSignature\ =\ m\_signatures[type];}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((entitySignature\ \&\ systemSignature)\ ==\ systemSignature)\ \{}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ system-\/>m\_entities.insert(entity);}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ system-\/>m\_entities.erase(entity);}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00068\ \ \ \ \ \}}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ std::shared\_ptr<System>\ getSystem(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
-\DoxyCodeLine{00071\ \ \ \ \ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems[name];}
-\DoxyCodeLine{00073\ \ \ \ \ \}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ getSystems()}
-\DoxyCodeLine{00076\ \ \ \ \ \{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems;}
-\DoxyCodeLine{00078\ \ \ \ \ \}}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ Signature\ getSignature(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
-\DoxyCodeLine{00081\ \ \ \ \ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures[name];}
-\DoxyCodeLine{00083\ \ \ \ \ \}}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ getSignatures()}
-\DoxyCodeLine{00086\ \ \ \ \ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures;}
-\DoxyCodeLine{00088\ \ \ \ \ \}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00091\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ m\_signatures\ \{\};}
-\DoxyCodeLine{00092\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ m\_systems\ \{\};}
-\DoxyCodeLine{00093\ \ \ \};}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }GameEngine::ECS}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager}{SystemManager}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00021\ \ \ \ \ std::shared\_ptr<T>\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager_af21cd2c42b305c50bef9313ddfbab646}{registerSystem}}()}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ typeName\ =\ \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ assert(m\_systems.find(typeName)\ ==\ m\_systems.end()\ \&\&\ \textcolor{stringliteral}{"{}Registering\ system\ more\ than\ once."{}});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ system\ =\ std::make\_shared<T>();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ m\_systems.insert(\{typeName,\ system\});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ system;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system_manager_afed8684f95cf9609929106ea5fd17bd6}{setSignature}}(Signature\ signature)}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ typeName\ =\ \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ assert(m\_systems.find(typeName)\ !=\ m\_systems.end()\ \&\&\ \textcolor{stringliteral}{"{}System\ used\ before\ registered."{}});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ m\_signatures.insert(\{typeName,\ signature\});}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ entityDestroyed(Entity\ entity)}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pair\ :\ m\_systems)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ system\ =\ pair.second;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ system-\/>m\_entities.erase(entity);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ entitySignatureChanged(Entity\ entity,\ Signature\ entitySignature)}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pair\ :\ m\_systems)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ type\ =\ pair.first;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ system\ =\ pair.second;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ systemSignature\ =\ m\_signatures[type];}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((entitySignature\ \&\ systemSignature)\ ==\ systemSignature)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ system-\/>m\_entities.insert(entity);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ system-\/>m\_entities.erase(entity);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ std::shared\_ptr<System>\ getSystem(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems[name];}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ getSystems()}
+\DoxyCodeLine{00073\ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ Signature\ getSignature(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures[name];}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ getSignatures()}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ m\_signatures\ \{\};}
+\DoxyCodeLine{00089\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ m\_systems\ \{\};}
+\DoxyCodeLine{00090\ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
 
 \end{DoxyCode}

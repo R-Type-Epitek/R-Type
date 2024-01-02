@@ -1,10 +1,26 @@
 var searchData=
 [
-  ['handlecommand_0',['handlecommand',['../class_network_1_1_start_game_command_handler.html#a6e49a13cd60b8428f12129a82d9c81f2',1,'Network::StartGameCommandHandler::handleCommand()'],['../class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e',1,'Network::UpdateNameCommandHandler::handleCommand()'],['../class_network_1_1_connect_to_server_command_handler.html#acfe75182ccaa6e576fbf222b24754a86',1,'Network::ConnectToServerCommandHandler::handleCommand()'],['../class_network_1_1_i_command_handler.html#a03d397e650d6d2bad03f4a9fae2ef916',1,'Network::ICommandHandler::handleCommand()'],['../class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8',1,'Network::InputCommandHandler::handleCommand()'],['../class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211',1,'Network::JoinRoomCommandHandler::handleCommand()']]],
-  ['handlereceive_1',['handleReceive',['../class_network_1_1_u_d_p_server.html#ac97d512d745687229613d23b27a71bae',1,'Network::UDPServer']]],
-  ['handlesend_2',['handleSend',['../class_network_1_1_u_d_p_server.html#a7d721dae9793f447e2199f8780096e53',1,'Network::UDPServer']]],
-  ['hasentity_3',['hasEntity',['../class_game_engine_1_1_e_c_s_1_1_component_array.html#a07ad76a7e957754b34ba05942420f942',1,'GameEngine::ECS::ComponentArray']]],
-  ['hasserializemethod_4',['hasSerializeMethod',['../struct_game_engine_1_1_serialize_1_1has_serialize_method.html',1,'GameEngine::Serialize']]],
-  ['hasserializemethod_3c_20t_2c_20decltype_28std_3a_3adeclval_3c_20t_20_3e_28_29_2eserialize_28std_3a_3adeclval_3c_20void_20_2a_20_3e_28_29_2c_20std_3a_3adeclval_3c_20unsigned_20int_20_3e_28_29_29_2c_20void_28_29_29_3e_5',['hasSerializeMethod&lt; T, decltype(std::declval&lt; T &gt;().serialize(std::declval&lt; void * &gt;(), std::declval&lt; unsigned int &gt;()), void())&gt;',['../struct_game_engine_1_1_serialize_1_1has_serialize_method_3_01_t_00_01decltype_07std_1_1declval_3a0832015682a2eec800bcffefa4f5b22.html',1,'GameEngine::Serialize']]],
-  ['header_6',['header',['../struct_message.html#a704863f3c71f270459d015102d61f7c8',1,'Message']]]
+  ['gamescene_0',['GameScene',['../class_client_1_1_game_scene.html',1,'Client']]],
+  ['getclientbyid_1',['getClientById',['../class_network_1_1_u_d_p_server.html#ac53887abfffcb234eb820f6beb7c58ff',1,'Network::UDPServer']]],
+  ['getclients_2',['getClients',['../class_network_1_1_u_d_p_server.html#a6577105fddee863d8d7bbae6f7bac2f7',1,'Network::UDPServer']]],
+  ['getcomponent_3',['getComponent',['../class_game_engine_1_1_e_c_s_1_1_component_manager.html#a7e56e2c36fa9b19c916d958334c5e7d7',1,'GameEngine::ECS::ComponentManager']]],
+  ['getcomponentswithentity_4',['getComponentsWithEntity',['../class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34',1,'GameEngine::ECS::ComponentManager']]],
+  ['getcomponenttype_5',['getComponentType',['../class_game_engine_1_1_e_c_s_1_1_component_manager.html#aaac9ecf193ba6bc59cc52b25beb10bb5',1,'GameEngine::ECS::ComponentManager']]],
+  ['getdata_6',['getData',['../class_game_engine_1_1_e_c_s_1_1_component_array.html#af91a0a288eee11891c0b2f7bda0fbee2',1,'GameEngine::ECS::ComponentArray']]],
+  ['getendpoint_7',['getEndpoint',['../class_network_1_1_client.html#a67507fa077e2a1781500207e08dc46b3',1,'Network::Client']]],
+  ['gethostedgame_8',['getHostedGame',['../class_network_1_1_room.html#af5893aca91eb211862b4ff8d26a24843',1,'Network::Room']]],
+  ['getid_9',['getid',['../class_network_1_1_room.html#a4194c540b15a95da36bbfcebcb2e8ce5',1,'Network::Room::getId()'],['../class_network_1_1_client.html#a1b788b125572f455745b4d9d537fc0cb',1,'Network::Client::getId() const']]],
+  ['getname_10',['getName',['../class_network_1_1_client.html#a436cfc281877445713aa8d63cc5fa52b',1,'Network::Client']]],
+  ['getnextclientidandincrement_11',['getNextClientIdAndIncrement',['../class_network_1_1_u_d_p_server.html#a2c13629ee0ccbf4d9b12deb117080603',1,'Network::UDPServer']]],
+  ['getplayers_12',['getPlayers',['../class_network_1_1_room.html#a92553cf90665a33507b0b976d3b577a6',1,'Network::Room']]],
+  ['getrecvbuffer_13',['getRecvBuffer',['../class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f',1,'Network::UDPServer']]],
+  ['getremoteendpoint_14',['getRemoteEndpoint',['../class_network_1_1_u_d_p_server.html#a9f7a52213bf27b1cd095cf526d6736ac',1,'Network::UDPServer']]],
+  ['getroomid_15',['getRoomId',['../class_network_1_1_client.html#a3226b24dbca2a87dcca3f9ba02394b7c',1,'Network::Client']]],
+  ['getrooms_16',['getRooms',['../class_network_1_1_u_d_p_server.html#a421b82239515eafa196dc68cc573fc2b',1,'Network::UDPServer']]],
+  ['getsignature_17',['getSignature',['../class_game_engine_1_1_e_c_s_1_1_entity_manager.html#ab59e2fca1086949aa1997fd10e358c3d',1,'GameEngine::ECS::EntityManager']]],
+  ['getsize_18',['getSize',['../class_network_1_1_room.html#a24e2920279a125d79efd2474c1778d7e',1,'Network::Room']]],
+  ['getsocket_19',['getSocket',['../class_network_1_1_u_d_p_server.html#ac32cc82757d28952e4429a16189b4216',1,'Network::UDPServer']]],
+  ['getstate_20',['getState',['../class_network_1_1_room.html#abe4ddca044c548d5658ea8d8e24e624a',1,'Network::Room']]],
+  ['gravity_21',['Gravity',['../struct_component_r_type_1_1_gravity.html',1,'ComponentRType']]],
+  ['gui_22',['GUI',['../class_client_1_1_g_u_i.html',1,'Client']]]
 ];

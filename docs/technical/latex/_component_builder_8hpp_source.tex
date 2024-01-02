@@ -14,32 +14,23 @@
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_component_1_1_component_builder}{ComponentBuilder}}\ \{}
-\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_component_1_1_component_builder}{ComponentBuilder}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_component_1_1_component_builder}{\string~ComponentBuilder}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{template}<}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ MediatorType,}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Entity,}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keyword}{typename}\ FirstComponent,}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keyword}{typename}...\ Rest>}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createEntity(}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ MediatorType\&\ mediator,}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ Entity\ entity,}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ FirstComponent\&\&\ first,}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ Rest\&\&...\ rest)}
-\DoxyCodeLine{00027\ \ \ \ \ \{}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Type\ of\ std::forward<FirstComponent>(first)\ =\ "{}}}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{keyword}{typeid}(std::forward<FirstComponent>(first)).name()}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ mediator.addComponent(entity,\ std::forward<FirstComponent>(first));}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{sizeof}...(rest)\ >\ 0)\ \{}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ createEntity(mediator,\ entity,\ std::forward<Rest>(rest)...);}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00036\ \ \ \ \ \}}
-\DoxyCodeLine{00037\ \ \ \};}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Component}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ MediatorType,\ \textcolor{keyword}{typename}\ Entity,\ \textcolor{keyword}{typename}\ FirstComponent,\ \textcolor{keyword}{typename}...\ Rest>}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createEntity(MediatorType\&\ mediator,\ Entity\ entity,\ FirstComponent\&\&\ first,\ Rest\&\&...\ rest)}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Type\ of\ std::forward<FirstComponent>(first)\ =\ "{}}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{keyword}{typeid}(std::forward<FirstComponent>(first)).name()\ <<\ std::endl;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ mediator.addComponent(entity,\ std::forward<FirstComponent>(first));}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{sizeof}...(rest)\ >\ 0)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ createEntity(mediator,\ entity,\ std::forward<Rest>(rest)...);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Component}}
 
 \end{DoxyCode}

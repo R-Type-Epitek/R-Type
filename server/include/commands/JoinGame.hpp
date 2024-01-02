@@ -8,9 +8,9 @@
 
 namespace Network
 {
-  class StartGameCommandHandler : public ICommandHandler {
+  class JoinGameCommandHandler : public ICommandHandler {
    public:
-    StartGameCommandHandler(UDPServer &server);
+    JoinGameCommandHandler(UDPServer &server);
     bool isAuthorized(int clientId) override;
     std::vector<char> handleCommand(Message *message) override;
 

@@ -22,6 +22,8 @@ boost\+::asio\+::ip\+::udp\+::socket \& \mbox{\hyperlink{class_network_1_1_u_d_p
 \begin{DoxyCompactList}\small\item\em Gets the UDP socket used by the server. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{class_network_1_1_client}{Network\+::\+Client}} $>$ \& \mbox{\hyperlink{class_network_1_1_u_d_p_server_a6577105fddee863d8d7bbae6f7bac2f7}{get\+Clients}} ()
 \begin{DoxyCompactList}\small\item\em Gets the list of connected clients. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_network_1_1_client}{Network\+::\+Client}} \& \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff}{get\+Client\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Get the client by id. \end{DoxyCompactList}\item 
 boost\+::array$<$ char, 1024 $>$ \mbox{\hyperlink{class_network_1_1_u_d_p_server_a2009531677d046860f0c67ff3e32d03f}{get\+Recv\+Buffer}} () const
 \begin{DoxyCompactList}\small\item\em Gets the receive buffer. \end{DoxyCompactList}\item 
 boost\+::asio\+::ip\+::udp\+::endpoint \mbox{\hyperlink{class_network_1_1_u_d_p_server_a9f7a52213bf27b1cd095cf526d6736ac}{get\+Remote\+Endpoint}} () const
@@ -64,8 +66,6 @@ void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ae6df6365d9c49e58434876ef10
 \begin{DoxyCompactList}\small\item\em Send a response and log it. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_network_1_1_u_d_p_server_ab2d04421510f1fd72b2158aa171241e9}{is\+Client\+Registered}} (int client\+Id)
 \begin{DoxyCompactList}\small\item\em Check if a client is registered. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_network_1_1_u_d_p_server_a2db9f8510e50ae6dcf8d13f68bd97668}{is\+Client\+Connected}} (int client\+Id)
-\begin{DoxyCompactList}\small\item\em Check if a client is connected. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a82f424a15da216aade28273353dad9eb}{register\+Command\+Handlers}} ()
 \begin{DoxyCompactList}\small\item\em Register command handlers. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_af9906b402d8c7af8b1b6f9d4332bb60c}{check\+Client\+Timers}} ()
@@ -213,6 +213,21 @@ Create a response buffer to send to the client with the specified ID.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Vector containing the response. 
+\end{DoxyReturn}
+\Hypertarget{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff}\label{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff} 
+\index{Network::UDPServer@{Network::UDPServer}!getClientById@{getClientById}}
+\index{getClientById@{getClientById}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getClientById()}{getClientById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_network_1_1_client}{Network\+::\+Client}} \& Network\+::\+UDPServer\+::get\+Client\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Get the client by id. 
+
+Return the client correponding to the given id.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_network_1_1_client}{Client} 
 \end{DoxyReturn}
 \Hypertarget{class_network_1_1_u_d_p_server_a6577105fddee863d8d7bbae6f7bac2f7}\label{class_network_1_1_u_d_p_server_a6577105fddee863d8d7bbae6f7bac2f7} 
 \index{Network::UDPServer@{Network::UDPServer}!getClients@{getClients}}
@@ -367,26 +382,6 @@ Initializes the server by binding the socket to the specified port and starting 
 {\em port} & Integer specifying the port number on which the server will listen. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_network_1_1_u_d_p_server_a2db9f8510e50ae6dcf8d13f68bd97668}\label{class_network_1_1_u_d_p_server_a2db9f8510e50ae6dcf8d13f68bd97668} 
-\index{Network::UDPServer@{Network::UDPServer}!isClientConnected@{isClientConnected}}
-\index{isClientConnected@{isClientConnected}!Network::UDPServer@{Network::UDPServer}}
-\doxysubsubsection{\texorpdfstring{isClientConnected()}{isClientConnected()}}
-{\footnotesize\ttfamily bool Network\+::\+UDPServer\+::is\+Client\+Connected (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})}
-
-
-
-Check if a client is connected. 
-
-Check if the specified client is connected to the server.
-
-
-\begin{DoxyParams}{Parameters}
-{\em client\+Id} & Integer specifying the ID of the client to check.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Boolean indicating whether the client is connected. 
-\end{DoxyReturn}
 \Hypertarget{class_network_1_1_u_d_p_server_ab2d04421510f1fd72b2158aa171241e9}\label{class_network_1_1_u_d_p_server_ab2d04421510f1fd72b2158aa171241e9} 
 \index{Network::UDPServer@{Network::UDPServer}!isClientRegistered@{isClientRegistered}}
 \index{isClientRegistered@{isClientRegistered}!Network::UDPServer@{Network::UDPServer}}

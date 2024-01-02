@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 95.693779
+%%BoundingBox: 0 0 500 112.359550
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,7 +19,7 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 5.225000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 4.450000 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
@@ -175,7 +175,7 @@ boxfont setfont
 1 boundaspect scale
 (GameEngine::Scene::IScene) cw
 (Client::GameScene) cw
-(Server::Game::Rtype::RtypeScene) cw
+(Server::Game::RtypeScene) cw
 /boxwidth boxwidth marginwidth 2 mul add def
 /xspacing boxwidth distx add def
 /yspacing boxheight disty add def
@@ -189,7 +189,7 @@ boundx scalefactor div boundy scalefactor div scale
 
  (GameEngine::Scene::IScene) 0.500000 1.000000 box
  (Client::GameScene) 0.000000 0.000000 box
- (Server::Game::Rtype::RtypeScene) 1.000000 0.000000 box
+ (Server::Game::RtypeScene) 1.000000 0.000000 box
 
 % ----- relations -----
 

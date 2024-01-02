@@ -31,7 +31,7 @@ namespace ComponentRType
     {
       archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
         *this);
-      archive &id;
+      archive & id;
     }
   };
 

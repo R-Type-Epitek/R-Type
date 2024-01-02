@@ -59,7 +59,7 @@ namespace Client
     void updateName(std::string name);
     void joinRoom(int roomId);
     void sendKey(std::string key);
-    void startGame(int roomId);
+    void joinGame(int roomId);
 
    protected:
    private:

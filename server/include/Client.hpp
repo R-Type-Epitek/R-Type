@@ -16,7 +16,7 @@ namespace Network
     * properties.
     */
   class Client {
-  public:
+   public:
     /**
       * @brief Constructor for Client.
       *
@@ -104,14 +104,12 @@ namespace Network
       */
     bool isInactiveFor(long milliseconds);
 
-  protected:
-  private:
-    boost::asio::ip::udp::endpoint
-      endpoint;       ///< The network endpoint of the client.
-    int id;           ///< The identifier of the client.
-    std::string name; ///< The name of the client.
-    int roomId;       ///< The identifier of the room.
-    std::chrono::steady_clock::time_point
-      lastMessageTime; ///< The last time the client sent a message.
+   protected:
+   private:
+    boost::asio::ip::udp::endpoint endpoint;               ///< The network endpoint of the client.
+    int id;                                                ///< The identifier of the client.
+    std::string name;                                      ///< The name of the client.
+    int roomId;                                            ///< The identifier of the room.
+    std::chrono::steady_clock::time_point lastMessageTime; ///< The last time the client sent a message.
   };
 } // namespace Network

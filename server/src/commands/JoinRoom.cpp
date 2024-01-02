@@ -22,7 +22,7 @@ std::vector<char> Network::JoinRoomCommandHandler::handleCommand(Message *messag
   JoinRoomData *data = (JoinRoomData *)message->data;
   std::string statusMessage = "";
   int status = RES_SUCCESS;
-  std::vector<Room> rooms = this->server.getRooms();
+  std::vector<Room> &rooms = this->server.getRooms();
 
   if (data->roomId < 0 || data->roomId >= (int)rooms.size()) {
     statusMessage = "Invalid room ID";
@@ -35,7 +35,6 @@ std::vector<char> Network::JoinRoomCommandHandler::handleCommand(Message *messag
     this->server.getClients()[message->header.clientId].setRoomId(data->roomId);
     rooms[data->roomId].addPlayer(message->header.clientId);
   }
-
   std::vector<char> dataToSend(sizeof(*data));
   memcpy(dataToSend.data(), data, sizeof(*data));
 

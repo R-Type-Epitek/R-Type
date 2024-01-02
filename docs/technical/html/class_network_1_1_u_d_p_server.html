@@ -134,6 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6577105fddee863d8d7bbae6f7bac2f7" id="r_a6577105fddee863d8d7bbae6f7bac2f7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_network_1_1_client.html">Network::Client</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a6577105fddee863d8d7bbae6f7bac2f7">getClients</a> ()</td></tr>
 <tr class="memdesc:a6577105fddee863d8d7bbae6f7bac2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of connected clients.  <br /></td></tr>
 <tr class="separator:a6577105fddee863d8d7bbae6f7bac2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53887abfffcb234eb820f6beb7c58ff" id="r_ac53887abfffcb234eb820f6beb7c58ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_1_1_client.html">Network::Client</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ac53887abfffcb234eb820f6beb7c58ff">getClientById</a> (int id)</td></tr>
+<tr class="memdesc:ac53887abfffcb234eb820f6beb7c58ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the client by id.  <br /></td></tr>
+<tr class="separator:ac53887abfffcb234eb820f6beb7c58ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2009531677d046860f0c67ff3e32d03f" id="r_a2009531677d046860f0c67ff3e32d03f"><td class="memItemLeft" align="right" valign="top">boost::array&lt; char, 1024 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f">getRecvBuffer</a> () const</td></tr>
 <tr class="memdesc:a2009531677d046860f0c67ff3e32d03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the receive buffer.  <br /></td></tr>
 <tr class="separator:a2009531677d046860f0c67ff3e32d03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,9 +200,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab2d04421510f1fd72b2158aa171241e9" id="r_ab2d04421510f1fd72b2158aa171241e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ab2d04421510f1fd72b2158aa171241e9">isClientRegistered</a> (int clientId)</td></tr>
 <tr class="memdesc:ab2d04421510f1fd72b2158aa171241e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a client is registered.  <br /></td></tr>
 <tr class="separator:ab2d04421510f1fd72b2158aa171241e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2db9f8510e50ae6dcf8d13f68bd97668" id="r_a2db9f8510e50ae6dcf8d13f68bd97668"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a2db9f8510e50ae6dcf8d13f68bd97668">isClientConnected</a> (int clientId)</td></tr>
-<tr class="memdesc:a2db9f8510e50ae6dcf8d13f68bd97668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a client is connected.  <br /></td></tr>
-<tr class="separator:a2db9f8510e50ae6dcf8d13f68bd97668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82f424a15da216aade28273353dad9eb" id="r_a82f424a15da216aade28273353dad9eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a82f424a15da216aade28273353dad9eb">registerCommandHandlers</a> ()</td></tr>
 <tr class="memdesc:a82f424a15da216aade28273353dad9eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register command handlers.  <br /></td></tr>
 <tr class="separator:a82f424a15da216aade28273353dad9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -472,6 +472,28 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac53887abfffcb234eb820f6beb7c58ff" name="ac53887abfffcb234eb820f6beb7c58ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac53887abfffcb234eb820f6beb7c58ff">&#9670;&#160;</a></span>getClientById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_network_1_1_client.html">Network::Client</a> &amp; Network::UDPServer::getClientById </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the client by id. </p>
+<p>Return the client correponding to the given id.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_network_1_1_client.html" title="Represents a network client.">Client</a> </dd></dl>
+
+</div>
+</div>
 <a id="a6577105fddee863d8d7bbae6f7bac2f7" name="a6577105fddee863d8d7bbae6f7bac2f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6577105fddee863d8d7bbae6f7bac2f7">&#9670;&#160;</a></span>getClients()</h2>
 
@@ -718,34 +740,6 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a2db9f8510e50ae6dcf8d13f68bd97668" name="a2db9f8510e50ae6dcf8d13f68bd97668"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2db9f8510e50ae6dcf8d13f68bd97668">&#9670;&#160;</a></span>isClientConnected()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Network::UDPServer::isClientConnected </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>clientId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if a client is connected. </p>
-<p>Check if the specified client is connected to the server.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">clientId</td><td>Integer specifying the ID of the client to check.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Boolean indicating whether the client is connected. </dd></dl>
 
 </div>
 </div>

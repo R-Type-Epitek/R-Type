@@ -176,8 +176,8 @@ boxfont setfont
 (Network::ICommandHandler) cw
 (Network::ConnectToServerCommandHandler) cw
 (Network::InputCommandHandler) cw
+(Network::JoinGameCommandHandler) cw
 (Network::JoinRoomCommandHandler) cw
-(Network::StartGameCommandHandler) cw
 (Network::UpdateNameCommandHandler) cw
 /boxwidth boxwidth marginwidth 2 mul add def
 /xspacing boxwidth distx add def
@@ -193,8 +193,8 @@ boundx scalefactor div boundy scalefactor div scale
  (Network::ICommandHandler) 2.000000 1.000000 box
  (Network::ConnectToServerCommandHandler) 0.000000 0.000000 box
  (Network::InputCommandHandler) 1.000000 0.000000 box
- (Network::JoinRoomCommandHandler) 2.000000 0.000000 box
- (Network::StartGameCommandHandler) 3.000000 0.000000 box
+ (Network::JoinGameCommandHandler) 2.000000 0.000000 box
+ (Network::JoinRoomCommandHandler) 3.000000 0.000000 box
  (Network::UpdateNameCommandHandler) 4.000000 0.000000 box
 
 % ----- relations -----

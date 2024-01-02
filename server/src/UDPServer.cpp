@@ -5,11 +5,7 @@
 #include "RTypeNetwork.hpp"
 
 Network::UDPServer::UDPServer(boost::asio::io_context &io)
-  : socket(
-      io,
-      boost::asio::ip::udp::endpoint(
-        boost::asio::ip::udp::v4(),
-        std::stoi(DEFAULT_PORT)))
+  : socket(io, boost::asio::ip::udp::endpoint(boost::asio::ip::udp::v4(), std::stoi(DEFAULT_PORT)))
   , nextClientId(0)
   , clientsConnectionTimer(io)
 {
@@ -44,6 +40,14 @@ boost::asio::ip::udp::socket &Network::UDPServer::getSocket()
 std::vector<Network::Client> &Network::UDPServer::getClients()
 {
   return this->clients;
+}
+
+Network::Client &Network::UDPServer::getClientById(int id)
+{
+  for (auto &client : this->clients)
+    if (client.getId() == id)
+      return client;
+  throw std::runtime_error("Client not found");
 }
 
 boost::array<char, 1024> Network::UDPServer::getRecvBuffer() const
@@ -108,15 +112,10 @@ void Network::UDPServer::startReceive()
       boost::asio::placeholders::bytes_transferred));
 }
 
-void Network::UDPServer::handleReceive(
-  boost::system::error_code const &error,
-  std::size_t bytesTransferred)
+void Network::UDPServer::handleReceive(boost::system::error_code const &error, std::size_t bytesTransferred)
 {
   if (error && error == boost::asio::error::message_size)
-    return spdlog::error(
-      "handleReceive: Error: {} ({} bytes)",
-      error.message(),
-      bytesTransferred);
+    return spdlog::error("handleReceive: Error: {} ({} bytes)", error.message(), bytesTransferred);
 
   char *data = this->recvBuffer.data();
   MessageType *type = (MessageType *)data;
@@ -127,9 +126,8 @@ void Network::UDPServer::handleReceive(
     case MessageType::Response:
       return this->processResponse((Response *)data);
     case MessageType::Message:
-      return this->messageQueue.push((TimedMessage) {
-        (Message *)data,
-        std::chrono::high_resolution_clock::now()});
+      return this->messageQueue.push(
+        (TimedMessage) {(Message *)data, std::chrono::high_resolution_clock::now()});
     default:
       throw std::runtime_error("Invalid message type");
   }
@@ -158,9 +156,7 @@ void Network::UDPServer::sendToAll(boost::asio::const_buffer const &buffer)
         boost::asio::placeholders::bytes_transferred));
 }
 
-void Network::UDPServer::sendToAllClientsInRoom(
-  boost::asio::const_buffer const &buffer,
-  int roomId)
+void Network::UDPServer::sendToAllClientsInRoom(boost::asio::const_buffer const &buffer, int roomId)
 {
   if (roomId < 0 || roomId >= (int)this->rooms.size())
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
@@ -175,13 +171,10 @@ void Network::UDPServer::sendToAllClientsInRoom(
         boost::asio::placeholders::bytes_transferred));
 }
 
-void Network::UDPServer::sendToClient(
-  boost::asio::const_buffer const &buffer,
-  int id)
+void Network::UDPServer::sendToClient(boost::asio::const_buffer const &buffer, int id)
 {
   std::vector<char> messageBuffer(buffer.size());
   memcpy(messageBuffer.data(), buffer.data(), buffer.size());
-  logMessage("Server message", (Message *)messageBuffer.data());
 
   if (!this->isClientRegistered(id))
     return spdlog::warn("Client {} is not connected", id);
@@ -197,15 +190,10 @@ void Network::UDPServer::sendToClient(
       boost::asio::placeholders::bytes_transferred));
 }
 
-void Network::UDPServer::handleSend(
-  boost::system::error_code const &error,
-  std::size_t bytesTransferred)
+void Network::UDPServer::handleSend(boost::system::error_code const &error, std::size_t bytesTransferred)
 {
   if (error && error == boost::asio::error::message_size)
-    return spdlog::error(
-      "handleSend: Error: {} ({} bytes)",
-      error.message(),
-      bytesTransferred);
+    return spdlog::error("handleSend: Error: {} ({} bytes)", error.message(), bytesTransferred);
 }
 
 void Network::UDPServer::processMessage(TimedMessage timedMessage)
@@ -265,10 +253,7 @@ std::vector<char> Network::UDPServer::createMessageBuffer(
   memcpy(messageBuffer.data(), &type, sizeof(type));
   memcpy(messageBuffer.data() + sizeof(type), &header, sizeof(header));
   if (data != nullptr)
-    memcpy(
-      messageBuffer.data() + sizeof(type) + sizeof(header),
-      data,
-      dataSize);
+    memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
   return messageBuffer;
 }
@@ -297,17 +282,12 @@ std::vector<char> Network::UDPServer::createResponseBuffer(
   memcpy(messageBuffer.data(), &type, sizeof(type));
   memcpy(messageBuffer.data() + sizeof(type), &header, sizeof(header));
   if (data != nullptr)
-    memcpy(
-      messageBuffer.data() + sizeof(type) + sizeof(header),
-      data,
-      dataSize);
+    memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
   return messageBuffer;
 }
 
-void Network::UDPServer::sendResponseAndLog(
-  TimedMessage timedMessage,
-  std::vector<char> responseBuffer)
+void Network::UDPServer::sendResponseAndLog(TimedMessage timedMessage, std::vector<char> responseBuffer)
 {
   Response response = *(Response *)responseBuffer.data();
 
@@ -330,16 +310,11 @@ bool Network::UDPServer::isClientRegistered(int clientId)
 
 void Network::UDPServer::registerCommandHandlers()
 {
-  this->commandHandlers[CONNECT_TO_SERVER_COMMAND] =
-    std::make_unique<ConnectToServerCommandHandler>(*this);
-  this->commandHandlers[UPDATE_NAME_COMMAND] =
-    std::make_unique<UpdateNameCommandHandler>(*this);
-  this->commandHandlers[JOIN_ROOM_COMMAND] =
-    std::make_unique<JoinRoomCommandHandler>(*this);
-  this->commandHandlers[INPUT_COMMAND] =
-    std::make_unique<InputCommandHandler>(*this);
-  this->commandHandlers[START_GAME_COMMAND] =
-    std::make_unique<StartGameCommandHandler>(*this);
+  this->commandHandlers[CONNECT_TO_SERVER_COMMAND] = std::make_unique<ConnectToServerCommandHandler>(*this);
+  this->commandHandlers[UPDATE_NAME_COMMAND] = std::make_unique<UpdateNameCommandHandler>(*this);
+  this->commandHandlers[JOIN_ROOM_COMMAND] = std::make_unique<JoinRoomCommandHandler>(*this);
+  this->commandHandlers[INPUT_COMMAND] = std::make_unique<InputCommandHandler>(*this);
+  this->commandHandlers[JOIN_GAME_COMMAND] = std::make_unique<JoinGameCommandHandler>(*this);
 }
 
 void Network::UDPServer::checkClientTimers()
@@ -358,33 +333,38 @@ void Network::UDPServer::checkClientTimers()
 
 void Network::UDPServer::startClientTimerCheck()
 {
-  this->clientsConnectionTimer.expires_from_now(
-    std::chrono::milliseconds(CLIENT_INACTIVE_CHECK_INTERVAL));
-  this->clientsConnectionTimer.async_wait(
-    [this](boost::system::error_code const &error) {
-      if (!error) {
-        this->checkClientTimers();
-        this->startClientTimerCheck();
-      }
-    });
+  this->clientsConnectionTimer.expires_from_now(std::chrono::milliseconds(CLIENT_INACTIVE_CHECK_INTERVAL));
+  this->clientsConnectionTimer.async_wait([this](boost::system::error_code const &error) {
+    if (!error) {
+      this->checkClientTimers();
+      this->startClientTimerCheck();
+    }
+  });
 }
 
 void Network::UDPServer::notifyAndRemoveClient(int clientId)
 {
   Client client = this->clients[clientId];
 
+  if (client.getRoomId() == -1) {
+    for (size_t i = 0; i < this->clients.size(); i++) {
+      if (this->clients[i].getId() == clientId) {
+        this->clients.erase(this->clients.begin() + i);
+        break;
+      }
+    }
+  }
+
   ServerClientDisconnectedData data = {.clientId = clientId};
   char dataToSend[sizeof(data)];
   memcpy(dataToSend, &data, sizeof(data));
 
-  std::vector<char> messageBuffer = this->createMessageBuffer(
-    clientId,
-    SERVER_COMMAND_CLIENT_DISCONNECTED,
-    dataToSend,
-    sizeof(data));
+  std::vector<char> messageBuffer =
+    this->createMessageBuffer(clientId, SERVER_COMMAND_CLIENT_DISCONNECTED, dataToSend, sizeof(data));
 
   spdlog::info("Client {} disconnected", clientId);
   this->rooms[client.getRoomId()].removePlayer(clientId);
+  logMessage("Server message", (Message *)messageBuffer.data());
   this->sendToAllClientsInRoom(
     boost::asio::buffer(messageBuffer.data(), messageBuffer.size()),
     client.getRoomId());
@@ -399,24 +379,20 @@ void Network::UDPServer::notifyAndRemoveClient(int clientId)
 
 void Network::UDPServer::sendCheckConnection(int clientId)
 {
-  std::vector<char> messageBuffer = this->createMessageBuffer(
-    clientId,
-    SERVER_COMMAND_CHECK_CONNECTION,
-    nullptr,
-    0);
+  std::vector<char> messageBuffer =
+    this->createMessageBuffer(clientId, SERVER_COMMAND_CHECK_CONNECTION, nullptr, 0);
 
-  this->sendToClient(
-    boost::asio::buffer(messageBuffer.data(), messageBuffer.size()),
-    clientId);
+  logMessage("Server message", (Message *)messageBuffer.data());
+
+  this->sendToClient(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()), clientId);
 }
 
 void Network::UDPServer::handleInvalidClient(TimedMessage timedMessage)
 {
   int clientId = timedMessage.message->header.clientId;
-  std::string statusMessage = clientId < 0
-    ? "Invalid client ID"
-    : "Client not connected. Use " CONNECT_TO_SERVER_COMMAND
-      " command to connect";
+  std::string statusMessage = clientId < 0 ? "Invalid client ID"
+                                           : "Client not connected. Use " CONNECT_TO_SERVER_COMMAND
+                                             " command to connect";
 
   std::vector<char> responseBuffer = this->createResponseBuffer(
     clientId,

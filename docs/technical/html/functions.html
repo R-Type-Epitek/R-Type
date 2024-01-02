@@ -140,12 +140,14 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>getClientById()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac53887abfffcb234eb820f6beb7c58ff">Network::UDPServer</a></li>
 <li>getClients()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a6577105fddee863d8d7bbae6f7bac2f7">Network::UDPServer</a></li>
 <li>getComponent()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a7e56e2c36fa9b19c916d958334c5e7d7">GameEngine::ECS::ComponentManager</a></li>
 <li>getComponentsWithEntity()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34">GameEngine::ECS::ComponentManager</a></li>
 <li>getComponentType()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#aaac9ecf193ba6bc59cc52b25beb10bb5">GameEngine::ECS::ComponentManager</a></li>
 <li>getData()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_array.html#af91a0a288eee11891c0b2f7bda0fbee2">GameEngine::ECS::ComponentArray&lt; T &gt;</a></li>
 <li>getEndpoint()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a67507fa077e2a1781500207e08dc46b3">Network::Client</a></li>
+<li>getHostedGame()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#af5893aca91eb211862b4ff8d26a24843">Network::Room</a></li>
 <li>getId()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a1b788b125572f455745b4d9d537fc0cb">Network::Client</a>, <a class="el" href="class_network_1_1_room.html#a4194c540b15a95da36bbfcebcb2e8ce5">Network::Room</a></li>
 <li>getName()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a436cfc281877445713aa8d63cc5fa52b">Network::Client</a></li>
 <li>getNextClientIdAndIncrement()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a2c13629ee0ccbf4d9b12deb117080603">Network::UDPServer</a></li>
@@ -162,7 +164,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>handleCommand()&#160;:&#160;<a class="el" href="class_network_1_1_connect_to_server_command_handler.html#acfe75182ccaa6e576fbf222b24754a86">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_i_command_handler.html#a03d397e650d6d2bad03f4a9fae2ef916">Network::ICommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#a6e49a13cd60b8428f12129a82d9c81f2">Network::StartGameCommandHandler</a>, <a class="el" href="class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a></li>
+<li>handleCommand()&#160;:&#160;<a class="el" href="class_network_1_1_connect_to_server_command_handler.html#acfe75182ccaa6e576fbf222b24754a86">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_i_command_handler.html#a03d397e650d6d2bad03f4a9fae2ef916">Network::ICommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_game_command_handler.html#a150446d39949c070755dd234298f7028">Network::JoinGameCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a></li>
 <li>handleReceive()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac97d512d745687229613d23b27a71bae">Network::UDPServer</a></li>
 <li>handleSend()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a7d721dae9793f447e2199f8780096e53">Network::UDPServer</a></li>
 <li>hasEntity()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_array.html#a07ad76a7e957754b34ba05942420f942">GameEngine::ECS::ComponentArray&lt; T &gt;</a></li>
@@ -174,8 +176,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>initRooms()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac4b4c1cd19635deb604ceb2a63839f4d">Network::UDPServer</a></li>
 <li>initServer()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a8d43c1630c01f9eefa4909772057e9c8">Network::UDPServer</a></li>
 <li>insertData()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_array.html#a92f8193397104051eb969b8162cce627">GameEngine::ECS::ComponentArray&lt; T &gt;</a></li>
-<li>isAuthorized()&#160;:&#160;<a class="el" href="class_network_1_1_connect_to_server_command_handler.html#a13cddd20b6262ab6ef871fb9fa8963fc">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_i_command_handler.html#a2247483da1e56599d5fd9a2e891e0767">Network::ICommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#a8e7839a15d2b62473b67b4296b388534">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a7097c949d5cce3914afcbe21cd0d2ee2">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_start_game_command_handler.html#ae0109f7dd128d5a3c3488bc997f76637">Network::StartGameCommandHandler</a>, <a class="el" href="class_network_1_1_update_name_command_handler.html#a7e232f2ad3480ba5f6ba8fb58fd4bcb5">Network::UpdateNameCommandHandler</a></li>
-<li>isClientConnected()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a2db9f8510e50ae6dcf8d13f68bd97668">Network::UDPServer</a></li>
+<li>isAuthorized()&#160;:&#160;<a class="el" href="class_network_1_1_connect_to_server_command_handler.html#a13cddd20b6262ab6ef871fb9fa8963fc">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_i_command_handler.html#a2247483da1e56599d5fd9a2e891e0767">Network::ICommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#a8e7839a15d2b62473b67b4296b388534">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_game_command_handler.html#aef7de1b5b64ca159e14130e5fc4285d4">Network::JoinGameCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a7097c949d5cce3914afcbe21cd0d2ee2">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_update_name_command_handler.html#a7e232f2ad3480ba5f6ba8fb58fd4bcb5">Network::UpdateNameCommandHandler</a></li>
 <li>isClientRegistered()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ab2d04421510f1fd72b2158aa171241e9">Network::UDPServer</a></li>
 <li>isFull()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#aec809e76b88ff1fb19c652c8d6da9e13">Network::Room</a></li>
 <li>isInactiveFor()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#aaccc5c179993bbffb72618702127adc9">Network::Client</a></li>
@@ -198,6 +199,11 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </ul>
 
 
+<h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>operator=()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#a5807a4389e66585ff67f390904d3c7c1">Network::Room</a></li>
+</ul>
+
+
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
 <li>pop()&#160;:&#160;<a class="el" href="class_network_1_1_thread_safe_queue.html#a38d6f4d684ae1aaa02aaf71d0091f22a">Network::ThreadSafeQueue&lt; T &gt;</a></li>
 <li>processMessage()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ad31c0be7001a0123b1fe8434161665de">Network::UDPServer</a></li>
@@ -214,7 +220,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>removeData()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_array.html#ac2f601f40903418ae4597bf18f33f461">GameEngine::ECS::ComponentArray&lt; T &gt;</a></li>
 <li>removePlayer()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#a1fcbc27e73b2fd043942dd607040c2e6">Network::Room</a></li>
 <li>Room()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#a921559d500021651da4203e4b3e44336">Network::Room</a></li>
-<li>roomId&#160;:&#160;<a class="el" href="struct_join_room_data.html#a9f0b47d9ccc022ca8ad92bc38d0ae5aa">JoinRoomData</a>, <a class="el" href="struct_start_game_data.html#ade25ba277a3f0b013fccf404d0de39e2">StartGameData</a></li>
+<li>roomId&#160;:&#160;<a class="el" href="struct_join_game_data.html#a89cfff7622a6679c5c8478b9b69c1de9">JoinGameData</a>, <a class="el" href="struct_join_room_data.html#a9f0b47d9ccc022ca8ad92bc38d0ae5aa">JoinRoomData</a></li>
 </ul>
 
 

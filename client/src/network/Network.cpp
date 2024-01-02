@@ -13,7 +13,7 @@
 #include "network/commands/IHandler.hpp"
 #include "network/commands/Input.hpp"
 #include "network/commands/JoinRoom.hpp"
-#include "network/commands/StartGame.hpp"
+#include "network/commands/JoinGame.hpp"
 #include "network/commands/Tracker.hpp"
 #include "network/commands/UpdateName.hpp"
 #include "network/tools/Logs.hpp"
@@ -54,7 +54,7 @@ void Client::Network::registerCommandHandlers()
   this->commandHandlers[UPDATE_NAME_COMMAND] = std::make_shared<UpdateNameCommandHandler>(*this);
   this->commandHandlers[JOIN_ROOM_COMMAND] = std::make_shared<JoinRoomCommandHandler>(*this);
   this->commandHandlers[INPUT_COMMAND] = std::make_shared<InputCommandHandler>(*this);
-  this->commandHandlers[START_GAME_COMMAND] = std::make_shared<StartGameCommandHandler>(*this);
+  this->commandHandlers[JOIN_GAME_COMMAND] = std::make_shared<JoinGameCommandHandler>(*this);
 }
 
 std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(const std::string &name)
@@ -98,7 +98,7 @@ void Client::Network::sendMessage(std::string const &command, char const data[],
   this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
 
   std::thread([this, commandId, command]() {
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     if (!commandTrackers[commandId]->getIsCompleted())
       spdlog::error("Command {} timed out", command);
     commandTrackers.erase(commandId);
@@ -205,6 +205,8 @@ void Client::Network::onServerMessage(Message *message)
 
   if (!strcmp(message->header.command, SERVER_COMMAND_CHECK_CONNECTION))
     return this->onCheckConnectionMessage(message);
+  else if (!strcmp(message->header.command, SERVER_COMMAND_CLIENT_DISCONNECTED))
+    return;
   else
     throw std::runtime_error("Invalid message command");
 
@@ -305,9 +307,9 @@ void Client::Network::sendKey(std::string key)
   });
 }
 
-void Client::Network::startGame(int roomId)
+void Client::Network::joinGame(int roomId)
 {
-  this->executeCommand<StartGameCommandHandler>(START_GAME_COMMAND, [roomId](auto commandHandler) {
+  this->executeCommand<JoinGameCommandHandler>(JOIN_GAME_COMMAND, [roomId](auto commandHandler) {
     commandHandler->setRoomId(roomId);
     commandHandler->send();
   });

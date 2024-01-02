@@ -8,9 +8,9 @@
 
 namespace Client
 {
-  class StartGameCommandHandler : public ICommandHandler {
+  class JoinGameCommandHandler : public ICommandHandler {
    public:
-    StartGameCommandHandler(Network& network);
+    JoinGameCommandHandler(Network& network);
     void setRoomId(int roomId);
     int getRoomId() const;
     void send() override;

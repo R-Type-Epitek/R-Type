@@ -9,35 +9,36 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}IScene.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }GameEngine::Scene}
-\DoxyCodeLine{00013\ \{}
-\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_scene_1_1_scene_container}{SceneContainer}}\ \{}
-\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_scene_container}{SceneContainer}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ addScene(std::string\ \textcolor{keyword}{const}\&\ name,\ std::unique\_ptr<IScene>\ scene);}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteScene(std::string\ \textcolor{keyword}{const}\&\ name);}
-\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{IScene}}\&\ getScene(std::string\ \textcolor{keyword}{const}\&\ name);}
-\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{IScene}}\&\ find(std::string\ \textcolor{keyword}{const}\&\ name);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{typename}\ std::map<std::string,\ std::unique\_ptr<IScene>>::iterator\ begin()}
-\DoxyCodeLine{00024\ \ \ \ \ \{}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_scenes.begin();}
-\DoxyCodeLine{00026\ \ \ \ \ \}}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{typename}\ std::map<std::string,\ std::unique\_ptr<IScene>>::iterator\ end()}
-\DoxyCodeLine{00028\ \ \ \ \ \{}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_scenes.end();}
-\DoxyCodeLine{00030\ \ \ \ \ \}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ exist(std::string\ \textcolor{keyword}{const}\&\ name);}
-\DoxyCodeLine{00034\ \ \ \ \ std::map<std::string,\ std::unique\_ptr<IScene>>\ m\_scenes;}
-\DoxyCodeLine{00035\ \ \ \};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Scene}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }GameEngine::Scene}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_scene_1_1_scene_container}{SceneContainer}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_scene_container}{SceneContainer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ addScene(std::string\ \textcolor{keyword}{const}\&\ name,\ std::unique\_ptr<IScene>\ scene);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteScene(std::string\ \textcolor{keyword}{const}\&\ name);}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{IScene}}\&\ getScene(std::string\ \textcolor{keyword}{const}\&\ name);}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{IScene}}\&\ find(std::string\ \textcolor{keyword}{const}\&\ name);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{typename}\ std::map<std::string,\ std::unique\_ptr<IScene>>::iterator\ begin()}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_scenes.begin();}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{typename}\ std::map<std::string,\ std::unique\_ptr<IScene>>::iterator\ end()}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_scenes.end();}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ exist(std::string\ \textcolor{keyword}{const}\&\ name);}
+\DoxyCodeLine{00035\ \ \ \ \ std::map<std::string,\ std::unique\_ptr<IScene>>\ m\_scenes;}
+\DoxyCodeLine{00036\ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Scene}}
 
 \end{DoxyCode}

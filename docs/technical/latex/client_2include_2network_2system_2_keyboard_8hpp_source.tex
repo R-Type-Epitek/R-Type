@@ -7,28 +7,35 @@
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}RTypeClient.hpp"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }Client::System::Network}
-\DoxyCodeLine{00009\ \{}
-\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_system_1_1_network_1_1_keyboard}{Keyboard}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{GameEngine::ECS::System}}\ \{}
-\DoxyCodeLine{00011\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\&\ ctx,\ \mbox{\hyperlink{class_client_1_1_network}{::Client::Network}}\&\ network)}
-\DoxyCodeLine{00013\ \ \ \ \ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ctx.event.type\ !=\ sf::Event::KeyPressed)}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ eventKey\ =\ ctx.event.key.code;}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Up)}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}UP"{}});}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Down)}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}DOWN"{}});}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Left)}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}LEFT"{}});}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Right)}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}RIGHT"{}});}
-\DoxyCodeLine{00026\ \ \ \ \ \};}
-\DoxyCodeLine{00027\ \ \ \};}
-\DoxyCodeLine{00028\ \}\ \textcolor{comment}{//\ namespace\ Client::System::Network}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/UI/Window.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Sprite.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/system/System.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}network/Network.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <SFML/Window/Keyboard.hpp>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }Client::System::Network}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_system_1_1_network_1_1_keyboard}{Keyboard}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{GameEngine::ECS::System}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\&\ ctx,\ \mbox{\hyperlink{class_client_1_1_network}{::Client::Network}}\&\ network)}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ctx.event.type\ !=\ sf::Event::KeyPressed)}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ eventKey\ =\ ctx.event.key.code;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Up)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}UP"{}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Down)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}DOWN"{}});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Left)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}LEFT"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Right)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ network.sendKey(\textcolor{stringliteral}{"{}RIGHT"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \};}
+\DoxyCodeLine{00034\ \ \ \};}
+\DoxyCodeLine{00035\ \}\ \textcolor{comment}{//\ namespace\ Client::System::Network}}
 
 \end{DoxyCode}

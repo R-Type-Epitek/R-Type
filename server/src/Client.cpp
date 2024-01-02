@@ -8,6 +8,7 @@ Network::Client::Client()
   : id(-1)
   , name("")
   , roomId(-1)
+  , lastMessageTime(std::chrono::steady_clock::now())
 {
 }
 
@@ -63,7 +64,6 @@ void Network::Client::updateLastMessageTime()
 bool Network::Client::isInactiveFor(long milliseconds)
 {
   auto now = std::chrono::steady_clock::now();
-  return std::chrono::duration_cast<std::chrono::milliseconds>(
-           now - this->lastMessageTime)
-           .count() > milliseconds;
+  return std::chrono::duration_cast<std::chrono::milliseconds>(now - this->lastMessageTime).count() >
+    milliseconds;
 }

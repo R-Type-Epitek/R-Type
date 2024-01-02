@@ -9,6 +9,41 @@ Network::Room::Room(int id, int size)
   , id(id)
   , state(WAITING)
 {
+  this->m_hostedGame.load();
+}
+
+Network::Room::Room(const Room& room)
+  : size(room.size)
+  , id(room.id)
+  , players(room.players)
+  , state(room.state)
+{
+}
+
+Network::Room::Room(Room&& room)
+  : size(room.size)
+  , id(room.id)
+  , players(std::move(room.players))
+  , state(room.state)
+{
+}
+
+Network::Room& Network::Room::operator=(const Room& room)
+{
+  this->size = room.size;
+  this->id = room.id;
+  this->state = room.state;
+  this->players = room.players;
+  return *this;
+}
+
+Network::Room& Network::Room::operator=(Room&& room)
+{
+  this->size = room.size;
+  this->id = room.id;
+  this->state = room.state;
+  this->players = std::move(room.players);
+  return *this;
 }
 
 Network::Room::~Room()
@@ -68,4 +103,9 @@ void Network::Room::setState(RoomState state)
 bool Network::Room::isFull() const
 {
   return (int)this->players.size() == this->size;
+}
+
+Server::Game::RtypeGame& Network::Room::getHostedGame()
+{
+  return this->m_hostedGame;
 }

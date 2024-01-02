@@ -1,0 +1,44 @@
+\doxysection{Networked\+Entity.\+hpp}
+\hypertarget{_networked_entity_8hpp_source}{}\label{_networked_entity_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/component/NetworkedEntity.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/component/NetworkedEntity.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 12/28/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Serializer.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }ComponentRType}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{NetworkedEntity}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component}{GameEngine::Network::Serializer::BaseNetworkComponent}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ id;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{NetworkedEntity}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{NetworkedEntity}}(\textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ :\ id(\textcolor{keywordtype}{id})}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{NetworkedEntity}}\ \&lhs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{NetworkedEntity}}\ \&rhs)}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lhs.id\ ==\ rhs.id;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }boost::serialization::access;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Archive>}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ serialize(Archive\ \&archive,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ archive\ \&boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ archive\ \&id;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \}\ \textcolor{comment}{//\ namespace\ ComponentRType}}
+
+\end{DoxyCode}

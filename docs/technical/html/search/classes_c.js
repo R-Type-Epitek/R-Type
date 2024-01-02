@@ -7,5 +7,5 @@ var searchData=
   ['responseheader_4',['ResponseHeader',['../struct_response_header.html',1,'']]],
   ['room_5',['Room',['../class_network_1_1_room.html',1,'Network']]],
   ['rtypegame_6',['RtypeGame',['../class_server_1_1_game_1_1_rtype_game.html',1,'Server::Game']]],
-  ['rtypescene_7',['RtypeScene',['../class_server_1_1_game_1_1_rtype_1_1_rtype_scene.html',1,'Server::Game::Rtype']]]
+  ['rtypescene_7',['RtypeScene',['../class_server_1_1_game_1_1_rtype_scene.html',1,'Server::Game']]]
 ];

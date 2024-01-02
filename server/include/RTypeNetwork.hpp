@@ -29,6 +29,7 @@
 
 #include "commands/IHandler.hpp"
 #include "Constants.hpp"
+#include "game/rtype/RtypeGame.hpp"
 #include "Client.hpp"
 #include "Room.hpp"
 #include "ThreadSafeQueue.hpp"
@@ -39,5 +40,5 @@
 #include "commands/ConnectToServer.hpp"
 #include "commands/Input.hpp"
 #include "commands/JoinRoom.hpp"
-#include "commands/StartGame.hpp"
+#include "commands/JoinGame.hpp"
 #include "commands/UpdateName.hpp"

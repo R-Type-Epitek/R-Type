@@ -13,12 +13,12 @@ namespace Network
      * @brief Represents the state of a room.
      *
      * This enum is used to represent the state of a room in a networked
-     * environment. The states are WAITING, IN_GAME, and FINISHED.
+     * environment. The states are WAITING, RUNNING, and FINISHED.
      */
   enum RoomState
   {
     WAITING,
-    IN_GAME,
+    RUNNING,
     FINISHED
   };
 
@@ -40,6 +40,36 @@ namespace Network
          * capacity.
          */
     Room(int id, int size);
+
+    /**
+      * @brief Copy constructor for Room.
+      *
+      * @param room The room to copy.
+      */
+    Room(const Room& room);
+
+    /**
+      * @brief Move constructor for Room.
+      *
+      * @param room The room to move.
+      */
+    Room(Room&& room);
+
+    /**
+     * @brief Copy assignment operator for Room.
+     * 
+     * @param room The room to copy.
+     * @return Room& A reference to the copied room.
+     */
+    Room& operator=(const Room& room);
+
+    /**
+      * @brief Move assignment operator for Room.
+      * 
+      * @param room The room to move.
+      * @return Room& A reference to the moved room.
+      */
+    Room& operator=(Room&& room);
 
     /**
          * @brief Destructor for Room.
@@ -118,13 +148,20 @@ namespace Network
          */
     bool isFull() const;
 
+    /**
+     * @brief Gets the game hosted by the room.
+     *
+     * @return Server::Game::RtypeGame The game hosted by the room.
+     */
+    Server::Game::RtypeGame& getHostedGame();
+
    protected:
    private:
-    int size;                 ///< The size of the room, typically its capacity.
-    int id;                   ///< The unique identifier of the room.
-    std::vector<int> players; ///< A vector of player IDs currently in the room.
-    RoomState state;          ///< The state of the room.
-    //    std::unique_ptr<Server::Game::IGame> m_hostedGame;
+    int size;                             ///< The size of the room, typically its capacity.
+    int id;                               ///< The unique identifier of the room.
+    std::vector<int> players;             ///< A vector of player IDs currently in the room.
+    RoomState state;                      ///< The state of the room.
+    Server::Game::RtypeGame m_hostedGame; ///< The game hosted by the room.
   };
 
 } // namespace Network

@@ -6,9 +6,54 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Xavier\ VINCENT\ on\ 24/12/2023.}}
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}RTypeClient.hpp"{}}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ logMessage(std::string\ prefix,\ \mbox{\hyperlink{struct_message}{Message}}\ *message,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
-\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ logResponse(std::string\ prefix,\ \mbox{\hyperlink{struct_response}{Response}}\ *response,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/System.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Window/Keyboard.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SFML/Window/Window.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <boost/array.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <boost/asio.hpp>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <boost/bind.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ Game\ Engine}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}gameEngine/UI/Window.hpp"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Gravity.hpp"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Sprite.hpp"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Transform.hpp"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/RegistryBuilder.hpp"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Signature.hpp"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/component/Component.hpp"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/component/ComponentManager.hpp"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/EntityManager.hpp"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Commands.hpp"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/MessageType.hpp"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Messages.hpp"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Responses.hpp"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Statuses.hpp"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}gameEngine/scene/IScene.hpp"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}gameEngine/scene/SceneManager.hpp"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Animation.hpp"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Keyboard.hpp"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Physics.hpp"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}gameEngine/system/Renderer.hpp"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}spdlog/spdlog.h"{}}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ logMessage(std::string\ prefix,\ \mbox{\hyperlink{struct_message}{Message}}\ *message,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ logResponse(std::string\ prefix,\ \mbox{\hyperlink{struct_response}{Response}}\ *response,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\ =\ 20);}
 
 \end{DoxyCode}
