@@ -268,6 +268,11 @@ boost::asio::ip::udp::endpoint Client::Network::getRemoteEndpoint() const
   return this->remoteEndpoint;
 }
 
+Client::Network::QueueEcsSerialized &Client::Network::getSerializedEcsQueue()
+{
+  return m_serializedEcsDataQueue;
+}
+
 /* -------------------------------------------------- */
 /* --------------------- commands ------------------- */
 /* -------------------------------------------------- */

@@ -18,6 +18,8 @@
 #include <boost/shared_ptr.hpp>
 #include <iostream>
 #include <map>
+#include <memory>
+#include <queue>
 #include <string>
 
 namespace Client
@@ -52,6 +54,8 @@ namespace Client
     std::string getName() const;
     void setRemoteEndpoint(std::string &ip, std::string &port);
     boost::asio::ip::udp::endpoint getRemoteEndpoint() const;
+    using QueueEcsSerialized = std::queue<std::vector<std::vector<char>>>;
+    QueueEcsSerialized &getSerializedEcsQueue();
 
     // commands
     template<typename T, typename Func>
@@ -72,6 +76,7 @@ namespace Client
     std::map<int, std::shared_ptr<CommandTracker>> commandTrackers;
     int nextCommandId = 0;
     std::thread receiveThread;
+    QueueEcsSerialized m_serializedEcsDataQueue;
     int clientId;
     int roomId;
     std::string name;
