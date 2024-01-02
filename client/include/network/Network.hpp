@@ -64,7 +64,7 @@ namespace Client
    protected:
    private:
     boost::asio::io_context io;
-    boost::array<char, 1024> recvBuffer {};
+    boost::array<char, 65536> recvBuffer {};
     boost::asio::ip::udp::endpoint remoteEndpoint;
     boost::asio::ip::udp::socket socket {this->io};
     std::unordered_map<std::string, std::shared_ptr<ICommandHandler>> commandHandlers;

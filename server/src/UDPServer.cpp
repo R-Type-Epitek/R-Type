@@ -50,7 +50,7 @@ Network::Client &Network::UDPServer::getClientById(int id)
   throw std::runtime_error("Client not found");
 }
 
-boost::array<char, 1024> Network::UDPServer::getRecvBuffer() const
+boost::array<char, 65536> Network::UDPServer::getRecvBuffer() const
 {
   return this->recvBuffer;
 }

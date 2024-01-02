@@ -102,7 +102,7 @@ namespace Network
       *
       * @return boost::array containing the receive buffer.
       */
-    boost::array<char, 1024> getRecvBuffer() const;
+    boost::array<char, 65536> getRecvBuffer() const;
 
     /**
       * @brief Gets the remote endpoint.
@@ -373,7 +373,7 @@ namespace Network
    private:
     boost::asio::ip::udp::socket socket;                 ///< UDP socket for communication.
     std::vector<Network::Client> clients;                ///< List of connected clients.
-    boost::array<char, 1024> recvBuffer {};              ///< Buffer for receiving data.
+    boost::array<char, 65536> recvBuffer {};             ///< Buffer for receiving data.
     boost::asio::ip::udp::endpoint remoteEndpoint;       ///< Endpoint for the remote connection.
     Network::ThreadSafeQueue<TimedMessage> messageQueue; ///< Queue for thread-safe message handling.
     std::vector<std::thread> workers;                    ///< Worker threads for processing messages.
