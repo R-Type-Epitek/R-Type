@@ -16,11 +16,6 @@ bool Network::ConnectToServerCommandHandler::isAuthorized(int clientId)
 
 std::vector<char> Network::ConnectToServerCommandHandler::handleCommand(Message *message)
 {
-  std::lock_guard<std::mutex> lock(this->server.roomsMutex);
-  Room &room = this->server.getRooms()[0];
-  room.setState(FINISHED);
-  std::cout << "Room 0 state: " << room.getState() << std::endl;
-
   int clientId = this->server.getNextClientIdAndIncrement();
   std::string statusMessage;
   int status = RES_SUCCESS;
