@@ -8,8 +8,9 @@ Network::Room::Room(int id, int size)
   : size(size)
   , id(id)
   , state(WAITING)
+  , m_hostedGame(std::make_unique<Server::Game::RtypeGame>())
 {
-  this->m_hostedGame.load();
+  this->m_hostedGame->load();
 }
 
 Network::Room::Room(const Room& room)
@@ -17,7 +18,10 @@ Network::Room::Room(const Room& room)
   , id(room.id)
   , players(room.players)
   , state(room.state)
+  , m_hostedGame(std::make_unique<Server::Game::RtypeGame>())
+//  , m_hostedGame(std::move(room.m_hostedGame))
 {
+  this->m_hostedGame->load();
 }
 
 Network::Room::Room(Room&& room)
@@ -25,6 +29,7 @@ Network::Room::Room(Room&& room)
   , id(room.id)
   , players(std::move(room.players))
   , state(room.state)
+  , m_hostedGame(std::move(room.m_hostedGame))
 {
 }
 
@@ -107,5 +112,5 @@ bool Network::Room::isFull() const
 
 Server::Game::RtypeGame& Network::Room::getHostedGame()
 {
-  return this->m_hostedGame;
+  return *this->m_hostedGame;
 }

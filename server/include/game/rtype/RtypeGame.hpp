@@ -12,6 +12,13 @@ namespace Server::Game
 
   class RtypeGame : public IGame {
    public:
+    RtypeGame() = default;
+    ~RtypeGame() = default;
+
+    RtypeGame(const RtypeGame& other)
+    {
+    }
+
     void load() final;
     std::vector<std::vector<char>> getEntities() final;
 

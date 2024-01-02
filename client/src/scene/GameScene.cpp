@@ -61,7 +61,6 @@ namespace Client
 
   void GameScene::initEntities()
   {
-    //  TODO generate entities from network
     auto entt = m_registry->createEntity();
     m_entities.push_back(entt);
     m_registry->addComponent(entt, ComponentRType::Gravity {Vec3 {1}});

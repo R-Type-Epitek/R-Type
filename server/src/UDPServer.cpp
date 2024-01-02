@@ -352,6 +352,8 @@ void Network::UDPServer::gameLoop()
 
         for (auto &room : this->rooms) {
           std::vector<std::vector<char>> entities = room.getHostedGame().getEntities();
+          if (entities.empty())
+            return;
           std::vector<char> entitiesBuffer;
 
           for (auto &entity : entities)
@@ -365,8 +367,8 @@ void Network::UDPServer::gameLoop()
 
           this->sendToAllClientsInRoom(buffer, room.getId());
         }
+        std::this_thread::sleep_for(std::chrono::milliseconds(12));
       }
-      std::this_thread::sleep_for(std::chrono::milliseconds(12));
     }
   });
 

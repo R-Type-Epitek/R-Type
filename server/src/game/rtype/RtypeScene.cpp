@@ -9,33 +9,34 @@
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
+#include "gameEngine/component/NetworkedEntity.hpp"
 
 namespace Server::Game
 {
   void RtypeScene::initRegistry()
   {
     auto builder = GameEngine::Builder::RegistryBuilder();
+
     // Components
+    builder.registerAllMandatoryComponent();
     builder.registerComponent<ComponentRType::Sprite>();
-    builder.registerComponent<ComponentRType::Transform>();
-    builder.registerComponent<ComponentRType::Gravity>();
-    builder.registerComponent<ComponentRType::MetaData>();
+
     // Systems
     builder.buildSystemPhysics();
     builder.buildSystemAnimation();
     builder.buildSystemRenderer();
     builder.buildSystemKeyboard();
+    builder.buildSystemEcsSerializer();
     m_registry = builder.getResult();
   }
 
   void RtypeScene::initEntities()
   {
-    //  TODO load from config file or other https://vcpkg.io/en/packages
     auto entt = m_registry->createEntity();
     m_entities.push_back(entt);
     m_registry->addComponent(entt, ComponentRType::Gravity {Vec3 {1}});
     m_registry->addComponent(entt, ComponentRType::Transform {{0, 0}});
-    m_registry->addComponent(entt, ComponentRType::Sprite {});
+    m_registry->addComponent(entt, ComponentRType::MetaData {"test entity 1"});
 
     auto entt2 = m_registry->createEntity();
     m_entities.push_back(entt2);
@@ -43,9 +44,15 @@ namespace Server::Game
     m_registry->addComponent(entt2, ComponentRType::Transform {{0, 0}});
     m_registry->addComponent(entt2, ComponentRType::Sprite {});
 
-    auto entt1 = m_registry->createEntity();
-    m_entities.push_back(entt1);
-    m_registry->addComponent(entt1, ComponentRType::MetaData {"test send components data"});
+    auto entt1N = m_registry->createEntity();
+    m_entities.push_back(entt1N);
+    m_registry->addComponent(entt1N, ComponentRType::MetaData {"test entity 1"});
+    m_registry->addComponent(entt1N, ComponentRType::NetworkedEntity {1});
+
+    auto entt2N = m_registry->createEntity();
+    m_entities.push_back(entt2N);
+    m_registry->addComponent(entt2N, ComponentRType::MetaData {"test entity 2"});
+    m_registry->addComponent(entt2N, ComponentRType::NetworkedEntity {2});
   }
 
   GameEngine::ECS::Registry& RtypeScene::getECS()

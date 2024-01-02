@@ -157,11 +157,11 @@ namespace Network
 
    protected:
    private:
-    int size;                             ///< The size of the room, typically its capacity.
-    int id;                               ///< The unique identifier of the room.
-    std::vector<int> players;             ///< A vector of player IDs currently in the room.
-    RoomState state;                      ///< The state of the room.
-    Server::Game::RtypeGame m_hostedGame; ///< The game hosted by the room.
+    int size;                                              ///< The size of the room, typically its capacity.
+    int id;                                                ///< The unique identifier of the room.
+    std::vector<int> players;                              ///< A vector of player IDs currently in the room.
+    RoomState state;                                       ///< The state of the room.
+    std::unique_ptr<Server::Game::RtypeGame> m_hostedGame; ///< The game hosted by the room.
   };
 
 } // namespace Network
