@@ -12,3 +12,4 @@
 // Server -> Client
 #define SERVER_COMMAND_CHECK_CONNECTION    "/check_connection"
 #define SERVER_COMMAND_CLIENT_DISCONNECTED "/client_disconnected"
+#define SERVER_COMMAND_UPDATE_GAME         "/update_game"

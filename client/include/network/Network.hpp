@@ -42,6 +42,7 @@ namespace Client
     void onServerMessage(Message *message);
 
     void onCheckConnectionMessage(Message *message);
+    void onUpdateGameMessage(Message *message);
 
     void setClientId(int id);
     int getClientId() const;

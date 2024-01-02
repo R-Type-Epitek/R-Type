@@ -207,6 +207,8 @@ void Client::Network::onServerMessage(Message *message)
     return this->onCheckConnectionMessage(message);
   else if (!strcmp(message->header.command, SERVER_COMMAND_CLIENT_DISCONNECTED))
     return;
+  else if (!strcmp(message->header.command, SERVER_COMMAND_UPDATE_GAME))
+    return this->onUpdateGameMessage(message);
   else
     throw std::runtime_error("Invalid message command");
 
@@ -214,6 +216,11 @@ void Client::Network::onServerMessage(Message *message)
 }
 
 void Client::Network::onCheckConnectionMessage(Message *message)
+{
+  return this->sendResponse(message->header.command, "OK");
+}
+
+void Client::Network::onUpdateGameMessage(Message *message)
 {
   return this->sendResponse(message->header.command, "OK");
 }

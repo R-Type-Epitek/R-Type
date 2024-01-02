@@ -82,6 +82,7 @@ void Network::UDPServer::initServer(int port)
   this->registerCommandHandlers();
   this->startReceive();
   this->startClientTimerCheck();
+  this->gameLoop();
 
   int num_threads = std::thread::hardware_concurrency();
 
@@ -340,6 +341,36 @@ void Network::UDPServer::startClientTimerCheck()
       this->startClientTimerCheck();
     }
   });
+}
+
+void Network::UDPServer::gameLoop()
+{
+  std::thread gameLoopThread([this]() {
+    while (true) {
+      {
+        std::lock_guard<std::mutex> lock(this->roomsMutex);
+
+        for (auto &room : this->rooms) {
+          std::vector<std::vector<char>> entities = room.getHostedGame().getEntities();
+          std::vector<char> entitiesBuffer;
+
+          for (auto &entity : entities)
+            entitiesBuffer.insert(entitiesBuffer.end(), entity.begin(), entity.end());
+          std::vector<char> messageBuffer = this->createMessageBuffer(
+            -1,
+            SERVER_COMMAND_UPDATE_GAME,
+            entitiesBuffer.data(),
+            entitiesBuffer.size());
+          boost::asio::const_buffer buffer = boost::asio::buffer(messageBuffer.data(), messageBuffer.size());
+
+          this->sendToAllClientsInRoom(buffer, room.getId());
+        }
+      }
+      std::this_thread::sleep_for(std::chrono::milliseconds(12));
+    }
+  });
+
+  gameLoopThread.detach();
 }
 
 void Network::UDPServer::notifyAndRemoveClient(int clientId)
