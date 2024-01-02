@@ -17,6 +17,7 @@ namespace Server::Game
 
     RtypeGame(const RtypeGame& other)
     {
+      (void)other;
     }
 
     void load() final;

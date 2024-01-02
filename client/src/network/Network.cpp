@@ -222,6 +222,25 @@ void Client::Network::onCheckConnectionMessage(Message *message)
 
 void Client::Network::onUpdateGameMessage(Message *message)
 {
+  std::vector<char> data(message->data, message->data + message->header.dataLength);
+  std::cout << "data size: " << data.size() << std::endl;
+  std::vector<std::vector<char>> entities;
+
+  std::string dataString(data.begin(), data.end());
+  const std::string delimiter = "\x1F";
+  size_t pos = 0;
+  std::string token;
+
+  while ((pos = dataString.find(delimiter)) != std::string::npos) {
+    token = dataString.substr(0, pos);
+    entities.push_back(std::vector<char>(token.begin(), token.end()));
+    dataString.erase(0, pos + delimiter.length());
+  }
+
+  entities.push_back(std::vector<char>(dataString.begin(), dataString.end()));
+
+  this->m_serializedEcsDataQueue.push(entities);
+
   return this->sendResponse(message->header.command, "OK");
 }
 

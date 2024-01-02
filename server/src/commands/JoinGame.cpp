@@ -24,6 +24,7 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
   Room &room = this->server.getRooms()[data->roomId];
   Client &client = this->server.getClientById(message->header.clientId);
 
+  (void)client;
   if (room.getState() != FINISHED)
     room.setState(RUNNING);
   /*Player player = {

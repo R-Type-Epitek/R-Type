@@ -355,9 +355,16 @@ void Network::UDPServer::gameLoop()
           if (entities.empty())
             return;
           std::vector<char> entitiesBuffer;
+          const std::string delimiter = "\x1F";
 
-          for (auto &entity : entities)
+          for (auto &entity : entities) {
             entitiesBuffer.insert(entitiesBuffer.end(), entity.begin(), entity.end());
+            entitiesBuffer.insert(entitiesBuffer.end(), delimiter.begin(), delimiter.end());
+          }
+
+          if (!entitiesBuffer.empty() && !entities.empty())
+            entitiesBuffer.erase(entitiesBuffer.end() - delimiter.size(), entitiesBuffer.end());
+
           std::vector<char> messageBuffer = this->createMessageBuffer(
             -1,
             SERVER_COMMAND_UPDATE_GAME,
