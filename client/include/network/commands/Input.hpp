@@ -30,15 +30,15 @@ namespace Client
      *
      * @param key The key to be set for this input command.
      */
-    void setKey(std::string key);
+    void setKey(GameEngine::Keybinds key);
 
     /**
      * @brief Get the key associated with the input command.
      *
-     * @return const std::string& Reference to the key currently set for
+     * @return const GameEngine::Keybinds& Reference to the key currently set for
      *                            this input command.
      */
-    const std::string& getKey() const;
+    const GameEngine::Keybinds& getKey() const;
 
     /**
      * @brief Send the input command to the server.
@@ -60,7 +60,7 @@ namespace Client
 
    protected:
    private:
-    Network& network; ///< Reference to the network instance for communication.
-    std::string key;  ///< The key associated with the input command.
+    Network& network;         ///< Reference to the network instance for communication.
+    GameEngine::Keybinds key; ///< The key associated with the input command.
   };
 } // namespace Client

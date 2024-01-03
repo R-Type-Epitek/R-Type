@@ -4,6 +4,7 @@
 
 #include "network/Network.hpp"
 
+#include "gameEngine/constants/Keybinds.hpp"
 #include "gameEngine/network/Commands.hpp"
 #include "gameEngine/network/MessageType.hpp"
 #include "gameEngine/network/Messages.hpp"
@@ -223,7 +224,6 @@ void Client::Network::onCheckConnectionMessage(Message *message)
 void Client::Network::onUpdateGameMessage(Message *message)
 {
   std::vector<char> data(message->data, message->data + message->header.dataLength);
-  std::cout << "data size: " << data.size() << std::endl;
   std::vector<std::vector<char>> entities;
 
   std::string dataString(data.begin(), data.end());
@@ -330,7 +330,7 @@ void Client::Network::joinRoom(int roomId)
   });
 }
 
-void Client::Network::sendKey(std::string key)
+void Client::Network::sendKey(GameEngine::Keybinds key)
 {
   this->executeCommand<InputCommandHandler>(INPUT_COMMAND, [key](auto commandHandler) {
     commandHandler->setKey(key);

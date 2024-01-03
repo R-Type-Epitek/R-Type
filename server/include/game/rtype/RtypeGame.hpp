@@ -23,8 +23,11 @@ namespace Server::Game
     std::vector<std::vector<char>> getEntities() final;
     void pushEvent(Event event, Player player)
     {
-      std::cout << "pushEvent: " << static_cast<int>(event) << "by player (" << player.id << ") with name "
-                << player.name << std::endl;
+      std::cout << "pushEvent: "
+                << (event == Event::Connect        ? "Connect"
+                      : event == Event::Disconnect ? "Disconnect"
+                                                   : "Input")
+                << " by player (" << player.id << ") with name " << player.name << std::endl;
     };
 
    private:

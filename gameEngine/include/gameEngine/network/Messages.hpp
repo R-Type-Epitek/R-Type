@@ -61,7 +61,7 @@ struct JoinRoomData {
  * This structure is used to transmit client's input, typically a single character.
  */
 struct InputData {
-  char key[1]; ///< The input key or command.
+  int key; ///< The input key or command.
 };
 
 /**

@@ -13,20 +13,21 @@ namespace Client
   {
   }
 
-  void InputCommandHandler::setKey(std::string key)
+  void InputCommandHandler::setKey(GameEngine::Keybinds key)
   {
     this->key = key;
   }
 
-  const std::string& InputCommandHandler::getKey() const
+  const GameEngine::Keybinds& InputCommandHandler::getKey() const
   {
     return this->key;
   }
 
   void InputCommandHandler::send()
   {
-    InputData data;
-    strcpy(data.key, this->key.c_str());
+    InputData data = {
+      .key = static_cast<int>(this->key),
+    };
     char dataBuffer[sizeof(data)];
     memcpy(dataBuffer, &data, sizeof(data));
 

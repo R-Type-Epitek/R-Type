@@ -20,6 +20,8 @@
 #include <unordered_map>
 #include <spdlog/spdlog.h>
 
+#include "gameEngine/constants/Keybinds.hpp"
+
 // Game Engine Network
 #include "gameEngine/network/Commands.hpp"
 #include "gameEngine/network/Messages.hpp"

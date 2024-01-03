@@ -4,6 +4,7 @@
 
 #pragma once
 #include "Constants.hpp"
+#include "gameEngine/constants/Keybinds.hpp"
 #include "gameEngine/network/Commands.hpp"
 #include "gameEngine/network/Messages.hpp"
 #include "gameEngine/network/Responses.hpp"
@@ -256,7 +257,7 @@ namespace Client
      *
      * @param key The key command to be sent.
      */
-    void sendKey(std::string key);
+    void sendKey(GameEngine::Keybinds key);
 
     /**
      * @brief Join a game with a specified room ID.

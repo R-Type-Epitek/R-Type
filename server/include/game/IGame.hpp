@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "gameEngine/constants/Keybinds.hpp"
 #include <cstddef>
 #include <vector>
 #include <string>
@@ -12,8 +13,8 @@ namespace Server::Game
 {
   struct Player {
     size_t id;
-    std::string name = ""; // optional only needed for Connection
-    // GameEngine::Keyboard::Key = None;
+    std::string name; // optional only needed if the game needs to know the name of the player
+    GameEngine::Keybinds key = GameEngine::Keybinds::Unknown; // optional only needed for Input
   };
 
   enum class Event

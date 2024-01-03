@@ -20,11 +20,14 @@ bool Network::InputCommandHandler::isAuthorized(int clientId)
 std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
 {
   InputData *data = (InputData *)message->data;
-  // Client &client = this->server.getClientById(message->header.clientId);
-  // Room &room = this->server.getRooms()[client.getRoomId()];
+  Client &client = this->server.getClientById(message->header.clientId);
+  Room &room = this->server.getRooms()[client.getRoomId()];
 
-  //Server::Game::Player player = {.id = static_cast<size_t>(client.getId()), .name = client.getName(), .input = data->key};
-  // room.getHostedGame().pushEvent(Server::Game::Event::Input, player);
+  Server::Game::Player player = {
+    .id = static_cast<size_t>(client.getId()),
+    .name = client.getName(),
+    .key = static_cast<GameEngine::Keybinds>(data->key)};
+  room.getHostedGame().pushEvent(Server::Game::Event::Input, player);
 
   spdlog::info("Player {} pressed key: {}", message->header.clientId, data->key);
 
@@ -34,7 +37,7 @@ std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
   return this->server.createResponseBuffer(
     message->header.clientId,
     message->header,
-    "Get key: \"" + std::string(data->key) + "\"",
+    "Get key: " + std::to_string(data->key),
     dataToSend.data(),
     dataToSend.size());
 }
