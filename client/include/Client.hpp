@@ -59,14 +59,6 @@ namespace Client
     void run();
 
     /**
-     * @brief Test the network functionality.
-     *
-     * This function is used to perform tests on the network component, typically
-     * for debugging purposes.
-     */
-    void testNetwork();
-
-    /**
      * @brief Update the state of the application.
      *
      * @param ctx Reference to the WindowContext, containing relevant context information.

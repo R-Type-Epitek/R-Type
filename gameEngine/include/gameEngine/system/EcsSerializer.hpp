@@ -44,12 +44,13 @@ namespace GameEngine::System
 
     void deserialize(
       GameEngine::ECS::Registry &registry,
+      std::vector<GameEngine::ECS::Entity> &entities,
       const std::vector<std::vector<char>> &serializedData)
     {
       auto &componentManager = registry.getComponentManager();
 
       for (const auto &serializedEntityData : serializedData) {
-        deserializeEntity(registry, *componentManager, serializedEntityData);
+        deserializeEntity(registry, *componentManager, serializedEntityData, entities);
       }
     }
 
@@ -73,13 +74,14 @@ namespace GameEngine::System
     void deserializeEntity(
       GameEngine::ECS::Registry &registry,
       ECS::ComponentManager &componentManager,
-      const std::vector<char> &serializedData)
+      const std::vector<char> &serializedData,
+      std::vector<GameEngine::ECS::Entity> &entities)
     {
       std::istringstream iss(std::string(serializedData.begin(), serializedData.end()));
       boost::archive::binary_iarchive archive(iss);
 
       auto componentNE = Serializer::deserializeComponent<ComponentRType::NetworkedEntity>(archive);
-      auto entity = getEntity(registry, componentManager, componentNE);
+      auto entity = getEntity(registry, componentManager, entities, componentNE);
 
       Serializer::deserializeComponentToEntity<ComponentRType::MetaData>(componentManager, entity, archive);
     }
@@ -88,7 +90,8 @@ namespace GameEngine::System
     ECS::Entity getEntity(
       GameEngine::ECS::Registry &registry,
       ECS::ComponentManager &componentManager,
-      ComponentRType::NetworkedEntity componentId)
+      std::vector<GameEngine::ECS::Entity> &entities,
+      ComponentRType::NetworkedEntity &componentId)
     {
       GameEngine::ECS::Entity entity = 0;
       auto entityOpt = getNetworkedEntityById(componentId, componentManager);
@@ -97,7 +100,8 @@ namespace GameEngine::System
         entity = entityOpt.value();
       } else {
         entity = registry.createEntity();
-        registry.addComponent(entity, std::move(componentId));
+        entities.push_back(entity);
+        registry.addComponent(entity, componentId);
         registry.addComponent(entity, ComponentRType::MetaData {});
       }
       return entity;

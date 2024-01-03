@@ -48,6 +48,8 @@ namespace Client
      */
     GameEngine::ECS::Registry& getECS() final;
 
+    std::vector<GameEngine::ECS::Entity>& getEntities() final;
+
    protected:
     /**
      * @brief Initialize custom systems specific to this game scene.

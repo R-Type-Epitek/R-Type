@@ -18,7 +18,6 @@
 #include <boost/shared_ptr.hpp>
 #include <iostream>
 #include <map>
-#include <memory>
 #include <queue>
 #include <string>
 
@@ -213,7 +212,7 @@ namespace Client
      *
      * @return QueueEcsSerialized& Reference to the queue of serialized ECS data.
      */
-    using QueueEcsSerialized = std::queue<std::vector<std::vector<char>>>;
+    using QueueEcsSerialized = std::vector<std::vector<char>>;
     QueueEcsSerialized &getSerializedEcsQueue();
 
     // Commands
