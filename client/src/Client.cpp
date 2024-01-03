@@ -110,11 +110,9 @@ namespace Client
       } else if (
         auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
         auto& queue = m_network->getSerializedEcsQueue();
-        while (!queue.empty()) {
-          auto& serializedData = queue.front();
-          sys_serializer->deserialize(ecs, serializedData);
-          queue.pop();
-        }
+        auto& entities = this->m_sceneManager->getCurrent().getEntities();
+
+        sys_serializer->deserialize(ecs, entities, queue);
       }
     }
   }
@@ -146,9 +144,5 @@ namespace Client
         sys_animation->update(ecs);
       }
     }
-  }
-
-  void Client::testNetwork()
-  {
   }
 }; // namespace Client

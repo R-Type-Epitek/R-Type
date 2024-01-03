@@ -239,7 +239,7 @@ void Client::Network::onUpdateGameMessage(Message *message)
 
   entities.push_back(std::vector<char>(dataString.begin(), dataString.end()));
 
-  this->m_serializedEcsDataQueue.push(entities);
+  this->m_serializedEcsDataQueue = entities;
 
   return this->sendResponse(message->header.command, "OK");
 }

@@ -30,6 +30,11 @@ namespace Client
     return *m_registry;
   }
 
+  std::vector<GameEngine::ECS::Entity>& GameScene::getEntities()
+  {
+    return m_entities;
+  }
+
   void GameScene::initRegistry()
   {
     auto builder = GameEngine::Builder::RegistryBuilder();
@@ -61,27 +66,6 @@ namespace Client
 
   void GameScene::initEntities()
   {
-    //    auto entt = m_registry->createEntity();
-    //    m_entities.push_back(entt);
-    //    m_registry->addComponent(entt, ComponentRType::Gravity {Vec3 {1}});
-    //    m_registry->addComponent(entt, ComponentRType::Transform {{0, 0}});
-    //    m_registry->addComponent(entt, ComponentRType::Sprite {});
-    //    m_registry->addComponent(entt, ComponentRType::MetaData {"test entity 1"});
-    //
-    //    auto entt2 = m_registry->createEntity();
-    //    m_entities.push_back(entt2);
-    //    m_registry->addComponent(entt2, ComponentRType::Gravity {Vec3 {1}});
-    //    m_registry->addComponent(entt2, ComponentRType::Transform {{0, 0}});
-    //    m_registry->addComponent(entt2, ComponentRType::Sprite {});
-    //
-    //    auto entt1N = m_registry->createEntity();
-    //    m_entities.push_back(entt1N);
-    //    m_registry->addComponent(entt1N, ComponentRType::MetaData {"test entity 1"});
-    //    m_registry->addComponent(entt1N, ComponentRType::NetworkedEntity {1});
-    //
-    //    auto entt2N = m_registry->createEntity();
-    //    m_entities.push_back(entt2N);
-    //    m_registry->addComponent(entt2N, ComponentRType::MetaData {"test entity 2"});
-    //    m_registry->addComponent(entt2N, ComponentRType::NetworkedEntity {2});
   }
+
 } // namespace Client
