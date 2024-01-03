@@ -104,6 +104,20 @@ namespace Network
       */
     bool isInactiveFor(long milliseconds);
 
+    /**
+      * @brief Checks if the client is in a game.
+      *
+      * @return bool True if the client is in a game, false otherwise.
+      */
+    void setIsInGame(bool isInGame);
+
+    /**
+      * @brief Checks if the client is in a game.
+      *
+      * @return bool True if the client is in a game, false otherwise.
+      */
+    bool getIsInGame() const;
+
    protected:
    private:
     boost::asio::ip::udp::endpoint endpoint;               ///< The network endpoint of the client.
@@ -111,5 +125,6 @@ namespace Network
     std::string name;                                      ///< The name of the client.
     int roomId;                                            ///< The identifier of the room.
     std::chrono::steady_clock::time_point lastMessageTime; ///< The last time the client sent a message.
+    bool isInGame;                                         ///< Whether the client is in a game.
   };
 } // namespace Network

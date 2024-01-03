@@ -159,7 +159,7 @@ void Network::UDPServer::sendToAll(boost::asio::const_buffer const &buffer)
 
 void Network::UDPServer::sendToAllClientsInRoom(boost::asio::const_buffer const &buffer, int roomId)
 {
-  if (roomId < 0 || roomId >= (int)this->rooms.size())
+  if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
   for (auto &clientId : this->rooms[roomId].getPlayers())
     this->socket.async_send_to(
@@ -170,6 +170,24 @@ void Network::UDPServer::sendToAllClientsInRoom(boost::asio::const_buffer const 
         this,
         boost::asio::placeholders::error,
         boost::asio::placeholders::bytes_transferred));
+}
+
+void Network::UDPServer::sendToAllClientsInRoomInGame(boost::asio::const_buffer const &buffer, int roomId)
+{
+  if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
+    throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
+  for (auto &clientId : this->rooms[roomId].getPlayers()) {
+    if (!this->clients[clientId].getIsInGame())
+      continue;
+    this->socket.async_send_to(
+      buffer,
+      this->clients[clientId].getEndpoint(),
+      boost::bind(
+        &Network::UDPServer::handleSend,
+        this,
+        boost::asio::placeholders::error,
+        boost::asio::placeholders::bytes_transferred));
+  }
 }
 
 void Network::UDPServer::sendToClient(boost::asio::const_buffer const &buffer, int id)
@@ -374,9 +392,9 @@ void Network::UDPServer::gameLoop()
             entitiesBuffer.size());
           boost::asio::const_buffer buffer = boost::asio::buffer(messageBuffer.data(), messageBuffer.size());
 
-          this->sendToAllClientsInRoom(buffer, room.getId());
+          this->sendToAllClientsInRoomInGame(buffer, room.getId());
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(12));
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
       }
     }
   });
@@ -392,7 +410,7 @@ void Network::UDPServer::notifyAndRemoveClient(int clientId)
     for (size_t i = 0; i < this->clients.size(); i++) {
       if (this->clients[i].getId() == clientId) {
         this->clients.erase(this->clients.begin() + i);
-        break;
+        return;
       }
     }
   }

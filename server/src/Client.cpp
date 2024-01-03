@@ -9,6 +9,7 @@ Network::Client::Client()
   , name("")
   , roomId(-1)
   , lastMessageTime(std::chrono::steady_clock::now())
+  , isInGame(false)
 {
 }
 
@@ -66,4 +67,14 @@ bool Network::Client::isInactiveFor(long milliseconds)
   auto now = std::chrono::steady_clock::now();
   return std::chrono::duration_cast<std::chrono::milliseconds>(now - this->lastMessageTime).count() >
     milliseconds;
+}
+
+void Network::Client::setIsInGame(bool isInGame)
+{
+  this->isInGame = isInGame;
+}
+
+bool Network::Client::getIsInGame() const
+{
+  return this->isInGame;
 }

@@ -23,6 +23,7 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
 
   Room &room = this->server.getRooms()[data->roomId];
   Client &client = this->server.getClientById(message->header.clientId);
+  client.setIsInGame(true);
 
   Server::Game::Player player = {.id = static_cast<size_t>(client.getId()), .name = client.getName()};
   room.getHostedGame().pushEvent(Server::Game::Event::Connect, player);

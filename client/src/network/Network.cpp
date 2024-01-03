@@ -212,8 +212,6 @@ void Client::Network::onServerMessage(Message *message)
     return this->onUpdateGameMessage(message);
   else
     throw std::runtime_error("Invalid message command");
-
-  this->startReceive();
 }
 
 void Client::Network::onCheckConnectionMessage(Message *message)

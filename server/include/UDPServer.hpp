@@ -211,6 +211,18 @@ namespace Network
     void sendToAllClientsInRoom(boost::asio::const_buffer const &buffer, int roomId);
 
     /**
+     * @brief Send data to all clients in a room in game.
+     *
+     * Send the specified data to all clients in the room with the specified
+     * ID that are in game.
+     *
+     * @param buffer boost::asio::const_buffer containing the data to send.
+     * @param roomId Integer specifying the ID of the room to send the data
+     * to.
+     */
+    void sendToAllClientsInRoomInGame(boost::asio::const_buffer const &buffer, int roomId);
+
+    /**
       * @brief Send data to a specific client.
       *
       * Send the specified data to the client with the specified ID.
