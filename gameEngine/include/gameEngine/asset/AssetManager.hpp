@@ -7,7 +7,12 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#define LOAD_TEXTURE(x) GameEngine::Asset::AssetManager::AssetManager::getInstance().getTexture(x)
+
+#define LOAD_TEXTURE(x) GameEngine::Asset::AssetManager::AssetManager::getInstance().loadTexture(x, x)
+#define LOAD_TEXTURE_DIR(x, y) \
+  GameEngine::Asset::AssetManager::AssetManager::getInstance().loadTexturesFromDirectories(x, y)
+#define GET_TEXTURE(x) GameEngine::Asset::AssetManager::AssetManager::getInstance().getTexture(x)
+
 #define DEFAULT_TEXTURE "assets/bobross.jpg"
 
 namespace GameEngine::Asset::AssetManager
@@ -25,13 +30,13 @@ namespace GameEngine::Asset::AssetManager
     {
       loadTexture(DEFAULT_TEXTURE, DEFAULT_TEXTURE);
     }
-    void loadTexturesFormDirectories(std::string const& directory, std::string const& fileExtension = ".png");
+
+    void loadTexturesFromDirectories(std::string const& directory, const std::string& fileExtension = ".png");
 
     sf::Texture& getTexture(std::string const& textureId);
 
     void unloadTexture(std::string const& textureId);
 
-   protected:
     void loadTexture(std::string const& path, std::string const& textureId);
 
    private:

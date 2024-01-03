@@ -11,9 +11,9 @@
 
 namespace GameEngine::Asset::AssetManager
 {
-  void AssetManager::loadTexturesFormDirectories(
+  void AssetManager::loadTexturesFromDirectories(
     std::string const& directory,
-    std::string const& fileExtension)
+    const std::string& fileExtension)
   {
     for (auto const& entry : std::filesystem::directory_iterator(directory)) {
       if (entry.path().extension() != fileExtension) {

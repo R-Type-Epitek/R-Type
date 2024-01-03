@@ -9,6 +9,7 @@
 #include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Sprite.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/asset/AssetManager.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
@@ -66,6 +67,13 @@ namespace Client
 
   void GameScene::initEntities()
   {
+    LOAD_TEXTURE("assets/sprites/r-typesheet23.gif");
+
+    auto entt2 = m_registry->createEntity();
+    m_entities.push_back(entt2);
+    m_registry->addComponent(entt2, ComponentRType::Gravity {Vec3 {1}});
+    m_registry->addComponent(entt2, ComponentRType::Transform {{0, 0}});
+    m_registry->addComponent(entt2, ComponentRType::Sprite(GET_TEXTURE("assets/sprites/r-typesheet23.gif")));
   }
 
 } // namespace Client

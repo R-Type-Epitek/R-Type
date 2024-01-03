@@ -16,7 +16,12 @@ namespace ComponentRType
 
     Sprite()
     {
-      sprite.setTexture(LOAD_TEXTURE(DEFAULT_TEXTURE));
+      sprite.setTexture(GET_TEXTURE(DEFAULT_TEXTURE));
+    }
+
+    Sprite(sf::Texture& texture)
+    {
+      sprite.setTexture(texture);
     }
 
     Sprite(sf::Texture& texture, sf::IntRect const& rect)
