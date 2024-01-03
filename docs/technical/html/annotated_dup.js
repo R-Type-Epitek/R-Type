@@ -2,24 +2,24 @@ var annotated_dup =
 [
     [ "Client", null, [
       [ "Scene", null, [
-        [ "SceneManager", "class_client_1_1_scene_1_1_scene_manager.html", null ]
+        [ "SceneManager", "class_client_1_1_scene_1_1_scene_manager.html", "class_client_1_1_scene_1_1_scene_manager" ]
       ] ],
       [ "System", null, [
         [ "Network", null, [
-          [ "Keyboard", "class_client_1_1_system_1_1_network_1_1_keyboard.html", null ]
+          [ "Keyboard", "class_client_1_1_system_1_1_network_1_1_keyboard.html", "class_client_1_1_system_1_1_network_1_1_keyboard" ]
         ] ]
       ] ],
-      [ "Client", "class_client_1_1_client.html", null ],
-      [ "CommandTracker", "class_client_1_1_command_tracker.html", null ],
-      [ "ConnectToServerCommandHandler", "class_client_1_1_connect_to_server_command_handler.html", null ],
-      [ "GameScene", "class_client_1_1_game_scene.html", null ],
+      [ "Client", "class_client_1_1_client.html", "class_client_1_1_client" ],
+      [ "CommandTracker", "class_client_1_1_command_tracker.html", "class_client_1_1_command_tracker" ],
+      [ "ConnectToServerCommandHandler", "class_client_1_1_connect_to_server_command_handler.html", "class_client_1_1_connect_to_server_command_handler" ],
+      [ "GameScene", "class_client_1_1_game_scene.html", "class_client_1_1_game_scene" ],
       [ "GUI", "class_client_1_1_g_u_i.html", null ],
-      [ "ICommandHandler", "class_client_1_1_i_command_handler.html", null ],
-      [ "InputCommandHandler", "class_client_1_1_input_command_handler.html", null ],
-      [ "JoinGameCommandHandler", "class_client_1_1_join_game_command_handler.html", null ],
-      [ "JoinRoomCommandHandler", "class_client_1_1_join_room_command_handler.html", null ],
-      [ "Network", "class_client_1_1_network.html", null ],
-      [ "UpdateNameCommandHandler", "class_client_1_1_update_name_command_handler.html", null ]
+      [ "ICommandHandler", "class_client_1_1_i_command_handler.html", "class_client_1_1_i_command_handler" ],
+      [ "InputCommandHandler", "class_client_1_1_input_command_handler.html", "class_client_1_1_input_command_handler" ],
+      [ "JoinGameCommandHandler", "class_client_1_1_join_game_command_handler.html", "class_client_1_1_join_game_command_handler" ],
+      [ "JoinRoomCommandHandler", "class_client_1_1_join_room_command_handler.html", "class_client_1_1_join_room_command_handler" ],
+      [ "Network", "class_client_1_1_network.html", "class_client_1_1_network" ],
+      [ "UpdateNameCommandHandler", "class_client_1_1_update_name_command_handler.html", "class_client_1_1_update_name_command_handler" ]
     ] ],
     [ "ComponentRType", null, [
       [ "Gravity", "struct_component_r_type_1_1_gravity.html", null ],

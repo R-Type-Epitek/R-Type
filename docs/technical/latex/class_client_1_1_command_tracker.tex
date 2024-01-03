@@ -1,23 +1,110 @@
 \doxysection{Client\+::Command\+Tracker Class Reference}
 \hypertarget{class_client_1_1_command_tracker}{}\label{class_client_1_1_command_tracker}\index{Client::CommandTracker@{Client::CommandTracker}}
+
+
+Class for tracking the status of a command.  
+
+
+
+
+{\ttfamily \#include $<$Tracker.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_client_1_1_command_tracker_aa297a865c00ba4c39e97444bc90739d4}{Command\+Tracker}} (const std\+::string \&command)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_client_1_1_command_tracker}{Command\+Tracker} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_client_1_1_command_tracker_aab185e0c6ce71b3cc60a5332cb25bbd1}\label{class_client_1_1_command_tracker_aab185e0c6ce71b3cc60a5332cb25bbd1} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Command\+Tracker} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor for \doxylink{class_client_1_1_command_tracker}{Command\+Tracker}. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_client_1_1_command_tracker_aac480c574b3e2084c4d263f3c31f5788}{get\+Command}} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the command. \end{DoxyCompactList}\item 
+const std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \& \mbox{\hyperlink{class_client_1_1_command_tracker_aac5d5c9a16ed8a4d53d95edb3e37b483}{get\+Send\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Get the time point when the command was sent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_client_1_1_command_tracker_aec7401fff6318723da8056e31455c68c}{get\+Is\+Completed}} () const
+\begin{DoxyCompactList}\small\item\em Get the completion status of the command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_command_tracker_a6a375933a9845d1e12f75d15f1650d13}{set\+Is\+Completed}} (bool is\+Completed)
+\begin{DoxyCompactList}\small\item\em Set the completion status of the command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for tracking the status of a command. 
+
+\doxylink{class_client_1_1_command_tracker}{Command\+Tracker} is responsible for storing and managing the information about a specific command, including its name, the time it was sent, and its completion status. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_client_1_1_command_tracker_aa297a865c00ba4c39e97444bc90739d4}\label{class_client_1_1_command_tracker_aa297a865c00ba4c39e97444bc90739d4} 
-{\bfseries Command\+Tracker} (const std\+::string \&command)
-\item 
+\index{Client::CommandTracker@{Client::CommandTracker}!CommandTracker@{CommandTracker}}
+\index{CommandTracker@{CommandTracker}!Client::CommandTracker@{Client::CommandTracker}}
+\doxysubsubsection{\texorpdfstring{CommandTracker()}{CommandTracker()}}
+{\footnotesize\ttfamily Client\+::\+Command\+Tracker\+::\+Command\+Tracker (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{command }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_client_1_1_command_tracker}{Command\+Tracker} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The name of the command being tracked. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_client_1_1_command_tracker_aac480c574b3e2084c4d263f3c31f5788}\label{class_client_1_1_command_tracker_aac480c574b3e2084c4d263f3c31f5788} 
-const std\+::string \& {\bfseries get\+Command} () const
-\item 
-\Hypertarget{class_client_1_1_command_tracker_aac5d5c9a16ed8a4d53d95edb3e37b483}\label{class_client_1_1_command_tracker_aac5d5c9a16ed8a4d53d95edb3e37b483} 
-const std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \& {\bfseries get\+Send\+Time} () const
-\item 
+\index{Client::CommandTracker@{Client::CommandTracker}!getCommand@{getCommand}}
+\index{getCommand@{getCommand}!Client::CommandTracker@{Client::CommandTracker}}
+\doxysubsubsection{\texorpdfstring{getCommand()}{getCommand()}}
+{\footnotesize\ttfamily const std\+::string \& Client\+::\+Command\+Tracker\+::get\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the name of the command. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& Reference to the command name. 
+\end{DoxyReturn}
 \Hypertarget{class_client_1_1_command_tracker_aec7401fff6318723da8056e31455c68c}\label{class_client_1_1_command_tracker_aec7401fff6318723da8056e31455c68c} 
-bool {\bfseries get\+Is\+Completed} () const
-\item 
+\index{Client::CommandTracker@{Client::CommandTracker}!getIsCompleted@{getIsCompleted}}
+\index{getIsCompleted@{getIsCompleted}!Client::CommandTracker@{Client::CommandTracker}}
+\doxysubsubsection{\texorpdfstring{getIsCompleted()}{getIsCompleted()}}
+{\footnotesize\ttfamily bool Client\+::\+Command\+Tracker\+::get\+Is\+Completed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the completion status of the command. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the command has been completed, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_client_1_1_command_tracker_aac5d5c9a16ed8a4d53d95edb3e37b483}\label{class_client_1_1_command_tracker_aac5d5c9a16ed8a4d53d95edb3e37b483} 
+\index{Client::CommandTracker@{Client::CommandTracker}!getSendTime@{getSendTime}}
+\index{getSendTime@{getSendTime}!Client::CommandTracker@{Client::CommandTracker}}
+\doxysubsubsection{\texorpdfstring{getSendTime()}{getSendTime()}}
+{\footnotesize\ttfamily const std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \& Client\+::\+Command\+Tracker\+::get\+Send\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the time point when the command was sent. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point\& Reference to the time point when the command was sent. 
+\end{DoxyReturn}
 \Hypertarget{class_client_1_1_command_tracker_a6a375933a9845d1e12f75d15f1650d13}\label{class_client_1_1_command_tracker_a6a375933a9845d1e12f75d15f1650d13} 
-void {\bfseries set\+Is\+Completed} (bool is\+Completed)
-\end{DoxyCompactItemize}
+\index{Client::CommandTracker@{Client::CommandTracker}!setIsCompleted@{setIsCompleted}}
+\index{setIsCompleted@{setIsCompleted}!Client::CommandTracker@{Client::CommandTracker}}
+\doxysubsubsection{\texorpdfstring{setIsCompleted()}{setIsCompleted()}}
+{\footnotesize\ttfamily void Client\+::\+Command\+Tracker\+::set\+Is\+Completed (\begin{DoxyParamCaption}\item[{bool}]{is\+Completed }\end{DoxyParamCaption})}
+
+
+
+Set the completion status of the command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Completed} & The new completion status of the command. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

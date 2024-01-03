@@ -17,28 +17,34 @@
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }Client}
 \DoxyCodeLine{00015\ \{}
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_client}{Client}}\ \{}
-\DoxyCodeLine{00017\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_client}{Client}}();}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ initNetwork();}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ initScenes();}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ initGUI();}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ link();}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ run();}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ testNetwork();}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ \ Closure}}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\ \&);}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ event(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\ \&);}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ display(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\ \&);}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00033\ \ \ \ \ std::string\ appName\ =\ \textcolor{stringliteral}{"{}Rtype\ client"{}};}
-\DoxyCodeLine{00034\ \ \ \ \ std::unique\_ptr<Network>\ m\_network;}
-\DoxyCodeLine{00035\ \ \ \ \ std::unique\_ptr<GUI>\ m\_gui;}
-\DoxyCodeLine{00036\ \ \ \ \ std::unique\_ptr<Scene::SceneManager>\ m\_sceneManager;}
-\DoxyCodeLine{00037\ \ \ \};}
-\DoxyCodeLine{00038\ \}\ \textcolor{comment}{//\ namespace\ Client}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_client}{Client}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_client}{Client}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ initNetwork();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ initScenes();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ initGUI();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ link();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ run();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ testNetwork();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\ \&ctx);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ event(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\ \&ctx);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ display(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\ \&ctx);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00091\ \ \ \ \ std::string\ appName\ =\ \textcolor{stringliteral}{"{}Rtype\ client"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ std::unique\_ptr<Network>\ m\_network;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ std::unique\_ptr<GUI>\ m\_gui;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ std::unique\_ptr<Scene::SceneManager>\ m\_sceneManager;\ }
+\DoxyCodeLine{00095\ \ \ \};}
+\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ Client}}
 
 \end{DoxyCode}

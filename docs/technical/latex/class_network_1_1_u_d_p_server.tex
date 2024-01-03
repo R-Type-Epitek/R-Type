@@ -24,7 +24,7 @@ std\+::vector$<$ \mbox{\hyperlink{class_network_1_1_client}{Network\+::\+Client}
 \begin{DoxyCompactList}\small\item\em Gets the list of connected clients. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_network_1_1_client}{Network\+::\+Client}} \& \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff}{get\+Client\+By\+Id}} (int id)
 \begin{DoxyCompactList}\small\item\em Get the client by id. \end{DoxyCompactList}\item 
-boost\+::array$<$ char, 1024 $>$ \mbox{\hyperlink{class_network_1_1_u_d_p_server_a2009531677d046860f0c67ff3e32d03f}{get\+Recv\+Buffer}} () const
+boost\+::array$<$ char, 65536 $>$ \mbox{\hyperlink{class_network_1_1_u_d_p_server_abc40e08966da73a1b12d380a0dce6053}{get\+Recv\+Buffer}} () const
 \begin{DoxyCompactList}\small\item\em Gets the receive buffer. \end{DoxyCompactList}\item 
 boost\+::asio\+::ip\+::udp\+::endpoint \mbox{\hyperlink{class_network_1_1_u_d_p_server_a9f7a52213bf27b1cd095cf526d6736ac}{get\+Remote\+Endpoint}} () const
 \begin{DoxyCompactList}\small\item\em Gets the remote endpoint. \end{DoxyCompactList}\item 
@@ -72,10 +72,18 @@ void \mbox{\hyperlink{class_network_1_1_u_d_p_server_af9906b402d8c7af8b1b6f9d433
 \begin{DoxyCompactList}\small\item\em Check client timers. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ace11e347c4bfbad29bfe8d1cb6f2bba2}{start\+Client\+Timer\+Check}} ()
 \begin{DoxyCompactList}\small\item\em Start the client timer check. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_u_d_p_server_af419e1866cc5630292523ae901aa7c0f}{game\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Game loop. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac1d3c03a7b8e6d002d8938e70fd4ba36}{notify\+And\+Remove\+Client}} (int client\+Id)
 \begin{DoxyCompactList}\small\item\em Notify and remove a client. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a60ae214e6da64da40df29b14970b25a1}{send\+Check\+Connection}} (int client\+Id)
 \begin{DoxyCompactList}\small\item\em Send a check connection message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_network_1_1_u_d_p_server_aef0ef5329ac37e03dd21cc4ea24b65db}\label{class_network_1_1_u_d_p_server_aef0ef5329ac37e03dd21cc4ea24b65db} 
+std\+::mutex {\bfseries rooms\+Mutex}
+\begin{DoxyCompactList}\small\item\em Mutex for room management. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -214,7 +222,17 @@ Create a response buffer to send to the client with the specified ID.
 \begin{DoxyReturn}{Returns}
 Vector containing the response. 
 \end{DoxyReturn}
-\Hypertarget{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff}\label{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff} 
+\Hypertarget{class_network_1_1_u_d_p_server_af419e1866cc5630292523ae901aa7c0f}\label{class_network_1_1_u_d_p_server_af419e1866cc5630292523ae901aa7c0f} 
+\index{Network::UDPServer@{Network::UDPServer}!gameLoop@{gameLoop}}
+\index{gameLoop@{gameLoop}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{gameLoop()}{gameLoop()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::game\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Game loop. 
+
+Game loop for the server. \Hypertarget{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff}\label{class_network_1_1_u_d_p_server_ac53887abfffcb234eb820f6beb7c58ff} 
 \index{Network::UDPServer@{Network::UDPServer}!getClientById@{getClientById}}
 \index{getClientById@{getClientById}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{getClientById()}{getClientById()}}
@@ -259,11 +277,11 @@ Returns the ID of the next client to connect to the server and increments the ID
 \begin{DoxyReturn}{Returns}
 Integer specifying the ID of the next client to connect. 
 \end{DoxyReturn}
-\Hypertarget{class_network_1_1_u_d_p_server_a2009531677d046860f0c67ff3e32d03f}\label{class_network_1_1_u_d_p_server_a2009531677d046860f0c67ff3e32d03f} 
+\Hypertarget{class_network_1_1_u_d_p_server_abc40e08966da73a1b12d380a0dce6053}\label{class_network_1_1_u_d_p_server_abc40e08966da73a1b12d380a0dce6053} 
 \index{Network::UDPServer@{Network::UDPServer}!getRecvBuffer@{getRecvBuffer}}
 \index{getRecvBuffer@{getRecvBuffer}!Network::UDPServer@{Network::UDPServer}}
 \doxysubsubsection{\texorpdfstring{getRecvBuffer()}{getRecvBuffer()}}
-{\footnotesize\ttfamily boost\+::array$<$ char, 1024 $>$ Network\+::\+UDPServer\+::get\+Recv\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily boost\+::array$<$ char, 65536 $>$ Network\+::\+UDPServer\+::get\+Recv\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 

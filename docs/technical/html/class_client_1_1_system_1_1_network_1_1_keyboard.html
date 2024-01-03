@@ -111,6 +111,11 @@ $(document).ready(function(){initNavTree('class_client_1_1_system_1_1_network_1_
   <div class="headertitle"><div class="title">Client::System::Network::Keyboard Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>System class for handling keyboard events in a networked game environment.  
+ <a href="class_client_1_1_system_1_1_network_1_1_keyboard.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="client_2include_2network_2system_2_keyboard_8hpp_source.html">Keyboard.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Client::System::Network::Keyboard:</div>
 <div class="dyncontent">
@@ -123,8 +128,8 @@ Inheritance diagram for Client::System::Network::Keyboard:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a12894e41634bf24f2ea054a4e89042f5" id="r_a12894e41634bf24f2ea054a4e89042f5"><td class="memItemLeft" align="right" valign="top"><a id="a12894e41634bf24f2ea054a4e89042f5" name="a12894e41634bf24f2ea054a4e89042f5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (<a class="el" href="struct_game_engine_1_1_u_i_1_1_window_context.html">GameEngine::UI::WindowContext</a> &amp;ctx, <a class="el" href="class_client_1_1_network.html">::Client::Network</a> &amp;network)</td></tr>
+<tr class="memitem:a12894e41634bf24f2ea054a4e89042f5" id="r_a12894e41634bf24f2ea054a4e89042f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_system_1_1_network_1_1_keyboard.html#a12894e41634bf24f2ea054a4e89042f5">update</a> (<a class="el" href="struct_game_engine_1_1_u_i_1_1_window_context.html">GameEngine::UI::WindowContext</a> &amp;ctx, <a class="el" href="class_client_1_1_network.html">::Client::Network</a> &amp;network)</td></tr>
+<tr class="memdesc:a12894e41634bf24f2ea054a4e89042f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the system based on keyboard events.  <br /></td></tr>
 <tr class="separator:a12894e41634bf24f2ea054a4e89042f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -134,6 +139,56 @@ Additional Inherited Members</h2></td></tr>
 std::set&lt; Entity &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_entities</b> {}</td></tr>
 <tr class="separator:a973512c64e0fd3269b70d02409555c11 inherit pub_attribs_class_game_engine_1_1_e_c_s_1_1_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>System class for handling keyboard events in a networked game environment. </p>
+<p>The <a class="el" href="class_client_1_1_system_1_1_network_1_1_keyboard.html" title="System class for handling keyboard events in a networked game environment.">Keyboard</a> class is part of the game engine's system and is responsible for detecting and processing keyboard input, particularly the arrow keys, and transmitting these inputs through the network system. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a12894e41634bf24f2ea054a4e89042f5" name="a12894e41634bf24f2ea054a4e89042f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12894e41634bf24f2ea054a4e89042f5">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::System::Network::Keyboard::update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_game_engine_1_1_u_i_1_1_window_context.html">GameEngine::UI::WindowContext</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_client_1_1_network.html">::Client::Network</a> &amp;&#160;</td>
+          <td class="paramname"><em>network</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update the system based on keyboard events. </p>
+<p>This function checks for key press events and sends corresponding commands (like "UP", "DOWN", "LEFT", "RIGHT") to the server using the network system.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Reference to the WindowContext, containing event data. </td></tr>
+    <tr><td class="paramname">network</td><td>Reference to the network system for sending key commands. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/Users/xavierv/Developer/EPITECH/R-Type/client/include/network/system/<a class="el" href="client_2include_2network_2system_2_keyboard_8hpp_source.html">Keyboard.hpp</a></li>
 </ul>

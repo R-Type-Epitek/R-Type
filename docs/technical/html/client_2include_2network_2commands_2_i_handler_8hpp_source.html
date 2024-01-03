@@ -122,16 +122,21 @@ $(document).ready(function(){initNavTree('client_2include_2network_2commands_2_i
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>Client</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_client_1_1_i_command_handler.html">   10</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_client_1_1_i_command_handler.html">ICommandHandler</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>   <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> send() = 0;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onResponse(<a class="code hl_struct" href="struct_response.html">Response</a> *response) = 0;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_client_1_1_i_command_handler.html">~ICommandHandler</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  };</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_client_1_1_i_command_handler.html">   17</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_client_1_1_i_command_handler.html">ICommandHandler</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_client_1_1_i_command_handler.html#aa9d71c56de179b38a3ea071df1f60676">   24</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="class_client_1_1_i_command_handler.html#aa9d71c56de179b38a3ea071df1f60676">~ICommandHandler</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_client_1_1_i_command_handler.html#a60b6f5dddfe26766a906891488284645">   32</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_i_command_handler.html#a60b6f5dddfe26766a906891488284645">send</a>() = 0;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_client_1_1_i_command_handler.html#a367a28c9a51483e2ba7f7460d6a63047">   43</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_i_command_handler.html#a367a28c9a51483e2ba7f7460d6a63047">onResponse</a>(<a class="code hl_struct" href="struct_response.html">Response</a> *response) = 0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  };</div>
 </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
-<div class="ttc" id="aclass_client_1_1_i_command_handler_html"><div class="ttname"><a href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a></div><div class="ttdef"><b>Definition</b> IHandler.hpp:10</div></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>} <span class="comment">// namespace Client</span></div>
+<div class="ttc" id="aclass_client_1_1_i_command_handler_html"><div class="ttname"><a href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a></div><div class="ttdoc">Abstract class representing a command handler in the client.</div><div class="ttdef"><b>Definition</b> IHandler.hpp:17</div></div>
+<div class="ttc" id="aclass_client_1_1_i_command_handler_html_a367a28c9a51483e2ba7f7460d6a63047"><div class="ttname"><a href="class_client_1_1_i_command_handler.html#a367a28c9a51483e2ba7f7460d6a63047">Client::ICommandHandler::onResponse</a></div><div class="ttdeci">virtual void onResponse(Response *response)=0</div><div class="ttdoc">Handle the response received from the server.</div></div>
+<div class="ttc" id="aclass_client_1_1_i_command_handler_html_a60b6f5dddfe26766a906891488284645"><div class="ttname"><a href="class_client_1_1_i_command_handler.html#a60b6f5dddfe26766a906891488284645">Client::ICommandHandler::send</a></div><div class="ttdeci">virtual void send()=0</div><div class="ttdoc">Send a command to the server.</div></div>
+<div class="ttc" id="aclass_client_1_1_i_command_handler_html_aa9d71c56de179b38a3ea071df1f60676"><div class="ttname"><a href="class_client_1_1_i_command_handler.html#aa9d71c56de179b38a3ea071df1f60676">Client::ICommandHandler::~ICommandHandler</a></div><div class="ttdeci">virtual ~ICommandHandler()=default</div><div class="ttdoc">Virtual destructor for ICommandHandler.</div></div>
 <div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

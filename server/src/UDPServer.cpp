@@ -351,6 +351,8 @@ void Network::UDPServer::gameLoop()
         std::lock_guard<std::mutex> lock(this->roomsMutex);
 
         for (auto &room : this->rooms) {
+          if (room.getState() != RUNNING)
+            continue;
           std::vector<std::vector<char>> entities = room.getHostedGame().getEntities();
           if (entities.empty())
             return;

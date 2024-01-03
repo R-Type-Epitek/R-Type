@@ -1,83 +1,517 @@
 \doxysection{Client\+::Network Class Reference}
 \hypertarget{class_client_1_1_network}{}\label{class_client_1_1_network}\index{Client::Network@{Client::Network}}
+
+
+Class responsible for network operations in a client.  
+
+
+
+
+{\ttfamily \#include $<$Network.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{Queue\+Ecs\+Serialized}} = std\+::queue$<$ std\+::vector$<$ std\+::vector$<$ char $>$ $>$ $>$
+\begin{DoxyCompactList}\small\item\em Get the queue of serialized ECS data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_client_1_1_network_a27d7f8cf48354afeb62a66326ba7aa46}{Network}} (std\+::string ip, std\+::string port)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_client_1_1_network}{Network} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_client_1_1_network_a9781434da3b6a72fab9b5e846e490a80}\label{class_client_1_1_network_a9781434da3b6a72fab9b5e846e490a80} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Network} ()
+\begin{DoxyCompactList}\small\item\em Default destructor for \doxylink{class_client_1_1_network}{Network}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9}{register\+Command\+Handlers}} ()
+\begin{DoxyCompactList}\small\item\em Register command handlers for different types of network commands. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_client_1_1_i_command_handler}{ICommand\+Handler}} $>$ \mbox{\hyperlink{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff}{get\+Command\+Handler}} (std\+::string const \&name)
+\begin{DoxyCompactList}\small\item\em Get the command handler for a specific command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609}{send}} (boost\+::asio\+::const\+\_\+buffer const \&buffer)
+\begin{DoxyCompactList}\small\item\em Send raw data over the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c}{send\+Message}} (std\+::string const \&command, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0)
+\begin{DoxyCompactList}\small\item\em Send a command message over the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246}{send\+Response}} (std\+::string const \&command, std\+::string const \&status\+Message, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
+\begin{DoxyCompactList}\small\item\em Send a response message over the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c}{start\+Receive}} ()
+\begin{DoxyCompactList}\small\item\em Start the process of receiving data from the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d}{on\+Receive}} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+Transferred)
+\begin{DoxyCompactList}\small\item\em Callback function for handling data received from the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3}{on\+Server\+Response}} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
+\begin{DoxyCompactList}\small\item\em Handle a server response. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807}{on\+Server\+Message}} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Handle a server message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6}{on\+Check\+Connection\+Message}} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Handle a check connection message from the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_aba5ad34da87d5cb96c83b75534c1214b}{on\+Update\+Game\+Message}} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Handle an update game message from the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12}{set\+Client\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Set the client\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4}{get\+Client\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the client\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c}{set\+Room\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Set the ID of the room the client is connected to. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5}{get\+Room\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the ID of the room the client is connected to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9}{set\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Set the name of the client. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the name of the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da}{set\+Remote\+Endpoint}} (std\+::string \&ip, std\+::string \&port)
+\begin{DoxyCompactList}\small\item\em Set the remote endpoint for the network connection. \end{DoxyCompactList}\item 
+boost\+::asio\+::ip\+::udp\+::endpoint \mbox{\hyperlink{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6}{get\+Remote\+Endpoint}} () const
+\begin{DoxyCompactList}\small\item\em Get the remote endpoint of the network connection. \end{DoxyCompactList}\item 
+\Hypertarget{class_client_1_1_network_a5f3906ec4967fc8be1936ef21b41741c}\label{class_client_1_1_network_a5f3906ec4967fc8be1936ef21b41741c} 
+\mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{Queue\+Ecs\+Serialized}} \& {\bfseries get\+Serialized\+Ecs\+Queue} ()
+\item 
+{\footnotesize template$<$typename T , typename Func $>$ }\\void \mbox{\hyperlink{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57}{execute\+Command}} (const std\+::string \&command\+Name, Func action)
+\begin{DoxyCompactList}\small\item\em Execute a command with a specified action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee}{connect\+To\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Connect to a server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a9090adb4709e633a7787595896adcc07}{update\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Update the client\textquotesingle{}s name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}{join\+Room}} (int room\+Id)
+\begin{DoxyCompactList}\small\item\em Join a room with a specified room ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}{send\+Key}} (std\+::string key)
+\begin{DoxyCompactList}\small\item\em Send a key command to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0}{join\+Game}} (int room\+Id)
+\begin{DoxyCompactList}\small\item\em Join a game with a specified room ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class responsible for network operations in a client. 
+
+The \doxylink{class_client_1_1_network}{Network} class handles all network communications for a client, including sending and receiving messages and responses, managing command handlers, and keeping track of client and room states. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}\label{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33} 
+\index{Client::Network@{Client::Network}!QueueEcsSerialized@{QueueEcsSerialized}}
+\index{QueueEcsSerialized@{QueueEcsSerialized}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{QueueEcsSerialized}{QueueEcsSerialized}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{Client\+::\+Network\+::\+Queue\+Ecs\+Serialized}} =  std\+::queue$<$std\+::vector$<$std\+::vector$<$char$>$ $>$$>$}
+
+
+
+Get the queue of serialized ECS data. 
+
+This function returns a reference to the queue holding serialized data from the Entity Component System (ECS), ready for network transmission.
+
+\begin{DoxyReturn}{Returns}
+Queue\+Ecs\+Serialized\& Reference to the queue of serialized ECS data. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_client_1_1_network_a27d7f8cf48354afeb62a66326ba7aa46}\label{class_client_1_1_network_a27d7f8cf48354afeb62a66326ba7aa46} 
-{\bfseries Network} (std\+::string ip, std\+::string port)
-\item 
-\Hypertarget{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9}\label{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9} 
-void {\bfseries register\+Command\+Handlers} ()
-\item 
-\Hypertarget{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff}\label{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_client_1_1_i_command_handler}{ICommand\+Handler}} $>$ {\bfseries get\+Command\+Handler} (std\+::string const \&name)
-\item 
-\Hypertarget{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609}\label{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609} 
-void {\bfseries send} (boost\+::asio\+::const\+\_\+buffer const \&buffer)
-\item 
-\Hypertarget{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c}\label{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c} 
-void {\bfseries send\+Message} (std\+::string const \&command, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0)
-\item 
-\Hypertarget{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246}\label{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246} 
-void {\bfseries send\+Response} (std\+::string const \&command, std\+::string const \&status\+Message, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
-\item 
-\Hypertarget{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c}\label{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c} 
-void {\bfseries start\+Receive} ()
-\item 
-\Hypertarget{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d}\label{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d} 
-void {\bfseries on\+Receive} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+Transferred)
-\item 
-\Hypertarget{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3}\label{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3} 
-void {\bfseries on\+Server\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)
-\item 
-\Hypertarget{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807}\label{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807} 
-void {\bfseries on\+Server\+Message} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message)
-\item 
-\Hypertarget{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6}\label{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6} 
-void {\bfseries on\+Check\+Connection\+Message} (\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}message)
-\item 
-\Hypertarget{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12}\label{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12} 
-void {\bfseries set\+Client\+Id} (int id)
-\item 
-\Hypertarget{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4}\label{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4} 
-int {\bfseries get\+Client\+Id} () const
-\item 
-\Hypertarget{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c}\label{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c} 
-void {\bfseries set\+Room\+Id} (int id)
-\item 
-\Hypertarget{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5}\label{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5} 
-int {\bfseries get\+Room\+Id} () const
-\item 
-\Hypertarget{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9}\label{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9} 
-void {\bfseries set\+Name} (std\+::string name)
-\item 
-\Hypertarget{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db}\label{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db} 
-std\+::string {\bfseries get\+Name} () const
-\item 
-\Hypertarget{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da}\label{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da} 
-void {\bfseries set\+Remote\+Endpoint} (std\+::string \&ip, std\+::string \&port)
-\item 
-\Hypertarget{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6}\label{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6} 
-boost\+::asio\+::ip\+::udp\+::endpoint {\bfseries get\+Remote\+Endpoint} () const
-\item 
-\Hypertarget{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57}\label{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57} 
-{\footnotesize template$<$typename T , typename Func $>$ }\\void {\bfseries execute\+Command} (const std\+::string \&command\+Name, Func action)
-\item 
+\index{Client::Network@{Client::Network}!Network@{Network}}
+\index{Network@{Network}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{Network()}{Network()}}
+{\footnotesize\ttfamily Client\+::\+Network\+::\+Network (\begin{DoxyParamCaption}\item[{std\+::string}]{ip,  }\item[{std\+::string}]{port }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_client_1_1_network}{Network} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & The IP address of the server to connect to. \\
+\hline
+{\em port} & The port number for the network connection. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee}\label{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee} 
-void {\bfseries connect\+To\+Server} ()
-\item 
-\Hypertarget{class_client_1_1_network_a9090adb4709e633a7787595896adcc07}\label{class_client_1_1_network_a9090adb4709e633a7787595896adcc07} 
-void {\bfseries update\+Name} (std\+::string name)
-\item 
-\Hypertarget{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}\label{class_client_1_1_network_af9322d011cea31df49fe776392ad0648} 
-void {\bfseries join\+Room} (int room\+Id)
-\item 
-\Hypertarget{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}\label{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c} 
-void {\bfseries send\+Key} (std\+::string key)
-\item 
+\index{Client::Network@{Client::Network}!connectToServer@{connectToServer}}
+\index{connectToServer@{connectToServer}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{connectToServer()}{connectToServer()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::connect\+To\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Connect to a server. 
+
+This function initiates a connection to the server using the network parameters. \Hypertarget{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57}\label{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57} 
+\index{Client::Network@{Client::Network}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}}
+{\footnotesize\ttfamily template$<$typename T , typename Func $>$ \\
+void Client\+::\+Network\+::execute\+Command (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{command\+Name,  }\item[{Func}]{action }\end{DoxyParamCaption})}
+
+
+
+Execute a command with a specified action. 
+
+This template function allows for the execution of a command along with a specified action. It can be used to handle various command types dynamically.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the command. \\
+\hline
+{\em Func} & The function type for the action to be executed. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Name} & The name of the command to execute. \\
+\hline
+{\em action} & The action to be performed in association with the command. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4}\label{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4} 
+\index{Client::Network@{Client::Network}!getClientId@{getClientId}}
+\index{getClientId@{getClientId}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{getClientId()}{getClientId()}}
+{\footnotesize\ttfamily int Client\+::\+Network\+::get\+Client\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the client\textquotesingle{}s ID. 
+
+\begin{DoxyReturn}{Returns}
+int The current ID of the client. 
+\end{DoxyReturn}
+\Hypertarget{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff}\label{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff} 
+\index{Client::Network@{Client::Network}!getCommandHandler@{getCommandHandler}}
+\index{getCommandHandler@{getCommandHandler}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{getCommandHandler()}{getCommandHandler()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}} $>$ Client\+::\+Network\+::get\+Command\+Handler (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Get the command handler for a specific command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the command for which the handler is required. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+ICommand\+Handler$>$ Shared pointer to the requested command handler. 
+\end{DoxyReturn}
+\Hypertarget{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db}\label{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db} 
+\index{Client::Network@{Client::Network}!getName@{getName}}
+\index{getName@{getName}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Client\+::\+Network\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the name of the client. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string The current name of the client. 
+\end{DoxyReturn}
+\Hypertarget{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6}\label{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6} 
+\index{Client::Network@{Client::Network}!getRemoteEndpoint@{getRemoteEndpoint}}
+\index{getRemoteEndpoint@{getRemoteEndpoint}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{getRemoteEndpoint()}{getRemoteEndpoint()}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::udp\+::endpoint Client\+::\+Network\+::get\+Remote\+Endpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the remote endpoint of the network connection. 
+
+\begin{DoxyReturn}{Returns}
+boost\+::asio\+::ip\+::udp\+::endpoint The current remote endpoint. 
+\end{DoxyReturn}
+\Hypertarget{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5}\label{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5} 
+\index{Client::Network@{Client::Network}!getRoomId@{getRoomId}}
+\index{getRoomId@{getRoomId}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{getRoomId()}{getRoomId()}}
+{\footnotesize\ttfamily int Client\+::\+Network\+::get\+Room\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the ID of the room the client is connected to. 
+
+\begin{DoxyReturn}{Returns}
+int The current room ID. 
+\end{DoxyReturn}
 \Hypertarget{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0}\label{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0} 
-void {\bfseries join\+Game} (int room\+Id)
-\end{DoxyCompactItemize}
+\index{Client::Network@{Client::Network}!joinGame@{joinGame}}
+\index{joinGame@{joinGame}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{joinGame()}{joinGame()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::join\+Game (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Join a game with a specified room ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the game room to join. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}\label{class_client_1_1_network_af9322d011cea31df49fe776392ad0648} 
+\index{Client::Network@{Client::Network}!joinRoom@{joinRoom}}
+\index{joinRoom@{joinRoom}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{joinRoom()}{joinRoom()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::join\+Room (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Join a room with a specified room ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room to join. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6}\label{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6} 
+\index{Client::Network@{Client::Network}!onCheckConnectionMessage@{onCheckConnectionMessage}}
+\index{onCheckConnectionMessage@{onCheckConnectionMessage}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{onCheckConnectionMessage()}{onCheckConnectionMessage()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::on\+Check\+Connection\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})}
+
+
+
+Handle a check connection message from the server. 
+
+This function processes a message specifically intended to check the connection status between the client and the server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the \doxylink{struct_message}{Message} object received from the server. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d}\label{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d} 
+\index{Client::Network@{Client::Network}!onReceive@{onReceive}}
+\index{onReceive@{onReceive}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{onReceive()}{onReceive()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::on\+Receive (\begin{DoxyParamCaption}\item[{boost\+::system\+::error\+\_\+code const \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+Transferred }\end{DoxyParamCaption})}
+
+
+
+Callback function for handling data received from the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & Boost ASIO error code indicating the status of the receive operation. \\
+\hline
+{\em bytes\+Transferred} & The number of bytes received from the network. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807}\label{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807} 
+\index{Client::Network@{Client::Network}!onServerMessage@{onServerMessage}}
+\index{onServerMessage@{onServerMessage}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{onServerMessage()}{onServerMessage()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::on\+Server\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})}
+
+
+
+Handle a server message. 
+
+This function processes a message received from the server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the \doxylink{struct_message}{Message} object received from the server. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3}\label{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3} 
+\index{Client::Network@{Client::Network}!onServerResponse@{onServerResponse}}
+\index{onServerResponse@{onServerResponse}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{onServerResponse()}{onServerResponse()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::on\+Server\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}}]{response }\end{DoxyParamCaption})}
+
+
+
+Handle a server response. 
+
+This function processes a response received from the server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the \doxylink{struct_response}{Response} object received from the server. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_aba5ad34da87d5cb96c83b75534c1214b}\label{class_client_1_1_network_aba5ad34da87d5cb96c83b75534c1214b} 
+\index{Client::Network@{Client::Network}!onUpdateGameMessage@{onUpdateGameMessage}}
+\index{onUpdateGameMessage@{onUpdateGameMessage}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{onUpdateGameMessage()}{onUpdateGameMessage()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::on\+Update\+Game\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_message}{Message}} \texorpdfstring{$\ast$}{*}}]{message }\end{DoxyParamCaption})}
+
+
+
+Handle an update game message from the server. 
+
+This function processes a message received from the server that contains updates related to the game state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the \doxylink{struct_message}{Message} object received from the server. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9}\label{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9} 
+\index{Client::Network@{Client::Network}!registerCommandHandlers@{registerCommandHandlers}}
+\index{registerCommandHandlers@{registerCommandHandlers}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{registerCommandHandlers()}{registerCommandHandlers()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::register\+Command\+Handlers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Register command handlers for different types of network commands. 
+
+This function initializes and sets up command handlers that will be used to process various commands received over the network. \Hypertarget{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609}\label{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609} 
+\index{Client::Network@{Client::Network}!send@{send}}
+\index{send@{send}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::send (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Send raw data over the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The constant buffer containing data to be sent. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}\label{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c} 
+\index{Client::Network@{Client::Network}!sendKey@{sendKey}}
+\index{sendKey@{sendKey}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{sendKey()}{sendKey()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::send\+Key (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+
+
+
+Send a key command to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key command to be sent. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c}\label{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c} 
+\index{Client::Network@{Client::Network}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::send\+Message (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{command,  }\item[{char const}]{data\mbox{[}$\,$\mbox{]} = {\ttfamily nullptr},  }\item[{int}]{data\+Size = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Send a command message over the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to be sent. \\
+\hline
+{\em data} & Optional data to be sent with the command. \\
+\hline
+{\em data\+Size} & The size of the data being sent. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246}\label{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246} 
+\index{Client::Network@{Client::Network}!sendResponse@{sendResponse}}
+\index{sendResponse@{sendResponse}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{sendResponse()}{sendResponse()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::send\+Response (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{command,  }\item[{std\+::string const \&}]{status\+Message,  }\item[{char const}]{data\mbox{[}$\,$\mbox{]} = {\ttfamily nullptr},  }\item[{int}]{data\+Size = {\ttfamily 0},  }\item[{int}]{status = {\ttfamily RES\+\_\+SUCCESS} }\end{DoxyParamCaption})}
+
+
+
+Send a response message over the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command associated with the response. \\
+\hline
+{\em status\+Message} & The status message to be sent. \\
+\hline
+{\em data} & Optional data to be included in the response. \\
+\hline
+{\em data\+Size} & The size of the data being sent. \\
+\hline
+{\em status} & The status code of the response (default is RES\+\_\+\+SUCCESS). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12}\label{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12} 
+\index{Client::Network@{Client::Network}!setClientId@{setClientId}}
+\index{setClientId@{setClientId}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{setClientId()}{setClientId()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::set\+Client\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Set the client\textquotesingle{}s ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The new ID to be set for the client. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9}\label{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9} 
+\index{Client::Network@{Client::Network}!setName@{setName}}
+\index{setName@{setName}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Set the name of the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The new name to be set for the client. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da}\label{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da} 
+\index{Client::Network@{Client::Network}!setRemoteEndpoint@{setRemoteEndpoint}}
+\index{setRemoteEndpoint@{setRemoteEndpoint}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{setRemoteEndpoint()}{setRemoteEndpoint()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::set\+Remote\+Endpoint (\begin{DoxyParamCaption}\item[{std\+::string \&}]{ip,  }\item[{std\+::string \&}]{port }\end{DoxyParamCaption})}
+
+
+
+Set the remote endpoint for the network connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & The IP address of the remote endpoint. \\
+\hline
+{\em port} & The port number of the remote endpoint. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c}\label{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c} 
+\index{Client::Network@{Client::Network}!setRoomId@{setRoomId}}
+\index{setRoomId@{setRoomId}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{setRoomId()}{setRoomId()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::set\+Room\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Set the ID of the room the client is connected to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the room to be set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c}\label{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c} 
+\index{Client::Network@{Client::Network}!startReceive@{startReceive}}
+\index{startReceive@{startReceive}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{startReceive()}{startReceive()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::start\+Receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the process of receiving data from the network. 
+
+This function sets up the network to begin receiving data, setting up the necessary callbacks and buffers for handling incoming data. \Hypertarget{class_client_1_1_network_a9090adb4709e633a7787595896adcc07}\label{class_client_1_1_network_a9090adb4709e633a7787595896adcc07} 
+\index{Client::Network@{Client::Network}!updateName@{updateName}}
+\index{updateName@{updateName}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{updateName()}{updateName()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::update\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Update the client\textquotesingle{}s name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The new name to be set for the client. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
