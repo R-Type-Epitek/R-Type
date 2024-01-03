@@ -15,9 +15,8 @@ namespace Server::Game
     RtypeGame() = default;
     ~RtypeGame() = default;
 
-    RtypeGame(const RtypeGame& other)
+    RtypeGame(const RtypeGame &)
     {
-      (void)other;
     }
 
     void load() final;
