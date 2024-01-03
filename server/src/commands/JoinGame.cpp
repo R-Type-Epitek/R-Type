@@ -24,14 +24,11 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
   Room &room = this->server.getRooms()[data->roomId];
   Client &client = this->server.getClientById(message->header.clientId);
 
-  (void)client;
+  Server::Game::Player player = {.id = static_cast<size_t>(client.getId()), .name = client.getName()};
+  room.getHostedGame().pushEvent(Server::Game::Event::Connect, player);
+
   if (room.getState() != FINISHED)
     room.setState(RUNNING);
-  /*Player player = {
-    .id = client.getId(),
-    .name = client.getName()
-  };
-  room.getHostedGame().pushEvent(Connect, player);*/
 
   std::vector<char> dataToSend(sizeof(*data));
   memcpy(dataToSend.data(), data, sizeof(*data));
