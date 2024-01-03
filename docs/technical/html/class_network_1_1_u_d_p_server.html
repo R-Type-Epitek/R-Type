@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('class_network_1_1_u_d_p_server.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_network_1_1_u_d_p_server-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Network::UDPServer Class Reference</div></div>
 </div><!--header-->
@@ -137,9 +138,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac53887abfffcb234eb820f6beb7c58ff" id="r_ac53887abfffcb234eb820f6beb7c58ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_1_1_client.html">Network::Client</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ac53887abfffcb234eb820f6beb7c58ff">getClientById</a> (int id)</td></tr>
 <tr class="memdesc:ac53887abfffcb234eb820f6beb7c58ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the client by id.  <br /></td></tr>
 <tr class="separator:ac53887abfffcb234eb820f6beb7c58ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2009531677d046860f0c67ff3e32d03f" id="r_a2009531677d046860f0c67ff3e32d03f"><td class="memItemLeft" align="right" valign="top">boost::array&lt; char, 1024 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f">getRecvBuffer</a> () const</td></tr>
-<tr class="memdesc:a2009531677d046860f0c67ff3e32d03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the receive buffer.  <br /></td></tr>
-<tr class="separator:a2009531677d046860f0c67ff3e32d03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc40e08966da73a1b12d380a0dce6053" id="r_abc40e08966da73a1b12d380a0dce6053"><td class="memItemLeft" align="right" valign="top">boost::array&lt; char, 65536 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#abc40e08966da73a1b12d380a0dce6053">getRecvBuffer</a> () const</td></tr>
+<tr class="memdesc:abc40e08966da73a1b12d380a0dce6053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the receive buffer.  <br /></td></tr>
+<tr class="separator:abc40e08966da73a1b12d380a0dce6053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f7a52213bf27b1cd095cf526d6736ac" id="r_a9f7a52213bf27b1cd095cf526d6736ac"><td class="memItemLeft" align="right" valign="top">boost::asio::ip::udp::endpoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a9f7a52213bf27b1cd095cf526d6736ac">getRemoteEndpoint</a> () const</td></tr>
 <tr class="memdesc:a9f7a52213bf27b1cd095cf526d6736ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the remote endpoint.  <br /></td></tr>
 <tr class="separator:a9f7a52213bf27b1cd095cf526d6736ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,12 +210,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace11e347c4bfbad29bfe8d1cb6f2bba2" id="r_ace11e347c4bfbad29bfe8d1cb6f2bba2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ace11e347c4bfbad29bfe8d1cb6f2bba2">startClientTimerCheck</a> ()</td></tr>
 <tr class="memdesc:ace11e347c4bfbad29bfe8d1cb6f2bba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the client timer check.  <br /></td></tr>
 <tr class="separator:ace11e347c4bfbad29bfe8d1cb6f2bba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af419e1866cc5630292523ae901aa7c0f" id="r_af419e1866cc5630292523ae901aa7c0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#af419e1866cc5630292523ae901aa7c0f">gameLoop</a> ()</td></tr>
+<tr class="memdesc:af419e1866cc5630292523ae901aa7c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Game loop.  <br /></td></tr>
+<tr class="separator:af419e1866cc5630292523ae901aa7c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1d3c03a7b8e6d002d8938e70fd4ba36" id="r_ac1d3c03a7b8e6d002d8938e70fd4ba36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#ac1d3c03a7b8e6d002d8938e70fd4ba36">notifyAndRemoveClient</a> (int clientId)</td></tr>
 <tr class="memdesc:ac1d3c03a7b8e6d002d8938e70fd4ba36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify and remove a client.  <br /></td></tr>
 <tr class="separator:ac1d3c03a7b8e6d002d8938e70fd4ba36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60ae214e6da64da40df29b14970b25a1" id="r_a60ae214e6da64da40df29b14970b25a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a60ae214e6da64da40df29b14970b25a1">sendCheckConnection</a> (int clientId)</td></tr>
 <tr class="memdesc:a60ae214e6da64da40df29b14970b25a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a check connection message.  <br /></td></tr>
 <tr class="separator:a60ae214e6da64da40df29b14970b25a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aef0ef5329ac37e03dd21cc4ea24b65db" id="r_aef0ef5329ac37e03dd21cc4ea24b65db"><td class="memItemLeft" align="right" valign="top"><a id="aef0ef5329ac37e03dd21cc4ea24b65db" name="aef0ef5329ac37e03dd21cc4ea24b65db"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>roomsMutex</b></td></tr>
+<tr class="memdesc:aef0ef5329ac37e03dd21cc4ea24b65db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for room management. <br /></td></tr>
+<tr class="separator:aef0ef5329ac37e03dd21cc4ea24b65db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages a UDP server for handling network communication. </p>
@@ -472,6 +483,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="af419e1866cc5630292523ae901aa7c0f" name="af419e1866cc5630292523ae901aa7c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af419e1866cc5630292523ae901aa7c0f">&#9670;&#160;</a></span>gameLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::gameLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Game loop. </p>
+<p>Game loop for the server. </p>
+
+</div>
+</div>
 <a id="ac53887abfffcb234eb820f6beb7c58ff" name="ac53887abfffcb234eb820f6beb7c58ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac53887abfffcb234eb820f6beb7c58ff">&#9670;&#160;</a></span>getClientById()</h2>
 
@@ -536,14 +567,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2009531677d046860f0c67ff3e32d03f" name="a2009531677d046860f0c67ff3e32d03f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2009531677d046860f0c67ff3e32d03f">&#9670;&#160;</a></span>getRecvBuffer()</h2>
+<a id="abc40e08966da73a1b12d380a0dce6053" name="abc40e08966da73a1b12d380a0dce6053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc40e08966da73a1b12d380a0dce6053">&#9670;&#160;</a></span>getRecvBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boost::array&lt; char, 1024 &gt; Network::UDPServer::getRecvBuffer </td>
+          <td class="memname">boost::array&lt; char, 65536 &gt; Network::UDPServer::getRecvBuffer </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>

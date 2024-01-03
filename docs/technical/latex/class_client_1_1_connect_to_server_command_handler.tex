@@ -1,5 +1,14 @@
 \doxysection{Client\+::Connect\+To\+Server\+Command\+Handler Class Reference}
 \hypertarget{class_client_1_1_connect_to_server_command_handler}{}\label{class_client_1_1_connect_to_server_command_handler}\index{Client::ConnectToServerCommandHandler@{Client::ConnectToServerCommandHandler}}
+
+
+Handler for connecting to the server command.  
+
+
+
+
+{\ttfamily \#include $<$Connect\+To\+Server.\+hpp$>$}
+
 Inheritance diagram for Client\+::Connect\+To\+Server\+Command\+Handler\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,13 +18,40 @@ Inheritance diagram for Client\+::Connect\+To\+Server\+Command\+Handler\+:\begin
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_connect_to_server_command_handler_a2b3298977037c4f5d8a1a994c824cb42}\label{class_client_1_1_connect_to_server_command_handler_a2b3298977037c4f5d8a1a994c824cb42} 
-{\bfseries Connect\+To\+Server\+Command\+Handler} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
-\item 
+\mbox{\hyperlink{class_client_1_1_connect_to_server_command_handler_a2b3298977037c4f5d8a1a994c824cb42}{Connect\+To\+Server\+Command\+Handler}} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_client_1_1_connect_to_server_command_handler}{Connect\+To\+Server\+Command\+Handler} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_connect_to_server_command_handler_afd670aa53786e5f2cd6ae068f382ef1e}{send}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Send the connect command to the server. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_connect_to_server_command_handler_ac5ecbc01aa20dcd027f3d507ad9ae107}{on\+Response}} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the connect command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_client_1_1_i_command_handler_aa9d71c56de179b38a3ea071df1f60676}{\texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for connecting to the server command. 
+
+\doxylink{class_client_1_1_connect_to_server_command_handler}{Connect\+To\+Server\+Command\+Handler} is a concrete implementation of the \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler} interface. It is responsible for handling the command to connect to a server within the network context of the game engine. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_client_1_1_connect_to_server_command_handler_a2b3298977037c4f5d8a1a994c824cb42}\label{class_client_1_1_connect_to_server_command_handler_a2b3298977037c4f5d8a1a994c824cb42} 
+\index{Client::ConnectToServerCommandHandler@{Client::ConnectToServerCommandHandler}!ConnectToServerCommandHandler@{ConnectToServerCommandHandler}}
+\index{ConnectToServerCommandHandler@{ConnectToServerCommandHandler}!Client::ConnectToServerCommandHandler@{Client::ConnectToServerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{ConnectToServerCommandHandler()}{ConnectToServerCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Connect\+To\+Server\+Command\+Handler\+::\+Connect\+To\+Server\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_1_1_network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_client_1_1_connect_to_server_command_handler}{Connect\+To\+Server\+Command\+Handler} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \doxylink{class_client_1_1_network}{Network} instance used for establishing the connection. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -27,7 +63,18 @@ void \mbox{\hyperlink{class_client_1_1_connect_to_server_command_handler_ac5ecbc
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}.
+Handle the server\textquotesingle{}s response to the connect command. 
+
+Implements the on\+Response method from \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler} to process the response received from the server after sending a connect command.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_client_1_1_i_command_handler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
 
 \Hypertarget{class_client_1_1_connect_to_server_command_handler_afd670aa53786e5f2cd6ae068f382ef1e}\label{class_client_1_1_connect_to_server_command_handler_afd670aa53786e5f2cd6ae068f382ef1e} 
 \index{Client::ConnectToServerCommandHandler@{Client::ConnectToServerCommandHandler}!send@{send}}
@@ -37,7 +84,11 @@ Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICom
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}.
+Send the connect command to the server. 
+
+Implements the send method from \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler} to handle the specifics of sending a connect command to the server. 
+
+Implements \mbox{\hyperlink{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
 
 
 

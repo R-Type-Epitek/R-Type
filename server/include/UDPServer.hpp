@@ -348,6 +348,13 @@ namespace Network
     void startClientTimerCheck();
 
     /**
+     * @brief Game loop.
+     *
+     * Game loop for the server.
+     */
+    void gameLoop();
+
+    /**
      * @brief Notify and remove a client.
      * 
      * Notify all clients in the room of the client that the specified
@@ -368,6 +375,8 @@ namespace Network
      * message to.
     */
     void sendCheckConnection(int clientId);
+
+    std::mutex roomsMutex; ///< Mutex for room management.
 
    protected:
    private:

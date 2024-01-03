@@ -59,8 +59,8 @@ namespace GameEngine::Network::Serializer
       Archive &archive)
     {
       auto &component = componentManager.getComponent<T>(entity);
-      T componentData;
-      archive >> componentData;
+      T componentData = deserializeComponent<T>(archive);
+
       component = componentData;
       return component;
     }

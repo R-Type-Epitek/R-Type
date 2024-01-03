@@ -1,5 +1,14 @@
 \doxysection{Client\+::Game\+Scene Class Reference}
 \hypertarget{class_client_1_1_game_scene}{}\label{class_client_1_1_game_scene}\index{Client::GameScene@{Client::GameScene}}
+
+
+Scene class specifically designed for game functionality in a client application.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Scene.\+hpp$>$}
+
 Inheritance diagram for Client\+::Game\+Scene\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,21 +18,42 @@ Inheritance diagram for Client\+::Game\+Scene\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_game_scene_a50211f9f8e6789d7a6d295d0ce3f5fad}\label{class_client_1_1_game_scene_a50211f9f8e6789d7a6d295d0ce3f5fad} 
-{\bfseries Game\+Scene} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
-\item 
+\mbox{\hyperlink{class_client_1_1_game_scene_a50211f9f8e6789d7a6d295d0ce3f5fad}{Game\+Scene}} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_client_1_1_game_scene}{Game\+Scene} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_game_scene_a4dd6cd95f688f3fe6da927897069c8c0}{init\+Registry}} () final
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the ECS registry for the game scene. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1}{init\+Entities}} () final
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize entities for the game scene. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{Game\+Engine\+::\+ECS\+::\+Registry}} \& \mbox{\hyperlink{class_client_1_1_game_scene_a3069752ebd793958ea978cdd3bf46edf}{get\+ECS}} () final
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the ECS registry associated with the game scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72}\label{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72} 
-void {\bfseries init\+Custom\+System} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72}{init\+Custom\+System}} ()
+\begin{DoxyCompactList}\small\item\em Initialize custom systems specific to this game scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scene class specifically designed for game functionality in a client application. 
+
+\doxylink{class_client_1_1_game_scene}{Game\+Scene} extends the IScene interface to provide functionalities specific to game scenes, including initialization of the ECS registry, entities, and custom systems. It also integrates with the network for game-\/related communications. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_client_1_1_game_scene_a50211f9f8e6789d7a6d295d0ce3f5fad}\label{class_client_1_1_game_scene_a50211f9f8e6789d7a6d295d0ce3f5fad} 
+\index{Client::GameScene@{Client::GameScene}!GameScene@{GameScene}}
+\index{GameScene@{GameScene}!Client::GameScene@{Client::GameScene}}
+\doxysubsubsection{\texorpdfstring{GameScene()}{GameScene()}}
+{\footnotesize\ttfamily Client\+::\+Game\+Scene\+::\+Game\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_1_1_network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_client_1_1_game_scene}{Game\+Scene} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \doxylink{class_client_1_1_network}{Network} instance used for network interactions. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -35,15 +65,36 @@ void {\bfseries init\+Custom\+System} ()
 
 
 
+Get the ECS registry associated with the game scene. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_game_engine_1_1_e_c_s_1_1_registry}{Game\+Engine\+::\+ECS\+::\+Registry}\& Reference to the ECS registry. 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{Game\+Engine\+::\+Scene\+::\+IScene}}.
 
-\Hypertarget{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1}\label{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1} 
+\Hypertarget{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72}\label{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72} 
+\index{Client::GameScene@{Client::GameScene}!initCustomSystem@{initCustomSystem}}
+\index{initCustomSystem@{initCustomSystem}!Client::GameScene@{Client::GameScene}}
+\doxysubsubsection{\texorpdfstring{initCustomSystem()}{initCustomSystem()}}
+{\footnotesize\ttfamily void Client\+::\+Game\+Scene\+::init\+Custom\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initialize custom systems specific to this game scene. 
+
+This method is used to set up any custom systems that are specific to the game scene, such as rendering or physics systems. \Hypertarget{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1}\label{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1} 
 \index{Client::GameScene@{Client::GameScene}!initEntities@{initEntities}}
 \index{initEntities@{initEntities}!Client::GameScene@{Client::GameScene}}
 \doxysubsubsection{\texorpdfstring{initEntities()}{initEntities()}}
 {\footnotesize\ttfamily void Client\+::\+Game\+Scene\+::init\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
 
 
+
+Initialize entities for the game scene. 
+
+This function sets up the entities required for the game, adding them to the ECS registry. 
 
 Implements \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{Game\+Engine\+::\+Scene\+::\+IScene}}.
 
@@ -52,6 +103,10 @@ Implements \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{Game\+Engin
 \index{initRegistry@{initRegistry}!Client::GameScene@{Client::GameScene}}
 \doxysubsubsection{\texorpdfstring{initRegistry()}{initRegistry()}}
 {\footnotesize\ttfamily void Client\+::\+Game\+Scene\+::init\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Initialize the ECS registry for the game scene. 
 
 
 

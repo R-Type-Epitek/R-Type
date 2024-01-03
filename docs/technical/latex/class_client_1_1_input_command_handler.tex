@@ -1,5 +1,14 @@
 \doxysection{Client\+::Input\+Command\+Handler Class Reference}
 \hypertarget{class_client_1_1_input_command_handler}{}\label{class_client_1_1_input_command_handler}\index{Client::InputCommandHandler@{Client::InputCommandHandler}}
+
+
+Handler for input commands in a networked environment.  
+
+
+
+
+{\ttfamily \#include $<$Input.\+hpp$>$}
+
 Inheritance diagram for Client\+::Input\+Command\+Handler\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,22 +18,60 @@ Inheritance diagram for Client\+::Input\+Command\+Handler\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_input_command_handler_ab89711fd84af1ee82abe1015e428dce0}\label{class_client_1_1_input_command_handler_ab89711fd84af1ee82abe1015e428dce0} 
-{\bfseries Input\+Command\+Handler} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
-\item 
-\Hypertarget{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8}\label{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8} 
-void {\bfseries set\+Key} (std\+::string key)
-\item 
-\Hypertarget{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba}\label{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba} 
-const std\+::string \& {\bfseries get\+Key} () const
-\item 
+\mbox{\hyperlink{class_client_1_1_input_command_handler_ab89711fd84af1ee82abe1015e428dce0}{Input\+Command\+Handler}} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_client_1_1_input_command_handler}{Input\+Command\+Handler} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8}{set\+Key}} (std\+::string key)
+\begin{DoxyCompactList}\small\item\em Set the key for the input command. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba}{get\+Key}} () const
+\begin{DoxyCompactList}\small\item\em Get the key associated with the input command. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_input_command_handler_a234beadaa593eeec72ae849f4739157e}{send}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Send the input command to the server. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_input_command_handler_ad27a8a0e6e537f7df8133dce9fd3cf7e}{on\+Response}} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the input command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_client_1_1_i_command_handler_aa9d71c56de179b38a3ea071df1f60676}{\texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for input commands in a networked environment. 
+
+\doxylink{class_client_1_1_input_command_handler}{Input\+Command\+Handler} is responsible for managing input-\/related commands and their interaction with the network. It extends the \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler} interface, providing specific implementations for input command handling. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_client_1_1_input_command_handler_ab89711fd84af1ee82abe1015e428dce0}\label{class_client_1_1_input_command_handler_ab89711fd84af1ee82abe1015e428dce0} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!InputCommandHandler@{InputCommandHandler}}
+\index{InputCommandHandler@{InputCommandHandler}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{InputCommandHandler()}{InputCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Input\+Command\+Handler\+::\+Input\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_1_1_network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_client_1_1_input_command_handler}{Input\+Command\+Handler} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \doxylink{class_client_1_1_network}{Network} instance used for handling network communications. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba}\label{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!getKey@{getKey}}
+\index{getKey@{getKey}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
+{\footnotesize\ttfamily const std\+::string \& Client\+::\+Input\+Command\+Handler\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the key associated with the input command. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& Reference to the key currently set for this input command. 
+\end{DoxyReturn}
 \Hypertarget{class_client_1_1_input_command_handler_ad27a8a0e6e537f7df8133dce9fd3cf7e}\label{class_client_1_1_input_command_handler_ad27a8a0e6e537f7df8133dce9fd3cf7e} 
 \index{Client::InputCommandHandler@{Client::InputCommandHandler}!onResponse@{onResponse}}
 \index{onResponse@{onResponse}!Client::InputCommandHandler@{Client::InputCommandHandler}}
@@ -33,7 +80,18 @@ void \mbox{\hyperlink{class_client_1_1_input_command_handler_ad27a8a0e6e537f7df8
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}.
+Handle the server\textquotesingle{}s response to the input command. 
+
+Implements the on\+Response method from \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}, processing the response received from the server in relation to the input command sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_client_1_1_i_command_handler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
 
 \Hypertarget{class_client_1_1_input_command_handler_a234beadaa593eeec72ae849f4739157e}\label{class_client_1_1_input_command_handler_a234beadaa593eeec72ae849f4739157e} 
 \index{Client::InputCommandHandler@{Client::InputCommandHandler}!send@{send}}
@@ -43,8 +101,27 @@ Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICom
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}.
+Send the input command to the server. 
 
+Implements the send method from \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}, specifically handling the sending of input commands to the server. 
+
+Implements \mbox{\hyperlink{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
+
+\Hypertarget{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8}\label{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!setKey@{setKey}}
+\index{setKey@{setKey}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{setKey()}{setKey()}}
+{\footnotesize\ttfamily void Client\+::\+Input\+Command\+Handler\+::set\+Key (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+
+
+
+Set the key for the input command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to be set for this input command. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

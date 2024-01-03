@@ -16,5 +16,7 @@ namespace GameEngine::Scene
     virtual void initEntities() = 0;
 
     virtual ECS::Registry& getECS() = 0;
+
+    virtual std::vector<GameEngine::ECS::Entity>& getEntities() = 0;
   };
 } // namespace GameEngine::Scene

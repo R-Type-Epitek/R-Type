@@ -1,5 +1,14 @@
 \doxysection{Client\+::System\+::Network\+::Keyboard Class Reference}
 \hypertarget{class_client_1_1_system_1_1_network_1_1_keyboard}{}\label{class_client_1_1_system_1_1_network_1_1_keyboard}\index{Client::System::Network::Keyboard@{Client::System::Network::Keyboard}}
+
+
+System class for handling keyboard events in a networked game environment.  
+
+
+
+
+{\ttfamily \#include $<$Keyboard.\+hpp$>$}
+
 Inheritance diagram for Client\+::System\+::Network\+::Keyboard\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,15 +18,41 @@ Inheritance diagram for Client\+::System\+::Network\+::Keyboard\+:\begin{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_system_1_1_network_1_1_keyboard_a12894e41634bf24f2ea054a4e89042f5}\label{class_client_1_1_system_1_1_network_1_1_keyboard_a12894e41634bf24f2ea054a4e89042f5} 
-void {\bfseries update} (\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{Game\+Engine\+::\+UI\+::\+Window\+Context}} \&ctx, \mbox{\hyperlink{class_client_1_1_network}{\+::\+Client\+::\+Network}} \&network)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_client_1_1_system_1_1_network_1_1_keyboard_a12894e41634bf24f2ea054a4e89042f5}{update}} (\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{Game\+Engine\+::\+UI\+::\+Window\+Context}} \&ctx, \mbox{\hyperlink{class_client_1_1_network}{\+::\+Client\+::\+Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Update the system based on keyboard events. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{Game\+Engine\+::\+ECS\+::\+System}}}
 \begin{DoxyCompactItemize}
 \item 
 std\+::set$<$ Entity $>$ {\bfseries m\+\_\+entities} \{\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+System class for handling keyboard events in a networked game environment. 
+
+The \doxylink{class_client_1_1_system_1_1_network_1_1_keyboard}{Keyboard} class is part of the game engine\textquotesingle{}s system and is responsible for detecting and processing keyboard input, particularly the arrow keys, and transmitting these inputs through the network system. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_client_1_1_system_1_1_network_1_1_keyboard_a12894e41634bf24f2ea054a4e89042f5}\label{class_client_1_1_system_1_1_network_1_1_keyboard_a12894e41634bf24f2ea054a4e89042f5} 
+\index{Client::System::Network::Keyboard@{Client::System::Network::Keyboard}!update@{update}}
+\index{update@{update}!Client::System::Network::Keyboard@{Client::System::Network::Keyboard}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Client\+::\+System\+::\+Network\+::\+Keyboard\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{Game\+Engine\+::\+UI\+::\+Window\+Context}} \&}]{ctx,  }\item[{\mbox{\hyperlink{class_client_1_1_network}{\+::\+Client\+::\+Network}} \&}]{network }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the system based on keyboard events. 
+
+This function checks for key press events and sends corresponding commands (like "{}\+UP"{}, "{}\+DOWN"{}, "{}\+LEFT"{}, "{}\+RIGHT"{}) to the server using the network system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & Reference to the Window\+Context, containing event data. \\
+\hline
+{\em network} & Reference to the network system for sending key commands. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

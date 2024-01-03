@@ -207,6 +207,8 @@ void Client::Network::onServerMessage(Message *message)
     return this->onCheckConnectionMessage(message);
   else if (!strcmp(message->header.command, SERVER_COMMAND_CLIENT_DISCONNECTED))
     return;
+  else if (!strcmp(message->header.command, SERVER_COMMAND_UPDATE_GAME))
+    return this->onUpdateGameMessage(message);
   else
     throw std::runtime_error("Invalid message command");
 
@@ -215,6 +217,30 @@ void Client::Network::onServerMessage(Message *message)
 
 void Client::Network::onCheckConnectionMessage(Message *message)
 {
+  return this->sendResponse(message->header.command, "OK");
+}
+
+void Client::Network::onUpdateGameMessage(Message *message)
+{
+  std::vector<char> data(message->data, message->data + message->header.dataLength);
+  std::cout << "data size: " << data.size() << std::endl;
+  std::vector<std::vector<char>> entities;
+
+  std::string dataString(data.begin(), data.end());
+  const std::string delimiter = "\x1F";
+  size_t pos = 0;
+  std::string token;
+
+  while ((pos = dataString.find(delimiter)) != std::string::npos) {
+    token = dataString.substr(0, pos);
+    entities.push_back(std::vector<char>(token.begin(), token.end()));
+    dataString.erase(0, pos + delimiter.length());
+  }
+
+  entities.push_back(std::vector<char>(dataString.begin(), dataString.end()));
+
+  this->m_serializedEcsDataQueue = entities;
+
   return this->sendResponse(message->header.command, "OK");
 }
 
@@ -259,6 +285,11 @@ void Client::Network::setRemoteEndpoint(std::string &ip, std::string &port)
 boost::asio::ip::udp::endpoint Client::Network::getRemoteEndpoint() const
 {
   return this->remoteEndpoint;
+}
+
+Client::Network::QueueEcsSerialized &Client::Network::getSerializedEcsQueue()
+{
+  return m_serializedEcsDataQueue;
 }
 
 /* -------------------------------------------------- */

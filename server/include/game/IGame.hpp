@@ -4,9 +4,25 @@
 
 #pragma once
 
+#include <cstddef>
 #include <vector>
+#include <string>
+
 namespace Server::Game
 {
+  struct Player {
+    size_t id;
+    std::string name = ""; // optional only needed for Connection
+    // GameEngine::Keyboard::Key = None;
+  };
+
+  enum class Event
+  {
+    Input,
+    Connect,
+    Disconnect,
+  };
+
   class IGame {
    public:
     virtual ~IGame() = default;
@@ -14,6 +30,7 @@ namespace Server::Game
     virtual void load() = 0;
 
     virtual std::vector<std::vector<char>> getEntities() = 0;
-  };
 
+    virtual void pushEvent(Event, Player) = 0;
+  };
 } // namespace Server::Game

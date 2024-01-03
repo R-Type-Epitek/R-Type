@@ -1,5 +1,14 @@
 \doxysection{Client\+::Join\+Room\+Command\+Handler Class Reference}
 \hypertarget{class_client_1_1_join_room_command_handler}{}\label{class_client_1_1_join_room_command_handler}\index{Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}}
+
+
+Handler for join room commands in a networked environment.  
+
+
+
+
+{\ttfamily \#include $<$Join\+Room.\+hpp$>$}
+
 Inheritance diagram for Client\+::Join\+Room\+Command\+Handler\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,22 +18,60 @@ Inheritance diagram for Client\+::Join\+Room\+Command\+Handler\+:\begin{figure}[
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_join_room_command_handler_a0305bd6a11db356fb3494a52252e913f}\label{class_client_1_1_join_room_command_handler_a0305bd6a11db356fb3494a52252e913f} 
-{\bfseries Join\+Room\+Command\+Handler} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
-\item 
-\Hypertarget{class_client_1_1_join_room_command_handler_a7d270d813cd2fe72725fa52187c8dc9d}\label{class_client_1_1_join_room_command_handler_a7d270d813cd2fe72725fa52187c8dc9d} 
-void {\bfseries set\+Room\+Id} (int room\+Id)
-\item 
-\Hypertarget{class_client_1_1_join_room_command_handler_a805c83f81aa36775574713e374e747cb}\label{class_client_1_1_join_room_command_handler_a805c83f81aa36775574713e374e747cb} 
-int {\bfseries get\+Room\+Id} () const
-\item 
+\mbox{\hyperlink{class_client_1_1_join_room_command_handler_a0305bd6a11db356fb3494a52252e913f}{Join\+Room\+Command\+Handler}} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_client_1_1_join_room_command_handler}{Join\+Room\+Command\+Handler} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_join_room_command_handler_a7d270d813cd2fe72725fa52187c8dc9d}{set\+Room\+Id}} (int room\+Id)
+\begin{DoxyCompactList}\small\item\em Set the room ID for the join room command. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_client_1_1_join_room_command_handler_a805c83f81aa36775574713e374e747cb}{get\+Room\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the room ID associated with the join room command. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_join_room_command_handler_a1d704fec862bb89e79577a640c3b9b39}{send}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Send the join room command to the server. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_join_room_command_handler_a0b4565d05227643c3fcfb0527ba744e6}{on\+Response}} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the join room command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_client_1_1_i_command_handler_aa9d71c56de179b38a3ea071df1f60676}{\texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for join room commands in a networked environment. 
+
+\doxylink{class_client_1_1_join_room_command_handler}{Join\+Room\+Command\+Handler} is responsible for managing join room commands and their interactions with the network. It implements the \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler} interface, providing specific functionality for handling join room requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_client_1_1_join_room_command_handler_a0305bd6a11db356fb3494a52252e913f}\label{class_client_1_1_join_room_command_handler_a0305bd6a11db356fb3494a52252e913f} 
+\index{Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}!JoinRoomCommandHandler@{JoinRoomCommandHandler}}
+\index{JoinRoomCommandHandler@{JoinRoomCommandHandler}!Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}}
+\doxysubsubsection{\texorpdfstring{JoinRoomCommandHandler()}{JoinRoomCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Join\+Room\+Command\+Handler\+::\+Join\+Room\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_1_1_network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_client_1_1_join_room_command_handler}{Join\+Room\+Command\+Handler} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \doxylink{class_client_1_1_network}{Network} instance used for handling network communications. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_client_1_1_join_room_command_handler_a805c83f81aa36775574713e374e747cb}\label{class_client_1_1_join_room_command_handler_a805c83f81aa36775574713e374e747cb} 
+\index{Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}!getRoomId@{getRoomId}}
+\index{getRoomId@{getRoomId}!Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}}
+\doxysubsubsection{\texorpdfstring{getRoomId()}{getRoomId()}}
+{\footnotesize\ttfamily int Client\+::\+Join\+Room\+Command\+Handler\+::get\+Room\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the room ID associated with the join room command. 
+
+\begin{DoxyReturn}{Returns}
+int The ID of the room currently set to join. 
+\end{DoxyReturn}
 \Hypertarget{class_client_1_1_join_room_command_handler_a0b4565d05227643c3fcfb0527ba744e6}\label{class_client_1_1_join_room_command_handler_a0b4565d05227643c3fcfb0527ba744e6} 
 \index{Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}!onResponse@{onResponse}}
 \index{onResponse@{onResponse}!Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}}
@@ -33,7 +80,18 @@ void \mbox{\hyperlink{class_client_1_1_join_room_command_handler_a0b4565d0522764
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}.
+Handle the server\textquotesingle{}s response to the join room command. 
+
+Implements the on\+Response method from \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}, processing the response received from the server in relation to the join room command sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_client_1_1_i_command_handler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
 
 \Hypertarget{class_client_1_1_join_room_command_handler_a1d704fec862bb89e79577a640c3b9b39}\label{class_client_1_1_join_room_command_handler_a1d704fec862bb89e79577a640c3b9b39} 
 \index{Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}!send@{send}}
@@ -43,8 +101,27 @@ Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICom
 
 
 
-Implements \mbox{\hyperlink{class_client_1_1_i_command_handler}{Client\+::\+ICommand\+Handler}}.
+Send the join room command to the server. 
 
+Implements the send method from \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}, specifically handling the sending of join room commands to the server. 
+
+Implements \mbox{\hyperlink{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
+
+\Hypertarget{class_client_1_1_join_room_command_handler_a7d270d813cd2fe72725fa52187c8dc9d}\label{class_client_1_1_join_room_command_handler_a7d270d813cd2fe72725fa52187c8dc9d} 
+\index{Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}!setRoomId@{setRoomId}}
+\index{setRoomId@{setRoomId}!Client::JoinRoomCommandHandler@{Client::JoinRoomCommandHandler}}
+\doxysubsubsection{\texorpdfstring{setRoomId()}{setRoomId()}}
+{\footnotesize\ttfamily void Client\+::\+Join\+Room\+Command\+Handler\+::set\+Room\+Id (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Set the room ID for the join room command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room to join. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

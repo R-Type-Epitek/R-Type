@@ -7,10 +7,11 @@ var class_network_1_1_u_d_p_server =
     [ "checkClientTimers", "class_network_1_1_u_d_p_server.html#af9906b402d8c7af8b1b6f9d4332bb60c", null ],
     [ "createMessageBuffer", "class_network_1_1_u_d_p_server.html#a4031d156ae82ff57038b16f3d214d781", null ],
     [ "createResponseBuffer", "class_network_1_1_u_d_p_server.html#a0a2583c36c354de1725dcfab25c5e14d", null ],
+    [ "gameLoop", "class_network_1_1_u_d_p_server.html#af419e1866cc5630292523ae901aa7c0f", null ],
     [ "getClientById", "class_network_1_1_u_d_p_server.html#ac53887abfffcb234eb820f6beb7c58ff", null ],
     [ "getClients", "class_network_1_1_u_d_p_server.html#a6577105fddee863d8d7bbae6f7bac2f7", null ],
     [ "getNextClientIdAndIncrement", "class_network_1_1_u_d_p_server.html#a2c13629ee0ccbf4d9b12deb117080603", null ],
-    [ "getRecvBuffer", "class_network_1_1_u_d_p_server.html#a2009531677d046860f0c67ff3e32d03f", null ],
+    [ "getRecvBuffer", "class_network_1_1_u_d_p_server.html#abc40e08966da73a1b12d380a0dce6053", null ],
     [ "getRemoteEndpoint", "class_network_1_1_u_d_p_server.html#a9f7a52213bf27b1cd095cf526d6736ac", null ],
     [ "getRooms", "class_network_1_1_u_d_p_server.html#a421b82239515eafa196dc68cc573fc2b", null ],
     [ "getSocket", "class_network_1_1_u_d_p_server.html#ac32cc82757d28952e4429a16189b4216", null ],
@@ -31,5 +32,6 @@ var class_network_1_1_u_d_p_server =
     [ "startClientTimerCheck", "class_network_1_1_u_d_p_server.html#ace11e347c4bfbad29bfe8d1cb6f2bba2", null ],
     [ "startReceive", "class_network_1_1_u_d_p_server.html#ac2a6fa9962f244fd7ba8578d89296874", null ],
     [ "updateClientLastMessageTimeFromData", "class_network_1_1_u_d_p_server.html#a4928e7aa98d5e037872d25cff45c9f8a", null ],
-    [ "workerFunction", "class_network_1_1_u_d_p_server.html#aabec654d8576481b31d0c1e689b66699", null ]
+    [ "workerFunction", "class_network_1_1_u_d_p_server.html#aabec654d8576481b31d0c1e689b66699", null ],
+    [ "roomsMutex", "class_network_1_1_u_d_p_server.html#aef0ef5329ac37e03dd21cc4ea24b65db", null ]
 ];

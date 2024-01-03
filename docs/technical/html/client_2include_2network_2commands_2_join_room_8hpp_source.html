@@ -123,25 +123,33 @@ $(document).ready(function(){initNavTree('client_2include_2network_2commands_2_j
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>Client</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_client_1_1_join_room_command_handler.html">   11</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_client_1_1_join_room_command_handler.html">JoinRoomCommandHandler</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_client_1_1_i_command_handler.html">ICommandHandler</a> {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>   <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_client_1_1_join_room_command_handler.html">JoinRoomCommandHandler</a>(<a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> setRoomId(<span class="keywordtype">int</span> roomId);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">int</span> getRoomId() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> send() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> onResponse(<a class="code hl_struct" href="struct_response.html">Response</a>* response) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>   <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>   <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">int</span> roomId;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  };</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_client_1_1_join_room_command_handler.html">   18</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_client_1_1_join_room_command_handler.html">JoinRoomCommandHandler</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_client_1_1_i_command_handler.html">ICommandHandler</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>   <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_client_1_1_join_room_command_handler.html">JoinRoomCommandHandler</a>(<a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_join_room_command_handler.html#a7d270d813cd2fe72725fa52187c8dc9d">setRoomId</a>(<span class="keywordtype">int</span> roomId);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_client_1_1_join_room_command_handler.html#a805c83f81aa36775574713e374e747cb">getRoomId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_join_room_command_handler.html#a1d704fec862bb89e79577a640c3b9b39">send</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_join_room_command_handler.html#a0b4565d05227643c3fcfb0527ba744e6">onResponse</a>(<a class="code hl_struct" href="struct_response.html">Response</a>* response) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>   <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>   <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network; </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> roomId;       </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  };</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
-<div class="ttc" id="aclass_client_1_1_i_command_handler_html"><div class="ttname"><a href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a></div><div class="ttdef"><b>Definition</b> IHandler.hpp:10</div></div>
-<div class="ttc" id="aclass_client_1_1_join_room_command_handler_html"><div class="ttname"><a href="class_client_1_1_join_room_command_handler.html">Client::JoinRoomCommandHandler</a></div><div class="ttdef"><b>Definition</b> JoinRoom.hpp:11</div></div>
-<div class="ttc" id="aclass_client_1_1_network_html"><div class="ttname"><a href="class_client_1_1_network.html">Client::Network</a></div><div class="ttdef"><b>Definition</b> Network.hpp:25</div></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>} <span class="comment">// namespace Client</span></div>
+<div class="ttc" id="aclass_client_1_1_i_command_handler_html"><div class="ttname"><a href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a></div><div class="ttdoc">Abstract class representing a command handler in the client.</div><div class="ttdef"><b>Definition</b> IHandler.hpp:17</div></div>
+<div class="ttc" id="aclass_client_1_1_join_room_command_handler_html"><div class="ttname"><a href="class_client_1_1_join_room_command_handler.html">Client::JoinRoomCommandHandler</a></div><div class="ttdoc">Handler for join room commands in a networked environment.</div><div class="ttdef"><b>Definition</b> JoinRoom.hpp:18</div></div>
+<div class="ttc" id="aclass_client_1_1_join_room_command_handler_html_a0b4565d05227643c3fcfb0527ba744e6"><div class="ttname"><a href="class_client_1_1_join_room_command_handler.html#a0b4565d05227643c3fcfb0527ba744e6">Client::JoinRoomCommandHandler::onResponse</a></div><div class="ttdeci">void onResponse(Response *response) override</div><div class="ttdoc">Handle the server's response to the join room command.</div><div class="ttdef"><b>Definition</b> JoinRoom.cpp:36</div></div>
+<div class="ttc" id="aclass_client_1_1_join_room_command_handler_html_a1d704fec862bb89e79577a640c3b9b39"><div class="ttname"><a href="class_client_1_1_join_room_command_handler.html#a1d704fec862bb89e79577a640c3b9b39">Client::JoinRoomCommandHandler::send</a></div><div class="ttdeci">void send() override</div><div class="ttdoc">Send the join room command to the server.</div><div class="ttdef"><b>Definition</b> JoinRoom.cpp:26</div></div>
+<div class="ttc" id="aclass_client_1_1_join_room_command_handler_html_a7d270d813cd2fe72725fa52187c8dc9d"><div class="ttname"><a href="class_client_1_1_join_room_command_handler.html#a7d270d813cd2fe72725fa52187c8dc9d">Client::JoinRoomCommandHandler::setRoomId</a></div><div class="ttdeci">void setRoomId(int roomId)</div><div class="ttdoc">Set the room ID for the join room command.</div><div class="ttdef"><b>Definition</b> JoinRoom.cpp:16</div></div>
+<div class="ttc" id="aclass_client_1_1_join_room_command_handler_html_a805c83f81aa36775574713e374e747cb"><div class="ttname"><a href="class_client_1_1_join_room_command_handler.html#a805c83f81aa36775574713e374e747cb">Client::JoinRoomCommandHandler::getRoomId</a></div><div class="ttdeci">int getRoomId() const</div><div class="ttdoc">Get the room ID associated with the join room command.</div><div class="ttdef"><b>Definition</b> JoinRoom.cpp:21</div></div>
+<div class="ttc" id="aclass_client_1_1_network_html"><div class="ttname"><a href="class_client_1_1_network.html">Client::Network</a></div><div class="ttdoc">Class responsible for network operations in a client.</div><div class="ttdef"><b>Definition</b> Network.hpp:34</div></div>
 <div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

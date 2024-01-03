@@ -1,5 +1,14 @@
 \doxysection{Client\+::ICommand\+Handler Class Reference}
 \hypertarget{class_client_1_1_i_command_handler}{}\label{class_client_1_1_i_command_handler}\index{Client::ICommandHandler@{Client::ICommandHandler}}
+
+
+Abstract class representing a command handler in the client.  
+
+
+
+
+{\ttfamily \#include $<$IHandler.\+hpp$>$}
+
 Inheritance diagram for Client\+::ICommand\+Handler\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +18,68 @@ Inheritance diagram for Client\+::ICommand\+Handler\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645}\label{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645} 
-virtual void {\bfseries send} ()=0
-\item 
+virtual \mbox{\hyperlink{class_client_1_1_i_command_handler_aa9d71c56de179b38a3ea071df1f60676}{\texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645}{send}} ()=0
+\begin{DoxyCompactList}\small\item\em Send a command to the server. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_client_1_1_i_command_handler_a367a28c9a51483e2ba7f7460d6a63047}{on\+Response}} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)=0
+\begin{DoxyCompactList}\small\item\em Handle the response received from the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class representing a command handler in the client. 
+
+\doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler} provides an interface for handling commands and their responses in the client part of a game engine. It defines the basic structure for sending commands and processing their responses. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_client_1_1_i_command_handler_aa9d71c56de179b38a3ea071df1f60676}\label{class_client_1_1_i_command_handler_aa9d71c56de179b38a3ea071df1f60676} 
+\index{Client::ICommandHandler@{Client::ICommandHandler}!````~ICommandHandler@{\texorpdfstring{$\sim$}{\string~}ICommandHandler}}
+\index{````~ICommandHandler@{\texorpdfstring{$\sim$}{\string~}ICommandHandler}!Client::ICommandHandler@{Client::ICommandHandler}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ICommandHandler()}{\string~ICommandHandler()}}
+{\footnotesize\ttfamily virtual Client\+::\+ICommand\+Handler\+::\texorpdfstring{$\sim$}{\string~}\+ICommand\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Virtual destructor for \doxylink{class_client_1_1_i_command_handler}{ICommand\+Handler}. 
+
+Ensures that destructors in derived classes are called correctly. 
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{class_client_1_1_i_command_handler_a367a28c9a51483e2ba7f7460d6a63047}\label{class_client_1_1_i_command_handler_a367a28c9a51483e2ba7f7460d6a63047} 
-virtual void {\bfseries on\+Response} (\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}response)=0
-\end{DoxyCompactItemize}
+\index{Client::ICommandHandler@{Client::ICommandHandler}!onResponse@{onResponse}}
+\index{onResponse@{onResponse}!Client::ICommandHandler@{Client::ICommandHandler}}
+\doxysubsubsection{\texorpdfstring{onResponse()}{onResponse()}}
+{\footnotesize\ttfamily virtual void Client\+::\+ICommand\+Handler\+::on\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_response}{Response}} \texorpdfstring{$\ast$}{*}}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handle the response received from the server. 
+
+This function is a pure virtual function and should be implemented in derived classes to process the response received from the server after a command is sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_client_1_1_connect_to_server_command_handler_ac5ecbc01aa20dcd027f3d507ad9ae107}{Client\+::\+Connect\+To\+Server\+Command\+Handler}}, \mbox{\hyperlink{class_client_1_1_input_command_handler_ad27a8a0e6e537f7df8133dce9fd3cf7e}{Client\+::\+Input\+Command\+Handler}}, \mbox{\hyperlink{class_client_1_1_join_game_command_handler_a007041dce1cb36936855fbd7c7219444}{Client\+::\+Join\+Game\+Command\+Handler}}, \mbox{\hyperlink{class_client_1_1_join_room_command_handler_a0b4565d05227643c3fcfb0527ba744e6}{Client\+::\+Join\+Room\+Command\+Handler}}, and \mbox{\hyperlink{class_client_1_1_update_name_command_handler_ae67cfd0f25a2fa49845534f0fa9ff6a2}{Client\+::\+Update\+Name\+Command\+Handler}}.
+
+\Hypertarget{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645}\label{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645} 
+\index{Client::ICommandHandler@{Client::ICommandHandler}!send@{send}}
+\index{send@{send}!Client::ICommandHandler@{Client::ICommandHandler}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily virtual void Client\+::\+ICommand\+Handler\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Send a command to the server. 
+
+This function is a pure virtual function and needs to be implemented in derived classes to handle the sending of commands to the server. 
+
+Implemented in \mbox{\hyperlink{class_client_1_1_connect_to_server_command_handler_afd670aa53786e5f2cd6ae068f382ef1e}{Client\+::\+Connect\+To\+Server\+Command\+Handler}}, \mbox{\hyperlink{class_client_1_1_input_command_handler_a234beadaa593eeec72ae849f4739157e}{Client\+::\+Input\+Command\+Handler}}, \mbox{\hyperlink{class_client_1_1_join_game_command_handler_aed806343b2b60d5bdde7eaca758c4d0d}{Client\+::\+Join\+Game\+Command\+Handler}}, \mbox{\hyperlink{class_client_1_1_join_room_command_handler_a1d704fec862bb89e79577a640c3b9b39}{Client\+::\+Join\+Room\+Command\+Handler}}, and \mbox{\hyperlink{class_client_1_1_update_name_command_handler_ad3581fc6628913d32f645cf0f4cf5368}{Client\+::\+Update\+Name\+Command\+Handler}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

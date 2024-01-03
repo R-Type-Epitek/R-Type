@@ -20,6 +20,8 @@ namespace Server::Game
 
     GameEngine::ECS::Registry &getECS() final;
 
+    std::vector<GameEngine::ECS::Entity> &getEntities() final;
+
    private:
     std::vector<GameEngine::ECS::Entity> m_entities;
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;

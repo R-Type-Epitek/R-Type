@@ -112,6 +112,11 @@ $(document).ready(function(){initNavTree('class_client_1_1_game_scene.html','');
   <div class="headertitle"><div class="title">Client::GameScene Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Scene class specifically designed for game functionality in a client application.  
+ <a href="class_client_1_1_game_scene.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_game_scene_8hpp_source.html">GameScene.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Client::GameScene:</div>
 <div class="dyncontent">
@@ -124,22 +129,55 @@ Inheritance diagram for Client::GameScene:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a50211f9f8e6789d7a6d295d0ce3f5fad" id="r_a50211f9f8e6789d7a6d295d0ce3f5fad"><td class="memItemLeft" align="right" valign="top"><a id="a50211f9f8e6789d7a6d295d0ce3f5fad" name="a50211f9f8e6789d7a6d295d0ce3f5fad"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameScene</b> (<a class="el" href="class_client_1_1_network.html">Network</a> &amp;network)</td></tr>
+<tr class="memitem:a50211f9f8e6789d7a6d295d0ce3f5fad" id="r_a50211f9f8e6789d7a6d295d0ce3f5fad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#a50211f9f8e6789d7a6d295d0ce3f5fad">GameScene</a> (<a class="el" href="class_client_1_1_network.html">Network</a> &amp;network)</td></tr>
+<tr class="memdesc:a50211f9f8e6789d7a6d295d0ce3f5fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_client_1_1_game_scene.html" title="Scene class specifically designed for game functionality in a client application.">GameScene</a> object.  <br /></td></tr>
 <tr class="separator:a50211f9f8e6789d7a6d295d0ce3f5fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dd6cd95f688f3fe6da927897069c8c0" id="r_a4dd6cd95f688f3fe6da927897069c8c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#a4dd6cd95f688f3fe6da927897069c8c0">initRegistry</a> () final</td></tr>
+<tr class="memdesc:a4dd6cd95f688f3fe6da927897069c8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the ECS registry for the game scene.  <br /></td></tr>
 <tr class="separator:a4dd6cd95f688f3fe6da927897069c8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb69a43caae2035567e9fd504d84ffa1" id="r_aeb69a43caae2035567e9fd504d84ffa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#aeb69a43caae2035567e9fd504d84ffa1">initEntities</a> () final</td></tr>
+<tr class="memdesc:aeb69a43caae2035567e9fd504d84ffa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize entities for the game scene.  <br /></td></tr>
 <tr class="separator:aeb69a43caae2035567e9fd504d84ffa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3069752ebd793958ea978cdd3bf46edf" id="r_a3069752ebd793958ea978cdd3bf46edf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_engine_1_1_e_c_s_1_1_registry.html">GameEngine::ECS::Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#a3069752ebd793958ea978cdd3bf46edf">getECS</a> () final</td></tr>
+<tr class="memdesc:a3069752ebd793958ea978cdd3bf46edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ECS registry associated with the game scene.  <br /></td></tr>
 <tr class="separator:a3069752ebd793958ea978cdd3bf46edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1ed3532042dc68a41dec6abf93726b72" id="r_a1ed3532042dc68a41dec6abf93726b72"><td class="memItemLeft" align="right" valign="top"><a id="a1ed3532042dc68a41dec6abf93726b72" name="a1ed3532042dc68a41dec6abf93726b72"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initCustomSystem</b> ()</td></tr>
+<tr class="memitem:a1ed3532042dc68a41dec6abf93726b72" id="r_a1ed3532042dc68a41dec6abf93726b72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_game_scene.html#a1ed3532042dc68a41dec6abf93726b72">initCustomSystem</a> ()</td></tr>
+<tr class="memdesc:a1ed3532042dc68a41dec6abf93726b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize custom systems specific to this game scene.  <br /></td></tr>
 <tr class="separator:a1ed3532042dc68a41dec6abf93726b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Scene class specifically designed for game functionality in a client application. </p>
+<p><a class="el" href="class_client_1_1_game_scene.html" title="Scene class specifically designed for game functionality in a client application.">GameScene</a> extends the IScene interface to provide functionalities specific to game scenes, including initialization of the ECS registry, entities, and custom systems. It also integrates with the network for game-related communications. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a50211f9f8e6789d7a6d295d0ce3f5fad" name="a50211f9f8e6789d7a6d295d0ce3f5fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50211f9f8e6789d7a6d295d0ce3f5fad">&#9670;&#160;</a></span>GameScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Client::GameScene::GameScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_client_1_1_network.html">Network</a> &amp;&#160;</td>
+          <td class="paramname"><em>network</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="class_client_1_1_game_scene.html" title="Scene class specifically designed for game functionality in a client application.">GameScene</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">network</td><td>Reference to the <a class="el" href="class_client_1_1_network.html" title="Class responsible for network operations in a client.">Network</a> instance used for network interactions. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3069752ebd793958ea978cdd3bf46edf" name="a3069752ebd793958ea978cdd3bf46edf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3069752ebd793958ea978cdd3bf46edf">&#9670;&#160;</a></span>getECS()</h2>
@@ -164,7 +202,38 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initCustomSystem</b> 
 </table>
 </div><div class="memdoc">
 
+<p>Get the ECS registry associated with the game scene. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_game_engine_1_1_e_c_s_1_1_registry.html">GameEngine::ECS::Registry</a>&amp; Reference to the ECS registry. </dd></dl>
+
 <p>Implements <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a>.</p>
+
+</div>
+</div>
+<a id="a1ed3532042dc68a41dec6abf93726b72" name="a1ed3532042dc68a41dec6abf93726b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed3532042dc68a41dec6abf93726b72">&#9670;&#160;</a></span>initCustomSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::GameScene::initCustomSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize custom systems specific to this game scene. </p>
+<p>This method is used to set up any custom systems that are specific to the game scene, such as rendering or physics systems. </p>
 
 </div>
 </div>
@@ -190,6 +259,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initCustomSystem</b> 
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initialize entities for the game scene. </p>
+<p>This function sets up the entities required for the game, adding them to the ECS registry. </p>
 
 <p>Implements <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a>.</p>
 
@@ -217,6 +289,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initCustomSystem</b> 
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initialize the ECS registry for the game scene. </p>
 
 <p>Implements <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a>.</p>
 

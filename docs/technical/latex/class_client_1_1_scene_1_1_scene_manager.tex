@@ -1,5 +1,14 @@
 \doxysection{Client\+::Scene\+::Scene\+Manager Class Reference}
 \hypertarget{class_client_1_1_scene_1_1_scene_manager}{}\label{class_client_1_1_scene_1_1_scene_manager}\index{Client::Scene::SceneManager@{Client::Scene::SceneManager}}
+
+
+Extended scene manager for the client-\/side application.  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Manager.\+hpp$>$}
+
 Inheritance diagram for Client\+::Scene\+::Scene\+Manager\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,11 +18,13 @@ Inheritance diagram for Client\+::Scene\+::Scene\+Manager\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{class_client_1_1_scene_1_1_scene_manager_a44384cc046469736e7948c351e3b7a05}\label{class_client_1_1_scene_1_1_scene_manager_a44384cc046469736e7948c351e3b7a05} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Scene\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor for \doxylink{class_client_1_1_scene_1_1_scene_manager}{Scene\+Manager}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_scene_1_1_scene_manager_a03d4a1e01330abb4d347caefc55a90f0}{init\+Scenes}} () final
-\item 
-\Hypertarget{class_client_1_1_scene_1_1_scene_manager_abb277e3c80be57e956e9340067dcfd17}\label{class_client_1_1_scene_1_1_scene_manager_abb277e3c80be57e956e9340067dcfd17} 
-void {\bfseries init\+Scenes\+With\+Network} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialize the scenes for the client application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_scene_1_1_scene_manager_abb277e3c80be57e956e9340067dcfd17}{init\+Scenes\+With\+Network}} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Initialize scenes with network integration. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_scene_manager}{Game\+Engine\+::\+Scene\+::\+Scene\+Manager}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,6 +40,11 @@ void {\bfseries set\+Current} (std\+::string name)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Extended scene manager for the client-\/side application. 
+
+\doxylink{class_client_1_1_scene_1_1_scene_manager}{Scene\+Manager} extends the game engine\textquotesingle{}s scene manager functionality, specializing it for client-\/side operations, including initializing scenes with network capabilities. 
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{class_client_1_1_scene_1_1_scene_manager_a03d4a1e01330abb4d347caefc55a90f0}\label{class_client_1_1_scene_1_1_scene_manager_a03d4a1e01330abb4d347caefc55a90f0} 
 \index{Client::Scene::SceneManager@{Client::Scene::SceneManager}!initScenes@{initScenes}}
@@ -38,8 +54,29 @@ void {\bfseries set\+Current} (std\+::string name)
 
 
 
+Initialize the scenes for the client application. 
+
+This function sets up the scenes required for the client side of the application, utilizing the base scene manager functionality. 
+
 Reimplemented from \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_scene_manager}{Game\+Engine\+::\+Scene\+::\+Scene\+Manager}}.
 
+\Hypertarget{class_client_1_1_scene_1_1_scene_manager_abb277e3c80be57e956e9340067dcfd17}\label{class_client_1_1_scene_1_1_scene_manager_abb277e3c80be57e956e9340067dcfd17} 
+\index{Client::Scene::SceneManager@{Client::Scene::SceneManager}!initScenesWithNetwork@{initScenesWithNetwork}}
+\index{initScenesWithNetwork@{initScenesWithNetwork}!Client::Scene::SceneManager@{Client::Scene::SceneManager}}
+\doxysubsubsection{\texorpdfstring{initScenesWithNetwork()}{initScenesWithNetwork()}}
+{\footnotesize\ttfamily void Client\+::\+Scene\+::\+Scene\+Manager\+::init\+Scenes\+With\+Network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client_1_1_network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Initialize scenes with network integration. 
+
+This function extends the basic scene initialization to include network functionalities, allowing scenes to interact with network components.
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \doxylink{class_client_1_1_network}{Network} instance to be used in the scenes. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
