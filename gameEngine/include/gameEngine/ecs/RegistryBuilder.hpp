@@ -26,6 +26,8 @@ namespace GameEngine::Builder
     void buildSystemPhysics();
     void buildSystemKeyboard();
     void buildSystemEcsSerializer();
+    void buildSystemMove();
+    void buildSystemInput();
 
    private:
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
