@@ -31,12 +31,14 @@ namespace GameEngine::Asset
     return instance;
   }
 
-  sf::Texture& AssetManager::getTexture(const std::string& texturePath)
+  sf::Texture& AssetManager::getTexture(const std::string& textureId)
   {
-    if (!textureExists(texturePath)) {
-      loadTexture(texturePath, texturePath);
+    if (textureId.empty())
+      return m_textures[defaultTextureId];
+    if (!textureExists(textureId)) {
+      loadTexture(textureId, textureId);
     }
-    return m_textures[texturePath];
+    return m_textures[textureId];
   }
 
   void AssetManager::unloadTexture(const std::string& textureId)
