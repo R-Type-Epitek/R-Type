@@ -5,6 +5,7 @@
 #pragma once
 
 #include "gameEngine/network/Serializer.hpp"
+#include "gameEngine/entity/EntityType.hpp"
 
 #include <boost/serialization/access.hpp>
 #include <cstdlib>
@@ -15,22 +16,24 @@ namespace ComponentRType
 {
 
   struct MetaData : public GameEngine::Network::Serializer::BaseNetworkComponent {
-    std::string name;
+    friend class boost::serialization::access;
+    std::string texturePath;
+    GameEngine::Entity::EntityType entityType = GameEngine::Entity::EntityType::Player;
 
     MetaData() = default;
-    explicit MetaData(std::string n)
-      : name(std::move(n))
+    explicit MetaData(std::string path, GameEngine::Entity::EntityType type)
+      : texturePath(std::move(path))
+      , entityType(type)
     {
     }
 
-   private:
-    friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive &archive, const unsigned int)
     {
       archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
         *this);
-      archive & name;
+      archive & texturePath;
+      archive & entityType;
     }
   };
 

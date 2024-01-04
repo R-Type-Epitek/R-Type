@@ -8,6 +8,8 @@ namespace ComponentRType
 {
 
   /// \brief A component representing if a entity is controllable.
-  struct Controllable {};
+  struct Controllable {
+    size_t ControllerNetworkId = 0;
+  };
 
 } // namespace ComponentRType
