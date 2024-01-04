@@ -3,43 +3,38 @@
 //
 
 #pragma once
+
 #include <SFML/Graphics/Texture.hpp>
 #include <iostream>
 #include <string>
 #include <unordered_map>
 
-#define LOAD_TEXTURE(x) GameEngine::Asset::AssetManager::AssetManager::getInstance().loadTexture(x, x)
-#define LOAD_TEXTURE_DIR(x, y) \
-  GameEngine::Asset::AssetManager::AssetManager::getInstance().loadTexturesFromDirectories(x, y)
-#define GET_TEXTURE(x) GameEngine::Asset::AssetManager::AssetManager::getInstance().getTexture(x)
-
-#define DEFAULT_TEXTURE "assets/bobross.jpg"
-
-namespace GameEngine::Asset::AssetManager
+namespace GameEngine::Asset
 {
 
   class AssetManager {
    public:
-    static AssetManager& getInstance()
-    {
-      static AssetManager instance;
-      return instance;
-    }
+    static std::string defaultTextureId;
 
-    AssetManager()
-    {
-      loadTexture(DEFAULT_TEXTURE, DEFAULT_TEXTURE);
-    }
+    AssetManager();
 
-    void loadTexturesFromDirectories(std::string const& directory, const std::string& fileExtension = ".png");
+    static AssetManager& getInstance();
 
-    sf::Texture& getTexture(std::string const& textureId);
+    sf::Texture& getTexture(const std::string& textureId);
 
-    void unloadTexture(std::string const& textureId);
+    void unloadTexture(const std::string& textureId);
 
-    void loadTexture(std::string const& path, std::string const& textureId);
+    void loadTexture(const std::string& path, const std::string& textureId);
+
+    void loadTexturesFromDirectories(const std::string& directory, const std::string& fileExtension = ".png");
 
    private:
     std::unordered_map<std::string, sf::Texture> m_textures;
+
+    // Private function to check if the texture exists
+    bool textureExists(const std::string& textureId) const;
   };
+
+  sf::Texture& getTexture(const std::string& textureId = AssetManager::defaultTextureId);
+
 } // namespace GameEngine::Asset::AssetManager
