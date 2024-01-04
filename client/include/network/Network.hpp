@@ -19,6 +19,7 @@
 #include <boost/shared_ptr.hpp>
 #include <iostream>
 #include <map>
+#include <unordered_map>
 #include <queue>
 #include <string>
 
