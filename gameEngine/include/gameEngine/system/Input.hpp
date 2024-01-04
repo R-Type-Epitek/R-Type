@@ -35,7 +35,7 @@ namespace GameEngine::System
       GameEngine::Keybinds eventKey)
     {
       auto& transform = componentManager.getComponent<ComponentRType::Transform>(entity);
-      const float speed = 1.5;
+      const float speed = transform.speed;
 
       switch (eventKey) {
         case GameEngine::Keybinds::Up:
