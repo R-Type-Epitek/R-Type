@@ -15,6 +15,7 @@ add_library(${LIBRARY} STATIC
         src/UI/Window.cpp
         src/asset/AssetManager.cpp
         src/entity/EntityFactory.cpp
+        src/entity/EntityBuilder.cpp
 )
 
 target_include_directories(${LIBRARY}
