@@ -22,6 +22,8 @@ namespace Server::Game
 
     GameEngine::Entity::EntityFactory &getEntityFactory() final;
 
+    std::vector<GameEngine::ECS::Entity> &getEntities();
+
    private:
     std::vector<GameEngine::ECS::Entity> m_entities;
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;

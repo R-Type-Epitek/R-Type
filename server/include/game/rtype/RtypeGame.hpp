@@ -20,15 +20,14 @@ namespace Server::Game
     }
 
     void load() final;
+
     std::vector<std::vector<char>> getEntities() final;
-    void pushEvent(Event event, Player player)
-    {
-      std::cout << "pushEvent: "
-                << (event == Event::Connect        ? "Connect"
-                      : event == Event::Disconnect ? "Disconnect"
-                                                   : "Input")
-                << " by player (" << player.id << ") with name " << player.name << std::endl;
-    };
+
+    void pushEvent(Event event, Player player) final;
+
+    void eventConnect(Player &player);
+    void eventDisconnect(Player &player);
+    void eventInput(Player &player);
 
    private:
     Server::Game::RtypeScene m_scene;
