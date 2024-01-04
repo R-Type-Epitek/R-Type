@@ -8,13 +8,16 @@
 #include "gameEngine/component/Sprite.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
+#include "IUpdateSystem.hpp"
 
 namespace GameEngine::System
 {
 
-  class Renderer : public GameEngine::ECS::System {
+  class Renderer
+    : public GameEngine::ECS::System
+    , public IUpdateSystem {
    public:
-    void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx)
+    void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx) final
     {
       auto& componentManager = registry.getComponentManager();
 

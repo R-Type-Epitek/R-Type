@@ -11,6 +11,7 @@
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/gfx/sfml/SfmlDisplay.hpp"
+#include "IUpdateSystem.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -18,9 +19,11 @@
 namespace GameEngine::System
 {
 
-  class Animation : public GameEngine::ECS::System {
+  class Animation
+    : public GameEngine::ECS::System
+    , public IUpdateSystem {
    public:
-    void update(GameEngine::ECS::Registry &)
+    void update(GameEngine::ECS::Registry &, GameEngine::UI::WindowContext &) final
     {
     }
   };
