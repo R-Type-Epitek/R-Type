@@ -5,7 +5,7 @@
 #include "game/rtype/RtypeScene.hpp"
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/MetaData.hpp"
-#include "gameEngine/component/Sprite.hpp"
+#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
@@ -19,7 +19,7 @@ namespace Server::Game
 
     // Components
     builder.registerAllMandatoryComponent();
-    builder.registerComponent<ComponentRType::Sprite>();
+    builder.registerComponent<ComponentRType::Displayable>();
 
     // Systems
     builder.buildSystemPhysics();
@@ -42,7 +42,7 @@ namespace Server::Game
     m_entities.push_back(entt2);
     m_registry->addComponent(entt2, ComponentRType::Gravity {Vec3 {1}});
     m_registry->addComponent(entt2, ComponentRType::Transform {{0, 0}});
-    m_registry->addComponent(entt2, ComponentRType::Sprite {});
+    m_registry->addComponent(entt2, ComponentRType::Displayable {});
 
     auto entt1N = m_registry->createEntity();
     m_entities.push_back(entt1N);
