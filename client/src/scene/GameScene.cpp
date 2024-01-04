@@ -42,7 +42,6 @@ namespace Client
 
     // Components
     builder.registerAllMandatoryComponent();
-    builder.registerComponent<ComponentRType::Displayable>();
 
     // Systems
     builder.buildSystemPhysics();
@@ -67,15 +66,9 @@ namespace Client
 
   void GameScene::initEntities()
   {
-    namespace assetManager = GameEngine::Asset;
-
-    auto entt2 = m_registry->createEntity();
-    m_entities.push_back(entt2);
-    m_registry->addComponent(entt2, ComponentRType::Gravity {});
-    m_registry->addComponent(entt2, ComponentRType::Transform {});
-    m_registry->addComponent(
-      entt2,
-      ComponentRType::Displayable(assetManager::getTexture("assets/sprites/r-typesheet23.gif")));
+    namespace Entity = GameEngine::Entity;
+    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
+    m_entityFactory->create(Entity::PlayerPayload {.texturePath = "assets/sprites/r-typesheet23.gif"});
   }
 
 } // namespace Client

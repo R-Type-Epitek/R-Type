@@ -5,6 +5,7 @@
 #pragma once
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
+#include "gameEngine/entity/EntityFactory.hpp"
 #include "gameEngine/scene/IScene.hpp"
 #include "network/Network.hpp"
 
@@ -62,6 +63,8 @@ namespace Client
    private:
     std::vector<GameEngine::ECS::Entity> m_entities;       ///< Vector of entities in the game scene.
     std::unique_ptr<GameEngine::ECS::Registry> m_registry; ///< Unique pointer to the ECS registry.
+    std::unique_ptr<GameEngine::Entity::EntityFactory>
+      m_entityFactory;  ///< Unique pointer to the entity factory.
     Network& m_network; ///< Reference to the network instance for network interactions.
   };
 } // namespace Client
