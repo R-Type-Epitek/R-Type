@@ -6,7 +6,7 @@
 
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/MetaData.hpp"
-#include "gameEngine/component/Sprite.hpp"
+#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/Signature.hpp"
@@ -45,7 +45,7 @@ namespace GameEngine::Builder
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::Renderer>();
     //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<GameEngine::System::Renderer>(signature);
   }
 
@@ -54,7 +54,7 @@ namespace GameEngine::Builder
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::Animation>();
     //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     signature.set(m_registry->getComponentType<ComponentRType::Transform>());
     m_registry->setSystemSignature<GameEngine::System::Animation>(signature);
   }
@@ -74,7 +74,7 @@ namespace GameEngine::Builder
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::Keyboard>();
     //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<GameEngine::System::Keyboard>(signature);
   }
 

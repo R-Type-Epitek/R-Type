@@ -6,6 +6,7 @@
 
 #include "gameEngine/network/Serializer.hpp"
 
+#include <boost/serialization/access.hpp>
 #include <cstdlib>
 #include <string>
 #include <utility>

@@ -5,26 +5,28 @@
 #pragma once
 #include "gameEngine/asset/AssetManager.hpp"
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 #include <string>
 
 namespace ComponentRType
 {
 
-  struct Sprite {
+  namespace assetManager = GameEngine::Asset;
+
+  struct Displayable {
     sf::Sprite sprite;
 
-    Sprite()
+    Displayable()
     {
-      sprite.setTexture(GET_TEXTURE(DEFAULT_TEXTURE));
+      sprite.setTexture(assetManager::getTexture());
     }
 
-    Sprite(sf::Texture& texture)
+    Displayable(sf::Texture& texture)
     {
       sprite.setTexture(texture);
     }
 
-    Sprite(sf::Texture& texture, sf::IntRect const& rect)
+    Displayable(sf::Texture& texture, sf::IntRect const& rect)
     {
       sprite.setTexture(texture);
       if (rect.width > 0 || rect.height < 0)

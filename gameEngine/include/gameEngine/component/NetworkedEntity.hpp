@@ -5,6 +5,7 @@
 #pragma once
 #include "gameEngine/network/Serializer.hpp"
 
+#include <boost/serialization/base_object.hpp>
 #include <cstddef>
 
 namespace ComponentRType

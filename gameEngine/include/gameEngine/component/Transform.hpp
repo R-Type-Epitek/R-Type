@@ -14,9 +14,18 @@ namespace ComponentRType
 {
   /// \brief A component representing the transformation properties of an entity.
   struct Transform {
-    ge::Position position;
-    Vec3 rotation = 0;
-    Vec3 speed = 1;
-    Vec3 scale = 1;
+    sf::Vector2f position;
+    sf::Vector2f rotation;
+    sf::Vector2f speed;
+    sf::Vector2f movement;
+
+    template<class Archive>
+    void serialize(Archive& ar, unsigned int const version)
+    {
+      ar & position;
+      ar & rotation;
+      ar & speed;
+      ar & movement;
+    }
   };
 } // namespace ComponentRType
