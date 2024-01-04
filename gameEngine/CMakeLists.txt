@@ -14,6 +14,7 @@ add_library(${LIBRARY} STATIC
         src/scene/SceneManager.cpp
         src/UI/Window.cpp
         src/asset/AssetManager.cpp
+        src/entity/EntityFactory.cpp
 )
 
 target_include_directories(${LIBRARY}
