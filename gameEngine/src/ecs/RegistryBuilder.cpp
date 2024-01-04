@@ -4,10 +4,15 @@
 
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 
-#include "gameEngine/component/Gravity.hpp"
+#include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/MetaData.hpp"
-#include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/Gravity.hpp"
+#include "gameEngine/component/Controllable.hpp"
+#include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/Clickable.hpp"
+
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/Signature.hpp"
 #include "gameEngine/system/Animation.hpp"
@@ -34,10 +39,14 @@ namespace GameEngine::Builder
 
   void RegistryBuilder::registerAllMandatoryComponent()
   {
-    registerComponent<ComponentRType::Transform>();
-    registerComponent<ComponentRType::Gravity>();
     registerComponent<ComponentRType::MetaData>();
     registerComponent<ComponentRType::NetworkedEntity>();
+    registerComponent<ComponentRType::Gravity>();
+    registerComponent<ComponentRType::Controllable>();
+    registerComponent<ComponentRType::Position>();
+    registerComponent<ComponentRType::Transform>();
+    registerComponent<ComponentRType::Clickable>();
+    registerComponent<ComponentRType::Displayable>();
   }
 
   void RegistryBuilder::buildSystemRenderer()
