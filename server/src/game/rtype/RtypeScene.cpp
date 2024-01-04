@@ -19,7 +19,6 @@ namespace Server::Game
 
     // Components
     builder.registerAllMandatoryComponent();
-    builder.registerComponent<ComponentRType::Displayable>();
 
     // Systems
     builder.buildSystemPhysics();
@@ -32,27 +31,22 @@ namespace Server::Game
 
   void RtypeScene::initEntities()
   {
-    auto entt = m_registry->createEntity();
-    m_entities.push_back(entt);
-    m_registry->addComponent(entt, ComponentRType::Gravity {Vec3 {1}});
-    m_registry->addComponent(entt, ComponentRType::Transform {{0, 0}});
-    m_registry->addComponent(entt, ComponentRType::MetaData {"test entity 1"});
+    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
 
-    auto entt2 = m_registry->createEntity();
-    m_entities.push_back(entt2);
-    m_registry->addComponent(entt2, ComponentRType::Gravity {Vec3 {1}});
-    m_registry->addComponent(entt2, ComponentRType::Transform {{0, 0}});
-    m_registry->addComponent(entt2, ComponentRType::Displayable {});
+    //    TODO: Use a config loader
+    {
+      auto compId = ComponentRType::NetworkedEntity {1};
+      auto compMetaData =
+        ComponentRType::MetaData("assets/sprites/r-typesheet23.gif", GameEngine::Entity::EntityType::Enemy);
+      m_entityFactory->createFromNetwork(compId, compMetaData);
+    }
 
-    auto entt1N = m_registry->createEntity();
-    m_entities.push_back(entt1N);
-    m_registry->addComponent(entt1N, ComponentRType::MetaData {"test entity 1"});
-    m_registry->addComponent(entt1N, ComponentRType::NetworkedEntity {1});
-
-    auto entt2N = m_registry->createEntity();
-    m_entities.push_back(entt2N);
-    m_registry->addComponent(entt2N, ComponentRType::MetaData {"test entity 2"});
-    m_registry->addComponent(entt2N, ComponentRType::NetworkedEntity {2});
+    {
+      auto compId = ComponentRType::NetworkedEntity {2};
+      auto compMetaData =
+        ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Enemy);
+      m_entityFactory->createFromNetwork(compId, compMetaData);
+    }
   }
 
   GameEngine::ECS::Registry& RtypeScene::getECS()
