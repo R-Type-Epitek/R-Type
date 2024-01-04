@@ -10,6 +10,6 @@ namespace ComponentRType
 {
 
   /// \brief A component representing if a entity is clickable.
-  struct Controllable {};
+  struct Clickable {};
 
 } // namespace ComponentRType
