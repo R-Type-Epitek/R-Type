@@ -30,40 +30,33 @@ namespace GameEngine::System
 
    private:
     static void dispatchEvent(
-      GameEngine::ECS::ComponentManager componentManager,
+      GameEngine::ECS::ComponentManager& componentManager,
       const GameEngine::ECS::Entity& entity,
       GameEngine::Keybinds eventKey)
     {
-      const float offset = 0.5;
+      auto& transform = componentManager.getComponent<ComponentRType::Transform>(entity);
+      const float speed = 1.5;
+
       switch (eventKey) {
         case GameEngine::Keybinds::Up:
-          moveOffset(componentManager, entity, sf::Vector2f(0, -offset));
+          transform.movement = sf::Vector2f(0, -speed);
           break;
         case GameEngine::Keybinds::Down:
-          moveOffset(componentManager, entity, sf::Vector2f(0, offset));
+          transform.movement = sf::Vector2f(0, speed);
           break;
         case GameEngine::Keybinds::Left:
-          moveOffset(componentManager, entity, sf::Vector2f(-offset, 0));
+          transform.movement = sf::Vector2f(-speed, 0);
           break;
         case GameEngine::Keybinds::Right:
-          moveOffset(componentManager, entity, sf::Vector2f(offset, 0));
+          transform.movement = sf::Vector2f(speed, 0);
           break;
         case GameEngine::Keybinds::Space:
           pressSpace(componentManager, entity);
+          transform.movement = sf::Vector2f(0, 0);
           break;
         default:
-          moveOffset(componentManager, entity, sf::Vector2f(0, 0));
           break;
       }
-    }
-
-    static void moveOffset(
-      GameEngine::ECS::ComponentManager& componentManager,
-      const GameEngine::ECS::Entity& entity,
-      sf::Vector2f offset)
-    {
-      auto& comp = componentManager.getComponent<ComponentRType::Position>(entity);
-      comp.position = offset;
     }
 
     static void pressSpace(GameEngine::ECS::ComponentManager&, const GameEngine::ECS::Entity&) {};

@@ -23,8 +23,8 @@ namespace GameEngine::System
 
       for (auto const& entity : m_entities) {
         auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
-        auto& positionC = componentManager->getComponent<ComponentRType::Position>(entity);
-        spriteC.sprite.move(positionC.position);
+        auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
+        spriteC.sprite.move(transform.movement);
       }
     }
   };
