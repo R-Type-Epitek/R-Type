@@ -7,6 +7,7 @@
 #include "gameEngine/UI/Window.hpp"
 #include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
+#include "gameEngine/system/IUpdateSystem.hpp"
 #include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
@@ -99,14 +100,14 @@ namespace Client
     m_gui->launch();
   }
 
-  void Client::update(GameEngine::UI::WindowContext&)
+  void Client::update(GameEngine::UI::WindowContext& ctx)
   {
     auto& ecs = this->m_sceneManager->getCurrent().getECS();
     auto&& systems = ecs.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys_physics = std::dynamic_pointer_cast<GameEngine::System::Physics>(system_ptr)) {
-        sys_physics->update();
+      if (auto sys = std::dynamic_pointer_cast<GameEngine::System::IUpdateSystem>(system_ptr)) {
+        sys->update(ecs, ctx);
       } else if (
         auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
         auto& queue = m_network->getSerializedEcsQueue();
@@ -123,26 +124,15 @@ namespace Client
     auto&& systems = ecs.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys_keyboard = std::dynamic_pointer_cast<GameEngine::System::Keyboard>(system_ptr)) {
-        sys_keyboard->update(ecs, ctx);
-      }
       if (auto sys_keyboard_net = std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
         sys_keyboard_net->update(ctx, *m_network);
       }
     }
   }
 
-  void Client::display(GameEngine::UI::WindowContext& ctx)
+  void Client::display(GameEngine::UI::WindowContext&)
   {
-    auto& ecs = this->m_sceneManager->getCurrent().getECS();
-    auto&& systems = ecs.getSystems();
-
-    for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys_renderer = std::dynamic_pointer_cast<GameEngine::System::Renderer>(system_ptr)) {
-        sys_renderer->update(ecs, ctx);
-      } else if (auto sys_animation = std::dynamic_pointer_cast<GameEngine::System::Animation>(system_ptr)) {
-        sys_animation->update(ecs);
-      }
-    }
+    // done on update
   }
+
 }; // namespace Client
