@@ -5,7 +5,7 @@
 #pragma once
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/UI/Window.hpp"
-#include "gameEngine/component/Sprite.hpp"
+#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 

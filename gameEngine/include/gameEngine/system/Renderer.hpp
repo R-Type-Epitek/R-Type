@@ -5,7 +5,7 @@
 #pragma once
 
 #include "gameEngine/UI/Window.hpp"
-#include "gameEngine/component/Sprite.hpp"
+#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "IUpdateSystem.hpp"
@@ -22,7 +22,7 @@ namespace GameEngine::System
       auto& componentManager = registry.getComponentManager();
 
       for (auto const& entity : m_entities) {
-        auto& spriteC = componentManager->getComponent<ComponentRType::Sprite>(entity);
+        auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
         ctx.window.draw(spriteC.sprite);
       }
     }
