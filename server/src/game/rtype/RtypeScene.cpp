@@ -22,10 +22,10 @@ namespace Server::Game
 
     // Systems
     builder.buildSystemPhysics();
-    builder.buildSystemAnimation();
-    builder.buildSystemRenderer();
     builder.buildSystemKeyboard();
     builder.buildSystemEcsSerializer();
+    builder.buildSystemInput();
+    builder.buildSystemMove();
     m_registry = builder.getResult();
   }
 
@@ -34,19 +34,19 @@ namespace Server::Game
     m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
 
     //    TODO: Use a config loader
-    {
-      auto compId = ComponentRType::NetworkedEntity {1};
-      auto compMetaData =
-        ComponentRType::MetaData("assets/sprites/r-typesheet23.gif", GameEngine::Entity::EntityType::Enemy);
-      m_entityFactory->createFromNetwork(compId, compMetaData);
-    }
-
-    {
-      auto compId = ComponentRType::NetworkedEntity {2};
-      auto compMetaData =
-        ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Enemy);
-      m_entityFactory->createFromNetwork(compId, compMetaData);
-    }
+    //    {
+    //      auto compId = ComponentRType::NetworkedEntity {1};
+    //      auto compMetaData =
+    //        ComponentRType::MetaData("assets/sprites/r-typesheet23.gif", GameEngine::Entity::EntityType::Enemy);
+    //      m_entityFactory->createFromNetwork(compId, compMetaData);
+    //    }
+    //
+    //    {
+    //      auto compId = ComponentRType::NetworkedEntity {2};
+    //      auto compMetaData =
+    //        ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Enemy);
+    //      m_entityFactory->createFromNetwork(compId, compMetaData);
+    //    }
   }
 
   GameEngine::ECS::Registry& RtypeScene::getECS()
@@ -57,6 +57,10 @@ namespace Server::Game
   GameEngine::Entity::EntityFactory& RtypeScene::getEntityFactory()
   {
     return *m_entityFactory;
+  }
+  std::vector<GameEngine::ECS::Entity>& RtypeScene::getEntities()
+  {
+    return m_entities;
   }
 
 } // namespace Server::Game::Rtype
