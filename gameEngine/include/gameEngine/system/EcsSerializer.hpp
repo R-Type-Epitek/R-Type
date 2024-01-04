@@ -6,6 +6,9 @@
 
 #include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/NetworkedEntity.hpp"
+#include "gameEngine/component/Position.hpp"
+#include "gameEngine/component/Transform.hpp"
+
 #include "gameEngine/entity/EntityFactory.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
@@ -65,6 +68,8 @@ namespace GameEngine::System
 
       Serializer::serializeComponent<ComponentRType::NetworkedEntity>(componentManager, entity, archive);
       Serializer::serializeComponent<ComponentRType::MetaData>(componentManager, entity, archive);
+      Serializer::serializeComponent<ComponentRType::Position>(componentManager, entity, archive);
+      Serializer::serializeComponent<ComponentRType::Transform>(componentManager, entity, archive);
 
       std::string dataStr = oss.str();
       serializedData.assign(dataStr.begin(), dataStr.end());
@@ -98,10 +103,8 @@ namespace GameEngine::System
       const GameEngine::ECS::Entity &entity,
       boost::archive::binary_iarchive &archive)
     {
-      (void)componentManager;
-      (void)entity;
-      (void)archive;
-      //      Serializer::deserializeComponentToEntity<ComponentRType::MetaData>(componentManager, entity, archive);
+      Serializer::deserializeComponentToEntity<ComponentRType::Position>(componentManager, entity, archive);
+      Serializer::deserializeComponentToEntity<ComponentRType::Transform>(componentManager, entity, archive);
     }
 
     std::optional<const ECS::Entity> getNetworkedEntityById(
