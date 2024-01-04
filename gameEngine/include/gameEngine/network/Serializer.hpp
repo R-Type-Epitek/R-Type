@@ -16,9 +16,23 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <SFML/System/Vector2.hpp>
+
+namespace boost::serialization
+{
+
+  template<class Archive>
+  void serialize(Archive &archive, sf::Vector2f &vector, const unsigned int)
+  {
+    archive & vector.x;
+    archive & vector.y;
+  }
+
+} // namespace boost::serialization
 
 namespace GameEngine::Network::Serializer
 {
+
   class BaseNetworkComponent {
    public:
     virtual ~BaseNetworkComponent() = default;
