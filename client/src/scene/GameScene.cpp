@@ -31,9 +31,9 @@ namespace Client
     return *m_registry;
   }
 
-  std::vector<GameEngine::ECS::Entity>& GameScene::getEntities()
+  GameEngine::Entity::EntityFactory& GameScene::getEntityFactory()
   {
-    return m_entities;
+    return *m_entityFactory;
   }
 
   void GameScene::initRegistry()
@@ -66,9 +66,8 @@ namespace Client
 
   void GameScene::initEntities()
   {
-    namespace Entity = GameEngine::Entity;
+    //    namespace Entity = GameEngine::Entity;
     m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
-    m_entityFactory->create(Entity::PlayerPayload {.texturePath = "assets/sprites/r-typesheet23.gif"});
   }
 
 } // namespace Client

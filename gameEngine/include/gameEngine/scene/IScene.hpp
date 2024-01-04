@@ -4,6 +4,7 @@
 
 #pragma once
 #include "gameEngine/ecs/Registry.hpp"
+#include "gameEngine/entity/EntityFactory.hpp"
 
 namespace GameEngine::Scene
 {
@@ -17,6 +18,6 @@ namespace GameEngine::Scene
 
     virtual ECS::Registry& getECS() = 0;
 
-    virtual std::vector<GameEngine::ECS::Entity>& getEntities() = 0;
+    virtual GameEngine::Entity::EntityFactory& getEntityFactory() = 0;
   };
 } // namespace GameEngine::Scene

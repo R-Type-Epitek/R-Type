@@ -60,9 +60,9 @@ namespace Server::Game
     return *m_registry;
   }
 
-  std::vector<GameEngine::ECS::Entity>& RtypeScene::getEntities()
+  GameEngine::Entity::EntityFactory& RtypeScene::getEntityFactory()
   {
-    return m_entities;
+    return *m_entityFactory;
   }
 
 } // namespace Server::Game::Rtype

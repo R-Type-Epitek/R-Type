@@ -49,7 +49,7 @@ namespace Client
      */
     GameEngine::ECS::Registry& getECS() final;
 
-    std::vector<GameEngine::ECS::Entity>& getEntities() final;
+    GameEngine::Entity::EntityFactory& getEntityFactory() final;
 
    protected:
     /**

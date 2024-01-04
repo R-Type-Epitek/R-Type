@@ -20,11 +20,12 @@ namespace Server::Game
 
     GameEngine::ECS::Registry &getECS() final;
 
-    std::vector<GameEngine::ECS::Entity> &getEntities() final;
+    GameEngine::Entity::EntityFactory &getEntityFactory() final;
 
    private:
     std::vector<GameEngine::ECS::Entity> m_entities;
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
+    std::unique_ptr<GameEngine::Entity::EntityFactory> m_entityFactory;
   };
 
 } // namespace Server::Game::Rtype
