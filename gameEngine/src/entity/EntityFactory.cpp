@@ -10,6 +10,7 @@
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/entity/EntityBuilder.hpp"
 
 namespace GameEngine::Entity
 {
@@ -38,59 +39,57 @@ namespace GameEngine::Entity
     return createPlayer(payload);
   };
 
+  void EntityFactory::createFromMetaData(ComponentRType::MetaData &data)
+  {
+    spdlog::info("[EntityFactory] Creating entity from Metadata...");
+  }
+
   GameEngine::ECS::Entity EntityFactory::createPlayer(PlayerPayload payload)
   {
-    auto entity = newEntity();
-    m_registry.addComponent(entity, ComponentRType::MetaData {});
-    m_registry.addComponent(entity, ComponentRType::NetworkedEntity {});
-    m_registry.addComponent(entity, ComponentRType::Controllable {});
-    m_registry.addComponent(entity, ComponentRType::Position {});
-    m_registry.addComponent(entity, ComponentRType::Transform {});
-
+    auto builder = EntityBuilder(m_registry);
+    builder.buildComponent(ComponentRType::MetaData {});
+    builder.buildComponent(ComponentRType::NetworkedEntity {});
+    builder.buildComponent(ComponentRType::Controllable {});
+    builder.buildComponent(ComponentRType::Position {});
+    builder.buildComponent(ComponentRType::Transform {});
     if (!payload.light) {
-      m_registry.addComponent(
-        entity,
-        ComponentRType::Displayable(GameEngine::Asset::getTexture(payload.texturePath)));
+      builder.buildComponent(ComponentRType::Displayable(GameEngine::Asset::getTexture(payload.texturePath)));
     }
+
+    auto entity = builder.getResult();
+    m_entities.push_back(entity);
     return entity;
   }
 
   GameEngine::ECS::Entity EntityFactory::createEnemy(EnemyPayload payload)
   {
-    auto entity = newEntity();
-    m_registry.addComponent(entity, ComponentRType::MetaData {});
-    m_registry.addComponent(entity, ComponentRType::NetworkedEntity {});
-    m_registry.addComponent(entity, ComponentRType::Controllable {});
-    m_registry.addComponent(entity, ComponentRType::Position {});
-    m_registry.addComponent(entity, ComponentRType::Transform {});
-
+    auto builder = EntityBuilder(m_registry);
+    builder.buildComponent(ComponentRType::MetaData {});
+    builder.buildComponent(ComponentRType::NetworkedEntity {});
+    builder.buildComponent(ComponentRType::Controllable {});
+    builder.buildComponent(ComponentRType::Position {});
+    builder.buildComponent(ComponentRType::Transform {});
     if (!payload.light) {
-      m_registry.addComponent(
-        entity,
-        ComponentRType::Displayable(GameEngine::Asset::getTexture(payload.texturePath)));
+      builder.buildComponent(ComponentRType::Displayable(GameEngine::Asset::getTexture(payload.texturePath)));
     }
+
+    auto entity = builder.getResult();
+    m_entities.push_back(entity);
     return entity;
   }
 
   GameEngine::ECS::Entity EntityFactory::createBullet(BulletPayload payload)
   {
-    auto entity = newEntity();
-    m_registry.addComponent(entity, ComponentRType::MetaData {});
-    m_registry.addComponent(entity, ComponentRType::NetworkedEntity {});
-    m_registry.addComponent(entity, ComponentRType::Position {});
-    m_registry.addComponent(entity, ComponentRType::Transform {});
-
+    auto builder = EntityBuilder(m_registry);
+    builder.buildComponent(ComponentRType::MetaData {});
+    builder.buildComponent(ComponentRType::NetworkedEntity {});
+    builder.buildComponent(ComponentRType::Position {});
+    builder.buildComponent(ComponentRType::Transform {});
     if (!payload.light) {
-      m_registry.addComponent(
-        entity,
-        ComponentRType::Displayable(GameEngine::Asset::getTexture(payload.texturePath)));
+      builder.buildComponent(ComponentRType::Displayable(GameEngine::Asset::getTexture(payload.texturePath)));
     }
-    return entity;
-  }
-
-  GameEngine::ECS::Entity EntityFactory::newEntity()
-  {
-    auto entity = m_registry.createEntity();
+    
+    auto entity = builder.getResult();
     m_entities.push_back(entity);
     return entity;
   }
