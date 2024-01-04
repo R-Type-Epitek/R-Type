@@ -14,7 +14,7 @@ void SfmlDisplay::display(sf::RenderWindow& window, sf::Sprite& sprite)
   window.draw(sprite);
 }
 
-/// \brief Set the position of a SFML Sprite
+/// \brief Set the position of a SFML Displayable
 /// \param sf::Sprite&
 /// \param ge::Position&
 void SfmlDisplay::setPosition(sf::Sprite& sprite, ge::Position& position)

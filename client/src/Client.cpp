@@ -11,6 +11,7 @@
 #include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
+#include "gameEngine/system/Move.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Constants.hpp"
 #include "network/Network.hpp"
@@ -111,9 +112,11 @@ namespace Client
       } else if (
         auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
         auto& queue = m_network->getSerializedEcsQueue();
-        auto& entities = this->m_sceneManager->getCurrent().getEntities();
+        auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
 
-        sys_serializer->deserialize(ecs, entities, queue);
+        sys_serializer->deserialize(ecs, queue, factory);
+      } else if (auto sys_move = std::dynamic_pointer_cast<GameEngine::System::Move>(system_ptr)) {
+        sys_move->update(ecs);
       }
     }
   }

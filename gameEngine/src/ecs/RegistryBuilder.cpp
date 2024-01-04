@@ -4,10 +4,15 @@
 
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 
-#include "gameEngine/component/Gravity.hpp"
+#include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/MetaData.hpp"
-#include "gameEngine/component/Sprite.hpp"
+#include "gameEngine/component/Gravity.hpp"
+#include "gameEngine/component/Controllable.hpp"
+#include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/Clickable.hpp"
+
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/Signature.hpp"
 #include "gameEngine/system/Animation.hpp"
@@ -15,6 +20,8 @@
 #include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
+#include "gameEngine/system/Input.hpp"
+#include "gameEngine/system/Move.hpp"
 
 #include <memory>
 #include <utility>
@@ -34,18 +41,22 @@ namespace GameEngine::Builder
 
   void RegistryBuilder::registerAllMandatoryComponent()
   {
-    registerComponent<ComponentRType::Transform>();
-    registerComponent<ComponentRType::Gravity>();
     registerComponent<ComponentRType::MetaData>();
     registerComponent<ComponentRType::NetworkedEntity>();
+    registerComponent<ComponentRType::Gravity>();
+    registerComponent<ComponentRType::Controllable>();
+    registerComponent<ComponentRType::Position>();
+    registerComponent<ComponentRType::Transform>();
+    registerComponent<ComponentRType::Clickable>();
+    registerComponent<ComponentRType::Displayable>();
   }
 
   void RegistryBuilder::buildSystemRenderer()
   {
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::Renderer>();
-    //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<GameEngine::System::Renderer>(signature);
   }
 
@@ -53,8 +64,8 @@ namespace GameEngine::Builder
   {
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::Animation>();
-    //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     signature.set(m_registry->getComponentType<ComponentRType::Transform>());
     m_registry->setSystemSignature<GameEngine::System::Animation>(signature);
   }
@@ -63,9 +74,10 @@ namespace GameEngine::Builder
   {
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::Physics>();
-    //  System components
+
     signature.set(m_registry->getComponentType<ComponentRType::Gravity>());
     signature.set(m_registry->getComponentType<ComponentRType::Transform>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
     m_registry->setSystemSignature<GameEngine::System::Physics>(signature);
   }
 
@@ -73,8 +85,8 @@ namespace GameEngine::Builder
   {
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::Keyboard>();
-    //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<GameEngine::System::Keyboard>(signature);
   }
 
@@ -82,10 +94,32 @@ namespace GameEngine::Builder
   {
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<GameEngine::System::EcsSerializer>();
-    //  System components
+
     signature.set(m_registry->getComponentType<ComponentRType::MetaData>());
     signature.set(m_registry->getComponentType<ComponentRType::NetworkedEntity>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
     m_registry->setSystemSignature<GameEngine::System::EcsSerializer>(signature);
+  }
+
+  void RegistryBuilder::buildSystemMove()
+  {
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<GameEngine::System::Move>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    m_registry->setSystemSignature<GameEngine::System::Move>(signature);
+  }
+
+  void RegistryBuilder::buildSystemInput()
+  {
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<GameEngine::System::Input>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::NetworkedEntity>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    m_registry->setSystemSignature<GameEngine::System::Input>(signature);
   }
 
 }; // namespace GameEngine::Builder

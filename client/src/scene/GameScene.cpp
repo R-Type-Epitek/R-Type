@@ -7,7 +7,7 @@
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/NetworkedEntity.hpp"
-#include "gameEngine/component/Sprite.hpp"
+#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "gameEngine/ecs/Registry.hpp"
@@ -31,9 +31,9 @@ namespace Client
     return *m_registry;
   }
 
-  std::vector<GameEngine::ECS::Entity>& GameScene::getEntities()
+  GameEngine::Entity::EntityFactory& GameScene::getEntityFactory()
   {
-    return m_entities;
+    return *m_entityFactory;
   }
 
   void GameScene::initRegistry()
@@ -42,10 +42,10 @@ namespace Client
 
     // Components
     builder.registerAllMandatoryComponent();
-    builder.registerComponent<ComponentRType::Sprite>();
 
     // Systems
     builder.buildSystemPhysics();
+    builder.buildSystemMove();
     builder.buildSystemAnimation();
     builder.buildSystemRenderer();
     builder.buildSystemKeyboard();
@@ -61,19 +61,14 @@ namespace Client
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<System::Network::Keyboard>();
     //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Sprite>());
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<System::Network::Keyboard>(signature);
   }
 
   void GameScene::initEntities()
   {
-    LOAD_TEXTURE("assets/sprites/r-typesheet23.gif");
-
-    auto entt2 = m_registry->createEntity();
-    m_entities.push_back(entt2);
-    m_registry->addComponent(entt2, ComponentRType::Gravity {Vec3 {1}});
-    m_registry->addComponent(entt2, ComponentRType::Transform {{0, 0}});
-    m_registry->addComponent(entt2, ComponentRType::Sprite(GET_TEXTURE("assets/sprites/r-typesheet23.gif")));
+    //    namespace Entity = GameEngine::Entity;
+    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
   }
 
 } // namespace Client

@@ -5,18 +5,31 @@
 #pragma once
 
 #include "constants/constants.hpp"
+#include "gameEngine/network/Serializer.hpp"
 
+#include <boost/serialization/base_object.hpp>
 #include <utility>
 
 using Vec3 = int;
 
 namespace ComponentRType
 {
+  static const float defaultSpeed = 0.9;
+
   /// \brief A component representing the transformation properties of an entity.
-  struct Transform {
-    ge::Position position;
-    Vec3 rotation = 0;
-    Vec3 speed = 1;
-    Vec3 scale = 1;
+  struct Transform : public GameEngine::Network::Serializer::BaseNetworkComponent {
+    friend class boost::serialization::access;
+    sf::Vector2f rotation;
+    float speed = defaultSpeed;
+    sf::Vector2f movement;
+
+    template<class Archive>
+    void serialize(Archive &ar, unsigned int const)
+    {
+      ar &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*this);
+      ar & rotation;
+      ar & speed;
+      ar & movement;
+    }
   };
 } // namespace ComponentRType
