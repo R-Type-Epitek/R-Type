@@ -14,8 +14,6 @@ add_library(${LIBRARY} STATIC
         src/scene/SceneManager.cpp
         src/UI/Window.cpp
         src/asset/AssetManager.cpp
-        include/gameEngine/ecs/Registry.hpp
-        include/gameEngine/constants/Keybinds.hpp
 )
 
 target_include_directories(${LIBRARY}
