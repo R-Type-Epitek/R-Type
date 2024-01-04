@@ -45,6 +45,7 @@ namespace Client
 
     // Systems
     builder.buildSystemPhysics();
+    builder.buildSystemMove();
     builder.buildSystemAnimation();
     builder.buildSystemRenderer();
     builder.buildSystemKeyboard();
