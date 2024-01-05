@@ -64,7 +64,19 @@ namespace GameEngine::ECS
       }
     }
 
-    std::shared_ptr<System> getSystem(char const* name)
+    template<typename T>
+    std::shared_ptr<T> getSystem()
+    {
+      char const* typeName = typeid(T).name();
+
+      assert(m_systems.find(typeName) != m_systems.end() && "System not found.");
+      if (auto sys = std::dynamic_pointer_cast<T>(m_systems[typeName])) {
+        return sys;
+      }
+      throw std::runtime_error("[ECS SystemManager] System not found.");
+    }
+
+    std::shared_ptr<System> getSystemByName(char const* name)
     {
       return m_systems[name];
     }

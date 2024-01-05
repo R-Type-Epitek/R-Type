@@ -101,6 +101,12 @@ namespace GameEngine::ECS
       return m_systemManager->getSystems();
     }
 
+    template<typename T>
+    std::shared_ptr<T> getSystem()
+    {
+      return m_systemManager->getSystem<T>();
+    }
+
     std::unordered_map<char const*, Signature> getSignatures()
     {
       return m_systemManager->getSignatures();
