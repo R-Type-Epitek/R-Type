@@ -78,6 +78,12 @@ namespace GameEngine::ECS
     }
 
     template<typename T>
+    bool hasComponent(Entity entity)
+    {
+      return m_componentManager->hasComponent<T>(entity);
+    }
+
+    template<typename T>
     ComponentType getComponentType()
     {
       return m_componentManager->getComponentType<T>();
