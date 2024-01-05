@@ -59,17 +59,17 @@ namespace Server::Game
 
   void RtypeGame::eventDisconnect(Player& player)
   {
-    //    auto& registry = m_scene.getECS();
-    //    auto&& entities = m_scene.getEntities();
-    //
-    //    for (auto& entity : entities) {
-    //      if (!registry.hasComponent<ComponentRType::NetworkedEntity>(entity))
-    //        continue;
-    //      auto& comp = registry.getComponent<ComponentRType::NetworkedEntity>(entity);
-    //      if (comp.id == player.id) {
-    //        registry.destroyEntity(entity);
-    //      }
-    //    }
+    auto& registry = m_scene.getECS();
+    auto&& entities = m_scene.getEntities();
+
+    for (auto& entity : entities) {
+      if (!registry.hasComponent<ComponentRType::NetworkedEntity>(entity))
+        continue;
+      auto& comp = registry.getComponent<ComponentRType::NetworkedEntity>(entity);
+      if (comp.id == player.id) {
+        registry.destroyEntity(entity);
+      }
+    }
   }
 
   void RtypeGame::eventInput(Player& player)

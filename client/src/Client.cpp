@@ -103,33 +103,45 @@ namespace Client
 
   void Client::update(GameEngine::UI::WindowContext& ctx)
   {
-    auto& ecs = this->m_sceneManager->getCurrent().getECS();
-    auto&& systems = ecs.getSystems();
+    auto& registry = this->m_sceneManager->getCurrent().getECS();
+    auto&& systems = registry.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
       if (auto sys = std::dynamic_pointer_cast<GameEngine::System::IUpdateSystem>(system_ptr)) {
-        sys->update(ecs, ctx);
-      } else if (
-        auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
-        auto& queue = m_network->getSerializedEcsQueue();
-        auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
-
-        sys_serializer->deserialize(ecs, queue, factory);
-      } else if (auto sys_move = std::dynamic_pointer_cast<GameEngine::System::Move>(system_ptr)) {
-        sys_move->update(ecs);
+        sys->update(registry, ctx);
       }
+    }
+
+    try {
+      auto sys_serializer = registry.getSystem<GameEngine::System::EcsSerializer>();
+      auto& queue = m_network->getSerializedEcsQueue();
+      auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
+
+      sys_serializer->deserialize(registry, queue, factory);
+
+    } catch (const std::exception& e) {
+      spdlog::error("[Client Event] Serialize Error: {}", e.what());
+    }
+
+    try {
+      auto system = registry.getSystem<GameEngine::System::Move>();
+      system->update(registry);
+
+    } catch (const std::exception& e) {
+      spdlog::error("[Client Event] Error: {}", e.what());
     }
   }
 
   void Client::event(GameEngine::UI::WindowContext& ctx)
   {
-    auto& ecs = this->m_sceneManager->getCurrent().getECS();
-    auto&& systems = ecs.getSystems();
+    auto& registry = this->m_sceneManager->getCurrent().getECS();
 
-    for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys_keyboard_net = std::dynamic_pointer_cast<System::Network::Keyboard>(system_ptr)) {
-        sys_keyboard_net->update(ctx, *m_network);
-      }
+    try {
+      auto system = registry.getSystem<System::Network::Keyboard>();
+      system->update(ctx, *m_network);
+
+    } catch (const std::exception& e) {
+      spdlog::error("[Client Event] Error: {}", e.what());
     }
   }
 
@@ -137,5 +149,4 @@ namespace Client
   {
     // done on update
   }
-
 }; // namespace Client

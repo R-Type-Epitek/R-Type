@@ -5,7 +5,6 @@ set(LIBRARY "GameEngine")
 add_library(${LIBRARY} STATIC
         src/ecs/entity/EntityManager.cpp
         src/ecs/RegistryBuilder.cpp
-        src/ecs/EntityBuilder.cpp
         src/gfx/sfml/SfmlEvent.cpp
         src/gfx/sfml/SfmlTexture.cpp
         src/gfx/sfml/SfmlDisplay.cpp

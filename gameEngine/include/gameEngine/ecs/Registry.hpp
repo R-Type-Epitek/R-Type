@@ -78,6 +78,12 @@ namespace GameEngine::ECS
     }
 
     template<typename T>
+    bool hasComponent(Entity entity)
+    {
+      return m_componentManager->hasComponent<T>(entity);
+    }
+
+    template<typename T>
     ComponentType getComponentType()
     {
       return m_componentManager->getComponentType<T>();
@@ -99,6 +105,12 @@ namespace GameEngine::ECS
     std::unordered_map<char const*, std::shared_ptr<System>> getSystems()
     {
       return m_systemManager->getSystems();
+    }
+
+    template<typename T>
+    std::shared_ptr<T> getSystem()
+    {
+      return m_systemManager->getSystem<T>();
     }
 
     std::unordered_map<char const*, Signature> getSignatures()

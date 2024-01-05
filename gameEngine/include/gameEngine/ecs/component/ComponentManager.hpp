@@ -74,6 +74,15 @@ namespace GameEngine::ECS
       return getComponentArray<T>()->getData(entity);
     }
 
+    /// \brief Retrieves if a component reference exist to an entity's.
+    /// \param Entity
+    /// \return bool
+    template<typename T>
+    bool hasComponent(Entity entity)
+    {
+      return getComponentArray<T>()->hasEntity(entity);
+    }
+
     /// \brief Notifies the component arrays that an entity has been destroyed.
     /// \param Entity
     void entityDestroyed(Entity entity)
