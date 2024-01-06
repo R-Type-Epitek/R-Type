@@ -4,7 +4,6 @@
 
 #include "gameEngine/UI/Window.hpp"
 
-#include <functional>
 #include <utility>
 
 namespace GameEngine::UI
@@ -55,6 +54,8 @@ namespace GameEngine::UI
   {
     while (m_windowContext.window.isOpen()) {
       handleEvent();
+      if (!m_windowContext.window.isOpen())
+        return;
       update();
     }
   }

@@ -69,7 +69,20 @@ std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(cons
 
 void Client::Network::send(boost::asio::const_buffer const &buffer)
 {
-  this->socket.send_to(buffer, this->remoteEndpoint);
+  this->socket.async_send_to(
+    buffer,
+    this->remoteEndpoint,
+    boost::bind(
+      &Client::Network::handleSend,
+      this,
+      boost::asio::placeholders::error,
+      boost::asio::placeholders::bytes_transferred));
+}
+
+void Client::Network::handleSend(boost::system::error_code const &error, std::size_t bytesTransferred)
+{
+  if (error && error == boost::asio::error::message_size)
+    return spdlog::error("handleSend: Error: {} ({} bytes)", error.message(), bytesTransferred);
 }
 
 void Client::Network::sendMessage(std::string const &command, char const data[], int dataSize)

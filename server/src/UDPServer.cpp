@@ -232,7 +232,8 @@ void Network::UDPServer::processMessage(TimedMessage timedMessage)
 
 void Network::UDPServer::processResponse(Response *response)
 {
-  logResponse("Client response", response);
+  Client client = response->header.clientId ? Client() : this->getClientById(response->header.clientId);
+  logResponse("Client response", response, client);
 
   if (!strcmp(response->header.command, SERVER_COMMAND_CHECK_CONNECTION))
     this->clients[response->header.clientId].updateLastMessageTime();
@@ -245,8 +246,9 @@ void Network::UDPServer::workerFunction()
   while (true) {
     TimedMessage timedMessage = this->messageQueue.pop();
     Message *message = timedMessage.message;
+    Client client = message->header.clientId == -1 ? Client() : this->getClientById(message->header.clientId);
 
-    logMessage("Client message", message);
+    logMessage("Client message", message, client);
 
     this->processMessage(timedMessage);
   }
@@ -309,8 +311,9 @@ std::vector<char> Network::UDPServer::createResponseBuffer(
 void Network::UDPServer::sendResponseAndLog(TimedMessage timedMessage, std::vector<char> responseBuffer)
 {
   Response response = *(Response *)responseBuffer.data();
+  Client client = response.header.clientId == -1 ? Client() : this->getClientById(response.header.clientId);
 
-  logTimedMessage("Server response", timedMessage, response);
+  logTimedMessage("Server response", timedMessage, response, client);
 
   this->sendToClient(
     boost::asio::buffer(responseBuffer.data(), responseBuffer.size()),
@@ -404,7 +407,7 @@ void Network::UDPServer::gameLoop()
 
 void Network::UDPServer::notifyAndRemoveClient(int clientId)
 {
-  Client client = this->clients[clientId];
+  Client &client = this->getClientById(clientId);
 
   if (client.getRoomId() == -1) {
     for (size_t i = 0; i < this->clients.size(); i++) {
@@ -424,7 +427,7 @@ void Network::UDPServer::notifyAndRemoveClient(int clientId)
 
   spdlog::info("Client {} disconnected", clientId);
   this->rooms[client.getRoomId()].removePlayer(clientId);
-  logMessage("Server message", (Message *)messageBuffer.data());
+  logMessage("Server message", (Message *)messageBuffer.data(), client);
   this->sendToAllClientsInRoom(
     boost::asio::buffer(messageBuffer.data(), messageBuffer.size()),
     client.getRoomId());
@@ -441,8 +444,9 @@ void Network::UDPServer::sendCheckConnection(int clientId)
 {
   std::vector<char> messageBuffer =
     this->createMessageBuffer(clientId, SERVER_COMMAND_CHECK_CONNECTION, nullptr, 0);
+  Client &client = this->getClientById(clientId);
 
-  logMessage("Server message", (Message *)messageBuffer.data());
+  logMessage("Server message", (Message *)messageBuffer.data(), client);
 
   this->sendToClient(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()), clientId);
 }

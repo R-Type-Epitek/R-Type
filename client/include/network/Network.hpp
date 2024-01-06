@@ -71,6 +71,14 @@ namespace Client
     void send(boost::asio::const_buffer const &buffer);
 
     /**
+     * @brief Callback function for handling data sent over the network.
+     *
+     * @param error Boost ASIO error code indicating the status of the send operation.
+     * @param bytesTransferred The number of bytes sent over the network.
+     */
+    void handleSend(boost::system::error_code const &error, std::size_t bytesTransferred);
+
+    /**
      * @brief Send a command message over the network.
      *
      * @param command The command to be sent.
