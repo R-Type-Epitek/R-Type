@@ -28,15 +28,15 @@ namespace GameEngine::Scene
      */
   class SimpleScene : public GameEngine::Scene::IScene {
    public:
-    void initRegistries() final;
+    void initRegistries() override;
 
-    void initEntities() final;
+    void initEntities() override;
 
-    ECS::Registry& getEcsRegistry() final;
+    ECS::Registry& getEcsRegistry() override;
 
-    Event::EventRegistry& getEventRegistry() final;
+    Event::EventRegistry& getEventRegistry() override;
 
-    Entity::EntityFactory& getEntityFactory() final;
+    Entity::EntityFactory& getEntityFactory() override;
 
    protected:
     std::vector<ECS::Entity> m_entities;                    ///< Vector of entities in the game scene.
