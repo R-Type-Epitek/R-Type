@@ -1,6 +1,6 @@
 <h1 align="center">🚀 RType EPITECH 🚀</h1>
 
-<img src="https://github.com/R-Type-Epitek/R-Type/docs/assets/rtype.png" alt="RType Game" width="100%">
+<img src="https://raw.githubusercontent.com/R-Type-Epitek/R-Type/main/docs/assets/rtype.png" alt="RType Game" width="100%">
 
 ## 📖 About the Project
 
