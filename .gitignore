@@ -2,6 +2,7 @@
 vcpkg_installed
 r-type_client
 r-type_server
+r-type_server_tests
 build*/
 *.cmake
 CMakeCache.txt

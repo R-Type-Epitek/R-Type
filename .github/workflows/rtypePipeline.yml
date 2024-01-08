@@ -1,7 +1,7 @@
 name: Rtype Epitech repository pipeline
 on:
   push:
-    branches: ["main", "fix/*"]
+    branches: [ "main", "fix/*" ]
 #  pull_request:
 #    branches: [ '**', '!ga-ignore-*' ]
 
@@ -68,6 +68,18 @@ jobs:
           configurePreset: 'ninja-multi-vcpkg'
           buildPreset: 'ninja-vcpkg-release'
           testPreset: 'test-release'
+
+      - name: Cache vcpkg packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.VCPKG_PACKAGES_CACHE }}
+          key: ${{ runner.os }}-vcpkg-${{ hashFiles('**/vcpkg.json') }}
+          restore-keys: |
+            ${{ runner.os }}-vcpkg-
+
+      - name: Run tests
+        run: |
+          cd build/server && ctest
 
   push_to_mirror:
     runs-on: ubuntu-latest
