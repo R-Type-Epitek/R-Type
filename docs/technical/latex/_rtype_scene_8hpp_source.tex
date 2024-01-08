@@ -1,5 +1,5 @@
 \doxysection{Rtype\+Scene.\+hpp}
-\hypertarget{_rtype_scene_8hpp_source}{}\label{_rtype_scene_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/game/rtype/RtypeScene.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/game/rtype/RtypeScene.hpp}}
+\hypertarget{_rtype_scene_8hpp_source}{}\label{_rtype_scene_8hpp_source}\index{server/include/game/rtype/RtypeScene.hpp@{server/include/game/rtype/RtypeScene.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -24,11 +24,16 @@
 \DoxyCodeLine{00020\ }
 \DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\ \&getECS()\ \textcolor{keyword}{final};}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00024\ \ \ \ \ std::vector<GameEngine::ECS::Entity>\ m\_entities;}
-\DoxyCodeLine{00025\ \ \ \ \ std::unique\_ptr<GameEngine::ECS::Registry>\ m\_registry;}
-\DoxyCodeLine{00026\ \ \ \};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \}\ \textcolor{comment}{//\ namespace\ Server::Game::Rtype}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_factory}{GameEngine::Entity::EntityFactory}}\ \&getEntityFactory()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<GameEngine::ECS::Entity>\ \&getEntities();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<GameEngine::ECS::Entity>\ m\_entities;}
+\DoxyCodeLine{00029\ \ \ \ \ std::unique\_ptr<GameEngine::ECS::Registry>\ m\_registry;}
+\DoxyCodeLine{00030\ \ \ \ \ std::unique\_ptr<GameEngine::Entity::EntityFactory>\ m\_entityFactory;}
+\DoxyCodeLine{00031\ \ \ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \}\ \textcolor{comment}{//\ namespace\ Server::Game::Rtype}}
 
 \end{DoxyCode}

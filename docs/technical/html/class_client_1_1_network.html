@@ -120,9 +120,9 @@ $(document).ready(function(){initNavTree('class_client_1_1_network.html',''); in
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aacc94647a2592136a4ecf2d3a94c0d33" id="r_aacc94647a2592136a4ecf2d3a94c0d33"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#aacc94647a2592136a4ecf2d3a94c0d33">QueueEcsSerialized</a> = std::queue&lt; std::vector&lt; std::vector&lt; char &gt; &gt; &gt;</td></tr>
-<tr class="memdesc:aacc94647a2592136a4ecf2d3a94c0d33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the queue of serialized ECS data.  <br /></td></tr>
-<tr class="separator:aacc94647a2592136a4ecf2d3a94c0d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a808d8f2121532e7d6856a226e95a8a2d" id="r_a808d8f2121532e7d6856a226e95a8a2d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a> = std::vector&lt; std::vector&lt; char &gt; &gt;</td></tr>
+<tr class="memdesc:a808d8f2121532e7d6856a226e95a8a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the queue of serialized ECS data.  <br /></td></tr>
+<tr class="separator:a808d8f2121532e7d6856a226e95a8a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -142,6 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ecc0c46e23354a22e7bc0880974e609" id="r_a9ecc0c46e23354a22e7bc0880974e609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a9ecc0c46e23354a22e7bc0880974e609">send</a> (boost::asio::const_buffer const &amp;buffer)</td></tr>
 <tr class="memdesc:a9ecc0c46e23354a22e7bc0880974e609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send raw data over the network.  <br /></td></tr>
 <tr class="separator:a9ecc0c46e23354a22e7bc0880974e609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa433394ccb8d01696e30252eec870e66" id="r_aa433394ccb8d01696e30252eec870e66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#aa433394ccb8d01696e30252eec870e66">handleSend</a> (boost::system::error_code const &amp;error, std::size_t bytesTransferred)</td></tr>
+<tr class="memdesc:aa433394ccb8d01696e30252eec870e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for handling data sent over the network.  <br /></td></tr>
+<tr class="separator:aa433394ccb8d01696e30252eec870e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7c37dc6ab96aae55c0afbce268d1f9c" id="r_ad7c37dc6ab96aae55c0afbce268d1f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#ad7c37dc6ab96aae55c0afbce268d1f9c">sendMessage</a> (std::string const &amp;command, char const data[]=nullptr, int dataSize=0)</td></tr>
 <tr class="memdesc:ad7c37dc6ab96aae55c0afbce268d1f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command message over the network.  <br /></td></tr>
 <tr class="separator:ad7c37dc6ab96aae55c0afbce268d1f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -191,7 +194,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0f198af430067b2174e2f69b0a78ada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the remote endpoint of the network connection.  <br /></td></tr>
 <tr class="separator:a0f198af430067b2174e2f69b0a78ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f3906ec4967fc8be1936ef21b41741c" id="r_a5f3906ec4967fc8be1936ef21b41741c"><td class="memItemLeft" align="right" valign="top"><a id="a5f3906ec4967fc8be1936ef21b41741c" name="a5f3906ec4967fc8be1936ef21b41741c"></a>
-<a class="el" href="class_client_1_1_network.html#aacc94647a2592136a4ecf2d3a94c0d33">QueueEcsSerialized</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSerializedEcsQueue</b> ()</td></tr>
+<a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSerializedEcsQueue</b> ()</td></tr>
 <tr class="separator:a5f3906ec4967fc8be1936ef21b41741c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57" id="r_a15a45ffff3cdcbf99901d537a5aa2a57"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Func &gt; </td></tr>
 <tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a15a45ffff3cdcbf99901d537a5aa2a57">executeCommand</a> (const std::string &amp;commandName, Func action)</td></tr>
@@ -206,9 +209,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af9322d011cea31df49fe776392ad0648" id="r_af9322d011cea31df49fe776392ad0648"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#af9322d011cea31df49fe776392ad0648">joinRoom</a> (int roomId)</td></tr>
 <tr class="memdesc:af9322d011cea31df49fe776392ad0648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join a room with a specified room ID.  <br /></td></tr>
 <tr class="separator:af9322d011cea31df49fe776392ad0648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a834301699563164adcfb6f34e95bba2c" id="r_a834301699563164adcfb6f34e95bba2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a834301699563164adcfb6f34e95bba2c">sendKey</a> (std::string key)</td></tr>
-<tr class="memdesc:a834301699563164adcfb6f34e95bba2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a key command to the server.  <br /></td></tr>
-<tr class="separator:a834301699563164adcfb6f34e95bba2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e00a6174658b13f4962b4f8eb81037d" id="r_a1e00a6174658b13f4962b4f8eb81037d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a1e00a6174658b13f4962b4f8eb81037d">sendKey</a> (GameEngine::Keybinds key)</td></tr>
+<tr class="memdesc:a1e00a6174658b13f4962b4f8eb81037d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a key command to the server.  <br /></td></tr>
+<tr class="separator:a1e00a6174658b13f4962b4f8eb81037d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb4a0ec6478049555f7ef13fe15d2f0" id="r_a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a8fb4a0ec6478049555f7ef13fe15d2f0">joinGame</a> (int roomId)</td></tr>
 <tr class="memdesc:a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join a game with a specified room ID.  <br /></td></tr>
 <tr class="separator:a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,14 +220,14 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Class responsible for network operations in a client. </p>
 <p>The <a class="el" href="class_client_1_1_network.html" title="Class responsible for network operations in a client.">Network</a> class handles all network communications for a client, including sending and receiving messages and responses, managing command handlers, and keeping track of client and room states. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aacc94647a2592136a4ecf2d3a94c0d33" name="aacc94647a2592136a4ecf2d3a94c0d33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacc94647a2592136a4ecf2d3a94c0d33">&#9670;&#160;</a></span>QueueEcsSerialized</h2>
+<a id="a808d8f2121532e7d6856a226e95a8a2d" name="a808d8f2121532e7d6856a226e95a8a2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a808d8f2121532e7d6856a226e95a8a2d">&#9670;&#160;</a></span>QueueEcsSerialized</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="class_client_1_1_network.html#aacc94647a2592136a4ecf2d3a94c0d33">Client::Network::QueueEcsSerialized</a> =  std::queue&lt;std::vector&lt;std::vector&lt;char&gt; &gt;&gt;</td>
+          <td class="memname">using <a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">Client::Network::QueueEcsSerialized</a> =  std::vector&lt;std::vector&lt;char&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -445,6 +448,43 @@ template&lt;typename T , typename Func &gt; </div>
 
 <p>Get the ID of the room the client is connected to. </p>
 <dl class="section return"><dt>Returns</dt><dd>int The current room ID. </dd></dl>
+
+</div>
+</div>
+<a id="aa433394ccb8d01696e30252eec870e66" name="aa433394ccb8d01696e30252eec870e66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa433394ccb8d01696e30252eec870e66">&#9670;&#160;</a></span>handleSend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::Network::handleSend </td>
+          <td>(</td>
+          <td class="paramtype">boost::system::error_code const &amp;&#160;</td>
+          <td class="paramname"><em>error</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>bytesTransferred</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback function for handling data sent over the network. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>Boost ASIO error code indicating the status of the send operation. </td></tr>
+    <tr><td class="paramname">bytesTransferred</td><td>The number of bytes sent over the network. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -691,8 +731,8 @@ template&lt;typename T , typename Func &gt; </div>
 
 </div>
 </div>
-<a id="a834301699563164adcfb6f34e95bba2c" name="a834301699563164adcfb6f34e95bba2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a834301699563164adcfb6f34e95bba2c">&#9670;&#160;</a></span>sendKey()</h2>
+<a id="a1e00a6174658b13f4962b4f8eb81037d" name="a1e00a6174658b13f4962b4f8eb81037d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e00a6174658b13f4962b4f8eb81037d">&#9670;&#160;</a></span>sendKey()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -700,7 +740,7 @@ template&lt;typename T , typename Func &gt; </div>
         <tr>
           <td class="memname">void Client::Network::sendKey </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">GameEngine::Keybinds&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
@@ -981,8 +1021,8 @@ template&lt;typename T , typename Func &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/client/include/network/<a class="el" href="_network_8hpp_source.html">Network.hpp</a></li>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/client/src/network/<b>Network.cpp</b></li>
+<li>client/include/network/<a class="el" href="_network_8hpp_source.html">Network.hpp</a></li>
+<li>client/src/network/<b>Network.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

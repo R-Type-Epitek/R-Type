@@ -22,26 +22,21 @@ var annotated_dup =
       [ "UpdateNameCommandHandler", "class_client_1_1_update_name_command_handler.html", "class_client_1_1_update_name_command_handler" ]
     ] ],
     [ "ComponentRType", null, [
+      [ "Clickable", "struct_component_r_type_1_1_clickable.html", null ],
+      [ "Controllable", "struct_component_r_type_1_1_controllable.html", null ],
+      [ "Displayable", "struct_component_r_type_1_1_displayable.html", null ],
       [ "Gravity", "struct_component_r_type_1_1_gravity.html", null ],
       [ "MetaData", "struct_component_r_type_1_1_meta_data.html", null ],
-      [ "Movement2d", "struct_component_r_type_1_1_movement2d.html", null ],
       [ "NetworkedEntity", "struct_component_r_type_1_1_networked_entity.html", null ],
       [ "Position", "struct_component_r_type_1_1_position.html", null ],
-      [ "Sprite", "struct_component_r_type_1_1_sprite.html", null ],
       [ "Transform", "struct_component_r_type_1_1_transform.html", null ]
     ] ],
     [ "GameEngine", null, [
       [ "Asset", null, [
-        [ "AssetManager", null, [
-          [ "AssetManager", "class_game_engine_1_1_asset_1_1_asset_manager_1_1_asset_manager.html", null ]
-        ] ]
+        [ "AssetManager", "class_game_engine_1_1_asset_1_1_asset_manager.html", null ]
       ] ],
       [ "Builder", null, [
-        [ "EntityBuilder", "class_game_engine_1_1_builder_1_1_entity_builder.html", null ],
         [ "RegistryBuilder", "class_game_engine_1_1_builder_1_1_registry_builder.html", null ]
-      ] ],
-      [ "Component", null, [
-        [ "ComponentBuilder", "class_game_engine_1_1_component_1_1_component_builder.html", null ]
       ] ],
       [ "ECS", null, [
         [ "ComponentArray", "class_game_engine_1_1_e_c_s_1_1_component_array.html", "class_game_engine_1_1_e_c_s_1_1_component_array" ],
@@ -51,6 +46,12 @@ var annotated_dup =
         [ "Registry", "class_game_engine_1_1_e_c_s_1_1_registry.html", null ],
         [ "System", "class_game_engine_1_1_e_c_s_1_1_system.html", null ],
         [ "SystemManager", "class_game_engine_1_1_e_c_s_1_1_system_manager.html", "class_game_engine_1_1_e_c_s_1_1_system_manager" ]
+      ] ],
+      [ "Entity", null, [
+        [ "ComponentBluePrint", "struct_game_engine_1_1_entity_1_1_component_blue_print.html", null ],
+        [ "EntityBluePrint", "struct_game_engine_1_1_entity_1_1_entity_blue_print.html", null ],
+        [ "EntityBuilder", "class_game_engine_1_1_entity_1_1_entity_builder.html", null ],
+        [ "EntityFactory", "class_game_engine_1_1_entity_1_1_entity_factory.html", null ]
       ] ],
       [ "Network", null, [
         [ "Serializer", null, [
@@ -66,7 +67,10 @@ var annotated_dup =
       [ "System", null, [
         [ "Animation", "class_game_engine_1_1_system_1_1_animation.html", null ],
         [ "EcsSerializer", "class_game_engine_1_1_system_1_1_ecs_serializer.html", null ],
+        [ "Input", "class_game_engine_1_1_system_1_1_input.html", null ],
+        [ "IUpdateSystem", "class_game_engine_1_1_system_1_1_i_update_system.html", null ],
         [ "Keyboard", "class_game_engine_1_1_system_1_1_keyboard.html", null ],
+        [ "Move", "class_game_engine_1_1_system_1_1_move.html", null ],
         [ "Physics", "class_game_engine_1_1_system_1_1_physics.html", null ],
         [ "Renderer", "class_game_engine_1_1_system_1_1_renderer.html", null ]
       ] ],
@@ -93,6 +97,7 @@ var annotated_dup =
     [ "Server", null, [
       [ "Game", null, [
         [ "IGame", "class_server_1_1_game_1_1_i_game.html", null ],
+        [ "Player", "struct_server_1_1_game_1_1_player.html", null ],
         [ "RtypeGame", "class_server_1_1_game_1_1_rtype_game.html", null ],
         [ "RtypeScene", "class_server_1_1_game_1_1_rtype_scene.html", null ]
       ] ]

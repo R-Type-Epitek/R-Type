@@ -161,7 +161,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>getHostedGame()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#af5893aca91eb211862b4ff8d26a24843">Network::Room</a></li>
 <li>getId()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a1b788b125572f455745b4d9d537fc0cb">Network::Client</a>, <a class="el" href="class_network_1_1_room.html#a4194c540b15a95da36bbfcebcb2e8ce5">Network::Room</a></li>
 <li>getIsCompleted()&#160;:&#160;<a class="el" href="class_client_1_1_command_tracker.html#aec7401fff6318723da8056e31455c68c">Client::CommandTracker</a></li>
-<li>getKey()&#160;:&#160;<a class="el" href="class_client_1_1_input_command_handler.html#ae6d8e4f6d34bbe9e1447aed1dfd35fba">Client::InputCommandHandler</a></li>
+<li>getIsInGame()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a94f997c3a698b5a233177c770754b0c5">Network::Client</a></li>
+<li>getKey()&#160;:&#160;<a class="el" href="class_client_1_1_input_command_handler.html#aaead3d9a3f93fba4552a19b0712743ad">Client::InputCommandHandler</a></li>
 <li>getName()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#a22fd352e18ad5618d8b7e5eb233ff1db">Client::Network</a>, <a class="el" href="class_client_1_1_update_name_command_handler.html#a30bbaf622ea03fae8c820563c3928198">Client::UpdateNameCommandHandler</a>, <a class="el" href="class_network_1_1_client.html#a436cfc281877445713aa8d63cc5fa52b">Network::Client</a></li>
 <li>getNextClientIdAndIncrement()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a2c13629ee0ccbf4d9b12deb117080603">Network::UDPServer</a></li>
 <li>getPlayers()&#160;:&#160;<a class="el" href="class_network_1_1_room.html#a92553cf90665a33507b0b976d3b577a6">Network::Room</a></li>
@@ -180,7 +181,8 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
 <li>handleCommand()&#160;:&#160;<a class="el" href="class_network_1_1_connect_to_server_command_handler.html#acfe75182ccaa6e576fbf222b24754a86">Network::ConnectToServerCommandHandler</a>, <a class="el" href="class_network_1_1_i_command_handler.html#a03d397e650d6d2bad03f4a9fae2ef916">Network::ICommandHandler</a>, <a class="el" href="class_network_1_1_input_command_handler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, <a class="el" href="class_network_1_1_join_game_command_handler.html#a150446d39949c070755dd234298f7028">Network::JoinGameCommandHandler</a>, <a class="el" href="class_network_1_1_join_room_command_handler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="class_network_1_1_update_name_command_handler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a></li>
 <li>handleReceive()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac97d512d745687229613d23b27a71bae">Network::UDPServer</a></li>
-<li>handleSend()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a7d721dae9793f447e2199f8780096e53">Network::UDPServer</a></li>
+<li>handleSend()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#aa433394ccb8d01696e30252eec870e66">Client::Network</a>, <a class="el" href="class_network_1_1_u_d_p_server.html#a7d721dae9793f447e2199f8780096e53">Network::UDPServer</a></li>
+<li>hasComponent()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#adbe47a344f35fd5b738c14fb314e35cb">GameEngine::ECS::ComponentManager</a></li>
 <li>hasEntity()&#160;:&#160;<a class="el" href="class_game_engine_1_1_e_c_s_1_1_component_array.html#a07ad76a7e957754b34ba05942420f942">GameEngine::ECS::ComponentArray&lt; T &gt;</a></li>
 <li>header&#160;:&#160;<a class="el" href="struct_message.html#a704863f3c71f270459d015102d61f7c8">Message</a></li>
 </ul>
@@ -214,7 +216,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_k" name="index_k"></a>- k -</h3><ul>
-<li>key&#160;:&#160;<a class="el" href="struct_input_data.html#a63bb754a4032d719b927887a99e7d7d0">InputData</a></li>
+<li>key&#160;:&#160;<a class="el" href="struct_input_data.html#a0cfe6612080fdbc78701a829ce40f04c">InputData</a></li>
 </ul>
 
 
@@ -255,7 +257,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_q" name="index_q"></a>- q -</h3><ul>
-<li>QueueEcsSerialized&#160;:&#160;<a class="el" href="class_client_1_1_network.html#aacc94647a2592136a4ecf2d3a94c0d33">Client::Network</a></li>
+<li>QueueEcsSerialized&#160;:&#160;<a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">Client::Network</a></li>
 </ul>
 
 
@@ -276,18 +278,20 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>send()&#160;:&#160;<a class="el" href="class_client_1_1_connect_to_server_command_handler.html#afd670aa53786e5f2cd6ae068f382ef1e">Client::ConnectToServerCommandHandler</a>, <a class="el" href="class_client_1_1_i_command_handler.html#a60b6f5dddfe26766a906891488284645">Client::ICommandHandler</a>, <a class="el" href="class_client_1_1_input_command_handler.html#a234beadaa593eeec72ae849f4739157e">Client::InputCommandHandler</a>, <a class="el" href="class_client_1_1_join_game_command_handler.html#aed806343b2b60d5bdde7eaca758c4d0d">Client::JoinGameCommandHandler</a>, <a class="el" href="class_client_1_1_join_room_command_handler.html#a1d704fec862bb89e79577a640c3b9b39">Client::JoinRoomCommandHandler</a>, <a class="el" href="class_client_1_1_network.html#a9ecc0c46e23354a22e7bc0880974e609">Client::Network</a>, <a class="el" href="class_client_1_1_update_name_command_handler.html#ad3581fc6628913d32f645cf0f4cf5368">Client::UpdateNameCommandHandler</a></li>
 <li>sendCheckConnection()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a60ae214e6da64da40df29b14970b25a1">Network::UDPServer</a></li>
-<li>sendKey()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#a834301699563164adcfb6f34e95bba2c">Client::Network</a></li>
+<li>sendKey()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#a1e00a6174658b13f4962b4f8eb81037d">Client::Network</a></li>
 <li>sendMessage()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#ad7c37dc6ab96aae55c0afbce268d1f9c">Client::Network</a></li>
 <li>sendResponse()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#a091bc465021f4b8e49aa03a58e145246">Client::Network</a></li>
 <li>sendResponseAndLog()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ae6df6365d9c49e58434876ef104817a9">Network::UDPServer</a></li>
 <li>sendToAll()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#ac811ac0c540ab08eeb7fd4002e4af9d4">Network::UDPServer</a></li>
 <li>sendToAllClientsInRoom()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a9a296cd50ace6d20256e4a94290bf1b4">Network::UDPServer</a></li>
+<li>sendToAllClientsInRoomInGame()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a4c3186c7dcf335536c43e4d1564ee0e0">Network::UDPServer</a></li>
 <li>sendToClient()&#160;:&#160;<a class="el" href="class_network_1_1_u_d_p_server.html#a9c2f0877b54c60de4ca0a2d21696ba93">Network::UDPServer</a></li>
 <li>setClientId()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#a02b0fb41b307eb039b3e91026497ff12">Client::Network</a></li>
 <li>setEndpoint()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a8c64f36120e3c8e03b0300c3a5dcef26">Network::Client</a></li>
 <li>setId()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#af9390388b249ecc73f5585f0c20210cf">Network::Client</a>, <a class="el" href="class_network_1_1_room.html#ac21adfc504a4ef56c960eff9b94b9b33">Network::Room</a></li>
 <li>setIsCompleted()&#160;:&#160;<a class="el" href="class_client_1_1_command_tracker.html#a6a375933a9845d1e12f75d15f1650d13">Client::CommandTracker</a></li>
-<li>setKey()&#160;:&#160;<a class="el" href="class_client_1_1_input_command_handler.html#ad989eed28b85409f151a01f1b3d9b8f8">Client::InputCommandHandler</a></li>
+<li>setIsInGame()&#160;:&#160;<a class="el" href="class_network_1_1_client.html#a427cbf4305b0adf9b317db09c39e3c66">Network::Client</a></li>
+<li>setKey()&#160;:&#160;<a class="el" href="class_client_1_1_input_command_handler.html#a825627254c05d7353b5c6a711ec7dec9">Client::InputCommandHandler</a></li>
 <li>setName()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#a17f5c274ef1658e21cba3c1b96a06ef9">Client::Network</a>, <a class="el" href="class_client_1_1_update_name_command_handler.html#a922e3c4bc3886fb6f914049d5aa572d6">Client::UpdateNameCommandHandler</a>, <a class="el" href="class_network_1_1_client.html#a7eab98c178b5ea21dc1363658f9815ea">Network::Client</a></li>
 <li>setPosition()&#160;:&#160;<a class="el" href="class_sfml_display.html#a09614caf88914e7f5b1178fa9076bb4e">SfmlDisplay</a></li>
 <li>setRemoteEndpoint()&#160;:&#160;<a class="el" href="class_client_1_1_network.html#ae2cc6225754b3f7b46fa87422c6540da">Client::Network</a></li>
@@ -301,7 +305,6 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>testNetwork()&#160;:&#160;<a class="el" href="class_client_1_1_client.html#adf792e828e78c979677c6daeeeb4ac7b">Client::Client</a></li>
 <li>timestamp&#160;:&#160;<a class="el" href="struct_timed_message.html#abd5fd4e205672e1fdd572a47e7736e67">TimedMessage</a></li>
 <li>type&#160;:&#160;<a class="el" href="struct_message.html#a6fc78df47d3755e088e7c658db565fc5">Message</a>, <a class="el" href="struct_response.html#a08ce134a630bc34de033eb6e0f10255e">Response</a></li>
 </ul>

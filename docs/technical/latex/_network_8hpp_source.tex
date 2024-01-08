@@ -1,5 +1,5 @@
 \doxysection{Network.\+hpp}
-\hypertarget{_network_8hpp_source}{}\label{_network_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/Network.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/Network.hpp}}
+\hypertarget{_network_8hpp_source}{}\label{_network_8hpp_source}\index{client/include/network/Network.hpp@{client/include/network/Network.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -8,107 +8,110 @@
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Constants.hpp"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Commands.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Messages.hpp"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Responses.hpp"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Statuses.hpp"{}}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}network/commands/IHandler.hpp"{}}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}network/commands/Tracker.hpp"{}}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <boost/array.hpp>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <boost/asio.hpp>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <boost/asio/buffer.hpp>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <boost/bind.hpp>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <queue>}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }Client}
-\DoxyCodeLine{00026\ \{}
-\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_network}{Network}}\ \{}
-\DoxyCodeLine{00035\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Network}}(std::string\ ip,\ std::string\ port);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network_a9781434da3b6a72fab9b5e846e490a80}{\string~Network}}();}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9}{registerCommandHandlers}}();}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00063\ \ \ \ \ std::shared\_ptr<ICommandHandler>\ \mbox{\hyperlink{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff}{getCommandHandler}}(std::string\ \textcolor{keyword}{const}\ \&name);}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609}{send}}(boost::asio::const\_buffer\ \textcolor{keyword}{const}\ \&buffer);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c}{sendMessage}}(std::string\ \textcolor{keyword}{const}\ \&command,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ data[]\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{int}\ dataSize\ =\ 0);}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/constants/Keybinds.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Commands.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Messages.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Responses.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Statuses.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}network/commands/Tracker.hpp"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <boost/array.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <boost/asio.hpp>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <boost/asio/buffer.hpp>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <boost/bind.hpp>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }Client}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_network}{Network}}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Network}}(std::string\ ip,\ std::string\ port);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network_a9781434da3b6a72fab9b5e846e490a80}{\string~Network}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a074881e54ca1e4648c78b94ac03ef3b9}{registerCommandHandlers}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::shared\_ptr<ICommandHandler>\ \mbox{\hyperlink{class_client_1_1_network_a9dd47f4da82a25982486c788f656b1ff}{getCommandHandler}}(std::string\ \textcolor{keyword}{const}\ \&name);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609}{send}}(boost::asio::const\_buffer\ \textcolor{keyword}{const}\ \&buffer);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_aa433394ccb8d01696e30252eec870e66}{handleSend}}(boost::system::error\_code\ \textcolor{keyword}{const}\ \&error,\ std::size\_t\ bytesTransferred);}
 \DoxyCodeLine{00080\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246}{sendResponse}}(}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ \&command,}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ \&statusMessage,}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ data[]\ =\ \textcolor{keyword}{nullptr},}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dataSize\ =\ 0,}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ status\ =\ RES\_SUCCESS);}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c}{startReceive}}();}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d}{onReceive}}(boost::system::error\_code\ \textcolor{keyword}{const}\ \&error,\ std::size\_t\ bytesTransferred);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3}{onServerResponse}}(\mbox{\hyperlink{struct_response}{Response}}\ *response);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c}{sendMessage}}(std::string\ \textcolor{keyword}{const}\ \&command,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ data[]\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{int}\ dataSize\ =\ 0);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246}{sendResponse}}(}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ \&command,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\ \&statusMessage,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ data[]\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dataSize\ =\ 0,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ status\ =\ RES\_SUCCESS);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_ab0adb2e5baaca04802dd5b2a99e2599c}{startReceive}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a6b3e2b7068834a8663ce7c1797e3089d}{onReceive}}(boost::system::error\_code\ \textcolor{keyword}{const}\ \&error,\ std::size\_t\ bytesTransferred);}
 \DoxyCodeLine{00121\ }
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807}{onServerMessage}}(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_aa1445fd7305ca6060d759731f24c2be3}{onServerResponse}}(\mbox{\hyperlink{struct_response}{Response}}\ *response);}
 \DoxyCodeLine{00130\ }
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6}{onCheckConnectionMessage}}(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_aba5ad34da87d5cb96c83b75534c1214b}{onUpdateGameMessage}}(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12}{setClientId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4}{getClientId}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c}{setRoomId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5}{getRoomId}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9}{setName}}(std::string\ name);}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00191\ \ \ \ \ std::string\ \mbox{\hyperlink{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db}{getName}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da}{setRemoteEndpoint}}(std::string\ \&ip,\ std::string\ \&port);}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00206\ \ \ \ \ boost::asio::ip::udp::endpoint\ \mbox{\hyperlink{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6}{getRemoteEndpoint}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{QueueEcsSerialized}}\ =\ std::queue<std::vector<std::vector<char>>>;}
-\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{QueueEcsSerialized}}\ \&getSerializedEcsQueue();}
-\DoxyCodeLine{00218\ }
-\DoxyCodeLine{00219\ \ \ \ \ \textcolor{comment}{//\ Commands}}
-\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Func>}
-\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57}{executeCommand}}(\textcolor{keyword}{const}\ std::string\ \&commandName,\ Func\ action);}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee}{connectToServer}}();}
-\DoxyCodeLine{00240\ }
-\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a9090adb4709e633a7787595896adcc07}{updateName}}(std::string\ name);}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}{joinRoom}}(\textcolor{keywordtype}{int}\ roomId);}
-\DoxyCodeLine{00254\ }
-\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}{sendKey}}(std::string\ key);}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0}{joinGame}}(\textcolor{keywordtype}{int}\ roomId);}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00269\ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00270\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00271\ \ \ \ \ boost::asio::io\_context\ io;}
-\DoxyCodeLine{00272\ \ \ \ \ boost::array<char,\ 65536>\ recvBuffer\ \{\};}
-\DoxyCodeLine{00273\ \ \ \ \ boost::asio::ip::udp::endpoint\ remoteEndpoint;}
-\DoxyCodeLine{00274\ \ \ \ \ boost::asio::ip::udp::socket\ socket\ \{this-\/>io\};}
-\DoxyCodeLine{00275\ \ \ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<ICommandHandler>>\ commandHandlers;}
-\DoxyCodeLine{00276\ \ \ \ \ std::map<int,\ std::shared\_ptr<CommandTracker>>\ commandTrackers;}
-\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordtype}{int}\ nextCommandId\ =\ 0;}
-\DoxyCodeLine{00278\ \ \ \ \ std::thread\ receiveThread;}
-\DoxyCodeLine{00279\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{QueueEcsSerialized}}\ m\_serializedEcsDataQueue;}
-\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordtype}{int}\ clientId;}
-\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;}
-\DoxyCodeLine{00282\ \ \ \ \ std::string\ name;}
-\DoxyCodeLine{00283\ \ \ \};}
-\DoxyCodeLine{00284\ \}\ \textcolor{comment}{//\ namespace\ Client}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a5c9d8c820efe4258bd5149aa73398807}{onServerMessage}}(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a36443c385e3362690cbbc6a2ab8c16d6}{onCheckConnectionMessage}}(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_aba5ad34da87d5cb96c83b75534c1214b}{onUpdateGameMessage}}(\mbox{\hyperlink{struct_message}{Message}}\ *message);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a02b0fb41b307eb039b3e91026497ff12}{setClientId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_1_1_network_ad7a790ce27c24b4e06ca2527e1ef60b4}{getClientId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a32740d05d50258cbe320af2a3d82529c}{setRoomId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_client_1_1_network_aa901bacaeffbed0bbfc51820065deab5}{getRoomId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a17f5c274ef1658e21cba3c1b96a06ef9}{setName}}(std::string\ name);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00200\ \ \ \ \ std::string\ \mbox{\hyperlink{class_client_1_1_network_a22fd352e18ad5618d8b7e5eb233ff1db}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da}{setRemoteEndpoint}}(std::string\ \&ip,\ std::string\ \&port);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00215\ \ \ \ \ boost::asio::ip::udp::endpoint\ \mbox{\hyperlink{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6}{getRemoteEndpoint}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d}{QueueEcsSerialized}}\ =\ std::vector<std::vector<char>>;}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d}{QueueEcsSerialized}}\ \&getSerializedEcsQueue();}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ Commands}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57}{executeCommand}}(\textcolor{keyword}{const}\ std::string\ \&commandName,\ Func\ action);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a4e6e450be2f058ef29e21b5a17f3e5ee}{connectToServer}}();}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a9090adb4709e633a7787595896adcc07}{updateName}}(std::string\ name);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}{joinRoom}}(\textcolor{keywordtype}{int}\ roomId);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a1e00a6174658b13f4962b4f8eb81037d}{sendKey}}(GameEngine::Keybinds\ key);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0}{joinGame}}(\textcolor{keywordtype}{int}\ roomId);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00279\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00280\ \ \ \ \ boost::asio::io\_context\ io;}
+\DoxyCodeLine{00281\ \ \ \ \ boost::array<char,\ 65536>\ recvBuffer\ \{\};}
+\DoxyCodeLine{00282\ \ \ \ \ boost::asio::ip::udp::endpoint\ remoteEndpoint;}
+\DoxyCodeLine{00283\ \ \ \ \ boost::asio::ip::udp::socket\ socket\ \{this-\/>io\};}
+\DoxyCodeLine{00284\ \ \ \ \ std::unordered\_map<std::string,\ std::shared\_ptr<ICommandHandler>>\ commandHandlers;}
+\DoxyCodeLine{00285\ \ \ \ \ std::map<int,\ std::shared\_ptr<CommandTracker>>\ commandTrackers;}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordtype}{int}\ nextCommandId\ =\ 0;}
+\DoxyCodeLine{00287\ \ \ \ \ std::thread\ receiveThread;}
+\DoxyCodeLine{00288\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d}{QueueEcsSerialized}}\ m\_serializedEcsDataQueue;}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordtype}{int}\ clientId;}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;}
+\DoxyCodeLine{00291\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00292\ \ \ \};}
+\DoxyCodeLine{00293\ \}\ \textcolor{comment}{//\ namespace\ Client}}
 
 \end{DoxyCode}

@@ -1,5 +1,5 @@
 \doxysection{Renderer.\+hpp}
-\hypertarget{system_2_renderer_8hpp_source}{}\label{system_2_renderer_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/system/Renderer.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/system/Renderer.hpp}}
+\hypertarget{system_2_renderer_8hpp_source}{}\label{system_2_renderer_8hpp_source}\index{gameEngine/include/gameEngine/system/Renderer.hpp@{gameEngine/include/gameEngine/system/Renderer.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -9,26 +9,29 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/UI/Window.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Sprite.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Displayable.hpp"{}}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/system/System.hpp"{}}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }GameEngine::System}
-\DoxyCodeLine{00013\ \{}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_system_1_1_renderer}{Renderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{GameEngine::ECS::System}}\ \{}
-\DoxyCodeLine{00016\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ registry,\ \mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\&\ ctx)}
-\DoxyCodeLine{00018\ \ \ \ \ \{}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ componentManager\ =\ registry.getComponentManager();}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ entity\ :\ m\_entities)\ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ spriteC\ =\ componentManager-\/>getComponent<\mbox{\hyperlink{struct_component_r_type_1_1_sprite}{ComponentRType::Sprite}}>(entity);}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ ctx.window.draw(spriteC.sprite);}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00025\ \ \ \ \ \}}
-\DoxyCodeLine{00026\ \ \ \};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::System}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}IUpdateSystem.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }GameEngine::System}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_system_1_1_renderer}{Renderer}}}
+\DoxyCodeLine{00017\ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{GameEngine::ECS::System}}}
+\DoxyCodeLine{00018\ \ \ \ \ ,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_system_1_1_i_update_system}{IUpdateSystem}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ registry,\ \mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\&\ ctx)\ \textcolor{keyword}{final}}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ componentManager\ =\ registry.getComponentManager();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ entity\ :\ m\_entities)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ spriteC\ =\ componentManager-\/>getComponent<\mbox{\hyperlink{struct_component_r_type_1_1_displayable}{ComponentRType::Displayable}}>(entity);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ ctx.window.draw(spriteC.sprite);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::System}}
 
 \end{DoxyCode}

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: /Users/xavierv/Developer/EPITECH/R-Type/server/include/game/rtype/RtypeScene.hpp Source File</title>
+  <title>R-Type: server/include/game/rtype/RtypeScene.hpp Source File</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -136,15 +136,21 @@ $(document).ready(function(){initNavTree('_rtype_scene_8hpp_source.html',''); in
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_game_engine_1_1_e_c_s_1_1_registry.html">GameEngine::ECS::Registry</a> &amp;getECS() <span class="keyword">final</span>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;GameEngine::ECS::Entity&gt; m_entities;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::unique_ptr&lt;GameEngine::ECS::Registry&gt; m_registry;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  };</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_game_engine_1_1_entity_1_1_entity_factory.html">GameEngine::Entity::EntityFactory</a> &amp;getEntityFactory() <span class="keyword">final</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::vector&lt;GameEngine::ECS::Entity&gt; &amp;getEntities();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>   <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::vector&lt;GameEngine::ECS::Entity&gt; m_entities;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::unique_ptr&lt;GameEngine::ECS::Registry&gt; m_registry;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::unique_ptr&lt;GameEngine::Entity::EntityFactory&gt; m_entityFactory;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  };</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>} <span class="comment">// namespace Server::Game::Rtype</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>} <span class="comment">// namespace Server::Game::Rtype</span></div>
 <div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_registry_html"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_registry.html">GameEngine::ECS::Registry</a></div><div class="ttdef"><b>Definition</b> Registry.hpp:19</div></div>
-<div class="ttc" id="aclass_game_engine_1_1_scene_1_1_i_scene_html"><div class="ttname"><a href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a></div><div class="ttdef"><b>Definition</b> IScene.hpp:10</div></div>
+<div class="ttc" id="aclass_game_engine_1_1_entity_1_1_entity_factory_html"><div class="ttname"><a href="class_game_engine_1_1_entity_1_1_entity_factory.html">GameEngine::Entity::EntityFactory</a></div><div class="ttdef"><b>Definition</b> EntityFactory.hpp:18</div></div>
+<div class="ttc" id="aclass_game_engine_1_1_scene_1_1_i_scene_html"><div class="ttname"><a href="class_game_engine_1_1_scene_1_1_i_scene.html">GameEngine::Scene::IScene</a></div><div class="ttdef"><b>Definition</b> IScene.hpp:11</div></div>
 <div class="ttc" id="aclass_server_1_1_game_1_1_rtype_scene_html"><div class="ttname"><a href="class_server_1_1_game_1_1_rtype_scene.html">Server::Game::RtypeScene</a></div><div class="ttdef"><b>Definition</b> RtypeScene.hpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -28,6 +28,7 @@ var class_network_1_1_u_d_p_server =
     [ "sendResponseAndLog", "class_network_1_1_u_d_p_server.html#ae6df6365d9c49e58434876ef104817a9", null ],
     [ "sendToAll", "class_network_1_1_u_d_p_server.html#ac811ac0c540ab08eeb7fd4002e4af9d4", null ],
     [ "sendToAllClientsInRoom", "class_network_1_1_u_d_p_server.html#a9a296cd50ace6d20256e4a94290bf1b4", null ],
+    [ "sendToAllClientsInRoomInGame", "class_network_1_1_u_d_p_server.html#a4c3186c7dcf335536c43e4d1564ee0e0", null ],
     [ "sendToClient", "class_network_1_1_u_d_p_server.html#a9c2f0877b54c60de4ca0a2d21696ba93", null ],
     [ "startClientTimerCheck", "class_network_1_1_u_d_p_server.html#ace11e347c4bfbad29bfe8d1cb6f2bba2", null ],
     [ "startReceive", "class_network_1_1_u_d_p_server.html#ac2a6fa9962f244fd7ba8578d89296874", null ],

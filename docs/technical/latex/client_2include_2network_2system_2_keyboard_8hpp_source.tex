@@ -1,5 +1,5 @@
 \doxysection{Keyboard.\+hpp}
-\hypertarget{client_2include_2network_2system_2_keyboard_8hpp_source}{}\label{client_2include_2network_2system_2_keyboard_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/system/Keyboard.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/system/Keyboard.hpp}}
+\hypertarget{client_2include_2network_2system_2_keyboard_8hpp_source}{}\label{client_2include_2network_2system_2_keyboard_8hpp_source}\index{client/include/network/system/Keyboard.hpp@{client/include/network/system/Keyboard.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -7,35 +7,133 @@
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/UI/Window.hpp"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Sprite.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/system/System.hpp"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}network/Network.hpp"{}}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <SFML/System/Vector2.hpp>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <SFML/Window/Keyboard.hpp>}}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }Client::System::Network}
-\DoxyCodeLine{00016\ \{}
-\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_system_1_1_network_1_1_keyboard}{Keyboard}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{GameEngine::ECS::System}}\ \{}
-\DoxyCodeLine{00025\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_system_1_1_network_1_1_keyboard_a12894e41634bf24f2ea054a4e89042f5}{update}}(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\&\ ctx,\ \mbox{\hyperlink{class_client_1_1_network}{::Client::Network}}\&\ network)}
-\DoxyCodeLine{00036\ \ \ \ \ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ctx.event.type\ !=\ sf::Event::KeyPressed)}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ eventKey\ =\ ctx.event.key.code;}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Up)}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ network.\mbox{\hyperlink{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}{sendKey}}(\textcolor{stringliteral}{"{}UP"{}});}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Down)}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ network.\mbox{\hyperlink{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}{sendKey}}(\textcolor{stringliteral}{"{}DOWN"{}});}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Left)}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ network.\mbox{\hyperlink{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}{sendKey}}(\textcolor{stringliteral}{"{}LEFT"{}});}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventKey\ ==\ sf::Keyboard::Right)}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ network.\mbox{\hyperlink{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}{sendKey}}(\textcolor{stringliteral}{"{}RIGHT"{}});}
-\DoxyCodeLine{00049\ \ \ \ \ \};}
-\DoxyCodeLine{00050\ \ \ \};}
-\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ Client::System::Network}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/constants/Keybinds.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/UI/Window.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Displayable.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/system/System.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}network/Network.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <SFML/Window/Keyboard.hpp>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }Client::System::Network}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_system_1_1_network_1_1_keyboard}{Keyboard}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{GameEngine::ECS::System}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_system_1_1_network_1_1_keyboard_a12894e41634bf24f2ea054a4e89042f5}{update}}(\mbox{\hyperlink{struct_game_engine_1_1_u_i_1_1_window_context}{GameEngine::UI::WindowContext}}\&\ ctx,\ \mbox{\hyperlink{class_client_1_1_network}{::Client::Network}}\&\ network)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ctx.event.type\ !=\ sf::Event::KeyPressed)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ eventKey\ =\ ctx.event.key.code;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ GameEngine::Keybinds\ key\ =\ this-\/>convertKey(eventKey);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ network.\mbox{\hyperlink{class_client_1_1_network_a1e00a6174658b13f4962b4f8eb81037d}{sendKey}}(key);}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ GameEngine::Keybinds\ convertKey(sf::Keyboard::Key\ key)}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (key)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::A:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::A;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::B:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::B;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::C:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::C;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::D:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::D;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::E:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::E;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::F:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::F;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::G:}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::G;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::H:}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::H;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::I:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::I;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::J:}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::J;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::K:}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::K;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::L:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::L;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::M:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::M;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::N:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::N;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::O:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::O;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::P:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::P;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Q:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Q;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::R:}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::R;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::S:}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::S;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::T:}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::T;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::U:}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::U;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::V:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::V;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::W:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::W;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::X:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::X;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Y:}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Y;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Z:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Z;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num0:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num0;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num1:}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num1;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num2:}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num2;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num3:}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num3;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num4:}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num4;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num5:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num5;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num6:}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num6;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num7:}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num7;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num8:}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num8;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Num9:}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Num9;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Left:}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Left;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Right:}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Right;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Up:}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Up;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Down:}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Down;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Escape:}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Escape;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Enter:}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Enter;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Space:}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Space;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::BackSpace:}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Backspace;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sf::Keyboard::Key::Comma:}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Comma;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GameEngine::Keybinds::Unknown;}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \};}
+\DoxyCodeLine{00149\ \}\ \textcolor{comment}{//\ namespace\ Client::System::Network}}
 
 \end{DoxyCode}

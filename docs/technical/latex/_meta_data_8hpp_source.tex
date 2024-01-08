@@ -1,5 +1,5 @@
 \doxysection{Meta\+Data.\+hpp}
-\hypertarget{_meta_data_8hpp_source}{}\label{_meta_data_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/component/MetaData.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/component/MetaData.hpp}}
+\hypertarget{_meta_data_8hpp_source}{}\label{_meta_data_8hpp_source}\index{gameEngine/include/gameEngine/component/MetaData.hpp@{gameEngine/include/gameEngine/component/MetaData.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -9,34 +9,38 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/network/Serializer.hpp"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <utility>}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }ComponentRType}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{MetaData}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component}{GameEngine::Network::Serializer::BaseNetworkComponent}}\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ std::string\ name;}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{MetaData}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{MetaData}}(std::string\ n)}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ :\ name(std::move(n))}
-\DoxyCodeLine{00022\ \ \ \ \ \{}
-\DoxyCodeLine{00023\ \ \ \ \ \}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }boost::serialization::access;}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Archive>}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ serialize(Archive\ \&archive,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
-\DoxyCodeLine{00029\ \ \ \ \ \{}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ archive\ \&boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this});}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ archive\ \&\ name;}
-\DoxyCodeLine{00033\ \ \ \ \ \}}
-\DoxyCodeLine{00034\ \ \ \};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \}\ \textcolor{comment}{//\ namespace\ ComponentRType}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/entity/EntityType.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <boost/serialization/access.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }ComponentRType}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{MetaData}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component}{GameEngine::Network::Serializer::BaseNetworkComponent}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }boost::serialization::access;}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ texturePath;}
+\DoxyCodeLine{00021\ \ \ \ \ GameEngine::Entity::EntityType\ entityType\ =\ GameEngine::Entity::EntityType::Player;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{MetaData}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{MetaData}}(std::string\ path,\ GameEngine::Entity::EntityType\ type)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ :\ texturePath(std::move(path))}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ ,\ entityType(type)}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Archive>}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ serialize(Archive\ \&archive,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ archive\ \&boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ archive\ \&\ texturePath;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ archive\ \&\ entityType;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \}\ \textcolor{comment}{//\ namespace\ ComponentRType}}
 
 \end{DoxyCode}

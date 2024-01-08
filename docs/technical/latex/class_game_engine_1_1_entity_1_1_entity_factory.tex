@@ -1,0 +1,95 @@
+\doxysection{Game\+Engine\+::Entity\+::Entity\+Factory Class Reference}
+\hypertarget{class_game_engine_1_1_entity_1_1_entity_factory}{}\label{class_game_engine_1_1_entity_1_1_entity_factory}\index{GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_game_engine_1_1_entity_1_1_entity_factory_a55adfe84d6d020d53f1961c1ddd804af}\label{class_game_engine_1_1_entity_1_1_entity_factory_a55adfe84d6d020d53f1961c1ddd804af} 
+{\bfseries Entity\+Factory} (std\+::vector$<$ Game\+Engine\+::\+ECS\+::\+Entity $>$ \&entities, \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{Game\+Engine\+::\+ECS\+::\+Registry}} \&registry)
+\item 
+\Hypertarget{class_game_engine_1_1_entity_1_1_entity_factory_a91d5f6a5b2b031ef99d6ebed678179f7}\label{class_game_engine_1_1_entity_1_1_entity_factory_a91d5f6a5b2b031ef99d6ebed678179f7} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create} (const Entity\+Type \&type)
+\item 
+\Hypertarget{class_game_engine_1_1_entity_1_1_entity_factory_aac72d1d75cb25804259c0aa15baf3ccd}\label{class_game_engine_1_1_entity_1_1_entity_factory_aac72d1d75cb25804259c0aa15baf3ccd} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create\+From\+Network} (\mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{Component\+RType\+::\+Networked\+Entity}} \&network\+Id, \mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{Component\+RType\+::\+Meta\+Data}} \&meta\+Data)
+\item 
+\Hypertarget{class_game_engine_1_1_entity_1_1_entity_factory_a73beef1abf4c32d93ddc735323cd36ed}\label{class_game_engine_1_1_entity_1_1_entity_factory_a73beef1abf4c32d93ddc735323cd36ed} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create\+From\+Blue\+Print} (\mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{Entity\+Blue\+Print}} const \&payload)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{Entity\+Blue\+Print}} \mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_factory_aba74b06609ef10db3981251a7c6df170}{player\+Entity}}
+\item 
+static \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{Entity\+Blue\+Print}} \mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_factory_af9776b8327afc88babf6a4eebc1df317}{enemy\+Entity}}
+\item 
+static \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{Entity\+Blue\+Print}} \mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_factory_a04b93ed8ff88534fe2f809b88e109fa8}{bullet\+Entity}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_engine_1_1_entity_1_1_entity_factory_a04b93ed8ff88534fe2f809b88e109fa8}\label{class_game_engine_1_1_entity_1_1_entity_factory_a04b93ed8ff88534fe2f809b88e109fa8} 
+\index{GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}!bulletEntity@{bulletEntity}}
+\index{bulletEntity@{bulletEntity}!GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{bulletEntity}{bulletEntity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{Entity\+Blue\+Print}} Game\+Engine\+::\+Entity\+::\+Entity\+Factory\+::bullet\+Entity\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ .light\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ .blueprint\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ .transform\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .displayable\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .controllable\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .networkedEntity\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .metaData\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .position\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .gravity\ =\ \textcolor{keyword}{true}\}\}}
+
+\end{DoxyCode}
+\Hypertarget{class_game_engine_1_1_entity_1_1_entity_factory_af9776b8327afc88babf6a4eebc1df317}\label{class_game_engine_1_1_entity_1_1_entity_factory_af9776b8327afc88babf6a4eebc1df317} 
+\index{GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}!enemyEntity@{enemyEntity}}
+\index{enemyEntity@{enemyEntity}!GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{enemyEntity}{enemyEntity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{Entity\+Blue\+Print}} Game\+Engine\+::\+Entity\+::\+Entity\+Factory\+::enemy\+Entity\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ .light\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ .blueprint\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ .transform\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .displayable\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .controllable\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .networkedEntity\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .metaData\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .position\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .gravity\ =\ \textcolor{keyword}{true}\}\}}
+
+\end{DoxyCode}
+\Hypertarget{class_game_engine_1_1_entity_1_1_entity_factory_aba74b06609ef10db3981251a7c6df170}\label{class_game_engine_1_1_entity_1_1_entity_factory_aba74b06609ef10db3981251a7c6df170} 
+\index{GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}!playerEntity@{playerEntity}}
+\index{playerEntity@{playerEntity}!GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}}
+\doxysubsubsection{\texorpdfstring{playerEntity}{playerEntity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{Entity\+Blue\+Print}} Game\+Engine\+::\+Entity\+::\+Entity\+Factory\+::player\+Entity\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ .light\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ .blueprint\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ .transform\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .displayable\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .controllable\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .networkedEntity\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .metaData\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .position\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ .gravity\ =\ \textcolor{keyword}{true}\}\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/entity/Entity\+Factory.\+hpp\item 
+game\+Engine/src/entity/Entity\+Factory.\+cpp\end{DoxyCompactItemize}

@@ -20,9 +20,9 @@ Inheritance diagram for Client\+::Input\+Command\+Handler\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_client_1_1_input_command_handler_ab89711fd84af1ee82abe1015e428dce0}{Input\+Command\+Handler}} (\mbox{\hyperlink{class_client_1_1_network}{Network}} \&network)
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_client_1_1_input_command_handler}{Input\+Command\+Handler} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8}{set\+Key}} (std\+::string key)
+void \mbox{\hyperlink{class_client_1_1_input_command_handler_a825627254c05d7353b5c6a711ec7dec9}{set\+Key}} (Game\+Engine\+::\+Keybinds key)
 \begin{DoxyCompactList}\small\item\em Set the key for the input command. \end{DoxyCompactList}\item 
-const std\+::string \& \mbox{\hyperlink{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba}{get\+Key}} () const
+const Game\+Engine\+::\+Keybinds \& \mbox{\hyperlink{class_client_1_1_input_command_handler_aaead3d9a3f93fba4552a19b0712743ad}{get\+Key}} () const
 \begin{DoxyCompactList}\small\item\em Get the key associated with the input command. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_input_command_handler_a234beadaa593eeec72ae849f4739157e}{send}} () override
 \begin{DoxyCompactList}\small\item\em Send the input command to the server. \end{DoxyCompactList}\item 
@@ -59,18 +59,18 @@ Construct a new \doxylink{class_client_1_1_input_command_handler}{Input\+Command
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba}\label{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba} 
+\Hypertarget{class_client_1_1_input_command_handler_aaead3d9a3f93fba4552a19b0712743ad}\label{class_client_1_1_input_command_handler_aaead3d9a3f93fba4552a19b0712743ad} 
 \index{Client::InputCommandHandler@{Client::InputCommandHandler}!getKey@{getKey}}
 \index{getKey@{getKey}!Client::InputCommandHandler@{Client::InputCommandHandler}}
 \doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
-{\footnotesize\ttfamily const std\+::string \& Client\+::\+Input\+Command\+Handler\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const Game\+Engine\+::\+Keybinds \& Client\+::\+Input\+Command\+Handler\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
 Get the key associated with the input command. 
 
 \begin{DoxyReturn}{Returns}
-const std\+::string\& Reference to the key currently set for this input command. 
+const Game\+Engine\+::\+Keybinds\& Reference to the key currently set for this input command. 
 \end{DoxyReturn}
 \Hypertarget{class_client_1_1_input_command_handler_ad27a8a0e6e537f7df8133dce9fd3cf7e}\label{class_client_1_1_input_command_handler_ad27a8a0e6e537f7df8133dce9fd3cf7e} 
 \index{Client::InputCommandHandler@{Client::InputCommandHandler}!onResponse@{onResponse}}
@@ -107,11 +107,11 @@ Implements the send method from \doxylink{class_client_1_1_i_command_handler}{IC
 
 Implements \mbox{\hyperlink{class_client_1_1_i_command_handler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
 
-\Hypertarget{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8}\label{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8} 
+\Hypertarget{class_client_1_1_input_command_handler_a825627254c05d7353b5c6a711ec7dec9}\label{class_client_1_1_input_command_handler_a825627254c05d7353b5c6a711ec7dec9} 
 \index{Client::InputCommandHandler@{Client::InputCommandHandler}!setKey@{setKey}}
 \index{setKey@{setKey}!Client::InputCommandHandler@{Client::InputCommandHandler}}
 \doxysubsubsection{\texorpdfstring{setKey()}{setKey()}}
-{\footnotesize\ttfamily void Client\+::\+Input\+Command\+Handler\+::set\+Key (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Client\+::\+Input\+Command\+Handler\+::set\+Key (\begin{DoxyParamCaption}\item[{Game\+Engine\+::\+Keybinds}]{key }\end{DoxyParamCaption})}
 
 
 
@@ -126,5 +126,5 @@ Set the key for the input command.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/include/network/commands/Input.\+hpp\item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/src/network/commands/Input.\+cpp\end{DoxyCompactItemize}
+client/include/network/commands/Input.\+hpp\item 
+client/src/network/commands/Input.\+cpp\end{DoxyCompactItemize}

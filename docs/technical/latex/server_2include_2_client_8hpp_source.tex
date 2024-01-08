@@ -1,5 +1,5 @@
 \doxysection{Client.\+hpp}
-\hypertarget{server_2include_2_client_8hpp_source}{}\label{server_2include_2_client_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/Client.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/Client.hpp}}
+\hypertarget{server_2include_2_client_8hpp_source}{}\label{server_2include_2_client_8hpp_source}\index{server/include/Client.hpp@{server/include/Client.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -38,14 +38,19 @@
 \DoxyCodeLine{00095\ }
 \DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_client_aaccc5c179993bbffb72618702127adc9}{isInactiveFor}}(\textcolor{keywordtype}{long}\ milliseconds);}
 \DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00108\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00109\ \ \ \ \ boost::asio::ip::udp::endpoint\ endpoint;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00111\ \ \ \ \ std::string\ name;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00113\ \ \ \ \ std::chrono::steady\_clock::time\_point\ lastMessageTime;\ }
-\DoxyCodeLine{00114\ \ \ \};}
-\DoxyCodeLine{00115\ \}\ \textcolor{comment}{//\ namespace\ Network}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_network_1_1_client_a427cbf4305b0adf9b317db09c39e3c66}{setIsInGame}}(\textcolor{keywordtype}{bool}\ isInGame);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_network_1_1_client_a94f997c3a698b5a233177c770754b0c5}{getIsInGame}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00122\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00123\ \ \ \ \ boost::asio::ip::udp::endpoint\ endpoint;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ std::string\ name;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ roomId;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00127\ \ \ \ \ std::chrono::steady\_clock::time\_point\ lastMessageTime;\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInGame;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00129\ \ \ \};}
+\DoxyCodeLine{00130\ \}\ \textcolor{comment}{//\ namespace\ Network}}
 
 \end{DoxyCode}

@@ -36,7 +36,11 @@ int \mbox{\hyperlink{class_network_1_1_client_a3226b24dbca2a87dcca3f9ba02394b7c}
 void \mbox{\hyperlink{class_network_1_1_client_ad3be4336d2684741cbc37d8eea26df1d}{update\+Last\+Message\+Time}} ()
 \begin{DoxyCompactList}\small\item\em Updates the last message time of the client. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_network_1_1_client_aaccc5c179993bbffb72618702127adc9}{is\+Inactive\+For}} (long milliseconds)
-\begin{DoxyCompactList}\small\item\em Checks if the client has been inactive for a given amount of milliseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks if the client has been inactive for a given amount of milliseconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_client_a427cbf4305b0adf9b317db09c39e3c66}{set\+Is\+In\+Game}} (bool is\+In\+Game)
+\begin{DoxyCompactList}\small\item\em Checks if the client is in a game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_network_1_1_client_a94f997c3a698b5a233177c770754b0c5}{get\+Is\+In\+Game}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the client is in a game. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -83,6 +87,19 @@ Gets the identifier of the client.
 
 \begin{DoxyReturn}{Returns}
 int The identifier of the client. 
+\end{DoxyReturn}
+\Hypertarget{class_network_1_1_client_a94f997c3a698b5a233177c770754b0c5}\label{class_network_1_1_client_a94f997c3a698b5a233177c770754b0c5} 
+\index{Network::Client@{Network::Client}!getIsInGame@{getIsInGame}}
+\index{getIsInGame@{getIsInGame}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getIsInGame()}{getIsInGame()}}
+{\footnotesize\ttfamily bool Network\+::\+Client\+::get\+Is\+In\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the client is in a game. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the client is in a game, false otherwise. 
 \end{DoxyReturn}
 \Hypertarget{class_network_1_1_client_a436cfc281877445713aa8d63cc5fa52b}\label{class_network_1_1_client_a436cfc281877445713aa8d63cc5fa52b} 
 \index{Network::Client@{Network::Client}!getName@{getName}}
@@ -158,6 +175,19 @@ Sets the identifier of the client.
 {\em id} & The new identifier to be set for the client. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_network_1_1_client_a427cbf4305b0adf9b317db09c39e3c66}\label{class_network_1_1_client_a427cbf4305b0adf9b317db09c39e3c66} 
+\index{Network::Client@{Network::Client}!setIsInGame@{setIsInGame}}
+\index{setIsInGame@{setIsInGame}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setIsInGame()}{setIsInGame()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Is\+In\+Game (\begin{DoxyParamCaption}\item[{bool}]{is\+In\+Game }\end{DoxyParamCaption})}
+
+
+
+Checks if the client is in a game. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the client is in a game, false otherwise. 
+\end{DoxyReturn}
 \Hypertarget{class_network_1_1_client_a7eab98c178b5ea21dc1363658f9815ea}\label{class_network_1_1_client_a7eab98c178b5ea21dc1363658f9815ea} 
 \index{Network::Client@{Network::Client}!setName@{setName}}
 \index{setName@{setName}!Network::Client@{Network::Client}}
@@ -202,5 +232,5 @@ This method is called whenever the client sends a message to the server. It upda
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/include/Client.\+hpp\item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/src/Client.\+cpp\end{DoxyCompactItemize}
+server/include/Client.\+hpp\item 
+server/src/Client.\+cpp\end{DoxyCompactItemize}

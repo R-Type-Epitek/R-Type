@@ -123,13 +123,24 @@ Inheritance diagram for Server::Game::RtypeGame:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af366a0dff210b8feb0a08710994e6dda" id="r_af366a0dff210b8feb0a08710994e6dda"><td class="memItemLeft" align="right" valign="top"><a id="af366a0dff210b8feb0a08710994e6dda" name="af366a0dff210b8feb0a08710994e6dda"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RtypeGame</b> (const <a class="el" href="class_server_1_1_game_1_1_rtype_game.html">RtypeGame</a> &amp;other)</td></tr>
-<tr class="separator:af366a0dff210b8feb0a08710994e6dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03982fdb78cf7499db0b69345ba63511" id="r_a03982fdb78cf7499db0b69345ba63511"><td class="memItemLeft" align="right" valign="top"><a id="a03982fdb78cf7499db0b69345ba63511" name="a03982fdb78cf7499db0b69345ba63511"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>RtypeGame</b> (const <a class="el" href="class_server_1_1_game_1_1_rtype_game.html">RtypeGame</a> &amp;)</td></tr>
+<tr class="separator:a03982fdb78cf7499db0b69345ba63511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6aac65acf468a64d626b88407e276e0" id="r_ac6aac65acf468a64d626b88407e276e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_1_1_game_1_1_rtype_game.html#ac6aac65acf468a64d626b88407e276e0">load</a> () final</td></tr>
 <tr class="separator:ac6aac65acf468a64d626b88407e276e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebf179c45845bb59f319cd3b06349322" id="r_aebf179c45845bb59f319cd3b06349322"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; char &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_1_1_game_1_1_rtype_game.html#aebf179c45845bb59f319cd3b06349322">getEntities</a> () final</td></tr>
 <tr class="separator:aebf179c45845bb59f319cd3b06349322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12566b43cd12360e13a54dcba347ab44" id="r_a12566b43cd12360e13a54dcba347ab44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_server_1_1_game_1_1_rtype_game.html#a12566b43cd12360e13a54dcba347ab44">pushEvent</a> (<a class="el" href="class_event.html">Event</a> event, <a class="el" href="struct_server_1_1_game_1_1_player.html">Player</a> player) final</td></tr>
+<tr class="separator:a12566b43cd12360e13a54dcba347ab44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d678eb09a90cd3a775d546fabd5d17a" id="r_a3d678eb09a90cd3a775d546fabd5d17a"><td class="memItemLeft" align="right" valign="top"><a id="a3d678eb09a90cd3a775d546fabd5d17a" name="a3d678eb09a90cd3a775d546fabd5d17a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>eventConnect</b> (<a class="el" href="struct_server_1_1_game_1_1_player.html">Player</a> &amp;player)</td></tr>
+<tr class="separator:a3d678eb09a90cd3a775d546fabd5d17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed74f7e51253ddc40a0188c0dca3b2f3" id="r_aed74f7e51253ddc40a0188c0dca3b2f3"><td class="memItemLeft" align="right" valign="top"><a id="aed74f7e51253ddc40a0188c0dca3b2f3" name="aed74f7e51253ddc40a0188c0dca3b2f3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>eventDisconnect</b> (<a class="el" href="struct_server_1_1_game_1_1_player.html">Player</a> &amp;player)</td></tr>
+<tr class="separator:aed74f7e51253ddc40a0188c0dca3b2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca10e2a2e2a0c4f0b65aabfa15324520" id="r_aca10e2a2e2a0c4f0b65aabfa15324520"><td class="memItemLeft" align="right" valign="top"><a id="aca10e2a2e2a0c4f0b65aabfa15324520" name="aca10e2a2e2a0c4f0b65aabfa15324520"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>eventInput</b> (<a class="el" href="struct_server_1_1_game_1_1_player.html">Player</a> &amp;player)</td></tr>
+<tr class="separator:aca10e2a2e2a0c4f0b65aabfa15324520"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aebf179c45845bb59f319cd3b06349322" name="aebf179c45845bb59f319cd3b06349322"></a>
@@ -186,9 +197,47 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a12566b43cd12360e13a54dcba347ab44" name="a12566b43cd12360e13a54dcba347ab44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12566b43cd12360e13a54dcba347ab44">&#9670;&#160;</a></span>pushEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Server::Game::RtypeGame::pushEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html">Event</a>&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_server_1_1_game_1_1_player.html">Player</a>&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_server_1_1_game_1_1_i_game.html">Server::Game::IGame</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/server/include/game/rtype/<a class="el" href="_rtype_game_8hpp_source.html">RtypeGame.hpp</a></li>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/server/src/game/rtype/<b>RtypeGame.cpp</b></li>
+<li>server/include/game/rtype/<a class="el" href="_rtype_game_8hpp_source.html">RtypeGame.hpp</a></li>
+<li>server/src/game/rtype/<b>RtypeGame.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
