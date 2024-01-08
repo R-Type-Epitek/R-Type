@@ -12,6 +12,7 @@
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Clickable.hpp"
+#include "gameEngine/component/Parallax.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/Signature.hpp"
@@ -22,6 +23,7 @@
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/Input.hpp"
 #include "gameEngine/system/Move.hpp"
+#include "gameEngine/system/Parallax.hpp"
 
 #include <memory>
 #include <utility>
@@ -49,6 +51,7 @@ namespace GameEngine::Builder
     registerComponent<ComponentRType::Transform>();
     registerComponent<ComponentRType::Clickable>();
     registerComponent<ComponentRType::Displayable>();
+    registerComponent<ComponentRType::Parallax>();
   }
 
   void RegistryBuilder::buildSystemRenderer()
@@ -120,6 +123,18 @@ namespace GameEngine::Builder
     signature.set(m_registry->getComponentType<ComponentRType::NetworkedEntity>());
     signature.set(m_registry->getComponentType<ComponentRType::Position>());
     m_registry->setSystemSignature<GameEngine::System::Input>(signature);
+  }
+
+  void RegistryBuilder::buildSystemParallax()
+  {
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<GameEngine::System::Parallax>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Parallax>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
+    m_registry->setSystemSignature<GameEngine::System::Parallax>(signature);
   }
 
 }; // namespace GameEngine::Builder

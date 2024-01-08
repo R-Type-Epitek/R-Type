@@ -54,7 +54,6 @@ namespace Server::Game
     auto compId = ComponentRType::NetworkedEntity {player.id};
     auto compMetaData =
       ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Enemy);
-    factory.createFromNetwork(compId, compMetaData);
   }
 
   void RtypeGame::eventDisconnect(Player& player)

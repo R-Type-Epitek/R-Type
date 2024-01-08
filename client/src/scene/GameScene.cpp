@@ -9,10 +9,12 @@
 #include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Parallax.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
+#include "gameEngine/ecs/entity/EntityManager.hpp"
 #include "network/system/Keyboard.hpp"
 #include "spdlog/spdlog.h"
 
@@ -50,6 +52,7 @@ namespace Client
     builder.buildSystemRenderer();
     builder.buildSystemKeyboard();
     builder.buildSystemEcsSerializer();
+    builder.buildSystemParallax();
     m_registry = builder.getResult();
 
     // Custom client System
@@ -67,8 +70,12 @@ namespace Client
 
   void GameScene::initEntities()
   {
-    //    namespace Entity = GameEngine::Entity;
     m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
+    auto enttBackground = m_registry->createEntity();
+    m_entities.push_back(enttBackground);
+    m_registry->addComponent<ComponentRType::Displayable>(
+      enttBackground,
+      ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/background_starfield.png")));
   }
 
 } // namespace Client

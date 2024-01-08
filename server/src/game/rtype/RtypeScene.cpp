@@ -25,6 +25,7 @@ namespace Server::Game
     builder.buildSystemKeyboard();
     builder.buildSystemEcsSerializer();
     builder.buildSystemInput();
+    builder.buildSystemParallax();
     builder.buildSystemMove();
     m_registry = builder.getResult();
   }

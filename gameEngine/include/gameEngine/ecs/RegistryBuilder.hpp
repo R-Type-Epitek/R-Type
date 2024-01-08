@@ -28,6 +28,7 @@ namespace GameEngine::Builder
     void buildSystemEcsSerializer();
     void buildSystemMove();
     void buildSystemInput();
+    void buildSystemParallax();
 
    private:
     std::unique_ptr<GameEngine::ECS::Registry> m_registry;
