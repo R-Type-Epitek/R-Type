@@ -26,6 +26,7 @@ namespace GameEngine::System
         auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
         auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
 
+        std::cout << position.position.x << " " << position.position.y << std::endl;
         position.position = position.position + transform.movement;
         spriteC.sprite.move(transform.movement);
         //        spriteC.sprite.setPosition(position.position);
