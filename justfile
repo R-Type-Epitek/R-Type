@@ -18,6 +18,11 @@ build:
 start: init-remote init-vcpckg build
     @echo "Done"
 
+test:
+    cmake -DBUILD_TESTS=ON -DCMAKE_TOOLCHAIN_FILE:STRING="./vcpkg/scripts/buildsystems/vcpkg.cmake" -S . -B ./build
+    cmake --build build
+    cd build/server && ctest
+
 generate-doc:
     cd docs && doxygen Doxyfile
     @echo -e "\nfile://$(realpath docs/technical/html/index.html)"
