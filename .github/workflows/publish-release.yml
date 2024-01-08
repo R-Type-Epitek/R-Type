@@ -73,8 +73,13 @@ jobs:
           cd builds/ninja-multi-vcpkg/server && ctest
 
   create-release:
-    needs: build
-    runs-on: ubuntu-latest
+    needs: build-project
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+
     steps:
       - uses: actions/checkout@v2
 
