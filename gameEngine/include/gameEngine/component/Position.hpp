@@ -16,6 +16,8 @@ namespace ComponentRType
     friend class boost::serialization::access;
 
     sf::Vector2f position;
+    sf::Vector2f latestPosition;
+    sf::Vector2f latestValidPosition;
 
     template<class Archive>
     void serialize(Archive &archive, const unsigned int)
@@ -23,6 +25,8 @@ namespace ComponentRType
       archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
         *this);
       archive & position;
+      archive & latestPosition;
+      archive & latestValidPosition;
     }
   };
 
