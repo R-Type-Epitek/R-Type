@@ -92,6 +92,8 @@ To launch the project, follow these steps:
       just start
     ```
 
+<br>
+
 ## 🚀 Usage
 
 ### Launch the server
@@ -105,6 +107,8 @@ To launch the project, follow these steps:
 ```bash
   ./r-type_client
 ```
+
+<br>
 
 ## 🤖 Entity Component System
 
@@ -126,6 +130,8 @@ To access our technical documentation, please visit our GitHub Pages:
 [📚 RType EPITECH Technical Documentation](r-type-epitek.github.io)
 
 Feel free to explore, learn, and even contribute your thoughts and suggestions!
+
+<br>
 
 ## 😎 Contributors
 
@@ -197,6 +203,8 @@ Feel free to explore, learn, and even contribute your thoughts and suggestions!
       </tr>
     </table>
 </div>
+
+<br>
 
 ## 🤝 Contributing
 
