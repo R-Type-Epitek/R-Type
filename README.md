@@ -22,11 +22,11 @@ programming practices and graphical enhancements.
 - [🚀 Game Description](#-game-description)
 - [🔧 Technologies](#-technologies)
 - [📋 Prerequisites](#-prerequisites)
-  - [Optional Dependencies](#optional-dependencies)
+    - [Optional Dependencies](#optional-dependencies)
 - [🛠️ Installation](#️-installation)
 - [🚀 Usage](#-usage)
-  - [Launch the server](#launch-the-server)
-  - [Launch the client(s)](#launch-the-clients)
+    - [Launch the server](#launch-the-server)
+    - [Launch the client(s)](#launch-the-clients)
 - [🤖 Entity Component System](#-entity-component-system)
 - [📚 Technical Documentation](#-technical-documentation)
 - [😎 Contributors](#-contributors)
@@ -47,6 +47,7 @@ game's fast-paced nature and retro charm make it an engaging experience for both
 ## 🔧 Technologies
 
 This project uses several modern technologies, including:
+
 - **C++**: Our primary programming language, known for its efficiency and control over system resources.
 - **CMake**: A cross-platform tool that simplifies the build process.
 - **Justfile**: An intuitive, language-agnostic task runner.
@@ -121,13 +122,18 @@ a clean separation of concerns and makes the game easier to extend and maintain.
 
 ## 📚 Technical Documentation
 
-For those interested in a deeper dive into the inner workings of our RType project, our technical documentation is a treasure trove of information. It meticulously details the architecture, codebase, and the methodologies we employed in developing the game. This includes a comprehensive explanation of our custom Entity Component System (ECS), an in-depth look at the game's mechanics, and the algorithms used.
+For those interested in a deeper dive into the inner workings of our RType project, our technical documentation is a
+treasure trove of information. It meticulously details the architecture, codebase, and the methodologies we employed in
+developing the game. This includes a comprehensive explanation of our custom Entity Component System (ECS), an in-depth
+look at the game's mechanics, and the algorithms used.
 
-Whether you're a student, a fellow developer, or just curious about game development, you'll find valuable insights into how a complex project like this comes together. The documentation is regularly updated to reflect the latest changes and improvements.
+Whether you're a student, a fellow developer, or just curious about game development, you'll find valuable insights into
+how a complex project like this comes together. The documentation is regularly updated to reflect the latest changes and
+improvements.
 
 To access our technical documentation, please visit our GitHub Pages:
 
-[📚 RType EPITECH Technical Documentation](r-type-epitek.github.io)
+[📚 RType EPITECH Technical Documentation](https://r-type-epitek.github.io/R-Type/)
 
 Feel free to explore, learn, and even contribute your thoughts and suggestions!
 
