@@ -11,14 +11,16 @@
 namespace GameEngine::Scene
 {
 
-  IScene& SceneManager::getCurrent()
+  template<typename SceneEnum>
+  IScene &SceneManager<SceneEnum>::getCurrent()
   {
     return m_scenes.find(m_currentSceneName);
   }
 
-  void SceneManager::setCurrent(std::string name)
+  template<typename SceneEnum>
+  void SceneManager<SceneEnum>::setCurrent(SceneEnum &name)
   {
-    m_currentSceneName = std::move(name);
+    m_currentSceneName = name;
   }
 
 } // namespace GameEngine::Scene

@@ -12,27 +12,29 @@
 
 namespace GameEngine::Scene
 {
+  template<typename SceneEnum>
   class SceneContainer {
    public:
     SceneContainer() = default;
 
-    void addScene(std::string const& name, std::unique_ptr<IScene> scene);
-    void deleteScene(std::string const& name);
-    IScene& getScene(std::string const& name);
-    IScene& find(std::string const& name);
+    void addScene(SceneEnum name, std::unique_ptr<IScene> scene);
+    void deleteScene(SceneEnum name);
+    IScene& getScene(SceneEnum name);
+    IScene& find(SceneEnum name);
 
-    typename std::map<std::string, std::unique_ptr<IScene>>::iterator begin()
+    typename std::map<SceneEnum, std::unique_ptr<IScene>>::iterator begin()
     {
       return m_scenes.begin();
     }
-    typename std::map<std::string, std::unique_ptr<IScene>>::iterator end()
+
+    typename std::map<SceneEnum, std::unique_ptr<IScene>>::iterator end()
     {
       return m_scenes.end();
     }
 
    private:
-    bool exist(std::string const& name);
-    std::map<std::string, std::unique_ptr<IScene>> m_scenes;
+    bool exist(SceneEnum name);
+    std::map<SceneEnum, std::unique_ptr<IScene>> m_scenes;
   };
 
 } // namespace GameEngine::Scene
