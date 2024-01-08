@@ -18,7 +18,9 @@ namespace GameEngine::Scene
 
     IScene &getCurrent();
 
-    void setCurrent(SceneEnum &name);
+    void setCurrent(SceneEnum name);
+
+    void addScene(SceneEnum name, std::unique_ptr<IScene> scene);
 
    private:
     SceneContainer<SceneEnum> m_scenes;

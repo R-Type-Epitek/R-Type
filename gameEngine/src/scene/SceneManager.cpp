@@ -18,9 +18,15 @@ namespace GameEngine::Scene
   }
 
   template<typename SceneEnum>
-  void SceneManager<SceneEnum>::setCurrent(SceneEnum &name)
+  void SceneManager<SceneEnum>::setCurrent(SceneEnum name)
   {
     m_currentSceneName = name;
+  }
+
+  template<typename SceneEnum>
+  void SceneManager<SceneEnum>::addScene(SceneEnum name, std::unique_ptr<IScene> scene)
+  {
+    m_scenes.push(name, std::move(scene));
   }
 
 } // namespace GameEngine::Scene
