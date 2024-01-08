@@ -69,14 +69,6 @@ jobs:
           buildPreset: 'ninja-vcpkg-release'
           testPreset: 'test-release'
 
-      - name: Cache vcpkg packages
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.VCPKG_PACKAGES_CACHE }}
-          key: ${{ runner.os }}-vcpkg-${{ hashFiles('**/vcpkg.json') }}
-          restore-keys: |
-            ${{ runner.os }}-vcpkg-
-
       - name: Run tests
         run: |
           cd build/server && ctest
