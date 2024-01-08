@@ -72,8 +72,9 @@ jobs:
       - name: Run tests
         run: |
           ls -la
-          ls -la builds
-          cd builds/server && ctest
+          ls -la Release
+          cd Release && ctest
+          cd Release/server && ctest
 
   push_to_mirror:
     runs-on: ubuntu-latest
