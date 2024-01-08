@@ -11,6 +11,7 @@ add_library(${LIBRARY} STATIC
         src/gfx/sfml/SfmlGfx.cpp
         src/scene/SceneContainer.cpp
         src/scene/SceneManager.cpp
+        src/scene/SimpleScene.cpp
         src/UI/Window.cpp
         src/asset/AssetManager.cpp
         src/entity/EntityFactory.cpp
