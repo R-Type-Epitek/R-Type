@@ -76,6 +76,7 @@ var hierarchy =
     [ "Message", "structMessage.html", null ],
     [ "MessageHeader", "structMessageHeader.html", null ],
     [ "Client::Network", "classClient_1_1Network.html", null ],
+    [ "ComponentRType::Parallax", "structComponentRType_1_1Parallax.html", null ],
     [ "Server::Game::Player", "structServer_1_1Game_1_1Player.html", null ],
     [ "ge::Position", "structge_1_1Position.html", null ],
     [ "GameEngine::ECS::Registry", "classGameEngine_1_1ECS_1_1Registry.html", null ],
@@ -101,6 +102,7 @@ var hierarchy =
       [ "GameEngine::System::Input", "classGameEngine_1_1System_1_1Input.html", null ],
       [ "GameEngine::System::Keyboard", "classGameEngine_1_1System_1_1Keyboard.html", null ],
       [ "GameEngine::System::Move", "classGameEngine_1_1System_1_1Move.html", null ],
+      [ "GameEngine::System::Parallax", "classGameEngine_1_1System_1_1Parallax.html", null ],
       [ "GameEngine::System::Physics", "classGameEngine_1_1System_1_1Physics.html", null ],
       [ "GameEngine::System::Renderer", "classGameEngine_1_1System_1_1Renderer.html", null ]
     ] ],

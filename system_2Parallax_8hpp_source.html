@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: GameEngine::ECS::System Class Reference</title>
+  <title>R-Type: gameEngine/include/gameEngine/system/Parallax.hpp Source File</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classGameEngine_1_1ECS_1_1System.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('system_2Parallax_8hpp_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -117,46 +117,39 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1ECS_1_1System.html'
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="classGameEngine_1_1ECS_1_1System-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">GameEngine::ECS::System Class Reference</div>  </div>
+<div class="title">Parallax.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for GameEngine::ECS::System:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classGameEngine_1_1ECS_1_1System.png" usemap="#GameEngine::ECS::System_map" alt=""/>
-  <map id="GameEngine::ECS::System_map" name="GameEngine::ECS::System_map">
-<area href="classClient_1_1System_1_1Network_1_1Keyboard.html" title="System class for handling keyboard events in a networked game environment." alt="Client::System::Network::Keyboard" shape="rect" coords="220,56,430,80"/>
-<area href="classGameEngine_1_1System_1_1Animation.html" alt="GameEngine::System::Animation" shape="rect" coords="220,112,430,136"/>
-<area href="classGameEngine_1_1System_1_1EcsSerializer.html" alt="GameEngine::System::EcsSerializer" shape="rect" coords="220,168,430,192"/>
-<area href="classGameEngine_1_1System_1_1Input.html" alt="GameEngine::System::Input" shape="rect" coords="220,224,430,248"/>
-<area href="classGameEngine_1_1System_1_1Keyboard.html" alt="GameEngine::System::Keyboard" shape="rect" coords="220,280,430,304"/>
-<area href="classGameEngine_1_1System_1_1Move.html" alt="GameEngine::System::Move" shape="rect" coords="220,336,430,360"/>
-<area href="classGameEngine_1_1System_1_1Parallax.html" alt="GameEngine::System::Parallax" shape="rect" coords="220,392,430,416"/>
-<area href="classGameEngine_1_1System_1_1Physics.html" alt="GameEngine::System::Physics" shape="rect" coords="220,448,430,472"/>
-<area href="classGameEngine_1_1System_1_1Renderer.html" alt="GameEngine::System::Renderer" shape="rect" coords="220,504,430,528"/>
-  </map>
-</div></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a973512c64e0fd3269b70d02409555c11"><td class="memItemLeft" align="right" valign="top"><a id="a973512c64e0fd3269b70d02409555c11"></a>
-std::set&lt; Entity &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_entities</b> {}</td></tr>
-<tr class="separator:a973512c64e0fd3269b70d02409555c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>gameEngine/include/gameEngine/ecs/system/<a class="el" href="System_8hpp_source.html">System.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by sgLeopold on 12/01/24.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/system/System.hpp&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;IUpdateSystem.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>GameEngine::System</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classGameEngine_1_1System_1_1Parallax.html">   15</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1System_1_1Parallax.html">Parallax</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> update()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      std::cout &lt;&lt; <span class="stringliteral">&quot;Parallax&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  };</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// Namespace GameEngine::System</span></div>
+<div class="ttc" id="aclassGameEngine_1_1ECS_1_1System_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div><div class="ttdef"><b>Definition:</b> System.hpp:12</div></div>
+<div class="ttc" id="aclassGameEngine_1_1System_1_1Parallax_html"><div class="ttname"><a href="classGameEngine_1_1System_1_1Parallax.html">GameEngine::System::Parallax</a></div><div class="ttdef"><b>Definition:</b> Parallax.hpp:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>GameEngine</b></li><li class="navelem"><b>ECS</b></li><li class="navelem"><a class="el" href="classGameEngine_1_1ECS_1_1System.html">System</a></li>
+    <li class="navelem"><a class="el" href="dir_45b38ec21160528b53c40c1994368dc3.html">gameEngine</a></li><li class="navelem"><a class="el" href="dir_e23209b70ca929d0fe90a4b4a296568c.html">include</a></li><li class="navelem"><a class="el" href="dir_9c11d1f01a7e2832840f79ff0f0baab9.html">gameEngine</a></li><li class="navelem"><a class="el" href="dir_e6e8a04e35cae2692b0f7def80f2764b.html">system</a></li><li class="navelem"><b>Parallax.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

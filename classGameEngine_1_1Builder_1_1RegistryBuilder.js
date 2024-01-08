@@ -6,6 +6,7 @@ var classGameEngine_1_1Builder_1_1RegistryBuilder =
     [ "buildSystemInput", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#afbb68db96d539585c10f92b0ba43aca6", null ],
     [ "buildSystemKeyboard", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#aab6e4e875f93ec325a47135711191f77", null ],
     [ "buildSystemMove", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#ab644d393ae713647e93bf47f63894034", null ],
+    [ "buildSystemParallax", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#afc23a0a8192a9c2622b6bc2a35005b9e", null ],
     [ "buildSystemPhysics", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#ab60e412e46c3737ccf96fb1b741a6c82", null ],
     [ "buildSystemRenderer", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a3ab7a64d567f9ff08c045a9fc7ea68ab", null ],
     [ "getResult", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a85896d03bf64825222e45d809d40f7cc", null ],

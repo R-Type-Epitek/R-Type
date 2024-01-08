@@ -39,6 +39,7 @@ var annotated_dup =
       [ "Gravity", "structComponentRType_1_1Gravity.html", "structComponentRType_1_1Gravity" ],
       [ "MetaData", "structComponentRType_1_1MetaData.html", "structComponentRType_1_1MetaData" ],
       [ "NetworkedEntity", "structComponentRType_1_1NetworkedEntity.html", "structComponentRType_1_1NetworkedEntity" ],
+      [ "Parallax", "structComponentRType_1_1Parallax.html", null ],
       [ "Position", "structComponentRType_1_1Position.html", "structComponentRType_1_1Position" ],
       [ "Transform", "structComponentRType_1_1Transform.html", "structComponentRType_1_1Transform" ]
     ] ],
@@ -82,6 +83,7 @@ var annotated_dup =
         [ "IUpdateSystem", "classGameEngine_1_1System_1_1IUpdateSystem.html", "classGameEngine_1_1System_1_1IUpdateSystem" ],
         [ "Keyboard", "classGameEngine_1_1System_1_1Keyboard.html", "classGameEngine_1_1System_1_1Keyboard" ],
         [ "Move", "classGameEngine_1_1System_1_1Move.html", "classGameEngine_1_1System_1_1Move" ],
+        [ "Parallax", "classGameEngine_1_1System_1_1Parallax.html", null ],
         [ "Physics", "classGameEngine_1_1System_1_1Physics.html", "classGameEngine_1_1System_1_1Physics" ],
         [ "Renderer", "classGameEngine_1_1System_1_1Renderer.html", "classGameEngine_1_1System_1_1Renderer" ]
       ] ],

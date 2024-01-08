@@ -6,6 +6,7 @@ var dir_aa17dbcb77c470b4b54e6c04fee460e3 =
     [ "Gravity.hpp", "Gravity_8hpp_source.html", null ],
     [ "MetaData.hpp", "MetaData_8hpp_source.html", null ],
     [ "NetworkedEntity.hpp", "NetworkedEntity_8hpp_source.html", null ],
+    [ "Parallax.hpp", "component_2Parallax_8hpp_source.html", null ],
     [ "Position.hpp", "Position_8hpp_source.html", null ],
     [ "Transform.hpp", "Transform_8hpp_source.html", null ]
 ];
