@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['scenecontainer_273',['SceneContainer',['../classGameEngine_1_1Scene_1_1SceneContainer.html',1,'GameEngine::Scene']]],
-  ['scenemanager_274',['SceneManager',['../classClient_1_1Scene_1_1SceneManager.html',1,'Client::Scene::SceneManager'],['../classGameEngine_1_1Scene_1_1SceneManager.html',1,'GameEngine::Scene::SceneManager']]],
-  ['serverclientdisconnecteddata_275',['ServerClientDisconnectedData',['../structServerClientDisconnectedData.html',1,'']]],
-  ['sfmlaudio_276',['SfmlAudio',['../classSfmlAudio.html',1,'']]],
-  ['sfmldisplay_277',['SfmlDisplay',['../classSfmlDisplay.html',1,'']]],
-  ['sfmlevent_278',['SfmlEvent',['../classSfmlEvent.html',1,'']]],
-  ['sfmlrenderer_279',['SfmlRenderer',['../classSfmlRenderer.html',1,'']]],
-  ['sfmltexture_280',['SfmlTexture',['../classSfmlTexture.html',1,'']]],
-  ['system_281',['System',['../classGameEngine_1_1ECS_1_1System.html',1,'GameEngine::ECS']]],
-  ['systemmanager_282',['SystemManager',['../classGameEngine_1_1ECS_1_1SystemManager.html',1,'GameEngine::ECS']]]
+  ['registry_268',['Registry',['../classGameEngine_1_1ECS_1_1Registry.html',1,'GameEngine::ECS']]],
+  ['registrybuilder_269',['RegistryBuilder',['../classGameEngine_1_1Builder_1_1RegistryBuilder.html',1,'GameEngine::Builder']]],
+  ['renderer_270',['Renderer',['../classGameEngine_1_1System_1_1Renderer.html',1,'GameEngine::System::Renderer'],['../classRenderer.html',1,'Renderer']]],
+  ['response_271',['Response',['../structResponse.html',1,'']]],
+  ['responseheader_272',['ResponseHeader',['../structResponseHeader.html',1,'']]],
+  ['room_273',['Room',['../classNetwork_1_1Room.html',1,'Network']]],
+  ['rtypegame_274',['RtypeGame',['../classServer_1_1Game_1_1RtypeGame.html',1,'Server::Game']]],
+  ['rtypescene_275',['RtypeScene',['../classServer_1_1Game_1_1RtypeScene.html',1,'Server::Game']]]
 ];

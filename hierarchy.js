@@ -57,6 +57,8 @@ var hierarchy =
     [ "InputData", "structInputData.html", null ],
     [ "GameEngine::Scene::IScene", "classGameEngine_1_1Scene_1_1IScene.html", [
       [ "Client::GameScene", "classClient_1_1GameScene.html", null ],
+      [ "Client::LobbyScene", "classClient_1_1LobbyScene.html", null ],
+      [ "Client::WelcomeScene", "classClient_1_1WelcomeScene.html", null ],
       [ "Server::Game::RtypeScene", "classServer_1_1Game_1_1RtypeScene.html", null ]
     ] ],
     [ "ITexture", "classITexture.html", [

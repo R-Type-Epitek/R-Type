@@ -28,10 +28,12 @@ var annotated_dup =
       [ "CommandTracker", "classClient_1_1CommandTracker.html", "classClient_1_1CommandTracker" ],
       [ "UpdateNameCommandHandler", "classClient_1_1UpdateNameCommandHandler.html", "classClient_1_1UpdateNameCommandHandler" ],
       [ "Network", "classClient_1_1Network.html", "classClient_1_1Network" ],
-      [ "GameScene", "classClient_1_1GameScene.html", "classClient_1_1GameScene" ]
+      [ "GameScene", "classClient_1_1GameScene.html", "classClient_1_1GameScene" ],
+      [ "LobbyScene", "classClient_1_1LobbyScene.html", "classClient_1_1LobbyScene" ],
+      [ "WelcomeScene", "classClient_1_1WelcomeScene.html", "classClient_1_1WelcomeScene" ]
     ] ],
     [ "ComponentRType", null, [
-      [ "Clickable", "structComponentRType_1_1Clickable.html", null ],
+      [ "Clickable", "structComponentRType_1_1Clickable.html", "structComponentRType_1_1Clickable" ],
       [ "Controllable", "structComponentRType_1_1Controllable.html", "structComponentRType_1_1Controllable" ],
       [ "Displayable", "structComponentRType_1_1Displayable.html", "structComponentRType_1_1Displayable" ],
       [ "Gravity", "structComponentRType_1_1Gravity.html", "structComponentRType_1_1Gravity" ],
