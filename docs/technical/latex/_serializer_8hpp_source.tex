@@ -1,5 +1,5 @@
 \doxysection{Serializer.\+hpp}
-\hypertarget{_serializer_8hpp_source}{}\label{_serializer_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/network/Serializer.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/network/Serializer.hpp}}
+\hypertarget{_serializer_8hpp_source}{}\label{_serializer_8hpp_source}\index{gameEngine/include/gameEngine/network/Serializer.hpp@{gameEngine/include/gameEngine/network/Serializer.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -20,55 +20,69 @@
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <sstream>}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }GameEngine::Network::Serializer}
-\DoxyCodeLine{00021\ \{}
-\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component}{BaseNetworkComponent}}\ \{}
-\DoxyCodeLine{00023\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component}{\string~BaseNetworkComponent}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }boost::serialization::access;}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Archive>}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ serialize(Archive\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
-\DoxyCodeLine{00030\ \ \ \ \ \{}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{comment}{//\ Base\ class\ has\ no\ data\ to\ serialize}}
-\DoxyCodeLine{00032\ \ \ \ \ \}}
-\DoxyCodeLine{00033\ \ \ \};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_ecs_serializer}{EcsSerializer}}\ \{}
-\DoxyCodeLine{00036\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Archive>}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ serializeComponent(}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager}{GameEngine::ECS::ComponentManager}}\ \&componentManager,}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \textcolor{keyword}{const}\ GameEngine::ECS::Entity\ \&entity,}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ Archive\ \&archive)}
-\DoxyCodeLine{00042\ \ \ \ \ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&component\ =\ componentManager.\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<T>(entity);}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ archive\ <<\ component;}
-\DoxyCodeLine{00045\ \ \ \ \ \}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Archive>}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ T\ deserializeComponent(Archive\ \&archive)}
-\DoxyCodeLine{00049\ \ \ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ T\ component;}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ archive\ >>\ component;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
-\DoxyCodeLine{00053\ \ \ \ \ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Archive>}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{static}\ T\ \&deserializeComponentToEntity(}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager}{GameEngine::ECS::ComponentManager}}\ \&componentManager,}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keyword}{const}\ GameEngine::ECS::Entity\ \&entity,}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ Archive\ \&archive)}
-\DoxyCodeLine{00060\ \ \ \ \ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&component\ =\ componentManager.\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<T>(entity);}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ T\ componentData;}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ archive\ >>\ componentData;}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ component\ =\ componentData;}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
-\DoxyCodeLine{00066\ \ \ \ \ \}}
-\DoxyCodeLine{00067\ \ \ \};}
-\DoxyCodeLine{00068\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::Network::Serializer}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }boost::serialization}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Archive>}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ serialize(Archive\ \&archive,\ sf::Vector2f\ \&vector,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{00026\ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ archive\ \&\ vector.x;}
+\DoxyCodeLine{00028\ \ \ \ \ archive\ \&\ vector.y;}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \}\ \textcolor{comment}{//\ namespace\ boost::serialization}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{namespace\ }GameEngine::Network::Serializer}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component}{BaseNetworkComponent}}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component}{\string~BaseNetworkComponent}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }boost::serialization::access;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Archive>}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ serialize(Archive\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \textcolor{comment}{//\ Base\ class\ has\ no\ data\ to\ serialize}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_network_1_1_serializer_1_1_ecs_serializer}{EcsSerializer}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Archive>}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ serializeComponent(}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager}{GameEngine::ECS::ComponentManager}}\ \&componentManager,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keyword}{const}\ GameEngine::ECS::Entity\ \&entity,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ Archive\ \&archive)}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&component\ =\ componentManager.\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<T>(entity);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ archive\ <<\ component;}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Archive>}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{static}\ T\ deserializeComponent(Archive\ \&archive)}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ T\ component;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ archive\ >>\ component;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Archive>}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{static}\ T\ \&deserializeComponentToEntity(}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager}{GameEngine::ECS::ComponentManager}}\ \&componentManager,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keyword}{const}\ GameEngine::ECS::Entity\ \&entity,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ Archive\ \&archive)}
+\DoxyCodeLine{00074\ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&component\ =\ componentManager.\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<T>(entity);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ T\ componentData\ =\ deserializeComponent<T>(archive);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ component\ =\ componentData;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \};}
+\DoxyCodeLine{00082\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::Network::Serializer}}
 
 \end{DoxyCode}

@@ -1,0 +1,43 @@
+\doxysection{Entity\+Type.\+hpp}
+\hypertarget{_entity_type_8hpp_source}{}\label{_entity_type_8hpp_source}\index{gameEngine/include/gameEngine/entity/EntityType.hpp@{gameEngine/include/gameEngine/entity/EntityType.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 1/4/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }GameEngine::Entity}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{enum}\ EntityType}
+\DoxyCodeLine{00013\ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ None,}
+\DoxyCodeLine{00015\ \ \ \ \ Player,}
+\DoxyCodeLine{00016\ \ \ \ \ Enemy,}
+\DoxyCodeLine{00017\ \ \ \ \ Bullet}
+\DoxyCodeLine{00018\ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_component_blue_print}{ComponentBluePrint}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ transform\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ displayable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ clickable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ controllable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ networkedEntity\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ metaData\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ position\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ gravity\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{EntityBluePrint}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ light\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ defaultAssetPath\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_component_blue_print}{ComponentBluePrint}}\ blueprint;}
+\DoxyCodeLine{00035\ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Entity}}
+
+\end{DoxyCode}

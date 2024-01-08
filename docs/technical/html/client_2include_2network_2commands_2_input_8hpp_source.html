@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: /Users/xavierv/Developer/EPITECH/R-Type/client/include/network/commands/Input.hpp Source File</title>
+  <title>R-Type: client/include/network/commands/Input.hpp Source File</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -128,9 +128,9 @@ $(document).ready(function(){initNavTree('client_2include_2network_2commands_2_i
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>   <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_client_1_1_input_command_handler.html">InputCommandHandler</a>(<a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_input_command_handler.html#ad989eed28b85409f151a01f1b3d9b8f8">setKey</a>(std::string key);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_input_command_handler.html#a825627254c05d7353b5c6a711ec7dec9">setKey</a>(GameEngine::Keybinds key);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="class_client_1_1_input_command_handler.html#ae6d8e4f6d34bbe9e1447aed1dfd35fba">getKey</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> GameEngine::Keybinds&amp; <a class="code hl_function" href="class_client_1_1_input_command_handler.html#aaead3d9a3f93fba4552a19b0712743ad">getKey</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_input_command_handler.html#a234beadaa593eeec72ae849f4739157e">send</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
@@ -138,18 +138,18 @@ $(document).ready(function(){initNavTree('client_2include_2network_2commands_2_i
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>   <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>   <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network; </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string key;  </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network;         </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    GameEngine::Keybinds key; </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  };</div>
 </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <span class="comment">// namespace Client</span></div>
 <div class="ttc" id="aclass_client_1_1_i_command_handler_html"><div class="ttname"><a href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a></div><div class="ttdoc">Abstract class representing a command handler in the client.</div><div class="ttdef"><b>Definition</b> IHandler.hpp:17</div></div>
 <div class="ttc" id="aclass_client_1_1_input_command_handler_html"><div class="ttname"><a href="class_client_1_1_input_command_handler.html">Client::InputCommandHandler</a></div><div class="ttdoc">Handler for input commands in a networked environment.</div><div class="ttdef"><b>Definition</b> Input.hpp:18</div></div>
 <div class="ttc" id="aclass_client_1_1_input_command_handler_html_a234beadaa593eeec72ae849f4739157e"><div class="ttname"><a href="class_client_1_1_input_command_handler.html#a234beadaa593eeec72ae849f4739157e">Client::InputCommandHandler::send</a></div><div class="ttdeci">void send() override</div><div class="ttdoc">Send the input command to the server.</div><div class="ttdef"><b>Definition</b> Input.cpp:26</div></div>
-<div class="ttc" id="aclass_client_1_1_input_command_handler_html_ad27a8a0e6e537f7df8133dce9fd3cf7e"><div class="ttname"><a href="class_client_1_1_input_command_handler.html#ad27a8a0e6e537f7df8133dce9fd3cf7e">Client::InputCommandHandler::onResponse</a></div><div class="ttdeci">void onResponse(Response *response) override</div><div class="ttdoc">Handle the server's response to the input command.</div><div class="ttdef"><b>Definition</b> Input.cpp:36</div></div>
-<div class="ttc" id="aclass_client_1_1_input_command_handler_html_ad989eed28b85409f151a01f1b3d9b8f8"><div class="ttname"><a href="class_client_1_1_input_command_handler.html#ad989eed28b85409f151a01f1b3d9b8f8">Client::InputCommandHandler::setKey</a></div><div class="ttdeci">void setKey(std::string key)</div><div class="ttdoc">Set the key for the input command.</div><div class="ttdef"><b>Definition</b> Input.cpp:16</div></div>
-<div class="ttc" id="aclass_client_1_1_input_command_handler_html_ae6d8e4f6d34bbe9e1447aed1dfd35fba"><div class="ttname"><a href="class_client_1_1_input_command_handler.html#ae6d8e4f6d34bbe9e1447aed1dfd35fba">Client::InputCommandHandler::getKey</a></div><div class="ttdeci">const std::string &amp; getKey() const</div><div class="ttdoc">Get the key associated with the input command.</div><div class="ttdef"><b>Definition</b> Input.cpp:21</div></div>
-<div class="ttc" id="aclass_client_1_1_network_html"><div class="ttname"><a href="class_client_1_1_network.html">Client::Network</a></div><div class="ttdoc">Class responsible for network operations in a client.</div><div class="ttdef"><b>Definition</b> Network.hpp:34</div></div>
+<div class="ttc" id="aclass_client_1_1_input_command_handler_html_a825627254c05d7353b5c6a711ec7dec9"><div class="ttname"><a href="class_client_1_1_input_command_handler.html#a825627254c05d7353b5c6a711ec7dec9">Client::InputCommandHandler::setKey</a></div><div class="ttdeci">void setKey(GameEngine::Keybinds key)</div><div class="ttdoc">Set the key for the input command.</div><div class="ttdef"><b>Definition</b> Input.cpp:16</div></div>
+<div class="ttc" id="aclass_client_1_1_input_command_handler_html_aaead3d9a3f93fba4552a19b0712743ad"><div class="ttname"><a href="class_client_1_1_input_command_handler.html#aaead3d9a3f93fba4552a19b0712743ad">Client::InputCommandHandler::getKey</a></div><div class="ttdeci">const GameEngine::Keybinds &amp; getKey() const</div><div class="ttdoc">Get the key associated with the input command.</div><div class="ttdef"><b>Definition</b> Input.cpp:21</div></div>
+<div class="ttc" id="aclass_client_1_1_input_command_handler_html_ad27a8a0e6e537f7df8133dce9fd3cf7e"><div class="ttname"><a href="class_client_1_1_input_command_handler.html#ad27a8a0e6e537f7df8133dce9fd3cf7e">Client::InputCommandHandler::onResponse</a></div><div class="ttdeci">void onResponse(Response *response) override</div><div class="ttdoc">Handle the server's response to the input command.</div><div class="ttdef"><b>Definition</b> Input.cpp:37</div></div>
+<div class="ttc" id="aclass_client_1_1_network_html"><div class="ttname"><a href="class_client_1_1_network.html">Client::Network</a></div><div class="ttdoc">Class responsible for network operations in a client.</div><div class="ttdef"><b>Definition</b> Network.hpp:35</div></div>
 <div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

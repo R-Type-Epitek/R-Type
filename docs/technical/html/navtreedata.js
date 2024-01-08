@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "R-Type", "index.html", [
+    [ "Technical Documentation", "md_docs_2technical_2_r_e_a_d_m_e.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -45,7 +46,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_animation_8hpp_source.html",
-"class_network_1_1_u_d_p_server.html"
+"class_network_1_1_room.html#aa6449f53d721de21a5a08aa032acc00a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

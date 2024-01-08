@@ -12,7 +12,7 @@ Class responsible for network operations in a client.
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{Queue\+Ecs\+Serialized}} = std\+::queue$<$ std\+::vector$<$ std\+::vector$<$ char $>$ $>$ $>$
+using \mbox{\hyperlink{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d}{Queue\+Ecs\+Serialized}} = std\+::vector$<$ std\+::vector$<$ char $>$ $>$
 \begin{DoxyCompactList}\small\item\em Get the queue of serialized ECS data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -28,6 +28,8 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_client_1_1_i_command_handler}{I
 \begin{DoxyCompactList}\small\item\em Get the command handler for a specific command. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_network_a9ecc0c46e23354a22e7bc0880974e609}{send}} (boost\+::asio\+::const\+\_\+buffer const \&buffer)
 \begin{DoxyCompactList}\small\item\em Send raw data over the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_1_1_network_aa433394ccb8d01696e30252eec870e66}{handle\+Send}} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+Transferred)
+\begin{DoxyCompactList}\small\item\em Callback function for handling data sent over the network. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_network_ad7c37dc6ab96aae55c0afbce268d1f9c}{send\+Message}} (std\+::string const \&command, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0)
 \begin{DoxyCompactList}\small\item\em Send a command message over the network. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_network_a091bc465021f4b8e49aa03a58e145246}{send\+Response}} (std\+::string const \&command, std\+::string const \&status\+Message, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
@@ -61,7 +63,7 @@ void \mbox{\hyperlink{class_client_1_1_network_ae2cc6225754b3f7b46fa87422c6540da
 boost\+::asio\+::ip\+::udp\+::endpoint \mbox{\hyperlink{class_client_1_1_network_a0f198af430067b2174e2f69b0a78ada6}{get\+Remote\+Endpoint}} () const
 \begin{DoxyCompactList}\small\item\em Get the remote endpoint of the network connection. \end{DoxyCompactList}\item 
 \Hypertarget{class_client_1_1_network_a5f3906ec4967fc8be1936ef21b41741c}\label{class_client_1_1_network_a5f3906ec4967fc8be1936ef21b41741c} 
-\mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{Queue\+Ecs\+Serialized}} \& {\bfseries get\+Serialized\+Ecs\+Queue} ()
+\mbox{\hyperlink{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d}{Queue\+Ecs\+Serialized}} \& {\bfseries get\+Serialized\+Ecs\+Queue} ()
 \item 
 {\footnotesize template$<$typename T , typename Func $>$ }\\void \mbox{\hyperlink{class_client_1_1_network_a15a45ffff3cdcbf99901d537a5aa2a57}{execute\+Command}} (const std\+::string \&command\+Name, Func action)
 \begin{DoxyCompactList}\small\item\em Execute a command with a specified action. \end{DoxyCompactList}\item 
@@ -71,7 +73,7 @@ void \mbox{\hyperlink{class_client_1_1_network_a9090adb4709e633a7787595896adcc07
 \begin{DoxyCompactList}\small\item\em Update the client\textquotesingle{}s name. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_network_af9322d011cea31df49fe776392ad0648}{join\+Room}} (int room\+Id)
 \begin{DoxyCompactList}\small\item\em Join a room with a specified room ID. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}{send\+Key}} (std\+::string key)
+void \mbox{\hyperlink{class_client_1_1_network_a1e00a6174658b13f4962b4f8eb81037d}{send\+Key}} (Game\+Engine\+::\+Keybinds key)
 \begin{DoxyCompactList}\small\item\em Send a key command to the server. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0}{join\+Game}} (int room\+Id)
 \begin{DoxyCompactList}\small\item\em Join a game with a specified room ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -83,11 +85,11 @@ Class responsible for network operations in a client.
 The \doxylink{class_client_1_1_network}{Network} class handles all network communications for a client, including sending and receiving messages and responses, managing command handlers, and keeping track of client and room states. 
 
 \doxysubsection{Member Typedef Documentation}
-\Hypertarget{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}\label{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33} 
+\Hypertarget{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d}\label{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d} 
 \index{Client::Network@{Client::Network}!QueueEcsSerialized@{QueueEcsSerialized}}
 \index{QueueEcsSerialized@{QueueEcsSerialized}!Client::Network@{Client::Network}}
 \doxysubsubsection{\texorpdfstring{QueueEcsSerialized}{QueueEcsSerialized}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{class_client_1_1_network_aacc94647a2592136a4ecf2d3a94c0d33}{Client\+::\+Network\+::\+Queue\+Ecs\+Serialized}} =  std\+::queue$<$std\+::vector$<$std\+::vector$<$char$>$ $>$$>$}
+{\footnotesize\ttfamily using \mbox{\hyperlink{class_client_1_1_network_a808d8f2121532e7d6856a226e95a8a2d}{Client\+::\+Network\+::\+Queue\+Ecs\+Serialized}} =  std\+::vector$<$std\+::vector$<$char$>$ $>$}
 
 
 
@@ -228,6 +230,23 @@ Get the ID of the room the client is connected to.
 \begin{DoxyReturn}{Returns}
 int The current room ID. 
 \end{DoxyReturn}
+\Hypertarget{class_client_1_1_network_aa433394ccb8d01696e30252eec870e66}\label{class_client_1_1_network_aa433394ccb8d01696e30252eec870e66} 
+\index{Client::Network@{Client::Network}!handleSend@{handleSend}}
+\index{handleSend@{handleSend}!Client::Network@{Client::Network}}
+\doxysubsubsection{\texorpdfstring{handleSend()}{handleSend()}}
+{\footnotesize\ttfamily void Client\+::\+Network\+::handle\+Send (\begin{DoxyParamCaption}\item[{boost\+::system\+::error\+\_\+code const \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+Transferred }\end{DoxyParamCaption})}
+
+
+
+Callback function for handling data sent over the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & Boost ASIO error code indicating the status of the send operation. \\
+\hline
+{\em bytes\+Transferred} & The number of bytes sent over the network. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0}\label{class_client_1_1_network_a8fb4a0ec6478049555f7ef13fe15d2f0} 
 \index{Client::Network@{Client::Network}!joinGame@{joinGame}}
 \index{joinGame@{joinGame}!Client::Network@{Client::Network}}
@@ -368,11 +387,11 @@ Send raw data over the network.
 {\em buffer} & The constant buffer containing data to be sent. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c}\label{class_client_1_1_network_a834301699563164adcfb6f34e95bba2c} 
+\Hypertarget{class_client_1_1_network_a1e00a6174658b13f4962b4f8eb81037d}\label{class_client_1_1_network_a1e00a6174658b13f4962b4f8eb81037d} 
 \index{Client::Network@{Client::Network}!sendKey@{sendKey}}
 \index{sendKey@{sendKey}!Client::Network@{Client::Network}}
 \doxysubsubsection{\texorpdfstring{sendKey()}{sendKey()}}
-{\footnotesize\ttfamily void Client\+::\+Network\+::send\+Key (\begin{DoxyParamCaption}\item[{std\+::string}]{key }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Client\+::\+Network\+::send\+Key (\begin{DoxyParamCaption}\item[{Game\+Engine\+::\+Keybinds}]{key }\end{DoxyParamCaption})}
 
 
 
@@ -516,5 +535,5 @@ Update the client\textquotesingle{}s name.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/include/network/Network.\+hpp\item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/client/src/network/Network.\+cpp\end{DoxyCompactItemize}
+client/include/network/Network.\+hpp\item 
+client/src/network/Network.\+cpp\end{DoxyCompactItemize}

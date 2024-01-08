@@ -1,30 +1,37 @@
 \doxysection{Entity\+Builder.\+hpp}
-\hypertarget{_entity_builder_8hpp_source}{}\label{_entity_builder_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/EntityBuilder.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/EntityBuilder.hpp}}
+\hypertarget{_entity_builder_8hpp_source}{}\label{_entity_builder_8hpp_source}\index{gameEngine/include/gameEngine/entity/EntityBuilder.hpp@{gameEngine/include/gameEngine/entity/EntityBuilder.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
-\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 12/22/23.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 1/4/24.}}
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }GameEngine::Builder}
-\DoxyCodeLine{00012\ \{}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_builder_1_1_entity_builder}{EntityBuilder}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_builder_1_1_entity_builder}{EntityBuilder}}(\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ registry);}
-\DoxyCodeLine{00017\ \ \ \ \ GameEngine::ECS::Entity\ getResult();}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00020\ \ \ \ \ GameEngine::ECS::Entity\ m\_entity;}
-\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ m\_registry;}
-\DoxyCodeLine{00022\ \ \ \};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }GameEngine::Entity}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_builder}{EntityBuilder}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_builder}{EntityBuilder}}(\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\ \&registry);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ buildComponent(T\ component)}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ m\_registry.addComponent(m\_entity,\ component);}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ GameEngine::ECS::Entity\ getResult();}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Builder}}
+\DoxyCodeLine{00024\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\ \&m\_registry;}
+\DoxyCodeLine{00026\ \ \ \ \ GameEngine::ECS::Entity\ m\_entity;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ GameEngine::ECS::Entity\ newEntity();}
+\DoxyCodeLine{00029\ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \}\ \textcolor{comment}{//\ GameEngine}}
 
 \end{DoxyCode}

@@ -8,6 +8,5 @@ var class_client_1_1_client =
     [ "initScenes", "class_client_1_1_client.html#a95c4982317720e269d8d4e457b18fc2b", null ],
     [ "link", "class_client_1_1_client.html#a5416b4694a6a478eb727f3098c35db8e", null ],
     [ "run", "class_client_1_1_client.html#a36d22c00878e5f26f7a3241b4df044e8", null ],
-    [ "testNetwork", "class_client_1_1_client.html#adf792e828e78c979677c6daeeeb4ac7b", null ],
     [ "update", "class_client_1_1_client.html#af7dc6dfaf617242a56a1da09dfa31a8d", null ]
 ];

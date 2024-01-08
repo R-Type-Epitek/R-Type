@@ -233,7 +233,8 @@ void Network::UDPServer::processMessage(TimedMessage timedMessage)
 void Network::UDPServer::processResponse(Response *response)
 {
   Client client = response->header.clientId ? Client() : this->getClientById(response->header.clientId);
-  logResponse("Client response", response, client);
+  if (strcmp(response->header.command, SERVER_COMMAND_UPDATE_GAME) != 0)
+    logResponse("Client response", response, client);
 
   if (!strcmp(response->header.command, SERVER_COMMAND_CHECK_CONNECTION))
     this->clients[response->header.clientId].updateLastMessageTime();

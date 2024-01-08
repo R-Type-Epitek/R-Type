@@ -48,6 +48,8 @@ void \mbox{\hyperlink{class_network_1_1_u_d_p_server_ac811ac0c540ab08eeb7fd4002e
 \begin{DoxyCompactList}\small\item\em Send data to all clients. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a9a296cd50ace6d20256e4a94290bf1b4}{send\+To\+All\+Clients\+In\+Room}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int room\+Id)
 \begin{DoxyCompactList}\small\item\em Send data to all clients in a room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a4c3186c7dcf335536c43e4d1564ee0e0}{send\+To\+All\+Clients\+In\+Room\+In\+Game}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int room\+Id)
+\begin{DoxyCompactList}\small\item\em Send data to all clients in a room in game. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a9c2f0877b54c60de4ca0a2d21696ba93}{send\+To\+Client}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int id)
 \begin{DoxyCompactList}\small\item\em Send data to a specific client. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_network_1_1_u_d_p_server_a7d721dae9793f447e2199f8780096e53}{handle\+Send}} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+Transferred)
@@ -554,6 +556,25 @@ Send the specified data to all clients in the room with the specified ID.
 {\em room\+Id} & Integer specifying the ID of the room to send the data to. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_network_1_1_u_d_p_server_a4c3186c7dcf335536c43e4d1564ee0e0}\label{class_network_1_1_u_d_p_server_a4c3186c7dcf335536c43e4d1564ee0e0} 
+\index{Network::UDPServer@{Network::UDPServer}!sendToAllClientsInRoomInGame@{sendToAllClientsInRoomInGame}}
+\index{sendToAllClientsInRoomInGame@{sendToAllClientsInRoomInGame}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{sendToAllClientsInRoomInGame()}{sendToAllClientsInRoomInGame()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All\+Clients\+In\+Room\+In\+Game (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer,  }\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Send data to all clients in a room in game. 
+
+Send the specified data to all clients in the room with the specified ID that are in game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & boost\+::asio\+::const\+\_\+buffer containing the data to send. \\
+\hline
+{\em room\+Id} & Integer specifying the ID of the room to send the data to. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_network_1_1_u_d_p_server_a9c2f0877b54c60de4ca0a2d21696ba93}\label{class_network_1_1_u_d_p_server_a9c2f0877b54c60de4ca0a2d21696ba93} 
 \index{Network::UDPServer@{Network::UDPServer}!sendToClient@{sendToClient}}
 \index{sendToClient@{sendToClient}!Network::UDPServer@{Network::UDPServer}}
@@ -624,5 +645,5 @@ Function executed by worker threads. It pops a \doxylink{struct_timed_message}{T
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/include/UDPServer.\+hpp\item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/src/UDPServer.\+cpp\end{DoxyCompactItemize}
+server/include/UDPServer.\+hpp\item 
+server/src/UDPServer.\+cpp\end{DoxyCompactItemize}

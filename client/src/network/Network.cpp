@@ -43,10 +43,12 @@ Client::Network::Network(std::string ip, std::string port)
 
 Client::Network::~Network()
 {
-  this->socket.close();
-
-  if (this->receiveThread.joinable())
-    this->receiveThread.join();
+  stopReceiveThread = true;
+  if (receiveThread.joinable()) {
+    receiveThread.join();
+  }
+  socket.close();
+  io.stop();
 }
 
 void Client::Network::registerCommandHandlers()
@@ -107,7 +109,8 @@ void Client::Network::sendMessage(std::string const &command, char const data[],
     memcpy(messageBuffer.data() + sizeof(type) + sizeof(header), data, dataSize);
 
   Message *message = (Message *)messageBuffer.data();
-  logMessage("Client message", message);
+  if (strcmp(message->header.command, SERVER_COMMAND_UPDATE_GAME) != 0)
+    logMessage("Client message", message);
 
   this->send(boost::asio::buffer(messageBuffer.data(), messageBuffer.size()));
 
@@ -149,7 +152,7 @@ void Client::Network::sendResponse(
 void Client::Network::startReceive()
 {
   this->receiveThread = std::thread([this]() {
-    while (true) {
+    while (!this->stopReceiveThread) {
       this->io.reset();
       this->socket.async_receive_from(
         boost::asio::buffer(this->recvBuffer),
@@ -215,7 +218,8 @@ void Client::Network::onServerResponse(Response *response)
 
 void Client::Network::onServerMessage(Message *message)
 {
-  logMessage("Server message", message);
+  if (strcmp(message->header.command, SERVER_COMMAND_UPDATE_GAME) != 0)
+    logMessage("Server message", message);
 
   if (!strcmp(message->header.command, SERVER_COMMAND_CHECK_CONNECTION))
     return this->onCheckConnectionMessage(message);

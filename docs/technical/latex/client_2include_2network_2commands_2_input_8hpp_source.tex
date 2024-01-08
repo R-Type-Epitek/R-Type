@@ -1,5 +1,5 @@
 \doxysection{Input.\+hpp}
-\hypertarget{client_2include_2network_2commands_2_input_8hpp_source}{}\label{client_2include_2network_2commands_2_input_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/commands/Input.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/network/commands/Input.hpp}}
+\hypertarget{client_2include_2network_2commands_2_input_8hpp_source}{}\label{client_2include_2network_2commands_2_input_8hpp_source}\index{client/include/network/commands/Input.hpp@{client/include/network/commands/Input.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -16,9 +16,9 @@
 \DoxyCodeLine{00019\ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_input_command_handler}{InputCommandHandler}}(\mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ network);}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_input_command_handler_ad989eed28b85409f151a01f1b3d9b8f8}{setKey}}(std::string\ key);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_input_command_handler_a825627254c05d7353b5c6a711ec7dec9}{setKey}}(GameEngine::Keybinds\ key);}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_client_1_1_input_command_handler_ae6d8e4f6d34bbe9e1447aed1dfd35fba}{getKey}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ GameEngine::Keybinds\&\ \mbox{\hyperlink{class_client_1_1_input_command_handler_aaead3d9a3f93fba4552a19b0712743ad}{getKey}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00042\ }
 \DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_input_command_handler_a234beadaa593eeec72ae849f4739157e}{send}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00050\ }
@@ -26,8 +26,8 @@
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00061\ \ \ \ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00062\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ network;\ }
-\DoxyCodeLine{00064\ \ \ \ \ std::string\ key;\ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ network;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ GameEngine::Keybinds\ key;\ }
 \DoxyCodeLine{00065\ \ \ \};}
 \DoxyCodeLine{00066\ \}\ \textcolor{comment}{//\ namespace\ Client}}
 

@@ -156,6 +156,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaccc5c179993bbffb72618702127adc9" id="r_aaccc5c179993bbffb72618702127adc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#aaccc5c179993bbffb72618702127adc9">isInactiveFor</a> (long milliseconds)</td></tr>
 <tr class="memdesc:aaccc5c179993bbffb72618702127adc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client has been inactive for a given amount of milliseconds.  <br /></td></tr>
 <tr class="separator:aaccc5c179993bbffb72618702127adc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a427cbf4305b0adf9b317db09c39e3c66" id="r_a427cbf4305b0adf9b317db09c39e3c66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#a427cbf4305b0adf9b317db09c39e3c66">setIsInGame</a> (bool isInGame)</td></tr>
+<tr class="memdesc:a427cbf4305b0adf9b317db09c39e3c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client is in a game.  <br /></td></tr>
+<tr class="separator:a427cbf4305b0adf9b317db09c39e3c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f997c3a698b5a233177c770754b0c5" id="r_a94f997c3a698b5a233177c770754b0c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_client.html#a94f997c3a698b5a233177c770754b0c5">getIsInGame</a> () const</td></tr>
+<tr class="memdesc:a94f997c3a698b5a233177c770754b0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client is in a game.  <br /></td></tr>
+<tr class="separator:a94f997c3a698b5a233177c770754b0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a network client. </p>
@@ -219,6 +225,26 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets the identifier of the client. </p>
 <dl class="section return"><dt>Returns</dt><dd>int The identifier of the client. </dd></dl>
+
+</div>
+</div>
+<a id="a94f997c3a698b5a233177c770754b0c5" name="a94f997c3a698b5a233177c770754b0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f997c3a698b5a233177c770754b0c5">&#9670;&#160;</a></span>getIsInGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Client::getIsInGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client is in a game. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client is in a game, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -341,6 +367,27 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a427cbf4305b0adf9b317db09c39e3c66" name="a427cbf4305b0adf9b317db09c39e3c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427cbf4305b0adf9b317db09c39e3c66">&#9670;&#160;</a></span>setIsInGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::setIsInGame </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isInGame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client is in a game. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client is in a game, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a7eab98c178b5ea21dc1363658f9815ea" name="a7eab98c178b5ea21dc1363658f9815ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7eab98c178b5ea21dc1363658f9815ea">&#9670;&#160;</a></span>setName()</h2>
 
@@ -414,8 +461,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/server/include/<a class="el" href="server_2include_2_client_8hpp_source.html">Client.hpp</a></li>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/server/src/<b>Client.cpp</b></li>
+<li>server/include/<a class="el" href="server_2include_2_client_8hpp_source.html">Client.hpp</a></li>
+<li>server/src/<b>Client.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

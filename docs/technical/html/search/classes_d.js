@@ -8,7 +8,6 @@ var searchData=
   ['sfmlevent_5',['SfmlEvent',['../class_sfml_event.html',1,'']]],
   ['sfmlrenderer_6',['SfmlRenderer',['../class_sfml_renderer.html',1,'']]],
   ['sfmltexture_7',['SfmlTexture',['../class_sfml_texture.html',1,'']]],
-  ['sprite_8',['Sprite',['../struct_component_r_type_1_1_sprite.html',1,'ComponentRType']]],
-  ['system_9',['System',['../class_game_engine_1_1_e_c_s_1_1_system.html',1,'GameEngine::ECS']]],
-  ['systemmanager_10',['SystemManager',['../class_game_engine_1_1_e_c_s_1_1_system_manager.html',1,'GameEngine::ECS']]]
+  ['system_8',['System',['../class_game_engine_1_1_e_c_s_1_1_system.html',1,'GameEngine::ECS']]],
+  ['systemmanager_9',['SystemManager',['../class_game_engine_1_1_e_c_s_1_1_system_manager.html',1,'GameEngine::ECS']]]
 ];

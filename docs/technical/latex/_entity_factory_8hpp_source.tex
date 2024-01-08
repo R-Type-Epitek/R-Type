@@ -1,0 +1,47 @@
+\doxysection{Entity\+Factory.\+hpp}
+\hypertarget{_entity_factory_8hpp_source}{}\label{_entity_factory_8hpp_source}\index{gameEngine/include/gameEngine/entity/EntityFactory.hpp@{gameEngine/include/gameEngine/entity/EntityFactory.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 1/4/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/MetaData.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/NetworkedEntity.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}EntityType.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}spdlog/spdlog.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }GameEngine::Entity}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_factory}{EntityFactory}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_factory}{EntityFactory}}(std::vector<GameEngine::ECS::Entity>\ \&entities,\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\ \&registry);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ GameEngine::ECS::Entity\ create(\textcolor{keyword}{const}\ EntityType\ \&type);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ GameEngine::ECS::Entity\ createFromNetwork(}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{ComponentRType::NetworkedEntity}}\ \&networkId,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_meta_data}{ComponentRType::MetaData}}\ \&metaData);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ GameEngine::ECS::Entity\ createFromBluePrint(\mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{EntityBluePrint}}\ \textcolor{keyword}{const}\ \&payload);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{EntityBluePrint}}\ playerEntity;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{EntityBluePrint}}\ enemyEntity;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_game_engine_1_1_entity_1_1_entity_blue_print}{EntityBluePrint}}\ bulletEntity;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager}{AssetManager}}\ =\ \mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager}{GameEngine::Asset::AssetManager}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::vector<GameEngine::ECS::Entity>\ \&m\_entities;\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\ \&m\_registry;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \}\ \textcolor{comment}{//\ GameEngine::Entity}}
+
+\end{DoxyCode}

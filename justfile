@@ -24,7 +24,7 @@ test:
     cd build/server && ctest
 
 generate-doc:
-    cd docs && doxygen Doxyfile
+    doxygen docs/Doxyfile
     @echo -e "\nfile://$(realpath docs/technical/html/index.html)"
 
 clang-format-run-dir path:

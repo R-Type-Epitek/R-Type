@@ -1,5 +1,5 @@
 \doxysection{Game\+Scene.\+hpp}
-\hypertarget{_game_scene_8hpp_source}{}\label{_game_scene_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/scene/GameScene.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/client/include/scene/GameScene.hpp}}
+\hypertarget{_game_scene_8hpp_source}{}\label{_game_scene_8hpp_source}\index{client/include/scene/GameScene.hpp@{client/include/scene/GameScene.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -9,32 +9,37 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/entity/Entity.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/scene/IScene.hpp"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}network/Network.hpp"{}}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }Client}
-\DoxyCodeLine{00015\ \{}
-\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_game_scene}{GameScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{GameEngine::Scene::IScene}}\ \{}
-\DoxyCodeLine{00024\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_game_scene}{GameScene}}(\mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ network);}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_game_scene_a4dd6cd95f688f3fe6da927897069c8c0}{initRegistry}}()\ \textcolor{keyword}{final};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1}{initEntities}}()\ \textcolor{keyword}{final};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ \mbox{\hyperlink{class_client_1_1_game_scene_a3069752ebd793958ea978cdd3bf46edf}{getECS}}()\ \textcolor{keyword}{final};}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72}{initCustomSystem}}();}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00061\ \ \ \ \ std::vector<GameEngine::ECS::Entity>\ m\_entities;\ \ \ \ \ \ \ }
-\DoxyCodeLine{00062\ \ \ \ \ std::unique\_ptr<GameEngine::ECS::Registry>\ m\_registry;\ }
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ m\_network;\ }
-\DoxyCodeLine{00064\ \ \ \};}
-\DoxyCodeLine{00065\ \}\ \textcolor{comment}{//\ namespace\ Client}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/entity/EntityFactory.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/scene/IScene.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}network/Network.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }Client}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client_1_1_game_scene}{GameScene}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_scene_1_1_i_scene}{GameEngine::Scene::IScene}}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_game_scene}{GameScene}}(\mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ network);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_game_scene_a4dd6cd95f688f3fe6da927897069c8c0}{initRegistry}}()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_game_scene_aeb69a43caae2035567e9fd504d84ffa1}{initEntities}}()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ \mbox{\hyperlink{class_client_1_1_game_scene_a3069752ebd793958ea978cdd3bf46edf}{getECS}}()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_entity_1_1_entity_factory}{GameEngine::Entity::EntityFactory}}\&\ getEntityFactory()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_1_1_game_scene_a1ed3532042dc68a41dec6abf93726b72}{initCustomSystem}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ std::vector<GameEngine::ECS::Entity>\ m\_entities;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ std::unique\_ptr<GameEngine::ECS::Registry>\ m\_registry;\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::unique\_ptr<GameEngine::Entity::EntityFactory>}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ m\_entityFactory;\ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_client_1_1_network}{Network}}\&\ m\_network;\ }
+\DoxyCodeLine{00069\ \ \ \};}
+\DoxyCodeLine{00070\ \}\ \textcolor{comment}{//\ namespace\ Client}}
 
 \end{DoxyCode}

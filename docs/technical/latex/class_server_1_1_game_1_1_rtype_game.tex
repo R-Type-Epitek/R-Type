@@ -9,12 +9,23 @@ Inheritance diagram for Server\+::Game\+::Rtype\+Game\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_server_1_1_game_1_1_rtype_game_af366a0dff210b8feb0a08710994e6dda}\label{class_server_1_1_game_1_1_rtype_game_af366a0dff210b8feb0a08710994e6dda} 
-{\bfseries Rtype\+Game} (const \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{Rtype\+Game}} \&other)
+\Hypertarget{class_server_1_1_game_1_1_rtype_game_a03982fdb78cf7499db0b69345ba63511}\label{class_server_1_1_game_1_1_rtype_game_a03982fdb78cf7499db0b69345ba63511} 
+{\bfseries Rtype\+Game} (const \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{Rtype\+Game}} \&)
 \item 
 void \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game_ac6aac65acf468a64d626b88407e276e0}{load}} () final
 \item 
 std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game_aebf179c45845bb59f319cd3b06349322}{get\+Entities}} () final
+\item 
+void \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game_a12566b43cd12360e13a54dcba347ab44}{push\+Event}} (\mbox{\hyperlink{class_event}{Event}} event, \mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}} player) final
+\item 
+\Hypertarget{class_server_1_1_game_1_1_rtype_game_a3d678eb09a90cd3a775d546fabd5d17a}\label{class_server_1_1_game_1_1_rtype_game_a3d678eb09a90cd3a775d546fabd5d17a} 
+void {\bfseries event\+Connect} (\mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}} \&player)
+\item 
+\Hypertarget{class_server_1_1_game_1_1_rtype_game_aed74f7e51253ddc40a0188c0dca3b2f3}\label{class_server_1_1_game_1_1_rtype_game_aed74f7e51253ddc40a0188c0dca3b2f3} 
+void {\bfseries event\+Disconnect} (\mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}} \&player)
+\item 
+\Hypertarget{class_server_1_1_game_1_1_rtype_game_aca10e2a2e2a0c4f0b65aabfa15324520}\label{class_server_1_1_game_1_1_rtype_game_aca10e2a2e2a0c4f0b65aabfa15324520} 
+void {\bfseries event\+Input} (\mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}} \&player)
 \end{DoxyCompactItemize}
 
 
@@ -39,9 +50,19 @@ Implements \mbox{\hyperlink{class_server_1_1_game_1_1_i_game}{Server\+::\+Game\+
 
 Implements \mbox{\hyperlink{class_server_1_1_game_1_1_i_game}{Server\+::\+Game\+::\+IGame}}.
 
+\Hypertarget{class_server_1_1_game_1_1_rtype_game_a12566b43cd12360e13a54dcba347ab44}\label{class_server_1_1_game_1_1_rtype_game_a12566b43cd12360e13a54dcba347ab44} 
+\index{Server::Game::RtypeGame@{Server::Game::RtypeGame}!pushEvent@{pushEvent}}
+\index{pushEvent@{pushEvent}!Server::Game::RtypeGame@{Server::Game::RtypeGame}}
+\doxysubsubsection{\texorpdfstring{pushEvent()}{pushEvent()}}
+{\footnotesize\ttfamily void Server\+::\+Game\+::\+Rtype\+Game\+::push\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_event}{Event}}}]{event,  }\item[{\mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}}}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_server_1_1_game_1_1_i_game}{Server\+::\+Game\+::\+IGame}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/include/game/rtype/Rtype\+Game.\+hpp\item 
-/\+Users/xavierv/\+Developer/\+EPITECH/\+R-\/\+Type/server/src/game/rtype/Rtype\+Game.\+cpp\end{DoxyCompactItemize}
+server/include/game/rtype/Rtype\+Game.\+hpp\item 
+server/src/game/rtype/Rtype\+Game.\+cpp\end{DoxyCompactItemize}

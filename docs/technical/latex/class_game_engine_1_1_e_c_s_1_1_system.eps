@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 30.581039
+%%BoundingBox: 0 0 500 412.844025
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 16.350000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 1.211111 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 2 def
-/cols 6 def
+/rows 9 def
+/cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -177,7 +177,9 @@ boxfont setfont
 (Client::System::Network::Keyboard) cw
 (GameEngine::System::Animation) cw
 (GameEngine::System::EcsSerializer) cw
+(GameEngine::System::Input) cw
 (GameEngine::System::Keyboard) cw
+(GameEngine::System::Move) cw
 (GameEngine::System::Physics) cw
 (GameEngine::System::Renderer) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -191,29 +193,35 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (GameEngine::ECS::System) 2.500000 1.000000 box
- (Client::System::Network::Keyboard) 0.000000 0.000000 box
- (GameEngine::System::Animation) 1.000000 0.000000 box
- (GameEngine::System::EcsSerializer) 2.000000 0.000000 box
- (GameEngine::System::Keyboard) 3.000000 0.000000 box
- (GameEngine::System::Physics) 4.000000 0.000000 box
- (GameEngine::System::Renderer) 5.000000 0.000000 box
+ (GameEngine::ECS::System) 0.000000 8.000000 box
+ (Client::System::Network::Keyboard) 1.000000 7.000000 box
+ (GameEngine::System::Animation) 1.000000 6.000000 box
+ (GameEngine::System::EcsSerializer) 1.000000 5.000000 box
+ (GameEngine::System::Input) 1.000000 4.000000 box
+ (GameEngine::System::Keyboard) 1.000000 3.000000 box
+ (GameEngine::System::Move) 1.000000 2.000000 box
+ (GameEngine::System::Physics) 1.000000 1.000000 box
+ (GameEngine::System::Renderer) 1.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-1 2.500000 0.250000 out
+1 0.000000 7.250000 out
 solid
-0.000000 5.000000 1.000000 conn
+0 0.000000 7.500000 hedge
 solid
-0 0.000000 0.750000 in
+0 0.000000 6.500000 hedge
 solid
-0 1.000000 0.750000 in
+0 0.000000 5.500000 hedge
 solid
-0 2.000000 0.750000 in
+0 0.000000 4.500000 hedge
 solid
-0 3.000000 0.750000 in
+0 0.000000 3.500000 hedge
 solid
-0 4.000000 0.750000 in
+0 0.000000 2.500000 hedge
 solid
-0 5.000000 0.750000 in
+0 0.000000 1.500000 hedge
+solid
+0 0.000000 0.500000 hedge
+solid
+0.000000 8.000000 0.500000 vedge

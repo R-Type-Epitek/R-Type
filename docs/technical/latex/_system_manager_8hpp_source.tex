@@ -1,5 +1,5 @@
 \doxysection{System\+Manager.\+hpp}
-\hypertarget{_system_manager_8hpp_source}{}\label{_system_manager_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/system/SystemManager.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/system/SystemManager.hpp}}
+\hypertarget{_system_manager_8hpp_source}{}\label{_system_manager_8hpp_source}\index{gameEngine/include/gameEngine/ecs/system/SystemManager.hpp@{gameEngine/include/gameEngine/ecs/system/SystemManager.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -64,31 +64,43 @@
 \DoxyCodeLine{00064\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00065\ \ \ \ \ \}}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ std::shared\_ptr<System>\ getSystem(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
-\DoxyCodeLine{00068\ \ \ \ \ \{}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems[name];}
-\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00068\ \ \ \ \ std::shared\_ptr<T>\ getSystem()}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ typeName\ =\ \textcolor{keyword}{typeid}(T).name();}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ getSystems()}
-\DoxyCodeLine{00073\ \ \ \ \ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems;}
-\DoxyCodeLine{00075\ \ \ \ \ \}}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ Signature\ getSignature(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
-\DoxyCodeLine{00078\ \ \ \ \ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures[name];}
-\DoxyCodeLine{00080\ \ \ \ \ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ getSignatures()}
-\DoxyCodeLine{00083\ \ \ \ \ \{}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures;}
-\DoxyCodeLine{00085\ \ \ \ \ \}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00088\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ m\_signatures\ \{\};}
-\DoxyCodeLine{00089\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ m\_systems\ \{\};}
-\DoxyCodeLine{00090\ \ \ \};}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ assert(m\_systems.find(typeName)\ !=\ m\_systems.end()\ \&\&\ \textcolor{stringliteral}{"{}System\ not\ found."{}});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ sys\ =\ std::dynamic\_pointer\_cast<T>(m\_systems[typeName]))\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sys;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}[ECS\ SystemManager]\ System\ not\ found."{}});}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ std::shared\_ptr<System>\ getSystemByName(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems[name];}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ getSystems()}
+\DoxyCodeLine{00085\ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systems;}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ Signature\ getSignature(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures[name];}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ getSignatures()}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_signatures;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00100\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ m\_signatures\ \{\};}
+\DoxyCodeLine{00101\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ m\_systems\ \{\};}
+\DoxyCodeLine{00102\ \ \ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
 
 \end{DoxyCode}

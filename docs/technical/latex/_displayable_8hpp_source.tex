@@ -1,0 +1,43 @@
+\doxysection{Displayable.\+hpp}
+\hypertarget{_displayable_8hpp_source}{}\label{_displayable_8hpp_source}\index{gameEngine/include/gameEngine/component/Displayable.hpp@{gameEngine/include/gameEngine/component/Displayable.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Alexandre\ Decobert\ on\ 17/12/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/Sprite.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }ComponentRType}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{namespace\ }assetManager\ =\ GameEngine::Asset;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_component_r_type_1_1_displayable}{Displayable}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ sf::Sprite\ sprite;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_displayable}{Displayable}}()}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ sprite.setTexture(assetManager::getTexture());}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_displayable}{Displayable}}(sf::Texture\&\ texture)}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ sprite.setTexture(texture);}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_component_r_type_1_1_displayable}{Displayable}}(sf::Texture\&\ texture,\ sf::IntRect\ \textcolor{keyword}{const}\&\ rect)}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ sprite.setTexture(texture);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rect.width\ >\ 0\ ||\ rect.height\ <\ 0)}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ sprite.setTextureRect(rect);}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \}\ \textcolor{comment}{//\ namespace\ ComponentRType}}
+
+\end{DoxyCode}

@@ -1,5 +1,5 @@
 \doxysection{Registry.\+hpp}
-\hypertarget{_registry_8hpp_source}{}\label{_registry_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/Registry.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/ecs/Registry.hpp}}
+\hypertarget{_registry_8hpp_source}{}\label{_registry_8hpp_source}\index{gameEngine/include/gameEngine/ecs/Registry.hpp@{gameEngine/include/gameEngine/ecs/Registry.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -82,59 +82,71 @@
 \DoxyCodeLine{00078\ \ \ \ \ \}}
 \DoxyCodeLine{00079\ }
 \DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00081\ \ \ \ \ ComponentType\ getComponentType()}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasComponent(Entity\ entity)}
 \DoxyCodeLine{00082\ \ \ \ \ \{}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager-\/>getComponentType<T>();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager-\/>hasComponent<T>(entity);}
 \DoxyCodeLine{00084\ \ \ \ \ \}}
 \DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ \ Systems}}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00088\ \ \ \ \ std::shared\_ptr<T>\ registerSystem()}
-\DoxyCodeLine{00089\ \ \ \ \ \{}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>registerSystem<T>();}
-\DoxyCodeLine{00091\ \ \ \ \ \}}
-\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00087\ \ \ \ \ ComponentType\ getComponentType()}
+\DoxyCodeLine{00088\ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager-\/>getComponentType<T>();}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ \ Systems}}
 \DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ setSystemSignature(Signature\ signature)}
+\DoxyCodeLine{00094\ \ \ \ \ std::shared\_ptr<T>\ registerSystem()}
 \DoxyCodeLine{00095\ \ \ \ \ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ m\_systemManager-\/>setSignature<T>(signature);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>registerSystem<T>();}
 \DoxyCodeLine{00097\ \ \ \ \ \}}
 \DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ getSystems()}
-\DoxyCodeLine{00100\ \ \ \ \ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>getSystems();}
-\DoxyCodeLine{00102\ \ \ \ \ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ getSignatures()}
-\DoxyCodeLine{00105\ \ \ \ \ \{}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>getSignatures();}
-\DoxyCodeLine{00107\ \ \ \ \ \}}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ Signature\ getSystemSignature(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
-\DoxyCodeLine{00110\ \ \ \ \ \{}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>getSignature(name);}
-\DoxyCodeLine{00112\ \ \ \ \ \}}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ \ \ Signature\ getEntitySignature(Entity\&\ entity)}
-\DoxyCodeLine{00115\ \ \ \ \ \{}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_entityManager-\/>getSignature(entity);}
-\DoxyCodeLine{00117\ \ \ \ \ \}}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<IComponentArray>>\ getComponents(Entity\&\ entity)}
-\DoxyCodeLine{00120\ \ \ \ \ \{}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager-\/>getComponentsWithEntity(entity);}
-\DoxyCodeLine{00122\ \ \ \ \ \}}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ std::shared\_ptr<ComponentManager>\&\ getComponentManager()}
-\DoxyCodeLine{00125\ \ \ \ \ \{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager;}
-\DoxyCodeLine{00127\ \ \ \ \ \}}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00130\ \ \ \ \ std::shared\_ptr<ComponentManager>\ m\_componentManager;}
-\DoxyCodeLine{00131\ \ \ \ \ std::unique\_ptr<EntityManager>\ m\_entityManager;}
-\DoxyCodeLine{00132\ \ \ \ \ std::unique\_ptr<SystemManager>\ m\_systemManager;}
-\DoxyCodeLine{00133\ \ \ \};}
-\DoxyCodeLine{00134\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ setSystemSignature(Signature\ signature)}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ m\_systemManager-\/>setSignature<T>(signature);}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<System>>\ getSystems()}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>getSystems();}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00111\ \ \ \ \ std::shared\_ptr<T>\ getSystem()}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>getSystem<T>();}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ std::unordered\_map<char\ const*,\ Signature>\ getSignatures()}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>getSignatures();}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ Signature\ getSystemSignature(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name)}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_systemManager-\/>getSignature(name);}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ Signature\ getEntitySignature(Entity\&\ entity)}
+\DoxyCodeLine{00127\ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_entityManager-\/>getSignature(entity);}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ std::unordered\_map<char\ const*,\ std::shared\_ptr<IComponentArray>>\ getComponents(Entity\&\ entity)}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager-\/>getComponentsWithEntity(entity);}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ std::shared\_ptr<ComponentManager>\&\ getComponentManager()}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_componentManager;}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00142\ \ \ \ \ std::shared\_ptr<ComponentManager>\ m\_componentManager;}
+\DoxyCodeLine{00143\ \ \ \ \ std::unique\_ptr<EntityManager>\ m\_entityManager;}
+\DoxyCodeLine{00144\ \ \ \ \ std::unique\_ptr<SystemManager>\ m\_systemManager;}
+\DoxyCodeLine{00145\ \ \ \};}
+\DoxyCodeLine{00146\ \};\ \textcolor{comment}{//\ namespace\ GameEngine::ECS}}
 
 \end{DoxyCode}

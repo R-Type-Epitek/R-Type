@@ -1,5 +1,5 @@
 \doxysection{Asset\+Manager.\+hpp}
-\hypertarget{_asset_manager_8hpp_source}{}\label{_asset_manager_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/asset/AssetManager.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/gameEngine/include/gameEngine/asset/AssetManager.hpp}}
+\hypertarget{_asset_manager_8hpp_source}{}\label{_asset_manager_8hpp_source}\index{gameEngine/include/gameEngine/asset/AssetManager.hpp@{gameEngine/include/gameEngine/asset/AssetManager.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -7,40 +7,40 @@
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/Texture.hpp>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ LOAD\_TEXTURE(x)\ GameEngine::Asset::AssetManager::AssetManager::getInstance().getTexture(x)}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ DEFAULT\_TEXTURE\ "{}assets/bobross.jpg"{}}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }GameEngine::Asset::AssetManager}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager_1_1_asset_manager}{AssetManager}}\ \{}
-\DoxyCodeLine{00017\ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager_1_1_asset_manager}{AssetManager}}\&\ getInstance()}
-\DoxyCodeLine{00019\ \ \ \ \ \{}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager_1_1_asset_manager}{AssetManager}}\ instance;}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
-\DoxyCodeLine{00022\ \ \ \ \ \}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager_1_1_asset_manager}{AssetManager}}()}
-\DoxyCodeLine{00025\ \ \ \ \ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ loadTexture(DEFAULT\_TEXTURE,\ DEFAULT\_TEXTURE);}
-\DoxyCodeLine{00027\ \ \ \ \ \}}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexturesFromDirectories(std::string\ \textcolor{keyword}{const}\&\ directory,\ std::string\ \textcolor{keyword}{const}\&\ fileExtension\ =\ \textcolor{stringliteral}{"{}.png"{}});}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ sf::Texture\&\ getTexture(std::string\ \textcolor{keyword}{const}\&\ textureId);}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ unloadTexture(std::string\ \textcolor{keyword}{const}\&\ textureId);}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }GameEngine::Asset}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager}{AssetManager}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ defaultTextureId;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager}{AssetManager}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_game_engine_1_1_asset_1_1_asset_manager}{AssetManager}}\&\ getInstance();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ sf::Texture\&\ getTexture(\textcolor{keyword}{const}\ std::string\&\ textureId);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ unloadTexture(\textcolor{keyword}{const}\ std::string\&\ textureId);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexture(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ std::string\&\ textureId);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexturesFromDirectories(\textcolor{keyword}{const}\ std::string\&\ directory,\ \textcolor{keyword}{const}\ std::string\&\ fileExtension\ =\ \textcolor{stringliteral}{"{}.png"{}});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>\ m\_textures;}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ loadTexture(std::string\ \textcolor{keyword}{const}\&\ path,\ std::string\ \textcolor{keyword}{const}\&\ textureId);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00038\ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>\ m\_textures;}
-\DoxyCodeLine{00039\ \ \ \};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Private\ function\ to\ check\ if\ the\ texture\ exists}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ textureExists(\textcolor{keyword}{const}\ std::string\&\ textureId)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ sf::Texture\&\ getTexture(\textcolor{keyword}{const}\ std::string\&\ textureId\ =\ AssetManager::defaultTextureId);}
+\DoxyCodeLine{00039\ }
 \DoxyCodeLine{00040\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::Asset::AssetManager}}
 
 \end{DoxyCode}

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: /Users/xavierv/Developer/EPITECH/R-Type/gameEngine/include/gameEngine/ecs/component/ComponentManager.hpp Source File</title>
+  <title>R-Type: gameEngine/include/gameEngine/ecs/component/ComponentManager.hpp Source File</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -189,59 +189,68 @@ $(document).ready(function(){initNavTree('_component_manager_8hpp_source.html','
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
 </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a77d8ce6749e38c7a553f7fd65de13a2e">   79</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a77d8ce6749e38c7a553f7fd65de13a2e">entityDestroyed</a>(Entity entity)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; pair : m_componentArrays) {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">auto</span> <span class="keyword">const</span>&amp; component = pair.second;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        component-&gt;entityDestroyed(entity);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      }</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#adbe47a344f35fd5b738c14fb314e35cb">   81</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#adbe47a344f35fd5b738c14fb314e35cb">hasComponent</a>(Entity entity)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      <span class="keywordflow">return</span> getComponentArray&lt;T&gt;()-&gt;hasEntity(entity);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
 </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34">   90</a></span>    std::unordered_map&lt;char const*, std::shared_ptr&lt;IComponentArray&gt;&gt; <a class="code hl_function" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34">getComponentsWithEntity</a>(Entity entity)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      std::unordered_map&lt;char const*, std::shared_ptr&lt;IComponentArray&gt;&gt; components;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; pair : m_componentArrays) {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">auto</span> <span class="keyword">const</span>&amp; component = pair.second;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">if</span> (component-&gt;hasEntity(entity)) {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>          components.insert({pair.first, component});</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        }</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      <span class="keywordflow">return</span> components;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a77d8ce6749e38c7a553f7fd65de13a2e">   88</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a77d8ce6749e38c7a553f7fd65de13a2e">entityDestroyed</a>(Entity entity)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; pair : m_componentArrays) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">auto</span> <span class="keyword">const</span>&amp; component = pair.second;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        component-&gt;entityDestroyed(entity);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
 </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>   <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    std::unordered_map&lt;char const*, ComponentType&gt; m_componentTypes {};</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    std::unordered_map&lt;char const*, std::shared_ptr&lt;IComponentArray&gt;&gt; m_componentArrays {};</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    ComponentType m_nextComponentType {};</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    std::shared_ptr&lt;ComponentArray&lt;T&gt;&gt; getComponentArray()</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <span class="keywordtype">char</span> <span class="keyword">const</span>* typeName = <span class="keyword">typeid</span>(T).name();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34">   99</a></span>    std::unordered_map&lt;char const*, std::shared_ptr&lt;IComponentArray&gt;&gt; <a class="code hl_function" href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34">getComponentsWithEntity</a>(Entity entity)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      std::unordered_map&lt;char const*, std::shared_ptr&lt;IComponentArray&gt;&gt; components;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; pair : m_componentArrays) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keyword">auto</span> <span class="keyword">const</span>&amp; component = pair.second;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">if</span> (component-&gt;hasEntity(entity)) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>          components.insert({pair.first, component});</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>      <span class="keywordflow">return</span> components;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>   <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::unordered_map&lt;char const*, ComponentType&gt; m_componentTypes {};</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>      assert(</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        m_componentTypes.find(typeName) != m_componentTypes.end() &amp;&amp;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="stringliteral">&quot;ComponentRType not registered before use.&quot;</span>);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::unordered_map&lt;char const*, std::shared_ptr&lt;IComponentArray&gt;&gt; m_componentArrays {};</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    ComponentType m_nextComponentType {};</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <span class="keywordflow">return</span> std::static_pointer_cast&lt;ComponentArray&lt;T&gt;&gt;(m_componentArrays[typeName]);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  };</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    std::shared_ptr&lt;ComponentArray&lt;T&gt;&gt; getComponentArray()</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="keywordtype">char</span> <span class="keyword">const</span>* typeName = <span class="keyword">typeid</span>(T).name();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      assert(</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        m_componentTypes.find(typeName) != m_componentTypes.end() &amp;&amp;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="stringliteral">&quot;ComponentRType not registered before use.&quot;</span>);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      <span class="keywordflow">return</span> std::static_pointer_cast&lt;ComponentArray&lt;T&gt;&gt;(m_componentArrays[typeName]);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  };</div>
 </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>}; <span class="comment">// namespace GameEngine::ECS</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}; <span class="comment">// namespace GameEngine::ECS</span></div>
 <div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html">GameEngine::ECS::ComponentManager</a></div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:18</div></div>
 <div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_a2603a9fde278f9686f9f0aa03364b5e8"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a2603a9fde278f9686f9f0aa03364b5e8">GameEngine::ECS::ComponentManager::registerComponent</a></div><div class="ttdeci">void registerComponent()</div><div class="ttdoc">Registers a new component type.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:22</div></div>
 <div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_a3c6e8e4441033d1b111f325b0d7b402b"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a3c6e8e4441033d1b111f325b0d7b402b">GameEngine::ECS::ComponentManager::addComponent</a></div><div class="ttdeci">void addComponent(Entity entity, T component)</div><div class="ttdoc">Adds a component to an entity.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:54</div></div>
-<div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_a77d8ce6749e38c7a553f7fd65de13a2e"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a77d8ce6749e38c7a553f7fd65de13a2e">GameEngine::ECS::ComponentManager::entityDestroyed</a></div><div class="ttdeci">void entityDestroyed(Entity entity)</div><div class="ttdoc">Notifies the component arrays that an entity has been destroyed.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:79</div></div>
+<div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_a77d8ce6749e38c7a553f7fd65de13a2e"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a77d8ce6749e38c7a553f7fd65de13a2e">GameEngine::ECS::ComponentManager::entityDestroyed</a></div><div class="ttdeci">void entityDestroyed(Entity entity)</div><div class="ttdoc">Notifies the component arrays that an entity has been destroyed.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:88</div></div>
 <div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_a7e56e2c36fa9b19c916d958334c5e7d7"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#a7e56e2c36fa9b19c916d958334c5e7d7">GameEngine::ECS::ComponentManager::getComponent</a></div><div class="ttdeci">T &amp; getComponent(Entity entity)</div><div class="ttdoc">Retrieves a reference to an entity's component.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:72</div></div>
 <div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_aaac9ecf193ba6bc59cc52b25beb10bb5"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#aaac9ecf193ba6bc59cc52b25beb10bb5">GameEngine::ECS::ComponentManager::getComponentType</a></div><div class="ttdeci">ComponentType getComponentType()</div><div class="ttdoc">Retrieves the type ID of a component.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:38</div></div>
 <div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_ad03af05b8b06641558f112373102420f"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ad03af05b8b06641558f112373102420f">GameEngine::ECS::ComponentManager::removeComponent</a></div><div class="ttdeci">void removeComponent(Entity entity)</div><div class="ttdoc">Removes a component from an entity.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:63</div></div>
-<div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_ae3a5827a5c28371ee5cfe58938fc1b34"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34">GameEngine::ECS::ComponentManager::getComponentsWithEntity</a></div><div class="ttdeci">std::unordered_map&lt; char const *, std::shared_ptr&lt; IComponentArray &gt; &gt; getComponentsWithEntity(Entity entity)</div><div class="ttdoc">Retrieves all components associated with a specific entity.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:90</div></div>
+<div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_adbe47a344f35fd5b738c14fb314e35cb"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#adbe47a344f35fd5b738c14fb314e35cb">GameEngine::ECS::ComponentManager::hasComponent</a></div><div class="ttdeci">bool hasComponent(Entity entity)</div><div class="ttdoc">Retrieves if a component reference exist to an entity's.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:81</div></div>
+<div class="ttc" id="aclass_game_engine_1_1_e_c_s_1_1_component_manager_html_ae3a5827a5c28371ee5cfe58938fc1b34"><div class="ttname"><a href="class_game_engine_1_1_e_c_s_1_1_component_manager.html#ae3a5827a5c28371ee5cfe58938fc1b34">GameEngine::ECS::ComponentManager::getComponentsWithEntity</a></div><div class="ttdeci">std::unordered_map&lt; char const *, std::shared_ptr&lt; IComponentArray &gt; &gt; getComponentsWithEntity(Entity entity)</div><div class="ttdoc">Retrieves all components associated with a specific entity.</div><div class="ttdef"><b>Definition</b> ComponentManager.hpp:99</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

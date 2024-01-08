@@ -68,7 +68,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "./technical"
+OUTPUT_DIRECTORY       = "./docs/technical"
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -943,9 +943,9 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ../server ../client ../gameEngine ../network
+INPUT                  = ./server ./client ./gameEngine ./network
 INPUT                  += docs/technical/README.md
-USE_MDFILE_AS_MAINPAGE = doc/technical/README.md
+USE_MDFILE_AS_MAINPAGE = docs/technical/README.md
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1319,7 +1319,7 @@ HTML_FILE_EXTENSION    = .html
 # of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_HEADER            = technical/header.html
+HTML_HEADER            = docs/technical/header.html
 
 # The HTML_FOOTER tag can be used to specify a user-defined HTML footer for each
 # generated HTML page. If the tag is left blank doxygen will generate a standard
@@ -1359,9 +1359,9 @@ HTML_STYLESHEET        =
 # documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET  = ./technical/doxygen-awesome-css/doxygen-awesome.css \
-                         ./technical/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
-                         ./technical/doxygen-awesome-sidebar-only-darkmode-toggle.css
+HTML_EXTRA_STYLESHEET  = ./docs/technical/doxygen-awesome-css/doxygen-awesome.css \
+                         ./docs/technical/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
+                         ./docs/technical/doxygen-awesome-sidebar-only-darkmode-toggle.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note

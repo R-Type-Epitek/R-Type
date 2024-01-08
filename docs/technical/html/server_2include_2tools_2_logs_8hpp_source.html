@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: /Users/xavierv/Developer/EPITECH/R-Type/server/include/tools/Logs.hpp Source File</title>
+  <title>R-Type: server/include/tools/Logs.hpp Source File</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -119,9 +119,15 @@ $(document).ready(function(){initNavTree('server_2include_2tools_2_logs_8hpp_sou
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;RTypeNetwork.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> logMessage(std::string prefix, <a class="code hl_struct" href="struct_message.html">Message</a> *message, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> logResponse(std::string prefix, <a class="code hl_struct" href="struct_response.html">Response</a> *response, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span> logTimedMessage(std::string prefix, <a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> timedMessage, <a class="code hl_struct" href="struct_response.html">Response</a> response, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> logMessage(std::string prefix, <a class="code hl_struct" href="struct_message.html">Message</a> *message, <a class="code hl_class" href="class_network_1_1_client.html">Network::Client</a> client, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> logResponse(std::string prefix, <a class="code hl_struct" href="struct_response.html">Response</a> *response, <a class="code hl_class" href="class_network_1_1_client.html">Network::Client</a> client, <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span> logTimedMessage(</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  std::string prefix,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <a class="code hl_struct" href="struct_timed_message.html">TimedMessage</a> timedMessage,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <a class="code hl_struct" href="struct_response.html">Response</a> response,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <a class="code hl_class" href="class_network_1_1_client.html">Network::Client</a> client,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> width = 20);</div>
+<div class="ttc" id="aclass_network_1_1_client_html"><div class="ttname"><a href="class_network_1_1_client.html">Network::Client</a></div><div class="ttdoc">Represents a network client.</div><div class="ttdef"><b>Definition</b> Client.hpp:18</div></div>
 <div class="ttc" id="astruct_message_html"><div class="ttname"><a href="struct_message.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition</b> Messages.hpp:31</div></div>
 <div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:19</div></div>
 <div class="ttc" id="astruct_timed_message_html"><div class="ttname"><a href="struct_timed_message.html">TimedMessage</a></div><div class="ttdoc">Used to represent a message with a timestamp.</div><div class="ttdef"><b>Definition</b> UDPServer.hpp:17</div></div>

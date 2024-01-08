@@ -84,6 +84,7 @@ namespace Client
   void Client::link()
   {
     spdlog::info("Linking Everything to GUI...");
+    m_gui->setFrameRate(60);
     m_gui->subscribeUpdate([this](GameEngine::UI::WindowContext& ctx) {
       this->update(ctx);
     });
@@ -124,8 +125,8 @@ namespace Client
     }
 
     try {
-      auto system = registry.getSystem<GameEngine::System::Move>();
-      system->update(registry);
+      auto sysMove = registry.getSystem<GameEngine::System::Move>();
+      sysMove->updateClient(registry);
 
     } catch (const std::exception& e) {
       spdlog::error("[Client Event] Error: {}", e.what());

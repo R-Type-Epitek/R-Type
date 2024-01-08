@@ -40,7 +40,7 @@ namespace GameEngine::UI
     void update();
 
    private:
-    void handleEvent();
+    bool handleEvent();
     void onResize();
     void invokeClosure(ClosureType closure);
 

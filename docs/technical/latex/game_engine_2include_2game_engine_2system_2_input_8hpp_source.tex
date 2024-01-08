@@ -1,0 +1,70 @@
+\doxysection{Input.\+hpp}
+\hypertarget{game_engine_2include_2game_engine_2system_2_input_8hpp_source}{}\label{game_engine_2include_2game_engine_2system_2_input_8hpp_source}\index{gameEngine/include/gameEngine/system/Input.hpp@{gameEngine/include/gameEngine/system/Input.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ raphael\ on\ 1/4/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gameEngine/UI/Window.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}gameEngine/constants/Keybinds.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/NetworkedEntity.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}gameEngine/component/Position.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}gameEngine/ecs/system/System.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}IUpdateSystem.hpp"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }GameEngine::System}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_engine_1_1_system_1_1_input}{Input}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_system}{GameEngine::ECS::System}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_registry}{GameEngine::ECS::Registry}}\&\ registry,\ \textcolor{keywordtype}{size\_t}\ playerId,\ GameEngine::Keybinds\ eventKey)}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ componentManager\ =\ registry.getComponentManager();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ entity\ :\ m\_entities)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ compId\ =\ componentManager-\/>getComponent<\mbox{\hyperlink{struct_component_r_type_1_1_networked_entity}{ComponentRType::NetworkedEntity}}>(entity);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (compId.id\ ==\ playerId)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ dispatchEvent(*componentManager,\ entity,\ eventKey);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dispatchEvent(}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager}{GameEngine::ECS::ComponentManager}}\&\ componentManager,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \textcolor{keyword}{const}\ GameEngine::ECS::Entity\&\ entity,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ GameEngine::Keybinds\ eventKey)}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ transform\ =\ componentManager.\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<\mbox{\hyperlink{struct_component_r_type_1_1_transform}{ComponentRType::Transform}}>(entity);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ speed\ =\ transform.speed;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (eventKey)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ GameEngine::Keybinds::Up:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ transform.movement\ =\ sf::Vector2f(0,\ -\/speed);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ GameEngine::Keybinds::Down:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ transform.movement\ =\ sf::Vector2f(0,\ speed);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ GameEngine::Keybinds::Left:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ transform.movement\ =\ sf::Vector2f(-\/speed,\ 0);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ GameEngine::Keybinds::Right:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ transform.movement\ =\ sf::Vector2f(speed,\ 0);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ GameEngine::Keybinds::Space:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ pressSpace(componentManager,\ entity);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ transform.movement\ =\ sf::Vector2f(0,\ 0);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ pressSpace(\mbox{\hyperlink{class_game_engine_1_1_e_c_s_1_1_component_manager}{GameEngine::ECS::ComponentManager}}\&,\ \textcolor{keyword}{const}\ GameEngine::ECS::Entity\&)\ \{\};}
+\DoxyCodeLine{00063\ \ \ \};}
+\DoxyCodeLine{00064\ \}\ \textcolor{comment}{//\ namespace\ GameEngine::System}}
+
+\end{DoxyCode}

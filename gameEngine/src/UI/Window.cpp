@@ -53,26 +53,29 @@ namespace GameEngine::UI
   void Window::launch()
   {
     while (m_windowContext.window.isOpen()) {
-      handleEvent();
-      if (!m_windowContext.window.isOpen())
+      if (!handleEvent()) {
         return;
+      }
       update();
     }
   }
 
-  void Window::handleEvent()
+  bool Window::handleEvent()
   {
     while (m_windowContext.window.pollEvent(m_windowContext.event)) {
       invokeClosure(m_closureEvent);
       switch (m_windowContext.event.type) {
         case sf::Event::Closed:
-          return m_windowContext.window.close();
+          m_windowContext.window.close();
+          return false;
         case sf::Event::Resized:
-          return this->onResize();
+          this->onResize();
+          return true;
         default:
-          break;
+          return true;
       }
     }
+    return true;
   }
 
   void Window::onResize()

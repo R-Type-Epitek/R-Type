@@ -1,5 +1,5 @@
 \doxysection{Rtype\+Game.\+hpp}
-\hypertarget{_rtype_game_8hpp_source}{}\label{_rtype_game_8hpp_source}\index{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/game/rtype/RtypeGame.hpp@{/Users/xavierv/Developer/EPITECH/R-\/Type/server/include/game/rtype/RtypeGame.hpp}}
+\hypertarget{_rtype_game_8hpp_source}{}\label{_rtype_game_8hpp_source}\index{server/include/game/rtype/RtypeGame.hpp@{server/include/game/rtype/RtypeGame.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
@@ -7,9 +7,9 @@
 \DoxyCodeLine{00003\ \textcolor{comment}{//}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../IGame.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}game/IGame.hpp"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RtypeScene.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}game/IGame.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }Server::Game}
 \DoxyCodeLine{00011\ \{}
@@ -19,17 +19,23 @@
 \DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{RtypeGame}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{\string~RtypeGame}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{RtypeGame}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{RtypeGame}}\&\ other)}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{RtypeGame}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_game}{RtypeGame}}\ \&)}
 \DoxyCodeLine{00019\ \ \ \ \ \{}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ (void)other;}
-\DoxyCodeLine{00021\ \ \ \ \ \}}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ load()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ load()\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00023\ }
 \DoxyCodeLine{00024\ \ \ \ \ std::vector<std::vector<char>>\ getEntities()\ \textcolor{keyword}{final};}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_scene}{Server::Game::RtypeScene}}\ m\_scene;}
-\DoxyCodeLine{00028\ \ \ \};}
-\DoxyCodeLine{00029\ \}\ \textcolor{comment}{//\ namespace\ Server::Game}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ pushEvent(\mbox{\hyperlink{class_event}{Event}}\ event,\ \mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}}\ player)\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ eventConnect(\mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}}\ \&player);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ eventDisconnect(\mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}}\ \&player);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ eventInput(\mbox{\hyperlink{struct_server_1_1_game_1_1_player}{Player}}\ \&player);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_server_1_1_game_1_1_rtype_scene}{Server::Game::RtypeScene}}\ m\_scene;}
+\DoxyCodeLine{00034\ \ \ \};}
+\DoxyCodeLine{00035\ \}\ \textcolor{comment}{//\ namespace\ Server::Game}}
 
 \end{DoxyCode}

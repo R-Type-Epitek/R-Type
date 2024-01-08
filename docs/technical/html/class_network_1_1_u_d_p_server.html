@@ -174,6 +174,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a296cd50ace6d20256e4a94290bf1b4" id="r_a9a296cd50ace6d20256e4a94290bf1b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a9a296cd50ace6d20256e4a94290bf1b4">sendToAllClientsInRoom</a> (boost::asio::const_buffer const &amp;buffer, int roomId)</td></tr>
 <tr class="memdesc:a9a296cd50ace6d20256e4a94290bf1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all clients in a room.  <br /></td></tr>
 <tr class="separator:a9a296cd50ace6d20256e4a94290bf1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c3186c7dcf335536c43e4d1564ee0e0" id="r_a4c3186c7dcf335536c43e4d1564ee0e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a4c3186c7dcf335536c43e4d1564ee0e0">sendToAllClientsInRoomInGame</a> (boost::asio::const_buffer const &amp;buffer, int roomId)</td></tr>
+<tr class="memdesc:a4c3186c7dcf335536c43e4d1564ee0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all clients in a room in game.  <br /></td></tr>
+<tr class="separator:a4c3186c7dcf335536c43e4d1564ee0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c2f0877b54c60de4ca0a2d21696ba93" id="r_a9c2f0877b54c60de4ca0a2d21696ba93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_1_1_u_d_p_server.html#a9c2f0877b54c60de4ca0a2d21696ba93">sendToClient</a> (boost::asio::const_buffer const &amp;buffer, int id)</td></tr>
 <tr class="memdesc:a9c2f0877b54c60de4ca0a2d21696ba93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to a specific client.  <br /></td></tr>
 <tr class="separator:a9c2f0877b54c60de4ca0a2d21696ba93"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1029,6 +1032,44 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>roomsMutex</b><
 
 </div>
 </div>
+<a id="a4c3186c7dcf335536c43e4d1564ee0e0" name="a4c3186c7dcf335536c43e4d1564ee0e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c3186c7dcf335536c43e4d1564ee0e0">&#9670;&#160;</a></span>sendToAllClientsInRoomInGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::sendToAllClientsInRoomInGame </td>
+          <td>(</td>
+          <td class="paramtype">boost::asio::const_buffer const &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>roomId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send data to all clients in a room in game. </p>
+<p>Send the specified data to all clients in the room with the specified ID that are in game.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>boost::asio::const_buffer containing the data to send. </td></tr>
+    <tr><td class="paramname">roomId</td><td>Integer specifying the ID of the room to send the data to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a9c2f0877b54c60de4ca0a2d21696ba93" name="a9c2f0877b54c60de4ca0a2d21696ba93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c2f0877b54c60de4ca0a2d21696ba93">&#9670;&#160;</a></span>sendToClient()</h2>
 
@@ -1155,8 +1196,8 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>roomsMutex</b><
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/server/include/<a class="el" href="_u_d_p_server_8hpp_source.html">UDPServer.hpp</a></li>
-<li>/Users/xavierv/Developer/EPITECH/R-Type/server/src/<b>UDPServer.cpp</b></li>
+<li>server/include/<a class="el" href="_u_d_p_server_8hpp_source.html">UDPServer.hpp</a></li>
+<li>server/src/<b>UDPServer.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

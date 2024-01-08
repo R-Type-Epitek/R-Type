@@ -71,9 +71,6 @@ jobs:
 
       - name: Run tests
         run: |
-          ls -la
-          ls -la builds
-          ls -la builds/ninja-multi-vcpkg
           cd builds/ninja-multi-vcpkg/server && ctest
 
   push_to_mirror:

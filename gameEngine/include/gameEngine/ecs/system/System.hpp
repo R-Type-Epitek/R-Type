@@ -15,5 +15,5 @@ namespace GameEngine::ECS
 
     std::set<Entity> m_entities {};
   };
-  
+
 } // namespace GameEngine::ECS
