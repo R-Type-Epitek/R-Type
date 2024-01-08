@@ -3,8 +3,12 @@ var annotated_dup =
     [ "Introduction", "md_docs_technical_README.html#autotoc_md1", null ],
     [ "Installation Guide", "md_docs_technical_README.html#autotoc_md2", null ],
     [ "Project Structure", "md_docs_technical_README.html#autotoc_md3", null ],
-    [ "Support and Contributions", "md_docs_technical_README.html#autotoc_md4", null ],
-    [ "Conclusion", "md_docs_technical_README.html#autotoc_md5", null ],
+    [ "Server / Client Protocol", "md_docs_technical_README.html#autotoc_md4", [
+      [ "Server to Client Messages", "md_docs_technical_README.html#autotoc_md5", null ],
+      [ "Client to Server Messages", "md_docs_technical_README.html#autotoc_md6", null ]
+    ] ],
+    [ "Support and Contributions", "md_docs_technical_README.html#autotoc_md7", null ],
+    [ "Conclusion", "md_docs_technical_README.html#autotoc_md8", null ],
     [ "Client", null, [
       [ "Scene", null, [
         [ "SceneManager", "classClient_1_1Scene_1_1SceneManager.html", "classClient_1_1Scene_1_1SceneManager" ]

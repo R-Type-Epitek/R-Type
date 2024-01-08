@@ -125,8 +125,12 @@ $(document).ready(function(){initNavTree('md_docs_technical_README.html',''); in
 <ul><ul><li class="level2"><a href="#autotoc_md1">Introduction</a></li>
 <li class="level2"><a href="#autotoc_md2">Installation Guide</a></li>
 <li class="level2"><a href="#autotoc_md3">Project Structure</a></li>
-<li class="level2"><a href="#autotoc_md4">Support and Contributions</a></li>
-<li class="level2"><a href="#autotoc_md5">Conclusion</a></li>
+<li class="level2"><a href="#autotoc_md4">Server / Client Protocol</a><ul><li class="level3"><a href="#autotoc_md5">Server to Client Messages</a></li>
+<li class="level3"><a href="#autotoc_md6">Client to Server Messages</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md7">Support and Contributions</a></li>
+<li class="level2"><a href="#autotoc_md8">Conclusion</a></li>
 </ul>
 </ul>
 </div>
@@ -142,17 +146,109 @@ Project Structure</h2>
 <p>Our project is structured into three main components, each serving a unique purpose in the overall functionality of the software.</p>
 <ol type="1">
 <li><b>The ECS (Entity Component System):</b> This part focuses on handling the data processing and logic of the software.</li>
-<li><b>The Server:</b> Responsible for managing the backend processes, the server can be launched using the command: <div class="fragment"><div class="line">./r-type_server</div>
-</div><!-- fragment --></li>
+<li><b>The Server:</b> Responsible for managing the backend processes, the server can be launched using the command:</li>
 </ol>
-<ol type="1">
-<li><b>The Client:</b> The user interface and interaction component of our software. Start the client using: <div class="fragment"><div class="line">./r-type_client</div>
-</div><!-- fragment --></li>
+<div class="fragment"><div class="line">./r-type_server</div>
+</div><!-- fragment --><ol type="1">
+<li><b>The Client:</b> The user interface and interaction component of our software. Start the client using:</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<div class="fragment"><div class="line">./r-type_client</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+Server / Client Protocol</h2>
+<p>The server and client communicate using a custom protocol. The protocol is based on the UDP protocol and is designed to be lightweight and efficient. The UDP is optimized for speed and is ideal for our use case. The protocol is designed to be as simple as possible, with a minimal number of messages and fields. The protocol is designed to be as simple as possible, with a minimal number of messages and fields. The data is serialized to optimize the transmission speed and reduce the size of the packets.</p>
+<p>The server and the clients communicate using a custom protocol. The protocol uses two main types of messages:</p>
+<ul>
+<li><a class="el" href="structMessage.html" title="Structure representing a complete network message.">Message</a></li>
+<li><a class="el" href="structResponse.html" title="Structure representing a complete network message.">Response</a></li>
+</ul>
+<p>Here is the structure of a <b>message</b>:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span><a class="code" href="structMessageHeader.html">MessageHeader</a> {</div>
+<div class="line">  <span class="keywordtype">int</span> <a class="code" href="structMessageHeader.html#a705418d85961d98b6f84f4fba9f9f799">clientId</a>;</div>
+<div class="line">  <span class="keywordtype">char</span> <a class="code" href="structMessageHeader.html#a19f672c6735d819940166a11e25a321b">command</a>[32];</div>
+<div class="line">  <span class="keywordtype">int</span> <a class="code" href="structMessageHeader.html#a10ba7181decd6d343b3ebca9548a8b46">commandId</a>;</div>
+<div class="line">  uint32_t <a class="code" href="structMessageHeader.html#ac81cf10687f6cf52e454e4dec5a5cd6e">dataLength</a>;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span><a class="code" href="structMessage.html">Message</a> {</div>
+<div class="line">  MessageType <a class="code" href="structMessage.html#a6fc78df47d3755e088e7c658db565fc5">type</a> = MessageType::Message;</div>
+<div class="line">  <a class="code" href="structMessageHeader.html">MessageHeader</a> <a class="code" href="structMessage.html#a704863f3c71f270459d015102d61f7c8">header</a>;</div>
+<div class="line">  <span class="keywordtype">char</span> <a class="code" href="structMessage.html#ae5226de4e2ee84b6813ae068bcccc211">data</a>[];</div>
+<div class="line">};</div>
+<div class="ttc" id="astructMessageHeader_html"><div class="ttname"><a href="structMessageHeader.html">MessageHeader</a></div><div class="ttdoc">Structure representing the header of a network message.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:17</div></div>
+<div class="ttc" id="astructMessageHeader_html_a10ba7181decd6d343b3ebca9548a8b46"><div class="ttname"><a href="structMessageHeader.html#a10ba7181decd6d343b3ebca9548a8b46">MessageHeader::commandId</a></div><div class="ttdeci">int commandId</div><div class="ttdoc">Unique identifier for the command.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:20</div></div>
+<div class="ttc" id="astructMessageHeader_html_a19f672c6735d819940166a11e25a321b"><div class="ttname"><a href="structMessageHeader.html#a19f672c6735d819940166a11e25a321b">MessageHeader::command</a></div><div class="ttdeci">char command[32]</div><div class="ttdoc">Command type in ASCII format.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:19</div></div>
+<div class="ttc" id="astructMessageHeader_html_a705418d85961d98b6f84f4fba9f9f799"><div class="ttname"><a href="structMessageHeader.html#a705418d85961d98b6f84f4fba9f9f799">MessageHeader::clientId</a></div><div class="ttdeci">int clientId</div><div class="ttdoc">Unique identifier for the client.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:18</div></div>
+<div class="ttc" id="astructMessageHeader_html_ac81cf10687f6cf52e454e4dec5a5cd6e"><div class="ttname"><a href="structMessageHeader.html#ac81cf10687f6cf52e454e4dec5a5cd6e">MessageHeader::dataLength</a></div><div class="ttdeci">uint32_t dataLength</div><div class="ttdoc">Length of the following data in bytes.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:21</div></div>
+<div class="ttc" id="astructMessage_html"><div class="ttname"><a href="structMessage.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:31</div></div>
+<div class="ttc" id="astructMessage_html_a6fc78df47d3755e088e7c658db565fc5"><div class="ttname"><a href="structMessage.html#a6fc78df47d3755e088e7c658db565fc5">Message::type</a></div><div class="ttdeci">MessageType type</div><div class="ttdoc">Type of the message.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:32</div></div>
+<div class="ttc" id="astructMessage_html_a704863f3c71f270459d015102d61f7c8"><div class="ttname"><a href="structMessage.html#a704863f3c71f270459d015102d61f7c8">Message::header</a></div><div class="ttdeci">MessageHeader header</div><div class="ttdoc">Header of the message.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:33</div></div>
+<div class="ttc" id="astructMessage_html_ae5226de4e2ee84b6813ae068bcccc211"><div class="ttname"><a href="structMessage.html#ae5226de4e2ee84b6813ae068bcccc211">Message::data</a></div><div class="ttdeci">char data[]</div><div class="ttdoc">Variable-length data payload.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:34</div></div>
+</div><!-- fragment --><p>Here is the structure of a <b>response</b>:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span><a class="code" href="structResponseHeader.html">ResponseHeader</a> {</div>
+<div class="line">  <span class="keywordtype">int</span> <a class="code" href="structResponseHeader.html#ad4e2006d15648172d22b8d20b3ef4620">clientId</a>;</div>
+<div class="line">  <span class="keywordtype">char</span> <a class="code" href="structResponseHeader.html#a00075c0555fe33707c7ceda8dd4c9b4a">command</a>[32];</div>
+<div class="line">  <span class="keywordtype">int</span> <a class="code" href="structResponseHeader.html#a9e04618b99646057fcb4a936ff040010">commandId</a>;</div>
+<div class="line">  uint32_t <a class="code" href="structResponseHeader.html#a296b49d4a863241ed16882995986f977">dataLength</a>;</div>
+<div class="line">  <span class="keywordtype">int</span> <a class="code" href="structResponseHeader.html#adb599931da8f178e612807762eab84d1">status</a>;</div>
+<div class="line">  <span class="keywordtype">char</span> <a class="code" href="structResponseHeader.html#a4c2e15ad2d4f5b30f2802dfc3f9e1ceb">statusMessage</a>[128];</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span><a class="code" href="structResponse.html">Response</a> {</div>
+<div class="line">  MessageType <a class="code" href="structResponse.html#a08ce134a630bc34de033eb6e0f10255e">type</a> = MessageType::Message; </div>
+<div class="line">  <a class="code" href="structResponseHeader.html">ResponseHeader</a> <a class="code" href="structResponse.html#a60f46003fc199ff082e72cb0c0aa5d00">header</a>;</div>
+<div class="line">  <span class="keywordtype">char</span> <a class="code" href="structResponse.html#abb5c2eaf9db838a63d3f830a75c5804b">data</a>[];</div>
+<div class="line">};</div>
+<div class="ttc" id="astructResponseHeader_html"><div class="ttname"><a href="structResponseHeader.html">ResponseHeader</a></div><div class="ttdoc">Structure representing the header of a network message.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:18</div></div>
+<div class="ttc" id="astructResponseHeader_html_a00075c0555fe33707c7ceda8dd4c9b4a"><div class="ttname"><a href="structResponseHeader.html#a00075c0555fe33707c7ceda8dd4c9b4a">ResponseHeader::command</a></div><div class="ttdeci">char command[32]</div><div class="ttdoc">Command type in ASCII format.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:20</div></div>
+<div class="ttc" id="astructResponseHeader_html_a296b49d4a863241ed16882995986f977"><div class="ttname"><a href="structResponseHeader.html#a296b49d4a863241ed16882995986f977">ResponseHeader::dataLength</a></div><div class="ttdeci">uint32_t dataLength</div><div class="ttdoc">Length of the following data in bytes.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:22</div></div>
+<div class="ttc" id="astructResponseHeader_html_a4c2e15ad2d4f5b30f2802dfc3f9e1ceb"><div class="ttname"><a href="structResponseHeader.html#a4c2e15ad2d4f5b30f2802dfc3f9e1ceb">ResponseHeader::statusMessage</a></div><div class="ttdeci">char statusMessage[128]</div><div class="ttdoc">Status message of the command.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:24</div></div>
+<div class="ttc" id="astructResponseHeader_html_a9e04618b99646057fcb4a936ff040010"><div class="ttname"><a href="structResponseHeader.html#a9e04618b99646057fcb4a936ff040010">ResponseHeader::commandId</a></div><div class="ttdeci">int commandId</div><div class="ttdoc">Unique identifier for the command.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:21</div></div>
+<div class="ttc" id="astructResponseHeader_html_ad4e2006d15648172d22b8d20b3ef4620"><div class="ttname"><a href="structResponseHeader.html#ad4e2006d15648172d22b8d20b3ef4620">ResponseHeader::clientId</a></div><div class="ttdeci">int clientId</div><div class="ttdoc">Unique identifier for the client.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:19</div></div>
+<div class="ttc" id="astructResponseHeader_html_adb599931da8f178e612807762eab84d1"><div class="ttname"><a href="structResponseHeader.html#adb599931da8f178e612807762eab84d1">ResponseHeader::status</a></div><div class="ttdeci">int status</div><div class="ttdoc">Status of the command.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:23</div></div>
+<div class="ttc" id="astructResponse_html"><div class="ttname"><a href="structResponse.html">Response</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:34</div></div>
+<div class="ttc" id="astructResponse_html_a08ce134a630bc34de033eb6e0f10255e"><div class="ttname"><a href="structResponse.html#a08ce134a630bc34de033eb6e0f10255e">Response::type</a></div><div class="ttdeci">MessageType type</div><div class="ttdoc">Type of the response.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:35</div></div>
+<div class="ttc" id="astructResponse_html_a60f46003fc199ff082e72cb0c0aa5d00"><div class="ttname"><a href="structResponse.html#a60f46003fc199ff082e72cb0c0aa5d00">Response::header</a></div><div class="ttdeci">ResponseHeader header</div><div class="ttdoc">Header of the response.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:36</div></div>
+<div class="ttc" id="astructResponse_html_abb5c2eaf9db838a63d3f830a75c5804b"><div class="ttname"><a href="structResponse.html#abb5c2eaf9db838a63d3f830a75c5804b">Response::data</a></div><div class="ttdeci">char data[]</div><div class="ttdoc">Variable-length data payload.</div><div class="ttdef"><b>Definition:</b> Responses.hpp:37</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
+Server to Client Messages</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Data    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>/update_game</code>   </td><td class="markdownTableBodyNone">This command is sent automatically every 500ms when a room has the state RUNNING.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
+The data is a <code>std::vector&lt;std::vector&lt;char&gt;&gt;</code> serialized in binary and contains the entities and theirs components. (number of bytes defined in the message header)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>/check_connection</code>   </td><td class="markdownTableBodyNone">This command is sent automatically to a client, if the server has not received message from him in the last second.   </td><td class="markdownTableBodyNone"></td></tr>
+</table>
+<p>| <code>/client_disconnected</code> | This command is sent to all the players in the same room than the disconnected client when a client has disconnected. | <code>struct <a class="el" href="structServerClientDisconnectedData.html">ServerClientDisconnectedData</a> {int clientId;}</code> (8 bytes: defined in the message header) | |</p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Client to Server Messages</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Description   </th><th class="markdownTableHeadNone">Data    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>/connect</code>   </td><td class="markdownTableBodyNone">The client sent this command to the server when he wants to connect. <br  />
+<br  />
+The server will then generate an id and send it back to the client.   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>/update_name</code>   </td><td class="markdownTableBodyNone">This client send this command to the server to update his name.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
+The data is a <code>struct SendNameData {char name[32];}</code> (8 bytes: defined in the message header)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>/join_room</code>   </td><td class="markdownTableBodyNone">The client send this command to the server to join a room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
+The data is a <code>struct <a class="el" href="structJoinRoomData.html" title="Structure for data related to a &#39;Join Room&#39; command.">JoinRoomData</a> {int room_id;};</code> (8 bytes: defined in the message header)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>/input</code>   </td><td class="markdownTableBodyNone">The client send this command when he moves.   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>/join_game</code>   </td><td class="markdownTableBodyNone">The client send this command when he wants to start the game in his current room.<br  />
+The game will then start and the client will join the running game.<br  />
+<br  />
+If the game is already running, the client will only join the room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
+The data is a <code>struct <a class="el" href="structJoinGameData.html" title="Structure for data related to a &#39;Join Game&#39; command.">JoinGameData</a> {int room_id;};</code> (8 bytes: defined in the message header)   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Support and Contributions</h2>
 <p>For any assistance, queries, or contributions, please refer to our support guidelines or contact our team. We welcome contributions and feedback to improve the project.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Conclusion</h2>
 <p>We hope this documentation provides a clear understanding of our project and assists you in its effective utilization. Thank you for choosing our software.</p>
 <div class="section_buttons"></div><div class="section_buttons"><table class="markdownTable">

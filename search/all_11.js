@@ -33,6 +33,8 @@ var searchData=
   ['sfmltexture_183',['SfmlTexture',['../classSfmlTexture.html',1,'']]],
   ['startclienttimercheck_184',['startClientTimerCheck',['../classNetwork_1_1UDPServer.html#ace11e347c4bfbad29bfe8d1cb6f2bba2',1,'Network::UDPServer']]],
   ['startreceive_185',['startReceive',['../classNetwork_1_1UDPServer.html#ac2a6fa9962f244fd7ba8578d89296874',1,'Network::UDPServer::startReceive()'],['../classClient_1_1Network.html#ab0adb2e5baaca04802dd5b2a99e2599c',1,'Client::Network::startReceive()']]],
-  ['system_186',['System',['../classGameEngine_1_1ECS_1_1System.html',1,'GameEngine::ECS']]],
-  ['systemmanager_187',['SystemManager',['../classGameEngine_1_1ECS_1_1SystemManager.html',1,'GameEngine::ECS']]]
+  ['status_186',['status',['../structResponseHeader.html#adb599931da8f178e612807762eab84d1',1,'ResponseHeader']]],
+  ['statusmessage_187',['statusMessage',['../structResponseHeader.html#a4c2e15ad2d4f5b30f2802dfc3f9e1ceb',1,'ResponseHeader']]],
+  ['system_188',['System',['../classGameEngine_1_1ECS_1_1System.html',1,'GameEngine::ECS']]],
+  ['systemmanager_189',['SystemManager',['../classGameEngine_1_1ECS_1_1SystemManager.html',1,'GameEngine::ECS']]]
 ];

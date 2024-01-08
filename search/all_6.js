@@ -5,5 +5,5 @@ var searchData=
   ['handlesend_72',['handleSend',['../classNetwork_1_1UDPServer.html#a7d721dae9793f447e2199f8780096e53',1,'Network::UDPServer::handleSend()'],['../classClient_1_1Network.html#aa433394ccb8d01696e30252eec870e66',1,'Client::Network::handleSend()']]],
   ['hascomponent_73',['hasComponent',['../classGameEngine_1_1ECS_1_1ComponentManager.html#adbe47a344f35fd5b738c14fb314e35cb',1,'GameEngine::ECS::ComponentManager']]],
   ['hasentity_74',['hasEntity',['../classGameEngine_1_1ECS_1_1ComponentArray.html#a07ad76a7e957754b34ba05942420f942',1,'GameEngine::ECS::ComponentArray']]],
-  ['header_75',['header',['../structMessage.html#a704863f3c71f270459d015102d61f7c8',1,'Message']]]
+  ['header_75',['header',['../structMessage.html#a704863f3c71f270459d015102d61f7c8',1,'Message::header()'],['../structResponse.html#a60f46003fc199ff082e72cb0c0aa5d00',1,'Response::header()']]]
 ];
