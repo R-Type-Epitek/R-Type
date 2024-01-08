@@ -125,8 +125,8 @@ namespace Client
     }
 
     try {
-      auto system = registry.getSystem<GameEngine::System::Move>();
-      system->update(registry);
+      auto sysMove = registry.getSystem<GameEngine::System::Move>();
+      sysMove->updateClient(registry);
 
     } catch (const std::exception& e) {
       spdlog::error("[Client Event] Error: {}", e.what());

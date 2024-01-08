@@ -6,6 +6,7 @@
 
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/ecs/Registry.hpp"
@@ -26,10 +27,26 @@ namespace GameEngine::System
         auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
         auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
 
-        position.position = position.position + transform.movement;
+        position.position += transform.movement;
         spriteC.sprite.move(transform.movement);
-        //        spriteC.sprite.setPosition(position.position);
-        position.latestPosition = spriteC.sprite.getPosition();
+        position.position = spriteC.sprite.getPosition();
+        position.latestPosition = position.position;
+      }
+    }
+
+    void updateClient(GameEngine::ECS::Registry& registry)
+    {
+      auto& componentManager = registry.getComponentManager();
+
+      for (auto const& entity : m_entities) {
+        auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
+        auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
+        auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
+
+        if (registry.hasComponent<ComponentRType::Clickable>(entity)) {
+          spriteC.sprite.setPosition(position.position);
+        }
+        spriteC.sprite.move(transform.movement);
       }
     }
   };

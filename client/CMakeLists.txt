@@ -17,6 +17,8 @@ add_executable(${EXEC_CLIENT}
         src/network/tools/Logs.cpp
         src/network/Network.cpp
         src/scene/GameScene.cpp
+        src/scene/WelcomeScene.cpp
+        src/scene/LobbyScene.cpp
         src/scene/SceneManager.cpp
 )
 
