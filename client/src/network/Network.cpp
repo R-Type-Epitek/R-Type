@@ -43,10 +43,12 @@ Client::Network::Network(std::string ip, std::string port)
 
 Client::Network::~Network()
 {
-  this->socket.close();
-
-  if (this->receiveThread.joinable())
-    this->receiveThread.join();
+  stopReceiveThread = true;
+  if (receiveThread.joinable()) {
+    receiveThread.join();
+  }
+  socket.close();
+  io.stop();
 }
 
 void Client::Network::registerCommandHandlers()
@@ -149,7 +151,7 @@ void Client::Network::sendResponse(
 void Client::Network::startReceive()
 {
   this->receiveThread = std::thread([this]() {
-    while (true) {
+    while (!this->stopReceiveThread) {
       this->io.reset();
       this->socket.async_receive_from(
         boost::asio::buffer(this->recvBuffer),

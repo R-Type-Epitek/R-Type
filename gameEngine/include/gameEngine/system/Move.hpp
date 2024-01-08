@@ -24,7 +24,12 @@ namespace GameEngine::System
       for (auto const& entity : m_entities) {
         auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
         auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
+        auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
+
+        position.position = position.position + transform.movement;
         spriteC.sprite.move(transform.movement);
+        //        spriteC.sprite.setPosition(position.position);
+        position.latestPosition = spriteC.sprite.getPosition();
       }
     }
   };

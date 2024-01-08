@@ -14,7 +14,7 @@ using Vec3 = int;
 
 namespace ComponentRType
 {
-  static const float defaultSpeed = 0.9;
+  static const float defaultSpeed = 20.F;
 
   /// \brief A component representing the transformation properties of an entity.
   struct Transform : public GameEngine::Network::Serializer::BaseNetworkComponent {
