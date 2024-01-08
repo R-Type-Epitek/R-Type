@@ -7,6 +7,7 @@
 #include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
@@ -75,6 +76,7 @@ namespace Client
         m_registry->addComponent(enttButton, ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/welcome/rtype_button.jpg")));
         m_registry->addComponent(enttButton, ComponentRType::Transform());
         m_registry->addComponent(enttButton, ComponentRType::Position(615, 480));
+        m_registry->addComponent(enttButton, ComponentRType::Clickable(615, 480, 690, 120));
 
         m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
     }
