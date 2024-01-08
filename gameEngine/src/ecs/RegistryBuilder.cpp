@@ -108,6 +108,7 @@ namespace GameEngine::Builder
     m_registry->registerSystem<GameEngine::System::Move>();
 
     signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
     signature.set(m_registry->getComponentType<ComponentRType::Position>());
     m_registry->setSystemSignature<GameEngine::System::Move>(signature);
   }
