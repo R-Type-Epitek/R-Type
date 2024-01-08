@@ -71,6 +71,8 @@ jobs:
 
       - name: Run tests
         run: |
+          ls -la
+          ls -la build
           cd build/server && ctest
 
   push_to_mirror:
