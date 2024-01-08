@@ -120,7 +120,7 @@ a clean separation of concerns and makes the game easier to extend and maintain.
 <div align="center">
     <table>
       <tr>
-        <td align="center" style="min-width: 150px; border: 2px solid; padding: 20px">
+        <td align="center" style="min-width: 150px; border: 2px solid; padding: 20px; text-decoration: none;">
           <a href="https://github.com/raphaelCamblong">
             <img src="https://media.licdn.com/dms/image/D4E03AQGZQ9vaPPqEkQ/profile-displayphoto-shrink_800_800/0/1699623031673?e=2147483647&v=beta&t=mS6wgHcTBqRMd9DS-6mO3ZSjZEXVEt-QYT12jvSfT3w" width="150px;" alt="Raphaël CAMBLONG profile picture"/>
             <br />
