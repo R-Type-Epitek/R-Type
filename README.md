@@ -119,6 +119,7 @@ a clean separation of concerns and makes the game easier to extend and maintain.
 
 <div align="center">
     <table>
+      <tr>
         <td align="center" style="min-width: 150px; border: 2px solid; padding: 20px">
           <a href="https://github.com/raphaelCamblong">
             <img src="https://media.licdn.com/dms/image/D4E03AQGZQ9vaPPqEkQ/profile-displayphoto-shrink_800_800/0/1699623031673?e=2147483647&v=beta&t=mS6wgHcTBqRMd9DS-6mO3ZSjZEXVEt-QYT12jvSfT3w" width="150px;" alt="Raphaël CAMBLONG profile picture"/>
@@ -155,7 +156,8 @@ a clean separation of concerns and makes the game easier to extend and maintain.
             <a href="mailto:edouard.pradie@epitech.eu">✉️</a>
           </div>
         </td>
-        <tr>
+      </tr>
+      <tr>
         <td align="center" style="min-width: 150px; border: 2px solid; padding: 20px">
           <a href="https://github.com/sgLeopold">
             <img src="https://media.licdn.com/dms/image/D4E03AQFxIPuYk-j0kQ/profile-displayphoto-shrink_800_800/0/1683311154090?e=2147483647&v=beta&t=uRTIkH85zAq37wNP-cBtWY3k6plE09CuUGFKaL7ZPFk" width="150px;" alt="Léopold SALLAND GÉMARD profile picture"/>
@@ -180,6 +182,7 @@ a clean separation of concerns and makes the game easier to extend and maintain.
             <a href="mailto:pro.xv@outlook.fr">✉️</a>
           </div>
         </td>
+      </tr>
     </table>
 </div>
 
