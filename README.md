@@ -127,7 +127,6 @@ To access our technical documentation, please visit our GitHub Pages:
 
 Feel free to explore, learn, and even contribute your thoughts and suggestions!
 
-
 ## 😎 Contributors
 
 <div align="center">
