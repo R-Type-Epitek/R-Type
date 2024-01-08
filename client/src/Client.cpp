@@ -84,6 +84,7 @@ namespace Client
   void Client::link()
   {
     spdlog::info("Linking Everything to GUI...");
+    m_gui->setFrameRate(60);
     m_gui->subscribeUpdate([this](GameEngine::UI::WindowContext& ctx) {
       this->update(ctx);
     });
