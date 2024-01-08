@@ -7,6 +7,7 @@
 #include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
@@ -74,18 +75,21 @@ namespace Client
         m_entities.push_back(enttJoinButton);
         m_registry->addComponent(enttJoinButton, ComponentRType::Transform());
         m_registry->addComponent(enttJoinButton, ComponentRType::Position(963, 720));
+        m_registry->addComponent(enttJoinButton, ComponentRType::Clickable(963, 720, 156, 50));
         m_registry->addComponent(enttJoinButton, ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/lobby/accept_button.png")));
 
         auto enttReturnButton = m_registry->createEntity();
         m_entities.push_back(enttReturnButton);
         m_registry->addComponent(enttReturnButton, ComponentRType::Transform());
         m_registry->addComponent(enttReturnButton, ComponentRType::Position(803, 720));
+        m_registry->addComponent(enttReturnButton, ComponentRType::Clickable(803, 720, 156, 50));
         m_registry->addComponent(enttReturnButton, ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/lobby/return_button.png")));
 
         auto enttEscapeButton = m_registry->createEntity();
         m_entities.push_back(enttEscapeButton);
         m_registry->addComponent(enttEscapeButton, ComponentRType::Transform());
         m_registry->addComponent(enttEscapeButton, ComponentRType::Position(1182, 270));
+        m_registry->addComponent(enttEscapeButton, ComponentRType::Clickable(1182, 270, 30, 30));
         m_registry->addComponent(enttEscapeButton, ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/lobby/escape_button.png")));
 
         m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
