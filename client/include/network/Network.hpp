@@ -285,6 +285,7 @@ namespace Client
     std::map<int, std::shared_ptr<CommandTracker>> commandTrackers;
     int nextCommandId = 0;
     std::thread receiveThread;
+    bool stopReceiveThread = false;
     QueueEcsSerialized m_serializedEcsDataQueue;
     int clientId;
     int roomId;
