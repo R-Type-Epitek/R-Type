@@ -48,9 +48,10 @@ namespace Client
 
       spdlog::info("Connecting to game room [0]...");
       m_network->updateName("John Doe");
-      m_network->joinRoom();
+      m_network->joinRoom(0);
       // m_network->joinRoomAuto();
       m_network->joinGame(0);
+      // m_network->kickPlayer(1);
       spdlog::info("Done");
 
     } catch (std::exception const&) {

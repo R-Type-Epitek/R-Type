@@ -9,6 +9,7 @@
 #define JOIN_ROOM_AUTO_COMMAND    "/join_room_auto"
 #define INPUT_COMMAND             "/input"
 #define JOIN_GAME_COMMAND         "/join_game"
+#define KICK_PLAYER_COMMAND       "/kick_player"
 
 // Server -> Client
 #define SERVER_COMMAND_CHECK_CONNECTION    "/check_connection"

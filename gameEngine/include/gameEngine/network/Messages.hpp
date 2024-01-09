@@ -74,6 +74,22 @@ struct JoinGameData {
   int roomId; ///< Identifier of the room the player will join.
 };
 
+/**
+ * @struct ServerClientDisconnectedData
+ * @brief Structure for data related to a 'Client Disconnected' command.
+ *
+ * This structure is used when a client disconnects from the server.
+ */
 struct ServerClientDisconnectedData {
+  int clientId;
+};
+
+/**
+ * @struct KickPlayerData
+ * @brief Structure for data related to a 'Kick Player' command.
+ *
+ * This structure is used when a client wants to kick another player from the room.
+ */
+struct KickPlayerData {
   int clientId;
 };

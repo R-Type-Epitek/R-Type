@@ -14,9 +14,9 @@ Network::JoinRoomAutoCommandHandler::JoinRoomAutoCommandHandler(Network::UDPServ
 
 bool Network::JoinRoomAutoCommandHandler::isAuthorized(int clientId)
 {
-  for (auto &client : this->server.getClients())
-    if (client.getId() == clientId)
-      return true;
+  auto clientOpt = this->server.getClientById(clientId);
+  if (clientOpt.has_value())
+    return true;
   return false;
 }
 
