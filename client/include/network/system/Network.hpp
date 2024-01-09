@@ -37,7 +37,7 @@ namespace Client::System
       while (!commandQueue.empty()) {
         auto event = commandQueue.front();
         commandQueue.pop();
-        networkInstance.sendKey(event.getKey());
+        networkInstance.sendKey(event.key);
       }
     };
 
