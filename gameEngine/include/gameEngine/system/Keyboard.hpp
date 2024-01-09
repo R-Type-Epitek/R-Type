@@ -23,6 +23,7 @@ namespace GameEngine::System
 
       Event::EventKeyboardInput event(convertKey(ctx.event.key.code));
       eventRegistry.publish<Event::EventKeyboardInput>(event);
+      eventRegistry.publish<Event::EventCollision>(event);
     }
 
     static GameEngine::Keybinds convertKey(sf::Keyboard::Key key)

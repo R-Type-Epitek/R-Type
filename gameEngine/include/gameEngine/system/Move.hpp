@@ -59,7 +59,7 @@ namespace GameEngine::System
     void handleEvent(const Event::IEvent& eventRaw) final
     {
       Event::EventKeyboardInput event = dynamic_cast<const Event::EventKeyboardInput&>(eventRaw);
-      switch (event.getKey()) {
+      switch (event.key) {
         case Keybinds::Up:
           moveUp();
           break;
