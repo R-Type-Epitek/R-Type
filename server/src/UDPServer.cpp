@@ -282,6 +282,9 @@ std::vector<char> Network::UDPServer::createMessageBuffer(
   strcpy(header.command, command.c_str());
   header.commandId = 0;
   header.dataLength = dataSize;
+  header.timestamp =
+    std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
+      .count();
 
   size_t totalSize = sizeof(type) + sizeof(header) + dataSize;
   std::vector<char> messageBuffer(totalSize);
