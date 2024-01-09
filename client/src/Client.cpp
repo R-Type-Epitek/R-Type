@@ -105,31 +105,26 @@ namespace Client
   void Client::update(GameEngine::UI::WindowContext& ctx)
   {
     auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
-    auto&& systems = registry.getSystems();
 
-    for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys = std::dynamic_pointer_cast<GameEngine::System::IUpdateSystem>(system_ptr)) {
-        sys->update(registry, ctx);
+    try {
+      {
+        auto system = registry.getSystem<GameEngine::System::Animation>();
+        system->update(registry, ctx);
       }
-    }
+      {
+        auto system = registry.getSystem<GameEngine::System::Move>();
+        system->updateClient(registry);
+      }
+      {
+        auto sys_serializer = registry.getSystem<GameEngine::System::EcsSerializer>();
+        auto& queue = m_network->getSerializedEcsQueue();
+        auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
 
-    try {
-      auto sys_serializer = registry.getSystem<GameEngine::System::EcsSerializer>();
-      auto& queue = m_network->getSerializedEcsQueue();
-      auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
-
-      sys_serializer->deserialize(registry, queue, factory);
-
-    } catch (const std::exception& e) {
-      spdlog::error("[Client Event] Serialize Error: {}", e.what());
-    }
-
-    try {
-      auto sysMove = registry.getSystem<GameEngine::System::Move>();
-      sysMove->updateClient(registry);
+        sys_serializer->deserialize(registry, queue, factory);
+      }
 
     } catch (const std::exception& e) {
-      spdlog::error("[Client Event] Error: {}", e.what());
+      spdlog::error("[Client update] Error: {}", e.what());
     }
   }
 
@@ -146,8 +141,17 @@ namespace Client
     }
   }
 
-  void Client::display(GameEngine::UI::WindowContext&)
+  void Client::display(GameEngine::UI::WindowContext& ctx)
   {
-    // done on update
+    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
+
+    try {
+      {
+        auto system = registry.getSystem<GameEngine::System::Renderer>();
+        system->update(registry, ctx);
+      }
+    } catch (const std::exception& e) {
+      spdlog::error("[Client display] Error: {}", e.what());
+    }
   }
 }; // namespace Client
