@@ -3,25 +3,19 @@
 //
 
 #include "scene/GameScene.hpp"
-
-#include "gameEngine/component/Gravity.hpp"
-#include "gameEngine/component/MetaData.hpp"
-#include "gameEngine/component/NetworkedEntity.hpp"
+#include "gameEngine/system/Move.hpp"
 #include "gameEngine/component/Displayable.hpp"
-#include "gameEngine/component/Transform.hpp"
-#include "gameEngine/component/Parallax.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "gameEngine/ecs/Registry.hpp"
-#include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
-#include "gameEngine/ecs/entity/EntityManager.hpp"
+#include "gameEngine/event/Events.hpp"
 #include "network/system/Keyboard.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Client
 {
 
-  GameScene::GameScene(Network& network)
+  GameScene::GameScene(Network &network)
     : m_network {network}
   {
     initRegistries();
@@ -32,6 +26,9 @@ namespace Client
   {
     GameEngine::Scene::SimpleScene::initRegistries();
     initCustomSystem();
+
+    auto moveSystem = m_ecsRegistry->getSystem<GameEngine::System::Move>();
+    m_eventRegistry->subscribe<GameEngine::Event::EventKeyboardInput>(moveSystem);
   }
 
   void GameScene::initCustomSystem()

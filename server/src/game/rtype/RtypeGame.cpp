@@ -4,11 +4,9 @@
 
 #include "game/rtype/RtypeGame.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
-#include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Input.hpp"
 #include "gameEngine/system/Move.hpp"
 #include <vector>
-#include <memory>
 
 namespace Server::Game
 {

@@ -131,10 +131,17 @@ namespace Client
   void Client::event(GameEngine::UI::WindowContext& ctx)
   {
     auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
+    auto& eventRegistry = this->m_sceneManager->getCurrent().getEventRegistry();
 
     try {
-      auto system = registry.getSystem<System::Network::Keyboard>();
-      system->update(ctx, *m_network);
+      {
+        auto system = registry.getSystem<System::Network::Keyboard>();
+        system->update(ctx, *m_network);
+      }
+      {
+        auto system = registry.getSystem<GameEngine::System::Keyboard>();
+        system->update(eventRegistry, ctx);
+      }
 
     } catch (const std::exception& e) {
       spdlog::error("[Client Event] Error: {}", e.what());
