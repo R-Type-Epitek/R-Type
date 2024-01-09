@@ -5,6 +5,7 @@
 #pragma once
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/event/IEvent.hpp"
+#include "gameEngine/constants/Keybinds.hpp"
 
 namespace GameEngine::Event
 {
@@ -19,4 +20,21 @@ namespace GameEngine::Event
     ECS::Entity entityA;
     ECS::Entity m_entityB;
   };
+
+  class EventKeyboardInput : public IEvent {
+   public:
+    explicit EventKeyboardInput(const Keybinds &key)
+      : m_key {key}
+    {
+    }
+
+    const Keybinds &getKey() const
+    {
+      return m_key;
+    }
+
+   private:
+    Keybinds m_key;
+  };
+
 } // namespace GameEngine::Event
