@@ -10,6 +10,7 @@
 #define INPUT_COMMAND             "/input"
 #define JOIN_GAME_COMMAND         "/join_game"
 #define KICK_PLAYER_COMMAND       "/kick_player"
+#define GOD_MODE_COMMAND          "/god_mode"
 
 // Server -> Client
 #define SERVER_COMMAND_CHECK_CONNECTION    "/check_connection"
