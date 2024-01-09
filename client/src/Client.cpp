@@ -7,15 +7,13 @@
 #include "gameEngine/UI/Window.hpp"
 #include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
-#include "gameEngine/system/IUpdateSystem.hpp"
 #include "gameEngine/system/Keyboard.hpp"
-#include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/Move.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Constants.hpp"
 #include "network/Network.hpp"
-#include "network/system/Keyboard.hpp"
+#include "network/system/Network.hpp"
 #include "scene/SceneManager.hpp"
 #include "spdlog/spdlog.h"
 
@@ -135,8 +133,8 @@ namespace Client
 
     try {
       {
-        auto system = registry.getSystem<System::Network::Keyboard>();
-        system->update(ctx, *m_network);
+        auto system = registry.getSystem<System::KeyboardInputHandler>();
+        system->update(*m_network);
       }
       {
         auto system = registry.getSystem<GameEngine::System::Keyboard>();

@@ -9,7 +9,7 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/Signature.hpp"
 #include "gameEngine/event/Events.hpp"
-#include "network/system/Keyboard.hpp"
+#include "network/system/Network.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Client
@@ -33,11 +33,14 @@ namespace Client
 
   void GameScene::initCustomSystem()
   {
+    using NetworkSystem = Client::System::KeyboardInputHandler;
     GameEngine::ECS::Signature signature;
-    m_ecsRegistry->registerSystem<System::Network::Keyboard>();
-    //  System components
+    auto sys = m_ecsRegistry->registerSystem<NetworkSystem>();
     signature.set(m_ecsRegistry->getComponentType<ComponentRType::Displayable>());
-    m_ecsRegistry->setSystemSignature<System::Network::Keyboard>(signature);
+    m_ecsRegistry->setSystemSignature<NetworkSystem>(signature);
+
+    //    subscribe to network event
+    m_eventRegistry->subscribe<GameEngine::Event::EventKeyboardInput>(sys);
   }
 
   void GameScene::initEntities()

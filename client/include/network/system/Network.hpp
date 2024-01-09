@@ -8,21 +8,24 @@
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
+#include "gameEngine/event/IEventListener.hpp"
+#include "gameEngine/event/Events.hpp"
 #include "network/Network.hpp"
 
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/Keyboard.hpp>
+#include <deque>
 
-namespace Client::System::Network
+namespace Client::System
 {
   /**
    * @brief System class for handling keyboard events in a networked game environment.
    *
-   * The Keyboard class is part of the game engine's system and is responsible for
+   * The Network class is part of the game engine's system and is responsible for
    * detecting and processing keyboard input, particularly the arrow keys, and
    * transmitting these inputs through the network system.
    */
-  class Keyboard : public GameEngine::ECS::System {
+  class KeyboardInputHandler
+    : public GameEngine::ECS::System
+    , public GameEngine::Event::IEventListener {
    public:
     /**
      * @brief Update the system based on keyboard events.
@@ -33,8 +36,22 @@ namespace Client::System::Network
      * @param ctx Reference to the WindowContext, containing event data.
      * @param network Reference to the network system for sending key commands.
      */
-    void update(GameEngine::UI::WindowContext &, ::Client::Network &) {};
+    void update(::Client::Network &networkInstance)
+    {
+      while (!commandQueue.empty()) {
+        auto event = commandQueue.front();
+        commandQueue.pop();
+        networkInstance.sendKey(event.getKey());
+      }
+    };
+
+    void handleEvent(const GameEngine::Event::IEvent &eventRaw) final
+    {
+      auto event = dynamic_cast<const GameEngine::Event::EventKeyboardInput &>(eventRaw);
+      commandQueue.push(event);
+    }
 
    private:
+    std::queue<GameEngine::Event::EventKeyboardInput> commandQueue {};
   };
 } // namespace Client::System::Network
