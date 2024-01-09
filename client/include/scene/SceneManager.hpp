@@ -8,14 +8,15 @@
 
 namespace Client::Scene
 {
-  /**
-   * @brief Extended scene manager for the client-side application.
-   *
-   * SceneManager extends the game engine's scene manager functionality,
-   * specializing it for client-side operations, including initializing scenes
-   * with network capabilities.
-   */
-  class SceneManager : public GameEngine::Scene::SceneManager {
+
+  enum class SceneType
+  {
+    Welcome,
+    Lobby,
+    Game,
+  };
+
+  class SceneManager : public GameEngine::Scene::SceneManager<SceneType> {
    public:
     /**
      * @brief Default destructor for SceneManager.

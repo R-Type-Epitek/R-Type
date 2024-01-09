@@ -18,8 +18,9 @@ namespace Client::Scene
 
   void SceneManager::initScenesWithNetwork(Network& network)
   {
-    m_scenes.addScene("GameTest0", std::make_unique<LobbyScene>(network));
-    m_scenes.addScene("GameTest1", std::make_unique<GameScene>(network));
-    setCurrent("GameTest0");
+    addScene(SceneType::Lobby, std::make_unique<LobbyScene>(network));
+    addScene(SceneType::Game, std::make_unique<GameScene>(network));
+    addScene(SceneType::Welcome, std::make_unique<WelcomeScene>(network));
+    setCurrent(SceneType::Lobby);
   }
 } // namespace Client

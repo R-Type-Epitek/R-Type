@@ -24,56 +24,31 @@ namespace Client
   GameScene::GameScene(Network& network)
     : m_network {network}
   {
-    initRegistry();
+    initRegistries();
     initEntities();
   }
 
-  GameEngine::ECS::Registry& GameScene::getECS()
+  void GameScene::initRegistries()
   {
-    return *m_registry;
-  }
-
-  GameEngine::Entity::EntityFactory& GameScene::getEntityFactory()
-  {
-    return *m_entityFactory;
-  }
-
-  void GameScene::initRegistry()
-  {
-    auto builder = GameEngine::Builder::RegistryBuilder();
-
-    // Components
-    builder.registerAllMandatoryComponent();
-
-    // Systems
-    builder.buildSystemPhysics();
-    builder.buildSystemMove();
-    builder.buildSystemAnimation();
-    builder.buildSystemRenderer();
-    builder.buildSystemKeyboard();
-    builder.buildSystemEcsSerializer();
-    builder.buildSystemParallax();
-    m_registry = builder.getResult();
-
-    // Custom client System
+    GameEngine::Scene::SimpleScene::initRegistries();
     initCustomSystem();
   }
 
   void GameScene::initCustomSystem()
   {
     GameEngine::ECS::Signature signature;
-    m_registry->registerSystem<System::Network::Keyboard>();
+    m_ecsRegistry->registerSystem<System::Network::Keyboard>();
     //  System components
-    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
-    m_registry->setSystemSignature<System::Network::Keyboard>(signature);
+    signature.set(m_ecsRegistry->getComponentType<ComponentRType::Displayable>());
+    m_ecsRegistry->setSystemSignature<System::Network::Keyboard>(signature);
   }
 
   void GameScene::initEntities()
   {
-    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
-    auto enttBackground = m_registry->createEntity();
+    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
+    auto enttBackground = m_ecsRegistry->createEntity();
     m_entities.push_back(enttBackground);
-    m_registry->addComponent<ComponentRType::Displayable>(
+    m_ecsRegistry->addComponent<ComponentRType::Displayable>(
       enttBackground,
       ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/background_starfield.png")));
   }
