@@ -9,13 +9,15 @@ add_library(${LIBRARY} STATIC
         src/gfx/sfml/SfmlTexture.cpp
         src/gfx/sfml/SfmlDisplay.cpp
         src/gfx/sfml/SfmlGfx.cpp
-        src/scene/SceneContainer.cpp
-        src/scene/SceneManager.cpp
+        src/scene/SimpleScene.cpp
         src/scene/SimpleScene.cpp
         src/UI/Window.cpp
         src/asset/AssetManager.cpp
         src/entity/EntityFactory.cpp
         src/entity/EntityBuilder.cpp
+        include/gameEngine/scene/SceneManager.hpp
+        include/gameEngine/scene/SceneContainer.hpp
+        include/gameEngine/scene/IScene.hpp
 )
 
 target_include_directories(${LIBRARY}
