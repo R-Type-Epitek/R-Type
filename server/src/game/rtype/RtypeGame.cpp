@@ -69,7 +69,6 @@ namespace Server::Game
   void RtypeGame::eventInput(Player& player)
   {
     auto& registry = m_scene.getEcsRegistry();
-    auto&& systems = registry.getSystems();
 
     try {
       {
