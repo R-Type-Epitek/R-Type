@@ -34,6 +34,33 @@ std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
       RES_UNAUTHORIZED);
   Room &room = this->server.getRooms()[client.getRoomId()];
 
+  if (room.getState() != RUNNING)
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Room is not running",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+
+  if (!client.getIsInGame())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client is not in game",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+
+  if (client.getIsSpectator())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client is a spectator",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+
   Server::Game::Player player = {
     .id = static_cast<size_t>(client.getId()),
     .name = client.getName(),

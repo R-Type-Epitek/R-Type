@@ -104,3 +104,13 @@ struct KickPlayerData {
 struct GodModeData {
   int clientId;
 };
+
+/**
+ * @struct SpectateData
+ * @brief Structure for data related to a 'Spectate' command.
+ *
+ * This structure is used when a client wants to spectate a game.
+ */
+struct SpectateData {
+  int roomId;
+};

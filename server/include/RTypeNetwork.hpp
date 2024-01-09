@@ -46,4 +46,5 @@
 #include "commands/JoinRoom.hpp"
 #include "commands/JoinRoomAuto.hpp"
 #include "commands/KickPlayer.hpp"
+#include "commands/Spectate.hpp"
 #include "commands/UpdateName.hpp"

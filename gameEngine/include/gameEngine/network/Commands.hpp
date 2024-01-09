@@ -11,6 +11,7 @@
 #define JOIN_GAME_COMMAND         "/join_game"
 #define KICK_PLAYER_COMMAND       "/kick_player"
 #define GOD_MODE_COMMAND          "/god_mode"
+#define SPECTATE_COMMAND          "/spectate"
 
 // Server -> Client
 #define SERVER_COMMAND_CHECK_CONNECTION    "/check_connection"
