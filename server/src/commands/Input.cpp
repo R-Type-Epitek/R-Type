@@ -11,16 +11,27 @@ Network::InputCommandHandler::InputCommandHandler(Network::UDPServer &server)
 
 bool Network::InputCommandHandler::isAuthorized(int clientId)
 {
-  for (auto &client : this->server.getClients())
-    if (client.getId() == clientId)
-      return true;
+  auto clientOpt = this->server.getClientById(clientId);
+  if (clientOpt.has_value())
+    return true;
   return false;
 }
 
 std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
 {
   InputData *data = (InputData *)message->data;
-  Client &client = this->server.getClientById(message->header.clientId);
+  auto clientOpt = this->server.getClientById(message->header.clientId);
+  Client client;
+  if (clientOpt.has_value())
+    client = clientOpt.value();
+  else
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client not found",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
   Room &room = this->server.getRooms()[client.getRoomId()];
 
   Server::Game::Player player = {

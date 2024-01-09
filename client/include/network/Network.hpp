@@ -269,6 +269,13 @@ namespace Client
     void joinRoomAuto();
 
     /**
+     * @brief Kick a player.
+     *
+     * This function sends a request to the server to kick a player.
+     */
+    void kickPlayer(int clientId);
+
+    /**
      * @brief Send a key command to the server.
      *
      * @param key The key command to be sent.

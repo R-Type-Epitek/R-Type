@@ -16,6 +16,7 @@
 #include "network/commands/JoinRoom.hpp"
 #include "network/commands/JoinRoomAuto.hpp"
 #include "network/commands/JoinGame.hpp"
+#include "network/commands/KickPlayer.hpp"
 #include "network/commands/Tracker.hpp"
 #include "network/commands/UpdateName.hpp"
 #include "network/tools/Logs.hpp"
@@ -60,6 +61,7 @@ void Client::Network::registerCommandHandlers()
   this->commandHandlers[JOIN_ROOM_AUTO_COMMAND] = std::make_shared<JoinRoomAutoCommandHandler>(*this);
   this->commandHandlers[INPUT_COMMAND] = std::make_shared<InputCommandHandler>(*this);
   this->commandHandlers[JOIN_GAME_COMMAND] = std::make_shared<JoinGameCommandHandler>(*this);
+  this->commandHandlers[KICK_PLAYER_COMMAND] = std::make_shared<KickPlayerCommandHandler>(*this);
 }
 
 std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(const std::string &name)
@@ -198,7 +200,8 @@ void Client::Network::onServerResponse(Response *response)
     case RES_UNAUTHORIZED:
     case RES_NOT_FOUND:
     case RES_INTERNAL_ERROR:
-      throw std::runtime_error(response->header.statusMessage);
+      spdlog::error("Error {}: {}", response->header.status, response->header.statusMessage);
+      return;
     default:
       throw std::runtime_error("Invalid response status: " + std::to_string(response->header.status));
   }
@@ -350,6 +353,14 @@ void Client::Network::joinRoom(int roomId)
 void Client::Network::joinRoomAuto()
 {
   this->executeCommand<JoinRoomAutoCommandHandler>(JOIN_ROOM_AUTO_COMMAND, [](auto commandHandler) {
+    commandHandler->send();
+  });
+}
+
+void Client::Network::kickPlayer(int clientId)
+{
+  this->executeCommand<KickPlayerCommandHandler>(KICK_PLAYER_COMMAND, [clientId](auto commandHandler) {
+    commandHandler->setClientId(clientId);
     commandHandler->send();
   });
 }

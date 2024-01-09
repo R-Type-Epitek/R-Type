@@ -13,6 +13,7 @@ add_executable(${EXEC_CLIENT}
         src/network/commands/JoinRoom.cpp
         src/network/commands/JoinRoomAuto.cpp
         src/network/commands/JoinGame.cpp
+        src/network/commands/KickPlayer.cpp
         src/network/commands/Tracker.cpp
         src/network/commands/UpdateName.cpp
         src/network/tools/Logs.cpp
