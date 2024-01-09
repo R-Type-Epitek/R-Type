@@ -12,7 +12,8 @@ namespace GameEngine::Builder
   class RegistryBuilder {
    public:
     RegistryBuilder();
-    std::unique_ptr<GameEngine::ECS::Registry> getResult();
+    std::shared_ptr<GameEngine::ECS::Registry> getResult();
+    void buildFrom(std::shared_ptr<GameEngine::ECS::Registry> existingRegistry);
 
     template<typename T>
     void registerComponent()
@@ -31,6 +32,7 @@ namespace GameEngine::Builder
     void buildSystemParallax();
 
    private:
-    std::unique_ptr<GameEngine::ECS::Registry> m_registry;
+    void feedSystemHolder();
+    std::shared_ptr<GameEngine::ECS::Registry> m_registry;
   };
 }; // namespace GameEngine::Builder
