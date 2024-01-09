@@ -40,6 +40,7 @@
 
 // commands
 #include "commands/ConnectToServer.hpp"
+#include "commands/GodMode.hpp"
 #include "commands/Input.hpp"
 #include "commands/JoinGame.hpp"
 #include "commands/JoinRoom.hpp"

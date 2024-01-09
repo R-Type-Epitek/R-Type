@@ -94,3 +94,13 @@ struct ServerClientDisconnectedData {
 struct KickPlayerData {
   int clientId;
 };
+
+/**
+ * @struct GodModeData
+ * @brief Structure for data related to a 'God Mode' command.
+ *
+ * This structure is used when a client wants to enable or disable god mode.
+ */
+struct GodModeData {
+  int clientId;
+};
