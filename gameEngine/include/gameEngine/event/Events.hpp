@@ -9,31 +9,21 @@
 
 namespace GameEngine::Event
 {
-  class EventCollision : public IEvent {
-   public:
-    EventCollision(const ECS::Entity &entityA, const ECS::Entity &entityB)
+  struct EventCollision : public IEvent {
+    explicit EventCollision(const ECS::Entity &entityA, const ECS::Entity &entityB)
       : entityA {entityA}
-      , m_entityB {entityB} {};
+      , entityB {entityB} {};
 
-   private:
-    ECS::Entity entityA;
-    ECS::Entity m_entityB;
+    const ECS::Entity &entityA;
+    const ECS::Entity &entityB;
   };
 
-  class EventKeyboardInput : public IEvent {
-   public:
+  struct EventKeyboardInput : public IEvent {
     explicit EventKeyboardInput(const Keybinds &key)
-      : m_key {key}
+      : key {key}
     {
     }
-
-    const Keybinds &getKey() const
-    {
-      return m_key;
-    }
-
-   private:
-    Keybinds m_key;
+    Keybinds key;
   };
 
 } // namespace GameEngine::Event
