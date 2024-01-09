@@ -15,22 +15,16 @@ namespace Server::Game
 
   void RtypeGame::load()
   {
-    m_scene.initRegistry();
+    m_scene.initRegistries();
     m_scene.initEntities();
   }
 
   std::vector<std::vector<char>> RtypeGame::getEntities()
   {
-    auto& registry = m_scene.getECS();
-    auto&& systems = registry.getSystems();
-    std::vector<std::vector<char>> serializeData;
+    auto& registry = m_scene.getEcsRegistry();
 
-    for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys_serializer = std::dynamic_pointer_cast<GameEngine::System::EcsSerializer>(system_ptr)) {
-        serializeData = sys_serializer->serialise(registry);
-      }
-    }
-    return serializeData;
+    auto system = registry.getSystem<GameEngine::System::EcsSerializer>();
+    return system->serialise(registry);
   }
 
   void RtypeGame::pushEvent(Event event, Player player)
@@ -59,7 +53,7 @@ namespace Server::Game
 
   void RtypeGame::eventDisconnect(Player& player)
   {
-    auto& registry = m_scene.getECS();
+    auto& registry = m_scene.getEcsRegistry();
     auto&& entities = m_scene.getEntities();
 
     for (auto& entity : entities) {
@@ -74,16 +68,20 @@ namespace Server::Game
 
   void RtypeGame::eventInput(Player& player)
   {
-    auto& registry = m_scene.getECS();
+    auto& registry = m_scene.getEcsRegistry();
     auto&& systems = registry.getSystems();
 
-    for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys = std::dynamic_pointer_cast<GameEngine::System::Input>(system_ptr)) {
-        sys->update(registry, player.id, player.key);
+    try {
+      {
+        auto system = registry.getSystem<GameEngine::System::Input>();
+        system->update(registry, player.id, player.key);
       }
-      if (auto sysM = std::dynamic_pointer_cast<GameEngine::System::Move>(system_ptr)) {
-        sysM->update(registry);
+      {
+        auto system = registry.getSystem<GameEngine::System::Move>();
+        system->update(registry);
       }
+    } catch (const std::exception& e) {
+      spdlog::error(e.what());
     }
   };
 
