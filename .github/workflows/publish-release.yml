@@ -62,17 +62,13 @@ jobs:
           ls builds/ninja-multi-vcpkg/
           cd builds/ninja-multi-vcpkg/server && ctest
 
-      - name: Find and List Binaries
-        run: |
-          find . -type f \( -name 'r-type_server' -o -name 'r-type_client' \) > binaries_list.txt
-          cat binaries_list.txt
-
       - name: Archive Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: release
           path: |
-            $(cat binaries_list.txt)
+            ./Release/r-type_server
+            ./Release/r-type_client
             assets
 
   create-release:
