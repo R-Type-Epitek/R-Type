@@ -9,6 +9,7 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/system/System.hpp"
+#include "gameEngine/UI/Window.hpp"
 #include "gameEngine/gfx/sfml/SfmlDisplay.hpp"
 
 #include <SFML/Graphics.hpp>
