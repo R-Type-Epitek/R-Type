@@ -5,5 +5,6 @@ var dir_e78bc7dd5332565f8ea5c424eaa02c21 =
     [ "Input.hpp", "server_2include_2commands_2Input_8hpp_source.html", null ],
     [ "JoinGame.hpp", "server_2include_2commands_2JoinGame_8hpp_source.html", null ],
     [ "JoinRoom.hpp", "server_2include_2commands_2JoinRoom_8hpp_source.html", null ],
+    [ "JoinRoomAuto.hpp", "server_2include_2commands_2JoinRoomAuto_8hpp_source.html", null ],
     [ "UpdateName.hpp", "server_2include_2commands_2UpdateName_8hpp_source.html", null ]
 ];

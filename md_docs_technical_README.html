@@ -237,8 +237,10 @@ The data is a <code>struct SendNameData {char name[32];}</code> (8 bytes: define
 <td class="markdownTableBodyNone"><code>/join_room</code>   </td><td class="markdownTableBodyNone">The client send this command to the server to join a room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
 The data is a <code>struct <a class="el" href="structJoinRoomData.html" title="Structure for data related to a &#39;Join Room&#39; command.">JoinRoomData</a> {int room_id;};</code> (8 bytes: defined in the message header)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>/input</code>   </td><td class="markdownTableBodyNone">The client send this command when he moves.   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone"><code>/join_room_auto</code>   </td><td class="markdownTableBodyNone">The client send this command to the server to join a room automatically.   </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>/input</code>   </td><td class="markdownTableBodyNone">The client send this command when he moves.   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>/join_game</code>   </td><td class="markdownTableBodyNone">The client send this command when he wants to start the game in his current room.<br  />
 The game will then start and the client will join the running game.<br  />
 <br  />

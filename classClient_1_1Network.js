@@ -14,6 +14,7 @@ var classClient_1_1Network =
     [ "handleSend", "classClient_1_1Network.html#aa433394ccb8d01696e30252eec870e66", null ],
     [ "joinGame", "classClient_1_1Network.html#a8fb4a0ec6478049555f7ef13fe15d2f0", null ],
     [ "joinRoom", "classClient_1_1Network.html#af9322d011cea31df49fe776392ad0648", null ],
+    [ "joinRoomAuto", "classClient_1_1Network.html#ad77a5162bc672e75a125603bed255703", null ],
     [ "onCheckConnectionMessage", "classClient_1_1Network.html#a36443c385e3362690cbbc6a2ab8c16d6", null ],
     [ "onReceive", "classClient_1_1Network.html#a6b3e2b7068834a8663ce7c1797e3089d", null ],
     [ "onServerMessage", "classClient_1_1Network.html#a5c9d8c820efe4258bd5149aa73398807", null ],

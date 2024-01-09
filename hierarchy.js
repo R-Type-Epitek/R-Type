@@ -32,6 +32,7 @@ var hierarchy =
       [ "Client::ConnectToServerCommandHandler", "classClient_1_1ConnectToServerCommandHandler.html", null ],
       [ "Client::InputCommandHandler", "classClient_1_1InputCommandHandler.html", null ],
       [ "Client::JoinGameCommandHandler", "classClient_1_1JoinGameCommandHandler.html", null ],
+      [ "Client::JoinRoomAutoCommandHandler", "classClient_1_1JoinRoomAutoCommandHandler.html", null ],
       [ "Client::JoinRoomCommandHandler", "classClient_1_1JoinRoomCommandHandler.html", null ],
       [ "Client::UpdateNameCommandHandler", "classClient_1_1UpdateNameCommandHandler.html", null ]
     ] ],
@@ -39,6 +40,7 @@ var hierarchy =
       [ "Network::ConnectToServerCommandHandler", "classNetwork_1_1ConnectToServerCommandHandler.html", null ],
       [ "Network::InputCommandHandler", "classNetwork_1_1InputCommandHandler.html", null ],
       [ "Network::JoinGameCommandHandler", "classNetwork_1_1JoinGameCommandHandler.html", null ],
+      [ "Network::JoinRoomAutoCommandHandler", "classNetwork_1_1JoinRoomAutoCommandHandler.html", null ],
       [ "Network::JoinRoomCommandHandler", "classNetwork_1_1JoinRoomCommandHandler.html", null ],
       [ "Network::UpdateNameCommandHandler", "classNetwork_1_1UpdateNameCommandHandler.html", null ]
     ] ],

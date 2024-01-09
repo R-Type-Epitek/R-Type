@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: gameEngine/include/gameEngine/component/Clickable.hpp Source File</title>
+  <title>R-Type: server/include/commands/JoinRoomAuto.hpp Source File</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('Clickable_8hpp_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('server_2include_2commands_2JoinRoomAuto_8hpp_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -118,38 +118,42 @@ $(document).ready(function(){initNavTree('Clickable_8hpp_source.html',''); initR
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Clickable.hpp</div>  </div>
+<div class="title">JoinRoomAuto.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by Edouard on 1/4/24.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by Xavier VINCENT on 09/01/2024.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics/RectangleShape.hpp&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>ComponentRType</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structComponentRType_1_1Clickable.html">   12</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    sf::RectangleShape rect;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;RTypeNetwork.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>Network</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classNetwork_1_1JoinRoomAutoCommandHandler.html">   11</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classNetwork_1_1JoinRoomAutoCommandHandler.html">JoinRoomAutoCommandHandler</a> : <span class="keyword">public</span> <a class="code" href="classNetwork_1_1ICommandHandler.html">ICommandHandler</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classNetwork_1_1JoinRoomAutoCommandHandler.html">JoinRoomAutoCommandHandler</a>(<a class="code" href="classNetwork_1_1UDPServer.html">UDPServer</a> &amp;server);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNetwork_1_1JoinRoomAutoCommandHandler.html#a8007a4a4346da72a5fea4e86f275c3f7">isAuthorized</a>(<span class="keywordtype">int</span> clientId) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::vector&lt;char&gt; <a class="code" href="classNetwork_1_1JoinRoomAutoCommandHandler.html#af7443b8a52dbb11febfcdccb953beb36">handleCommand</a>(<a class="code" href="structMessage.html">Message</a> *message) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a>(<span class="keywordtype">size_t</span> x, <span class="keywordtype">size_t</span> y, <span class="keywordtype">size_t</span> w, <span class="keywordtype">size_t</span> h)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      rect.setPosition(x, y);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      rect.setSize(sf::Vector2f(w, h));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace ComponentRType</span></div>
-<div class="ttc" id="astructComponentRType_1_1Clickable_html"><div class="ttname"><a href="structComponentRType_1_1Clickable.html">ComponentRType::Clickable</a></div><div class="ttdoc">A component representing if a entity is clickable.</div><div class="ttdef"><b>Definition:</b> Clickable.hpp:12</div></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;   <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classNetwork_1_1UDPServer.html">UDPServer</a> &amp;server;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  };</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// namespace Network</span></div>
+<div class="ttc" id="aclassNetwork_1_1ICommandHandler_html"><div class="ttname"><a href="classNetwork_1_1ICommandHandler.html">Network::ICommandHandler</a></div><div class="ttdoc">Interface for handling network commands.</div><div class="ttdef"><b>Definition:</b> IHandler.hpp:18</div></div>
+<div class="ttc" id="aclassNetwork_1_1JoinRoomAutoCommandHandler_html"><div class="ttname"><a href="classNetwork_1_1JoinRoomAutoCommandHandler.html">Network::JoinRoomAutoCommandHandler</a></div><div class="ttdef"><b>Definition:</b> JoinRoomAuto.hpp:11</div></div>
+<div class="ttc" id="aclassNetwork_1_1JoinRoomAutoCommandHandler_html_a8007a4a4346da72a5fea4e86f275c3f7"><div class="ttname"><a href="classNetwork_1_1JoinRoomAutoCommandHandler.html#a8007a4a4346da72a5fea4e86f275c3f7">Network::JoinRoomAutoCommandHandler::isAuthorized</a></div><div class="ttdeci">bool isAuthorized(int clientId) override</div><div class="ttdoc">Checks if a client is authorized.</div><div class="ttdef"><b>Definition:</b> JoinRoomAuto.cpp:15</div></div>
+<div class="ttc" id="aclassNetwork_1_1JoinRoomAutoCommandHandler_html_af7443b8a52dbb11febfcdccb953beb36"><div class="ttname"><a href="classNetwork_1_1JoinRoomAutoCommandHandler.html#af7443b8a52dbb11febfcdccb953beb36">Network::JoinRoomAutoCommandHandler::handleCommand</a></div><div class="ttdeci">std::vector&lt; char &gt; handleCommand(Message *message) override</div><div class="ttdoc">Handles a received command.</div><div class="ttdef"><b>Definition:</b> JoinRoomAuto.cpp:23</div></div>
+<div class="ttc" id="aclassNetwork_1_1UDPServer_html"><div class="ttname"><a href="classNetwork_1_1UDPServer.html">Network::UDPServer</a></div><div class="ttdoc">Manages a UDP server for handling network communication.</div><div class="ttdef"><b>Definition:</b> UDPServer.hpp:32</div></div>
+<div class="ttc" id="astructMessage_html"><div class="ttname"><a href="structMessage.html">Message</a></div><div class="ttdoc">Structure representing a complete network message.</div><div class="ttdef"><b>Definition:</b> Messages.hpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_45b38ec21160528b53c40c1994368dc3.html">gameEngine</a></li><li class="navelem"><a class="el" href="dir_e23209b70ca929d0fe90a4b4a296568c.html">include</a></li><li class="navelem"><a class="el" href="dir_9c11d1f01a7e2832840f79ff0f0baab9.html">gameEngine</a></li><li class="navelem"><a class="el" href="dir_aa17dbcb77c470b4b54e6c04fee460e3.html">component</a></li><li class="navelem"><b>Clickable.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_41e1742e44e2de38b3bc91f993fed282.html">server</a></li><li class="navelem"><a class="el" href="dir_2b32f7736d6a65027d17676f6279053c.html">include</a></li><li class="navelem"><a class="el" href="dir_e78bc7dd5332565f8ea5c424eaa02c21.html">commands</a></li><li class="navelem"><b>JoinRoomAuto.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

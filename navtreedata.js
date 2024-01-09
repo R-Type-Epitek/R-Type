@@ -46,8 +46,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Animation_8hpp_source.html",
-"classGameEngine_1_1ECS_1_1System.html#af6744d39717b70a982dd078578285368",
-"classSfmlRenderer.html#ae18bd43c0242dedb7c89d3365f60587d"
+"classGameEngine_1_1ECS_1_1Registry.html#adc28c51df9673c2cadcef4a5d7f801d3",
+"classSfmlAudio.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

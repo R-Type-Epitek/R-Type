@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: Network::ICommandHandler Class Reference</title>
+  <title>R-Type: Network::JoinRoomAutoCommandHandler Class Reference</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classNetwork_1_1ICommandHandler.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classNetwork_1_1JoinRoomAutoCommandHandler.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -119,50 +119,41 @@ $(document).ready(function(){initNavTree('classNetwork_1_1ICommandHandler.html',
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classNetwork_1_1ICommandHandler-members.html">List of all members</a>  </div>
+<a href="classNetwork_1_1JoinRoomAutoCommandHandler-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Network::ICommandHandler Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Network::JoinRoomAutoCommandHandler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Interface for handling network commands.  
- <a href="classNetwork_1_1ICommandHandler.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="server_2include_2commands_2IHandler_8hpp_source.html">IHandler.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Network::ICommandHandler:</div>
+Inheritance diagram for Network::JoinRoomAutoCommandHandler:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classNetwork_1_1ICommandHandler.png" usemap="#Network::ICommandHandler_map" alt=""/>
-  <map id="Network::ICommandHandler_map" name="Network::ICommandHandler_map">
-<area href="classNetwork_1_1ConnectToServerCommandHandler.html" alt="Network::ConnectToServerCommandHandler" shape="rect" coords="0,56,264,80"/>
-<area href="classNetwork_1_1InputCommandHandler.html" alt="Network::InputCommandHandler" shape="rect" coords="274,56,538,80"/>
-<area href="classNetwork_1_1JoinGameCommandHandler.html" alt="Network::JoinGameCommandHandler" shape="rect" coords="548,56,812,80"/>
-<area href="classNetwork_1_1JoinRoomAutoCommandHandler.html" alt="Network::JoinRoomAutoCommandHandler" shape="rect" coords="822,56,1086,80"/>
-<area href="classNetwork_1_1JoinRoomCommandHandler.html" alt="Network::JoinRoomCommandHandler" shape="rect" coords="1096,56,1360,80"/>
-<area href="classNetwork_1_1UpdateNameCommandHandler.html" alt="Network::UpdateNameCommandHandler" shape="rect" coords="1370,56,1634,80"/>
+  <img src="classNetwork_1_1JoinRoomAutoCommandHandler.png" usemap="#Network::JoinRoomAutoCommandHandler_map" alt=""/>
+  <map id="Network::JoinRoomAutoCommandHandler_map" name="Network::JoinRoomAutoCommandHandler_map">
+<area href="classNetwork_1_1ICommandHandler.html" title="Interface for handling network commands." alt="Network::ICommandHandler" shape="rect" coords="0,0,245,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac588e08e2986f5eff95e59cde7cb4439"><td class="memItemLeft" align="right" valign="top"><a id="ac588e08e2986f5eff95e59cde7cb4439"></a>
+<tr class="memitem:a053bda101a2b2adc31ae1a4d14f9325d"><td class="memItemLeft" align="right" valign="top"><a id="a053bda101a2b2adc31ae1a4d14f9325d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>JoinRoomAutoCommandHandler</b> (<a class="el" href="classNetwork_1_1UDPServer.html">UDPServer</a> &amp;server)</td></tr>
+<tr class="separator:a053bda101a2b2adc31ae1a4d14f9325d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8007a4a4346da72a5fea4e86f275c3f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1JoinRoomAutoCommandHandler.html#a8007a4a4346da72a5fea4e86f275c3f7">isAuthorized</a> (int clientId) override</td></tr>
+<tr class="memdesc:a8007a4a4346da72a5fea4e86f275c3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a client is authorized.  <a href="classNetwork_1_1JoinRoomAutoCommandHandler.html#a8007a4a4346da72a5fea4e86f275c3f7">More...</a><br /></td></tr>
+<tr class="separator:a8007a4a4346da72a5fea4e86f275c3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7443b8a52dbb11febfcdccb953beb36"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1JoinRoomAutoCommandHandler.html#af7443b8a52dbb11febfcdccb953beb36">handleCommand</a> (<a class="el" href="structMessage.html">Message</a> *message) override</td></tr>
+<tr class="memdesc:af7443b8a52dbb11febfcdccb953beb36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a received command.  <a href="classNetwork_1_1JoinRoomAutoCommandHandler.html#af7443b8a52dbb11febfcdccb953beb36">More...</a><br /></td></tr>
+<tr class="separator:af7443b8a52dbb11febfcdccb953beb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classNetwork_1_1ICommandHandler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNetwork_1_1ICommandHandler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNetwork_1_1ICommandHandler.html">Network::ICommandHandler</a></td></tr>
+<tr class="memitem:ac588e08e2986f5eff95e59cde7cb4439 inherit pub_methods_classNetwork_1_1ICommandHandler"><td class="memItemLeft" align="right" valign="top"><a id="ac588e08e2986f5eff95e59cde7cb4439"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1ICommandHandler.html#ac588e08e2986f5eff95e59cde7cb4439">~ICommandHandler</a> ()=default</td></tr>
-<tr class="memdesc:ac588e08e2986f5eff95e59cde7cb4439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for interface. <br /></td></tr>
-<tr class="separator:ac588e08e2986f5eff95e59cde7cb4439"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2247483da1e56599d5fd9a2e891e0767"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1ICommandHandler.html#a2247483da1e56599d5fd9a2e891e0767">isAuthorized</a> (int clientId)=0</td></tr>
-<tr class="memdesc:a2247483da1e56599d5fd9a2e891e0767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a client is authorized.  <a href="classNetwork_1_1ICommandHandler.html#a2247483da1e56599d5fd9a2e891e0767">More...</a><br /></td></tr>
-<tr class="separator:a2247483da1e56599d5fd9a2e891e0767"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84c58b049dbc76ad66665da1a2c2271f"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1ICommandHandler.html#a84c58b049dbc76ad66665da1a2c2271f">handleCommand</a> (<a class="el" href="structMessage.html">Message</a> *message)=0</td></tr>
-<tr class="memdesc:a84c58b049dbc76ad66665da1a2c2271f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a received command.  <a href="classNetwork_1_1ICommandHandler.html#a84c58b049dbc76ad66665da1a2c2271f">More...</a><br /></td></tr>
-<tr class="separator:a84c58b049dbc76ad66665da1a2c2271f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ac588e08e2986f5eff95e59cde7cb4439 inherit pub_methods_classNetwork_1_1ICommandHandler"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for interface. <br /></td></tr>
+<tr class="separator:ac588e08e2986f5eff95e59cde7cb4439 inherit pub_methods_classNetwork_1_1ICommandHandler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for handling network commands. </p>
-<p><a class="el" href="classNetwork_1_1ICommandHandler.html" title="Interface for handling network commands.">ICommandHandler</a> provides an interface for processing network commands received from clients. It includes methods for checking authorization and handling specific commands. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a84c58b049dbc76ad66665da1a2c2271f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84c58b049dbc76ad66665da1a2c2271f">&#9670;&nbsp;</a></span>handleCommand()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af7443b8a52dbb11febfcdccb953beb36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7443b8a52dbb11febfcdccb953beb36">&#9670;&nbsp;</a></span>handleCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +162,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt;char&gt; Network::ICommandHandler::handleCommand </td>
+          <td class="memname">std::vector&lt; char &gt; Network::JoinRoomAutoCommandHandler::handleCommand </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structMessage.html">Message</a> *&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
@@ -180,7 +171,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -195,12 +186,12 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The response to the command. </dd></dl>
 
-<p>Implemented in <a class="el" href="classNetwork_1_1UpdateNameCommandHandler.html#a5c5aae4cf57e834dc3146bdbbfe4743e">Network::UpdateNameCommandHandler</a>, <a class="el" href="classNetwork_1_1JoinRoomAutoCommandHandler.html#af7443b8a52dbb11febfcdccb953beb36">Network::JoinRoomAutoCommandHandler</a>, <a class="el" href="classNetwork_1_1JoinRoomCommandHandler.html#a008d22683463fe2f9a5e4809fa30e211">Network::JoinRoomCommandHandler</a>, <a class="el" href="classNetwork_1_1JoinGameCommandHandler.html#a150446d39949c070755dd234298f7028">Network::JoinGameCommandHandler</a>, <a class="el" href="classNetwork_1_1InputCommandHandler.html#adce9b62c17afac99bd069b2092efebe8">Network::InputCommandHandler</a>, and <a class="el" href="classNetwork_1_1ConnectToServerCommandHandler.html#acfe75182ccaa6e576fbf222b24754a86">Network::ConnectToServerCommandHandler</a>.</p>
+<p>Implements <a class="el" href="classNetwork_1_1ICommandHandler.html#a84c58b049dbc76ad66665da1a2c2271f">Network::ICommandHandler</a>.</p>
 
 </div>
 </div>
-<a id="a2247483da1e56599d5fd9a2e891e0767"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2247483da1e56599d5fd9a2e891e0767">&#9670;&nbsp;</a></span>isAuthorized()</h2>
+<a id="a8007a4a4346da72a5fea4e86f275c3f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8007a4a4346da72a5fea4e86f275c3f7">&#9670;&nbsp;</a></span>isAuthorized()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +200,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool Network::ICommandHandler::isAuthorized </td>
+          <td class="memname">bool Network::JoinRoomAutoCommandHandler::isAuthorized </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>clientId</em></td><td>)</td>
@@ -218,7 +209,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -233,19 +224,20 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the client is authorized, false otherwise. </dd></dl>
 
-<p>Implemented in <a class="el" href="classNetwork_1_1UpdateNameCommandHandler.html#a7e232f2ad3480ba5f6ba8fb58fd4bcb5">Network::UpdateNameCommandHandler</a>, <a class="el" href="classNetwork_1_1JoinRoomAutoCommandHandler.html#a8007a4a4346da72a5fea4e86f275c3f7">Network::JoinRoomAutoCommandHandler</a>, <a class="el" href="classNetwork_1_1JoinRoomCommandHandler.html#a7097c949d5cce3914afcbe21cd0d2ee2">Network::JoinRoomCommandHandler</a>, <a class="el" href="classNetwork_1_1JoinGameCommandHandler.html#aef7de1b5b64ca159e14130e5fc4285d4">Network::JoinGameCommandHandler</a>, <a class="el" href="classNetwork_1_1InputCommandHandler.html#a8e7839a15d2b62473b67b4296b388534">Network::InputCommandHandler</a>, and <a class="el" href="classNetwork_1_1ConnectToServerCommandHandler.html#a13cddd20b6262ab6ef871fb9fa8963fc">Network::ConnectToServerCommandHandler</a>.</p>
+<p>Implements <a class="el" href="classNetwork_1_1ICommandHandler.html#a2247483da1e56599d5fd9a2e891e0767">Network::ICommandHandler</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>server/include/commands/<a class="el" href="server_2include_2commands_2IHandler_8hpp_source.html">IHandler.hpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>server/include/commands/<a class="el" href="server_2include_2commands_2JoinRoomAuto_8hpp_source.html">JoinRoomAuto.hpp</a></li>
+<li>server/src/commands/JoinRoomAuto.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Network</b></li><li class="navelem"><a class="el" href="classNetwork_1_1ICommandHandler.html">ICommandHandler</a></li>
+    <li class="navelem"><b>Network</b></li><li class="navelem"><a class="el" href="classNetwork_1_1JoinRoomAutoCommandHandler.html">JoinRoomAutoCommandHandler</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
