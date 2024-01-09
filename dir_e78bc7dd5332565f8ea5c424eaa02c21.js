@@ -8,5 +8,6 @@ var dir_e78bc7dd5332565f8ea5c424eaa02c21 =
     [ "JoinRoom.hpp", "server_2include_2commands_2JoinRoom_8hpp_source.html", null ],
     [ "JoinRoomAuto.hpp", "server_2include_2commands_2JoinRoomAuto_8hpp_source.html", null ],
     [ "KickPlayer.hpp", "server_2include_2commands_2KickPlayer_8hpp_source.html", null ],
+    [ "Spectate.hpp", "server_2include_2commands_2Spectate_8hpp_source.html", null ],
     [ "UpdateName.hpp", "server_2include_2commands_2UpdateName_8hpp_source.html", null ]
 ];

@@ -181,6 +181,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac949375a72177b5735c757894dca5be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#aac949375a72177b5735c757894dca5be">getIsGodMode</a> () const</td></tr>
 <tr class="memdesc:aac949375a72177b5735c757894dca5be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client is in god mode.  <a href="classNetwork_1_1Client.html#aac949375a72177b5735c757894dca5be">More...</a><br /></td></tr>
 <tr class="separator:aac949375a72177b5735c757894dca5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a166f5232b82c514719e1db9d148c5687"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a166f5232b82c514719e1db9d148c5687">setIsSpectator</a> (bool isSpectator)</td></tr>
+<tr class="memdesc:a166f5232b82c514719e1db9d148c5687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the client is a spectator.  <a href="classNetwork_1_1Client.html#a166f5232b82c514719e1db9d148c5687">More...</a><br /></td></tr>
+<tr class="separator:a166f5232b82c514719e1db9d148c5687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a136c071c20d86b7a24d6aca7be3b42da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a136c071c20d86b7a24d6aca7be3b42da">getIsSpectator</a> () const</td></tr>
+<tr class="memdesc:a136c071c20d86b7a24d6aca7be3b42da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client is a spectator.  <a href="classNetwork_1_1Client.html#a136c071c20d86b7a24d6aca7be3b42da">More...</a><br /></td></tr>
+<tr class="separator:a136c071c20d86b7a24d6aca7be3b42da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a network client. </p>
@@ -284,6 +290,26 @@ Public Member Functions</h2></td></tr>
 
 <p>Checks if the client is in a game. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool True if the client is in a game, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a136c071c20d86b7a24d6aca7be3b42da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136c071c20d86b7a24d6aca7be3b42da">&#9670;&nbsp;</a></span>getIsSpectator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Client::getIsSpectator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client is a spectator. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client is a spectator, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -452,6 +478,32 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bool</td><td>True if the client is in a game, false otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a166f5232b82c514719e1db9d148c5687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a166f5232b82c514719e1db9d148c5687">&#9670;&nbsp;</a></span>setIsSpectator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::setIsSpectator </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isSpectator</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets whether the client is a spectator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>True if the client is a spectator, false otherwise. </td></tr>
   </table>
   </dd>
 </dl>

@@ -28,6 +28,7 @@ var annotated_dup =
       [ "JoinRoomCommandHandler", "classClient_1_1JoinRoomCommandHandler.html", "classClient_1_1JoinRoomCommandHandler" ],
       [ "JoinRoomAutoCommandHandler", "classClient_1_1JoinRoomAutoCommandHandler.html", "classClient_1_1JoinRoomAutoCommandHandler" ],
       [ "KickPlayerCommandHandler", "classClient_1_1KickPlayerCommandHandler.html", "classClient_1_1KickPlayerCommandHandler" ],
+      [ "SpectateCommandHandler", "classClient_1_1SpectateCommandHandler.html", "classClient_1_1SpectateCommandHandler" ],
       [ "CommandTracker", "classClient_1_1CommandTracker.html", "classClient_1_1CommandTracker" ],
       [ "UpdateNameCommandHandler", "classClient_1_1UpdateNameCommandHandler.html", "classClient_1_1UpdateNameCommandHandler" ],
       [ "Network", "classClient_1_1Network.html", "classClient_1_1Network" ],
@@ -117,6 +118,7 @@ var annotated_dup =
       [ "JoinRoomCommandHandler", "classNetwork_1_1JoinRoomCommandHandler.html", "classNetwork_1_1JoinRoomCommandHandler" ],
       [ "JoinRoomAutoCommandHandler", "classNetwork_1_1JoinRoomAutoCommandHandler.html", "classNetwork_1_1JoinRoomAutoCommandHandler" ],
       [ "KickPlayerCommandHandler", "classNetwork_1_1KickPlayerCommandHandler.html", "classNetwork_1_1KickPlayerCommandHandler" ],
+      [ "SpectateCommandHandler", "classNetwork_1_1SpectateCommandHandler.html", "classNetwork_1_1SpectateCommandHandler" ],
       [ "UpdateNameCommandHandler", "classNetwork_1_1UpdateNameCommandHandler.html", "classNetwork_1_1UpdateNameCommandHandler" ],
       [ "Room", "classNetwork_1_1Room.html", "classNetwork_1_1Room" ],
       [ "ThreadSafeQueue", "classNetwork_1_1ThreadSafeQueue.html", "classNetwork_1_1ThreadSafeQueue" ],
@@ -154,6 +156,7 @@ var annotated_dup =
     [ "SfmlEvent", "classSfmlEvent.html", null ],
     [ "SfmlRenderer", "classSfmlRenderer.html", "classSfmlRenderer" ],
     [ "SfmlTexture", "classSfmlTexture.html", null ],
+    [ "SpectateData", "structSpectateData.html", "structSpectateData" ],
     [ "Texture", "classTexture.html", "classTexture" ],
     [ "TimedMessage", "structTimedMessage.html", "structTimedMessage" ],
     [ "UpdateNameData", "structUpdateNameData.html", "structUpdateNameData" ]

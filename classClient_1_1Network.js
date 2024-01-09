@@ -31,6 +31,7 @@ var classClient_1_1Network =
     [ "setName", "classClient_1_1Network.html#a17f5c274ef1658e21cba3c1b96a06ef9", null ],
     [ "setRemoteEndpoint", "classClient_1_1Network.html#ae2cc6225754b3f7b46fa87422c6540da", null ],
     [ "setRoomId", "classClient_1_1Network.html#a32740d05d50258cbe320af2a3d82529c", null ],
+    [ "spectate", "classClient_1_1Network.html#adc3c50dae4d5a9f6e6f3b9a981750b92", null ],
     [ "startReceive", "classClient_1_1Network.html#ab0adb2e5baaca04802dd5b2a99e2599c", null ],
     [ "updateName", "classClient_1_1Network.html#a9090adb4709e633a7787595896adcc07", null ]
 ];

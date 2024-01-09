@@ -8,6 +8,7 @@ var dir_d8600f79ca59f9a81bb26ad762113c79 =
     [ "JoinRoom.hpp", "client_2include_2network_2commands_2JoinRoom_8hpp_source.html", null ],
     [ "JoinRoomAuto.hpp", "client_2include_2network_2commands_2JoinRoomAuto_8hpp_source.html", null ],
     [ "KickPlayer.hpp", "client_2include_2network_2commands_2KickPlayer_8hpp_source.html", null ],
+    [ "Spectate.hpp", "client_2include_2network_2commands_2Spectate_8hpp_source.html", null ],
     [ "Tracker.hpp", "Tracker_8hpp_source.html", null ],
     [ "UpdateName.hpp", "client_2include_2network_2commands_2UpdateName_8hpp_source.html", null ]
 ];

@@ -37,6 +37,7 @@ var hierarchy =
       [ "Client::JoinRoomAutoCommandHandler", "classClient_1_1JoinRoomAutoCommandHandler.html", null ],
       [ "Client::JoinRoomCommandHandler", "classClient_1_1JoinRoomCommandHandler.html", null ],
       [ "Client::KickPlayerCommandHandler", "classClient_1_1KickPlayerCommandHandler.html", null ],
+      [ "Client::SpectateCommandHandler", "classClient_1_1SpectateCommandHandler.html", null ],
       [ "Client::UpdateNameCommandHandler", "classClient_1_1UpdateNameCommandHandler.html", null ]
     ] ],
     [ "Network::ICommandHandler", "classNetwork_1_1ICommandHandler.html", [
@@ -47,6 +48,7 @@ var hierarchy =
       [ "Network::JoinRoomAutoCommandHandler", "classNetwork_1_1JoinRoomAutoCommandHandler.html", null ],
       [ "Network::JoinRoomCommandHandler", "classNetwork_1_1JoinRoomCommandHandler.html", null ],
       [ "Network::KickPlayerCommandHandler", "classNetwork_1_1KickPlayerCommandHandler.html", null ],
+      [ "Network::SpectateCommandHandler", "classNetwork_1_1SpectateCommandHandler.html", null ],
       [ "Network::UpdateNameCommandHandler", "classNetwork_1_1UpdateNameCommandHandler.html", null ]
     ] ],
     [ "GameEngine::ECS::IComponentArray", "classGameEngine_1_1ECS_1_1IComponentArray.html", [
@@ -112,6 +114,7 @@ var hierarchy =
         [ "IRenderer", "classIRenderer.html", null ]
       ] ]
     ] ],
+    [ "SpectateData", "structSpectateData.html", null ],
     [ "GameEngine::ECS::System", "classGameEngine_1_1ECS_1_1System.html", [
       [ "Client::System::Network::Keyboard", "classClient_1_1System_1_1Network_1_1Keyboard.html", null ],
       [ "GameEngine::System::Animation", "classGameEngine_1_1System_1_1Animation.html", null ],

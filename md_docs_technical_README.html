@@ -242,7 +242,7 @@ The data is a <code>struct <a class="el" href="structJoinRoomData.html" title="S
 <td class="markdownTableBodyNone"><code>/input</code>   </td><td class="markdownTableBodyNone">The client send this command when he moves.   </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>/join_game</code>   </td><td class="markdownTableBodyNone">The client send this command when he wants to start the game in his current room.<br  />
-The game will then start and the client will join the running game.<br  />
+If the game will then start and the client will join the running game.<br  />
 <br  />
 If the game is already running, the client will only join the room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
 The data is a <code>struct <a class="el" href="structJoinGameData.html" title="Structure for data related to a &#39;Join Game&#39; command.">JoinGameData</a> {int roomId;};</code> (8 bytes: defined in the message header)    </td></tr>
@@ -251,7 +251,10 @@ The data is a <code>struct <a class="el" href="structJoinGameData.html" title="S
 The data is a <code>struct <a class="el" href="structKickPlayerData.html" title="Structure for data related to a &#39;Kick Player&#39; command.">KickPlayerData</a> {int clientId;};</code> (8 bytes: defined in the message header)    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>/god_mode</code>   </td><td class="markdownTableBodyNone">The client send this command when he want to set a player to god mode (unlimited lives).   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
-The data is a <code>struct <a class="el" href="structGodModeData.html" title="Structure for data related to a &#39;God Mode&#39; command.">GodModeData</a> {int clientId;};</code> (8 bytes: defined in the message header)   </td></tr>
+The data is a <code>struct <a class="el" href="structGodModeData.html" title="Structure for data related to a &#39;God Mode&#39; command.">GodModeData</a> {int clientId;};</code> (8 bytes: defined in the message header)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>/spectate</code>   </td><td class="markdownTableBodyNone">The client send this command when he wants to spectate the game in his current room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
+The data is a <code>struct <a class="el" href="structSpectateData.html" title="Structure for data related to a &#39;Spectate&#39; command.">SpectateData</a> {int roomId;};</code> (8 bytes: defined in the message header)   </td></tr>
 </table>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Support and Contributions</h2>

@@ -8,7 +8,7 @@ var classNetwork_1_1UDPServer =
     [ "createMessageBuffer", "classNetwork_1_1UDPServer.html#a4031d156ae82ff57038b16f3d214d781", null ],
     [ "createResponseBuffer", "classNetwork_1_1UDPServer.html#a0a2583c36c354de1725dcfab25c5e14d", null ],
     [ "gameLoop", "classNetwork_1_1UDPServer.html#af419e1866cc5630292523ae901aa7c0f", null ],
-    [ "getClientById", "classNetwork_1_1UDPServer.html#a58c9859cad1191356e4ef58d4b703efc", null ],
+    [ "getClientById", "classNetwork_1_1UDPServer.html#a9a01c57b42d3b2ee144cf7bd4aa9706e", null ],
     [ "getClients", "classNetwork_1_1UDPServer.html#a6577105fddee863d8d7bbae6f7bac2f7", null ],
     [ "getNextClientIdAndIncrement", "classNetwork_1_1UDPServer.html#a2c13629ee0ccbf4d9b12deb117080603", null ],
     [ "getRecvBuffer", "classNetwork_1_1UDPServer.html#abc40e08966da73a1b12d380a0dce6053", null ],
