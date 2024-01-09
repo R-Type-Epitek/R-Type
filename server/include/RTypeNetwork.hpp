@@ -42,5 +42,6 @@
 #include "commands/ConnectToServer.hpp"
 #include "commands/Input.hpp"
 #include "commands/JoinRoom.hpp"
+#include "commands/JoinRoomAuto.hpp"
 #include "commands/JoinGame.hpp"
 #include "commands/UpdateName.hpp"
