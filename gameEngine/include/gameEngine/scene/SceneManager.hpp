@@ -9,20 +9,31 @@
 namespace GameEngine::Scene
 {
 
-  //  TODO: implement with template enum class
+  template<typename SceneEnum>
   class SceneManager {
    public:
     SceneManager() = default;
 
     virtual void initScenes() {};
-    IScene& getCurrent();
-    void setCurrent(std::string name);
 
-   protected:
-    SceneContainer m_scenes;
+    IScene &getCurrent()
+    {
+      return m_scenes.find(m_currentSceneName);
+    }
+
+    void setCurrent(SceneEnum name)
+    {
+      m_currentSceneName = name;
+    }
+
+    void addScene(SceneEnum name, std::unique_ptr<IScene> scene)
+    {
+      m_scenes.addScene(name, std::move(scene));
+    }
 
    private:
-    std::string m_currentSceneName;
+    SceneContainer<SceneEnum> m_scenes;
+    SceneEnum m_currentSceneName;
   };
 
 }; // namespace GameEngine::Scene

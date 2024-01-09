@@ -5,7 +5,7 @@
 #pragma once
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
-#include "gameEngine/scene/IScene.hpp"
+#include "gameEngine/scene/SimpleScene.hpp"
 #include "network/Network.hpp"
 
 #include <memory>
@@ -13,25 +13,24 @@
 
 namespace Client
 {
-    class LobbyScene : public GameEngine::Scene::IScene {
-    public:
-        LobbyScene(Network& network);
+  /**
+   * @brief Scene class specifically designed for game functionality in a client application.
+   *
+   * LobbyScene extends the IScene interface to provide functionalities specific to game scenes,
+   * including initialization of the ECS registry, entities, and custom systems. It also
+   * integrates with the network for game-related communications.
+   */
+  class LobbyScene : public GameEngine::Scene::SimpleScene {
+   public:
+    explicit LobbyScene(Network& network);
 
-        void initRegistry() final;
+    void initEntities() final;
+    void initRegistries() final;
 
-        void initEntities() final;
+   protected:
+    void initCustomSystem();
 
-        GameEngine::ECS::Registry& getECS() final;
-
-        GameEngine::Entity::EntityFactory& getEntityFactory() final;
-
-    protected:
-        void initCustomSystem();
-
-    private:
-        std::vector<GameEngine::ECS::Entity> m_entities;
-        std::unique_ptr<GameEngine::ECS::Registry> m_registry;
-        std::unique_ptr<GameEngine::Entity::EntityFactory> m_entityFactory;
-        Network& m_network;
-    };
+   private:
+    Network& m_network;
+  };
 } // namespace Client

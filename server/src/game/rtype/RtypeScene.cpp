@@ -3,17 +3,14 @@
 //
 
 #include "game/rtype/RtypeScene.hpp"
-#include "gameEngine/component/Gravity.hpp"
-#include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
-#include "gameEngine/component/NetworkedEntity.hpp"
 
 namespace Server::Game
 {
-  void RtypeScene::initRegistry()
+  void RtypeScene::initRegistries()
   {
     auto builder = GameEngine::Builder::RegistryBuilder();
 
@@ -27,12 +24,13 @@ namespace Server::Game
     builder.buildSystemInput();
     builder.buildSystemParallax();
     builder.buildSystemMove();
-    m_registry = builder.getResult();
+
+    m_ecsRegistry = builder.getResult();
   }
 
   void RtypeScene::initEntities()
   {
-    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
+    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
 
     //    TODO: Use a config loader
     //    {
@@ -50,18 +48,9 @@ namespace Server::Game
     //    }
   }
 
-  GameEngine::ECS::Registry& RtypeScene::getECS()
-  {
-    return *m_registry;
-  }
-
-  GameEngine::Entity::EntityFactory& RtypeScene::getEntityFactory()
-  {
-    return *m_entityFactory;
-  }
-  std::vector<GameEngine::ECS::Entity>& RtypeScene::getEntities()
+  std::vector<GameEngine::ECS::Entity> RtypeScene::getEntities()
   {
     return m_entities;
   }
 
-} // namespace Server::Game::Rtype
+} // namespace Server::Game

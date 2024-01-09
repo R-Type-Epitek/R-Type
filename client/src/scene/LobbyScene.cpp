@@ -22,84 +22,61 @@ namespace Client
   LobbyScene::LobbyScene(Network& network)
     : m_network {network}
   {
-    initRegistry();
+    initRegistries();
     initEntities();
   }
 
-  GameEngine::ECS::Registry& LobbyScene::getECS()
+  void LobbyScene::initRegistries()
   {
-    return *m_registry;
-  }
-
-  GameEngine::Entity::EntityFactory& LobbyScene::getEntityFactory()
-  {
-    return *m_entityFactory;
-  }
-
-  void LobbyScene::initRegistry()
-  {
-    auto builder = GameEngine::Builder::RegistryBuilder();
-
-    // Components
-    builder.registerAllMandatoryComponent();
-
-    // Systems
-    builder.buildSystemPhysics();
-    builder.buildSystemMove();
-    builder.buildSystemAnimation();
-    builder.buildSystemRenderer();
-    builder.buildSystemKeyboard();
-    builder.buildSystemEcsSerializer();
-    m_registry = builder.getResult();
-
-    // Custom client System
+    GameEngine::Scene::SimpleScene::initRegistries();
     initCustomSystem();
   }
 
   void LobbyScene::initCustomSystem()
   {
     GameEngine::ECS::Signature signature;
-    m_registry->registerSystem<System::Network::Keyboard>();
-    //    System components
-    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
-    m_registry->setSystemSignature<System::Network::Keyboard>(signature);
+    m_ecsRegistry->registerSystem<System::Network::Keyboard>();
+    //  System components
+    signature.set(m_ecsRegistry->getComponentType<ComponentRType::Displayable>());
+    m_ecsRegistry->setSystemSignature<System::Network::Keyboard>(signature);
   }
 
   void LobbyScene::initEntities()
   {
-    auto enttBackground = m_registry->createEntity();
+    auto enttBackground = m_ecsRegistry->createEntity();
     m_entities.push_back(enttBackground);
-    m_registry->addComponent(
+    m_ecsRegistry->addComponent(
       enttBackground,
       ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/lobby/bg.png")));
 
-    auto enttJoinButton = m_registry->createEntity();
+    auto enttJoinButton = m_ecsRegistry->createEntity();
     m_entities.push_back(enttJoinButton);
-    m_registry->addComponent(enttJoinButton, ComponentRType::Transform());
-    m_registry->addComponent(enttJoinButton, ComponentRType::Position(963, 720));
-    m_registry->addComponent(enttJoinButton, ComponentRType::Clickable());
-    m_registry->addComponent(
+    m_ecsRegistry->addComponent(enttJoinButton, ComponentRType::Transform());
+    m_ecsRegistry->addComponent(enttJoinButton, ComponentRType::Position(963, 720));
+    m_ecsRegistry->addComponent(enttJoinButton, ComponentRType::Clickable());
+    m_ecsRegistry->addComponent(
       enttJoinButton,
       ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/lobby/accept_button.png")));
 
-    auto enttReturnButton = m_registry->createEntity();
+    auto enttReturnButton = m_ecsRegistry->createEntity();
     m_entities.push_back(enttReturnButton);
-    m_registry->addComponent(enttReturnButton, ComponentRType::Transform());
-    m_registry->addComponent(enttReturnButton, ComponentRType::Clickable());
-    m_registry->addComponent(enttReturnButton, ComponentRType::Position(803, 720));
-    m_registry->addComponent(
+    m_ecsRegistry->addComponent(enttReturnButton, ComponentRType::Transform());
+    m_ecsRegistry->addComponent(enttReturnButton, ComponentRType::Clickable());
+    m_ecsRegistry->addComponent(enttReturnButton, ComponentRType::Position(803, 720));
+    m_ecsRegistry->addComponent(
       enttReturnButton,
       ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/lobby/return_button.png")));
 
-    auto enttEscapeButton = m_registry->createEntity();
+    auto enttEscapeButton = m_ecsRegistry->createEntity();
     m_entities.push_back(enttEscapeButton);
-    m_registry->addComponent(enttEscapeButton, ComponentRType::Transform());
-    m_registry->addComponent(enttEscapeButton, ComponentRType::Position(1182, 270));
-    m_registry->addComponent(enttEscapeButton, ComponentRType::Clickable());
-    m_registry->addComponent(
+    m_ecsRegistry->addComponent(enttEscapeButton, ComponentRType::Transform());
+    m_ecsRegistry->addComponent(enttEscapeButton, ComponentRType::Position(1182, 270));
+    m_ecsRegistry->addComponent(enttEscapeButton, ComponentRType::Clickable());
+    m_ecsRegistry->addComponent(
       enttEscapeButton,
       ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/lobby/escape_button.png")));
 
-    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_registry);
+    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
   }
+
 } // namespace Client

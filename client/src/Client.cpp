@@ -104,7 +104,7 @@ namespace Client
 
   void Client::update(GameEngine::UI::WindowContext& ctx)
   {
-    auto& registry = this->m_sceneManager->getCurrent().getECS();
+    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
     auto&& systems = registry.getSystems();
 
     for (auto& [typeId, system_ptr] : systems) {
@@ -135,7 +135,7 @@ namespace Client
 
   void Client::event(GameEngine::UI::WindowContext& ctx)
   {
-    auto& registry = this->m_sceneManager->getCurrent().getECS();
+    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
 
     try {
       auto system = registry.getSystem<System::Network::Keyboard>();

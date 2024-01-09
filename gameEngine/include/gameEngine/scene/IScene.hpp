@@ -5,19 +5,55 @@
 #pragma once
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/entity/EntityFactory.hpp"
+#include "gameEngine/event/EventRegistry.hpp"
 
 namespace GameEngine::Scene
 {
+  /**
+   * @brief IScene class specifically designed for game functionality in an application.
+   *
+   * IScene interface provide functionalities specific to game scenes,
+   * including initialization of the ECS registry, entities, events and custom systems.
+   */
   class IScene {
    public:
+    /**
+     * @brief Destroy the IScene object.
+     *
+     */
     virtual ~IScene() = default;
 
-    virtual void initRegistry() = 0;
+    /**
+     * @brief Initialize the ECS registry for the game scene.
+     */
+    virtual void initRegistries() = 0;
 
+    /**
+     * @brief Initialize entities for the game scene.
+     *
+     * This function sets up the entities required for the game, adding them to the ECS registry.
+     */
     virtual void initEntities() = 0;
 
-    virtual ECS::Registry& getECS() = 0;
+    /**
+     * @brief Get the ECS registry associated with the game scene.
+     *
+     * @return GameEngine::ECS::Registry& Reference to the ECS registry.
+     */
+    virtual ECS::Registry& getEcsRegistry() = 0;
 
+    /**
+     * @brief Get the Event registry associated with the game scene.
+     *
+     * @return GameEngine::Event::EventRegistry& Reference to the ECS registry.
+     */
+    virtual Event::EventRegistry& getEventRegistry() = 0;
+
+    /**
+     * @brief Get the Entity Factory associated with the game scene.
+     *
+     * @return GameEngine::ECS::Registry& Reference to the ECS registry.
+     */
     virtual GameEngine::Entity::EntityFactory& getEntityFactory() = 0;
   };
 } // namespace GameEngine::Scene
