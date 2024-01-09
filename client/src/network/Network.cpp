@@ -14,6 +14,7 @@
 #include "network/commands/IHandler.hpp"
 #include "network/commands/Input.hpp"
 #include "network/commands/JoinRoom.hpp"
+#include "network/commands/JoinRoomAuto.hpp"
 #include "network/commands/JoinGame.hpp"
 #include "network/commands/Tracker.hpp"
 #include "network/commands/UpdateName.hpp"
@@ -56,6 +57,7 @@ void Client::Network::registerCommandHandlers()
   this->commandHandlers[CONNECT_TO_SERVER_COMMAND] = std::make_shared<ConnectToServerCommandHandler>(*this);
   this->commandHandlers[UPDATE_NAME_COMMAND] = std::make_shared<UpdateNameCommandHandler>(*this);
   this->commandHandlers[JOIN_ROOM_COMMAND] = std::make_shared<JoinRoomCommandHandler>(*this);
+  this->commandHandlers[JOIN_ROOM_AUTO_COMMAND] = std::make_shared<JoinRoomAutoCommandHandler>(*this);
   this->commandHandlers[INPUT_COMMAND] = std::make_shared<InputCommandHandler>(*this);
   this->commandHandlers[JOIN_GAME_COMMAND] = std::make_shared<JoinGameCommandHandler>(*this);
 }
@@ -341,6 +343,13 @@ void Client::Network::joinRoom(int roomId)
 {
   this->executeCommand<JoinRoomCommandHandler>(JOIN_ROOM_COMMAND, [roomId](auto commandHandler) {
     commandHandler->setRoomId(roomId);
+    commandHandler->send();
+  });
+}
+
+void Client::Network::joinRoomAuto()
+{
+  this->executeCommand<JoinRoomAutoCommandHandler>(JOIN_ROOM_AUTO_COMMAND, [](auto commandHandler) {
     commandHandler->send();
   });
 }

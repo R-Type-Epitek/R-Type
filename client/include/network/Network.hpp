@@ -262,6 +262,13 @@ namespace Client
     void joinRoom(int roomId);
 
     /**
+     * @brief Join a room automatically.
+     *
+     * This function sends a request to the server to join a room automatically.
+     */
+    void joinRoomAuto();
+
+    /**
      * @brief Send a key command to the server.
      *
      * @param key The key command to be sent.
