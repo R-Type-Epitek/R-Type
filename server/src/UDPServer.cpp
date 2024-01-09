@@ -339,6 +339,7 @@ void Network::UDPServer::registerCommandHandlers()
   this->commandHandlers[JOIN_ROOM_AUTO_COMMAND] = std::make_unique<JoinRoomAutoCommandHandler>(*this);
   this->commandHandlers[INPUT_COMMAND] = std::make_unique<InputCommandHandler>(*this);
   this->commandHandlers[JOIN_GAME_COMMAND] = std::make_unique<JoinGameCommandHandler>(*this);
+  this->commandHandlers[KICK_PLAYER_COMMAND] = std::make_unique<KickPlayerCommandHandler>(*this);
 }
 
 void Network::UDPServer::checkClientTimers()
