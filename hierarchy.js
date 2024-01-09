@@ -22,6 +22,7 @@ var hierarchy =
     [ "GameEngine::Entity::EntityFactory", "classGameEngine_1_1Entity_1_1EntityFactory.html", null ],
     [ "GameEngine::ECS::EntityManager", "classGameEngine_1_1ECS_1_1EntityManager.html", null ],
     [ "GameEngine::Event::EventRegistry", "classGameEngine_1_1Event_1_1EventRegistry.html", null ],
+    [ "GodModeData", "structGodModeData.html", null ],
     [ "ComponentRType::Gravity", "structComponentRType_1_1Gravity.html", null ],
     [ "IAudio", "classIAudio.html", [
       [ "Audio", "classAudio.html", [
@@ -30,6 +31,7 @@ var hierarchy =
     ] ],
     [ "Client::ICommandHandler", "classClient_1_1ICommandHandler.html", [
       [ "Client::ConnectToServerCommandHandler", "classClient_1_1ConnectToServerCommandHandler.html", null ],
+      [ "Client::GodModeCommandHandler", "classClient_1_1GodModeCommandHandler.html", null ],
       [ "Client::InputCommandHandler", "classClient_1_1InputCommandHandler.html", null ],
       [ "Client::JoinGameCommandHandler", "classClient_1_1JoinGameCommandHandler.html", null ],
       [ "Client::JoinRoomAutoCommandHandler", "classClient_1_1JoinRoomAutoCommandHandler.html", null ],
@@ -39,6 +41,7 @@ var hierarchy =
     ] ],
     [ "Network::ICommandHandler", "classNetwork_1_1ICommandHandler.html", [
       [ "Network::ConnectToServerCommandHandler", "classNetwork_1_1ConnectToServerCommandHandler.html", null ],
+      [ "Network::GodModeCommandHandler", "classNetwork_1_1GodModeCommandHandler.html", null ],
       [ "Network::InputCommandHandler", "classNetwork_1_1InputCommandHandler.html", null ],
       [ "Network::JoinGameCommandHandler", "classNetwork_1_1JoinGameCommandHandler.html", null ],
       [ "Network::JoinRoomAutoCommandHandler", "classNetwork_1_1JoinRoomAutoCommandHandler.html", null ],

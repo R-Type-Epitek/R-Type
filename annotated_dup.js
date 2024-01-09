@@ -21,6 +21,7 @@ var annotated_dup =
       [ "Client", "classClient_1_1Client.html", "classClient_1_1Client" ],
       [ "GUI", "classClient_1_1GUI.html", "classClient_1_1GUI" ],
       [ "ConnectToServerCommandHandler", "classClient_1_1ConnectToServerCommandHandler.html", "classClient_1_1ConnectToServerCommandHandler" ],
+      [ "GodModeCommandHandler", "classClient_1_1GodModeCommandHandler.html", "classClient_1_1GodModeCommandHandler" ],
       [ "ICommandHandler", "classClient_1_1ICommandHandler.html", "classClient_1_1ICommandHandler" ],
       [ "InputCommandHandler", "classClient_1_1InputCommandHandler.html", "classClient_1_1InputCommandHandler" ],
       [ "JoinGameCommandHandler", "classClient_1_1JoinGameCommandHandler.html", "classClient_1_1JoinGameCommandHandler" ],
@@ -109,6 +110,7 @@ var annotated_dup =
     [ "Network", null, [
       [ "Client", "classNetwork_1_1Client.html", "classNetwork_1_1Client" ],
       [ "ConnectToServerCommandHandler", "classNetwork_1_1ConnectToServerCommandHandler.html", "classNetwork_1_1ConnectToServerCommandHandler" ],
+      [ "GodModeCommandHandler", "classNetwork_1_1GodModeCommandHandler.html", "classNetwork_1_1GodModeCommandHandler" ],
       [ "ICommandHandler", "classNetwork_1_1ICommandHandler.html", "classNetwork_1_1ICommandHandler" ],
       [ "InputCommandHandler", "classNetwork_1_1InputCommandHandler.html", "classNetwork_1_1InputCommandHandler" ],
       [ "JoinGameCommandHandler", "classNetwork_1_1JoinGameCommandHandler.html", "classNetwork_1_1JoinGameCommandHandler" ],
@@ -131,6 +133,7 @@ var annotated_dup =
     [ "Audio", "classAudio.html", "classAudio" ],
     [ "Display", "classDisplay.html", "classDisplay" ],
     [ "Event", "classEvent.html", "classEvent" ],
+    [ "GodModeData", "structGodModeData.html", "structGodModeData" ],
     [ "IAudio", "classIAudio.html", "classIAudio" ],
     [ "IDisplay", "classIDisplay.html", "classIDisplay" ],
     [ "IEvent", "classIEvent.html", "classIEvent" ],

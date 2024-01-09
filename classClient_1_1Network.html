@@ -228,6 +228,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac6249495a00bfc861a4cf2e3ba37460c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#ac6249495a00bfc861a4cf2e3ba37460c">kickPlayer</a> (int clientId)</td></tr>
 <tr class="memdesc:ac6249495a00bfc861a4cf2e3ba37460c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kick a player.  <a href="classClient_1_1Network.html#ac6249495a00bfc861a4cf2e3ba37460c">More...</a><br /></td></tr>
 <tr class="separator:ac6249495a00bfc861a4cf2e3ba37460c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b5e5462b863cf0d284c430df9fd8cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a5b5e5462b863cf0d284c430df9fd8cb3">godMode</a> (int clientId)</td></tr>
+<tr class="memdesc:a5b5e5462b863cf0d284c430df9fd8cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable god mode.  <a href="classClient_1_1Network.html#a5b5e5462b863cf0d284c430df9fd8cb3">More...</a><br /></td></tr>
+<tr class="separator:a5b5e5462b863cf0d284c430df9fd8cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e00a6174658b13f4962b4f8eb81037d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a1e00a6174658b13f4962b4f8eb81037d">sendKey</a> (GameEngine::Keybinds key)</td></tr>
 <tr class="memdesc:a1e00a6174658b13f4962b4f8eb81037d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a key command to the server.  <a href="classClient_1_1Network.html#a1e00a6174658b13f4962b4f8eb81037d">More...</a><br /></td></tr>
 <tr class="separator:a1e00a6174658b13f4962b4f8eb81037d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -470,6 +473,33 @@ template&lt;typename T , typename Func &gt; </div>
 
 </div>
 </div>
+<a id="a5b5e5462b863cf0d284c430df9fd8cb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b5e5462b863cf0d284c430df9fd8cb3">&#9670;&nbsp;</a></span>godMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Client::Network::godMode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>clientId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable god mode. </p>
+<p>This function sends a request to the server to enable god mode for a player.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>The ID of the player to enable god mode for. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa433394ccb8d01696e30252eec870e66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa433394ccb8d01696e30252eec870e66">&#9670;&nbsp;</a></span>handleSend()</h2>
 
@@ -596,7 +626,13 @@ template&lt;typename T , typename Func &gt; </div>
 </div><div class="memdoc">
 
 <p>Kick a player. </p>
-<p>This function sends a request to the server to kick a player. </p>
+<p>This function sends a request to the server to kick a player.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>The ID of the player to be kicked. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

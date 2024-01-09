@@ -11,6 +11,7 @@ var classClient_1_1Network =
     [ "getRemoteEndpoint", "classClient_1_1Network.html#a0f198af430067b2174e2f69b0a78ada6", null ],
     [ "getRoomId", "classClient_1_1Network.html#aa901bacaeffbed0bbfc51820065deab5", null ],
     [ "getSerializedEcsQueue", "classClient_1_1Network.html#a5f3906ec4967fc8be1936ef21b41741c", null ],
+    [ "godMode", "classClient_1_1Network.html#a5b5e5462b863cf0d284c430df9fd8cb3", null ],
     [ "handleSend", "classClient_1_1Network.html#aa433394ccb8d01696e30252eec870e66", null ],
     [ "joinGame", "classClient_1_1Network.html#a8fb4a0ec6478049555f7ef13fe15d2f0", null ],
     [ "joinRoom", "classClient_1_1Network.html#af9322d011cea31df49fe776392ad0648", null ],
