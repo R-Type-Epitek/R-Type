@@ -15,7 +15,6 @@
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
 #include "gameEngine/event/Events.hpp"
 #include "gameEngine/event/IEventListener.hpp"
-#include "IUpdateSystem.hpp"
 
 namespace GameEngine::System
 {

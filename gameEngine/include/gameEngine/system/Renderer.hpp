@@ -8,7 +8,6 @@
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
-#include "IUpdateSystem.hpp"
 
 namespace GameEngine::System
 {

@@ -10,7 +10,6 @@
 #include "gameEngine/event/EventRegistry.hpp"
 #include "gameEngine/event/Events.hpp"
 #include "gameEngine/ecs/system/System.hpp"
-#include "IUpdateSystem.hpp"
 
 namespace GameEngine::System
 {
