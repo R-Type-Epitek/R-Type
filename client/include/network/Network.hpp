@@ -300,6 +300,13 @@ namespace Client
      */
     void joinGame(int roomId);
 
+    /**
+     * @brief Spectate a game with a specified room ID.
+     *
+     * @param roomId The ID of the game room to spectate.
+     */
+    void spectate(int roomId);
+
    protected:
    private:
     boost::asio::io_context io;

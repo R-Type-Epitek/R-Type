@@ -24,10 +24,7 @@ std::vector<char> Network::KickPlayerCommandHandler::handleCommand(Message *mess
   int status = RES_SUCCESS;
 
   auto senderOpt = this->server.getClientById(message->header.clientId);
-  Client sender;
-  if (senderOpt)
-    sender = senderOpt.value();
-  else
+  if (!senderOpt.has_value())
     return this->server.createResponseBuffer(
       message->header.clientId,
       message->header,
@@ -35,10 +32,11 @@ std::vector<char> Network::KickPlayerCommandHandler::handleCommand(Message *mess
       nullptr,
       0,
       RES_UNAUTHORIZED);
+  Client &sender = senderOpt.value();
 
   auto clientToKickOpt = this->server.getClientById(data->clientId);
   if (clientToKickOpt.has_value()) {
-    Client const clientToKick = clientToKickOpt.value();
+    Client &clientToKick = clientToKickOpt.value();
 
     if (clientToKick.getRoomId() != sender.getRoomId()) {
       status = RES_UNAUTHORIZED;

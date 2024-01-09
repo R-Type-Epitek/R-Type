@@ -24,10 +24,7 @@ std::vector<char> Network::GodModeCommandHandler::handleCommand(Message *message
   int status = RES_SUCCESS;
 
   auto senderOpt = this->server.getClientById(message->header.clientId);
-  Client sender;
-  if (senderOpt)
-    sender = senderOpt.value();
-  else
+  if (!senderOpt.has_value())
     return this->server.createResponseBuffer(
       message->header.clientId,
       message->header,
@@ -35,10 +32,11 @@ std::vector<char> Network::GodModeCommandHandler::handleCommand(Message *message
       nullptr,
       0,
       RES_UNAUTHORIZED);
+  Client &sender = senderOpt.value();
 
   auto clientOpt = this->server.getClientById(data->clientId);
   if (clientOpt.has_value()) {
-    Client client = clientOpt.value();
+    Client &client = clientOpt.value();
 
     client.setIsGodMode(true);
     statusMessage = "Player " + std::to_string(client.getId()) + " is now in god mode";

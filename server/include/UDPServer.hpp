@@ -90,9 +90,9 @@ namespace Network
      *
      * Return the client correponding to the given id.
      *
-     * @return std::optional<Network::Client> containing the client
+     * @return std::optional<Network::Client &> containing the client
      */
-    std::optional<Network::Client> getClientById(int id);
+    std::optional<std::reference_wrapper<Network::Client>> getClientById(int id);
 
     /**
       * @brief Gets the receive buffer.

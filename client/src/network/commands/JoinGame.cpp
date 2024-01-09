@@ -37,6 +37,6 @@ namespace Client
   {
     JoinGameData *data = (JoinGameData *)response->data;
 
-    spdlog::info("Game started in room {}", data->roomId);
+    spdlog::info("Game joined in room {}", data->roomId);
   }
 };

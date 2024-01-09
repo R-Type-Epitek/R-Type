@@ -132,6 +132,20 @@ namespace Network
       */
     bool getIsGodMode() const;
 
+    /**
+      * @brief Sets whether the client is a spectator.
+      *
+      * @param bool True if the client is a spectator, false otherwise.
+      */
+    void setIsSpectator(bool isSpectator);
+
+    /**
+      * @brief Checks if the client is a spectator.
+      *
+      * @return bool True if the client is a spectator, false otherwise.
+      */
+    bool getIsSpectator() const;
+
    protected:
    private:
     boost::asio::ip::udp::endpoint endpoint;               ///< The network endpoint of the client.
@@ -141,5 +155,6 @@ namespace Network
     std::chrono::steady_clock::time_point lastMessageTime; ///< The last time the client sent a message.
     bool isInGame;                                         ///< Whether the client is in a game.
     bool isGodMode;                                        ///< Whether the client is in god mode.
+    bool isSpectator;                                      ///< Whether the client is a spectator.
   };
 } // namespace Network
