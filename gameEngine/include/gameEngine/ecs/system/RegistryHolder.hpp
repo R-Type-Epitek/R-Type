@@ -13,11 +13,11 @@ namespace GameEngine::ECS
 {
   class RegistryHolder {
    public:
-    virtual RegistryHolder() = default;
+    virtual ~RegistryHolder() = default;
 
     void setEcsRegistry(std::shared_ptr<Registry> ecsRegistry)
     {
-      m_ecsRegistry = std::shared_ptr<Registry>(ecsRegistry.get());
+      m_ecsRegistry = std::move(ecsRegistry);
     }
 
     Registry& getEcsRegistry()
