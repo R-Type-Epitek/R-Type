@@ -67,6 +67,7 @@ var annotated_dup =
       [ "Entity", null, [
         [ "EntityBuilder", "classGameEngine_1_1Entity_1_1EntityBuilder.html", "classGameEngine_1_1Entity_1_1EntityBuilder" ],
         [ "EntityFactory", "classGameEngine_1_1Entity_1_1EntityFactory.html", "classGameEngine_1_1Entity_1_1EntityFactory" ],
+        [ "EntityTypeHelper", "structGameEngine_1_1Entity_1_1EntityTypeHelper.html", "structGameEngine_1_1Entity_1_1EntityTypeHelper" ],
         [ "ComponentBluePrint", "structGameEngine_1_1Entity_1_1ComponentBluePrint.html", "structGameEngine_1_1Entity_1_1ComponentBluePrint" ],
         [ "EntityBluePrint", "structGameEngine_1_1Entity_1_1EntityBluePrint.html", "structGameEngine_1_1Entity_1_1EntityBluePrint" ]
       ] ],
@@ -133,6 +134,7 @@ var annotated_dup =
       ] ]
     ] ],
     [ "Audio", "classAudio.html", "classAudio" ],
+    [ "ConfigLoader", "classConfigLoader.html", "classConfigLoader" ],
     [ "Display", "classDisplay.html", "classDisplay" ],
     [ "Event", "classEvent.html", "classEvent" ],
     [ "GodModeData", "structGodModeData.html", "structGodModeData" ],

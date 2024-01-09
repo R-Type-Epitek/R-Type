@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: Class Members</title>
+  <title>R-Type: gameEngine/include/gameEngine/asset/ConfigLoader.hpp Source File</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('functions_m.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('ConfigLoader_8hpp_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -116,31 +116,42 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 </iframe>
 </div>
 
+<div class="header">
+  <div class="headertitle">
+<div class="title">ConfigLoader.hpp</div>  </div>
+</div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
-
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>m_ecsRegistry
-: <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a7dee4462ba732a98a3a4413f57ec8509">GameEngine::Scene::SimpleScene</a>
-</li>
-<li>m_entities
-: <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a79ddb41acbe4211d9a9d0c75c820e813">GameEngine::Scene::SimpleScene</a>
-</li>
-<li>m_entityFactory
-: <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#af99709b8c53a4fd2fe0e8ba7b0ca1342">GameEngine::Scene::SimpleScene</a>
-</li>
-<li>m_eventRegistry
-: <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#afc7b99a4a7cbd163a7bc1d585410d522">GameEngine::Scene::SimpleScene</a>
-</li>
-<li>message
-: <a class="el" href="structTimedMessage.html#a2c1d25c80436512087308a036f01e86a">TimedMessage</a>
-</li>
-</ul>
-</div><!-- contents -->
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by Alexandre Decobert on 08/01/2024.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;nlohmann/json.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;gameEngine/entity/EntityFactory.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using</span> json = nlohmann::json;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classConfigLoader.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConfigLoader.html">ConfigLoader</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="classConfigLoader.html">ConfigLoader</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  ~<a class="code" href="classConfigLoader.html">ConfigLoader</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> loadEntities(std::shared_ptr&lt;GameEngine::Entity::EntityFactory&gt; &amp;entityFactory);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> openConfigFile();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">static</span> nlohmann::json m_config;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="ttc" id="aclassConfigLoader_html"><div class="ttname"><a href="classConfigLoader.html">ConfigLoader</a></div><div class="ttdef"><b>Definition:</b> ConfigLoader.hpp:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="dir_45b38ec21160528b53c40c1994368dc3.html">gameEngine</a></li><li class="navelem"><a class="el" href="dir_e23209b70ca929d0fe90a4b4a296568c.html">include</a></li><li class="navelem"><a class="el" href="dir_9c11d1f01a7e2832840f79ff0f0baab9.html">gameEngine</a></li><li class="navelem"><a class="el" href="dir_0dc30bd89579bdcc21579119afe249bd.html">asset</a></li><li class="navelem"><b>ConfigLoader.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

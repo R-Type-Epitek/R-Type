@@ -7,6 +7,6 @@ var classGameEngine_1_1Scene_1_1SimpleScene =
     [ "initRegistries", "classGameEngine_1_1Scene_1_1SimpleScene.html#ac86fe570169c5aa7dec9ae765dd68b62", null ],
     [ "m_ecsRegistry", "classGameEngine_1_1Scene_1_1SimpleScene.html#a7dee4462ba732a98a3a4413f57ec8509", null ],
     [ "m_entities", "classGameEngine_1_1Scene_1_1SimpleScene.html#a79ddb41acbe4211d9a9d0c75c820e813", null ],
-    [ "m_entityFactory", "classGameEngine_1_1Scene_1_1SimpleScene.html#afbad2cd38c4cbbae5bd724febdcb5815", null ],
+    [ "m_entityFactory", "classGameEngine_1_1Scene_1_1SimpleScene.html#af99709b8c53a4fd2fe0e8ba7b0ca1342", null ],
     [ "m_eventRegistry", "classGameEngine_1_1Scene_1_1SimpleScene.html#afc7b99a4a7cbd163a7bc1d585410d522", null ]
 ];

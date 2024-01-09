@@ -46,9 +46,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Animation_8hpp_source.html",
-"classGameEngine_1_1ECS_1_1EntityManager.html#afef51dc211cfcc97f0a3fb476dcb58fc",
-"classNetwork_1_1UDPServer.html#ac4b4c1cd19635deb604ceb2a63839f4d",
-"structMessage.html#a704863f3c71f270459d015102d61f7c8"
+"classGameEngine_1_1ECS_1_1EntityManager.html#a5ef9d8f50b1b211edc91a4a52d25a53d",
+"classNetwork_1_1UDPServer.html#abdff6274a3af6cd99c418197c4630a75",
+"structGodModeData.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lobbyscene_297',['LobbyScene',['../classClient_1_1LobbyScene.html',1,'Client']]]
+  ['lobbyscene_301',['LobbyScene',['../classClient_1_1LobbyScene.html',1,'Client']]]
 ];
