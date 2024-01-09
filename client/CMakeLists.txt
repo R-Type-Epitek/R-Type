@@ -9,6 +9,7 @@ add_executable(${EXEC_CLIENT}
         src/Client.cpp
         src/graphics/GUI.cpp
         src/network/commands/ConnectToServer.cpp
+        src/network/commands/GodMode.cpp
         src/network/commands/Input.cpp
         src/network/commands/JoinRoom.cpp
         src/network/commands/JoinRoomAuto.cpp

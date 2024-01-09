@@ -38,10 +38,10 @@ std::vector<char> Network::GodModeCommandHandler::handleCommand(Message *message
 
   auto clientOpt = this->server.getClientById(data->clientId);
   if (clientOpt.has_value()) {
-    Client const client = clientOpt.value();
+    Client client = clientOpt.value();
 
-    client.setGodMode(true);
-    statusMessage = "Player " + std::to_string(clientToKick.getId()) + " kicked";
+    client.setIsGodMode(true);
+    statusMessage = "Player " + std::to_string(client.getId()) + " is now in god mode";
   } else {
     status = RES_UNAUTHORIZED;
     statusMessage = "Player not found";

@@ -105,9 +105,9 @@ namespace Network
     bool isInactiveFor(long milliseconds);
 
     /**
-      * @brief Checks if the client is in a game.
+      * @brief Sets whether the client is in a game.
       *
-      * @return bool True if the client is in a game, false otherwise.
+      * @param bool True if the client is in a game, false otherwise.
       */
     void setIsInGame(bool isInGame);
 
@@ -118,6 +118,20 @@ namespace Network
       */
     bool getIsInGame() const;
 
+    /**
+      * @brief Sets whether the client is in god mode.
+      *
+      * @param bool True if the client is in god mode, false otherwise.
+      */
+    void setIsGodMode(bool isGodMode);
+
+    /**
+      * @brief Checks if the client is in god mode.
+      *
+      * @return bool True if the client is in god mode, false otherwise.
+      */
+    bool getIsGodMode() const;
+
    protected:
    private:
     boost::asio::ip::udp::endpoint endpoint;               ///< The network endpoint of the client.
@@ -126,5 +140,6 @@ namespace Network
     int roomId;                                            ///< The identifier of the room.
     std::chrono::steady_clock::time_point lastMessageTime; ///< The last time the client sent a message.
     bool isInGame;                                         ///< Whether the client is in a game.
+    bool isGodMode;                                        ///< Whether the client is in god mode.
   };
 } // namespace Network

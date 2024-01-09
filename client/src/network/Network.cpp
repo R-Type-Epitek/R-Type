@@ -13,6 +13,7 @@
 #include "network/commands/ConnectToServer.hpp"
 #include "network/commands/IHandler.hpp"
 #include "network/commands/Input.hpp"
+#include "network/commands/GodMode.hpp"
 #include "network/commands/JoinRoom.hpp"
 #include "network/commands/JoinRoomAuto.hpp"
 #include "network/commands/JoinGame.hpp"
@@ -21,11 +22,9 @@
 #include "network/commands/UpdateName.hpp"
 #include "network/tools/Logs.hpp"
 
-#include <boost/array.hpp>
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <memory>
-#include <ostream>
 #include <spdlog/spdlog.h>
 #include <string>
 #include <thread>
@@ -62,6 +61,7 @@ void Client::Network::registerCommandHandlers()
   this->commandHandlers[INPUT_COMMAND] = std::make_shared<InputCommandHandler>(*this);
   this->commandHandlers[JOIN_GAME_COMMAND] = std::make_shared<JoinGameCommandHandler>(*this);
   this->commandHandlers[KICK_PLAYER_COMMAND] = std::make_shared<KickPlayerCommandHandler>(*this);
+  this->commandHandlers[GOD_MODE_COMMAND] = std::make_shared<GodModeCommandHandler>(*this);
 }
 
 std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(const std::string &name)
@@ -369,6 +369,14 @@ void Client::Network::joinRoomAuto()
 void Client::Network::kickPlayer(int clientId)
 {
   this->executeCommand<KickPlayerCommandHandler>(KICK_PLAYER_COMMAND, [clientId](auto commandHandler) {
+    commandHandler->setClientId(clientId);
+    commandHandler->send();
+  });
+}
+
+void Client::Network::godMode(int clientId)
+{
+  this->executeCommand<GodModeCommandHandler>(GOD_MODE_COMMAND, [clientId](auto commandHandler) {
     commandHandler->setClientId(clientId);
     commandHandler->send();
   });

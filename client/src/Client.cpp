@@ -52,6 +52,7 @@ namespace Client
       // m_network->joinRoomAuto();
       m_network->joinGame(0);
       // m_network->kickPlayer(1);
+      // m_network->godMode(1);
       spdlog::info("Done");
 
     } catch (std::exception const&) {
