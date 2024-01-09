@@ -42,6 +42,6 @@ namespace GameEngine::Scene
     std::vector<ECS::Entity> m_entities;                    ///< Vector of entities in the game scene.
     std::unique_ptr<ECS::Registry> m_ecsRegistry;           ///< Unique pointer to the ECS registry.
     std::unique_ptr<Event::EventRegistry> m_eventRegistry;  ///< Unique pointer to the Event registry.
-    std::unique_ptr<Entity::EntityFactory> m_entityFactory; ///< Unique pointer to the entity factory.
+    std::shared_ptr<Entity::EntityFactory> m_entityFactory; ///< Unique pointer to the entity factory.
   };
 } // namespace Client
