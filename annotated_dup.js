@@ -34,6 +34,7 @@ var annotated_dup =
     ] ],
     [ "ComponentRType", null, [
       [ "Clickable", "structComponentRType_1_1Clickable.html", "structComponentRType_1_1Clickable" ],
+      [ "Collision", "structComponentRType_1_1Collision.html", "structComponentRType_1_1Collision" ],
       [ "Controllable", "structComponentRType_1_1Controllable.html", "structComponentRType_1_1Controllable" ],
       [ "Displayable", "structComponentRType_1_1Displayable.html", "structComponentRType_1_1Displayable" ],
       [ "Gravity", "structComponentRType_1_1Gravity.html", "structComponentRType_1_1Gravity" ],
@@ -65,6 +66,12 @@ var annotated_dup =
         [ "ComponentBluePrint", "structGameEngine_1_1Entity_1_1ComponentBluePrint.html", "structGameEngine_1_1Entity_1_1ComponentBluePrint" ],
         [ "EntityBluePrint", "structGameEngine_1_1Entity_1_1EntityBluePrint.html", "structGameEngine_1_1Entity_1_1EntityBluePrint" ]
       ] ],
+      [ "Event", null, [
+        [ "EventRegistry", "classGameEngine_1_1Event_1_1EventRegistry.html", "classGameEngine_1_1Event_1_1EventRegistry" ],
+        [ "EventCollision", "classGameEngine_1_1Event_1_1EventCollision.html", "classGameEngine_1_1Event_1_1EventCollision" ],
+        [ "IEvent", "classGameEngine_1_1Event_1_1IEvent.html", "classGameEngine_1_1Event_1_1IEvent" ],
+        [ "IEventListener", "classGameEngine_1_1Event_1_1IEventListener.html", "classGameEngine_1_1Event_1_1IEventListener" ]
+      ] ],
       [ "Network", null, [
         [ "Serializer", null, [
           [ "BaseNetworkComponent", "classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent.html", "classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent" ],
@@ -74,10 +81,12 @@ var annotated_dup =
       [ "Scene", null, [
         [ "IScene", "classGameEngine_1_1Scene_1_1IScene.html", "classGameEngine_1_1Scene_1_1IScene" ],
         [ "SceneContainer", "classGameEngine_1_1Scene_1_1SceneContainer.html", "classGameEngine_1_1Scene_1_1SceneContainer" ],
-        [ "SceneManager", "classGameEngine_1_1Scene_1_1SceneManager.html", "classGameEngine_1_1Scene_1_1SceneManager" ]
+        [ "SceneManager", "classGameEngine_1_1Scene_1_1SceneManager.html", "classGameEngine_1_1Scene_1_1SceneManager" ],
+        [ "SimpleScene", "classGameEngine_1_1Scene_1_1SimpleScene.html", "classGameEngine_1_1Scene_1_1SimpleScene" ]
       ] ],
       [ "System", null, [
         [ "Animation", "classGameEngine_1_1System_1_1Animation.html", "classGameEngine_1_1System_1_1Animation" ],
+        [ "Collider", "classGameEngine_1_1System_1_1Collider.html", "classGameEngine_1_1System_1_1Collider" ],
         [ "EcsSerializer", "classGameEngine_1_1System_1_1EcsSerializer.html", "classGameEngine_1_1System_1_1EcsSerializer" ],
         [ "Input", "classGameEngine_1_1System_1_1Input.html", "classGameEngine_1_1System_1_1Input" ],
         [ "IUpdateSystem", "classGameEngine_1_1System_1_1IUpdateSystem.html", "classGameEngine_1_1System_1_1IUpdateSystem" ],

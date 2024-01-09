@@ -131,17 +131,25 @@ $(document).ready(function(){initNavTree('client_2include_2scene_2SceneManager_8
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>Client::Scene</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classClient_1_1Scene_1_1SceneManager.html">   18</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classClient_1_1Scene_1_1SceneManager.html">SceneManager</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Scene_1_1SceneManager.html">GameEngine::Scene::SceneManager</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classClient_1_1Scene_1_1SceneManager.html#a44384cc046469736e7948c351e3b7a05">   23</a></span>&#160;    <a class="code" href="classClient_1_1Scene_1_1SceneManager.html#a44384cc046469736e7948c351e3b7a05">~SceneManager</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1Scene_1_1SceneManager.html#a03d4a1e01330abb4d347caefc55a90f0">initScenes</a>() final;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1Scene_1_1SceneManager.html#abb277e3c80be57e956e9340067dcfd17">initScenesWithNetwork</a>(<a class="code" href="classClient_1_1Network.html">Network</a>&amp; network);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace Client</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keyword">enum class</span> SceneType</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Welcome,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Lobby,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Game,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  };</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classClient_1_1Scene_1_1SceneManager.html">   19</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classClient_1_1Scene_1_1SceneManager.html">SceneManager</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Scene_1_1SceneManager.html">GameEngine::Scene::SceneManager</a>&lt;SceneType&gt; {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classClient_1_1Scene_1_1SceneManager.html#a44384cc046469736e7948c351e3b7a05">   24</a></span>&#160;    <a class="code" href="classClient_1_1Scene_1_1SceneManager.html#a44384cc046469736e7948c351e3b7a05">~SceneManager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1Scene_1_1SceneManager.html#a03d4a1e01330abb4d347caefc55a90f0">initScenes</a>() final;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1Scene_1_1SceneManager.html#abb277e3c80be57e956e9340067dcfd17">initScenesWithNetwork</a>(<a class="code" href="classClient_1_1Network.html">Network</a>&amp; network);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace Client</span></div>
 <div class="ttc" id="aclassClient_1_1Network_html"><div class="ttname"><a href="classClient_1_1Network.html">Client::Network</a></div><div class="ttdoc">Class responsible for network operations in a client.</div><div class="ttdef"><b>Definition:</b> Network.hpp:35</div></div>
-<div class="ttc" id="aclassClient_1_1Scene_1_1SceneManager_html"><div class="ttname"><a href="classClient_1_1Scene_1_1SceneManager.html">Client::Scene::SceneManager</a></div><div class="ttdoc">Extended scene manager for the client-side application.</div><div class="ttdef"><b>Definition:</b> SceneManager.hpp:18</div></div>
+<div class="ttc" id="aclassClient_1_1Scene_1_1SceneManager_html"><div class="ttname"><a href="classClient_1_1Scene_1_1SceneManager.html">Client::Scene::SceneManager</a></div><div class="ttdef"><b>Definition:</b> SceneManager.hpp:19</div></div>
 <div class="ttc" id="aclassClient_1_1Scene_1_1SceneManager_html_a03d4a1e01330abb4d347caefc55a90f0"><div class="ttname"><a href="classClient_1_1Scene_1_1SceneManager.html#a03d4a1e01330abb4d347caefc55a90f0">Client::Scene::SceneManager::initScenes</a></div><div class="ttdeci">void initScenes() final</div><div class="ttdoc">Initialize the scenes for the client application.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:15</div></div>
 <div class="ttc" id="aclassClient_1_1Scene_1_1SceneManager_html_a44384cc046469736e7948c351e3b7a05"><div class="ttname"><a href="classClient_1_1Scene_1_1SceneManager.html#a44384cc046469736e7948c351e3b7a05">Client::Scene::SceneManager::~SceneManager</a></div><div class="ttdeci">~SceneManager()=default</div><div class="ttdoc">Default destructor for SceneManager.</div></div>
 <div class="ttc" id="aclassClient_1_1Scene_1_1SceneManager_html_abb277e3c80be57e956e9340067dcfd17"><div class="ttname"><a href="classClient_1_1Scene_1_1SceneManager.html#abb277e3c80be57e956e9340067dcfd17">Client::Scene::SceneManager::initScenesWithNetwork</a></div><div class="ttdeci">void initScenesWithNetwork(Network &amp;network)</div><div class="ttdoc">Initialize scenes with network integration.</div><div class="ttdef"><b>Definition:</b> SceneManager.cpp:19</div></div>

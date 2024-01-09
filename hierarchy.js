@@ -10,6 +10,7 @@ var hierarchy =
     [ "ComponentRType::Clickable", "structComponentRType_1_1Clickable.html", null ],
     [ "Client::Client", "classClient_1_1Client.html", null ],
     [ "Network::Client", "classNetwork_1_1Client.html", null ],
+    [ "ComponentRType::Collision", "structComponentRType_1_1Collision.html", null ],
     [ "Client::CommandTracker", "classClient_1_1CommandTracker.html", null ],
     [ "GameEngine::Entity::ComponentBluePrint", "structGameEngine_1_1Entity_1_1ComponentBluePrint.html", null ],
     [ "GameEngine::ECS::ComponentManager", "classGameEngine_1_1ECS_1_1ComponentManager.html", null ],
@@ -20,6 +21,7 @@ var hierarchy =
     [ "GameEngine::Entity::EntityBuilder", "classGameEngine_1_1Entity_1_1EntityBuilder.html", null ],
     [ "GameEngine::Entity::EntityFactory", "classGameEngine_1_1Entity_1_1EntityFactory.html", null ],
     [ "GameEngine::ECS::EntityManager", "classGameEngine_1_1ECS_1_1EntityManager.html", null ],
+    [ "GameEngine::Event::EventRegistry", "classGameEngine_1_1Event_1_1EventRegistry.html", null ],
     [ "ComponentRType::Gravity", "structComponentRType_1_1Gravity.html", null ],
     [ "IAudio", "classIAudio.html", [
       [ "Audio", "classAudio.html", [
@@ -46,20 +48,26 @@ var hierarchy =
     [ "IDisplay", "classIDisplay.html", [
       [ "Display", "classDisplay.html", null ]
     ] ],
+    [ "GameEngine::Event::IEvent", "classGameEngine_1_1Event_1_1IEvent.html", [
+      [ "GameEngine::Event::EventCollision", "classGameEngine_1_1Event_1_1EventCollision.html", null ]
+    ] ],
     [ "IEvent", "classIEvent.html", [
       [ "Event", "classEvent.html", [
         [ "SfmlEvent", "classSfmlEvent.html", null ]
       ] ]
     ] ],
+    [ "GameEngine::Event::IEventListener", "classGameEngine_1_1Event_1_1IEventListener.html", null ],
     [ "Server::Game::IGame", "classServer_1_1Game_1_1IGame.html", [
       [ "Server::Game::RtypeGame", "classServer_1_1Game_1_1RtypeGame.html", null ]
     ] ],
     [ "InputData", "structInputData.html", null ],
     [ "GameEngine::Scene::IScene", "classGameEngine_1_1Scene_1_1IScene.html", [
-      [ "Client::GameScene", "classClient_1_1GameScene.html", null ],
-      [ "Client::LobbyScene", "classClient_1_1LobbyScene.html", null ],
-      [ "Client::WelcomeScene", "classClient_1_1WelcomeScene.html", null ],
-      [ "Server::Game::RtypeScene", "classServer_1_1Game_1_1RtypeScene.html", null ]
+      [ "GameEngine::Scene::SimpleScene", "classGameEngine_1_1Scene_1_1SimpleScene.html", [
+        [ "Client::GameScene", "classClient_1_1GameScene.html", null ],
+        [ "Client::LobbyScene", "classClient_1_1LobbyScene.html", null ],
+        [ "Client::WelcomeScene", "classClient_1_1WelcomeScene.html", null ],
+        [ "Server::Game::RtypeScene", "classServer_1_1Game_1_1RtypeScene.html", null ]
+      ] ]
     ] ],
     [ "ITexture", "classITexture.html", [
       [ "Texture", "classTexture.html", [
@@ -84,8 +92,9 @@ var hierarchy =
     [ "Response", "structResponse.html", null ],
     [ "ResponseHeader", "structResponseHeader.html", null ],
     [ "Network::Room", "classNetwork_1_1Room.html", null ],
-    [ "GameEngine::Scene::SceneContainer", "classGameEngine_1_1Scene_1_1SceneContainer.html", null ],
-    [ "GameEngine::Scene::SceneManager", "classGameEngine_1_1Scene_1_1SceneManager.html", [
+    [ "GameEngine::Scene::SceneContainer< SceneEnum >", "classGameEngine_1_1Scene_1_1SceneContainer.html", null ],
+    [ "GameEngine::Scene::SceneManager< SceneEnum >", "classGameEngine_1_1Scene_1_1SceneManager.html", null ],
+    [ "GameEngine::Scene::SceneManager< SceneType >", "classGameEngine_1_1Scene_1_1SceneManager.html", [
       [ "Client::Scene::SceneManager", "classClient_1_1Scene_1_1SceneManager.html", null ]
     ] ],
     [ "ServerClientDisconnectedData", "structServerClientDisconnectedData.html", null ],
@@ -98,6 +107,7 @@ var hierarchy =
     [ "GameEngine::ECS::System", "classGameEngine_1_1ECS_1_1System.html", [
       [ "Client::System::Network::Keyboard", "classClient_1_1System_1_1Network_1_1Keyboard.html", null ],
       [ "GameEngine::System::Animation", "classGameEngine_1_1System_1_1Animation.html", null ],
+      [ "GameEngine::System::Collider", "classGameEngine_1_1System_1_1Collider.html", null ],
       [ "GameEngine::System::EcsSerializer", "classGameEngine_1_1System_1_1EcsSerializer.html", null ],
       [ "GameEngine::System::Input", "classGameEngine_1_1System_1_1Input.html", null ],
       [ "GameEngine::System::Keyboard", "classGameEngine_1_1System_1_1Keyboard.html", null ],

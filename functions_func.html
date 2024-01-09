@@ -190,9 +190,6 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>gameLoop()
 : <a class="el" href="classNetwork_1_1UDPServer.html#af419e1866cc5630292523ae901aa7c0f">Network::UDPServer</a>
 </li>
-<li>GameScene()
-: <a class="el" href="classClient_1_1GameScene.html#a50211f9f8e6789d7a6d295d0ce3f5fad">Client::GameScene</a>
-</li>
 <li>getClientById()
 : <a class="el" href="classNetwork_1_1UDPServer.html#ac53887abfffcb234eb820f6beb7c58ff">Network::UDPServer</a>
 </li>
@@ -220,11 +217,20 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>getData()
 : <a class="el" href="classGameEngine_1_1ECS_1_1ComponentArray.html#a73361933c106165215335c697198fa39">GameEngine::ECS::ComponentArray&lt; T &gt;</a>
 </li>
-<li>getECS()
-: <a class="el" href="classClient_1_1GameScene.html#a3069752ebd793958ea978cdd3bf46edf">Client::GameScene</a>
+<li>getEcsRegistry()
+: <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#ade0d528afd00301f194e02773f48c92f">GameEngine::Scene::IScene</a>
+, <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a17595823658ef8e2da4cce90ebf4182a">GameEngine::Scene::SimpleScene</a>
 </li>
 <li>getEndpoint()
 : <a class="el" href="classNetwork_1_1Client.html#a67507fa077e2a1781500207e08dc46b3">Network::Client</a>
+</li>
+<li>getEntityFactory()
+: <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#aa639afceb0ae14227c49f8c26c63f25a">GameEngine::Scene::IScene</a>
+, <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a755c4d125a8392c47569e855bdd47316">GameEngine::Scene::SimpleScene</a>
+</li>
+<li>getEventRegistry()
+: <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#a8865aadcd5f7088f8a55b0c48c71fd3a">GameEngine::Scene::IScene</a>
+, <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac1005d514ce42fb9acd8f201fb90c915">GameEngine::Scene::SimpleScene</a>
 </li>
 <li>getHostedGame()
 : <a class="el" href="classNetwork_1_1Room.html#af5893aca91eb211862b4ff8d26a24843">Network::Room</a>
@@ -313,11 +319,13 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
-<li>initCustomSystem()
-: <a class="el" href="classClient_1_1GameScene.html#a1ed3532042dc68a41dec6abf93726b72">Client::GameScene</a>
-</li>
 <li>initEntities()
 : <a class="el" href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">Client::GameScene</a>
+, <a class="el" href="classClient_1_1LobbyScene.html#a4a46311e753dcbc64ef73184860e46ca">Client::LobbyScene</a>
+, <a class="el" href="classClient_1_1WelcomeScene.html#adb83a461dccbc7526345ecde36edbbc1">Client::WelcomeScene</a>
+, <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#abeb4e2fbc719bb0bd8d0d1e02d7f61f0">GameEngine::Scene::IScene</a>
+, <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#acc209a39e64ab559f76a76ce54402022">GameEngine::Scene::SimpleScene</a>
+, <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#a67803712ef0460f173952ccc36d25af7">Server::Game::RtypeScene</a>
 </li>
 <li>initGUI()
 : <a class="el" href="classClient_1_1Client.html#af35f0c7801518a310db21910a1a22921">Client::Client</a>
@@ -325,8 +333,13 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>initNetwork()
 : <a class="el" href="classClient_1_1Client.html#a8aecc94dd922c27fda7ed3d7248c70d8">Client::Client</a>
 </li>
-<li>initRegistry()
-: <a class="el" href="classClient_1_1GameScene.html#a4dd6cd95f688f3fe6da927897069c8c0">Client::GameScene</a>
+<li>initRegistries()
+: <a class="el" href="classClient_1_1GameScene.html#a2e032a9dc6db07f0d47f4d8c3734dc9c">Client::GameScene</a>
+, <a class="el" href="classClient_1_1LobbyScene.html#acc6db9cd7cbdbe6a2090d81da393f1d6">Client::LobbyScene</a>
+, <a class="el" href="classClient_1_1WelcomeScene.html#aeccda1491242d9fb8d7ed5ace93217ac">Client::WelcomeScene</a>
+, <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#a71b018775667a5bdd99fd5a02a6bae08">GameEngine::Scene::IScene</a>
+, <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac86fe570169c5aa7dec9ae765dd68b62">GameEngine::Scene::SimpleScene</a>
+, <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#a48b659cd1bf3a7be6e75cb2f844e3135">Server::Game::RtypeScene</a>
 </li>
 <li>initRooms()
 : <a class="el" href="classNetwork_1_1UDPServer.html#ac4b4c1cd19635deb604ceb2a63839f4d">Network::UDPServer</a>
@@ -608,6 +621,9 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>~ICommandHandler()
 : <a class="el" href="classClient_1_1ICommandHandler.html#aa9d71c56de179b38a3ea071df1f60676">Client::ICommandHandler</a>
 , <a class="el" href="classNetwork_1_1ICommandHandler.html#ac588e08e2986f5eff95e59cde7cb4439">Network::ICommandHandler</a>
+</li>
+<li>~IScene()
+: <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#afe991eaaa52626a983028a520aeaa559">GameEngine::Scene::IScene</a>
 </li>
 <li>~Network()
 : <a class="el" href="classClient_1_1Network.html#a9781434da3b6a72fab9b5e846e490a80">Client::Network</a>

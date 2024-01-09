@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('GameScene_8hpp_source.html',''); initR
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/Registry.hpp&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/entity/Entity.hpp&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;gameEngine/entity/EntityFactory.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;gameEngine/scene/IScene.hpp&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;gameEngine/scene/SimpleScene.hpp&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;network/Network.hpp&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
@@ -137,39 +137,25 @@ $(document).ready(function(){initNavTree('GameScene_8hpp_source.html',''); initR
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>Client</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classClient_1_1GameScene.html">   24</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classClient_1_1GameScene.html">GameScene</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Scene_1_1IScene.html">GameEngine::Scene::IScene</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classClient_1_1GameScene.html">   24</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classClient_1_1GameScene.html">GameScene</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Scene_1_1SimpleScene.html">GameEngine::Scene::SimpleScene</a> {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classClient_1_1GameScene.html#a50211f9f8e6789d7a6d295d0ce3f5fad">GameScene</a>(<a class="code" href="classClient_1_1Network.html">Network</a>&amp; network);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1GameScene.html#a4dd6cd95f688f3fe6da927897069c8c0">initRegistry</a>() <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">initEntities</a>() <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; <a class="code" href="classClient_1_1GameScene.html#a3069752ebd793958ea978cdd3bf46edf">getECS</a>() <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a>&amp; getEntityFactory() <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1GameScene.html#a1ed3532042dc68a41dec6abf93726b72">initCustomSystem</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::vector&lt;GameEngine::ECS::Entity&gt; m_entities;       </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::unique_ptr&lt;GameEngine::ECS::Registry&gt; m_registry; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::unique_ptr&lt;GameEngine::Entity::EntityFactory&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      m_entityFactory;  </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classClient_1_1Network.html">Network</a>&amp; m_network; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;} <span class="comment">// namespace Client</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classClient_1_1GameScene.html">GameScene</a>(<a class="code" href="classClient_1_1Network.html">Network</a>&amp; network);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">initEntities</a>() <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classClient_1_1GameScene.html#a2e032a9dc6db07f0d47f4d8c3734dc9c">initRegistries</a>() <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;   <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> initCustomSystem();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classClient_1_1Network.html">Network</a>&amp; m_network;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <span class="comment">// namespace Client</span></div>
 <div class="ttc" id="aclassClient_1_1GameScene_html"><div class="ttname"><a href="classClient_1_1GameScene.html">Client::GameScene</a></div><div class="ttdoc">Scene class specifically designed for game functionality in a client application.</div><div class="ttdef"><b>Definition:</b> GameScene.hpp:24</div></div>
-<div class="ttc" id="aclassClient_1_1GameScene_html_a1ed3532042dc68a41dec6abf93726b72"><div class="ttname"><a href="classClient_1_1GameScene.html#a1ed3532042dc68a41dec6abf93726b72">Client::GameScene::initCustomSystem</a></div><div class="ttdeci">void initCustomSystem()</div><div class="ttdoc">Initialize custom systems specific to this game scene.</div><div class="ttdef"><b>Definition:</b> GameScene.cpp:62</div></div>
-<div class="ttc" id="aclassClient_1_1GameScene_html_a3069752ebd793958ea978cdd3bf46edf"><div class="ttname"><a href="classClient_1_1GameScene.html#a3069752ebd793958ea978cdd3bf46edf">Client::GameScene::getECS</a></div><div class="ttdeci">GameEngine::ECS::Registry &amp; getECS() final</div><div class="ttdoc">Get the ECS registry associated with the game scene.</div><div class="ttdef"><b>Definition:</b> GameScene.cpp:31</div></div>
-<div class="ttc" id="aclassClient_1_1GameScene_html_a4dd6cd95f688f3fe6da927897069c8c0"><div class="ttname"><a href="classClient_1_1GameScene.html#a4dd6cd95f688f3fe6da927897069c8c0">Client::GameScene::initRegistry</a></div><div class="ttdeci">void initRegistry() final</div><div class="ttdoc">Initialize the ECS registry for the game scene.</div><div class="ttdef"><b>Definition:</b> GameScene.cpp:41</div></div>
-<div class="ttc" id="aclassClient_1_1GameScene_html_a50211f9f8e6789d7a6d295d0ce3f5fad"><div class="ttname"><a href="classClient_1_1GameScene.html#a50211f9f8e6789d7a6d295d0ce3f5fad">Client::GameScene::GameScene</a></div><div class="ttdeci">GameScene(Network &amp;network)</div><div class="ttdoc">Construct a new GameScene object.</div><div class="ttdef"><b>Definition:</b> GameScene.cpp:24</div></div>
-<div class="ttc" id="aclassClient_1_1GameScene_html_aeb69a43caae2035567e9fd504d84ffa1"><div class="ttname"><a href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">Client::GameScene::initEntities</a></div><div class="ttdeci">void initEntities() final</div><div class="ttdoc">Initialize entities for the game scene.</div><div class="ttdef"><b>Definition:</b> GameScene.cpp:71</div></div>
+<div class="ttc" id="aclassClient_1_1GameScene_html_a2e032a9dc6db07f0d47f4d8c3734dc9c"><div class="ttname"><a href="classClient_1_1GameScene.html#a2e032a9dc6db07f0d47f4d8c3734dc9c">Client::GameScene::initRegistries</a></div><div class="ttdeci">void initRegistries() final</div><div class="ttdoc">Initialize the ECS registry for the game scene.</div><div class="ttdef"><b>Definition:</b> GameScene.cpp:31</div></div>
+<div class="ttc" id="aclassClient_1_1GameScene_html_aeb69a43caae2035567e9fd504d84ffa1"><div class="ttname"><a href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">Client::GameScene::initEntities</a></div><div class="ttdeci">void initEntities() final</div><div class="ttdoc">Initialize entities for the game scene.</div><div class="ttdef"><b>Definition:</b> GameScene.cpp:46</div></div>
 <div class="ttc" id="aclassClient_1_1Network_html"><div class="ttname"><a href="classClient_1_1Network.html">Client::Network</a></div><div class="ttdoc">Class responsible for network operations in a client.</div><div class="ttdef"><b>Definition:</b> Network.hpp:35</div></div>
-<div class="ttc" id="aclassGameEngine_1_1ECS_1_1Registry_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a></div><div class="ttdef"><b>Definition:</b> Registry.hpp:19</div></div>
-<div class="ttc" id="aclassGameEngine_1_1Entity_1_1EntityFactory_html"><div class="ttname"><a href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a></div><div class="ttdef"><b>Definition:</b> EntityFactory.hpp:18</div></div>
-<div class="ttc" id="aclassGameEngine_1_1Scene_1_1IScene_html"><div class="ttname"><a href="classGameEngine_1_1Scene_1_1IScene.html">GameEngine::Scene::IScene</a></div><div class="ttdef"><b>Definition:</b> IScene.hpp:11</div></div>
+<div class="ttc" id="aclassGameEngine_1_1Scene_1_1SimpleScene_html"><div class="ttname"><a href="classGameEngine_1_1Scene_1_1SimpleScene.html">GameEngine::Scene::SimpleScene</a></div><div class="ttdoc">SimpleScene class specifically designed for game functionality in an application.</div><div class="ttdef"><b>Definition:</b> SimpleScene.hpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

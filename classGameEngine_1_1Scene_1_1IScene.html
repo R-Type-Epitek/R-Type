@@ -124,34 +124,172 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1Scene_1_1IScene.htm
 <div class="title">GameEngine::Scene::IScene Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html" title="IScene class specifically designed for game functionality in an application.">IScene</a> class specifically designed for game functionality in an application.  
+ <a href="classGameEngine_1_1Scene_1_1IScene.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="IScene_8hpp_source.html">IScene.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GameEngine::Scene::IScene:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classGameEngine_1_1Scene_1_1IScene.png" usemap="#GameEngine::Scene::IScene_map" alt=""/>
   <map id="GameEngine::Scene::IScene_map" name="GameEngine::Scene::IScene_map">
-<area href="classClient_1_1GameScene.html" title="Scene class specifically designed for game functionality in a client application." alt="Client::GameScene" shape="rect" coords="0,56,170,80"/>
-<area href="classClient_1_1LobbyScene.html" alt="Client::LobbyScene" shape="rect" coords="180,56,350,80"/>
-<area href="classClient_1_1WelcomeScene.html" alt="Client::WelcomeScene" shape="rect" coords="360,56,530,80"/>
-<area href="classServer_1_1Game_1_1RtypeScene.html" alt="Server::Game::RtypeScene" shape="rect" coords="540,56,710,80"/>
+<area href="classGameEngine_1_1Scene_1_1SimpleScene.html" title="SimpleScene class specifically designed for game functionality in an application." alt="GameEngine::Scene::SimpleScene" shape="rect" coords="321,56,525,80"/>
+<area href="classClient_1_1GameScene.html" title="Scene class specifically designed for game functionality in a client application." alt="Client::GameScene" shape="rect" coords="0,112,204,136"/>
+<area href="classClient_1_1LobbyScene.html" title="Scene class specifically designed for game functionality in a client application." alt="Client::LobbyScene" shape="rect" coords="214,112,418,136"/>
+<area href="classClient_1_1WelcomeScene.html" title="Scene class specifically designed for game functionality in a client application." alt="Client::WelcomeScene" shape="rect" coords="428,112,632,136"/>
+<area href="classServer_1_1Game_1_1RtypeScene.html" alt="Server::Game::RtypeScene" shape="rect" coords="642,112,846,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2adb3b9d29d5effb0beabb121bd33f3a"><td class="memItemLeft" align="right" valign="top"><a id="a2adb3b9d29d5effb0beabb121bd33f3a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>initRegistry</b> ()=0</td></tr>
-<tr class="separator:a2adb3b9d29d5effb0beabb121bd33f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeb4e2fbc719bb0bd8d0d1e02d7f61f0"><td class="memItemLeft" align="right" valign="top"><a id="abeb4e2fbc719bb0bd8d0d1e02d7f61f0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>initEntities</b> ()=0</td></tr>
+<tr class="memitem:afe991eaaa52626a983028a520aeaa559"><td class="memItemLeft" align="right" valign="top"><a id="afe991eaaa52626a983028a520aeaa559"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#afe991eaaa52626a983028a520aeaa559">~IScene</a> ()=default</td></tr>
+<tr class="memdesc:afe991eaaa52626a983028a520aeaa559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html" title="IScene class specifically designed for game functionality in an application.">IScene</a> object. <br /></td></tr>
+<tr class="separator:afe991eaaa52626a983028a520aeaa559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b018775667a5bdd99fd5a02a6bae08"><td class="memItemLeft" align="right" valign="top"><a id="a71b018775667a5bdd99fd5a02a6bae08"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#a71b018775667a5bdd99fd5a02a6bae08">initRegistries</a> ()=0</td></tr>
+<tr class="memdesc:a71b018775667a5bdd99fd5a02a6bae08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the ECS registry for the game scene. <br /></td></tr>
+<tr class="separator:a71b018775667a5bdd99fd5a02a6bae08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeb4e2fbc719bb0bd8d0d1e02d7f61f0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#abeb4e2fbc719bb0bd8d0d1e02d7f61f0">initEntities</a> ()=0</td></tr>
+<tr class="memdesc:abeb4e2fbc719bb0bd8d0d1e02d7f61f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize entities for the game scene.  <a href="classGameEngine_1_1Scene_1_1IScene.html#abeb4e2fbc719bb0bd8d0d1e02d7f61f0">More...</a><br /></td></tr>
 <tr class="separator:abeb4e2fbc719bb0bd8d0d1e02d7f61f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ed08f4ad3ae7e23f6bfb6c0c2433de"><td class="memItemLeft" align="right" valign="top"><a id="a85ed08f4ad3ae7e23f6bfb6c0c2433de"></a>
-virtual <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getECS</b> ()=0</td></tr>
-<tr class="separator:a85ed08f4ad3ae7e23f6bfb6c0c2433de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa639afceb0ae14227c49f8c26c63f25a"><td class="memItemLeft" align="right" valign="top"><a id="aa639afceb0ae14227c49f8c26c63f25a"></a>
-virtual <a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEntityFactory</b> ()=0</td></tr>
+<tr class="memitem:ade0d528afd00301f194e02773f48c92f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#ade0d528afd00301f194e02773f48c92f">getEcsRegistry</a> ()=0</td></tr>
+<tr class="memdesc:ade0d528afd00301f194e02773f48c92f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ECS registry associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1IScene.html#ade0d528afd00301f194e02773f48c92f">More...</a><br /></td></tr>
+<tr class="separator:ade0d528afd00301f194e02773f48c92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8865aadcd5f7088f8a55b0c48c71fd3a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">Event::EventRegistry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#a8865aadcd5f7088f8a55b0c48c71fd3a">getEventRegistry</a> ()=0</td></tr>
+<tr class="memdesc:a8865aadcd5f7088f8a55b0c48c71fd3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classEvent.html">Event</a> registry associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1IScene.html#a8865aadcd5f7088f8a55b0c48c71fd3a">More...</a><br /></td></tr>
+<tr class="separator:a8865aadcd5f7088f8a55b0c48c71fd3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa639afceb0ae14227c49f8c26c63f25a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#aa639afceb0ae14227c49f8c26c63f25a">getEntityFactory</a> ()=0</td></tr>
+<tr class="memdesc:aa639afceb0ae14227c49f8c26c63f25a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Entity Factory associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1IScene.html#aa639afceb0ae14227c49f8c26c63f25a">More...</a><br /></td></tr>
 <tr class="separator:aa639afceb0ae14227c49f8c26c63f25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html" title="IScene class specifically designed for game functionality in an application.">IScene</a> class specifically designed for game functionality in an application. </p>
+<p><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html" title="IScene class specifically designed for game functionality in an application.">IScene</a> interface provide functionalities specific to game scenes, including initialization of the ECS registry, entities, events and custom systems. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ade0d528afd00301f194e02773f48c92f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade0d528afd00301f194e02773f48c92f">&#9670;&nbsp;</a></span>getEcsRegistry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a>&amp; GameEngine::Scene::IScene::getEcsRegistry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the ECS registry associated with the game scene. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; Reference to the ECS registry. </dd></dl>
+
+<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a17595823658ef8e2da4cce90ebf4182a">GameEngine::Scene::SimpleScene</a>.</p>
+
+</div>
+</div>
+<a id="aa639afceb0ae14227c49f8c26c63f25a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa639afceb0ae14227c49f8c26c63f25a">&#9670;&nbsp;</a></span>getEntityFactory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a>&amp; GameEngine::Scene::IScene::getEntityFactory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the Entity Factory associated with the game scene. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; Reference to the ECS registry. </dd></dl>
+
+<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a755c4d125a8392c47569e855bdd47316">GameEngine::Scene::SimpleScene</a>.</p>
+
+</div>
+</div>
+<a id="a8865aadcd5f7088f8a55b0c48c71fd3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8865aadcd5f7088f8a55b0c48c71fd3a">&#9670;&nbsp;</a></span>getEventRegistry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">Event::EventRegistry</a>&amp; GameEngine::Scene::IScene::getEventRegistry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the <a class="el" href="classEvent.html">Event</a> registry associated with the game scene. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a>&amp; Reference to the ECS registry. </dd></dl>
+
+<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac1005d514ce42fb9acd8f201fb90c915">GameEngine::Scene::SimpleScene</a>.</p>
+
+</div>
+</div>
+<a id="abeb4e2fbc719bb0bd8d0d1e02d7f61f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeb4e2fbc719bb0bd8d0d1e02d7f61f0">&#9670;&nbsp;</a></span>initEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GameEngine::Scene::IScene::initEntities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize entities for the game scene. </p>
+<p>This function sets up the entities required for the game, adding them to the ECS registry. </p>
+
+<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#acc209a39e64ab559f76a76ce54402022">GameEngine::Scene::SimpleScene</a>, <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#a67803712ef0460f173952ccc36d25af7">Server::Game::RtypeScene</a>, <a class="el" href="classClient_1_1WelcomeScene.html#adb83a461dccbc7526345ecde36edbbc1">Client::WelcomeScene</a>, <a class="el" href="classClient_1_1LobbyScene.html#a4a46311e753dcbc64ef73184860e46ca">Client::LobbyScene</a>, and <a class="el" href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">Client::GameScene</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>gameEngine/include/gameEngine/scene/<a class="el" href="IScene_8hpp_source.html">IScene.hpp</a></li>
 </ul>
