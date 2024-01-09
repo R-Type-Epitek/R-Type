@@ -9,7 +9,6 @@
 
 namespace GameEngine::Event
 {
-
   class EventCollision : public IEvent {
    public:
     EventCollision(const ECS::Entity &entityA, const ECS::Entity &entityB)

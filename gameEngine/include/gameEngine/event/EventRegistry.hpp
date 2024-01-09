@@ -6,10 +6,12 @@
 
 #include "gameEngine/event/Events.hpp"
 #include "gameEngine/event/IEventListener.hpp"
+#include "gameEngine/event/EventListenerWrapper.hpp"
 #include <unordered_map>
 #include <typeindex>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 namespace GameEngine::Event
 {
@@ -19,6 +21,14 @@ namespace GameEngine::Event
     void subscribe(std::shared_ptr<IEventListener> listener)
     {
       char const* typeName = typeid(EventType).name();
+      subscribers[typeName].push_back(listener);
+    }
+
+    template<typename EventType>
+    void subscribeLambda(std::function<void(const IEvent& event)> lambdaListener)
+    {
+      char const* typeName = typeid(EventType).name();
+      auto listener = std::make_shared<EventListenerWrapper>(lambdaListener);
       subscribers[typeName].push_back(listener);
     }
 
