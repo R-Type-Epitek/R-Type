@@ -304,5 +304,6 @@ namespace Client
     int clientId;
     int roomId;
     std::string name;
+    int ping;
   };
 } // namespace Client

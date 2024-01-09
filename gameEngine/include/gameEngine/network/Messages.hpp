@@ -19,6 +19,7 @@ struct MessageHeader {
   char command[32];    ///< Command type in ASCII format.
   int commandId;       ///< Unique identifier for the command.
   uint32_t dataLength; ///< Length of the following data in bytes.
+  uint32_t timestamp;  ///< The time at which the message was sent.
 };
 
 /**

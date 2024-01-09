@@ -223,6 +223,15 @@ void Client::Network::onServerResponse(Response *response)
 
 void Client::Network::onServerMessage(Message *message)
 {
+  uint32_t timestamp = message->header.timestamp;
+  uint32_t currentTimestamp =
+    std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
+      .count();
+  uint32_t diff = currentTimestamp - timestamp;
+  this->ping = diff;
+
+  spdlog::info("Ping: {} ms", this->ping);
+
   if (strcmp(message->header.command, SERVER_COMMAND_UPDATE_GAME) != 0)
     logMessage("Server message", message);
 
