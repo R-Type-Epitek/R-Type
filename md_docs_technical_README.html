@@ -220,7 +220,7 @@ The data is a <code>std::vector&lt;std::vector&lt;char&gt;&gt;</code> serialized
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>/check_connection</code>   </td><td class="markdownTableBodyNone">This command is sent automatically to a client, if the server has not received message from him in the last second.   </td><td class="markdownTableBodyNone"></td></tr>
 </table>
-<p>| <code>/client_disconnected</code> | This command is sent to all the players in the same room than the disconnected client when a client has disconnected. | <code>struct <a class="el" href="structServerClientDisconnectedData.html">ServerClientDisconnectedData</a> {int clientId;}</code> (8 bytes: defined in the message header) | |</p>
+<p>| <code>/client_disconnected</code> | This command is sent to all the players in the same room than the disconnected client when a client has disconnected. | <code>struct <a class="el" href="structServerClientDisconnectedData.html" title="Structure for data related to a &#39;Client Disconnected&#39; command.">ServerClientDisconnectedData</a> {int clientId;}</code> (8 bytes: defined in the message header) | |</p>
 <h3><a class="anchor" id="autotoc_md6"></a>
 Client to Server Messages</h3>
 <table class="markdownTable">
@@ -245,7 +245,10 @@ The data is a <code>struct <a class="el" href="structJoinRoomData.html" title="S
 The game will then start and the client will join the running game.<br  />
 <br  />
 If the game is already running, the client will only join the room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
-The data is a <code>struct <a class="el" href="structJoinGameData.html" title="Structure for data related to a &#39;Join Game&#39; command.">JoinGameData</a> {int room_id;};</code> (8 bytes: defined in the message header)   </td></tr>
+The data is a <code>struct <a class="el" href="structJoinGameData.html" title="Structure for data related to a &#39;Join Game&#39; command.">JoinGameData</a> {int room_id;};</code> (8 bytes: defined in the message header)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>/kick_player</code>   </td><td class="markdownTableBodyNone">The client send this command when he want to kick a player from the game, the player to kick must be in the same room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
+The data is a <code>struct <a class="el" href="structKickPlayerData.html" title="Structure for data related to a &#39;Kick Player&#39; command.">KickPlayerData</a> {int player_id;};</code> (8 bytes: defined in the message header)   </td></tr>
 </table>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Support and Contributions</h2>

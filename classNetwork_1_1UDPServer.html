@@ -148,9 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6577105fddee863d8d7bbae6f7bac2f7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a6577105fddee863d8d7bbae6f7bac2f7">getClients</a> ()</td></tr>
 <tr class="memdesc:a6577105fddee863d8d7bbae6f7bac2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of connected clients.  <a href="classNetwork_1_1UDPServer.html#a6577105fddee863d8d7bbae6f7bac2f7">More...</a><br /></td></tr>
 <tr class="separator:a6577105fddee863d8d7bbae6f7bac2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac53887abfffcb234eb820f6beb7c58ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ac53887abfffcb234eb820f6beb7c58ff">getClientById</a> (int id)</td></tr>
-<tr class="memdesc:ac53887abfffcb234eb820f6beb7c58ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the client by id.  <a href="classNetwork_1_1UDPServer.html#ac53887abfffcb234eb820f6beb7c58ff">More...</a><br /></td></tr>
-<tr class="separator:ac53887abfffcb234eb820f6beb7c58ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c9859cad1191356e4ef58d4b703efc"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a58c9859cad1191356e4ef58d4b703efc">getClientById</a> (int id)</td></tr>
+<tr class="memdesc:a58c9859cad1191356e4ef58d4b703efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the client by id.  <a href="classNetwork_1_1UDPServer.html#a58c9859cad1191356e4ef58d4b703efc">More...</a><br /></td></tr>
+<tr class="separator:a58c9859cad1191356e4ef58d4b703efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc40e08966da73a1b12d380a0dce6053"><td class="memItemLeft" align="right" valign="top">boost::array&lt; char, 65536 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#abc40e08966da73a1b12d380a0dce6053">getRecvBuffer</a> () const</td></tr>
 <tr class="memdesc:abc40e08966da73a1b12d380a0dce6053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the receive buffer.  <a href="classNetwork_1_1UDPServer.html#abc40e08966da73a1b12d380a0dce6053">More...</a><br /></td></tr>
 <tr class="separator:abc40e08966da73a1b12d380a0dce6053"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -519,14 +519,14 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 </div>
 </div>
-<a id="ac53887abfffcb234eb820f6beb7c58ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac53887abfffcb234eb820f6beb7c58ff">&#9670;&nbsp;</a></span>getClientById()</h2>
+<a id="a58c9859cad1191356e4ef58d4b703efc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c9859cad1191356e4ef58d4b703efc">&#9670;&nbsp;</a></span>getClientById()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &amp; Network::UDPServer::getClientById </td>
+          <td class="memname">std::optional&lt; <a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &gt; Network::UDPServer::getClientById </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -537,7 +537,7 @@ std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 
 <p>Get the client by id. </p>
 <p>Return the client correponding to the given id.</p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classNetwork_1_1Client.html" title="Represents a network client.">Client</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::optional&lt;Network::Client&gt; containing the client </dd></dl>
 
 </div>
 </div>

@@ -34,6 +34,7 @@ var hierarchy =
       [ "Client::JoinGameCommandHandler", "classClient_1_1JoinGameCommandHandler.html", null ],
       [ "Client::JoinRoomAutoCommandHandler", "classClient_1_1JoinRoomAutoCommandHandler.html", null ],
       [ "Client::JoinRoomCommandHandler", "classClient_1_1JoinRoomCommandHandler.html", null ],
+      [ "Client::KickPlayerCommandHandler", "classClient_1_1KickPlayerCommandHandler.html", null ],
       [ "Client::UpdateNameCommandHandler", "classClient_1_1UpdateNameCommandHandler.html", null ]
     ] ],
     [ "Network::ICommandHandler", "classNetwork_1_1ICommandHandler.html", [
@@ -42,6 +43,7 @@ var hierarchy =
       [ "Network::JoinGameCommandHandler", "classNetwork_1_1JoinGameCommandHandler.html", null ],
       [ "Network::JoinRoomAutoCommandHandler", "classNetwork_1_1JoinRoomAutoCommandHandler.html", null ],
       [ "Network::JoinRoomCommandHandler", "classNetwork_1_1JoinRoomCommandHandler.html", null ],
+      [ "Network::KickPlayerCommandHandler", "classNetwork_1_1KickPlayerCommandHandler.html", null ],
       [ "Network::UpdateNameCommandHandler", "classNetwork_1_1UpdateNameCommandHandler.html", null ]
     ] ],
     [ "GameEngine::ECS::IComponentArray", "classGameEngine_1_1ECS_1_1IComponentArray.html", [
@@ -83,6 +85,7 @@ var hierarchy =
     ] ],
     [ "JoinGameData", "structJoinGameData.html", null ],
     [ "JoinRoomData", "structJoinRoomData.html", null ],
+    [ "KickPlayerData", "structKickPlayerData.html", null ],
     [ "Message", "structMessage.html", null ],
     [ "MessageHeader", "structMessageHeader.html", null ],
     [ "Client::Network", "classClient_1_1Network.html", null ],
