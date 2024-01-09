@@ -42,7 +42,7 @@ std::vector<Network::Client> &Network::UDPServer::getClients()
   return this->clients;
 }
 
-std::optional<Network::Client> Network::UDPServer::getClientById(int id)
+std::optional<std::reference_wrapper<Network::Client>> Network::UDPServer::getClientById(int id)
 {
   for (auto &client : this->clients)
     if (client.getId() == id)
@@ -234,13 +234,11 @@ void Network::UDPServer::processMessage(TimedMessage timedMessage)
 void Network::UDPServer::processResponse(Response *response)
 {
   auto clientOpt = this->getClientById(response->header.clientId);
-  Client client;
-  if (clientOpt.has_value()) {
-    client = clientOpt.value();
-  } else {
+  if (!clientOpt.has_value()) {
     this->startReceive();
     return spdlog::error("Client not found");
   }
+  Client &client = clientOpt.value();
 
   if (strcmp(response->header.command, SERVER_COMMAND_UPDATE_GAME) != 0)
     logResponse("Client response", response, client);
@@ -330,11 +328,9 @@ void Network::UDPServer::sendResponseAndLog(TimedMessage timedMessage, std::vect
 {
   Response response = *(Response *)responseBuffer.data();
   auto clientOpt = this->getClientById(response.header.clientId);
-  Client client;
-  if (clientOpt.has_value())
-    client = clientOpt.value();
-  else
+  if (!clientOpt.has_value())
     return spdlog::error("Client not found");
+  Client &client = clientOpt.value();
 
   logTimedMessage("Server response", timedMessage, response, client);
 
@@ -434,7 +430,7 @@ void Network::UDPServer::notifyAndRemoveClient(int clientId)
   auto clientOpt = this->getClientById(clientId);
   if (!clientOpt.has_value())
     return;
-  Client client = clientOpt.value();
+  Client &client = clientOpt.value();
 
   if (client.getRoomId() == -1) {
     for (size_t i = 0; i < this->clients.size(); i++) {
@@ -474,7 +470,7 @@ void Network::UDPServer::sendCheckConnection(int clientId)
   auto clientOpt = this->getClientById(clientId);
   if (!clientOpt.has_value())
     return;
-  Client client = clientOpt.value();
+  Client &client = clientOpt.value();
 
   logMessage("Server message", (Message *)messageBuffer.data(), client);
 

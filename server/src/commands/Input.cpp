@@ -21,10 +21,7 @@ std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
 {
   InputData *data = (InputData *)message->data;
   auto clientOpt = this->server.getClientById(message->header.clientId);
-  Client client;
-  if (clientOpt.has_value())
-    client = clientOpt.value();
-  else
+  if (!clientOpt.has_value())
     return this->server.createResponseBuffer(
       message->header.clientId,
       message->header,
@@ -32,6 +29,7 @@ std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
       nullptr,
       0,
       RES_UNAUTHORIZED);
+  Client &client = clientOpt.value();
   Room &room = this->server.getRooms()[client.getRoomId()];
 
   if (room.getState() != RUNNING)

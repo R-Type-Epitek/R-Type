@@ -18,6 +18,7 @@
 #include "network/commands/JoinRoomAuto.hpp"
 #include "network/commands/JoinGame.hpp"
 #include "network/commands/KickPlayer.hpp"
+#include "network/commands/Spectate.hpp"
 #include "network/commands/Tracker.hpp"
 #include "network/commands/UpdateName.hpp"
 #include "network/tools/Logs.hpp"
@@ -393,6 +394,14 @@ void Client::Network::sendKey(GameEngine::Keybinds key)
 void Client::Network::joinGame(int roomId)
 {
   this->executeCommand<JoinGameCommandHandler>(JOIN_GAME_COMMAND, [roomId](auto commandHandler) {
+    commandHandler->setRoomId(roomId);
+    commandHandler->send();
+  });
+}
+
+void Client::Network::spectate(int roomId)
+{
+  this->executeCommand<SpectateCommandHandler>(SPECTATE_COMMAND, [roomId](auto commandHandler) {
     commandHandler->setRoomId(roomId);
     commandHandler->send();
   });

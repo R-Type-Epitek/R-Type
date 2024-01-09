@@ -23,10 +23,7 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
 
   Room &room = this->server.getRooms()[data->roomId];
   auto clientOpt = this->server.getClientById(message->header.clientId);
-  Client client;
-  if (clientOpt.has_value())
-    client = clientOpt.value();
-  else
+  if (!clientOpt.has_value())
     return this->server.createResponseBuffer(
       message->header.clientId,
       message->header,
@@ -34,6 +31,7 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
       nullptr,
       0,
       RES_UNAUTHORIZED);
+  Client &client = clientOpt.value();
 
   client.setIsInGame(true);
 
