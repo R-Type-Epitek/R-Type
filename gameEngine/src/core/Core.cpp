@@ -36,18 +36,20 @@ namespace GameEngine::Core
   void Core::run()
   {
     std::chrono::milliseconds tickDuration = std::chrono::milliseconds(1000 / m_ticksPerSecond);
+    unsigned int rateDelta = 0;
 
     while (m_gameEngineState != GameEngineState::STOPPED) {
+      rateDelta++;
       auto startTime = std::chrono::steady_clock::now();
+      auto deltaTime =
+        std::chrono::duration_cast<std::chrono::duration<float>>(startTime - m_lastFrameTime).count();
+      m_lastFrameTime = startTime;
 
-      if (m_graphical && !m_gui->isOpen()) {
-        stop();
+      tickUpdate(deltaTime);
+      if (m_updateExternClosure && rateDelta >= m_updateClosureRate) {
+        m_updateExternClosure();
+        rateDelta = 0;
       }
-      if (m_graphical) {
-        m_gui->display();
-      }
-      m_sceneManager->getCurrent().onUpdate(1);
-
       auto endTime = std::chrono::steady_clock::now();
       auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
       auto sleepTime = tickDuration - elapsed;
@@ -55,6 +57,23 @@ namespace GameEngine::Core
         std::this_thread::sleep_for(sleepTime);
       }
     }
+  }
+
+  void Core::tickUpdate(unsigned int df)
+  {
+    if (m_graphical && !m_gui->isOpen()) {
+      stop();
+    }
+    if (m_graphical) {
+      m_gui->display();
+    }
+    m_sceneManager->getCurrent().onUpdate(df);
+  }
+
+  void Core::assignUpdateClosure(const std::function<void()>& closure, unsigned int updateRate)
+  {
+    m_updateExternClosure = closure;
+    m_updateClosureRate = updateRate;
   }
 
   void Core::stop()
