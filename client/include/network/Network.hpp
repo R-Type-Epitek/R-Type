@@ -262,6 +262,31 @@ namespace Client
     void joinRoom(int roomId);
 
     /**
+     * @brief Join a room automatically.
+     *
+     * This function sends a request to the server to join a room automatically.
+     */
+    void joinRoomAuto();
+
+    /**
+     * @brief Kick a player.
+     *
+     * This function sends a request to the server to kick a player.
+     *
+     * @param clientId The ID of the player to be kicked.
+     */
+    void kickPlayer(int clientId);
+
+    /**
+     * @brief Enable god mode.
+     *
+     * This function sends a request to the server to enable god mode for a player.
+     *
+     * @param clientId The ID of the player to enable god mode for.
+     */
+    void godMode(int clientId);
+
+    /**
      * @brief Send a key command to the server.
      *
      * @param key The key command to be sent.
@@ -274,6 +299,13 @@ namespace Client
      * @param roomId The ID of the game room to join.
      */
     void joinGame(int roomId);
+
+    /**
+     * @brief Spectate a game with a specified room ID.
+     *
+     * @param roomId The ID of the game room to spectate.
+     */
+    void spectate(int roomId);
 
    protected:
    private:
@@ -290,5 +322,6 @@ namespace Client
     int clientId;
     int roomId;
     std::string name;
+    int ping;
   };
 } // namespace Client

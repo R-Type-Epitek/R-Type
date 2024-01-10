@@ -1,0 +1,33 @@
+{
+  "mode": "Infinite",
+  "settings": {
+    "difficulty": "Medium",
+    "enemySpawnRate": 1.5,
+    "powerUpFrequency": 3,
+    "background": "Space",
+    "playerLives": 3
+  },
+  "enemyTypes": [
+    {
+      "type": "Enemy",
+      "path": "assets/sprites/r-typesheet14.gif",
+      "health": 100,
+      "attackPattern": "Zigzag",
+      "speed": 2
+    }
+  ],
+  "powerUps": [
+    {
+      "type": "ExtraLife",
+      "frequency": 15
+    },
+    {
+      "type": "Shield",
+      "frequency": 10
+    },
+    {
+      "type": "DoubleFire",
+      "frequency": 8
+    }
+  ]
+}

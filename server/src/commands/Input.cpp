@@ -11,17 +11,53 @@ Network::InputCommandHandler::InputCommandHandler(Network::UDPServer &server)
 
 bool Network::InputCommandHandler::isAuthorized(int clientId)
 {
-  for (auto &client : this->server.getClients())
-    if (client.getId() == clientId)
-      return true;
+  auto clientOpt = this->server.getClientById(clientId);
+  if (clientOpt.has_value())
+    return true;
   return false;
 }
 
 std::vector<char> Network::InputCommandHandler::handleCommand(Message *message)
 {
   InputData *data = (InputData *)message->data;
-  Client &client = this->server.getClientById(message->header.clientId);
+  auto clientOpt = this->server.getClientById(message->header.clientId);
+  if (!clientOpt.has_value())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client not found",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+  Client &client = clientOpt.value();
   Room &room = this->server.getRooms()[client.getRoomId()];
+
+  if (room.getState() != RUNNING)
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Room is not running",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+
+  if (!client.getIsInGame())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client is not in game",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+
+  if (client.getIsSpectator())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client is a spectator",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
 
   Server::Game::Player player = {
     .id = static_cast<size_t>(client.getId()),

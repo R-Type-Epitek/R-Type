@@ -19,6 +19,7 @@ struct MessageHeader {
   char command[32];    ///< Command type in ASCII format.
   int commandId;       ///< Unique identifier for the command.
   uint32_t dataLength; ///< Length of the following data in bytes.
+  uint32_t timestamp;  ///< The time at which the message was sent.
 };
 
 /**
@@ -74,6 +75,42 @@ struct JoinGameData {
   int roomId; ///< Identifier of the room the player will join.
 };
 
+/**
+ * @struct ServerClientDisconnectedData
+ * @brief Structure for data related to a 'Client Disconnected' command.
+ *
+ * This structure is used when a client disconnects from the server.
+ */
 struct ServerClientDisconnectedData {
   int clientId;
+};
+
+/**
+ * @struct KickPlayerData
+ * @brief Structure for data related to a 'Kick Player' command.
+ *
+ * This structure is used when a client wants to kick another player from the room.
+ */
+struct KickPlayerData {
+  int clientId;
+};
+
+/**
+ * @struct GodModeData
+ * @brief Structure for data related to a 'God Mode' command.
+ *
+ * This structure is used when a client wants to enable or disable god mode.
+ */
+struct GodModeData {
+  int clientId;
+};
+
+/**
+ * @struct SpectateData
+ * @brief Structure for data related to a 'Spectate' command.
+ *
+ * This structure is used when a client wants to spectate a game.
+ */
+struct SpectateData {
+  int roomId;
 };

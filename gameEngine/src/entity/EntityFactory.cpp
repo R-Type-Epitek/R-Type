@@ -99,6 +99,7 @@ namespace GameEngine::Entity
   GameEngine::ECS::Entity EntityFactory::createFromBluePrint(EntityBluePrint const &payload)
   {
     spdlog::info("[EntityFactory] Creating entity from BluePrint...");
+
     auto builder = EntityBuilder(m_registry);
     if (payload.blueprint.transform) {
       builder.buildComponent(ComponentRType::Transform {});

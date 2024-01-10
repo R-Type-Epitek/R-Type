@@ -67,10 +67,9 @@ jobs:
         with:
           name: release
           path: |
-            r-type_server
-            r-type_client
+            Release
             assets
-  
+
   create-release:
     needs: build-project
     runs-on: ubuntu-latest
@@ -96,7 +95,9 @@ jobs:
       - name: Zip Artifacts
         run: |
           ls
-          zip -r release.zip server/r-type_server client/r-type_client assets
+          mv Release/r-type_server r-type_server
+          mv Release/r-type_client r-type_client
+          zip -r release.zip r-type_server r-type_client assets
 
 
       - name: Upload Release Asset

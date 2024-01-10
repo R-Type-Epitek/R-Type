@@ -3,6 +3,8 @@
 //
 
 #include "game/rtype/RtypeScene.hpp"
+#include "gameEngine/asset/ConfigLoader.hpp"
+#include "game/rtype/RtypeScene.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/component/Transform.hpp"
@@ -35,22 +37,9 @@ namespace Server::Game
 
   void RtypeScene::initEntities()
   {
-    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
+    m_entityFactory = std::make_shared<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
 
-    //    TODO: Use a config loader
-    //    {
-    //      auto compId = ComponentRType::NetworkedEntity {1};
-    //      auto compMetaData =
-    //        ComponentRType::MetaData("assets/sprites/r-typesheet23.gif", GameEngine::Entity::EntityType::Enemy);
-    //      m_entityFactory->createFromNetwork(compId, compMetaData);
-    //    }
-    //
-    //    {
-    //      auto compId = ComponentRType::NetworkedEntity {2};
-    //      auto compMetaData =
-    //        ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Enemy);
-    //      m_entityFactory->createFromNetwork(compId, compMetaData);
-    //    }
+    ConfigLoader::loadEntities(m_entityFactory);
   }
 
   std::vector<GameEngine::ECS::Entity> RtypeScene::getEntities()
@@ -58,4 +47,4 @@ namespace Server::Game
     return m_entities;
   }
 
-} // namespace Server::Game
+} // namespace Server::Game namespace Server::Game

@@ -56,8 +56,7 @@ namespace Server::Game
   {
     auto factory = m_scene.getEntityFactory();
     auto compId = ComponentRType::NetworkedEntity {player.id};
-    auto compMetaData =
-      ComponentRType::MetaData("assets/sprites/r-typesheet42.gif", GameEngine::Entity::EntityType::Player);
+    auto compMetaData = ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Player);
     factory.createFromNetwork(compId, compMetaData);
   }
 

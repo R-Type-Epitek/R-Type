@@ -42,12 +42,13 @@ std::vector<Network::Client> &Network::UDPServer::getClients()
   return this->clients;
 }
 
-Network::Client &Network::UDPServer::getClientById(int id)
+std::optional<std::reference_wrapper<Network::Client>> Network::UDPServer::getClientById(int id)
 {
   for (auto &client : this->clients)
     if (client.getId() == id)
       return client;
-  throw std::runtime_error("Client not found");
+
+  return std::nullopt;
 }
 
 boost::array<char, 65536> Network::UDPServer::getRecvBuffer() const
@@ -232,12 +233,18 @@ void Network::UDPServer::processMessage(TimedMessage timedMessage)
 
 void Network::UDPServer::processResponse(Response *response)
 {
-  Client client = response->header.clientId ? Client() : this->getClientById(response->header.clientId);
+  auto clientOpt = this->getClientById(response->header.clientId);
+  if (!clientOpt.has_value()) {
+    this->startReceive();
+    return spdlog::error("Client not found");
+  }
+  Client &client = clientOpt.value();
+
   if (strcmp(response->header.command, SERVER_COMMAND_UPDATE_GAME) != 0)
     logResponse("Client response", response, client);
 
   if (!strcmp(response->header.command, SERVER_COMMAND_CHECK_CONNECTION))
-    this->clients[response->header.clientId].updateLastMessageTime();
+    client.updateLastMessageTime();
 
   this->startReceive();
 }
@@ -247,7 +254,12 @@ void Network::UDPServer::workerFunction()
   while (true) {
     TimedMessage timedMessage = this->messageQueue.pop();
     Message *message = timedMessage.message;
-    Client client = message->header.clientId == -1 ? Client() : this->getClientById(message->header.clientId);
+    auto clientOpt = this->getClientById(message->header.clientId);
+    Client client;
+    if (!clientOpt.has_value())
+      client = Client();
+    else
+      client = clientOpt.value();
 
     logMessage("Client message", message, client);
 
@@ -268,6 +280,9 @@ std::vector<char> Network::UDPServer::createMessageBuffer(
   strcpy(header.command, command.c_str());
   header.commandId = 0;
   header.dataLength = dataSize;
+  header.timestamp =
+    std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
+      .count();
 
   size_t totalSize = sizeof(type) + sizeof(header) + dataSize;
   std::vector<char> messageBuffer(totalSize);
@@ -312,14 +327,14 @@ std::vector<char> Network::UDPServer::createResponseBuffer(
 void Network::UDPServer::sendResponseAndLog(TimedMessage timedMessage, std::vector<char> responseBuffer)
 {
   Response response = *(Response *)responseBuffer.data();
-  Client client = response.header.clientId == -1 ? Client() : this->getClientById(response.header.clientId);
+  auto clientOpt = this->getClientById(response.header.clientId);
+  if (!clientOpt.has_value())
+    return spdlog::error("Client not found");
+  Client &client = clientOpt.value();
 
   logTimedMessage("Server response", timedMessage, response, client);
 
-  this->sendToClient(
-    boost::asio::buffer(responseBuffer.data(), responseBuffer.size()),
-    response.header.clientId);
-
+  this->sendToClient(boost::asio::buffer(responseBuffer.data(), responseBuffer.size()), client.getId());
   this->startReceive();
 }
 
@@ -336,8 +351,12 @@ void Network::UDPServer::registerCommandHandlers()
   this->commandHandlers[CONNECT_TO_SERVER_COMMAND] = std::make_unique<ConnectToServerCommandHandler>(*this);
   this->commandHandlers[UPDATE_NAME_COMMAND] = std::make_unique<UpdateNameCommandHandler>(*this);
   this->commandHandlers[JOIN_ROOM_COMMAND] = std::make_unique<JoinRoomCommandHandler>(*this);
+  this->commandHandlers[JOIN_ROOM_AUTO_COMMAND] = std::make_unique<JoinRoomAutoCommandHandler>(*this);
   this->commandHandlers[INPUT_COMMAND] = std::make_unique<InputCommandHandler>(*this);
   this->commandHandlers[JOIN_GAME_COMMAND] = std::make_unique<JoinGameCommandHandler>(*this);
+  this->commandHandlers[KICK_PLAYER_COMMAND] = std::make_unique<KickPlayerCommandHandler>(*this);
+  this->commandHandlers[GOD_MODE_COMMAND] = std::make_unique<GodModeCommandHandler>(*this);
+  this->commandHandlers[SPECTATE_COMMAND] = std::make_unique<SpectateCommandHandler>(*this);
 }
 
 void Network::UDPServer::checkClientTimers()
@@ -408,7 +427,10 @@ void Network::UDPServer::gameLoop()
 
 void Network::UDPServer::notifyAndRemoveClient(int clientId)
 {
-  Client &client = this->getClientById(clientId);
+  auto clientOpt = this->getClientById(clientId);
+  if (!clientOpt.has_value())
+    return;
+  Client &client = clientOpt.value();
 
   if (client.getRoomId() == -1) {
     for (size_t i = 0; i < this->clients.size(); i++) {
@@ -445,7 +467,10 @@ void Network::UDPServer::sendCheckConnection(int clientId)
 {
   std::vector<char> messageBuffer =
     this->createMessageBuffer(clientId, SERVER_COMMAND_CHECK_CONNECTION, nullptr, 0);
-  Client &client = this->getClientById(clientId);
+  auto clientOpt = this->getClientById(clientId);
+  if (!clientOpt.has_value())
+    return;
+  Client &client = clientOpt.value();
 
   logMessage("Server message", (Message *)messageBuffer.data(), client);
 

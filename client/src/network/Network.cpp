@@ -13,17 +13,19 @@
 #include "network/commands/ConnectToServer.hpp"
 #include "network/commands/IHandler.hpp"
 #include "network/commands/Input.hpp"
+#include "network/commands/GodMode.hpp"
 #include "network/commands/JoinRoom.hpp"
+#include "network/commands/JoinRoomAuto.hpp"
 #include "network/commands/JoinGame.hpp"
+#include "network/commands/KickPlayer.hpp"
+#include "network/commands/Spectate.hpp"
 #include "network/commands/Tracker.hpp"
 #include "network/commands/UpdateName.hpp"
 #include "network/tools/Logs.hpp"
 
-#include <boost/array.hpp>
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <memory>
-#include <ostream>
 #include <spdlog/spdlog.h>
 #include <string>
 #include <thread>
@@ -56,8 +58,11 @@ void Client::Network::registerCommandHandlers()
   this->commandHandlers[CONNECT_TO_SERVER_COMMAND] = std::make_shared<ConnectToServerCommandHandler>(*this);
   this->commandHandlers[UPDATE_NAME_COMMAND] = std::make_shared<UpdateNameCommandHandler>(*this);
   this->commandHandlers[JOIN_ROOM_COMMAND] = std::make_shared<JoinRoomCommandHandler>(*this);
+  this->commandHandlers[JOIN_ROOM_AUTO_COMMAND] = std::make_shared<JoinRoomAutoCommandHandler>(*this);
   this->commandHandlers[INPUT_COMMAND] = std::make_shared<InputCommandHandler>(*this);
   this->commandHandlers[JOIN_GAME_COMMAND] = std::make_shared<JoinGameCommandHandler>(*this);
+  this->commandHandlers[KICK_PLAYER_COMMAND] = std::make_shared<KickPlayerCommandHandler>(*this);
+  this->commandHandlers[GOD_MODE_COMMAND] = std::make_shared<GodModeCommandHandler>(*this);
 }
 
 std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(const std::string &name)
@@ -196,7 +201,8 @@ void Client::Network::onServerResponse(Response *response)
     case RES_UNAUTHORIZED:
     case RES_NOT_FOUND:
     case RES_INTERNAL_ERROR:
-      throw std::runtime_error(response->header.statusMessage);
+      spdlog::error("Error {}: {}", response->header.status, response->header.statusMessage);
+      return;
     default:
       throw std::runtime_error("Invalid response status: " + std::to_string(response->header.status));
   }
@@ -218,6 +224,15 @@ void Client::Network::onServerResponse(Response *response)
 
 void Client::Network::onServerMessage(Message *message)
 {
+  uint32_t timestamp = message->header.timestamp;
+  uint32_t currentTimestamp =
+    std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch())
+      .count();
+  uint32_t diff = currentTimestamp - timestamp;
+  this->ping = diff;
+
+  spdlog::info("Ping: {} ms", this->ping);
+
   if (strcmp(message->header.command, SERVER_COMMAND_UPDATE_GAME) != 0)
     logMessage("Server message", message);
 
@@ -345,6 +360,29 @@ void Client::Network::joinRoom(int roomId)
   });
 }
 
+void Client::Network::joinRoomAuto()
+{
+  this->executeCommand<JoinRoomAutoCommandHandler>(JOIN_ROOM_AUTO_COMMAND, [](auto commandHandler) {
+    commandHandler->send();
+  });
+}
+
+void Client::Network::kickPlayer(int clientId)
+{
+  this->executeCommand<KickPlayerCommandHandler>(KICK_PLAYER_COMMAND, [clientId](auto commandHandler) {
+    commandHandler->setClientId(clientId);
+    commandHandler->send();
+  });
+}
+
+void Client::Network::godMode(int clientId)
+{
+  this->executeCommand<GodModeCommandHandler>(GOD_MODE_COMMAND, [clientId](auto commandHandler) {
+    commandHandler->setClientId(clientId);
+    commandHandler->send();
+  });
+}
+
 void Client::Network::sendKey(GameEngine::Keybinds key)
 {
   this->executeCommand<InputCommandHandler>(INPUT_COMMAND, [key](auto commandHandler) {
@@ -356,6 +394,14 @@ void Client::Network::sendKey(GameEngine::Keybinds key)
 void Client::Network::joinGame(int roomId)
 {
   this->executeCommand<JoinGameCommandHandler>(JOIN_GAME_COMMAND, [roomId](auto commandHandler) {
+    commandHandler->setRoomId(roomId);
+    commandHandler->send();
+  });
+}
+
+void Client::Network::spectate(int roomId)
+{
+  this->executeCommand<SpectateCommandHandler>(SPECTATE_COMMAND, [roomId](auto commandHandler) {
     commandHandler->setRoomId(roomId);
     commandHandler->send();
   });

@@ -78,3 +78,23 @@ bool Network::Client::getIsInGame() const
 {
   return this->isInGame;
 }
+
+void Network::Client::setIsGodMode(bool isGodMode)
+{
+  this->isGodMode = isGodMode;
+}
+
+bool Network::Client::getIsGodMode() const
+{
+  return this->isGodMode;
+}
+
+void Network::Client::setIsSpectator(bool isSpectator)
+{
+  this->isSpectator = isSpectator;
+}
+
+bool Network::Client::getIsSpectator() const
+{
+  return this->isSpectator;
+}

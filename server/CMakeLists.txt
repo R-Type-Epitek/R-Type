@@ -41,9 +41,13 @@ endif ()
 
 add_executable(${EXEC_SERVER}
         src/commands/ConnectToServer.cpp
+        src/commands/GodMode.cpp
         src/commands/Input.cpp
         src/commands/JoinRoom.cpp
+        src/commands/JoinRoomAuto.cpp
         src/commands/JoinGame.cpp
+        src/commands/KickPlayer.cpp
+        src/commands/Spectate.cpp
         src/commands/UpdateName.cpp
         src/game/rtype/RtypeScene.cpp
         src/game/rtype/RtypeGame.cpp

@@ -24,6 +24,9 @@ namespace Server::Game
     std::vector<GameEngine::ECS::Entity> getEntities();
 
    private:
+    std::vector<GameEngine::ECS::Entity> m_entities;
+    std::unique_ptr<GameEngine::ECS::Registry> m_registry;
+    std::shared_ptr<GameEngine::Entity::EntityFactory> m_entityFactory;
   };
 
 } // namespace Server::Game::Rtype

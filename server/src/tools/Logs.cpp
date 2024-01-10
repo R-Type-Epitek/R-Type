@@ -13,6 +13,7 @@ void logMessage(std::string prefix, Message *message, Network::Client client, co
   ss << YELLOW << std::left << std::setw(width) << "Command:" << RESET << message->header.command << "\n";
   ss << YELLOW << std::left << std::setw(width) << "Data Length:" << RESET << message->header.dataLength
      << "\n";
+  ss << YELLOW << std::left << std::setw(width) << "Timestamp:" << RESET << message->header.timestamp << "\n";
   ss << YELLOW << std::left << std::setw(width) << "Client ID:" << RESET << message->header.clientId << "\n";
   if (client.getId() != -1) {
     ss << YELLOW << std::left << std::setw(width) << "Client Endpoint:" << RESET

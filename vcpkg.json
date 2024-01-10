@@ -28,6 +28,9 @@
     },
     {
       "name": "boost-serialization"
+    },
+    {
+      "name": "nlohmann-json"
     }
   ],
   "homepage": "https://github.com/your-username/your-repo",
