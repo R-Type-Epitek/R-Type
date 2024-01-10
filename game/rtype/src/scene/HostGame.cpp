@@ -10,7 +10,7 @@
 
 namespace Rtype::Scene
 {
-  HostGame::HostGame(SceneController::HostGameController &controller)
+  HostGame::HostGame(SceneController::HostGameController controller)
     : m_controller(controller)
   {
     spdlog::info("HostGame scene created");
@@ -39,6 +39,16 @@ namespace Rtype::Scene
     GameEngine::Scene::SimpleScene::initEntities();
 
     ConfigLoader::loadEntities(m_entityFactory);
+  }
+
+  void HostGame::initEvents()
+  {
+    SimpleScene::initEvents();
+  }
+  
+  void HostGame::onUpdate(size_t df)
+  {
+    SimpleScene::onUpdate(df);
   }
 
   std::vector<GameEngine::ECS::Entity> HostGame::getEntities()

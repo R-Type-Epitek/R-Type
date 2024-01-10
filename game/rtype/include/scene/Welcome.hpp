@@ -16,7 +16,7 @@ namespace Rtype::Scene
 {
   class Welcome : public GameEngine::Scene::SimpleScene {
    public:
-    Welcome(SceneController::WelcomeController &controller);
+    Welcome(SceneController::WelcomeController controller);
 
     void initRegistries() final;
 

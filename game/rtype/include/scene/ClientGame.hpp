@@ -16,7 +16,7 @@ namespace Rtype::Scene
 {
   class ClientGame : public GameEngine::Scene::SimpleScene {
    public:
-    ClientGame(SceneController::ClientGameController &controller);
+    ClientGame(SceneController::ClientGameController controller);
 
     void initRegistries() final;
 

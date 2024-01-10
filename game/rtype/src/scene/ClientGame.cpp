@@ -10,7 +10,7 @@
 namespace Rtype::Scene
 {
 
-  ClientGame::ClientGame(SceneController::ClientGameController &controller)
+  ClientGame::ClientGame(SceneController::ClientGameController controller)
     : m_controller(controller)
   {
     spdlog::info("ClientGame scene created");
