@@ -10,7 +10,7 @@
 
 namespace Rtype::Scene
 {
-  HostGame::HostGame(SceneController::HostGameController &controller)
+  HostGame::HostGame(SceneController::HostGameController& controller)
     : m_controller(controller)
   {
     spdlog::info("HostGame scene created");
@@ -48,11 +48,6 @@ namespace Rtype::Scene
 
   void HostGame::onUpdate(size_t df)
   {
-  }
-
-  std::vector<GameEngine::ECS::Entity> HostGame::getEntities()
-  {
-    return m_entities;
   }
 
 } // namespace Server::Game namespace Server::Game
