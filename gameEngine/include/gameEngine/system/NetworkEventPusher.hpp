@@ -17,7 +17,7 @@
 namespace GameEngine::System
 {
 
-  class NetworkPusher
+  class NetworkEventPusher
     : public ECS::System
     , public Event::IEventListener {
    public:

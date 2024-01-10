@@ -4,6 +4,7 @@
 
 #include "gameEngine/scene/SimpleScene.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
+#include "gameEngine/system/Move.hpp"
 
 namespace GameEngine::Scene
 {
@@ -65,6 +66,11 @@ namespace GameEngine::Scene
 
   void SimpleScene::onUpdate(size_t df)
   {
+    auto& ecsRegistry = getEcsRegistry();
+    try {
+    } catch (const std::exception& e) {
+      spdlog::error("[Client update] Error: {}", e.what());
+    }
   }
 
 } // namespace GameEngine::Scene

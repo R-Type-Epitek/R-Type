@@ -27,4 +27,40 @@ namespace GameEngine::Event
     Keybinds key;
   };
 
+  struct EventMoveUp : public IEvent {
+    explicit EventMoveUp(const ECS::Entity &entity)
+      : entity {entity}
+    {
+    }
+
+    const ECS::Entity &entity;
+  };
+
+  struct EventMovedown : public IEvent {
+    explicit EventMovedown(const ECS::Entity &entity)
+      : entity {entity}
+    {
+    }
+
+    const ECS::Entity &entity;
+  };
+
+  struct EventMoveLeft : public IEvent {
+    explicit EventMoveLeft(const ECS::Entity &entity)
+      : entity {entity}
+    {
+    }
+
+    const ECS::Entity &entity;
+  };
+
+  struct EventMoveRight : public IEvent {
+    explicit EventMoveRight(const ECS::Entity &entity)
+      : entity {entity}
+    {
+    }
+
+    const ECS::Entity &entity;
+  };
+
 } // namespace GameEngine::Event
