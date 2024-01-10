@@ -38,6 +38,11 @@ namespace GameEngine::Scene
     m_eventRegistry = std::make_unique<Event::EventRegistry>();
   }
 
+  const std::vector<ECS::Entity>& SimpleScene::getEntities()
+  {
+    return m_entities;
+  }
+
   GameEngine::Entity::EntityFactory& SimpleScene::getEntityFactory()
   {
     return *m_entityFactory;

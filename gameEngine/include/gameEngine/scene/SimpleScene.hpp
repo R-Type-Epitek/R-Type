@@ -40,6 +40,8 @@ namespace GameEngine::Scene
 
     Event::EventRegistry& getEventRegistry() override;
 
+    const std::vector<ECS::Entity>& getEntities() override;
+
     Entity::EntityFactory& getEntityFactory() override;
 
     void onUpdate(size_t df) override;
