@@ -82,9 +82,9 @@ var hierarchy =
       [ "GameEngine::Scene::SimpleScene", "classGameEngine_1_1Scene_1_1SimpleScene.html", [
         [ "Client::GameScene", "classClient_1_1GameScene.html", null ],
         [ "Client::LobbyScene", "classClient_1_1LobbyScene.html", null ],
-        [ "Client::WelcomeScene", "classClient_1_1WelcomeScene.html", null ],
-        [ "Server::Game::RtypeScene", "classServer_1_1Game_1_1RtypeScene.html", null ]
-      ] ]
+        [ "Client::WelcomeScene", "classClient_1_1WelcomeScene.html", null ]
+      ] ],
+      [ "Server::Game::RtypeScene", "classServer_1_1Game_1_1RtypeScene.html", null ]
     ] ],
     [ "ITexture", "classITexture.html", [
       [ "Texture", "classTexture.html", [

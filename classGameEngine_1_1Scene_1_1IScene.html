@@ -135,11 +135,11 @@ Inheritance diagram for GameEngine::Scene::IScene:</div>
  <div class="center">
   <img src="classGameEngine_1_1Scene_1_1IScene.png" usemap="#GameEngine::Scene::IScene_map" alt=""/>
   <map id="GameEngine::Scene::IScene_map" name="GameEngine::Scene::IScene_map">
-<area href="classGameEngine_1_1Scene_1_1SimpleScene.html" title="SimpleScene class specifically designed for game functionality in an application." alt="GameEngine::Scene::SimpleScene" shape="rect" coords="321,56,525,80"/>
+<area href="classGameEngine_1_1Scene_1_1SimpleScene.html" title="SimpleScene class specifically designed for game functionality in an application." alt="GameEngine::Scene::SimpleScene" shape="rect" coords="214,56,418,80"/>
+<area href="classServer_1_1Game_1_1RtypeScene.html" alt="Server::Game::RtypeScene" shape="rect" coords="428,56,632,80"/>
 <area href="classClient_1_1GameScene.html" title="Scene class specifically designed for game functionality in a client application." alt="Client::GameScene" shape="rect" coords="0,112,204,136"/>
 <area href="classClient_1_1LobbyScene.html" title="Scene class specifically designed for game functionality in a client application." alt="Client::LobbyScene" shape="rect" coords="214,112,418,136"/>
 <area href="classClient_1_1WelcomeScene.html" title="Scene class specifically designed for game functionality in a client application." alt="Client::WelcomeScene" shape="rect" coords="428,112,632,136"/>
-<area href="classServer_1_1Game_1_1RtypeScene.html" alt="Server::Game::RtypeScene" shape="rect" coords="642,112,846,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -199,7 +199,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <p>Get the ECS registry associated with the game scene. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; Reference to the ECS registry. </dd></dl>
 
-<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a17595823658ef8e2da4cce90ebf4182a">GameEngine::Scene::SimpleScene</a>.</p>
+<p>Implemented in <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#a455084005e85e03a9421ffc78fcde0a2">Server::Game::RtypeScene</a>, and <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a17595823658ef8e2da4cce90ebf4182a">GameEngine::Scene::SimpleScene</a>.</p>
 
 </div>
 </div>
@@ -229,7 +229,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <p>Get the Entity Factory associated with the game scene. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; Reference to the ECS registry. </dd></dl>
 
-<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a755c4d125a8392c47569e855bdd47316">GameEngine::Scene::SimpleScene</a>.</p>
+<p>Implemented in <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#a094bf19bc3ef9a864261c72efea0cd2c">Server::Game::RtypeScene</a>, and <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a755c4d125a8392c47569e855bdd47316">GameEngine::Scene::SimpleScene</a>.</p>
 
 </div>
 </div>
@@ -259,7 +259,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <p>Get the <a class="el" href="classEvent.html">Event</a> registry associated with the game scene. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a>&amp; Reference to the ECS registry. </dd></dl>
 
-<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac1005d514ce42fb9acd8f201fb90c915">GameEngine::Scene::SimpleScene</a>.</p>
+<p>Implemented in <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#ab3d334cbd107068c0ce0e1a1ccd084c7">Server::Game::RtypeScene</a>, and <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac1005d514ce42fb9acd8f201fb90c915">GameEngine::Scene::SimpleScene</a>.</p>
 
 </div>
 </div>
@@ -289,7 +289,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <p>Get the ECS registry ownership associated with the game scene. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;Event::EventRegistry&gt; Pointer to the ECS registry. </dd></dl>
 
-<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a46330529b7a6c8e58b7ccdfff25f018a">GameEngine::Scene::SimpleScene</a>.</p>
+<p>Implemented in <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#a57ce709e4c0866e1d60b8131b867421d">Server::Game::RtypeScene</a>, and <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a46330529b7a6c8e58b7ccdfff25f018a">GameEngine::Scene::SimpleScene</a>.</p>
 
 </div>
 </div>
@@ -319,7 +319,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <p>Initialize entities for the game scene. </p>
 <p>This function sets up the entities required for the game, adding them to the ECS registry. </p>
 
-<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#acc209a39e64ab559f76a76ce54402022">GameEngine::Scene::SimpleScene</a>, <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#a67803712ef0460f173952ccc36d25af7">Server::Game::RtypeScene</a>, <a class="el" href="classClient_1_1WelcomeScene.html#adb83a461dccbc7526345ecde36edbbc1">Client::WelcomeScene</a>, <a class="el" href="classClient_1_1LobbyScene.html#a4a46311e753dcbc64ef73184860e46ca">Client::LobbyScene</a>, and <a class="el" href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">Client::GameScene</a>.</p>
+<p>Implemented in <a class="el" href="classServer_1_1Game_1_1RtypeScene.html#af0391c5d49c43a5fe819f8e0dd1bf5db">Server::Game::RtypeScene</a>, <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#acc209a39e64ab559f76a76ce54402022">GameEngine::Scene::SimpleScene</a>, <a class="el" href="classClient_1_1WelcomeScene.html#adb83a461dccbc7526345ecde36edbbc1">Client::WelcomeScene</a>, <a class="el" href="classClient_1_1LobbyScene.html#a4a46311e753dcbc64ef73184860e46ca">Client::LobbyScene</a>, and <a class="el" href="classClient_1_1GameScene.html#aeb69a43caae2035567e9fd504d84ffa1">Client::GameScene</a>.</p>
 
 </div>
 </div>
