@@ -3,14 +3,16 @@
 //
 
 #pragma once
+#include <utility>
+
 #include "NetworkController.hpp"
 
 namespace Rtype::SceneController
 {
   class LobbyController : public NetworkController {
    public:
-    LobbyController(GameEngine::Network::INetworkController &networkController)
-      : NetworkController(networkController) {};
+    LobbyController(std::shared_ptr<GameEngine::Network::INetworkController> networkController)
+      : NetworkController(std::move(networkController)) {};
     ~LobbyController() = default;
   };
 } // namespace Rtype::SceneController

@@ -18,11 +18,18 @@ namespace GameEngine::Core
     , m_ticksPerSecond(60)
     , m_gameEngineState(GameEngineState::LOADING)
     , m_graphical(false)
+    , m_sceneManager(nullptr)
+    , m_gui(nullptr)
   {
   }
 
   Core::Core(std::string projectName)
     : m_projectName(std::move(projectName))
+    , m_ticksPerSecond(60)
+    , m_gameEngineState(GameEngineState::LOADING)
+    , m_graphical(false)
+    , m_sceneManager(std::make_unique<GameEngine::Scene::SceneManager>())
+    , m_gui(nullptr)
   {
   }
 
@@ -58,11 +65,12 @@ namespace GameEngine::Core
 
   void Core::loadPlugins()
   {
-    m_sceneManager = std::make_unique<Scene::SceneManager>();
+    m_sceneManager = std::make_unique<GameEngine::Scene::SceneManager>();
   }
 
   void Core::loadScenes()
   {
+    m_sceneManager->initScenes();
   }
 
   void Core::addScene(const std::string& name, std::unique_ptr<Scene::IScene> scene)

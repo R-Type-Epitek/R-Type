@@ -16,7 +16,7 @@ namespace Rtype::Scene
 {
   class Lobby : public GameEngine::Scene::SimpleScene {
    public:
-    Lobby(SceneController::LobbyController controller);
+    Lobby(SceneController::LobbyController &controller);
 
     void initRegistries() final;
 
@@ -27,6 +27,6 @@ namespace Rtype::Scene
     void onUpdate(size_t df) final;
 
    private:
-    SceneController::LobbyController &m_controller;
+    SceneController::LobbyController m_controller;
   };
 } // namespace Client

@@ -16,7 +16,7 @@ namespace Rtype::Scene
 {
   class HostGame : public GameEngine::Scene::SimpleScene {
    public:
-    HostGame(SceneController::HostGameController controller);
+    HostGame(SceneController::HostGameController &controller);
 
     void initRegistries() final;
 
@@ -29,6 +29,6 @@ namespace Rtype::Scene
     std::vector<GameEngine::ECS::Entity> getEntities();
 
    private:
-    SceneController::HostGameController &m_controller;
+    SceneController::HostGameController m_controller;
   };
 } // namespace Client

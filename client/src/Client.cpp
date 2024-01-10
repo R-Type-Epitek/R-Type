@@ -5,10 +5,12 @@
 #include "Client.hpp"
 
 #include "network/Constants.hpp"
-//#include "include/sceneController/ClientGameController.hpp"
-//
-////#include "sceneController/ClientGameController.hpp"
-#include "include/scene/ClientGame.hpp"
+#include "sceneController/ClientGameController.hpp"
+#include "sceneController/LobbyController.hpp"
+#include "sceneController/WelcomeController.hpp"
+#include "scene/ClientGame.hpp"
+#include "scene/Lobby.hpp"
+#include "scene/Welcome.hpp"
 #include "network/Network.hpp"
 #include "spdlog/spdlog.h"
 
@@ -33,7 +35,7 @@ namespace Client
   {
     try {
       spdlog::info("Starting Network...");
-      m_network = std::make_unique<Network>(DEFAULT_IP, DEFAULT_PORT);
+      m_network = std::make_shared<Network>(DEFAULT_IP, DEFAULT_PORT);
       spdlog::info("Done");
 
       spdlog::info("Establishing Network connection...");
@@ -63,6 +65,7 @@ namespace Client
   void Client::initGameEngine()
   {
     spdlog::info("Starting Game Engine...");
+    m_coreGE = std::make_unique<GameEngine::Core::Core>(appName);
     m_coreGE->loadPlugins();
     m_coreGE->enableGUI();
     m_coreGE->setTicksPerSecond(200);
@@ -72,9 +75,20 @@ namespace Client
 
   void Client::initScenes()
   {
-    //    auto controller = Rtype::SceneController::ClientGameController(*m_network);
-    //    m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
+    {
+      auto controller = Rtype::SceneController::ClientGameController(m_network);
+      m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
+    }
+    {
+      auto controller = Rtype::SceneController::LobbyController(m_network);
+      m_coreGE->addScene("lobby", std::make_unique<Rtype::Scene::Lobby>(controller));
+    }
+    {
+      auto controller = Rtype::SceneController::WelcomeController(m_network);
+      m_coreGE->addScene("game", std::make_unique<Rtype::Scene::Welcome>(controller));
+    }
 
+    m_coreGE->setCurrentScene("game");
     m_coreGE->loadScenes();
   }
 

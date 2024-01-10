@@ -37,8 +37,8 @@ target_compile_options(${EXEC_CLIENT}
 
 target_link_libraries(${EXEC_CLIENT}
         PRIVATE
-        GameEngine
         RtypeGame
+        GameEngine
         Boost::serialization
         Boost::system
         spdlog::spdlog

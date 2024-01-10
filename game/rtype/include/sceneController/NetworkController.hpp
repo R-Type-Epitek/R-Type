@@ -4,15 +4,16 @@
 
 #pragma once
 #include "gameEngine/network/INetworkController.hpp"
+#include <memory>
 
 namespace Rtype::SceneController
 {
   class NetworkController {
    public:
-    NetworkController(GameEngine::Network::INetworkController &networkController);
+    NetworkController(std::shared_ptr<GameEngine::Network::INetworkController> networkController);
     ~NetworkController() = default;
 
    private:
-    GameEngine::Network::INetworkController &m_networkController;
+    std::shared_ptr<GameEngine::Network::INetworkController> m_networkController;
   };
 } // namespace Rtype::SceneController

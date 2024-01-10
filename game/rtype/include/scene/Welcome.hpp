@@ -16,7 +16,7 @@ namespace Rtype::Scene
 {
   class Welcome : public GameEngine::Scene::SimpleScene {
    public:
-    Welcome(SceneController::WelcomeController controller);
+    Welcome(SceneController::WelcomeController &controller);
 
     void initRegistries() final;
 
@@ -27,6 +27,6 @@ namespace Rtype::Scene
     void onUpdate(size_t df) final;
 
    private:
-    SceneController::WelcomeController &m_controller;
+    SceneController::WelcomeController m_controller;
   };
 } // namespace Client
