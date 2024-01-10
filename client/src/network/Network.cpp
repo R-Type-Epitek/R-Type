@@ -407,10 +407,6 @@ void Client::Network::spectate(int roomId)
   });
 }
 
-void Client::Network::sendKey()
-{
-}
-
 void Client::Network::connect()
 {
 }

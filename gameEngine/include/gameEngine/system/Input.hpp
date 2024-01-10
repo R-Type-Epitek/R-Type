@@ -13,7 +13,10 @@
 namespace GameEngine::System
 {
 
-  class Input : public GameEngine::ECS::System {
+  class Input
+    : public GameEngine::ECS::System
+    , public GameEngine::ECS::RegistryHolder
+    , public Event::IEventListener {
    public:
     void update(GameEngine::ECS::Registry& registry, size_t playerId, GameEngine::Keybinds eventKey)
     {
@@ -60,4 +63,5 @@ namespace GameEngine::System
 
     static void pressSpace(GameEngine::ECS::ComponentManager&, const GameEngine::ECS::Entity&) {};
   };
+
 } // namespace GameEngine::System
