@@ -78,6 +78,11 @@ namespace GameEngine::Core
     m_sceneManager->addScene(name, std::move(scene));
   }
 
+  Scene::IScene& Core::getCurrentScene()
+  {
+    return m_sceneManager->getCurrent();
+  }
+
   void Core::setCurrentScene(const std::string& name)
   {
     return m_sceneManager->setCurrent(name);
