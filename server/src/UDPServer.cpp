@@ -394,6 +394,7 @@ void Network::UDPServer::gameLoop()
         for (auto &room : this->rooms) {
           if (room.getState() != RUNNING)
             continue;
+          room.getHostedGame().update(1);
           std::vector<std::vector<char>> entities = room.getHostedGame().getSerializedEntities();
           if (entities.empty())
             return;
