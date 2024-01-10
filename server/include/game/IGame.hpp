@@ -5,6 +5,7 @@
 #pragma once
 
 #include "gameEngine/constants/Keybinds.hpp"
+#include "gameEngine/ecs/entity/Entity.hpp"
 #include <cstddef>
 #include <vector>
 #include <string>
@@ -30,8 +31,8 @@ namespace Server::Game
 
     virtual void load() = 0;
 
-    virtual std::vector<std::vector<char>> getEntities() = 0;
-    
+    virtual std::vector<std::vector<char>> getSerializedEntities() = 0;
+
     virtual void update(unsigned int df) = 0;
 
     virtual void pushEvent(Event, Player) = 0;
