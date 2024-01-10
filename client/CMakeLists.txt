@@ -37,10 +37,7 @@ target_compile_options(${EXEC_CLIENT}
 target_link_libraries(${EXEC_CLIENT}
         PRIVATE
         GameEngine
-        sfml-system
-        sfml-network
-        sfml-graphics
-        sfml-window
+        RtypeGame
         Boost::serialization
         Boost::system
         spdlog::spdlog
