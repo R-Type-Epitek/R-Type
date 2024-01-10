@@ -4,7 +4,14 @@
 
 #include "gameEngine/scene/SimpleScene.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
-#include "gameEngine/system/Move.hpp"
+#include "gameEngine/event/IEventBindable.hpp"
+
+#include "gameEngine/system/Animation.hpp"
+#include "gameEngine/system/InputCatcher.hpp"
+#include "gameEngine/system/NetworkEventPusher.hpp"
+#include "gameEngine/system/Physics.hpp"
+#include "gameEngine/system/Renderer.hpp"
+#include "gameEngine/system/EcsSerializer.hpp"
 
 namespace GameEngine::Scene
 {
@@ -18,14 +25,13 @@ namespace GameEngine::Scene
     builder.registerAllMandatoryComponent();
 
     // ECS - Component - System
-    builder.buildSystemPhysics();
-    builder.buildSystemMove();
     builder.buildSystemAnimation();
+    builder.buildSystemInputCatcher();
+    builder.buildSystemNetworkEventPusher();
+    builder.buildSystemPhysics();
     builder.buildSystemRenderer();
-    builder.buildSystemKeyboard();
     builder.buildSystemEcsSerializer();
     builder.buildSystemParallax();
-    builder.buildSystemCollider();
     m_ecsRegistry = builder.getResult();
   }
 
@@ -37,6 +43,13 @@ namespace GameEngine::Scene
   void SimpleScene::initEvents()
   {
     m_eventRegistry = std::make_unique<Event::EventRegistry>();
+
+    auto&& systems = getEcsRegistry().getSystems();
+    for (auto& [typeId, system_ptr] : systems) {
+      if (auto sys = std::dynamic_pointer_cast<Event::IEventBindable>(system_ptr)) {
+        sys->bindEvent(*m_eventRegistry);
+      }
+    }
   }
 
   const std::vector<ECS::Entity>& SimpleScene::getEntities()
@@ -68,6 +81,14 @@ namespace GameEngine::Scene
   {
     auto& ecsRegistry = getEcsRegistry();
     try {
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Animation>();
+        system->update(df);
+      }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Physics>();
+        system->updateClient();
+      }
     } catch (const std::exception& e) {
       spdlog::error("[Client update] Error: {}", e.what());
     }
