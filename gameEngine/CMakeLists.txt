@@ -34,6 +34,9 @@ target_link_libraries(${LIBRARY}
         sfml-network
         sfml-graphics
         sfml-window
+        Boost::serialization
+        Boost::system
+        spdlog::spdlog
 )
 
 

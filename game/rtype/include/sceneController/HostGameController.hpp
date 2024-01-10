@@ -3,14 +3,16 @@
 //
 
 #pragma once
+#include <utility>
+
 #include "NetworkController.hpp"
 
 namespace Rtype::SceneController
 {
   class HostGameController : public NetworkController {
    public:
-    HostGameController(GameEngine::Network::INetworkController &networkController)
-      : NetworkController(networkController) {};
+    HostGameController(std::shared_ptr<GameEngine::Network::INetworkController> networkController)
+      : NetworkController(std::move(networkController)) {};
     ~HostGameController() = default;
   };
 } // namespace Rtype::SceneController

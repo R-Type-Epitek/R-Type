@@ -4,6 +4,7 @@
 
 #pragma once
 #include <gameEngine/scene/ISceneManager.hpp>
+#include "gameEngine/scene/SceneManager.hpp"
 #include <gameEngine/UI/Window.hpp>
 #include <memory>
 #include <utility>

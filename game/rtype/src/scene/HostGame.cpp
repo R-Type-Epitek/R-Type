@@ -10,7 +10,7 @@
 
 namespace Rtype::Scene
 {
-  HostGame::HostGame(SceneController::HostGameController controller)
+  HostGame::HostGame(SceneController::HostGameController &controller)
     : m_controller(controller)
   {
     spdlog::info("HostGame scene created");
@@ -45,7 +45,7 @@ namespace Rtype::Scene
   {
     SimpleScene::initEvents();
   }
-  
+
   void HostGame::onUpdate(size_t df)
   {
     SimpleScene::onUpdate(df);

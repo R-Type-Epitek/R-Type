@@ -12,31 +12,15 @@ namespace GameEngine::Scene
 
   class SceneManager : public ISceneManager {
    public:
-    SceneManager() = default;
+    SceneManager() {};
 
-    void initScenes() final
-    {
-      for (auto& scene : m_scenes) {
-        scene.second->initRegistries();
-        scene.second->initEntities();
-        scene.second->initEvents();
-      }
-    };
+    void initScenes() final;
 
-    IScene& getCurrent() final
-    {
-      return m_scenes.find(m_currentSceneName);
-    }
+    IScene& getCurrent() final;
 
-    void setCurrent(const std::string& name) final
-    {
-      m_currentSceneName = name;
-    }
+    void setCurrent(const std::string& name) final;
 
-    void addScene(const std::string& name, std::unique_ptr<IScene> scene) final
-    {
-      m_scenes.addScene(name, std::move(scene));
-    }
+    void addScene(const std::string& name, std::unique_ptr<IScene> scene) final;
 
    private:
     SceneContainer m_scenes;

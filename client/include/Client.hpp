@@ -33,6 +33,6 @@ namespace Client
     std::string appName;
 
     std::unique_ptr<GameEngine::Core::Core> m_coreGE;
-    std::unique_ptr<Network> m_network;
+    std::shared_ptr<Network> m_network;
   };
 } // namespace Client

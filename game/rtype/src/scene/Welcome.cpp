@@ -10,7 +10,7 @@
 namespace Rtype::Scene
 {
 
-  Welcome::Welcome(SceneController::WelcomeController controller)
+  Welcome::Welcome(SceneController::WelcomeController &controller)
     : m_controller(controller)
   {
     spdlog::info("Welcome scene created");
