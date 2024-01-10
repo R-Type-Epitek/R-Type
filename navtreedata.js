@@ -48,7 +48,7 @@ var NAVTREEINDEX =
 "Animation_8hpp_source.html",
 "classGameEngine_1_1ECS_1_1ComponentManager.html#a87596a4759ebdee11e11e17e1359a595",
 "classNetwork_1_1UDPServer.html#a421b82239515eafa196dc68cc573fc2b",
-"structGameEngine_1_1Entity_1_1ComponentBluePrint.html#ab36045a45afff95e64e40e35b2e3b1b7"
+"structComponentRType_1_1Position.html#a506bb81d85d7fb047a3a40a7dfc88dd1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -133,6 +133,9 @@ var annotated_dup =
         [ "RtypeScene", "classServer_1_1Game_1_1RtypeScene.html", "classServer_1_1Game_1_1RtypeScene" ]
       ] ]
     ] ],
+    [ "Tools", null, [
+      [ "EndianConverter", "classTools_1_1EndianConverter.html", "classTools_1_1EndianConverter" ]
+    ] ],
     [ "Audio", "classAudio.html", "classAudio" ],
     [ "ConfigLoader", "classConfigLoader.html", "classConfigLoader" ],
     [ "Display", "classDisplay.html", "classDisplay" ],

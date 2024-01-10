@@ -18,6 +18,7 @@ var hierarchy =
     [ "ComponentRType::Controllable", "structComponentRType_1_1Controllable.html", null ],
     [ "ComponentRType::Displayable", "structComponentRType_1_1Displayable.html", null ],
     [ "GameEngine::Network::Serializer::EcsSerializer", "classGameEngine_1_1Network_1_1Serializer_1_1EcsSerializer.html", null ],
+    [ "Tools::EndianConverter", "classTools_1_1EndianConverter.html", null ],
     [ "GameEngine::Entity::EntityBluePrint", "structGameEngine_1_1Entity_1_1EntityBluePrint.html", null ],
     [ "GameEngine::Entity::EntityBuilder", "classGameEngine_1_1Entity_1_1EntityBuilder.html", null ],
     [ "GameEngine::Entity::EntityFactory", "classGameEngine_1_1Entity_1_1EntityFactory.html", null ],
