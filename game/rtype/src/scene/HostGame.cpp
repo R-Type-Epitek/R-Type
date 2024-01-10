@@ -36,19 +36,18 @@ namespace Rtype::Scene
 
   void HostGame::initEntities()
   {
-    GameEngine::Scene::SimpleScene::initEntities();
+    m_entityFactory = std::make_shared<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
 
     ConfigLoader::loadEntities(m_entityFactory);
   }
 
   void HostGame::initEvents()
   {
-    SimpleScene::initEvents();
+    m_eventRegistry = std::make_unique<GameEngine::Event::EventRegistry>();
   }
 
   void HostGame::onUpdate(size_t df)
   {
-    SimpleScene::onUpdate(df);
   }
 
   std::vector<GameEngine::ECS::Entity> HostGame::getEntities()
