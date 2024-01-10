@@ -9,11 +9,7 @@
 int main()
 {
   spdlog::set_level(spdlog::level::debug);
-  Client::Client client = Client::Client();
+  Client::Client client;
 
-  client.initNetwork();
-  client.initScenes();
-  client.initGUI();
-  client.link();
   client.run();
 };
