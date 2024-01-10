@@ -56,17 +56,16 @@ namespace GameEngine::Entity
     }
   };
 
-  struct ComponentBluePrint {
-    bool transform = false;
-    bool displayable = false;
-    bool clickable = false;
-    bool controllable = false;
-    bool networkedEntity = false;
-    bool metaData = false;
-    bool position = false;
-    bool gravity = false;
-    bool hitbox = false;
-  };
+struct ComponentBluePrint {
+  bool transform = false;
+  bool displayable = false;
+  bool clickable = false;
+  bool controllable = false;
+  bool networkedEntity = false;
+  bool metaData = false;
+  bool position = false;
+  bool gravity = false;
+};
 
 struct EntityBluePrint {
   bool light = true;
