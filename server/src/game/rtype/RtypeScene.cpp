@@ -28,9 +28,9 @@ namespace Server::Game
     builder.buildSystemParallax();
     builder.buildSystemMove();
     builder.buildSystemCollider();
-
     m_ecsRegistry = builder.getResult();
-
+    
+    m_eventRegistry = std::make_unique<GameEngine::Event::EventRegistry>();
     auto physicSys = m_ecsRegistry->getSystem<GameEngine::System::Physics>();
     m_eventRegistry->subscribe<GameEngine::Event::EventCollision>(physicSys);
   }
