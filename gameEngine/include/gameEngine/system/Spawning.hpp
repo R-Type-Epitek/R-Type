@@ -13,6 +13,7 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
+#include "gameEngine/entity/EntityFactory.hpp"
 #include "gameEngine/event/Events.hpp"
 #include "gameEngine/event/IEventBindable.hpp"
 #include "gameEngine/event/EventRegistry.hpp"
@@ -40,8 +41,22 @@ namespace GameEngine::System
       }));
     }
 
-    void spawnPlayer(const Event::IEvent&)
+    void setEntityFactory(std::shared_ptr<Entity::EntityFactory> entityFactory)
     {
+      m_entityFactory = std::move(entityFactory);
+    }
+
+    void spawnPlayer(const Event::IEvent& eventRaw)
+    {
+      if (!m_entityFactory) {
+        return;
+      }
+      auto player = dynamic_cast<const Event::NewPlayer&>(eventRaw);
+
+      auto compId = ComponentRType::NetworkedEntity {player.id};
+      auto compMetaData =
+        ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Player);
+      m_entityFactory->createFromNetwork(compId, compMetaData);
     }
 
     void spawnEnemy(const Event::IEvent&)
@@ -51,5 +66,8 @@ namespace GameEngine::System
     void destroyPlayer(const Event::IEvent&)
     {
     }
+
+   private:
+    std::shared_ptr<Entity::EntityFactory> m_entityFactory;
   };
 } // namespace GameEngine::System
