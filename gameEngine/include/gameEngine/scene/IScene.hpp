@@ -36,6 +36,13 @@ namespace GameEngine::Scene
     virtual void initEntities() = 0;
 
     /**
+     * @brief Initialize event for the game scene.
+     *
+     * This function sets up the events bind required for the game by the systems.
+     */
+    virtual void initEvents() = 0;
+
+    /**
      * @brief Get the ECS registry associated with the game scene.
      *
      * @return GameEngine::ECS::Registry& Reference to the ECS registry.
@@ -62,5 +69,7 @@ namespace GameEngine::Scene
      * @return GameEngine::ECS::Registry& Reference to the ECS registry.
      */
     virtual GameEngine::Entity::EntityFactory& getEntityFactory() = 0;
+
+    virtual void onUpdate(size_t df) = 0;
   };
 } // namespace GameEngine::Scene

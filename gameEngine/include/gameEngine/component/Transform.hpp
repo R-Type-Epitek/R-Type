@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "constants/constants.hpp"
 #include "gameEngine/network/Serializer.hpp"
 
 #include <boost/serialization/base_object.hpp>

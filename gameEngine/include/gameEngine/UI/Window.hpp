@@ -4,50 +4,46 @@
 
 #pragma once
 
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Window.hpp>
-#include <functional>
-#include <string>
+#include "gameEngine/gfx/IRenderer.hpp"
+
+#include <memory>
 
 namespace GameEngine::UI
 {
 
-  struct WindowContext {
-    sf::RenderWindow window;
-    sf::Event event;
-    sf::Clock deltaClock;
-    float screenRatio;
-  };
-
   class Window {
    public:
-    using ClosureType = std::function<void(WindowContext&)>;
+    Window(std::shared_ptr<Gfx::IRenderer> renderer)
+      : m_renderer {std::move(renderer)} {};
 
-    Window(int width, int height, std::string& name, float screenRatio);
+    void setFramerateLimit(unsigned int limit)
+    {
+      m_renderer->setFramerateLimit(limit);
+    };
 
-    void setFrameRate(int);
+    Gfx::IRenderer &getRenderer()
+    {
+      return m_renderer->getRenderer();
+    };
 
-    void subscribeEvent(std::function<void(WindowContext&)> closure);
-    void unsubscribeEvent();
+    bool isOpen()
+    {
+      return m_renderer->isActive();
+    };
 
-    void subscribeUpdate(std::function<void(WindowContext&)> closure);
-    void unsubscribeUpdate();
+    void display()
+    {
+      m_renderer->display();
+    };
 
-    void subscribeDisplay(std::function<void(WindowContext&)> closure);
-    void unsubscribeDisplay();
-
-    void launch();
-    void update();
+    void clear()
+    {
+      m_renderer->clear();
+    };
 
    private:
-    bool handleEvent();
-    void onResize();
-    void invokeClosure(ClosureType closure);
-
-    WindowContext m_windowContext;
-    ClosureType m_closureEvent;
-    ClosureType m_closureUpdate;
-    ClosureType m_closureDisplay;
+    std::shared_ptr<Gfx::IRenderer> m_renderer;
+    //    Gfx::IEvent m_event;
   };
 
 } // namespace GameEngine::UI

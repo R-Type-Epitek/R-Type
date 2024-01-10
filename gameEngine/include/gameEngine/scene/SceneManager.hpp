@@ -4,35 +4,42 @@
 
 #pragma once
 #include "IScene.hpp"
+#include "ISceneManager.hpp"
 #include "SceneContainer.hpp"
 
 namespace GameEngine::Scene
 {
 
   template<typename SceneEnum>
-  class SceneManager {
+  class SceneManager : public ISceneManager {
    public:
     SceneManager() = default;
 
-    virtual void initScenes() {};
+    void initScenes() final
+    {
+      for (auto& scene : m_scenes) {
+        scene.second->initRegistries();
+        scene.second->initEntities();
+      }
+    };
 
-    IScene &getCurrent()
+    IScene& getCurrent() final
     {
       return m_scenes.find(m_currentSceneName);
     }
 
-    void setCurrent(SceneEnum name)
+    void setCurrent(const std::string& name) final
     {
       m_currentSceneName = name;
     }
 
-    void addScene(SceneEnum name, std::unique_ptr<IScene> scene)
+    void addScene(const std::string& name, std::unique_ptr<IScene> scene) final
     {
       m_scenes.addScene(name, std::move(scene));
     }
 
    private:
-    SceneContainer<SceneEnum> m_scenes;
+    SceneContainer m_scenes;
     SceneEnum m_currentSceneName;
   };
 
