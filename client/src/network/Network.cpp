@@ -21,6 +21,7 @@
 #include "network/commands/Spectate.hpp"
 #include "network/commands/Tracker.hpp"
 #include "network/commands/UpdateName.hpp"
+#include "network/tools/EndianConverter.hpp"
 #include "network/tools/Logs.hpp"
 
 #include <boost/asio.hpp>
@@ -76,8 +77,11 @@ std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(cons
 
 void Client::Network::send(boost::asio::const_buffer const &buffer)
 {
+  Tools::EndianConverter converter(buffer);
+  auto bufferLittleEndian = converter.getLittleEndian();
+
   this->socket.async_send_to(
-    buffer,
+    bufferLittleEndian,
     this->remoteEndpoint,
     boost::bind(
       &Client::Network::handleSend,
@@ -180,11 +184,16 @@ void Client::Network::onReceive(boost::system::error_code const &error, std::siz
 
   MessageType *type = (MessageType *)this->recvBuffer.data();
 
+  Tools::EndianConverter converter(boost::asio::const_buffer(this->recvBuffer.data(), bytesTransferred));
+  auto nativeEndianBuffer = converter.getNativeEndian();
+
+  char *data = (char *)nativeEndianBuffer.data();
+
   switch (*type) {
     case MessageType::Response:
-      return this->onServerResponse((Response *)this->recvBuffer.data());
+      return this->onServerResponse((Response *)data);
     case MessageType::Message:
-      return this->onServerMessage((Message *)this->recvBuffer.data());
+      return this->onServerMessage((Message *)data);
     default:
       throw std::runtime_error("Invalid message type");
   }
