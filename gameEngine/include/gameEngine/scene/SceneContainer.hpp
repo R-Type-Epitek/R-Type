@@ -5,65 +5,84 @@
 #pragma once
 
 #include "IScene.hpp"
-
 #include <map>
 #include <memory>
 #include <string>
 
 namespace GameEngine::Scene
 {
-  template<typename SceneEnum>
+  /**
+     * @brief A container class for managing scenes.
+     *
+     * The `SceneContainer` class allows adding, deleting, and retrieving scenes.
+     * It also provides iterators for iterating over the stored scenes.
+     */
   class SceneContainer {
    public:
-    SceneContainer() = default;
+    /**
+         * @brief Constructor for SceneContainer.
+         */
+    SceneContainer();
 
-    void addScene(SceneEnum name, std::unique_ptr<IScene> scene)
-    {
-      auto result = m_scenes.emplace(name, std::move(scene));
-      if (!result.second) {
-        throw std::invalid_argument("Scene with the same name already exists");
-      }
-    };
+    /**
+         * @brief Adds a scene to the container.
+         *
+         * @param name The name of the scene.
+         * @param scene A unique pointer to the scene.
+         * @throw std::invalid_argument if a scene with the same name already exists.
+         */
+    void addScene(std::string name, std::unique_ptr<IScene> scene);
 
-    void deleteScene(SceneEnum name)
-    {
-      if (!m_scenes.contains(name)) {
-        throw std::invalid_argument("Scene with the name doesn't exists");
-      }
-      m_scenes.erase(name);
-    };
-    IScene& getScene(SceneEnum name)
-    {
-      return *m_scenes[name];
-    };
+    /**
+         * @brief Deletes a scene from the container.
+         *
+         * @param name The name of the scene to be deleted.
+         * @throw std::invalid_argument if the scene with the specified name doesn't exist.
+         */
+    void deleteScene(const std::string& name);
 
-    IScene& find(SceneEnum name)
-    {
-      auto it = m_scenes.find(name);
-      if (it != m_scenes.end()) {
-        return *(it->second);
-      } else {
-        std::string msg = "Scene with the specified name not found";
-        throw std::out_of_range(msg);
-      }
-    };
+    /**
+         * @brief Gets a reference to a scene by name.
+         *
+         * @param name The name of the scene.
+         * @return A reference to the specified scene.
+         * @throw std::out_of_range if the scene with the specified name is not found.
+         */
+    IScene& getScene(const std::string& name);
 
-    typename std::map<SceneEnum, std::unique_ptr<IScene>>::iterator begin()
-    {
-      return m_scenes.begin();
-    }
+    /**
+         * @brief Finds a scene by name.
+         *
+         * @param name The name of the scene to find.
+         * @return A reference to the found scene.
+         * @throw std::out_of_range if the scene with the specified name is not found.
+         */
+    IScene& find(const std::string& name);
 
-    typename std::map<SceneEnum, std::unique_ptr<IScene>>::iterator end()
-    {
-      return m_scenes.end();
-    }
+    /**
+         * @brief Checks if a scene with a given name exists.
+         *
+         * @param name The name of the scene to check.
+         * @return true if the scene exists, false otherwise.
+         */
+    bool exist(const std::string& name);
+
+    /**
+         * @brief Returns an iterator to the beginning of the scenes.
+         *
+         * @return An iterator to the beginning.
+         */
+    typename std::map<std::string, std::unique_ptr<IScene>>::iterator begin();
+
+    /**
+         * @brief Returns an iterator to the end of the scenes.
+         *
+         * @return An iterator to the end.
+         */
+    typename std::map<std::string, std::unique_ptr<IScene>>::iterator end();
 
    private:
-    bool exist(SceneEnum name)
-    {
-      return m_scenes.contains(name);
-    }
-    std::map<SceneEnum, std::unique_ptr<IScene>> m_scenes;
+    std::map<std::string, std::unique_ptr<IScene>> m_scenes;
   };
 
 } // namespace GameEngine::Scene

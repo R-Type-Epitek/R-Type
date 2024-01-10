@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "gameEngine/gfx/IRenderer.hpp"
+#include "gameEngine/gfx/sfml/Renderer.hpp"
 #include "gameEngine/constants/Keybinds.hpp"
 #include "gameEngine/UI/Window.hpp"
 #include "gameEngine/ecs/Registry.hpp"
@@ -16,13 +18,24 @@ namespace GameEngine::System
 
   class Keyboard : public GameEngine::ECS::System {
    public:
-    void update(Event::EventRegistry &eventRegistry, UI::WindowContext &ctx)
+    void update(Event::EventRegistry& eventRegistry, Gfx::IRenderer& renderer)
     {
-      if (ctx.event.type != sf::Event::KeyPressed)
-        return;
+      if (auto* sfmlRenderer = dynamic_cast<Gfx::Sfml::Renderer*>(&renderer)) {
+        sf::Event event;
 
-      Event::EventKeyboardInput event(convertKey(ctx.event.key.code));
-      eventRegistry.publish<Event::EventKeyboardInput>(event);
+        while (sfmlRenderer->getWindow().pollEvent(event)) {
+          if (event.type == sf::Event::Closed) {
+            sfmlRenderer->getWindow().close();
+            return;
+          }
+          if (event.type == sf::Event::KeyPressed) {
+            Event::EventKeyboardInput eventP(convertKey(event.key.code));
+            eventRegistry.publish<Event::EventKeyboardInput>(eventP);
+          }
+        }
+      } else {
+        throw std::runtime_error("System::Renderer::update: renderer is not compatible");
+      }
     }
 
     static GameEngine::Keybinds convertKey(sf::Keyboard::Key key)

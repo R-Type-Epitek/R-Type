@@ -10,7 +10,6 @@
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/UI/Window.hpp"
-#include "gameEngine/gfx/sfml/SfmlDisplay.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -20,7 +19,7 @@ namespace GameEngine::System
 
   class Animation : public GameEngine::ECS::System {
    public:
-    void update(GameEngine::ECS::Registry &, GameEngine::UI::WindowContext &)
+    void update(GameEngine::ECS::Registry &)
     {
     }
   };
