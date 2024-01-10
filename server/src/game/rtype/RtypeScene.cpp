@@ -67,5 +67,4 @@ namespace Server::Game
   {
     return m_entities;
   }
-
 } // namespace Server::Game namespace Server::Game

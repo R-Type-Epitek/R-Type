@@ -50,6 +50,17 @@ namespace GameEngine::Entity
       .position = true,
       .gravity = true}};
 
+  EntityBluePrint EntityFactory::backgroundEntity {
+    .light = false,
+    .blueprint = {
+      .transform = true,
+      .displayable = true,
+      .controllable = false,
+      .networkedEntity = true,
+      .metaData = true,
+      .position = true,
+      .gravity = false}};
+
   EntityFactory::EntityFactory(std::vector<GameEngine::ECS::Entity> &entities, ECS::Registry &registry)
     : m_entities(entities)
     , m_registry(registry)
@@ -59,21 +70,39 @@ namespace GameEngine::Entity
   GameEngine::ECS::Entity EntityFactory::create(const EntityType &type)
   {
     spdlog::info("[EntityFactory] Creating entity...");
-    switch (type) {
-      case EntityType::Player:
-        spdlog::info("[EntityFactory] Creating Player entity...");
-        return createFromBluePrint(playerEntity);
-      case EntityType::Enemy:
-        spdlog::info("[EntityFactory] Creating Enemy entity...");
-        return createFromBluePrint(enemyEntity);
-      case EntityType::Bullet:
-        spdlog::info("[EntityFactory] Creating Bullet entity...");
-        return createFromBluePrint(bulletEntity);
-      case EntityType::None:
-        throw std::runtime_error("Cannot create entity of type None");
-      default:
-        throw std::runtime_error("Unknown entity type");
-    }
+    const std::unordered_map<EntityType, std::function<GameEngine::ECS::Entity()>> typeMap = {
+      {EntityType::Player,
+       [&]() {
+         spdlog::info("[EntityFactory] Creating Player entity...");
+         return createFromBluePrint(playerEntity);
+       }},
+      {EntityType::Enemy,
+       [&]() {
+         spdlog::info("[EntityFactory] Creating Enemy entity...");
+         return createFromBluePrint(enemyEntity);
+       }},
+      {EntityType::Bullet,
+       [&]() {
+         spdlog::info("[EntityFactory] Creating Bullet entity...");
+         return createFromBluePrint(bulletEntity);
+       }},
+      {EntityType::Boss,
+       [&]() {
+         spdlog::info("[EntityFactory] Creating Bullet entity...");
+         return createFromBluePrint(enemyEntity);
+       }},
+      {EntityType::Background,
+       [&]() {
+         spdlog::info("[EntityFactory] Creating Bullet entity...");
+         return createFromBluePrint(backgroundEntity);
+       }},
+      {EntityType::None, []() -> GameEngine::ECS::Entity {
+         throw std::runtime_error("Cannot create entity of type None");
+       }}};
+
+    auto it = typeMap.find(type);
+    assert(it != typeMap.end());
+    return it->second();
   }
 
   GameEngine::ECS::Entity EntityFactory::createFromNetwork(
