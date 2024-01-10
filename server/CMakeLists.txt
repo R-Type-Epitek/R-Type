@@ -51,6 +51,7 @@ add_executable(${EXEC_SERVER}
         src/commands/UpdateName.cpp
         src/game/rtype/RtypeScene.cpp
         src/game/rtype/RtypeGame.cpp
+        src/tools/EndianConverter.cpp
         src/tools/Logs.cpp
         src/Client.cpp
         src/Room.cpp

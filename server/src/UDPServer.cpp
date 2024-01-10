@@ -119,7 +119,10 @@ void Network::UDPServer::handleReceive(boost::system::error_code const &error, s
   if (error && error == boost::asio::error::message_size)
     return spdlog::error("handleReceive: Error: {} ({} bytes)", error.message(), bytesTransferred);
 
-  char *data = this->recvBuffer.data();
+  Tools::EndianConverter converter(boost::asio::const_buffer(this->recvBuffer.data(), bytesTransferred));
+  auto nativeEndianBuffer = converter.getNativeEndian();
+
+  char *data = (char *)nativeEndianBuffer.data();
   MessageType *type = (MessageType *)data;
 
   this->updateClientLastMessageTimeFromData(data);
@@ -160,29 +163,47 @@ void Network::UDPServer::sendToAll(boost::asio::const_buffer const &buffer)
 
 void Network::UDPServer::sendToAllClientsInRoom(boost::asio::const_buffer const &buffer, int roomId)
 {
+  Tools::EndianConverter converter(buffer);
+  auto littleEndianBuffer = converter.getLittleEndian();
+
   if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
-  for (auto &clientId : this->rooms[roomId].getPlayers())
+  for (auto &clientId : this->rooms[roomId].getPlayers()) {
+    auto clientOpt = this->getClientById(clientId);
+    if (!clientOpt.has_value())
+      continue;
+    Client &client = clientOpt.value();
+
     this->socket.async_send_to(
-      buffer,
-      this->clients[clientId].getEndpoint(),
+      littleEndianBuffer,
+      client.getEndpoint(),
       boost::bind(
         &Network::UDPServer::handleSend,
         this,
         boost::asio::placeholders::error,
         boost::asio::placeholders::bytes_transferred));
+  }
 }
 
 void Network::UDPServer::sendToAllClientsInRoomInGame(boost::asio::const_buffer const &buffer, int roomId)
 {
+  Tools::EndianConverter converter(buffer);
+  auto littleEndianBuffer = converter.getLittleEndian();
+
   if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
   for (auto &clientId : this->rooms[roomId].getPlayers()) {
-    if (!this->clients[clientId].getIsInGame())
+    auto clientOpt = this->getClientById(clientId);
+    if (!clientOpt.has_value())
       continue;
+    Client &client = clientOpt.value();
+
+    if (!client.getIsInGame())
+      continue;
+
     this->socket.async_send_to(
-      buffer,
-      this->clients[clientId].getEndpoint(),
+      littleEndianBuffer,
+      client.getEndpoint(),
       boost::bind(
         &Network::UDPServer::handleSend,
         this,
@@ -193,16 +214,21 @@ void Network::UDPServer::sendToAllClientsInRoomInGame(boost::asio::const_buffer 
 
 void Network::UDPServer::sendToClient(boost::asio::const_buffer const &buffer, int id)
 {
-  std::vector<char> messageBuffer(buffer.size());
-  memcpy(messageBuffer.data(), buffer.data(), buffer.size());
+  Tools::EndianConverter converter(buffer);
+  auto littleEndianBuffer = converter.getLittleEndian();
+
+  auto clientOpt = this->getClientById(id);
+  if (!clientOpt.has_value())
+    return spdlog::error("Client {} not found", id);
+  Client &client = clientOpt.value();
 
   if (!this->isClientRegistered(id))
     return spdlog::warn("Client {} is not connected", id);
   if (!this->socket.is_open())
     throw std::runtime_error("Socket is not open");
   this->socket.async_send_to(
-    buffer,
-    this->clients[id].getEndpoint(),
+    littleEndianBuffer,
+    client.getEndpoint(),
     boost::bind(
       &Network::UDPServer::handleSend,
       this,
