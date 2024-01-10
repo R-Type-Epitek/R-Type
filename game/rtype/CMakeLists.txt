@@ -6,19 +6,18 @@ add_library(${LIBRARY} STATIC
         src/scene/ClientGame.cpp
         src/scene/Lobby.cpp
         src/scene/Welcome.cpp
+        src/scene/HostGame.cpp
         src/sceneController/HostGameController.cpp
         src/sceneController/ClientGameController.cpp
-        src/sceneController/LobbySceneController.cpp
+        src/sceneController/LobbyController.cpp
         src/sceneController/WelcomeController.cpp
-        include/scene/Welcome.hpp
-        include/scene/ClientGame.hpp
-        src/scene/HostGame.cpp
+        src/sceneController/NetworkController.cpp
 )
 
 target_include_directories(${LIBRARY}
-        PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}/include
+        PUBLIC
         ${RTYPE_GAME_ENGINE_INCLUDE}
+        ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
 target_compile_options(${LIBRARY}
