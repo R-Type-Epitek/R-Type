@@ -23,17 +23,6 @@ std::vector<char> Network::GodModeCommandHandler::handleCommand(Message *message
   std::string statusMessage;
   int status = RES_SUCCESS;
 
-  auto senderOpt = this->server.getClientById(message->header.clientId);
-  if (!senderOpt.has_value())
-    return this->server.createResponseBuffer(
-      message->header.clientId,
-      message->header,
-      "Client not found",
-      nullptr,
-      0,
-      RES_UNAUTHORIZED);
-  Client &sender = senderOpt.value();
-
   auto clientOpt = this->server.getClientById(data->clientId);
   if (clientOpt.has_value()) {
     Client &client = clientOpt.value();
