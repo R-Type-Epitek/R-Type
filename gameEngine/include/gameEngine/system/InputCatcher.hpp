@@ -16,7 +16,7 @@
 namespace GameEngine::System
 {
 
-  class Keyboard : public GameEngine::ECS::System {
+  class InputCatcher : public GameEngine::ECS::System {
    public:
     void update(Event::EventRegistry& eventRegistry, Gfx::IRenderer& renderer)
     {
@@ -29,13 +29,36 @@ namespace GameEngine::System
             return;
           }
           if (event.type == sf::Event::KeyPressed) {
-            Event::EventKeyboardInput eventP(convertKey(event.key.code));
-            eventRegistry.publish<Event::EventKeyboardInput>(eventP);
+            keyPressedEventPublisher(eventRegistry, convertKey(event.key.code));
           }
         }
       } else {
         throw std::runtime_error("System::Renderer::update: renderer is not compatible");
       }
+    }
+
+    void keyPressedEventPublisher(Event::EventRegistry& eventRegistry, Keybinds key)
+    {
+      switch (key) {
+        case GameEngine::Keybinds::Up:
+          eventRegistry.publish<Event::MoveUp>(Event::MoveUp());
+          break;
+        case GameEngine::Keybinds::Down:
+          eventRegistry.publish<Event::MoveUp>(Event::Movedown());
+          break;
+        case GameEngine::Keybinds::Left:
+          eventRegistry.publish<Event::MoveUp>(Event::MoveLeft());
+          break;
+        case GameEngine::Keybinds::Right:
+          eventRegistry.publish<Event::MoveUp>(Event::MoveRight());
+          break;
+        case GameEngine::Keybinds::Space:
+          eventRegistry.publish<Event::MoveUp>(Event::PressSpace());
+          break;
+        default:
+          break;
+      }
+      eventRegistry.publish<Event::KeyboardInput>(Event::KeyboardInput {key});
     }
 
     static GameEngine::Keybinds convertKey(sf::Keyboard::Key key)

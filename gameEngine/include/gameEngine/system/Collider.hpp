@@ -41,11 +41,11 @@ namespace GameEngine::System
       auto& otherSpriteC = componentManager->getComponent<ComponentRType::Displayable>(otherEntity);
 
       if (spriteC.sprite.getGlobalBounds().intersects(otherSpriteC.sprite.getGlobalBounds())) {
-        eventRegistry.publish<Event::EventCollision>(Event::EventCollision {entity, otherEntity});
+        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, otherEntity});
       } else if (
         spriteC.sprite.getPosition().x < 0 || spriteC.sprite.getPosition().x > 1920 ||
         spriteC.sprite.getPosition().y < 0 || spriteC.sprite.getPosition().y > 1080) {
-        eventRegistry.publish<Event::EventCollision>(Event::EventCollision {entity, otherEntity});
+        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, otherEntity});
       }
     }
   };
