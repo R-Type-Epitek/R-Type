@@ -74,6 +74,7 @@ namespace Client
 
   void Client::run()
   {
+    m_coreGE->run();
   }
-
+  
 }; // namespace Client
