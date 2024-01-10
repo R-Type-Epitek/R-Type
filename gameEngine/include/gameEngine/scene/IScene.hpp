@@ -64,6 +64,13 @@ namespace GameEngine::Scene
     virtual Event::EventRegistry& getEventRegistry() = 0;
 
     /**
+     * @brief Get the Entity list associated with the game scene.
+     *
+     * @return std::vector<ECS::Entity>& Reference to the ECS registry.
+     */
+    virtual const std::vector<ECS::Entity>& getEntities() = 0;
+
+    /**
      * @brief Get the Entity Factory associated with the game scene.
      *
      * @return GameEngine::ECS::Registry& Reference to the ECS registry.
