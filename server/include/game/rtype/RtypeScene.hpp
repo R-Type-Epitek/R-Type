@@ -15,18 +15,29 @@
 namespace Server::Game
 {
 
-  class RtypeScene : public GameEngine::Scene::SimpleScene {
+  class RtypeScene : public GameEngine::Scene::IScene {
    public:
-    void initRegistries() final;
+    void initRegistries() override;
 
-    void initEntities() final;
+    void initEntities() override;
+
+    GameEngine::ECS::Registry& getEcsRegistry() override;
+
+    std::shared_ptr<GameEngine::ECS::Registry> getSharedEcsRegistry() override;
+
+    GameEngine::Event::EventRegistry& getEventRegistry() override;
+
+    GameEngine::Entity::EntityFactory& getEntityFactory() override;
 
     std::vector<GameEngine::ECS::Entity> getEntities();
 
    private:
-    std::vector<GameEngine::ECS::Entity> m_entities;
-    std::unique_ptr<GameEngine::ECS::Registry> m_registry;
-    std::shared_ptr<GameEngine::Entity::EntityFactory> m_entityFactory;
+    std::vector<GameEngine::ECS::Entity> m_entities;          ///< Vector of entities in the game scene.
+    std::shared_ptr<GameEngine::ECS::Registry> m_ecsRegistry; ///< Unique pointer to the ECS registry.
+    std::unique_ptr<GameEngine::Event::EventRegistry>
+      m_eventRegistry; ///< Unique pointer to the Event registry.
+    std::shared_ptr<GameEngine::Entity::EntityFactory>
+      m_entityFactory; ///< Unique pointer to the entity factory.
   };
 
 } // namespace Server::Game::Rtype

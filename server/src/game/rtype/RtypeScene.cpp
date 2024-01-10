@@ -29,8 +29,9 @@ namespace Server::Game
     builder.buildSystemMove();
     builder.buildSystemCollider();
     m_ecsRegistry = builder.getResult();
-    
+
     m_eventRegistry = std::make_unique<GameEngine::Event::EventRegistry>();
+
     auto physicSys = m_ecsRegistry->getSystem<GameEngine::System::Physics>();
     m_eventRegistry->subscribe<GameEngine::Event::EventCollision>(physicSys);
   }
@@ -40,6 +41,26 @@ namespace Server::Game
     m_entityFactory = std::make_shared<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
 
     ConfigLoader::loadEntities(m_entityFactory);
+  }
+
+  GameEngine::ECS::Registry& RtypeScene::getEcsRegistry()
+  {
+    return *m_ecsRegistry;
+  }
+
+  std::shared_ptr<GameEngine::ECS::Registry> RtypeScene::getSharedEcsRegistry()
+  {
+    return m_ecsRegistry;
+  }
+
+  GameEngine::Event::EventRegistry& RtypeScene::getEventRegistry()
+  {
+    return *m_eventRegistry;
+  }
+
+  GameEngine::Entity::EntityFactory& RtypeScene::getEntityFactory()
+  {
+    return *m_entityFactory;
   }
 
   std::vector<GameEngine::ECS::Entity> RtypeScene::getEntities()
