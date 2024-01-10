@@ -2,11 +2,14 @@
 // Created by raphael on 12/22/23.
 //
 
+#include "scene/HostGame.hpp"
 #include "gameEngine/asset/ConfigLoader.hpp"
-#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "sceneController/HostGameController.hpp"
-#include "scene/HostGame.hpp"
+#include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/system/Physics.hpp"
+#include "gameEngine/system/Move.hpp"
+#include "gameEngine/system/Collider.hpp"
 
 namespace Rtype::Scene
 {
@@ -25,7 +28,6 @@ namespace Rtype::Scene
 
     // Systems
     builder.buildSystemPhysics();
-    builder.buildSystemKeyboard();
     builder.buildSystemEcsSerializer();
     builder.buildSystemInput();
     builder.buildSystemParallax();
@@ -48,6 +50,23 @@ namespace Rtype::Scene
 
   void HostGame::onUpdate(size_t df)
   {
+    auto& ecsRegistry = getEcsRegistry();
+    try {
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Collider>();
+        system->update(getEventRegistry());
+      }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Physics>();
+        system->update(ecsRegistry);
+      }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
+        system->update(ecsRegistry);
+      }
+    } catch (const std::exception& e) {
+      spdlog::error("[Client update] Error: {}", e.what());
+    }
   }
 
 } // namespace Server::Game namespace Server::Game

@@ -3,6 +3,7 @@
 //
 
 #include "scene/Lobby.hpp"
+#include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/Move.hpp"
 #include "gameEngine/event/Events.hpp"
 #include "spdlog/spdlog.h"
@@ -10,7 +11,7 @@
 namespace Rtype::Scene
 {
 
-  Lobby::Lobby(SceneController::LobbyController &controller)
+  Lobby::Lobby(Controller::GraphicController &controller)
     : m_controller(controller)
   {
     spdlog::info("Lobby scene created");
@@ -69,5 +70,15 @@ namespace Rtype::Scene
 
   void Lobby::onUpdate(size_t df)
   {
+    SimpleScene::onUpdate(df);
+    auto &ecsRegistry = getEcsRegistry();
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
+      system->updateClient(ecsRegistry);
+    }
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Renderer>();
+      system->update(ecsRegistry, m_controller.getRenderer());
+    }
   }
 }

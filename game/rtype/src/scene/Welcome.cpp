@@ -3,14 +3,18 @@
 //
 
 #include "scene/Welcome.hpp"
+#include "gameEngine/system/NetworkEventPusher.hpp"
+#include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/Move.hpp"
-#include "gameEngine/event/Events.hpp"
+#include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Position.hpp"
+#include "gameEngine/component/Clickable.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Rtype::Scene
 {
 
-  Welcome::Welcome(SceneController::WelcomeController &controller)
+  Welcome::Welcome(Controller::GraphicController &controller)
     : m_controller(controller)
   {
     spdlog::info("Welcome scene created");
@@ -50,5 +54,16 @@ namespace Rtype::Scene
 
   void Welcome::onUpdate(size_t df)
   {
+    SimpleScene::onUpdate(df);
+    auto &ecsRegistry = getEcsRegistry();
+
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
+      system->updateClient(ecsRegistry);
+    }
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Renderer>();
+      system->update(ecsRegistry, m_controller.getRenderer());
+    }
   }
-}
+} // namespace Rtype::Scene

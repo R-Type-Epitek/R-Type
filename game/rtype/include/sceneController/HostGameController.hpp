@@ -11,7 +11,7 @@ namespace Rtype::SceneController
 {
   class HostGameController {
    public:
-    HostGameController() {};
+    HostGameController() = default;
     ~HostGameController() = default;
   };
 } // namespace Rtype::SceneController

@@ -7,7 +7,7 @@
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/entity/EntityFactory.hpp"
 #include "gameEngine/scene/SimpleScene.hpp"
-#include "sceneController/WelcomeController.hpp"
+#include "sceneController/GraphicController.hpp"
 
 #include <memory>
 #include <vector>
@@ -16,7 +16,7 @@ namespace Rtype::Scene
 {
   class Welcome : public GameEngine::Scene::SimpleScene {
    public:
-    Welcome(SceneController::WelcomeController &controller);
+    Welcome(Controller::GraphicController &controller);
 
     void initRegistries() final;
 
@@ -27,6 +27,6 @@ namespace Rtype::Scene
     void onUpdate(size_t df) final;
 
    private:
-    SceneController::WelcomeController m_controller;
+    Controller::GraphicController m_controller;
   };
 } // namespace Client

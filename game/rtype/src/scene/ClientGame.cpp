@@ -4,13 +4,17 @@
 
 #include "scene/ClientGame.hpp"
 #include "gameEngine/system/Move.hpp"
+#include "gameEngine/system/Renderer.hpp"
+#include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/event/Events.hpp"
+#include "gameEngine/ecs/RegistryBuilder.hpp"
+#include "gameEngine/system/NetworkEventPusher.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Rtype::Scene
 {
 
-  ClientGame::ClientGame(SceneController::ClientGameController &controller)
+  ClientGame::ClientGame(Controller::GraphicController &controller)
     : m_controller(controller)
   {
     spdlog::info("ClientGame scene created");
@@ -19,6 +23,11 @@ namespace Rtype::Scene
   void ClientGame::initRegistries()
   {
     SimpleScene::initRegistries();
+    auto builder = GameEngine::Builder::RegistryBuilder();
+    builder.buildFrom(m_ecsRegistry);
+
+    builder.buildSystemNetworkEventPusher();
+    m_ecsRegistry = builder.getResult();
   }
 
   void ClientGame::initEntities()
@@ -41,5 +50,27 @@ namespace Rtype::Scene
 
   void ClientGame::onUpdate(size_t df)
   {
+    SimpleScene::onUpdate(df);
+    auto &ecsRegistry = getEcsRegistry();
+    auto &network = m_controller.getNetwork();
+
+    {
+      auto sys_serializer = ecsRegistry.getSystem<GameEngine::System::EcsSerializer>();
+      auto ecsState = network.getSerializedEcsState();
+
+      sys_serializer->deserialize(ecsRegistry, ecsState, getEntityFactory());
+    }
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::NetworkEventPusher>();
+      system->update(m_controller.getNetwork());
+    }
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
+      system->updateClient(ecsRegistry);
+    }
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Renderer>();
+      system->update(ecsRegistry, m_controller.getRenderer());
+    }
   }
-}
+} // namespace Rtype::Scene
