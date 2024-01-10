@@ -406,3 +406,11 @@ void Client::Network::spectate(int roomId)
     commandHandler->send();
   });
 }
+
+void Client::Network::sendKey()
+{
+}
+
+void Client::Network::connect()
+{
+}
