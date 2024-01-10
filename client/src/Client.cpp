@@ -10,6 +10,7 @@
 #include "gameEngine/system/Keyboard.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/Move.hpp"
+#include "gameEngine/system/Collider.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Constants.hpp"
 #include "network/Network.hpp"
@@ -102,25 +103,24 @@ namespace Client
 
   void Client::update(GameEngine::UI::WindowContext& ctx)
   {
-    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
+    auto& ecsRegistry = this->m_sceneManager->getCurrent().getEcsRegistry();
 
     try {
       {
-        auto system = registry.getSystem<GameEngine::System::Animation>();
-        system->update(registry, ctx);
+        auto system = ecsRegistry.getSystem<GameEngine::System::Animation>();
+        system->update(ecsRegistry, ctx);
       }
       {
-        auto system = registry.getSystem<GameEngine::System::Move>();
-        system->updateClient(registry);
+        auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
+        system->updateClient(ecsRegistry);
       }
       {
-        auto sys_serializer = registry.getSystem<GameEngine::System::EcsSerializer>();
+        auto sys_serializer = ecsRegistry.getSystem<GameEngine::System::EcsSerializer>();
         auto& queue = m_network->getSerializedEcsQueue();
         auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
 
-        sys_serializer->deserialize(registry, queue, factory);
+        sys_serializer->deserialize(ecsRegistry, queue, factory);
       }
-
     } catch (const std::exception& e) {
       spdlog::error("[Client update] Error: {}", e.what());
     }

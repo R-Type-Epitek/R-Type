@@ -29,11 +29,6 @@ namespace Client
 
     auto moveSystem = m_ecsRegistry->getSystem<GameEngine::System::Move>();
     m_eventRegistry->subscribe<GameEngine::Event::EventKeyboardInput>(moveSystem);
-
-    m_eventRegistry->subscribeLambda<GameEngine::Event::EventKeyboardInput>(
-      [](const GameEngine::Event::IEvent &) {
-        spdlog::info("Keyboard input from lambda");
-      });
   }
 
   void GameScene::initCustomSystem()
