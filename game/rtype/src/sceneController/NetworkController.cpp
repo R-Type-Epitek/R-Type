@@ -4,12 +4,6 @@
 
 #include "sceneController/NetworkController.hpp"
 
-namespace Rtype::SceneController
+namespace Rtype::Controller
 {
-  NetworkController::NetworkController(
-    std::shared_ptr<GameEngine::Network::INetworkController> networkController)
-    : m_networkController(std::move(networkController))
-  {
-  }
-
-} // namespace Rtype::SceneControllers
+} // namespace Rtype::SceneController
