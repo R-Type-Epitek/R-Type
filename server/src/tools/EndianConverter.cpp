@@ -32,7 +32,7 @@ namespace Tools
     return this->buffer;
   }
 
-  boost::asio::const_buffer EndianConverter::setBuffer(boost::asio::const_buffer const &buffer)
+  void EndianConverter::setBuffer(boost::asio::const_buffer const &buffer)
   {
     this->buffer = buffer;
   }

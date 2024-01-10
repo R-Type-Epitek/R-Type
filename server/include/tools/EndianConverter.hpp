@@ -15,7 +15,7 @@ namespace Tools
     boost::asio::const_buffer getLittleEndian();
     boost::asio::const_buffer getNativeEndian();
     boost::asio::const_buffer getBuffer() const;
-    boost::asio::const_buffer setBuffer(boost::asio::const_buffer const &buffer);
+    void setBuffer(boost::asio::const_buffer const &buffer);
 
    protected:
    private:
