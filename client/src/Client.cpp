@@ -5,9 +5,7 @@
 #include "Client.hpp"
 
 #include "network/Constants.hpp"
-#include "sceneController/ClientGameController.hpp"
-#include "sceneController/LobbyController.hpp"
-#include "sceneController/WelcomeController.hpp"
+#include "sceneController/GraphicController.hpp"
 #include "scene/ClientGame.hpp"
 #include "scene/Lobby.hpp"
 #include "scene/Welcome.hpp"
@@ -50,11 +48,11 @@ namespace Client
       spdlog::info("Connecting to game room [0]...");
       m_network->updateName("John Doe");
       m_network->joinRoom(0);
-      m_network->joinRoomAuto();
+      //      m_network->joinRoomAuto();
       m_network->joinGame(0);
-      m_network->kickPlayer(1);
-      m_network->godMode(1);
-      m_network->spectate(0);
+      //      m_network->kickPlayer(1);
+      //      m_network->godMode(1);
+      //      m_network->spectate(0);
       spdlog::info("Done");
 
     } catch (std::exception const &) {
@@ -75,18 +73,11 @@ namespace Client
 
   void Client::initScenes()
   {
-    {
-      auto controller = Rtype::SceneController::ClientGameController(m_network);
-      m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
-    }
-    {
-      auto controller = Rtype::SceneController::LobbyController(m_network);
-      m_coreGE->addScene("lobby", std::make_unique<Rtype::Scene::Lobby>(controller));
-    }
-    {
-      auto controller = Rtype::SceneController::WelcomeController(m_network);
-      m_coreGE->addScene("welcome", std::make_unique<Rtype::Scene::Welcome>(controller));
-    }
+    auto controller =
+      Rtype::Controller::GraphicController(m_coreGE->getGUI()->getSharedRenderer(), m_network);
+    m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
+    m_coreGE->addScene("lobby", std::make_unique<Rtype::Scene::Lobby>(controller));
+    m_coreGE->addScene("welcome", std::make_unique<Rtype::Scene::Welcome>(controller));
 
     m_coreGE->setCurrentScene("game");
     m_coreGE->loadScenes();
