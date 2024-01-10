@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "gameEngine/constants/Keybinds.hpp"
 
 namespace GameEngine::Network
 {
@@ -10,7 +11,7 @@ namespace GameEngine::Network
    public:
     virtual ~INetworkController() = default;
 
-    virtual void sendKey() = 0;
+    virtual void sendKey(GameEngine::Keybinds key) = 0;
 
     virtual void connect() = 0;
   };
