@@ -15,7 +15,9 @@
 #include "gameEngine/component/Parallax.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
+#include "gameEngine/ecs/system/RegistryHolder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
+
 #include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/system/Keyboard.hpp"
@@ -24,6 +26,7 @@
 #include "gameEngine/system/Input.hpp"
 #include "gameEngine/system/Move.hpp"
 #include "gameEngine/system/Parallax.hpp"
+#include "gameEngine/system/Collider.hpp"
 
 #include <memory>
 #include <utility>
@@ -32,13 +35,19 @@ namespace GameEngine::Builder
 {
 
   RegistryBuilder::RegistryBuilder()
-    : m_registry {std::make_unique<GameEngine::ECS::Registry>()}
+    : m_registry {std::make_shared<GameEngine::ECS::Registry>()}
   {
   }
 
-  std::unique_ptr<GameEngine::ECS::Registry> RegistryBuilder::getResult()
+  std::shared_ptr<GameEngine::ECS::Registry> RegistryBuilder::getResult()
   {
+    feedSystemHolder();
     return std::move(m_registry);
+  }
+
+  void RegistryBuilder::buildFrom(std::shared_ptr<GameEngine::ECS::Registry> existingRegistry)
+  {
+    m_registry = std::move(existingRegistry);
   }
 
   void RegistryBuilder::registerAllMandatoryComponent()
@@ -136,6 +145,27 @@ namespace GameEngine::Builder
     signature.set(m_registry->getComponentType<ComponentRType::Position>());
     signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<GameEngine::System::Parallax>(signature);
+  }
+
+  void RegistryBuilder::feedSystemHolder()
+  {
+    auto &&systems = m_registry->getSystems();
+
+    for (auto &[typeId, system_ptr] : systems) {
+      if (auto sys = std::dynamic_pointer_cast<ECS::RegistryHolder>(system_ptr)) {
+        sys->setEcsRegistry(m_registry);
+      }
+    }
+  }
+
+  void RegistryBuilder::buildSystemCollider()
+  {
+    using SystemType = GameEngine::System::Collider;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
+    m_registry->setSystemSignature<SystemType>(signature);
   }
 
 }; // namespace GameEngine::Builder

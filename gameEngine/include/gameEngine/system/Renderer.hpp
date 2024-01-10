@@ -8,16 +8,13 @@
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
-#include "IUpdateSystem.hpp"
 
 namespace GameEngine::System
 {
 
-  class Renderer
-    : public GameEngine::ECS::System
-    , public IUpdateSystem {
+  class Renderer : public GameEngine::ECS::System {
    public:
-    void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx) final
+    void update(GameEngine::ECS::Registry& registry, GameEngine::UI::WindowContext& ctx)
     {
       auto& componentManager = registry.getComponentManager();
 

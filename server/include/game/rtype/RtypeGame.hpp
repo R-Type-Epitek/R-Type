@@ -25,6 +25,8 @@ namespace Server::Game
 
     void pushEvent(Event event, Player player) final;
 
+    void update(unsigned int df) final;
+
     void eventConnect(Player &player);
     void eventDisconnect(Player &player);
     void eventInput(Player &player);

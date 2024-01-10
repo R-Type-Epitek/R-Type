@@ -43,6 +43,13 @@ namespace GameEngine::Scene
     virtual ECS::Registry& getEcsRegistry() = 0;
 
     /**
+     * @brief Get the ECS registry ownership associated with the game scene.
+     *
+     * @return std::shared_ptr<Event::EventRegistry> Pointer to the ECS registry.
+     */
+    virtual std::shared_ptr<ECS::Registry> getSharedEcsRegistry() = 0;
+
+    /**
      * @brief Get the Event registry associated with the game scene.
      *
      * @return GameEngine::Event::EventRegistry& Reference to the ECS registry.

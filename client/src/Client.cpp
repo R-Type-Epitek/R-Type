@@ -7,15 +7,14 @@
 #include "gameEngine/UI/Window.hpp"
 #include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
-#include "gameEngine/system/IUpdateSystem.hpp"
 #include "gameEngine/system/Keyboard.hpp"
-#include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/Move.hpp"
+#include "gameEngine/system/Collider.hpp"
 #include "graphics/GUI.hpp"
 #include "network/Constants.hpp"
 #include "network/Network.hpp"
-#include "network/system/Keyboard.hpp"
+#include "network/system/Network.hpp"
 #include "scene/SceneManager.hpp"
 #include "spdlog/spdlog.h"
 
@@ -108,50 +107,60 @@ namespace Client
 
   void Client::update(GameEngine::UI::WindowContext& ctx)
   {
-    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
-    auto&& systems = registry.getSystems();
+    auto& ecsRegistry = this->m_sceneManager->getCurrent().getEcsRegistry();
 
-    for (auto& [typeId, system_ptr] : systems) {
-      if (auto sys = std::dynamic_pointer_cast<GameEngine::System::IUpdateSystem>(system_ptr)) {
-        sys->update(registry, ctx);
+    try {
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Animation>();
+        system->update(ecsRegistry, ctx);
       }
-    }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
+        system->updateClient(ecsRegistry);
+      }
+      {
+        auto sys_serializer = ecsRegistry.getSystem<GameEngine::System::EcsSerializer>();
+        auto& queue = m_network->getSerializedEcsQueue();
+        auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
 
-    try {
-      auto sys_serializer = registry.getSystem<GameEngine::System::EcsSerializer>();
-      auto& queue = m_network->getSerializedEcsQueue();
-      auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
-
-      sys_serializer->deserialize(registry, queue, factory);
-
+        sys_serializer->deserialize(ecsRegistry, queue, factory);
+      }
     } catch (const std::exception& e) {
-      spdlog::error("[Client Event] Serialize Error: {}", e.what());
-    }
-
-    try {
-      auto sysMove = registry.getSystem<GameEngine::System::Move>();
-      sysMove->updateClient(registry);
-
-    } catch (const std::exception& e) {
-      spdlog::error("[Client Event] Error: {}", e.what());
+      spdlog::error("[Client update] Error: {}", e.what());
     }
   }
 
   void Client::event(GameEngine::UI::WindowContext& ctx)
   {
     auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
+    auto& eventRegistry = this->m_sceneManager->getCurrent().getEventRegistry();
 
     try {
-      auto system = registry.getSystem<System::Network::Keyboard>();
-      system->update(ctx, *m_network);
+      {
+        auto system = registry.getSystem<System::KeyboardInputHandler>();
+        system->update(*m_network);
+      }
+      {
+        auto system = registry.getSystem<GameEngine::System::Keyboard>();
+        system->update(eventRegistry, ctx);
+      }
 
     } catch (const std::exception& e) {
       spdlog::error("[Client Event] Error: {}", e.what());
     }
   }
 
-  void Client::display(GameEngine::UI::WindowContext&)
+  void Client::display(GameEngine::UI::WindowContext& ctx)
   {
-    // done on update
+    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
+
+    try {
+      {
+        auto system = registry.getSystem<GameEngine::System::Renderer>();
+        system->update(registry, ctx);
+      }
+    } catch (const std::exception& e) {
+      spdlog::error("[Client display] Error: {}", e.what());
+    }
   }
 }; // namespace Client

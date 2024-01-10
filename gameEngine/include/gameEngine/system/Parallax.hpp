@@ -6,7 +6,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "gameEngine/ecs/system/System.hpp"
-#include "IUpdateSystem.hpp"
 
 #include <memory>
 

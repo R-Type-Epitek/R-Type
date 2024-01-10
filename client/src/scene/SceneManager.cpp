@@ -21,6 +21,6 @@ namespace Client::Scene
     addScene(SceneType::Lobby, std::make_unique<LobbyScene>(network));
     addScene(SceneType::Game, std::make_unique<GameScene>(network));
     addScene(SceneType::Welcome, std::make_unique<WelcomeScene>(network));
-    setCurrent(SceneType::Lobby);
+    setCurrent(SceneType::Game);
   }
 } // namespace Client

@@ -4,11 +4,10 @@
 
 #include "game/rtype/RtypeGame.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
-#include "gameEngine/system/Keyboard.hpp"
+#include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/Input.hpp"
 #include "gameEngine/system/Move.hpp"
 #include <vector>
-#include <memory>
 
 namespace Server::Game
 {
@@ -42,6 +41,17 @@ namespace Server::Game
     }
   }
 
+  void RtypeGame::update(unsigned int df)
+  {
+    auto& ecsRegistry = m_scene.getEcsRegistry();
+    auto& eventRegistry = m_scene.getEventRegistry();
+
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Collider>();
+      system->update(eventRegistry);
+    }
+  }
+
   void RtypeGame::eventConnect(Player& player)
   {
     auto factory = m_scene.getEntityFactory();
@@ -68,7 +78,6 @@ namespace Server::Game
   void RtypeGame::eventInput(Player& player)
   {
     auto& registry = m_scene.getEcsRegistry();
-    auto&& systems = registry.getSystems();
 
     try {
       {
@@ -82,6 +91,6 @@ namespace Server::Game
     } catch (const std::exception& e) {
       spdlog::error(e.what());
     }
-  };
+  }
 
 } // namespace Server::Game

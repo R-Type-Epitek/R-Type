@@ -5,18 +5,26 @@
 #pragma once
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/event/IEvent.hpp"
+#include "gameEngine/constants/Keybinds.hpp"
 
 namespace GameEngine::Event
 {
-
-  class EventCollision : public IEvent {
-   public:
-    EventCollision(const ECS::Entity &entityA, const ECS::Entity &entityB)
+  struct EventCollision : public IEvent {
+    explicit EventCollision(const ECS::Entity &entityA, const ECS::Entity &entityB)
       : entityA {entityA}
-      , m_entityB {entityB} {};
+      , entityB {entityB} {};
 
-   private:
-    ECS::Entity entityA;
-    ECS::Entity m_entityB;
+    const ECS::Entity &entityA;
+    const ECS::Entity &entityB;
   };
+
+  struct EventKeyboardInput : public IEvent {
+    explicit EventKeyboardInput(const Keybinds &key)
+      : key {key}
+    {
+    }
+
+    Keybinds key;
+  };
+
 } // namespace GameEngine::Event

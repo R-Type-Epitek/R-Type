@@ -24,6 +24,7 @@ namespace GameEngine::Scene
     builder.buildSystemKeyboard();
     builder.buildSystemEcsSerializer();
     builder.buildSystemParallax();
+    builder.buildSystemCollider();
     m_ecsRegistry = builder.getResult();
 
     // Event
@@ -44,9 +45,13 @@ namespace GameEngine::Scene
     return *m_ecsRegistry;
   }
 
+  std::shared_ptr<ECS::Registry> SimpleScene::getSharedEcsRegistry()
+  {
+    return m_ecsRegistry;
+  }
+
   Event::EventRegistry& SimpleScene::getEventRegistry()
   {
     return *m_eventRegistry;
   }
-
 } // namespace GameEngine::Scene

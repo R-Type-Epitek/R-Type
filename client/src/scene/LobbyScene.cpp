@@ -3,17 +3,13 @@
 //
 
 #include "scene/LobbyScene.hpp"
-#include "gameEngine/component/Gravity.hpp"
-#include "gameEngine/component/MetaData.hpp"
 #include "gameEngine/component/Clickable.hpp"
-#include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/ecs/Registry.hpp"
-#include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
-#include "network/system/Keyboard.hpp"
+#include "network/system/Network.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Client
@@ -34,11 +30,11 @@ namespace Client
 
   void LobbyScene::initCustomSystem()
   {
+    using NetworkSystem = Client::System::KeyboardInputHandler;
     GameEngine::ECS::Signature signature;
-    m_ecsRegistry->registerSystem<System::Network::Keyboard>();
-    //  System components
+    m_ecsRegistry->registerSystem<NetworkSystem>();
     signature.set(m_ecsRegistry->getComponentType<ComponentRType::Displayable>());
-    m_ecsRegistry->setSystemSignature<System::Network::Keyboard>(signature);
+    m_ecsRegistry->setSystemSignature<NetworkSystem>(signature);
   }
 
   void LobbyScene::initEntities()

@@ -3,25 +3,19 @@
 //
 
 #include "scene/GameScene.hpp"
-
-#include "gameEngine/component/Gravity.hpp"
-#include "gameEngine/component/MetaData.hpp"
-#include "gameEngine/component/NetworkedEntity.hpp"
+#include "gameEngine/system/Move.hpp"
 #include "gameEngine/component/Displayable.hpp"
-#include "gameEngine/component/Transform.hpp"
-#include "gameEngine/component/Parallax.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "gameEngine/ecs/Registry.hpp"
-#include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
-#include "gameEngine/ecs/entity/EntityManager.hpp"
-#include "network/system/Keyboard.hpp"
+#include "gameEngine/event/Events.hpp"
+#include "network/system/Network.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Client
 {
 
-  GameScene::GameScene(Network& network)
+  GameScene::GameScene(Network &network)
     : m_network {network}
   {
     initRegistries();
@@ -32,15 +26,21 @@ namespace Client
   {
     GameEngine::Scene::SimpleScene::initRegistries();
     initCustomSystem();
+
+    auto moveSystem = m_ecsRegistry->getSystem<GameEngine::System::Move>();
+    m_eventRegistry->subscribe<GameEngine::Event::EventKeyboardInput>(moveSystem);
   }
 
   void GameScene::initCustomSystem()
   {
+    using NetworkSystem = Client::System::KeyboardInputHandler;
     GameEngine::ECS::Signature signature;
-    m_ecsRegistry->registerSystem<System::Network::Keyboard>();
-    //  System components
+    auto sys = m_ecsRegistry->registerSystem<NetworkSystem>();
     signature.set(m_ecsRegistry->getComponentType<ComponentRType::Displayable>());
-    m_ecsRegistry->setSystemSignature<System::Network::Keyboard>(signature);
+    m_ecsRegistry->setSystemSignature<NetworkSystem>(signature);
+
+    //    subscribe to network event
+    m_eventRegistry->subscribe<GameEngine::Event::EventKeyboardInput>(sys);
   }
 
   void GameScene::initEntities()

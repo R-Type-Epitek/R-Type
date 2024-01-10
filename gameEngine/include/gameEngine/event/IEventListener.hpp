@@ -12,6 +12,6 @@ namespace GameEngine::Event
    public:
     virtual ~IEventListener() = default;
 
-    virtual void handleEvent(IEvent &event) = 0;
+    virtual void handleEvent(const IEvent &event) = 0;
   };
 } // namespace GameEngine::Event
