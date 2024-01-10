@@ -9,6 +9,7 @@
 #include "gameEngine/network/Messages.hpp"
 #include "gameEngine/network/Responses.hpp"
 #include "gameEngine/network/Statuses.hpp"
+#include "gameEngine/network/INetworkController.hpp"
 #include "network/commands/IHandler.hpp"
 #include "network/commands/Tracker.hpp"
 
@@ -32,7 +33,7 @@ namespace Client
    * sending and receiving messages and responses, managing command handlers, and
    * keeping track of client and room states.
    */
-  class Network {
+  class Network : public GameEngine::Network::INetworkController {
    public:
     /**
      * @brief Construct a new Network object.
@@ -306,6 +307,11 @@ namespace Client
      * @param roomId The ID of the game room to spectate.
      */
     void spectate(int roomId);
+
+    //    Game engine interface bridge
+    void sendKey() final;
+
+    void connect() final;
 
    protected:
    private:
