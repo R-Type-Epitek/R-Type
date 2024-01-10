@@ -19,6 +19,7 @@ namespace GameEngine::Scene
       for (auto& scene : m_scenes) {
         scene.second->initRegistries();
         scene.second->initEntities();
+        scene.second->initEvents();
       }
     };
 
