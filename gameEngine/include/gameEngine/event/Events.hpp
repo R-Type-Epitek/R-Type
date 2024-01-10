@@ -23,6 +23,7 @@ namespace GameEngine::Event
       : key {key}
     {
     }
+
     Keybinds key;
   };
 

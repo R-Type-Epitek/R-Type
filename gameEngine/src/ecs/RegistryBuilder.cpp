@@ -17,6 +17,7 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
+
 #include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/system/Keyboard.hpp"
@@ -25,6 +26,7 @@
 #include "gameEngine/system/Input.hpp"
 #include "gameEngine/system/Move.hpp"
 #include "gameEngine/system/Parallax.hpp"
+#include "gameEngine/system/Collider.hpp"
 
 #include <memory>
 #include <utility>
@@ -154,6 +156,16 @@ namespace GameEngine::Builder
         sys->setEcsRegistry(m_registry);
       }
     }
+  }
+
+  void RegistryBuilder::buildSystemCollider()
+  {
+    using SystemType = GameEngine::System::Collider;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
+    m_registry->setSystemSignature<SystemType>(signature);
   }
 
 }; // namespace GameEngine::Builder

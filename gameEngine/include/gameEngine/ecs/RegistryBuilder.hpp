@@ -30,6 +30,7 @@ namespace GameEngine::Builder
     void buildSystemMove();
     void buildSystemInput();
     void buildSystemParallax();
+    void buildSystemCollider();
 
    private:
     void feedSystemHolder();

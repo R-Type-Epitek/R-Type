@@ -24,6 +24,7 @@ namespace GameEngine::Scene
     builder.buildSystemKeyboard();
     builder.buildSystemEcsSerializer();
     builder.buildSystemParallax();
+    builder.buildSystemCollider();
     m_ecsRegistry = builder.getResult();
 
     // Event
