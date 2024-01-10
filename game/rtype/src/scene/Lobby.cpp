@@ -10,7 +10,7 @@
 namespace Rtype::Scene
 {
 
-  Lobby::Lobby(SceneController::LobbyController &controller)
+  Lobby::Lobby(SceneController::LobbyController controller)
     : m_controller(controller)
   {
     spdlog::info("Lobby scene created");

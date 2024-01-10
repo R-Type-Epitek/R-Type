@@ -5,6 +5,10 @@
 #include "Client.hpp"
 
 #include "network/Constants.hpp"
+//#include "include/sceneController/ClientGameController.hpp"
+//
+////#include "sceneController/ClientGameController.hpp"
+#include "include/scene/ClientGame.hpp"
 #include "network/Network.hpp"
 #include "spdlog/spdlog.h"
 
@@ -68,7 +72,9 @@ namespace Client
 
   void Client::initScenes()
   {
-    //    m_coreGE->addScene("game", std::make_unique<Scene::ClientGameScene>(controller));
+    //    auto controller = Rtype::SceneController::ClientGameController(*m_network);
+    //    m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
+
     m_coreGE->loadScenes();
   }
 
@@ -76,5 +82,5 @@ namespace Client
   {
     m_coreGE->run();
   }
-  
+
 }; // namespace Client

@@ -9,7 +9,7 @@ namespace Rtype::SceneController
 {
   class ClientGameController : public NetworkController {
    public:
-    ClientGameController(GameEngine::Network::INetworkController &networkController)
+    explicit ClientGameController(GameEngine::Network::INetworkController &networkController)
       : NetworkController(networkController) {};
     ~ClientGameController() = default;
   };

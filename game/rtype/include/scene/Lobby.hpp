@@ -16,7 +16,7 @@ namespace Rtype::Scene
 {
   class Lobby : public GameEngine::Scene::SimpleScene {
    public:
-    Lobby(SceneController::LobbyController &controller);
+    Lobby(SceneController::LobbyController controller);
 
     void initRegistries() final;
 
