@@ -162,15 +162,21 @@ void Network::UDPServer::sendToAllClientsInRoom(boost::asio::const_buffer const 
 {
   if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
-  for (auto &clientId : this->rooms[roomId].getPlayers())
+  for (auto &clientId : this->rooms[roomId].getPlayers()) {
+    auto clientOpt = this->getClientById(clientId);
+    if (!clientOpt.has_value())
+      continue;
+    Client &client = clientOpt.value();
+
     this->socket.async_send_to(
       buffer,
-      this->clients[clientId].getEndpoint(),
+      client.getEndpoint(),
       boost::bind(
         &Network::UDPServer::handleSend,
         this,
         boost::asio::placeholders::error,
         boost::asio::placeholders::bytes_transferred));
+  }
 }
 
 void Network::UDPServer::sendToAllClientsInRoomInGame(boost::asio::const_buffer const &buffer, int roomId)
@@ -178,11 +184,17 @@ void Network::UDPServer::sendToAllClientsInRoomInGame(boost::asio::const_buffer 
   if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
   for (auto &clientId : this->rooms[roomId].getPlayers()) {
-    if (!this->clients[clientId].getIsInGame())
+    auto clientOpt = this->getClientById(clientId);
+    if (!clientOpt.has_value())
       continue;
+    Client &client = clientOpt.value();
+
+    if (!client.getIsInGame())
+      continue;
+
     this->socket.async_send_to(
       buffer,
-      this->clients[clientId].getEndpoint(),
+      client.getEndpoint(),
       boost::bind(
         &Network::UDPServer::handleSend,
         this,
@@ -195,6 +207,10 @@ void Network::UDPServer::sendToClient(boost::asio::const_buffer const &buffer, i
 {
   std::vector<char> messageBuffer(buffer.size());
   memcpy(messageBuffer.data(), buffer.data(), buffer.size());
+  auto clientOpt = this->getClientById(id);
+  if (!clientOpt.has_value())
+    return spdlog::error("Client {} not found", id);
+  Client &client = clientOpt.value();
 
   if (!this->isClientRegistered(id))
     return spdlog::warn("Client {} is not connected", id);
@@ -202,7 +218,7 @@ void Network::UDPServer::sendToClient(boost::asio::const_buffer const &buffer, i
     throw std::runtime_error("Socket is not open");
   this->socket.async_send_to(
     buffer,
-    this->clients[id].getEndpoint(),
+    client.getEndpoint(),
     boost::bind(
       &Network::UDPServer::handleSend,
       this,
