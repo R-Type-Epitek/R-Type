@@ -4,6 +4,7 @@
 
 #include "game/rtype/RtypeGame.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
+#include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/Input.hpp"
 #include "gameEngine/system/Move.hpp"
 #include <vector>
@@ -37,6 +38,17 @@ namespace Server::Game
       case Event::Input:
         eventInput(player);
         break;
+    }
+  }
+
+  void RtypeGame::update(unsigned int df)
+  {
+    auto& ecsRegistry = m_scene.getEcsRegistry();
+    auto& eventRegistry = m_scene.getEventRegistry();
+
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::Collider>();
+      system->update(eventRegistry);
     }
   }
 
@@ -80,6 +92,6 @@ namespace Server::Game
     } catch (const std::exception& e) {
       spdlog::error(e.what());
     }
-  };
+  }
 
 } // namespace Server::Game
