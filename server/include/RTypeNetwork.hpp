@@ -36,6 +36,7 @@
 #include "Room.hpp"
 #include "ThreadSafeQueue.hpp"
 #include "UDPServer.hpp"
+#include "tools/EndianConverter.hpp"
 #include "tools/Logs.hpp"
 
 // commands
