@@ -6,6 +6,7 @@
 #include <gameEngine/scene/ISceneManager.hpp>
 #include <gameEngine/UI/Window.hpp>
 #include <memory>
+#include <utility>
 
 namespace GameEngine::Core
 {
@@ -18,32 +19,41 @@ namespace GameEngine::Core
 
   class Core {
    public:
-    Core() = default;
+    Core();
+
+    Core(std::string projectName);
+
     ~Core() = default;
-
-    void loadPlugins();
-
-    void loadScenes();
 
     void run();
 
     void stop();
 
+    void loadPlugins();
+
     //    - Scene -
-    Scene::ISceneManager& getSceneManager();
-    void initScenes();
+    void loadScenes();
     void addScene(const std::string& name, std::unique_ptr<Scene::IScene> scene);
-    Scene::IScene& getCurrentScene();
     void setCurrentScene(const std::string& name);
 
     //    GUI
     void enableGUI();
     void disableGUI();
 
+    //    - Tick rate -
+    void setTicksPerSecond(unsigned int ticksPerSecond);
+    unsigned int getTicksPerSecond() const;
+
+    //    - Getters -
+    const std::string& getProjectName() const;
+    const GameEngineState& getGameEngineState() const;
+
    private:
-    unsigned int ticksPerSecond = 60;
-    GameEngineState m_gameEngineState = GameEngineState::LOADING;
-    bool m_graphicals = false;
+    const std::string m_projectName;
+    unsigned int m_ticksPerSecond;
+    GameEngineState m_gameEngineState;
+    bool m_graphical;
+
     std::unique_ptr<Scene::ISceneManager> m_sceneManager;
     std::unique_ptr<UI::Window> m_gui;
   };

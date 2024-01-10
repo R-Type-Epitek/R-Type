@@ -5,6 +5,7 @@
 #include "gameEngine/core/Core.hpp"
 
 #include "gameEngine/gfx/sfml/Renderer.hpp"
+#include "gameEngine/scene/SceneManager.hpp"
 #include <memory>
 #include <chrono>
 #include <thread>
@@ -12,25 +13,30 @@
 namespace GameEngine::Core
 {
 
-  void Core::loadPlugins()
+  Core::Core()
+    : m_projectName("Rtype")
+    , m_ticksPerSecond(60)
+    , m_gameEngineState(GameEngineState::LOADING)
+    , m_graphical(false)
   {
   }
 
-  void Core::loadScenes()
+  Core::Core(std::string projectName)
+    : m_projectName(std::move(projectName))
   {
   }
 
   void Core::run()
   {
-    std::chrono::milliseconds tickDuration = std::chrono::milliseconds(1000 / ticksPerSecond);
+    std::chrono::milliseconds tickDuration = std::chrono::milliseconds(1000 / m_ticksPerSecond);
 
     while (m_gameEngineState != GameEngineState::STOPPED) {
       auto startTime = std::chrono::steady_clock::now();
 
-      if (m_graphicals && !m_gui->isOpen()) {
-        m_gameEngineState = GameEngineState::STOPPED;
+      if (m_graphical && !m_gui->isOpen()) {
+        stop();
       }
-      if (m_graphicals) {
+      if (m_graphical) {
         m_gui->clear();
         m_gui->display();
       }
@@ -47,26 +53,21 @@ namespace GameEngine::Core
 
   void Core::stop()
   {
+    m_gameEngineState = GameEngineState::STOPPED;
   }
 
-  Scene::ISceneManager& Core::getSceneManager()
+  void Core::loadPlugins()
   {
-    return *m_sceneManager;
+    m_sceneManager = std::make_unique<Scene::SceneManager>();
   }
 
-  void Core::initScenes()
+  void Core::loadScenes()
   {
-    m_sceneManager->initScenes();
   }
 
   void Core::addScene(const std::string& name, std::unique_ptr<Scene::IScene> scene)
   {
     m_sceneManager->addScene(name, std::move(scene));
-  }
-
-  Scene::IScene& Core::getCurrentScene()
-  {
-    return m_sceneManager->getCurrent();
   }
 
   void Core::setCurrentScene(const std::string& name)
@@ -76,15 +77,34 @@ namespace GameEngine::Core
 
   void Core::enableGUI()
   {
-    m_graphicals = true;
+    m_graphical = true;
     auto renderer = std::make_shared<Gfx::Sfml::Renderer>(1920, 1080, "GameEngine graphics");
     m_gui = std::make_unique<UI::Window>(renderer);
   }
 
   void Core::disableGUI()
   {
-    m_graphicals = false;
+    m_graphical = false;
     m_gui.reset();
+  }
+
+  void Core::setTicksPerSecond(unsigned int ticksPerSecond)
+  {
+    m_ticksPerSecond = ticksPerSecond;
+  }
+
+  unsigned int Core::getTicksPerSecond() const
+  {
+    return m_ticksPerSecond;
+  }
+  const std::string& Core::getProjectName() const
+  {
+    return m_projectName;
+  }
+
+  const GameEngineState& Core::getGameEngineState() const
+  {
+    return m_gameEngineState;
   }
 
 } // namespace GameEngine::Core

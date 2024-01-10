@@ -10,7 +10,6 @@
 namespace GameEngine::Scene
 {
 
-  template<typename SceneEnum>
   class SceneManager : public ISceneManager {
    public:
     SceneManager() = default;
@@ -40,7 +39,7 @@ namespace GameEngine::Scene
 
    private:
     SceneContainer m_scenes;
-    SceneEnum m_currentSceneName;
+    std::string m_currentSceneName;
   };
 
 }; // namespace GameEngine::Scene
