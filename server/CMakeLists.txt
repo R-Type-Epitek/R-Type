@@ -64,6 +64,7 @@ target_include_directories(${EXEC_SERVER}
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${Boost_INCLUDE_DIRS}
         ${RTYPE_GAME_ENGINE_INCLUDE}
+        ${RTYPE_GAME_INCLUDE}
 )
 
 target_compile_options(${EXEC_SERVER}

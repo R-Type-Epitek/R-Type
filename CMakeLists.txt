@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 set(RTYPE_GAME_ENGINE_INCLUDE ${CMAKE_CURRENT_LIST_DIR}/gameEngine/include CACHE PATH "Path to game engine include directory")
-set(RTYPE_GAME_INCLUDE ${CMAKE_CURRENT_LIST_DIR}/game/rtype/include CACHE PATH "Path to game rtype include directory")
+set(RTYPE_GAME_INCLUDE ${CMAKE_CURRENT_LIST_DIR}/game/rtype/include CACHE PATH "Path to game rtype include directory.")
 
 #[===[ DEPENDENCIES ]===]
 find_package(SFML
