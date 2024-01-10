@@ -46,6 +46,9 @@ namespace Rtype::Scene
   void HostGame::initEvents()
   {
     GameEngine::Scene::SimpleScene::initEvents();
+
+    auto system = m_ecsRegistry->getSystem<GameEngine::System::Spawn>();
+    system->setEntityFactory(m_entityFactory);
   }
 
   void HostGame::onUpdate(size_t df)
