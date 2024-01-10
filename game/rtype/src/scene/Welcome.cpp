@@ -3,9 +3,8 @@
 //
 
 #include "scene/Welcome.hpp"
-#include "gameEngine/system/NetworkEventPusher.hpp"
+#include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/system/Renderer.hpp"
-#include "gameEngine/system/Move.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Clickable.hpp"
@@ -47,9 +46,6 @@ namespace Rtype::Scene
   void Welcome::initEvents()
   {
     SimpleScene::initEvents();
-
-    auto moveSystem = m_ecsRegistry->getSystem<GameEngine::System::Move>();
-    m_eventRegistry->subscribe<GameEngine::Event::EventKeyboardInput>(moveSystem);
   }
 
   void Welcome::onUpdate(size_t df)
@@ -58,8 +54,8 @@ namespace Rtype::Scene
     auto &ecsRegistry = getEcsRegistry();
 
     {
-      auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
-      system->updateClient(ecsRegistry);
+      auto system = ecsRegistry.getSystem<GameEngine::System::InputCatcher>();
+      system->update(getEventRegistry(), m_controller.getRenderer());
     }
     {
       auto system = ecsRegistry.getSystem<GameEngine::System::Renderer>();

@@ -3,12 +3,12 @@
 //
 
 #include "scene/ClientGame.hpp"
-#include "gameEngine/system/Move.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
+#include "gameEngine/system/NetworkEventPusher.hpp"
+#include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/event/Events.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
-#include "gameEngine/system/NetworkEventPusher.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Rtype::Scene
@@ -23,11 +23,6 @@ namespace Rtype::Scene
   void ClientGame::initRegistries()
   {
     SimpleScene::initRegistries();
-    auto builder = GameEngine::Builder::RegistryBuilder();
-    builder.buildFrom(m_ecsRegistry);
-
-    builder.buildSystemNetworkEventPusher();
-    m_ecsRegistry = builder.getResult();
   }
 
   void ClientGame::initEntities()
@@ -43,9 +38,6 @@ namespace Rtype::Scene
   void ClientGame::initEvents()
   {
     SimpleScene::initEvents();
-
-    auto moveSystem = m_ecsRegistry->getSystem<GameEngine::System::Move>();
-    m_eventRegistry->subscribe<GameEngine::Event::EventKeyboardInput>(moveSystem);
   }
 
   void ClientGame::onUpdate(size_t df)
@@ -58,15 +50,15 @@ namespace Rtype::Scene
       auto sys_serializer = ecsRegistry.getSystem<GameEngine::System::EcsSerializer>();
       auto ecsState = network.getSerializedEcsState();
 
-      sys_serializer->deserialize(ecsRegistry, ecsState, getEntityFactory());
+      sys_serializer->deserialize(ecsState, getEntityFactory());
+    }
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::InputCatcher>();
+      system->update(getEventRegistry(), m_controller.getRenderer());
     }
     {
       auto system = ecsRegistry.getSystem<GameEngine::System::NetworkEventPusher>();
       system->update(m_controller.getNetwork());
-    }
-    {
-      auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
-      system->updateClient(ecsRegistry);
     }
     {
       auto system = ecsRegistry.getSystem<GameEngine::System::Renderer>();

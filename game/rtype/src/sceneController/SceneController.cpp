@@ -2,7 +2,6 @@
 // Created by raphael on 1/10/24.
 //
 
-#pragma once
 #include "sceneController/SceneController.hpp"
 
 namespace Rtype::Controller

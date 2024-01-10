@@ -8,8 +8,9 @@
 #include "sceneController/HostGameController.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/system/Physics.hpp"
-#include "gameEngine/system/Move.hpp"
 #include "gameEngine/system/Collider.hpp"
+#include "gameEngine/system/Spawning.hpp"
+#include "gameEngine/system/ControlableEntity.hpp"
 
 namespace Rtype::Scene
 {
@@ -27,29 +28,29 @@ namespace Rtype::Scene
     builder.registerAllMandatoryComponent();
 
     // Systems
-    builder.buildSystemPhysics();
-    builder.buildSystemEcsSerializer();
-    builder.buildSystemInput();
-    builder.buildSystemParallax();
-    builder.buildSystemMove();
     builder.buildSystemCollider();
+    builder.buildSystemEcsSerializer();
+    builder.buildSystemControlableEntity();
+    builder.buildSystemPhysics();
+    builder.buildSystemSpawning();
     m_ecsRegistry = builder.getResult();
   }
 
   void HostGame::initEntities()
   {
-    m_entityFactory = std::make_shared<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
+    GameEngine::Scene::SimpleScene::initEntities();
 
     ConfigLoader::loadEntities(m_entityFactory);
   }
 
   void HostGame::initEvents()
   {
-    m_eventRegistry = std::make_unique<GameEngine::Event::EventRegistry>();
+    GameEngine::Scene::SimpleScene::initEvents();
   }
 
   void HostGame::onUpdate(size_t df)
   {
+    (void)df;
     auto& ecsRegistry = getEcsRegistry();
     try {
       {
@@ -58,11 +59,7 @@ namespace Rtype::Scene
       }
       {
         auto system = ecsRegistry.getSystem<GameEngine::System::Physics>();
-        system->update(ecsRegistry);
-      }
-      {
-        auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
-        system->update(ecsRegistry);
+        system->update();
       }
     } catch (const std::exception& e) {
       spdlog::error("[Client update] Error: {}", e.what());
