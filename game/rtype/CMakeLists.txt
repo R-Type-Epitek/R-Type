@@ -7,11 +7,11 @@ add_library(${LIBRARY} STATIC
         src/scene/Lobby.cpp
         src/scene/Welcome.cpp
         src/scene/HostGame.cpp
+        src/sceneController/GraphicController.cpp
         src/sceneController/HostGameController.cpp
-        src/sceneController/ClientGameController.cpp
-        src/sceneController/LobbyController.cpp
-        src/sceneController/WelcomeController.cpp
+        src/sceneController/SceneController.cpp
         src/sceneController/NetworkController.cpp
+        src/sceneController/RendererController.cpp
 )
 
 target_include_directories(${LIBRARY}
