@@ -6,9 +6,13 @@
 
 nlohmann::json ConfigLoader::m_config;
 
-ConfigLoader::ConfigLoader() {}
+ConfigLoader::ConfigLoader()
+{
+}
 
-ConfigLoader::~ConfigLoader() {}
+ConfigLoader::~ConfigLoader()
+{
+}
 
 void ConfigLoader::openConfigFile()
 {
@@ -26,7 +30,7 @@ void ConfigLoader::loadEntities(std::shared_ptr<GameEngine::Entity::EntityFactor
   if (m_config.empty()) {
     openConfigFile();
   }
-  u_int16_t id = 1;
+  u_int16_t id = 3000;
 
   for (const auto &enemyType : m_config["enemyTypes"]) {
     if (!enemyType.is_object()) {

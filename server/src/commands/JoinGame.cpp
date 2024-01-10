@@ -34,6 +34,7 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
   Client &client = clientOpt.value();
 
   client.setIsInGame(true);
+  client.setIsSpectator(false);
 
   Server::Game::Player player = {.id = static_cast<size_t>(client.getId()), .name = client.getName()};
   room.getHostedGame().pushEvent(Server::Game::Event::Connect, player);
@@ -47,7 +48,7 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
   return this->server.createResponseBuffer(
     message->header.clientId,
     message->header,
-    "Joined game (room " + std::to_string(data->roomId) + ")",
+    "Client is playing in room " + std::to_string(data->roomId),
     dataToSend.data(),
     dataToSend.size());
 }
