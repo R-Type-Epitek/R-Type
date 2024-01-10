@@ -1,6 +1,6 @@
 #[===[ GameEngine ]===]
 
-set(LIBRARY "rtype")
+set(LIBRARY "RtypeGame")
 
 add_library(${LIBRARY} STATIC
         src/scene/ClientGame.cpp
@@ -31,10 +31,6 @@ target_compile_options(${LIBRARY}
 target_link_libraries(${LIBRARY}
         PRIVATE
         GameEngine
-        sfml-system
-        sfml-network
-        sfml-graphics
-        sfml-window
         Boost::serialization
         Boost::system
         spdlog::spdlog

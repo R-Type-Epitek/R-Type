@@ -80,6 +80,7 @@ endif ()
 target_link_libraries(${EXEC_SERVER}
         PRIVATE
         GameEngine
+        RtypeGame
         Boost::boost
         Boost::system
         Boost::serialization
