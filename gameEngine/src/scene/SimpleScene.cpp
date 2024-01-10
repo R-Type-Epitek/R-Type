@@ -26,13 +26,16 @@ namespace GameEngine::Scene
     builder.buildSystemParallax();
     builder.buildSystemCollider();
     m_ecsRegistry = builder.getResult();
-
-    // Event
-    m_eventRegistry = std::make_unique<Event::EventRegistry>();
   }
 
   void SimpleScene::initEntities()
   {
+    m_entityFactory = std::make_unique<GameEngine::Entity::EntityFactory>(m_entities, *m_ecsRegistry);
+  }
+
+  void SimpleScene::initEvents()
+  {
+    m_eventRegistry = std::make_unique<Event::EventRegistry>();
   }
 
   GameEngine::Entity::EntityFactory& SimpleScene::getEntityFactory()
@@ -54,4 +57,9 @@ namespace GameEngine::Scene
   {
     return *m_eventRegistry;
   }
+
+  void SimpleScene::onUpdate(size_t df)
+  {
+  }
+
 } // namespace GameEngine::Scene
