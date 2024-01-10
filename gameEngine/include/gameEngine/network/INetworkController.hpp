@@ -4,6 +4,7 @@
 
 #pragma once
 #include "gameEngine/constants/Keybinds.hpp"
+#include <vector>
 
 namespace GameEngine::Network
 {
@@ -14,5 +15,7 @@ namespace GameEngine::Network
     virtual void sendKey(GameEngine::Keybinds key) = 0;
 
     virtual void connect() = 0;
+
+    virtual std::vector<std::vector<char>> getSerializedEcsState() = 0;
   };
 } // namespace GameEngine::Network

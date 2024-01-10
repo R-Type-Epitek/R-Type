@@ -215,17 +215,6 @@ namespace Client
      */
     boost::asio::ip::udp::endpoint getRemoteEndpoint() const;
 
-    /**
-     * @brief Get the queue of serialized ECS data.
-     *
-     * This function returns a reference to the queue holding serialized data
-     * from the Entity Component System (ECS), ready for network transmission.
-     *
-     * @return QueueEcsSerialized& Reference to the queue of serialized ECS data.
-     */
-    using QueueEcsSerialized = std::vector<std::vector<char>>;
-    QueueEcsSerialized &getSerializedEcsQueue();
-
     // Commands
     /**
      * @brief Execute a command with a specified action.
@@ -292,7 +281,7 @@ namespace Client
      *
      * @param key The key command to be sent.
      */
-    void sendKey(GameEngine::Keybinds key);
+    void sendKey(GameEngine::Keybinds key) final;
 
     /**
      * @brief Join a game with a specified room ID.
@@ -309,9 +298,23 @@ namespace Client
     void spectate(int roomId);
 
     //    Game engine interface bridge
-    void sendKey() final;
 
+    /**
+     * @brief
+     *
+     */
     void connect() final;
+
+    /**
+     * @brief Get the queue of serialized ECS data.
+     *
+     * This function returns a reference to the queue holding serialized data
+     * from the Entity Component System (ECS), ready for network transmission.
+     *
+     * @return QueueEcsSerialized& Reference to the queue of serialized ECS data.
+     */
+    using QueueEcsSerialized = std::vector<std::vector<char>>;
+    QueueEcsSerialized getSerializedEcsState() final;
 
    protected:
    private:
