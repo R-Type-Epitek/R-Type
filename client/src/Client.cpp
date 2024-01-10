@@ -38,23 +38,23 @@ namespace Client
       m_network = std::make_shared<Network>(DEFAULT_IP, DEFAULT_PORT);
       spdlog::info("Done");
 
-      //      spdlog::info("Establishing Network connection...");
-      //      m_network->connectToServer();
-      //      spdlog::info("Done");
-      //
-      //      spdlog::info("Getting Server id...");
-      //      while (m_network->getClientId() == -1) {
-      //      };
-      //      spdlog::info("Done");
-      //
-      //      spdlog::info("Connecting to game room [0]...");
-      //            m_network->updateName("John Doe");
-      //            m_network->joinRoom(0);
-      //       m_network->joinRoomAuto();
-      //       m_network->joinGame(0);
-      //       m_network->kickPlayer(1);
-      //       m_network->godMode(1);
-      //            m_network->spectate(0);
+      spdlog::info("Establishing Network connection...");
+      m_network->connectToServer();
+      spdlog::info("Done");
+
+      spdlog::info("Getting Server id...");
+      while (m_network->getClientId() == -1) {
+      };
+      spdlog::info("Done");
+
+      spdlog::info("Connecting to game room [0]...");
+      m_network->updateName("John Doe");
+      m_network->joinRoom(0);
+      m_network->joinRoomAuto();
+      m_network->joinGame(0);
+      m_network->kickPlayer(1);
+      m_network->godMode(1);
+      m_network->spectate(0);
       spdlog::info("Done");
 
     } catch (std::exception const &) {
@@ -85,7 +85,7 @@ namespace Client
     }
     {
       auto controller = Rtype::SceneController::WelcomeController(m_network);
-      m_coreGE->addScene("game", std::make_unique<Rtype::Scene::Welcome>(controller));
+      m_coreGE->addScene("welcome", std::make_unique<Rtype::Scene::Welcome>(controller));
     }
 
     m_coreGE->setCurrentScene("game");
