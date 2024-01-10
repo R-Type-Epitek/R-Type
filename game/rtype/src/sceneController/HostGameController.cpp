@@ -3,3 +3,8 @@
 //
 
 #include "sceneController/HostGameController.hpp"
+
+namespace Rtype::SceneController
+{
+
+} // namespace Rtype::SceneController
