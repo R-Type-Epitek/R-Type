@@ -6,8 +6,9 @@
 
 namespace GameEngine::Network
 {
-  struct NetworkController {
-    virtual ~NetworkController() = default;
+  class INetworkController {
+   public:
+    virtual ~INetworkController() = default;
 
     virtual void sendKey() = 0;
 
