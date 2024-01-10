@@ -159,6 +159,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:ade0d528afd00301f194e02773f48c92f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#ade0d528afd00301f194e02773f48c92f">getEcsRegistry</a> ()=0</td></tr>
 <tr class="memdesc:ade0d528afd00301f194e02773f48c92f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ECS registry associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1IScene.html#ade0d528afd00301f194e02773f48c92f">More...</a><br /></td></tr>
 <tr class="separator:ade0d528afd00301f194e02773f48c92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace7f1f554b5a442987176cf835fc18e"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#aace7f1f554b5a442987176cf835fc18e">getSharedEcsRegistry</a> ()=0</td></tr>
+<tr class="memdesc:aace7f1f554b5a442987176cf835fc18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ECS registry ownership associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1IScene.html#aace7f1f554b5a442987176cf835fc18e">More...</a><br /></td></tr>
+<tr class="separator:aace7f1f554b5a442987176cf835fc18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8865aadcd5f7088f8a55b0c48c71fd3a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">Event::EventRegistry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#a8865aadcd5f7088f8a55b0c48c71fd3a">getEventRegistry</a> ()=0</td></tr>
 <tr class="memdesc:a8865aadcd5f7088f8a55b0c48c71fd3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classEvent.html">Event</a> registry associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1IScene.html#a8865aadcd5f7088f8a55b0c48c71fd3a">More...</a><br /></td></tr>
 <tr class="separator:a8865aadcd5f7088f8a55b0c48c71fd3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -257,6 +260,36 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a>&amp; Reference to the ECS registry. </dd></dl>
 
 <p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac1005d514ce42fb9acd8f201fb90c915">GameEngine::Scene::SimpleScene</a>.</p>
+
+</div>
+</div>
+<a id="aace7f1f554b5a442987176cf835fc18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aace7f1f554b5a442987176cf835fc18e">&#9670;&nbsp;</a></span>getSharedEcsRegistry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a>&gt; GameEngine::Scene::IScene::getSharedEcsRegistry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the ECS registry ownership associated with the game scene. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;Event::EventRegistry&gt; Pointer to the ECS registry. </dd></dl>
+
+<p>Implemented in <a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a46330529b7a6c8e58b7ccdfff25f018a">GameEngine::Scene::SimpleScene</a>.</p>
 
 </div>
 </div>

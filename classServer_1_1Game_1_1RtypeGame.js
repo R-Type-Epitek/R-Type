@@ -8,5 +8,6 @@ var classServer_1_1Game_1_1RtypeGame =
     [ "eventInput", "classServer_1_1Game_1_1RtypeGame.html#aca10e2a2e2a0c4f0b65aabfa15324520", null ],
     [ "getEntities", "classServer_1_1Game_1_1RtypeGame.html#aebf179c45845bb59f319cd3b06349322", null ],
     [ "load", "classServer_1_1Game_1_1RtypeGame.html#ac6aac65acf468a64d626b88407e276e0", null ],
-    [ "pushEvent", "classServer_1_1Game_1_1RtypeGame.html#a12566b43cd12360e13a54dcba347ab44", null ]
+    [ "pushEvent", "classServer_1_1Game_1_1RtypeGame.html#a12566b43cd12360e13a54dcba347ab44", null ],
+    [ "update", "classServer_1_1Game_1_1RtypeGame.html#ade00d8af9e9caab9c2061abffe114aa1", null ]
 ];

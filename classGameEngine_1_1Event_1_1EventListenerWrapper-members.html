@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classGameEngine_1_1Event_1_1EventCollision.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('classGameEngine_1_1Event_1_1EventListenerWrapper.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -118,14 +118,15 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1Event_1_1EventColli
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GameEngine::Event::EventCollision Member List</div>  </div>
+<div class="title">GameEngine::Event::EventListenerWrapper Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classGameEngine_1_1Event_1_1EventCollision.html">GameEngine::Event::EventCollision</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="classGameEngine_1_1Event_1_1EventListenerWrapper.html">GameEngine::Event::EventListenerWrapper</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>EventCollision</b>(const ECS::Entity &amp;entityA, const ECS::Entity &amp;entityB) (defined in <a class="el" href="classGameEngine_1_1Event_1_1EventCollision.html">GameEngine::Event::EventCollision</a>)</td><td class="entry"><a class="el" href="classGameEngine_1_1Event_1_1EventCollision.html">GameEngine::Event::EventCollision</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~IEvent</b>()=default (defined in <a class="el" href="classGameEngine_1_1Event_1_1IEvent.html">GameEngine::Event::IEvent</a>)</td><td class="entry"><a class="el" href="classGameEngine_1_1Event_1_1IEvent.html">GameEngine::Event::IEvent</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>EventListenerWrapper</b>(std::function&lt; void(const IEvent &amp;event)&gt; callback) (defined in <a class="el" href="classGameEngine_1_1Event_1_1EventListenerWrapper.html">GameEngine::Event::EventListenerWrapper</a>)</td><td class="entry"><a class="el" href="classGameEngine_1_1Event_1_1EventListenerWrapper.html">GameEngine::Event::EventListenerWrapper</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>handleEvent</b>(const IEvent &amp;event) final (defined in <a class="el" href="classGameEngine_1_1Event_1_1EventListenerWrapper.html">GameEngine::Event::EventListenerWrapper</a>)</td><td class="entry"><a class="el" href="classGameEngine_1_1Event_1_1EventListenerWrapper.html">GameEngine::Event::EventListenerWrapper</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~IEventListener</b>()=default (defined in <a class="el" href="classGameEngine_1_1Event_1_1IEventListener.html">GameEngine::Event::IEventListener</a>)</td><td class="entry"><a class="el" href="classGameEngine_1_1Event_1_1IEventListener.html">GameEngine::Event::IEventListener</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

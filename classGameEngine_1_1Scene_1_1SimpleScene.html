@@ -156,6 +156,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a17595823658ef8e2da4cce90ebf4182a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a17595823658ef8e2da4cce90ebf4182a">getEcsRegistry</a> () override</td></tr>
 <tr class="memdesc:a17595823658ef8e2da4cce90ebf4182a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ECS registry associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1SimpleScene.html#a17595823658ef8e2da4cce90ebf4182a">More...</a><br /></td></tr>
 <tr class="separator:a17595823658ef8e2da4cce90ebf4182a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46330529b7a6c8e58b7ccdfff25f018a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a46330529b7a6c8e58b7ccdfff25f018a">getSharedEcsRegistry</a> () override</td></tr>
+<tr class="memdesc:a46330529b7a6c8e58b7ccdfff25f018a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ECS registry ownership associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1SimpleScene.html#a46330529b7a6c8e58b7ccdfff25f018a">More...</a><br /></td></tr>
+<tr class="separator:a46330529b7a6c8e58b7ccdfff25f018a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1005d514ce42fb9acd8f201fb90c915"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">Event::EventRegistry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac1005d514ce42fb9acd8f201fb90c915">getEventRegistry</a> () override</td></tr>
 <tr class="memdesc:ac1005d514ce42fb9acd8f201fb90c915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classEvent.html">Event</a> registry associated with the game scene.  <a href="classGameEngine_1_1Scene_1_1SimpleScene.html#ac1005d514ce42fb9acd8f201fb90c915">More...</a><br /></td></tr>
 <tr class="separator:ac1005d514ce42fb9acd8f201fb90c915"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,10 +177,10 @@ Protected Attributes</h2></td></tr>
 std::vector&lt; ECS::Entity &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a79ddb41acbe4211d9a9d0c75c820e813">m_entities</a></td></tr>
 <tr class="memdesc:a79ddb41acbe4211d9a9d0c75c820e813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of entities in the game scene. <br /></td></tr>
 <tr class="separator:a79ddb41acbe4211d9a9d0c75c820e813"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dee4462ba732a98a3a4413f57ec8509"><td class="memItemLeft" align="right" valign="top"><a id="a7dee4462ba732a98a3a4413f57ec8509"></a>
-std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#a7dee4462ba732a98a3a4413f57ec8509">m_ecsRegistry</a></td></tr>
-<tr class="memdesc:a7dee4462ba732a98a3a4413f57ec8509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique pointer to the ECS registry. <br /></td></tr>
-<tr class="separator:a7dee4462ba732a98a3a4413f57ec8509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef670fc1f2862dbc90513cfd34b56f57"><td class="memItemLeft" align="right" valign="top"><a id="aef670fc1f2862dbc90513cfd34b56f57"></a>
+std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#aef670fc1f2862dbc90513cfd34b56f57">m_ecsRegistry</a></td></tr>
+<tr class="memdesc:aef670fc1f2862dbc90513cfd34b56f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique pointer to the ECS registry. <br /></td></tr>
+<tr class="separator:aef670fc1f2862dbc90513cfd34b56f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc7b99a4a7cbd163a7bc1d585410d522"><td class="memItemLeft" align="right" valign="top"><a id="afc7b99a4a7cbd163a7bc1d585410d522"></a>
 std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">Event::EventRegistry</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SimpleScene.html#afc7b99a4a7cbd163a7bc1d585410d522">m_eventRegistry</a></td></tr>
 <tr class="memdesc:afc7b99a4a7cbd163a7bc1d585410d522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique pointer to the <a class="el" href="classEvent.html">Event</a> registry. <br /></td></tr>
@@ -278,6 +281,36 @@ std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1Entity_1_1EntityFacto
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a>&amp; Reference to the ECS registry. </dd></dl>
 
 <p>Implements <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#a8865aadcd5f7088f8a55b0c48c71fd3a">GameEngine::Scene::IScene</a>.</p>
+
+</div>
+</div>
+<a id="a46330529b7a6c8e58b7ccdfff25f018a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46330529b7a6c8e58b7ccdfff25f018a">&#9670;&nbsp;</a></span>getSharedEcsRegistry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">ECS::Registry</a> &gt; GameEngine::Scene::SimpleScene::getSharedEcsRegistry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the ECS registry ownership associated with the game scene. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;Event::EventRegistry&gt; Pointer to the ECS registry. </dd></dl>
+
+<p>Implements <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html#aace7f1f554b5a442987176cf835fc18e">GameEngine::Scene::IScene</a>.</p>
 
 </div>
 </div>

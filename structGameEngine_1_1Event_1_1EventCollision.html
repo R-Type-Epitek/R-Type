@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: GameEngine::System::IUpdateSystem Class Reference</title>
+  <title>R-Type: GameEngine::Event::EventCollision Struct Reference</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classGameEngine_1_1System_1_1IUpdateSystem.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('structGameEngine_1_1Event_1_1EventCollision.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -119,38 +119,46 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1System_1_1IUpdateSy
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classGameEngine_1_1System_1_1IUpdateSystem-members.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="structGameEngine_1_1Event_1_1EventCollision-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">GameEngine::System::IUpdateSystem Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">GameEngine::Event::EventCollision Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for GameEngine::System::IUpdateSystem:</div>
+Inheritance diagram for GameEngine::Event::EventCollision:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classGameEngine_1_1System_1_1IUpdateSystem.png" usemap="#GameEngine::System::IUpdateSystem_map" alt=""/>
-  <map id="GameEngine::System::IUpdateSystem_map" name="GameEngine::System::IUpdateSystem_map">
-<area href="classGameEngine_1_1System_1_1Animation.html" alt="GameEngine::System::Animation" shape="rect" coords="0,56,217,80"/>
-<area href="classGameEngine_1_1System_1_1Keyboard.html" alt="GameEngine::System::Keyboard" shape="rect" coords="227,56,444,80"/>
-<area href="classGameEngine_1_1System_1_1Renderer.html" alt="GameEngine::System::Renderer" shape="rect" coords="454,56,671,80"/>
+  <img src="structGameEngine_1_1Event_1_1EventCollision.png" usemap="#GameEngine::Event::EventCollision_map" alt=""/>
+  <map id="GameEngine::Event::EventCollision_map" name="GameEngine::Event::EventCollision_map">
+<area href="classGameEngine_1_1Event_1_1IEvent.html" alt="GameEngine::Event::IEvent" shape="rect" coords="0,0,207,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a45cc87648b8fabab4f33740650fb08b1"><td class="memItemLeft" align="right" valign="top"><a id="a45cc87648b8fabab4f33740650fb08b1"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (<a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;registry, <a class="el" href="structGameEngine_1_1UI_1_1WindowContext.html">GameEngine::UI::WindowContext</a> &amp;ctx)=0</td></tr>
-<tr class="separator:a45cc87648b8fabab4f33740650fb08b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdcf525434657bb7dad551ab18e1f721"><td class="memItemLeft" align="right" valign="top"><a id="abdcf525434657bb7dad551ab18e1f721"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventCollision</b> (const ECS::Entity &amp;entityA, const ECS::Entity &amp;entityB)</td></tr>
+<tr class="separator:abdcf525434657bb7dad551ab18e1f721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a4bff7044af5e1d450b50a333f8bc19ed"><td class="memItemLeft" align="right" valign="top"><a id="a4bff7044af5e1d450b50a333f8bc19ed"></a>
+const ECS::Entity &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>entityA</b></td></tr>
+<tr class="separator:a4bff7044af5e1d450b50a333f8bc19ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1d2f40d335db9733b1f9338301a8efb"><td class="memItemLeft" align="right" valign="top"><a id="aa1d2f40d335db9733b1f9338301a8efb"></a>
+const ECS::Entity &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>entityB</b></td></tr>
+<tr class="separator:aa1d2f40d335db9733b1f9338301a8efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>gameEngine/include/gameEngine/system/<a class="el" href="IUpdateSystem_8hpp_source.html">IUpdateSystem.hpp</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>gameEngine/include/gameEngine/event/<a class="el" href="Events_8hpp_source.html">Events.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>GameEngine</b></li><li class="navelem"><b>System</b></li><li class="navelem"><a class="el" href="classGameEngine_1_1System_1_1IUpdateSystem.html">IUpdateSystem</a></li>
+    <li class="navelem"><b>GameEngine</b></li><li class="navelem"><b>Event</b></li><li class="navelem"><a class="el" href="structGameEngine_1_1Event_1_1EventCollision.html">EventCollision</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

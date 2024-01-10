@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: Client::System::Network::Keyboard Class Reference</title>
+  <title>R-Type: GameEngine::Event::EventKeyboardInput Struct Reference</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classClient_1_1System_1_1Network_1_1Keyboard.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('structGameEngine_1_1Event_1_1EventKeyboardInput.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -119,98 +119,43 @@ $(document).ready(function(){initNavTree('classClient_1_1System_1_1Network_1_1Ke
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classClient_1_1System_1_1Network_1_1Keyboard-members.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="structGameEngine_1_1Event_1_1EventKeyboardInput-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Client::System::Network::Keyboard Class Reference</div>  </div>
+<div class="title">GameEngine::Event::EventKeyboardInput Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>System class for handling keyboard events in a networked game environment.  
- <a href="classClient_1_1System_1_1Network_1_1Keyboard.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="client_2include_2network_2system_2Keyboard_8hpp_source.html">Keyboard.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Client::System::Network::Keyboard:</div>
+Inheritance diagram for GameEngine::Event::EventKeyboardInput:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classClient_1_1System_1_1Network_1_1Keyboard.png" usemap="#Client::System::Network::Keyboard_map" alt=""/>
-  <map id="Client::System::Network::Keyboard_map" name="Client::System::Network::Keyboard_map">
-<area href="classGameEngine_1_1ECS_1_1System.html" alt="GameEngine::ECS::System" shape="rect" coords="0,0,203,24"/>
+  <img src="structGameEngine_1_1Event_1_1EventKeyboardInput.png" usemap="#GameEngine::Event::EventKeyboardInput_map" alt=""/>
+  <map id="GameEngine::Event::EventKeyboardInput_map" name="GameEngine::Event::EventKeyboardInput_map">
+<area href="classGameEngine_1_1Event_1_1IEvent.html" alt="GameEngine::Event::IEvent" shape="rect" coords="0,0,241,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a12894e41634bf24f2ea054a4e89042f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1System_1_1Network_1_1Keyboard.html#a12894e41634bf24f2ea054a4e89042f5">update</a> (<a class="el" href="structGameEngine_1_1UI_1_1WindowContext.html">GameEngine::UI::WindowContext</a> &amp;ctx, ::<a class="el" href="classClient_1_1Network.html">Client::Network</a> &amp;network)</td></tr>
-<tr class="memdesc:a12894e41634bf24f2ea054a4e89042f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the system based on keyboard events.  <a href="classClient_1_1System_1_1Network_1_1Keyboard.html#a12894e41634bf24f2ea054a4e89042f5">More...</a><br /></td></tr>
-<tr class="separator:a12894e41634bf24f2ea054a4e89042f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d979c79671bd26619927b7b7df36c5"><td class="memItemLeft" align="right" valign="top"><a id="ab0d979c79671bd26619927b7b7df36c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventKeyboardInput</b> (const Keybinds &amp;key)</td></tr>
+<tr class="separator:ab0d979c79671bd26619927b7b7df36c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_attribs_classGameEngine_1_1ECS_1_1System"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classGameEngine_1_1ECS_1_1System')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></td></tr>
-<tr class="memitem:a973512c64e0fd3269b70d02409555c11 inherit pub_attribs_classGameEngine_1_1ECS_1_1System"><td class="memItemLeft" align="right" valign="top"><a id="a973512c64e0fd3269b70d02409555c11"></a>
-std::set&lt; Entity &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_entities</b> {}</td></tr>
-<tr class="separator:a973512c64e0fd3269b70d02409555c11 inherit pub_attribs_classGameEngine_1_1ECS_1_1System"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ac2d7d97bd45685fcdde8e42392f94bc5"><td class="memItemLeft" align="right" valign="top"><a id="ac2d7d97bd45685fcdde8e42392f94bc5"></a>
+Keybinds&#160;</td><td class="memItemRight" valign="bottom"><b>key</b></td></tr>
+<tr class="separator:ac2d7d97bd45685fcdde8e42392f94bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>System class for handling keyboard events in a networked game environment. </p>
-<p>The <a class="el" href="classClient_1_1System_1_1Network_1_1Keyboard.html" title="System class for handling keyboard events in a networked game environment.">Keyboard</a> class is part of the game engine's system and is responsible for detecting and processing keyboard input, particularly the arrow keys, and transmitting these inputs through the network system. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a12894e41634bf24f2ea054a4e89042f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12894e41634bf24f2ea054a4e89042f5">&#9670;&nbsp;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::System::Network::Keyboard::update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structGameEngine_1_1UI_1_1WindowContext.html">GameEngine::UI::WindowContext</a> &amp;&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">::<a class="el" href="classClient_1_1Network.html">Client::Network</a> &amp;&#160;</td>
-          <td class="paramname"><em>network</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Update the system based on keyboard events. </p>
-<p>This function checks for key press events and sends corresponding commands (like "UP", "DOWN", "LEFT", "RIGHT") to the server using the network system.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>Reference to the WindowContext, containing event data. </td></tr>
-    <tr><td class="paramname">network</td><td>Reference to the network system for sending key commands. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>client/include/network/system/<a class="el" href="client_2include_2network_2system_2Keyboard_8hpp_source.html">Keyboard.hpp</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>gameEngine/include/gameEngine/event/<a class="el" href="Events_8hpp_source.html">Events.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Client</b></li><li class="navelem"><b>System</b></li><li class="navelem"><b>Network</b></li><li class="navelem"><a class="el" href="classClient_1_1System_1_1Network_1_1Keyboard.html">Keyboard</a></li>
+    <li class="navelem"><b>GameEngine</b></li><li class="navelem"><b>Event</b></li><li class="navelem"><a class="el" href="structGameEngine_1_1Event_1_1EventKeyboardInput.html">EventKeyboardInput</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

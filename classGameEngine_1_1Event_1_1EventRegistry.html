@@ -127,18 +127,22 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1Event_1_1EventRegis
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2086db6bccc713119eac46d7382537b"><td class="memTemplParams" colspan="2"><a id="aa2086db6bccc713119eac46d7382537b"></a>
+<tr class="memitem:af15b084af0bd3a2061e6b89c5cff8132"><td class="memTemplParams" colspan="2"><a id="af15b084af0bd3a2061e6b89c5cff8132"></a>
 template&lt;typename EventType &gt; </td></tr>
-<tr class="memitem:aa2086db6bccc713119eac46d7382537b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>subscribe</b> (<a class="el" href="classGameEngine_1_1Event_1_1IEventListener.html">IEventListener</a> &amp;listener)</td></tr>
-<tr class="separator:aa2086db6bccc713119eac46d7382537b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27d2fbc8c940ff2e9617277120df87db"><td class="memTemplParams" colspan="2"><a id="a27d2fbc8c940ff2e9617277120df87db"></a>
+<tr class="memitem:af15b084af0bd3a2061e6b89c5cff8132"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>subscribe</b> (std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1Event_1_1IEventListener.html">IEventListener</a> &gt; listener)</td></tr>
+<tr class="separator:af15b084af0bd3a2061e6b89c5cff8132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec144e11811f366b586e26d034607c4"><td class="memTemplParams" colspan="2"><a id="a5ec144e11811f366b586e26d034607c4"></a>
 template&lt;typename EventType &gt; </td></tr>
-<tr class="memitem:a27d2fbc8c940ff2e9617277120df87db"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>unsubscribe</b> (<a class="el" href="classGameEngine_1_1Event_1_1IEventListener.html">IEventListener</a> &amp;listener)</td></tr>
-<tr class="separator:a27d2fbc8c940ff2e9617277120df87db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1283819ee54616689db84b1ed82379ab"><td class="memTemplParams" colspan="2"><a id="a1283819ee54616689db84b1ed82379ab"></a>
+<tr class="memitem:a5ec144e11811f366b586e26d034607c4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>subscribeLambda</b> (std::function&lt; void(const <a class="el" href="classGameEngine_1_1Event_1_1IEvent.html">IEvent</a> &amp;event)&gt; lambdaListener)</td></tr>
+<tr class="separator:a5ec144e11811f366b586e26d034607c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bade11d754ce0736e031236e92b3441"><td class="memTemplParams" colspan="2"><a id="a9bade11d754ce0736e031236e92b3441"></a>
 template&lt;typename EventType &gt; </td></tr>
-<tr class="memitem:a1283819ee54616689db84b1ed82379ab"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>publish</b> (EventType &amp;event)</td></tr>
-<tr class="separator:a1283819ee54616689db84b1ed82379ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bade11d754ce0736e031236e92b3441"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>unsubscribe</b> (std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1Event_1_1IEventListener.html">IEventListener</a> &gt; listener)</td></tr>
+<tr class="separator:a9bade11d754ce0736e031236e92b3441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63ba46b61792242f75c4e4ba8b363831"><td class="memTemplParams" colspan="2"><a id="a63ba46b61792242f75c4e4ba8b363831"></a>
+template&lt;typename EventType &gt; </td></tr>
+<tr class="memitem:a63ba46b61792242f75c4e4ba8b363831"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>publish</b> (const <a class="el" href="classGameEngine_1_1Event_1_1IEvent.html">IEvent</a> &amp;event)</td></tr>
+<tr class="separator:a63ba46b61792242f75c4e4ba8b363831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>gameEngine/include/gameEngine/event/<a class="el" href="EventRegistry_8hpp_source.html">EventRegistry.hpp</a></li>

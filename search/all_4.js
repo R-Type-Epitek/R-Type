@@ -9,7 +9,9 @@ var searchData=
   ['entitytypehelper_38',['EntityTypeHelper',['../structGameEngine_1_1Entity_1_1EntityTypeHelper.html',1,'GameEngine::Entity']]],
   ['event_39',['Event',['../classEvent.html',1,'']]],
   ['event_40',['event',['../classClient_1_1Client.html#a67a2ea16706b59c57359fc9d0aceabce',1,'Client::Client']]],
-  ['eventcollision_41',['EventCollision',['../classGameEngine_1_1Event_1_1EventCollision.html',1,'GameEngine::Event']]],
-  ['eventregistry_42',['EventRegistry',['../classGameEngine_1_1Event_1_1EventRegistry.html',1,'GameEngine::Event']]],
-  ['executecommand_43',['executeCommand',['../classClient_1_1Network.html#a15a45ffff3cdcbf99901d537a5aa2a57',1,'Client::Network']]]
+  ['eventcollision_41',['EventCollision',['../structGameEngine_1_1Event_1_1EventCollision.html',1,'GameEngine::Event']]],
+  ['eventkeyboardinput_42',['EventKeyboardInput',['../structGameEngine_1_1Event_1_1EventKeyboardInput.html',1,'GameEngine::Event']]],
+  ['eventlistenerwrapper_43',['EventListenerWrapper',['../classGameEngine_1_1Event_1_1EventListenerWrapper.html',1,'GameEngine::Event']]],
+  ['eventregistry_44',['EventRegistry',['../classGameEngine_1_1Event_1_1EventRegistry.html',1,'GameEngine::Event']]],
+  ['executecommand_45',['executeCommand',['../classClient_1_1Network.html#a15a45ffff3cdcbf99901d537a5aa2a57',1,'Client::Network']]]
 ];

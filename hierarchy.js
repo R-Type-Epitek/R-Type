@@ -60,14 +60,20 @@ var hierarchy =
       [ "Display", "classDisplay.html", null ]
     ] ],
     [ "GameEngine::Event::IEvent", "classGameEngine_1_1Event_1_1IEvent.html", [
-      [ "GameEngine::Event::EventCollision", "classGameEngine_1_1Event_1_1EventCollision.html", null ]
+      [ "GameEngine::Event::EventCollision", "structGameEngine_1_1Event_1_1EventCollision.html", null ],
+      [ "GameEngine::Event::EventKeyboardInput", "structGameEngine_1_1Event_1_1EventKeyboardInput.html", null ]
     ] ],
     [ "IEvent", "classIEvent.html", [
       [ "Event", "classEvent.html", [
         [ "SfmlEvent", "classSfmlEvent.html", null ]
       ] ]
     ] ],
-    [ "GameEngine::Event::IEventListener", "classGameEngine_1_1Event_1_1IEventListener.html", null ],
+    [ "GameEngine::Event::IEventListener", "classGameEngine_1_1Event_1_1IEventListener.html", [
+      [ "Client::System::KeyboardInputHandler", "classClient_1_1System_1_1KeyboardInputHandler.html", null ],
+      [ "GameEngine::Event::EventListenerWrapper", "classGameEngine_1_1Event_1_1EventListenerWrapper.html", null ],
+      [ "GameEngine::System::Move", "classGameEngine_1_1System_1_1Move.html", null ],
+      [ "GameEngine::System::Physics", "classGameEngine_1_1System_1_1Physics.html", null ]
+    ] ],
     [ "Server::Game::IGame", "classServer_1_1Game_1_1IGame.html", [
       [ "Server::Game::RtypeGame", "classServer_1_1Game_1_1RtypeGame.html", null ]
     ] ],
@@ -85,11 +91,6 @@ var hierarchy =
         [ "SfmlTexture", "classSfmlTexture.html", null ]
       ] ]
     ] ],
-    [ "GameEngine::System::IUpdateSystem", "classGameEngine_1_1System_1_1IUpdateSystem.html", [
-      [ "GameEngine::System::Animation", "classGameEngine_1_1System_1_1Animation.html", null ],
-      [ "GameEngine::System::Keyboard", "classGameEngine_1_1System_1_1Keyboard.html", null ],
-      [ "GameEngine::System::Renderer", "classGameEngine_1_1System_1_1Renderer.html", null ]
-    ] ],
     [ "JoinGameData", "structJoinGameData.html", null ],
     [ "JoinRoomData", "structJoinRoomData.html", null ],
     [ "KickPlayerData", "structKickPlayerData.html", null ],
@@ -101,6 +102,11 @@ var hierarchy =
     [ "ge::Position", "structge_1_1Position.html", null ],
     [ "GameEngine::ECS::Registry", "classGameEngine_1_1ECS_1_1Registry.html", null ],
     [ "GameEngine::Builder::RegistryBuilder", "classGameEngine_1_1Builder_1_1RegistryBuilder.html", null ],
+    [ "GameEngine::ECS::RegistryHolder", "classGameEngine_1_1ECS_1_1RegistryHolder.html", [
+      [ "GameEngine::System::Collider", "classGameEngine_1_1System_1_1Collider.html", null ],
+      [ "GameEngine::System::Move", "classGameEngine_1_1System_1_1Move.html", null ],
+      [ "GameEngine::System::Physics", "classGameEngine_1_1System_1_1Physics.html", null ]
+    ] ],
     [ "Response", "structResponse.html", null ],
     [ "ResponseHeader", "structResponseHeader.html", null ],
     [ "Network::Room", "classNetwork_1_1Room.html", null ],
@@ -118,7 +124,7 @@ var hierarchy =
     ] ],
     [ "SpectateData", "structSpectateData.html", null ],
     [ "GameEngine::ECS::System", "classGameEngine_1_1ECS_1_1System.html", [
-      [ "Client::System::Network::Keyboard", "classClient_1_1System_1_1Network_1_1Keyboard.html", null ],
+      [ "Client::System::KeyboardInputHandler", "classClient_1_1System_1_1KeyboardInputHandler.html", null ],
       [ "GameEngine::System::Animation", "classGameEngine_1_1System_1_1Animation.html", null ],
       [ "GameEngine::System::Collider", "classGameEngine_1_1System_1_1Collider.html", null ],
       [ "GameEngine::System::EcsSerializer", "classGameEngine_1_1System_1_1EcsSerializer.html", null ],

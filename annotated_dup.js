@@ -14,9 +14,7 @@ var annotated_dup =
         [ "SceneManager", "classClient_1_1Scene_1_1SceneManager.html", "classClient_1_1Scene_1_1SceneManager" ]
       ] ],
       [ "System", null, [
-        [ "Network", null, [
-          [ "Keyboard", "classClient_1_1System_1_1Network_1_1Keyboard.html", "classClient_1_1System_1_1Network_1_1Keyboard" ]
-        ] ]
+        [ "KeyboardInputHandler", "classClient_1_1System_1_1KeyboardInputHandler.html", "classClient_1_1System_1_1KeyboardInputHandler" ]
       ] ],
       [ "Client", "classClient_1_1Client.html", "classClient_1_1Client" ],
       [ "GUI", "classClient_1_1GUI.html", "classClient_1_1GUI" ],
@@ -61,6 +59,7 @@ var annotated_dup =
         [ "IComponentArray", "classGameEngine_1_1ECS_1_1IComponentArray.html", "classGameEngine_1_1ECS_1_1IComponentArray" ],
         [ "EntityManager", "classGameEngine_1_1ECS_1_1EntityManager.html", "classGameEngine_1_1ECS_1_1EntityManager" ],
         [ "Registry", "classGameEngine_1_1ECS_1_1Registry.html", "classGameEngine_1_1ECS_1_1Registry" ],
+        [ "RegistryHolder", "classGameEngine_1_1ECS_1_1RegistryHolder.html", "classGameEngine_1_1ECS_1_1RegistryHolder" ],
         [ "System", "classGameEngine_1_1ECS_1_1System.html", "classGameEngine_1_1ECS_1_1System" ],
         [ "SystemManager", "classGameEngine_1_1ECS_1_1SystemManager.html", "classGameEngine_1_1ECS_1_1SystemManager" ]
       ] ],
@@ -72,8 +71,10 @@ var annotated_dup =
         [ "EntityBluePrint", "structGameEngine_1_1Entity_1_1EntityBluePrint.html", "structGameEngine_1_1Entity_1_1EntityBluePrint" ]
       ] ],
       [ "Event", null, [
+        [ "EventListenerWrapper", "classGameEngine_1_1Event_1_1EventListenerWrapper.html", "classGameEngine_1_1Event_1_1EventListenerWrapper" ],
         [ "EventRegistry", "classGameEngine_1_1Event_1_1EventRegistry.html", "classGameEngine_1_1Event_1_1EventRegistry" ],
-        [ "EventCollision", "classGameEngine_1_1Event_1_1EventCollision.html", "classGameEngine_1_1Event_1_1EventCollision" ],
+        [ "EventCollision", "structGameEngine_1_1Event_1_1EventCollision.html", "structGameEngine_1_1Event_1_1EventCollision" ],
+        [ "EventKeyboardInput", "structGameEngine_1_1Event_1_1EventKeyboardInput.html", "structGameEngine_1_1Event_1_1EventKeyboardInput" ],
         [ "IEvent", "classGameEngine_1_1Event_1_1IEvent.html", "classGameEngine_1_1Event_1_1IEvent" ],
         [ "IEventListener", "classGameEngine_1_1Event_1_1IEventListener.html", "classGameEngine_1_1Event_1_1IEventListener" ]
       ] ],
@@ -94,7 +95,6 @@ var annotated_dup =
         [ "Collider", "classGameEngine_1_1System_1_1Collider.html", "classGameEngine_1_1System_1_1Collider" ],
         [ "EcsSerializer", "classGameEngine_1_1System_1_1EcsSerializer.html", "classGameEngine_1_1System_1_1EcsSerializer" ],
         [ "Input", "classGameEngine_1_1System_1_1Input.html", "classGameEngine_1_1System_1_1Input" ],
-        [ "IUpdateSystem", "classGameEngine_1_1System_1_1IUpdateSystem.html", "classGameEngine_1_1System_1_1IUpdateSystem" ],
         [ "Keyboard", "classGameEngine_1_1System_1_1Keyboard.html", "classGameEngine_1_1System_1_1Keyboard" ],
         [ "Move", "classGameEngine_1_1System_1_1Move.html", "classGameEngine_1_1System_1_1Move" ],
         [ "Parallax", "classGameEngine_1_1System_1_1Parallax.html", null ],
