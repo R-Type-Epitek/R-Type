@@ -120,9 +120,9 @@ void Network::UDPServer::handleReceive(boost::system::error_code const &error, s
     return spdlog::error("handleReceive: Error: {} ({} bytes)", error.message(), bytesTransferred);
 
   Tools::EndianConverter converter(boost::asio::const_buffer(this->recvBuffer.data(), bytesTransferred));
-  boost::asio::const_buffer const littleEndianBuffer = converter.getLittleEndian();
+  auto nativeEndianBuffer = converter.getNativeEndian();
 
-  char *data = (char *)littleEndianBuffer.data();
+  char *data = (char *)nativeEndianBuffer.data();
   MessageType *type = (MessageType *)data;
 
   this->updateClientLastMessageTimeFromData(data);
@@ -164,7 +164,7 @@ void Network::UDPServer::sendToAll(boost::asio::const_buffer const &buffer)
 void Network::UDPServer::sendToAllClientsInRoom(boost::asio::const_buffer const &buffer, int roomId)
 {
   Tools::EndianConverter converter(buffer);
-  boost::asio::const_buffer const littleEndianBuffer = converter.getLittleEndian();
+  auto littleEndianBuffer = converter.getLittleEndian();
 
   if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
@@ -188,7 +188,7 @@ void Network::UDPServer::sendToAllClientsInRoom(boost::asio::const_buffer const 
 void Network::UDPServer::sendToAllClientsInRoomInGame(boost::asio::const_buffer const &buffer, int roomId)
 {
   Tools::EndianConverter converter(buffer);
-  boost::asio::const_buffer const littleEndianBuffer = converter.getLittleEndian();
+  auto littleEndianBuffer = converter.getLittleEndian();
 
   if (roomId < 0 || roomId >= static_cast<int>(this->rooms.size()))
     throw std::runtime_error("Invalid room id: " + std::to_string(roomId));
@@ -215,7 +215,7 @@ void Network::UDPServer::sendToAllClientsInRoomInGame(boost::asio::const_buffer 
 void Network::UDPServer::sendToClient(boost::asio::const_buffer const &buffer, int id)
 {
   Tools::EndianConverter converter(buffer);
-  boost::asio::const_buffer const littleEndianBuffer = converter.getLittleEndian();
+  auto littleEndianBuffer = converter.getLittleEndian();
 
   auto clientOpt = this->getClientById(id);
   if (!clientOpt.has_value())
