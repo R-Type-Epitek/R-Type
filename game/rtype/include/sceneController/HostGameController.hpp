@@ -9,10 +9,9 @@
 
 namespace Rtype::SceneController
 {
-  class HostGameController : public NetworkController {
+  class HostGameController {
    public:
-    HostGameController(std::shared_ptr<GameEngine::Network::INetworkController> networkController)
-      : NetworkController(std::move(networkController)) {};
+    HostGameController() {};
     ~HostGameController() = default;
   };
 } // namespace Rtype::SceneController
