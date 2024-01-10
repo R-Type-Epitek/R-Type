@@ -15,8 +15,7 @@ namespace GameEngine::System
 
   class Input
     : public GameEngine::ECS::System
-    , public GameEngine::ECS::RegistryHolder
-    , public Event::IEventListener {
+    , public GameEngine::ECS::RegistryHolder {
    public:
     void update(GameEngine::ECS::Registry& registry, size_t playerId, GameEngine::Keybinds eventKey)
     {
@@ -53,15 +52,12 @@ namespace GameEngine::System
           transform.movement = sf::Vector2f(speed, 0);
           break;
         case GameEngine::Keybinds::Space:
-          pressSpace(componentManager, entity);
           transform.movement = sf::Vector2f(0, 0);
           break;
         default:
           break;
       }
     }
-
-    static void pressSpace(GameEngine::ECS::ComponentManager&, const GameEngine::ECS::Entity&) {};
   };
 
 } // namespace GameEngine::System

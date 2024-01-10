@@ -31,6 +31,7 @@ namespace GameEngine::Builder
     void buildSystemInput();
     void buildSystemParallax();
     void buildSystemCollider();
+    void buildSystemNetworkEventPusher();
 
    private:
     void feedSystemHolder();

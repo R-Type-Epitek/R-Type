@@ -27,6 +27,7 @@
 #include "gameEngine/system/Move.hpp"
 #include "gameEngine/system/Parallax.hpp"
 #include "gameEngine/system/Collider.hpp"
+#include "gameEngine/system/NetworkEventPusher.hpp"
 
 #include <memory>
 #include <utility>
@@ -147,6 +148,26 @@ namespace GameEngine::Builder
     m_registry->setSystemSignature<GameEngine::System::Parallax>(signature);
   }
 
+  void RegistryBuilder::buildSystemCollider()
+  {
+    using SystemType = GameEngine::System::Collider;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
+    m_registry->setSystemSignature<SystemType>(signature);
+  }
+
+  void RegistryBuilder::buildSystemNetworkEventPusher()
+  {
+    using SystemType = GameEngine::System::NetworkEventPusher;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    m_registry->setSystemSignature<SystemType>(signature);
+  }
+
   void RegistryBuilder::feedSystemHolder()
   {
     auto &&systems = m_registry->getSystems();
@@ -156,16 +177,6 @@ namespace GameEngine::Builder
         sys->setEcsRegistry(m_registry);
       }
     }
-  }
-
-  void RegistryBuilder::buildSystemCollider()
-  {
-    using SystemType = GameEngine::System::Collider;
-    GameEngine::ECS::Signature signature;
-    m_registry->registerSystem<SystemType>();
-
-    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
-    m_registry->setSystemSignature<SystemType>(signature);
   }
 
 }; // namespace GameEngine::Builder

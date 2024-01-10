@@ -44,7 +44,6 @@ namespace GameEngine::Core
         stop();
       }
       if (m_graphical) {
-        m_gui->clear();
         m_gui->display();
       }
       m_sceneManager->getCurrent().onUpdate(1);
@@ -65,7 +64,7 @@ namespace GameEngine::Core
 
   void Core::loadPlugins()
   {
-    m_sceneManager = std::make_unique<GameEngine::Scene::SceneManager>();
+    m_sceneManager = std::make_shared<GameEngine::Scene::SceneManager>();
   }
 
   void Core::loadScenes()
@@ -91,14 +90,19 @@ namespace GameEngine::Core
   void Core::enableGUI()
   {
     m_graphical = true;
-    auto renderer = std::make_shared<Gfx::Sfml::Renderer>(1920, 1080, "GameEngine graphics");
-    m_gui = std::make_unique<UI::Window>(renderer);
+    m_gui =
+      std::make_shared<UI::Window>(std::make_shared<Gfx::Sfml::Renderer>(1920, 1080, "GameEngine graphics"));
   }
 
   void Core::disableGUI()
   {
     m_graphical = false;
     m_gui.reset();
+  }
+
+  std::shared_ptr<UI::Window> Core::getGUI()
+  {
+    return m_gui;
   }
 
   void Core::setTicksPerSecond(unsigned int ticksPerSecond)

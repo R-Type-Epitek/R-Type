@@ -41,6 +41,7 @@ namespace GameEngine::Core
     //    GUI
     void enableGUI();
     void disableGUI();
+    std::shared_ptr<UI::Window> getGUI();
 
     //    - Tick rate -
     void setTicksPerSecond(unsigned int ticksPerSecond);
@@ -56,8 +57,8 @@ namespace GameEngine::Core
     GameEngineState m_gameEngineState;
     bool m_graphical;
 
-    std::unique_ptr<Scene::ISceneManager> m_sceneManager;
-    std::unique_ptr<UI::Window> m_gui;
+    std::shared_ptr<Scene::ISceneManager> m_sceneManager;
+    std::shared_ptr<UI::Window> m_gui;
   };
 
 } // namespace GameEngine::Core

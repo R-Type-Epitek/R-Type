@@ -20,10 +20,15 @@ namespace GameEngine::UI
     {
       m_renderer->setFramerateLimit(limit);
     };
-
+    
     Gfx::IRenderer &getRenderer()
     {
       return m_renderer->getRenderer();
+    };
+
+    std::shared_ptr<Gfx::IRenderer> getSharedRenderer()
+    {
+      return m_renderer;
     };
 
     bool isOpen()
