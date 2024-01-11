@@ -13,8 +13,8 @@
 namespace GameEngine::Entity
 {
   struct EntityTypeHelper {
-
-    enum EntityType {
+    enum EntityType
+    {
       None,
       Player,
       Asteroid,
@@ -32,8 +32,7 @@ namespace GameEngine::Entity
         {"Background", Background},
         {"Enemy", Enemy},
         {"Bullet", Bullet},
-        {"Boss", Boss}
-      };
+        {"Boss", Boss}};
 
       auto it = typeMap.find(typeStr);
       assert(it != typeMap.end());
@@ -57,16 +56,17 @@ namespace GameEngine::Entity
     }
   };
 
-struct ComponentBluePrint {
-  bool transform = false;
-  bool displayable = false;
-  bool clickable = false;
-  bool controllable = false;
-  bool networkedEntity = false;
-  bool metaData = false;
-  bool position = false;
-  bool gravity = false;
-};
+  struct ComponentBluePrint {
+    bool transform = false;
+    bool displayable = false;
+    bool clickable = false;
+    bool controllable = false;
+    bool networkedEntity = false;
+    bool metaData = false;
+    bool position = false;
+    bool gravity = false;
+    bool hitbox = false;
+  };
 
 struct EntityBluePrint {
   bool light = true;
