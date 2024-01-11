@@ -13,6 +13,7 @@
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/Parallax.hpp"
+#include "gameEngine/component/Hitbox.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -62,6 +63,7 @@ namespace GameEngine::Builder
     registerComponent<ComponentRType::Clickable>();
     registerComponent<ComponentRType::Displayable>();
     registerComponent<ComponentRType::Parallax>();
+    registerComponent<ComponentRType::Hitbox>();
   }
 
   void RegistryBuilder::buildSystemAnimation()
@@ -80,6 +82,7 @@ namespace GameEngine::Builder
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<SystemType>();
 
+    signature.set(m_registry->getComponentType<ComponentRType::Hitbox>());
     signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<SystemType>(signature);
   }
@@ -103,6 +106,7 @@ namespace GameEngine::Builder
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<SystemType>();
 
+    signature.set(m_registry->getComponentType<ComponentRType::NetworkedEntity>());
     signature.set(m_registry->getComponentType<ComponentRType::Transform>());
     signature.set(m_registry->getComponentType<ComponentRType::Position>());
     m_registry->setSystemSignature<SystemType>(signature);
@@ -147,9 +151,9 @@ namespace GameEngine::Builder
     GameEngine::ECS::Signature signature;
     m_registry->registerSystem<SystemType>();
 
-    signature.set(m_registry->getComponentType<ComponentRType::Gravity>());
     signature.set(m_registry->getComponentType<ComponentRType::Transform>());
     signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<SystemType>(signature);
   }
 
