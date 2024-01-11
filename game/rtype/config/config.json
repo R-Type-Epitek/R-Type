@@ -14,7 +14,7 @@
     },
     {
       "type": "Enemy",
-      "path": "assets/sprites/r-typesheet14.gif",
+      "path": "game/rtype/assets/sprites/r-typesheet14.gif",
       "health": 100,
       "attackPattern": "Zigzag",
       "speed": 2
