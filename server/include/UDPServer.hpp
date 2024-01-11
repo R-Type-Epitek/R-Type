@@ -5,6 +5,7 @@
 #pragma once
 
 #include "RTypeNetwork.hpp"
+#include <optional>
 
 /**
  * @brief Used to represent a message with a timestamp.
