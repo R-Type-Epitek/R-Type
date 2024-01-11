@@ -178,25 +178,26 @@ $(document).ready(function(){initNavTree('Spawning_8hpp_source.html',''); initRe
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">auto</span> player = <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code" href="structGameEngine_1_1Event_1_1NewPlayer.html">Event::NewPlayer</a>&amp;<span class="keyword">&gt;</span>(eventRaw);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">auto</span> compId = <a class="code" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> {player.id};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keyword">auto</span> compMetaData =</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a>(<span class="stringliteral">&quot;assets/sprites/r-typesheet26.gif&quot;</span>, GameEngine::Entity::EntityType::Player);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">auto</span> entity = m_entityFactory-&gt;createFromNetwork(compId, compMetaData);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">auto</span>&amp; hitbox = getEcsRegistry().getComponentManager()-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Hitbox.html">ComponentRType::Hitbox</a>&gt;(entity);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      hitbox.mask = 1;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> spawnEnemy(<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp;)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> destroyPlayer(<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp;)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    std::shared_ptr&lt;Entity::EntityFactory&gt; m_entityFactory;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  };</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keyword">auto</span> compMetaData = <a class="code" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a>(</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="stringliteral">&quot;game/rtype/assets/sprites/r-typesheet26.gif&quot;</span>,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        GameEngine::Entity::EntityType::Player);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">auto</span> entity = m_entityFactory-&gt;createFromNetwork(compId, compMetaData);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">auto</span>&amp; hitbox = getEcsRegistry().getComponentManager()-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Hitbox.html">ComponentRType::Hitbox</a>&gt;(entity);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      hitbox.mask = 1;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> spawnEnemy(<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp;)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> destroyPlayer(<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp;)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    std::shared_ptr&lt;Entity::EntityFactory&gt; m_entityFactory;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1RegistryHolder_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></div><div class="ttdef"><b>Definition:</b> RegistryHolder.hpp:14</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1System_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div><div class="ttdef"><b>Definition:</b> System.hpp:12</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Event_1_1EventRegistry_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a></div><div class="ttdef"><b>Definition:</b> EventRegistry.hpp:18</div></div>
