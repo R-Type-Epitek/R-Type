@@ -20,10 +20,12 @@ namespace GameEngine::Event
 
   struct KeyboardInput : public IEvent {
     KeyboardInput() = default;
-    explicit KeyboardInput(Keybinds key)
-      : key(key) {};
+    explicit KeyboardInput(Keybinds key, ECS::Entity entity = -1)
+      : key(key)
+      , entity {entity} {};
 
     Keybinds key = Keybinds::Unknown;
+    ECS::Entity entity = -1;
   };
 
   struct MoveUp : public IEvent {
