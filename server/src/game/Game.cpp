@@ -2,6 +2,7 @@
 // Created by raphael on 1/10/24.
 //
 #include "gameEngine/system/EcsSerializer.hpp"
+#include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/event/Events.hpp"
 #include "game/Game.hpp"
 #include "sceneController/HostGameController.hpp"
@@ -57,23 +58,7 @@ namespace Server::Game
           GameEngine::Event::DisconnectedPlayer(player.id));
         break;
       case Event::Input:
-        switch (player.key) {
-          case GameEngine::Keybinds::Up:
-            eventManager.publish<GameEngine::Event::MoveUp>(GameEngine::Event::MoveUp(player.id));
-            break;
-          case GameEngine::Keybinds::Down:
-            eventManager.publish<GameEngine::Event::Movedown>(GameEngine::Event::Movedown(player.id));
-            break;
-          case GameEngine::Keybinds::Left:
-            eventManager.publish<GameEngine::Event::MoveLeft>(GameEngine::Event::MoveLeft(player.id));
-            break;
-          case GameEngine::Keybinds::Right:
-            eventManager.publish<GameEngine::Event::MoveRight>(GameEngine::Event::MoveRight(player.id));
-            break;
-          default:
-            break;
-        }
-        eventManager.publish<GameEngine::Event::KeyboardInput>(GameEngine::Event::KeyboardInput(player.key));
+        GameEngine::System::InputCatcher::keyPressedEventPublisher(eventManager, player.key, player.id);
         break;
     }
   }
