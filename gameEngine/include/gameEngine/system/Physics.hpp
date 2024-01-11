@@ -39,10 +39,14 @@ namespace GameEngine::System
         auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
         auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
 
-        position.position += transform.movement;
-        spriteC.sprite.move(transform.movement);
         position.position = spriteC.sprite.getPosition();
-        position.latestPosition = position.position;
+        if (!position.isValid) {
+          position.position = position.latestValidPosition;
+          spriteC.sprite.setPosition(position.position);
+        } else {
+          position.latestValidPosition = spriteC.sprite.getPosition();
+          spriteC.sprite.move(transform.movement);
+        }
       }
     }
 
@@ -52,13 +56,9 @@ namespace GameEngine::System
 
       for (auto const& entity : m_entities) {
         auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
-        auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
         auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
 
-        if (getEcsRegistry().hasComponent<ComponentRType::Clickable>(entity)) {
-          spriteC.sprite.setPosition(position.position);
-        }
-        spriteC.sprite.move(transform.movement);
+        spriteC.sprite.setPosition(position.position);
       }
     }
 
@@ -67,11 +67,9 @@ namespace GameEngine::System
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::EntityCollision&>(eventRaw);
 
-      auto transformEntityA = componentManager->getComponent<ComponentRType::Transform>(event.entityA);
-      auto transformEntityB = componentManager->getComponent<ComponentRType::Transform>(event.entityB);
+      auto& transformA = componentManager->getComponent<ComponentRType::Transform>(event.entityA);
 
-      transformEntityA.movement = {0, 0};
-      transformEntityB.movement = {0, 0};
+      transformA.movement = {0, 0};
     }
   };
 } // namespace GameEngine::System
