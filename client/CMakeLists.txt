@@ -7,7 +7,6 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/)
 add_executable(${EXEC_CLIENT}
         src/main.cpp
         src/Client.cpp
-        src/graphics/GUI.cpp
         src/network/commands/ConnectToServer.cpp
         src/network/commands/GodMode.cpp
         src/network/commands/Input.cpp
@@ -21,16 +20,13 @@ add_executable(${EXEC_CLIENT}
         src/network/tools/EndianConverter.cpp
         src/network/tools/Logs.cpp
         src/network/Network.cpp
-        src/scene/GameScene.cpp
-        src/scene/WelcomeScene.cpp
-        src/scene/LobbyScene.cpp
-        src/scene/SceneManager.cpp
 )
 
 target_include_directories(${EXEC_CLIENT}
         PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${RTYPE_GAME_ENGINE_INCLUDE}
+        ${RTYPE_GAME_INCLUDE}
 )
 
 target_compile_options(${EXEC_CLIENT}
@@ -42,11 +38,8 @@ target_compile_options(${EXEC_CLIENT}
 
 target_link_libraries(${EXEC_CLIENT}
         PRIVATE
+        RtypeGame
         GameEngine
-        sfml-system
-        sfml-network
-        sfml-graphics
-        sfml-window
         Boost::serialization
         Boost::system
         spdlog::spdlog

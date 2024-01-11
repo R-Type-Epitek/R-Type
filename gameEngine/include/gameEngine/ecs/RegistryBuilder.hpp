@@ -22,15 +22,17 @@ namespace GameEngine::Builder
     };
 
     void registerAllMandatoryComponent();
-    void buildSystemRenderer();
+
     void buildSystemAnimation();
-    void buildSystemPhysics();
-    void buildSystemKeyboard();
-    void buildSystemEcsSerializer();
-    void buildSystemMove();
-    void buildSystemInput();
-    void buildSystemParallax();
     void buildSystemCollider();
+    void buildSystemEcsSerializer();
+    void buildSystemControlableEntity();
+    void buildSystemInputCatcher();
+    void buildSystemNetworkEventPusher();
+    void buildSystemParallax();
+    void buildSystemPhysics();
+    void buildSystemRenderer();
+    void buildSystemSpawning();
 
    private:
     void feedSystemHolder();

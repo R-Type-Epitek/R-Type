@@ -49,8 +49,7 @@ add_executable(${EXEC_SERVER}
         src/commands/KickPlayer.cpp
         src/commands/Spectate.cpp
         src/commands/UpdateName.cpp
-        src/game/rtype/RtypeScene.cpp
-        src/game/rtype/RtypeGame.cpp
+        src/game/Game.cpp
         src/tools/EndianConverter.cpp
         src/tools/Logs.cpp
         src/Client.cpp
@@ -65,6 +64,7 @@ target_include_directories(${EXEC_SERVER}
         ${CMAKE_CURRENT_LIST_DIR}/include
         ${Boost_INCLUDE_DIRS}
         ${RTYPE_GAME_ENGINE_INCLUDE}
+        ${RTYPE_GAME_INCLUDE}
 )
 
 target_compile_options(${EXEC_SERVER}
@@ -81,6 +81,7 @@ endif ()
 target_link_libraries(${EXEC_SERVER}
         PRIVATE
         GameEngine
+        RtypeGame
         Boost::boost
         Boost::system
         Boost::serialization

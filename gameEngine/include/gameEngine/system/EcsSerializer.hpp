@@ -10,6 +10,7 @@
 #include "gameEngine/component/Transform.hpp"
 
 #include "gameEngine/entity/EntityFactory.hpp"
+#include "gameEngine/ecs/system/RegistryHolder.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
@@ -29,28 +30,28 @@
 
 namespace GameEngine::System
 {
-  class EcsSerializer : public GameEngine::ECS::System {
+  class EcsSerializer
+    : public GameEngine::ECS::System
+    , public GameEngine::ECS::RegistryHolder {
     using Serializer = GameEngine::Network::Serializer::EcsSerializer;
 
    public:
-    std::vector<std::vector<char>> serialise(GameEngine::ECS::Registry &registry)
+    std::vector<std::vector<char>> serialise()
     {
-      auto &componentManager = registry.getComponentManager();
+      auto &componentManager = getEcsRegistry().getComponentManager();
       std::vector<std::vector<char>> serializedDataFinal;
 
       for (auto const &entity : m_entities) {
         serializedDataFinal.push_back(serializeEntity(*componentManager, entity));
       }
-
       return serializedDataFinal;
     }
 
     void deserialize(
-      GameEngine::ECS::Registry &registry,
       const std::vector<std::vector<char>> &serializedData,
       GameEngine::Entity::EntityFactory &entityFactory)
     {
-      auto &componentManager = registry.getComponentManager();
+      auto &componentManager = getEcsRegistry().getComponentManager();
 
       for (const auto &serializedEntityData : serializedData) {
         deserializeEntity(*componentManager, serializedEntityData, entityFactory);

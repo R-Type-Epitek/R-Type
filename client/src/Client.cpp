@@ -4,18 +4,12 @@
 
 #include "Client.hpp"
 
-#include "gameEngine/UI/Window.hpp"
-#include "gameEngine/system/Animation.hpp"
-#include "gameEngine/system/EcsSerializer.hpp"
-#include "gameEngine/system/Keyboard.hpp"
-#include "gameEngine/system/Renderer.hpp"
-#include "gameEngine/system/Move.hpp"
-#include "gameEngine/system/Collider.hpp"
-#include "graphics/GUI.hpp"
 #include "network/Constants.hpp"
+#include "sceneController/GraphicController.hpp"
+#include "scene/ClientGame.hpp"
+#include "scene/Lobby.hpp"
+#include "scene/Welcome.hpp"
 #include "network/Network.hpp"
-#include "network/system/Network.hpp"
-#include "scene/SceneManager.hpp"
 #include "spdlog/spdlog.h"
 
 #include <exception>
@@ -25,15 +19,21 @@ namespace Client
 {
 
   Client::Client()
+    : ip(DEFAULT_IP)
+    , port(DEFAULT_PORT)
+    , appName("Rtype client")
   {
     spdlog::info("Starting Client...");
+    initNetwork();
+    initGameEngine();
+    initScenes();
   };
 
   void Client::initNetwork()
   {
     try {
       spdlog::info("Starting Network...");
-      m_network = std::make_unique<Network>(DEFAULT_IP, DEFAULT_PORT);
+      m_network = std::make_shared<Network>(DEFAULT_IP, DEFAULT_PORT);
       spdlog::info("Done");
 
       spdlog::info("Establishing Network connection...");
@@ -55,112 +55,37 @@ namespace Client
       // m_network->spectate(0);
       spdlog::info("Done");
 
-    } catch (std::exception const&) {
+    } catch (std::exception const &) {
       spdlog::error("Failed to initialize Network");
     }
   }
 
+  void Client::initGameEngine()
+  {
+    spdlog::info("Starting Game Engine...");
+    m_coreGE = std::make_unique<GameEngine::Core::Core>(appName);
+    m_coreGE->loadPlugins();
+    m_coreGE->enableGUI();
+    m_coreGE->setTicksPerSecond(200);
+
+    spdlog::info("Done");
+  }
+
   void Client::initScenes()
   {
-    try {
-      spdlog::info("Starting Scenes...");
-      m_sceneManager = std::make_unique<Scene::SceneManager>();
-      m_sceneManager->initScenes();
-      m_sceneManager->initScenesWithNetwork(*m_network);
-      spdlog::info("Done");
-    } catch (std::exception const&) {
-      spdlog::error("Failed to initialize Scenes");
-    }
-  }
+    auto controller =
+      Rtype::Controller::GraphicController(m_coreGE->getGUI()->getSharedRenderer(), m_network);
+    m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
+    m_coreGE->addScene("lobby", std::make_unique<Rtype::Scene::Lobby>(controller));
+    m_coreGE->addScene("welcome", std::make_unique<Rtype::Scene::Welcome>(controller));
 
-  void Client::initGUI()
-  {
-    try {
-      spdlog::info("Starting GUI...");
-      m_gui = std::make_unique<GUI>(1920, 1080, appName, DEFAULT_RATIO);
-      spdlog::info("Done");
-    } catch (std::exception const&) {
-      spdlog::error("Failed to initialize GUI");
-    }
+    m_coreGE->setCurrentScene("game");
+    m_coreGE->loadScenes();
   }
-
-  void Client::link()
-  {
-    spdlog::info("Linking Everything to GUI...");
-    m_gui->setFrameRate(60);
-    m_gui->subscribeUpdate([this](GameEngine::UI::WindowContext& ctx) {
-      this->update(ctx);
-    });
-    m_gui->subscribeEvent([this](GameEngine::UI::WindowContext& ctx) {
-      this->event(ctx);
-    });
-    m_gui->subscribeDisplay([this](GameEngine::UI::WindowContext& ctx) {
-      this->display(ctx);
-    });
-    spdlog::info("Done");
-  };
 
   void Client::run()
   {
-    m_gui->launch();
+    m_coreGE->run();
   }
 
-  void Client::update(GameEngine::UI::WindowContext& ctx)
-  {
-    auto& ecsRegistry = this->m_sceneManager->getCurrent().getEcsRegistry();
-
-    try {
-      {
-        auto system = ecsRegistry.getSystem<GameEngine::System::Animation>();
-        system->update(ecsRegistry, ctx);
-      }
-      {
-        auto system = ecsRegistry.getSystem<GameEngine::System::Move>();
-        system->updateClient(ecsRegistry);
-      }
-      {
-        auto sys_serializer = ecsRegistry.getSystem<GameEngine::System::EcsSerializer>();
-        auto& queue = m_network->getSerializedEcsQueue();
-        auto& factory = this->m_sceneManager->getCurrent().getEntityFactory();
-
-        sys_serializer->deserialize(ecsRegistry, queue, factory);
-      }
-    } catch (const std::exception& e) {
-      spdlog::error("[Client update] Error: {}", e.what());
-    }
-  }
-
-  void Client::event(GameEngine::UI::WindowContext& ctx)
-  {
-    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
-    auto& eventRegistry = this->m_sceneManager->getCurrent().getEventRegistry();
-
-    try {
-      {
-        auto system = registry.getSystem<System::KeyboardInputHandler>();
-        system->update(*m_network);
-      }
-      {
-        auto system = registry.getSystem<GameEngine::System::Keyboard>();
-        system->update(eventRegistry, ctx);
-      }
-
-    } catch (const std::exception& e) {
-      spdlog::error("[Client Event] Error: {}", e.what());
-    }
-  }
-
-  void Client::display(GameEngine::UI::WindowContext& ctx)
-  {
-    auto& registry = this->m_sceneManager->getCurrent().getEcsRegistry();
-
-    try {
-      {
-        auto system = registry.getSystem<GameEngine::System::Renderer>();
-        system->update(registry, ctx);
-      }
-    } catch (const std::exception& e) {
-      spdlog::error("[Client display] Error: {}", e.what());
-    }
-  }
 }; // namespace Client

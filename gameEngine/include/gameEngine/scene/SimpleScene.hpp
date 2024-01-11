@@ -32,13 +32,19 @@ namespace GameEngine::Scene
 
     void initEntities() override;
 
+    void initEvents() override;
+
     ECS::Registry& getEcsRegistry() override;
 
     std::shared_ptr<ECS::Registry> getSharedEcsRegistry() override;
 
     Event::EventRegistry& getEventRegistry() override;
 
+    const std::vector<ECS::Entity>& getEntities() override;
+
     Entity::EntityFactory& getEntityFactory() override;
+
+    void onUpdate(size_t df) override;
 
    protected:
     std::vector<ECS::Entity> m_entities;                    ///< Vector of entities in the game scene.

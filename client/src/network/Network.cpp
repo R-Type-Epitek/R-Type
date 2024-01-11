@@ -326,11 +326,6 @@ boost::asio::ip::udp::endpoint Client::Network::getRemoteEndpoint() const
   return this->remoteEndpoint;
 }
 
-Client::Network::QueueEcsSerialized &Client::Network::getSerializedEcsQueue()
-{
-  return m_serializedEcsDataQueue;
-}
-
 /* -------------------------------------------------- */
 /* --------------------- commands ------------------- */
 /* -------------------------------------------------- */
@@ -414,4 +409,13 @@ void Client::Network::spectate(int roomId)
     commandHandler->setRoomId(roomId);
     commandHandler->send();
   });
+}
+
+void Client::Network::connect()
+{
+}
+
+std::vector<std::vector<char>> Client::Network::getSerializedEcsState()
+{
+  return m_serializedEcsDataQueue;
 }

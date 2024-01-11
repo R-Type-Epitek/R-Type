@@ -31,7 +31,6 @@
 
 #include "commands/IHandler.hpp"
 #include "Constants.hpp"
-#include "game/rtype/RtypeGame.hpp"
 #include "Client.hpp"
 #include "Room.hpp"
 #include "ThreadSafeQueue.hpp"

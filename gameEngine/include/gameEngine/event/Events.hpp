@@ -9,22 +9,101 @@
 
 namespace GameEngine::Event
 {
-  struct EventCollision : public IEvent {
-    explicit EventCollision(const ECS::Entity &entityA, const ECS::Entity &entityB)
-      : entityA {entityA}
-      , entityB {entityB} {};
+  struct EntityCollision : public IEvent {
+    explicit EntityCollision(ECS::Entity entityA, ECS::Entity entityB)
+      : entityA(entityA)
+      , entityB(entityB) {};
 
-    const ECS::Entity &entityA;
-    const ECS::Entity &entityB;
+    ECS::Entity entityA;
+    ECS::Entity entityB;
   };
 
-  struct EventKeyboardInput : public IEvent {
-    explicit EventKeyboardInput(const Keybinds &key)
-      : key {key}
-    {
-    }
+  struct KeyboardInput : public IEvent {
+    KeyboardInput() = default;
+    explicit KeyboardInput(Keybinds key, ECS::Entity entity = -1)
+      : key(key)
+      , entity {entity} {};
 
-    Keybinds key;
+    Keybinds key = Keybinds::Unknown;
+    ECS::Entity entity = -1;
+  };
+
+  struct MoveUp : public IEvent {
+    MoveUp() = default;
+    explicit MoveUp(ECS::Entity entity)
+      : entity(entity) {};
+
+    ECS::Entity entity = -1;
+  };
+
+  struct Movedown : public IEvent {
+    Movedown() = default;
+    explicit Movedown(ECS::Entity entity)
+      : entity(entity) {};
+
+    ECS::Entity entity = -1;
+  };
+
+  struct MoveLeft : public IEvent {
+    MoveLeft() = default;
+    explicit MoveLeft(ECS::Entity entity)
+      : entity(entity) {};
+
+    ECS::Entity entity = -1;
+  };
+
+  struct MoveRight : public IEvent {
+    MoveRight() = default;
+    explicit MoveRight(ECS::Entity entity)
+      : entity(entity) {};
+
+    ECS::Entity entity = -1;
+  };
+
+  struct PressSpace : public IEvent {
+    PressSpace() = default;
+    explicit PressSpace(ECS::Entity entity)
+      : entity(entity) {};
+
+    ECS::Entity entity = -1;
+  };
+
+  struct NewPlayer : public IEvent {
+    explicit NewPlayer(size_t id)
+      : id(id) {};
+
+    size_t id;
+  };
+
+  struct NewProjectile : public IEvent {
+    explicit NewProjectile(size_t id, float x, float y)
+      : id(id)
+      , x(x)
+      , y(y) {};
+
+    size_t id;
+    int x;
+    int y;
+  };
+
+  struct NewEnemy : public IEvent {
+    NewEnemy() = default;
+    explicit NewEnemy(size_t id, float x, float y)
+      : id(id)
+      , x(x)
+      , y(y) {};
+
+    size_t id;
+    float x;
+    float y;
+  };
+
+  struct DisconnectedPlayer : public IEvent {
+    DisconnectedPlayer() = default;
+    explicit DisconnectedPlayer(size_t id)
+      : id(id) {};
+
+    size_t id;
   };
 
 } // namespace GameEngine::Event
