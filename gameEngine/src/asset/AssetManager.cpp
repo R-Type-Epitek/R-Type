@@ -13,7 +13,7 @@
 namespace GameEngine::Asset
 {
 
-  std::string AssetManager::defaultTextureId = "assets/bobross.jpg";
+  std::string AssetManager::defaultTextureId = "game/rtype/assets/bobross.jpg";
 
   sf::Texture& getTexture(const std::string& textureId)
   {

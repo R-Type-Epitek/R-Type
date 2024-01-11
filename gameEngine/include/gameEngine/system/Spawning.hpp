@@ -55,8 +55,9 @@ namespace GameEngine::System
       auto player = dynamic_cast<const Event::NewPlayer&>(eventRaw);
 
       auto compId = ComponentRType::NetworkedEntity {player.id};
-      auto compMetaData =
-        ComponentRType::MetaData("assets/sprites/r-typesheet26.gif", GameEngine::Entity::EntityType::Player);
+      auto compMetaData = ComponentRType::MetaData(
+        "game/rtype/assets/sprites/r-typesheet26.gif",
+        GameEngine::Entity::EntityType::Player);
       auto entity = m_entityFactory->createFromNetwork(compId, compMetaData);
       auto& hitbox = getEcsRegistry().getComponentManager()->getComponent<ComponentRType::Hitbox>(entity);
       hitbox.mask = 1;
