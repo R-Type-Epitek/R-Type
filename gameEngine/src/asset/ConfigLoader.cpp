@@ -16,7 +16,7 @@ ConfigLoader::~ConfigLoader()
 
 void ConfigLoader::openConfigFile()
 {
-  std::ifstream file("config.json");
+  std::ifstream file("game/rtype/config/config.json");
   if (!file.is_open()) {
     std::cerr << "Error: cannot open config.json" << std::endl;
     exit(84);
@@ -39,7 +39,7 @@ void ConfigLoader::loadEntities(std::shared_ptr<GameEngine::Entity::EntityFactor
     }
     std::string type_str = enemyType["type"];
     auto entityType = GameEngine::Entity::EntityTypeHelper::getEntityTypeFromString(type_str);
-    std::string path = enemyType.value("path", "assets/sprites/r-typesheet23.gif");
+    std::string path = enemyType.value("path", "game/rtype/assets/sprites/r-typesheet23.gif");
     auto compMetaData = ComponentRType::MetaData(path, entityType);
     auto compId = ComponentRType::NetworkedEntity {id};
     entityFactory->createFromNetwork(compId, compMetaData);
