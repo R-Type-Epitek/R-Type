@@ -9,6 +9,7 @@
 #include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Position.hpp"
+#include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -24,8 +25,16 @@ namespace GameEngine::System
    public:
     void update(GameEngine::Event::EventRegistry& eventRegistry)
     {
+      auto& componentManager = getEcsRegistry().getComponentManager();
+
       for (auto const& entity : m_entities) {
+        checkMapBounding(eventRegistry, entity);
+        auto entityMaskA = componentManager->getComponent<ComponentRType::Hitbox>(entity).mask;
         for (auto otherEntity : m_entities) {
+          auto entityMaskB = componentManager->getComponent<ComponentRType::Hitbox>(otherEntity).mask;
+          if (entity == otherEntity || entityMaskA != entityMaskB) {
+            continue;
+          }
           checkForCollision(eventRegistry, entity, otherEntity);
         }
       }
@@ -39,13 +48,32 @@ namespace GameEngine::System
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
       auto& otherSpriteC = componentManager->getComponent<ComponentRType::Displayable>(otherEntity);
+      auto& posA = componentManager->getComponent<ComponentRType::Position>(entity);
 
       if (spriteC.sprite.getGlobalBounds().intersects(otherSpriteC.sprite.getGlobalBounds())) {
+        posA.isValid = false;
         eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, otherEntity});
-      } else if (
-        spriteC.sprite.getPosition().x < 0 || spriteC.sprite.getPosition().x > 1920 ||
-        spriteC.sprite.getPosition().y < 0 || spriteC.sprite.getPosition().y > 1080) {
-        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, otherEntity});
+      } else {
+        posA.isValid = true;
+      }
+    }
+
+    void checkMapBounding(
+      GameEngine::Event::EventRegistry& eventRegistry,
+      const GameEngine::ECS::Entity& entity)
+    {
+      auto& componentManager = getEcsRegistry().getComponentManager();
+      auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
+      auto& posA = componentManager->getComponent<ComponentRType::Position>(entity);
+      sf::FloatRect globalBounds = spriteC.sprite.getGlobalBounds();
+
+      if (
+        globalBounds.left < 0 || globalBounds.left + globalBounds.width > 1920 || globalBounds.top < 0 ||
+        globalBounds.top + globalBounds.height > 1080) {
+        posA.isValid = false;
+        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, entity});
+      } else {
+        posA.isValid = true;
       }
     }
   };

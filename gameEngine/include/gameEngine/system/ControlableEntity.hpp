@@ -10,6 +10,7 @@
 #include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Position.hpp"
+#include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -48,7 +49,8 @@ namespace GameEngine::System
     {
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::MoveUp&>(eventRaw);
-      auto transform = componentManager->getComponent<ComponentRType::Transform>(event.entity);
+      auto entity = getEntitybyId(event.entity);
+      auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
 
       transform.movement = sf::Vector2f(0, -transform.speed);
     }
@@ -57,7 +59,8 @@ namespace GameEngine::System
     {
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::Movedown&>(eventRaw);
-      auto transform = componentManager->getComponent<ComponentRType::Transform>(event.entity);
+      auto entity = getEntitybyId(event.entity);
+      auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
 
       transform.movement = sf::Vector2f(0, transform.speed);
     }
@@ -66,7 +69,8 @@ namespace GameEngine::System
     {
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::MoveLeft&>(eventRaw);
-      auto transform = componentManager->getComponent<ComponentRType::Transform>(event.entity);
+      auto entity = getEntitybyId(event.entity);
+      auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
 
       transform.movement = sf::Vector2f(-transform.speed, 0);
     }
@@ -75,7 +79,9 @@ namespace GameEngine::System
     {
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::MoveRight&>(eventRaw);
-      auto transform = componentManager->getComponent<ComponentRType::Transform>(event.entity);
+      auto entity = getEntitybyId(event.entity);
+
+      auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
 
       transform.movement = sf::Vector2f(transform.speed, 0);
     }
@@ -84,9 +90,19 @@ namespace GameEngine::System
     {
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::PressSpace&>(eventRaw);
-      auto transform = componentManager->getComponent<ComponentRType::Transform>(event.entity);
+      auto entity = getEntitybyId(event.entity);
+      auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
 
       transform.movement = sf::Vector2f(0, 0);
+    }
+
+   private:
+    ECS::Entity getEntitybyId(size_t id)
+    {
+      return ComponentRType::NetworkedEntity::getEntityByNetworkedId(
+        id,
+        m_entities,
+        *getEcsRegistry().getComponentManager());
     }
   };
 } // namespace GameEngine::System
