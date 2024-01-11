@@ -13,8 +13,8 @@
 namespace GameEngine::Entity
 {
   struct EntityTypeHelper {
-
-    enum EntityType {
+    enum EntityType
+    {
       None,
       Player,
       Asteroid,
@@ -23,15 +23,15 @@ namespace GameEngine::Entity
       Bullet
     };
 
-    static EntityType getEntityTypeFromString(const std::string& typeStr) {
+    static EntityType getEntityTypeFromString(const std::string& typeStr)
+    {
       static const std::unordered_map<std::string, EntityType> typeMap = {
         {"None", None},
         {"Player", Player},
         {"Asteroid", Asteroid},
         {"Enemy", Enemy},
         {"Bullet", Bullet},
-        {"Boss", Boss}
-      };
+        {"Boss", Boss}};
 
       auto it = typeMap.find(typeStr);
       if (it != typeMap.end()) {
@@ -52,6 +52,7 @@ namespace GameEngine::Entity
     bool metaData = false;
     bool position = false;
     bool gravity = false;
+    bool hitbox = false;
   };
 
   struct EntityBluePrint {
