@@ -111,6 +111,7 @@ namespace GameEngine::Core
     m_graphical = true;
     m_gui =
       std::make_shared<UI::Window>(std::make_shared<Gfx::Sfml::Renderer>(1920, 1080, "GameEngine graphics"));
+    m_gui->setFramerateLimit(60);
   }
 
   void Core::disableGUI()
