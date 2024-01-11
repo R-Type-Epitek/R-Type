@@ -31,13 +31,14 @@ namespace Rtype::Scene
     m_entities.push_back(enttBackground);
     m_ecsRegistry->addComponent(
       enttBackground,
-      ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/welcome/bg.jpg")));
+      ComponentRType::Displayable(GameEngine::Asset::getTexture("game/rtype/assets/welcome/bg.jpg")));
 
     auto enttButton = m_ecsRegistry->createEntity();
     m_entities.push_back(enttButton);
     m_ecsRegistry->addComponent(
       enttButton,
-      ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/welcome/rtype_button.jpg")));
+      ComponentRType::Displayable(
+        GameEngine::Asset::getTexture("game/rtype/assets/welcome/rtype_button.jpg")));
     m_ecsRegistry->addComponent(enttButton, ComponentRType::Transform());
     m_ecsRegistry->addComponent(enttButton, ComponentRType::Position(615, 480));
     m_ecsRegistry->addComponent(enttButton, ComponentRType::Clickable(615, 480, 690, 120));

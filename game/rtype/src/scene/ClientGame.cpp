@@ -32,7 +32,8 @@ namespace Rtype::Scene
     m_entities.push_back(enttBackground);
     m_ecsRegistry->addComponent<ComponentRType::Displayable>(
       enttBackground,
-      ComponentRType::Displayable(GameEngine::Asset::getTexture("assets/background_starfield.png")));
+      ComponentRType::Displayable(
+        GameEngine::Asset::getTexture("game/rtype/assets/background_starfield.png")));
   }
 
   void ClientGame::initEvents()
