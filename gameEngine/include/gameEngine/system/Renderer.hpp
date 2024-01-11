@@ -21,6 +21,7 @@ namespace GameEngine::System
 
       //        TODO: use only Rtype game engine gfx objects (not SFML)
       if (auto* sfmlRenderer = dynamic_cast<Gfx::Sfml::Renderer*>(&renderer)) {
+        sfmlRenderer->getWindow().clear();
         for (auto const& entity : m_entities) {
           auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
           sfmlRenderer->draw(spriteC.sprite);
