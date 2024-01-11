@@ -37,28 +37,29 @@ namespace GameEngine::System
       }
     }
 
-    void keyPressedEventPublisher(Event::EventRegistry& eventRegistry, Keybinds key)
+    static void
+    keyPressedEventPublisher(Event::EventRegistry& eventRegistry, Keybinds key, ECS::Entity entity = -1)
     {
       switch (key) {
         case GameEngine::Keybinds::Up:
-          eventRegistry.publish<Event::MoveUp>(Event::MoveUp());
+          eventRegistry.publish<Event::MoveUp>(Event::MoveUp {entity});
           break;
         case GameEngine::Keybinds::Down:
-          eventRegistry.publish<Event::MoveUp>(Event::Movedown());
+          eventRegistry.publish<Event::Movedown>(Event::Movedown {entity});
           break;
         case GameEngine::Keybinds::Left:
-          eventRegistry.publish<Event::MoveUp>(Event::MoveLeft());
+          eventRegistry.publish<Event::MoveLeft>(Event::MoveLeft {entity});
           break;
         case GameEngine::Keybinds::Right:
-          eventRegistry.publish<Event::MoveUp>(Event::MoveRight());
+          eventRegistry.publish<Event::MoveRight>(Event::MoveRight {entity});
           break;
         case GameEngine::Keybinds::Space:
-          eventRegistry.publish<Event::MoveUp>(Event::PressSpace());
+          eventRegistry.publish<Event::PressSpace>(Event::PressSpace {entity});
           break;
         default:
           break;
       }
-      eventRegistry.publish<Event::KeyboardInput>(Event::KeyboardInput {key});
+      eventRegistry.publish<Event::KeyboardInput>(Event::KeyboardInput {key, entity});
     }
 
     static GameEngine::Keybinds convertKey(sf::Keyboard::Key key)
