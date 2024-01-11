@@ -118,65 +118,39 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1UI_1_1Window.html',
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classGameEngine_1_1UI_1_1Window-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GameEngine::UI::Window Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for GameEngine::UI::Window:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classGameEngine_1_1UI_1_1Window.png" usemap="#GameEngine::UI::Window_map" alt=""/>
-  <map id="GameEngine::UI::Window_map" name="GameEngine::UI::Window_map">
-<area href="classClient_1_1GUI.html" alt="Client::GUI" shape="rect" coords="0,56,150,80"/>
-  </map>
-</div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ad3bed3db8cfff0bab459871cb9c2cc3a"><td class="memItemLeft" align="right" valign="top"><a id="ad3bed3db8cfff0bab459871cb9c2cc3a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ClosureType</b> = std::function&lt; void(<a class="el" href="structGameEngine_1_1UI_1_1WindowContext.html">WindowContext</a> &amp;)&gt;</td></tr>
-<tr class="separator:ad3bed3db8cfff0bab459871cb9c2cc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7dfc5310d8406a572afd2def841cf656"><td class="memItemLeft" align="right" valign="top"><a id="a7dfc5310d8406a572afd2def841cf656"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Window</b> (int width, int height, std::string &amp;name, float screenRatio)</td></tr>
-<tr class="separator:a7dfc5310d8406a572afd2def841cf656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfdcc693937911dc1de0401bfc13ba10"><td class="memItemLeft" align="right" valign="top"><a id="acfdcc693937911dc1de0401bfc13ba10"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFrameRate</b> (int)</td></tr>
-<tr class="separator:acfdcc693937911dc1de0401bfc13ba10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57478902e3f800ca3f9e6c9b7cf928da"><td class="memItemLeft" align="right" valign="top"><a id="a57478902e3f800ca3f9e6c9b7cf928da"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>subscribeEvent</b> (std::function&lt; void(<a class="el" href="structGameEngine_1_1UI_1_1WindowContext.html">WindowContext</a> &amp;)&gt; closure)</td></tr>
-<tr class="separator:a57478902e3f800ca3f9e6c9b7cf928da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b0bd524b5b80614ad5262457b9cc630"><td class="memItemLeft" align="right" valign="top"><a id="a1b0bd524b5b80614ad5262457b9cc630"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unsubscribeEvent</b> ()</td></tr>
-<tr class="separator:a1b0bd524b5b80614ad5262457b9cc630"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6377b5c85c8382c30d41536ca81678f"><td class="memItemLeft" align="right" valign="top"><a id="aa6377b5c85c8382c30d41536ca81678f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>subscribeUpdate</b> (std::function&lt; void(<a class="el" href="structGameEngine_1_1UI_1_1WindowContext.html">WindowContext</a> &amp;)&gt; closure)</td></tr>
-<tr class="separator:aa6377b5c85c8382c30d41536ca81678f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae89a59825d48777315e537b2d6e92c56"><td class="memItemLeft" align="right" valign="top"><a id="ae89a59825d48777315e537b2d6e92c56"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unsubscribeUpdate</b> ()</td></tr>
-<tr class="separator:ae89a59825d48777315e537b2d6e92c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64f73ff122a98563aeefb0c6c0cad753"><td class="memItemLeft" align="right" valign="top"><a id="a64f73ff122a98563aeefb0c6c0cad753"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>subscribeDisplay</b> (std::function&lt; void(<a class="el" href="structGameEngine_1_1UI_1_1WindowContext.html">WindowContext</a> &amp;)&gt; closure)</td></tr>
-<tr class="separator:a64f73ff122a98563aeefb0c6c0cad753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a325aa174a1f7949ed0dd1e19a71e3914"><td class="memItemLeft" align="right" valign="top"><a id="a325aa174a1f7949ed0dd1e19a71e3914"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unsubscribeDisplay</b> ()</td></tr>
-<tr class="separator:a325aa174a1f7949ed0dd1e19a71e3914"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac37a525cba8e623f93cd6ed561cbf7fb"><td class="memItemLeft" align="right" valign="top"><a id="ac37a525cba8e623f93cd6ed561cbf7fb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>launch</b> ()</td></tr>
-<tr class="separator:ac37a525cba8e623f93cd6ed561cbf7fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69722e4c7c326769ee3fb414a36b8910"><td class="memItemLeft" align="right" valign="top"><a id="a69722e4c7c326769ee3fb414a36b8910"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
-<tr class="separator:a69722e4c7c326769ee3fb414a36b8910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7eca21fc59275683bb640f19cca250f"><td class="memItemLeft" align="right" valign="top"><a id="ad7eca21fc59275683bb640f19cca250f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Window</b> (std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1Gfx_1_1IRenderer.html">Gfx::IRenderer</a> &gt; renderer)</td></tr>
+<tr class="separator:ad7eca21fc59275683bb640f19cca250f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f998c0dbb1500173636c722b68542af"><td class="memItemLeft" align="right" valign="top"><a id="a1f998c0dbb1500173636c722b68542af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFramerateLimit</b> (unsigned int limit)</td></tr>
+<tr class="separator:a1f998c0dbb1500173636c722b68542af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c418164b6f531792680d8108a71b42e"><td class="memItemLeft" align="right" valign="top"><a id="a0c418164b6f531792680d8108a71b42e"></a>
+<a class="el" href="classGameEngine_1_1Gfx_1_1IRenderer.html">Gfx::IRenderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getRenderer</b> ()</td></tr>
+<tr class="separator:a0c418164b6f531792680d8108a71b42e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a199dd6b389de281c93eb96b2cf8fa31e"><td class="memItemLeft" align="right" valign="top"><a id="a199dd6b389de281c93eb96b2cf8fa31e"></a>
+std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1Gfx_1_1IRenderer.html">Gfx::IRenderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getSharedRenderer</b> ()</td></tr>
+<tr class="separator:a199dd6b389de281c93eb96b2cf8fa31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365d3dd1c28d32fbc4e356ef62d0b218"><td class="memItemLeft" align="right" valign="top"><a id="a365d3dd1c28d32fbc4e356ef62d0b218"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isOpen</b> ()</td></tr>
+<tr class="separator:a365d3dd1c28d32fbc4e356ef62d0b218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05f19a5924b61e8361f2ab04dfeeeb2"><td class="memItemLeft" align="right" valign="top"><a id="ac05f19a5924b61e8361f2ab04dfeeeb2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>display</b> ()</td></tr>
+<tr class="separator:ac05f19a5924b61e8361f2ab04dfeeeb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66b8941ac65a598cd5081f8e5154e742"><td class="memItemLeft" align="right" valign="top"><a id="a66b8941ac65a598cd5081f8e5154e742"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="separator:a66b8941ac65a598cd5081f8e5154e742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>gameEngine/include/gameEngine/UI/<a class="el" href="Window_8hpp_source.html">Window.hpp</a></li>
-<li>gameEngine/src/UI/Window.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

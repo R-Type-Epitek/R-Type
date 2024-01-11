@@ -136,8 +136,8 @@ $(document).ready(function(){initNavTree('EntityType_8hpp_source.html',''); init
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>GameEngine::Entity</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structGameEngine_1_1Entity_1_1EntityTypeHelper.html">   15</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structGameEngine_1_1Entity_1_1EntityTypeHelper.html">EntityTypeHelper</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">enum</span> EntityType {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">enum</span> EntityType</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      None,</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      Player,</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      Asteroid,</div>
@@ -146,15 +146,15 @@ $(document).ready(function(){initNavTree('EntityType_8hpp_source.html',''); init
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      Bullet</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    };</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> EntityType getEntityTypeFromString(<span class="keyword">const</span> std::string&amp; typeStr) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> std::unordered_map&lt;std::string, EntityType&gt; typeMap = {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {<span class="stringliteral">&quot;None&quot;</span>, None},</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {<span class="stringliteral">&quot;Player&quot;</span>, Player},</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {<span class="stringliteral">&quot;Asteroid&quot;</span>, Asteroid},</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {<span class="stringliteral">&quot;Enemy&quot;</span>, Enemy},</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {<span class="stringliteral">&quot;Bullet&quot;</span>, Bullet},</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {<span class="stringliteral">&quot;Boss&quot;</span>, Boss}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      };</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> EntityType getEntityTypeFromString(<span class="keyword">const</span> std::string&amp; typeStr)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> std::unordered_map&lt;std::string, EntityType&gt; typeMap = {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {<span class="stringliteral">&quot;None&quot;</span>, None},</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {<span class="stringliteral">&quot;Player&quot;</span>, Player},</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {<span class="stringliteral">&quot;Asteroid&quot;</span>, Asteroid},</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {<span class="stringliteral">&quot;Enemy&quot;</span>, Enemy},</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {<span class="stringliteral">&quot;Bullet&quot;</span>, Bullet},</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {<span class="stringliteral">&quot;Boss&quot;</span>, Boss}};</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">auto</span> it = typeMap.find(typeStr);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">if</span> (it != typeMap.end()) {</div>
@@ -175,18 +175,19 @@ $(document).ready(function(){initNavTree('EntityType_8hpp_source.html',''); init
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> metaData = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> position = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> gravity = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">   57</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> light = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::string defaultAssetPath = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="structGameEngine_1_1Entity_1_1ComponentBluePrint.html">ComponentBluePrint</a> blueprint;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  };</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">using</span> EntityType = EntityTypeHelper::EntityType;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} <span class="comment">// namespace GameEngine::Entity</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> hitbox = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">   58</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> light = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::string defaultAssetPath = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="structGameEngine_1_1Entity_1_1ComponentBluePrint.html">ComponentBluePrint</a> blueprint;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  };</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">using</span> EntityType = EntityTypeHelper::EntityType;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">// namespace GameEngine::Entity</span></div>
 <div class="ttc" id="astructGameEngine_1_1Entity_1_1ComponentBluePrint_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1ComponentBluePrint.html">GameEngine::Entity::ComponentBluePrint</a></div><div class="ttdef"><b>Definition:</b> EntityType.hpp:46</div></div>
-<div class="ttc" id="astructGameEngine_1_1Entity_1_1EntityBluePrint_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">GameEngine::Entity::EntityBluePrint</a></div><div class="ttdef"><b>Definition:</b> EntityType.hpp:57</div></div>
+<div class="ttc" id="astructGameEngine_1_1Entity_1_1EntityBluePrint_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">GameEngine::Entity::EntityBluePrint</a></div><div class="ttdef"><b>Definition:</b> EntityType.hpp:58</div></div>
 <div class="ttc" id="astructGameEngine_1_1Entity_1_1EntityTypeHelper_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1EntityTypeHelper.html">GameEngine::Entity::EntityTypeHelper</a></div><div class="ttdef"><b>Definition:</b> EntityType.hpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

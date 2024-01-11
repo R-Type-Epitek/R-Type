@@ -5,7 +5,7 @@ var classNetwork_1_1Room =
     [ "Room", "classNetwork_1_1Room.html#aa21622466bbf16a091a940901afea7ae", null ],
     [ "~Room", "classNetwork_1_1Room.html#aa6449f53d721de21a5a08aa032acc00a", null ],
     [ "addPlayer", "classNetwork_1_1Room.html#ae37c0b6e8381ffa76dd8ffa7032351fd", null ],
-    [ "getHostedGame", "classNetwork_1_1Room.html#af5893aca91eb211862b4ff8d26a24843", null ],
+    [ "getHostedGame", "classNetwork_1_1Room.html#a1d665c737a5f848575c55cd3cc30038d", null ],
     [ "getId", "classNetwork_1_1Room.html#a4194c540b15a95da36bbfcebcb2e8ce5", null ],
     [ "getPlayers", "classNetwork_1_1Room.html#a92553cf90665a33507b0b976d3b577a6", null ],
     [ "getSize", "classNetwork_1_1Room.html#a24e2920279a125d79efd2474c1778d7e", null ],

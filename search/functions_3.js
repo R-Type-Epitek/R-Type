@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['entitydestroyed_368',['entityDestroyed',['../classGameEngine_1_1ECS_1_1ComponentArray.html#a38c0057a84585d484ee5320940cb8bd3',1,'GameEngine::ECS::ComponentArray::entityDestroyed()'],['../classGameEngine_1_1ECS_1_1ComponentManager.html#a77d8ce6749e38c7a553f7fd65de13a2e',1,'GameEngine::ECS::ComponentManager::entityDestroyed()']]],
-  ['event_369',['event',['../classClient_1_1Client.html#a67a2ea16706b59c57359fc9d0aceabce',1,'Client::Client']]],
-  ['executecommand_370',['executeCommand',['../classClient_1_1Network.html#a15a45ffff3cdcbf99901d537a5aa2a57',1,'Client::Network']]]
+  ['deletescene_353',['deleteScene',['../classGameEngine_1_1Scene_1_1SceneContainer.html#a1a6a6cb209a127fb8b9dc88692227bf4',1,'GameEngine::Scene::SceneContainer']]],
+  ['destroyentity_354',['destroyEntity',['../classGameEngine_1_1ECS_1_1EntityManager.html#a5ef9d8f50b1b211edc91a4a52d25a53d',1,'GameEngine::ECS::EntityManager']]]
 ];

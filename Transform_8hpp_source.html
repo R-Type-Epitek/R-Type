@@ -127,36 +127,35 @@ $(document).ready(function(){initNavTree('Transform_8hpp_source.html',''); initR
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;constants/constants.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;gameEngine/network/Serializer.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;boost/serialization/base_object.hpp&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using</span> Vec3 = int;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>ComponentRType</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> defaultSpeed = 20.F;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structComponentRType_1_1Transform.html">   20</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structComponentRType_1_1Transform.html">Transform</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent.html">GameEngine::Network::Serializer::BaseNetworkComponent</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>boost::serialization::access;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    sf::Vector2f rotation;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">float</span> speed = defaultSpeed;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    sf::Vector2f movement;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Archive&gt;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> serialize(Archive &amp;ar, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      ar &amp;boost::serialization::base_object&lt;GameEngine::Network::Serializer::BaseNetworkComponent&gt;(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      ar &amp; rotation;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      ar &amp; speed;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      ar &amp; movement;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace ComponentRType</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;gameEngine/network/Serializer.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;boost/serialization/base_object.hpp&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> Vec3 = int;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>ComponentRType</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> defaultSpeed = 20.F;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structComponentRType_1_1Transform.html">   19</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structComponentRType_1_1Transform.html">Transform</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent.html">GameEngine::Network::Serializer::BaseNetworkComponent</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>boost::serialization::access;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    sf::Vector2f rotation;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">float</span> speed = defaultSpeed;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    sf::Vector2f movement;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Archive&gt;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> serialize(Archive &amp;ar, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      ar &amp;boost::serialization::base_object&lt;GameEngine::Network::Serializer::BaseNetworkComponent&gt;(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      ar &amp; rotation;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      ar &amp; speed;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      ar &amp; movement;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  };</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace ComponentRType</span></div>
 <div class="ttc" id="aclassGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent_html"><div class="ttname"><a href="classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent.html">GameEngine::Network::Serializer::BaseNetworkComponent</a></div><div class="ttdef"><b>Definition:</b> Serializer.hpp:36</div></div>
-<div class="ttc" id="astructComponentRType_1_1Transform_html"><div class="ttname"><a href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a></div><div class="ttdoc">A component representing the transformation properties of an entity.</div><div class="ttdef"><b>Definition:</b> Transform.hpp:20</div></div>
+<div class="ttc" id="astructComponentRType_1_1Transform_html"><div class="ttname"><a href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a></div><div class="ttdoc">A component representing the transformation properties of an entity.</div><div class="ttdef"><b>Definition:</b> Transform.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

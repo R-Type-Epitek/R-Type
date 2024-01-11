@@ -130,53 +130,82 @@ $(document).ready(function(){initNavTree('Physics_8hpp_source.html',''); initRes
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Gravity.hpp&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Transform.hpp&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Position.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/Registry.hpp&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/system/System.hpp&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/system/RegistryHolder.hpp&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;gameEngine/event/IEventListener.hpp&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;gameEngine/event/Events.hpp&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;gameEngine/event/IEvent.hpp&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>GameEngine::System</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classGameEngine_1_1System_1_1Physics.html">   20</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1System_1_1Physics.html">Physics</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    , <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    , <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Event_1_1IEventListener.html">Event::IEventListener</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> update(<a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; registry)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = registry.getComponentManager();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; entity : m_entities) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">auto</span>&amp; compId = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a>&gt;(entity);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        (void)compId;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> handleEvent(<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp; eventRaw) <span class="keyword">final</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = getEcsRegistry().getComponentManager();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">auto</span> <span class="keyword">event</span> = <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code" href="structGameEngine_1_1Event_1_1EventCollision.html">Event::EventCollision</a>&amp;<span class="keyword">&gt;</span>(eventRaw);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keyword">auto</span> transformEntityA = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a>&gt;(<span class="keyword">event</span>.entityA);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keyword">auto</span> transformEntityB = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a>&gt;(<span class="keyword">event</span>.entityB);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      transformEntityA.movement = {0, 0};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      transformEntityB.movement = {0, 0};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  };</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Clickable.hpp&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/Registry.hpp&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/system/System.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/system/RegistryHolder.hpp&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;gameEngine/event/IEventBindable.hpp&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;gameEngine/event/Events.hpp&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;gameEngine/event/IEvent.hpp&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span>GameEngine::System</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classGameEngine_1_1System_1_1Physics.html">   21</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1System_1_1Physics.html">Physics</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    , <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    , <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1Event_1_1IEventBindable.html">Event::IEventBindable</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> bindEvent(<a class="code" href="classGameEngine_1_1Event_1_1EventRegistry.html">Event::EventRegistry</a>&amp; eventRegistry) <span class="keyword">final</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      eventRegistry.subscribeLambda&lt;<a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a>&gt;(([<span class="keyword">this</span>](<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp; eventRaw) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        handleCollision(eventRaw);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      }));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> update()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = getEcsRegistry().getComponentManager();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; entity : m_entities) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">auto</span>&amp; spriteC = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a>&gt;(entity);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">auto</span>&amp; transform = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a>&gt;(entity);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">auto</span>&amp; position = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a>&gt;(entity);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        position.position = spriteC.sprite.getPosition();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (!position.isValid) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          position.position = position.latestValidPosition;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          spriteC.sprite.setPosition(position.position);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          position.latestValidPosition = spriteC.sprite.getPosition();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          spriteC.sprite.move(transform.movement);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> updateClient()</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = getEcsRegistry().getComponentManager();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; entity : m_entities) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">auto</span>&amp; spriteC = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a>&gt;(entity);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">auto</span>&amp; position = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a>&gt;(entity);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        spriteC.sprite.setPosition(position.position);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> handleCollision(<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp; eventRaw)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = getEcsRegistry().getComponentManager();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">auto</span> <span class="keyword">event</span> = <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a>&amp;<span class="keyword">&gt;</span>(eventRaw);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">auto</span>&amp; transformA = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a>&gt;(<span class="keyword">event</span>.entityA);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      transformA.movement = {0, 0};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1RegistryHolder_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></div><div class="ttdef"><b>Definition:</b> RegistryHolder.hpp:14</div></div>
-<div class="ttc" id="aclassGameEngine_1_1ECS_1_1Registry_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a></div><div class="ttdef"><b>Definition:</b> Registry.hpp:19</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1System_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div><div class="ttdef"><b>Definition:</b> System.hpp:12</div></div>
-<div class="ttc" id="aclassGameEngine_1_1Event_1_1IEventListener_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1IEventListener.html">GameEngine::Event::IEventListener</a></div><div class="ttdef"><b>Definition:</b> IEventListener.hpp:11</div></div>
+<div class="ttc" id="aclassGameEngine_1_1Event_1_1EventRegistry_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a></div><div class="ttdef"><b>Definition:</b> EventRegistry.hpp:18</div></div>
+<div class="ttc" id="aclassGameEngine_1_1Event_1_1IEventBindable_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1IEventBindable.html">GameEngine::Event::IEventBindable</a></div><div class="ttdef"><b>Definition:</b> IEventBindable.hpp:10</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Event_1_1IEvent_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1IEvent.html">GameEngine::Event::IEvent</a></div><div class="ttdef"><b>Definition:</b> IEvent.hpp:9</div></div>
-<div class="ttc" id="aclassGameEngine_1_1System_1_1Physics_html"><div class="ttname"><a href="classGameEngine_1_1System_1_1Physics.html">GameEngine::System::Physics</a></div><div class="ttdef"><b>Definition:</b> Physics.hpp:23</div></div>
+<div class="ttc" id="aclassGameEngine_1_1System_1_1Physics_html"><div class="ttname"><a href="classGameEngine_1_1System_1_1Physics.html">GameEngine::System::Physics</a></div><div class="ttdef"><b>Definition:</b> Physics.hpp:24</div></div>
+<div class="ttc" id="astructComponentRType_1_1Displayable_html"><div class="ttname"><a href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a></div><div class="ttdef"><b>Definition:</b> Displayable.hpp:16</div></div>
 <div class="ttc" id="astructComponentRType_1_1Position_html"><div class="ttname"><a href="structComponentRType_1_1Position.html">ComponentRType::Position</a></div><div class="ttdef"><b>Definition:</b> Position.hpp:15</div></div>
-<div class="ttc" id="astructComponentRType_1_1Transform_html"><div class="ttname"><a href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a></div><div class="ttdoc">A component representing the transformation properties of an entity.</div><div class="ttdef"><b>Definition:</b> Transform.hpp:20</div></div>
-<div class="ttc" id="astructGameEngine_1_1Event_1_1EventCollision_html"><div class="ttname"><a href="structGameEngine_1_1Event_1_1EventCollision.html">GameEngine::Event::EventCollision</a></div><div class="ttdef"><b>Definition:</b> Events.hpp:12</div></div>
+<div class="ttc" id="astructComponentRType_1_1Transform_html"><div class="ttname"><a href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a></div><div class="ttdoc">A component representing the transformation properties of an entity.</div><div class="ttdef"><b>Definition:</b> Transform.hpp:19</div></div>
+<div class="ttc" id="astructGameEngine_1_1Event_1_1EntityCollision_html"><div class="ttname"><a href="structGameEngine_1_1Event_1_1EntityCollision.html">GameEngine::Event::EntityCollision</a></div><div class="ttdef"><b>Definition:</b> Events.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

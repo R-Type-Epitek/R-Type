@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: GameEngine::Scene::SceneContainer&lt; SceneEnum &gt; Class Template Reference</title>
+  <title>R-Type: GameEngine::Scene::SceneContainer Class Reference</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -121,33 +121,258 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1Scene_1_1SceneConta
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classGameEngine_1_1Scene_1_1SceneContainer-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">GameEngine::Scene::SceneContainer&lt; SceneEnum &gt; Class Template Reference</div>  </div>
+<div class="title">GameEngine::Scene::SceneContainer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A container class for managing scenes.  
+ <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SceneContainer_8hpp_source.html">SceneContainer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f31d776416d3db56c046fb427496340"><td class="memItemLeft" align="right" valign="top"><a id="a6f31d776416d3db56c046fb427496340"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addScene</b> (SceneEnum name, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; scene)</td></tr>
-<tr class="separator:a6f31d776416d3db56c046fb427496340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2205c362528084f1513047951b9be878"><td class="memItemLeft" align="right" valign="top"><a id="a2205c362528084f1513047951b9be878"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteScene</b> (SceneEnum name)</td></tr>
-<tr class="separator:a2205c362528084f1513047951b9be878"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27fd6d1c6d68cbb8ac957117fd188792"><td class="memItemLeft" align="right" valign="top"><a id="a27fd6d1c6d68cbb8ac957117fd188792"></a>
-<a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getScene</b> (SceneEnum name)</td></tr>
-<tr class="separator:a27fd6d1c6d68cbb8ac957117fd188792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52206628986aaf357035e5e2291c877d"><td class="memItemLeft" align="right" valign="top"><a id="a52206628986aaf357035e5e2291c877d"></a>
-<a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (SceneEnum name)</td></tr>
-<tr class="separator:a52206628986aaf357035e5e2291c877d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abefa65c0baedb0c6d8fbf29cebb4c449"><td class="memItemLeft" align="right" valign="top"><a id="abefa65c0baedb0c6d8fbf29cebb4c449"></a>
-std::map&lt; SceneEnum, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
-<tr class="separator:abefa65c0baedb0c6d8fbf29cebb4c449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7889ee5c0086301699ed0a59f5610bc7"><td class="memItemLeft" align="right" valign="top"><a id="a7889ee5c0086301699ed0a59f5610bc7"></a>
-std::map&lt; SceneEnum, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
-<tr class="separator:a7889ee5c0086301699ed0a59f5610bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2e3846acdc866703d0dbad1a9d2d28"><td class="memItemLeft" align="right" valign="top"><a id="a6e2e3846acdc866703d0dbad1a9d2d28"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a6e2e3846acdc866703d0dbad1a9d2d28">SceneContainer</a> ()</td></tr>
+<tr class="memdesc:a6e2e3846acdc866703d0dbad1a9d2d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html" title="A container class for managing scenes.">SceneContainer</a>. <br /></td></tr>
+<tr class="separator:a6e2e3846acdc866703d0dbad1a9d2d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0763a92287f4fa4d4117a155a78703ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a0763a92287f4fa4d4117a155a78703ff">addScene</a> (std::string name, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; scene)</td></tr>
+<tr class="memdesc:a0763a92287f4fa4d4117a155a78703ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a scene to the container.  <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#a0763a92287f4fa4d4117a155a78703ff">More...</a><br /></td></tr>
+<tr class="separator:a0763a92287f4fa4d4117a155a78703ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a6a6cb209a127fb8b9dc88692227bf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a1a6a6cb209a127fb8b9dc88692227bf4">deleteScene</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a1a6a6cb209a127fb8b9dc88692227bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a scene from the container.  <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#a1a6a6cb209a127fb8b9dc88692227bf4">More...</a><br /></td></tr>
+<tr class="separator:a1a6a6cb209a127fb8b9dc88692227bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97e4ea3777e2e08a217300c0207f3729"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a97e4ea3777e2e08a217300c0207f3729">getScene</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a97e4ea3777e2e08a217300c0207f3729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a reference to a scene by name.  <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#a97e4ea3777e2e08a217300c0207f3729">More...</a><br /></td></tr>
+<tr class="separator:a97e4ea3777e2e08a217300c0207f3729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec6abd4eb385cbc7b997f2502a31a01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a9ec6abd4eb385cbc7b997f2502a31a01">find</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a9ec6abd4eb385cbc7b997f2502a31a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a scene by name.  <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#a9ec6abd4eb385cbc7b997f2502a31a01">More...</a><br /></td></tr>
+<tr class="separator:a9ec6abd4eb385cbc7b997f2502a31a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7187a965e3c577dd64dd97b15e87f44d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a7187a965e3c577dd64dd97b15e87f44d">exist</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a7187a965e3c577dd64dd97b15e87f44d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a scene with a given name exists.  <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#a7187a965e3c577dd64dd97b15e87f44d">More...</a><br /></td></tr>
+<tr class="separator:a7187a965e3c577dd64dd97b15e87f44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10474b3a05ca248f69b648f94287ca74"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a10474b3a05ca248f69b648f94287ca74">begin</a> ()</td></tr>
+<tr class="memdesc:a10474b3a05ca248f69b648f94287ca74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the beginning of the scenes.  <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#a10474b3a05ca248f69b648f94287ca74">More...</a><br /></td></tr>
+<tr class="separator:a10474b3a05ca248f69b648f94287ca74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d45bdec2e7db5e41269ce12bf7d3f3"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html#a00d45bdec2e7db5e41269ce12bf7d3f3">end</a> ()</td></tr>
+<tr class="memdesc:a00d45bdec2e7db5e41269ce12bf7d3f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the scenes.  <a href="classGameEngine_1_1Scene_1_1SceneContainer.html#a00d45bdec2e7db5e41269ce12bf7d3f3">More...</a><br /></td></tr>
+<tr class="separator:a00d45bdec2e7db5e41269ce12bf7d3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A container class for managing scenes. </p>
+<p>The <code><a class="el" href="classGameEngine_1_1Scene_1_1SceneContainer.html" title="A container class for managing scenes.">SceneContainer</a></code> class allows adding, deleting, and retrieving scenes. It also provides iterators for iterating over the stored scenes. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0763a92287f4fa4d4117a155a78703ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0763a92287f4fa4d4117a155a78703ff">&#9670;&nbsp;</a></span>addScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameEngine::Scene::SceneContainer::addScene </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt;&#160;</td>
+          <td class="paramname"><em>scene</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a scene to the container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the scene. </td></tr>
+    <tr><td class="paramname">scene</td><td>A unique pointer to the scene. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if a scene with the same name already exists. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a10474b3a05ca248f69b648f94287ca74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10474b3a05ca248f69b648f94287ca74">&#9670;&nbsp;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; &gt;::iterator GameEngine::Scene::SceneContainer::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to the beginning of the scenes. </p>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the beginning. </dd></dl>
+
+</div>
+</div>
+<a id="a1a6a6cb209a127fb8b9dc88692227bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a6a6cb209a127fb8b9dc88692227bf4">&#9670;&nbsp;</a></span>deleteScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameEngine::Scene::SceneContainer::deleteScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes a scene from the container. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the scene to be deleted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if the scene with the specified name doesn't exist. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a00d45bdec2e7db5e41269ce12bf7d3f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d45bdec2e7db5e41269ce12bf7d3f3">&#9670;&nbsp;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; &gt;::iterator GameEngine::Scene::SceneContainer::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to the end of the scenes. </p>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the end. </dd></dl>
+
+</div>
+</div>
+<a id="a7187a965e3c577dd64dd97b15e87f44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7187a965e3c577dd64dd97b15e87f44d">&#9670;&nbsp;</a></span>exist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameEngine::Scene::SceneContainer::exist </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a scene with a given name exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the scene to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the scene exists, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a9ec6abd4eb385cbc7b997f2502a31a01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec6abd4eb385cbc7b997f2502a31a01">&#9670;&nbsp;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp; GameEngine::Scene::SceneContainer::find </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds a scene by name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the scene to find. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the found scene. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the scene with the specified name is not found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a97e4ea3777e2e08a217300c0207f3729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97e4ea3777e2e08a217300c0207f3729">&#9670;&nbsp;</a></span>getScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp; GameEngine::Scene::SceneContainer::getScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a reference to a scene by name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the scene. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the specified scene. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if the scene with the specified name is not found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>gameEngine/include/gameEngine/scene/<a class="el" href="SceneContainer_8hpp_source.html">SceneContainer.hpp</a></li>
+<li>gameEngine/src/scene/SceneContainer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

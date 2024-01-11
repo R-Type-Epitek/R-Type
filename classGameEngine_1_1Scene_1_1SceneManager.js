@@ -1,8 +1,8 @@
 var classGameEngine_1_1Scene_1_1SceneManager =
 [
-    [ "SceneManager", "classGameEngine_1_1Scene_1_1SceneManager.html#a8307179b13d4540e09ab70bb36cb30a8", null ],
-    [ "addScene", "classGameEngine_1_1Scene_1_1SceneManager.html#a0355cf6201836bb33f4b646b5e2a809f", null ],
-    [ "getCurrent", "classGameEngine_1_1Scene_1_1SceneManager.html#a62643fafbf4eccc85f8d418c15f9ccdb", null ],
-    [ "initScenes", "classGameEngine_1_1Scene_1_1SceneManager.html#a6e977303d9097198aa511bafc030f5f2", null ],
-    [ "setCurrent", "classGameEngine_1_1Scene_1_1SceneManager.html#a8693f80e806d718b22e415dea1831c91", null ]
+    [ "SceneManager", "classGameEngine_1_1Scene_1_1SceneManager.html#a8223afb8e4a194a61dd876f9bc0b49c2", null ],
+    [ "addScene", "classGameEngine_1_1Scene_1_1SceneManager.html#ae0f521c6d9cbbf7a5352d8d890c45131", null ],
+    [ "getCurrent", "classGameEngine_1_1Scene_1_1SceneManager.html#a3cf345d46bada2d91dcc0b9bfe87ac6d", null ],
+    [ "initScenes", "classGameEngine_1_1Scene_1_1SceneManager.html#afc11ea90e8a65c75275dc5d6e310b89a", null ],
+    [ "setCurrent", "classGameEngine_1_1Scene_1_1SceneManager.html#a8fd33027747ee629c7888d3fff6275e9", null ]
 ];

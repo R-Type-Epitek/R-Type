@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: GameEngine::Scene::SceneManager&lt; SceneEnum &gt; Class Template Reference</title>
+  <title>R-Type: GameEngine::Scene::SceneManager Class Reference</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -121,27 +121,37 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1Scene_1_1SceneManag
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classGameEngine_1_1Scene_1_1SceneManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">GameEngine::Scene::SceneManager&lt; SceneEnum &gt; Class Template Reference</div>  </div>
+<div class="title">GameEngine::Scene::SceneManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for GameEngine::Scene::SceneManager:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classGameEngine_1_1Scene_1_1SceneManager.png" usemap="#GameEngine::Scene::SceneManager_map" alt=""/>
+  <map id="GameEngine::Scene::SceneManager_map" name="GameEngine::Scene::SceneManager_map">
+<area href="classGameEngine_1_1Scene_1_1ISceneManager.html" alt="GameEngine::Scene::ISceneManager" shape="rect" coords="0,0,221,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6e977303d9097198aa511bafc030f5f2"><td class="memItemLeft" align="right" valign="top"><a id="a6e977303d9097198aa511bafc030f5f2"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>initScenes</b> ()</td></tr>
-<tr class="separator:a6e977303d9097198aa511bafc030f5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62643fafbf4eccc85f8d418c15f9ccdb"><td class="memItemLeft" align="right" valign="top"><a id="a62643fafbf4eccc85f8d418c15f9ccdb"></a>
-<a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrent</b> ()</td></tr>
-<tr class="separator:a62643fafbf4eccc85f8d418c15f9ccdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8693f80e806d718b22e415dea1831c91"><td class="memItemLeft" align="right" valign="top"><a id="a8693f80e806d718b22e415dea1831c91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrent</b> (SceneEnum name)</td></tr>
-<tr class="separator:a8693f80e806d718b22e415dea1831c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0355cf6201836bb33f4b646b5e2a809f"><td class="memItemLeft" align="right" valign="top"><a id="a0355cf6201836bb33f4b646b5e2a809f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addScene</b> (SceneEnum name, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; scene)</td></tr>
-<tr class="separator:a0355cf6201836bb33f4b646b5e2a809f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc11ea90e8a65c75275dc5d6e310b89a"><td class="memItemLeft" align="right" valign="top"><a id="afc11ea90e8a65c75275dc5d6e310b89a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initScenes</b> () final</td></tr>
+<tr class="separator:afc11ea90e8a65c75275dc5d6e310b89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cf345d46bada2d91dcc0b9bfe87ac6d"><td class="memItemLeft" align="right" valign="top"><a id="a3cf345d46bada2d91dcc0b9bfe87ac6d"></a>
+<a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrent</b> () final</td></tr>
+<tr class="separator:a3cf345d46bada2d91dcc0b9bfe87ac6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd33027747ee629c7888d3fff6275e9"><td class="memItemLeft" align="right" valign="top"><a id="a8fd33027747ee629c7888d3fff6275e9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrent</b> (const std::string &amp;name) final</td></tr>
+<tr class="separator:a8fd33027747ee629c7888d3fff6275e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f521c6d9cbbf7a5352d8d890c45131"><td class="memItemLeft" align="right" valign="top"><a id="ae0f521c6d9cbbf7a5352d8d890c45131"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addScene</b> (const std::string &amp;name, std::unique_ptr&lt; <a class="el" href="classGameEngine_1_1Scene_1_1IScene.html">IScene</a> &gt; scene) final</td></tr>
+<tr class="separator:ae0f521c6d9cbbf7a5352d8d890c45131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>gameEngine/include/gameEngine/scene/<a class="el" href="gameEngine_2include_2gameEngine_2scene_2SceneManager_8hpp_source.html">SceneManager.hpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>gameEngine/include/gameEngine/scene/<a class="el" href="SceneManager_8hpp_source.html">SceneManager.hpp</a></li>
+<li>gameEngine/src/scene/SceneManager.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

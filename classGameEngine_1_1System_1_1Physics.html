@@ -130,20 +130,26 @@ Inheritance diagram for GameEngine::System::Physics:</div>
  <div class="center">
   <img src="classGameEngine_1_1System_1_1Physics.png" usemap="#GameEngine::System::Physics_map" alt=""/>
   <map id="GameEngine::System::Physics_map" name="GameEngine::System::Physics_map">
-<area href="classGameEngine_1_1ECS_1_1System.html" alt="GameEngine::ECS::System" shape="rect" coords="0,0,207,24"/>
-<area href="classGameEngine_1_1ECS_1_1RegistryHolder.html" alt="GameEngine::ECS::RegistryHolder" shape="rect" coords="217,0,424,24"/>
-<area href="classGameEngine_1_1Event_1_1IEventListener.html" alt="GameEngine::Event::IEventListener" shape="rect" coords="434,0,641,24"/>
+<area href="classGameEngine_1_1ECS_1_1System.html" alt="GameEngine::ECS::System" shape="rect" coords="0,0,211,24"/>
+<area href="classGameEngine_1_1ECS_1_1RegistryHolder.html" alt="GameEngine::ECS::RegistryHolder" shape="rect" coords="221,0,432,24"/>
+<area href="classGameEngine_1_1Event_1_1IEventBindable.html" alt="GameEngine::Event::IEventBindable" shape="rect" coords="442,0,653,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a98365f35f8dee4ddeb18dbf8f0da36d3"><td class="memItemLeft" align="right" valign="top"><a id="a98365f35f8dee4ddeb18dbf8f0da36d3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (<a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;registry)</td></tr>
-<tr class="separator:a98365f35f8dee4ddeb18dbf8f0da36d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02e4140126d9ccd38be5e81975134101"><td class="memItemLeft" align="right" valign="top"><a id="a02e4140126d9ccd38be5e81975134101"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>handleEvent</b> (const <a class="el" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a> &amp;eventRaw) final</td></tr>
-<tr class="separator:a02e4140126d9ccd38be5e81975134101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14a24c949a23208bb5d038cc8df4f925"><td class="memItemLeft" align="right" valign="top"><a id="a14a24c949a23208bb5d038cc8df4f925"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>bindEvent</b> (<a class="el" href="classGameEngine_1_1Event_1_1EventRegistry.html">Event::EventRegistry</a> &amp;eventRegistry) final</td></tr>
+<tr class="separator:a14a24c949a23208bb5d038cc8df4f925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af42da0dcc24bc0453e00ef9ef19de16b"><td class="memItemLeft" align="right" valign="top"><a id="af42da0dcc24bc0453e00ef9ef19de16b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="separator:af42da0dcc24bc0453e00ef9ef19de16b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a049695f3bb7f2abf5ed892304dc8a9aa"><td class="memItemLeft" align="right" valign="top"><a id="a049695f3bb7f2abf5ed892304dc8a9aa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateClient</b> ()</td></tr>
+<tr class="separator:a049695f3bb7f2abf5ed892304dc8a9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9a20210193c1e17976116b0839ae8f"><td class="memItemLeft" align="right" valign="top"><a id="aac9a20210193c1e17976116b0839ae8f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>handleCollision</b> (const <a class="el" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a> &amp;eventRaw)</td></tr>
+<tr class="separator:aac9a20210193c1e17976116b0839ae8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classGameEngine_1_1ECS_1_1RegistryHolder"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classGameEngine_1_1ECS_1_1RegistryHolder')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></td></tr>
 <tr class="memitem:a9d1d0b89725061302a60e50431d0f7fb inherit pub_methods_classGameEngine_1_1ECS_1_1RegistryHolder"><td class="memItemLeft" align="right" valign="top"><a id="a9d1d0b89725061302a60e50431d0f7fb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setEcsRegistry</b> (std::shared_ptr&lt; <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">Registry</a> &gt; ecsRegistry)</td></tr>

@@ -130,6 +130,15 @@ $(document).ready(function(){initNavTree('classClient_1_1Network.html',''); init
  <a href="classClient_1_1Network.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Network_8hpp_source.html">Network.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Client::Network:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classClient_1_1Network.png" usemap="#Client::Network_map" alt=""/>
+  <map id="Client::Network_map" name="Client::Network_map">
+<area href="classGameEngine_1_1Network_1_1INetworkController.html" alt="GameEngine::Network::INetworkController" shape="rect" coords="0,0,246,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -206,9 +215,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f198af430067b2174e2f69b0a78ada6"><td class="memItemLeft" align="right" valign="top">boost::asio::ip::udp::endpoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a0f198af430067b2174e2f69b0a78ada6">getRemoteEndpoint</a> () const</td></tr>
 <tr class="memdesc:a0f198af430067b2174e2f69b0a78ada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the remote endpoint of the network connection.  <a href="classClient_1_1Network.html#a0f198af430067b2174e2f69b0a78ada6">More...</a><br /></td></tr>
 <tr class="separator:a0f198af430067b2174e2f69b0a78ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f3906ec4967fc8be1936ef21b41741c"><td class="memItemLeft" align="right" valign="top"><a id="a5f3906ec4967fc8be1936ef21b41741c"></a>
-<a class="el" href="classClient_1_1Network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSerializedEcsQueue</b> ()</td></tr>
-<tr class="separator:a5f3906ec4967fc8be1936ef21b41741c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Func &gt; </td></tr>
 <tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a15a45ffff3cdcbf99901d537a5aa2a57">executeCommand</a> (const std::string &amp;commandName, Func action)</td></tr>
 <tr class="memdesc:a15a45ffff3cdcbf99901d537a5aa2a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a command with a specified action.  <a href="classClient_1_1Network.html#a15a45ffff3cdcbf99901d537a5aa2a57">More...</a><br /></td></tr>
@@ -231,15 +237,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5b5e5462b863cf0d284c430df9fd8cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a5b5e5462b863cf0d284c430df9fd8cb3">godMode</a> (int clientId)</td></tr>
 <tr class="memdesc:a5b5e5462b863cf0d284c430df9fd8cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable god mode.  <a href="classClient_1_1Network.html#a5b5e5462b863cf0d284c430df9fd8cb3">More...</a><br /></td></tr>
 <tr class="separator:a5b5e5462b863cf0d284c430df9fd8cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e00a6174658b13f4962b4f8eb81037d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a1e00a6174658b13f4962b4f8eb81037d">sendKey</a> (GameEngine::Keybinds key)</td></tr>
-<tr class="memdesc:a1e00a6174658b13f4962b4f8eb81037d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a key command to the server.  <a href="classClient_1_1Network.html#a1e00a6174658b13f4962b4f8eb81037d">More...</a><br /></td></tr>
-<tr class="separator:a1e00a6174658b13f4962b4f8eb81037d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d26c867399589c0276b8e3950b9e695"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a6d26c867399589c0276b8e3950b9e695">sendKey</a> (GameEngine::Keybinds key) final</td></tr>
+<tr class="memdesc:a6d26c867399589c0276b8e3950b9e695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a key command to the server.  <a href="classClient_1_1Network.html#a6d26c867399589c0276b8e3950b9e695">More...</a><br /></td></tr>
+<tr class="separator:a6d26c867399589c0276b8e3950b9e695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#a8fb4a0ec6478049555f7ef13fe15d2f0">joinGame</a> (int roomId)</td></tr>
 <tr class="memdesc:a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join a game with a specified room ID.  <a href="classClient_1_1Network.html#a8fb4a0ec6478049555f7ef13fe15d2f0">More...</a><br /></td></tr>
 <tr class="separator:a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc3c50dae4d5a9f6e6f3b9a981750b92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClient_1_1Network.html#adc3c50dae4d5a9f6e6f3b9a981750b92">spectate</a> (int roomId)</td></tr>
 <tr class="memdesc:adc3c50dae4d5a9f6e6f3b9a981750b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spectate a game with a specified room ID.  <a href="classClient_1_1Network.html#adc3c50dae4d5a9f6e6f3b9a981750b92">More...</a><br /></td></tr>
 <tr class="separator:adc3c50dae4d5a9f6e6f3b9a981750b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62abf805fd2972253e8132b2d6ed1504"><td class="memItemLeft" align="right" valign="top"><a id="a62abf805fd2972253e8132b2d6ed1504"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>connect</b> () final</td></tr>
+<tr class="separator:a62abf805fd2972253e8132b2d6ed1504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b2fc2f0a9566038d68d2485b71dedfe"><td class="memItemLeft" align="right" valign="top"><a id="a8b2fc2f0a9566038d68d2485b71dedfe"></a>
+<a class="el" href="classClient_1_1Network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getSerializedEcsState</b> () final</td></tr>
+<tr class="separator:a8b2fc2f0a9566038d68d2485b71dedfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class responsible for network operations in a client. </p>
@@ -830,11 +842,14 @@ template&lt;typename T , typename Func &gt; </div>
 
 </div>
 </div>
-<a id="a1e00a6174658b13f4962b4f8eb81037d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e00a6174658b13f4962b4f8eb81037d">&#9670;&nbsp;</a></span>sendKey()</h2>
+<a id="a6d26c867399589c0276b8e3950b9e695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d26c867399589c0276b8e3950b9e695">&#9670;&nbsp;</a></span>sendKey()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Client::Network::sendKey </td>
@@ -844,6 +859,11 @@ template&lt;typename T , typename Func &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Send a key command to the server. </p>
@@ -853,6 +873,8 @@ template&lt;typename T , typename Func &gt; </div>
   </table>
   </dd>
 </dl>
+
+<p>Implements <a class="el" href="classGameEngine_1_1Network_1_1INetworkController.html">GameEngine::Network::INetworkController</a>.</p>
 
 </div>
 </div>

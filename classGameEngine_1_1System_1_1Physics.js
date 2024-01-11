@@ -1,5 +1,7 @@
 var classGameEngine_1_1System_1_1Physics =
 [
-    [ "handleEvent", "classGameEngine_1_1System_1_1Physics.html#a02e4140126d9ccd38be5e81975134101", null ],
-    [ "update", "classGameEngine_1_1System_1_1Physics.html#a98365f35f8dee4ddeb18dbf8f0da36d3", null ]
+    [ "bindEvent", "classGameEngine_1_1System_1_1Physics.html#a14a24c949a23208bb5d038cc8df4f925", null ],
+    [ "handleCollision", "classGameEngine_1_1System_1_1Physics.html#aac9a20210193c1e17976116b0839ae8f", null ],
+    [ "update", "classGameEngine_1_1System_1_1Physics.html#af42da0dcc24bc0453e00ef9ef19de16b", null ],
+    [ "updateClient", "classGameEngine_1_1System_1_1Physics.html#a049695f3bb7f2abf5ed892304dc8a9aa", null ]
 ];

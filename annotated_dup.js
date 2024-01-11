@@ -10,14 +10,7 @@ var annotated_dup =
     [ "Support and Contributions", "md_docs_technical_README.html#autotoc_md7", null ],
     [ "Conclusion", "md_docs_technical_README.html#autotoc_md8", null ],
     [ "Client", null, [
-      [ "Scene", null, [
-        [ "SceneManager", "classClient_1_1Scene_1_1SceneManager.html", "classClient_1_1Scene_1_1SceneManager" ]
-      ] ],
-      [ "System", null, [
-        [ "KeyboardInputHandler", "classClient_1_1System_1_1KeyboardInputHandler.html", "classClient_1_1System_1_1KeyboardInputHandler" ]
-      ] ],
       [ "Client", "classClient_1_1Client.html", "classClient_1_1Client" ],
-      [ "GUI", "classClient_1_1GUI.html", "classClient_1_1GUI" ],
       [ "ConnectToServerCommandHandler", "classClient_1_1ConnectToServerCommandHandler.html", "classClient_1_1ConnectToServerCommandHandler" ],
       [ "GodModeCommandHandler", "classClient_1_1GodModeCommandHandler.html", "classClient_1_1GodModeCommandHandler" ],
       [ "ICommandHandler", "classClient_1_1ICommandHandler.html", "classClient_1_1ICommandHandler" ],
@@ -29,17 +22,14 @@ var annotated_dup =
       [ "SpectateCommandHandler", "classClient_1_1SpectateCommandHandler.html", "classClient_1_1SpectateCommandHandler" ],
       [ "CommandTracker", "classClient_1_1CommandTracker.html", "classClient_1_1CommandTracker" ],
       [ "UpdateNameCommandHandler", "classClient_1_1UpdateNameCommandHandler.html", "classClient_1_1UpdateNameCommandHandler" ],
-      [ "Network", "classClient_1_1Network.html", "classClient_1_1Network" ],
-      [ "GameScene", "classClient_1_1GameScene.html", "classClient_1_1GameScene" ],
-      [ "LobbyScene", "classClient_1_1LobbyScene.html", "classClient_1_1LobbyScene" ],
-      [ "WelcomeScene", "classClient_1_1WelcomeScene.html", "classClient_1_1WelcomeScene" ]
+      [ "Network", "classClient_1_1Network.html", "classClient_1_1Network" ]
     ] ],
     [ "ComponentRType", null, [
       [ "Clickable", "structComponentRType_1_1Clickable.html", "structComponentRType_1_1Clickable" ],
-      [ "Collision", "structComponentRType_1_1Collision.html", "structComponentRType_1_1Collision" ],
       [ "Controllable", "structComponentRType_1_1Controllable.html", "structComponentRType_1_1Controllable" ],
       [ "Displayable", "structComponentRType_1_1Displayable.html", "structComponentRType_1_1Displayable" ],
       [ "Gravity", "structComponentRType_1_1Gravity.html", "structComponentRType_1_1Gravity" ],
+      [ "Hitbox", "structComponentRType_1_1Hitbox.html", "structComponentRType_1_1Hitbox" ],
       [ "MetaData", "structComponentRType_1_1MetaData.html", "structComponentRType_1_1MetaData" ],
       [ "NetworkedEntity", "structComponentRType_1_1NetworkedEntity.html", "structComponentRType_1_1NetworkedEntity" ],
       [ "Parallax", "structComponentRType_1_1Parallax.html", null ],
@@ -52,6 +42,9 @@ var annotated_dup =
       ] ],
       [ "Builder", null, [
         [ "RegistryBuilder", "classGameEngine_1_1Builder_1_1RegistryBuilder.html", "classGameEngine_1_1Builder_1_1RegistryBuilder" ]
+      ] ],
+      [ "Core", null, [
+        [ "Core", "classGameEngine_1_1Core_1_1Core.html", "classGameEngine_1_1Core_1_1Core" ]
       ] ],
       [ "ECS", null, [
         [ "ComponentArray", "classGameEngine_1_1ECS_1_1ComponentArray.html", "classGameEngine_1_1ECS_1_1ComponentArray" ],
@@ -73,19 +66,37 @@ var annotated_dup =
       [ "Event", null, [
         [ "EventListenerWrapper", "classGameEngine_1_1Event_1_1EventListenerWrapper.html", "classGameEngine_1_1Event_1_1EventListenerWrapper" ],
         [ "EventRegistry", "classGameEngine_1_1Event_1_1EventRegistry.html", "classGameEngine_1_1Event_1_1EventRegistry" ],
-        [ "EventCollision", "structGameEngine_1_1Event_1_1EventCollision.html", "structGameEngine_1_1Event_1_1EventCollision" ],
-        [ "EventKeyboardInput", "structGameEngine_1_1Event_1_1EventKeyboardInput.html", "structGameEngine_1_1Event_1_1EventKeyboardInput" ],
+        [ "EntityCollision", "structGameEngine_1_1Event_1_1EntityCollision.html", "structGameEngine_1_1Event_1_1EntityCollision" ],
+        [ "KeyboardInput", "structGameEngine_1_1Event_1_1KeyboardInput.html", "structGameEngine_1_1Event_1_1KeyboardInput" ],
+        [ "MoveUp", "structGameEngine_1_1Event_1_1MoveUp.html", "structGameEngine_1_1Event_1_1MoveUp" ],
+        [ "Movedown", "structGameEngine_1_1Event_1_1Movedown.html", "structGameEngine_1_1Event_1_1Movedown" ],
+        [ "MoveLeft", "structGameEngine_1_1Event_1_1MoveLeft.html", "structGameEngine_1_1Event_1_1MoveLeft" ],
+        [ "MoveRight", "structGameEngine_1_1Event_1_1MoveRight.html", "structGameEngine_1_1Event_1_1MoveRight" ],
+        [ "PressSpace", "structGameEngine_1_1Event_1_1PressSpace.html", "structGameEngine_1_1Event_1_1PressSpace" ],
+        [ "NewPlayer", "structGameEngine_1_1Event_1_1NewPlayer.html", "structGameEngine_1_1Event_1_1NewPlayer" ],
+        [ "NewProjectile", "structGameEngine_1_1Event_1_1NewProjectile.html", "structGameEngine_1_1Event_1_1NewProjectile" ],
+        [ "NewEnemy", "structGameEngine_1_1Event_1_1NewEnemy.html", "structGameEngine_1_1Event_1_1NewEnemy" ],
+        [ "DisconnectedPlayer", "structGameEngine_1_1Event_1_1DisconnectedPlayer.html", "structGameEngine_1_1Event_1_1DisconnectedPlayer" ],
         [ "IEvent", "classGameEngine_1_1Event_1_1IEvent.html", "classGameEngine_1_1Event_1_1IEvent" ],
+        [ "IEventBindable", "classGameEngine_1_1Event_1_1IEventBindable.html", "classGameEngine_1_1Event_1_1IEventBindable" ],
         [ "IEventListener", "classGameEngine_1_1Event_1_1IEventListener.html", "classGameEngine_1_1Event_1_1IEventListener" ]
+      ] ],
+      [ "Gfx", null, [
+        [ "Sfml", null, [
+          [ "Renderer", "classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer.html", "classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer" ]
+        ] ],
+        [ "IRenderer", "classGameEngine_1_1Gfx_1_1IRenderer.html", "classGameEngine_1_1Gfx_1_1IRenderer" ]
       ] ],
       [ "Network", null, [
         [ "Serializer", null, [
           [ "BaseNetworkComponent", "classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent.html", "classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent" ],
           [ "EcsSerializer", "classGameEngine_1_1Network_1_1Serializer_1_1EcsSerializer.html", null ]
-        ] ]
+        ] ],
+        [ "INetworkController", "classGameEngine_1_1Network_1_1INetworkController.html", "classGameEngine_1_1Network_1_1INetworkController" ]
       ] ],
       [ "Scene", null, [
         [ "IScene", "classGameEngine_1_1Scene_1_1IScene.html", "classGameEngine_1_1Scene_1_1IScene" ],
+        [ "ISceneManager", "classGameEngine_1_1Scene_1_1ISceneManager.html", "classGameEngine_1_1Scene_1_1ISceneManager" ],
         [ "SceneContainer", "classGameEngine_1_1Scene_1_1SceneContainer.html", "classGameEngine_1_1Scene_1_1SceneContainer" ],
         [ "SceneManager", "classGameEngine_1_1Scene_1_1SceneManager.html", "classGameEngine_1_1Scene_1_1SceneManager" ],
         [ "SimpleScene", "classGameEngine_1_1Scene_1_1SimpleScene.html", "classGameEngine_1_1Scene_1_1SimpleScene" ]
@@ -93,21 +104,18 @@ var annotated_dup =
       [ "System", null, [
         [ "Animation", "classGameEngine_1_1System_1_1Animation.html", "classGameEngine_1_1System_1_1Animation" ],
         [ "Collider", "classGameEngine_1_1System_1_1Collider.html", "classGameEngine_1_1System_1_1Collider" ],
+        [ "ControlableEntity", "classGameEngine_1_1System_1_1ControlableEntity.html", "classGameEngine_1_1System_1_1ControlableEntity" ],
         [ "EcsSerializer", "classGameEngine_1_1System_1_1EcsSerializer.html", "classGameEngine_1_1System_1_1EcsSerializer" ],
-        [ "Input", "classGameEngine_1_1System_1_1Input.html", "classGameEngine_1_1System_1_1Input" ],
-        [ "Keyboard", "classGameEngine_1_1System_1_1Keyboard.html", "classGameEngine_1_1System_1_1Keyboard" ],
-        [ "Move", "classGameEngine_1_1System_1_1Move.html", "classGameEngine_1_1System_1_1Move" ],
+        [ "InputCatcher", "classGameEngine_1_1System_1_1InputCatcher.html", "classGameEngine_1_1System_1_1InputCatcher" ],
+        [ "NetworkEventPusher", "classGameEngine_1_1System_1_1NetworkEventPusher.html", "classGameEngine_1_1System_1_1NetworkEventPusher" ],
         [ "Parallax", "classGameEngine_1_1System_1_1Parallax.html", null ],
         [ "Physics", "classGameEngine_1_1System_1_1Physics.html", "classGameEngine_1_1System_1_1Physics" ],
-        [ "Renderer", "classGameEngine_1_1System_1_1Renderer.html", "classGameEngine_1_1System_1_1Renderer" ]
+        [ "Renderer", "classGameEngine_1_1System_1_1Renderer.html", "classGameEngine_1_1System_1_1Renderer" ],
+        [ "Spawn", "classGameEngine_1_1System_1_1Spawn.html", "classGameEngine_1_1System_1_1Spawn" ]
       ] ],
       [ "UI", null, [
-        [ "WindowContext", "structGameEngine_1_1UI_1_1WindowContext.html", "structGameEngine_1_1UI_1_1WindowContext" ],
         [ "Window", "classGameEngine_1_1UI_1_1Window.html", "classGameEngine_1_1UI_1_1Window" ]
       ] ]
-    ] ],
-    [ "ge", null, [
-      [ "Position", "structge_1_1Position.html", "structge_1_1Position" ]
     ] ],
     [ "Network", null, [
       [ "Client", "classNetwork_1_1Client.html", "classNetwork_1_1Client" ],
@@ -127,42 +135,26 @@ var annotated_dup =
     ] ],
     [ "Server", null, [
       [ "Game", null, [
+        [ "Game", "classServer_1_1Game_1_1Game.html", "classServer_1_1Game_1_1Game" ],
         [ "Player", "structServer_1_1Game_1_1Player.html", "structServer_1_1Game_1_1Player" ],
-        [ "IGame", "classServer_1_1Game_1_1IGame.html", "classServer_1_1Game_1_1IGame" ],
-        [ "RtypeGame", "classServer_1_1Game_1_1RtypeGame.html", "classServer_1_1Game_1_1RtypeGame" ],
-        [ "RtypeScene", "classServer_1_1Game_1_1RtypeScene.html", "classServer_1_1Game_1_1RtypeScene" ]
+        [ "IGame", "classServer_1_1Game_1_1IGame.html", "classServer_1_1Game_1_1IGame" ]
       ] ]
     ] ],
     [ "Tools", null, [
       [ "EndianConverter", "classTools_1_1EndianConverter.html", "classTools_1_1EndianConverter" ]
     ] ],
-    [ "Audio", "classAudio.html", "classAudio" ],
     [ "ConfigLoader", "classConfigLoader.html", "classConfigLoader" ],
-    [ "Display", "classDisplay.html", "classDisplay" ],
-    [ "Event", "classEvent.html", "classEvent" ],
     [ "GodModeData", "structGodModeData.html", "structGodModeData" ],
-    [ "IAudio", "classIAudio.html", "classIAudio" ],
-    [ "IDisplay", "classIDisplay.html", "classIDisplay" ],
-    [ "IEvent", "classIEvent.html", "classIEvent" ],
     [ "InputData", "structInputData.html", "structInputData" ],
-    [ "IRenderer", "classIRenderer.html", "classIRenderer" ],
-    [ "ITexture", "classITexture.html", "classITexture" ],
     [ "JoinGameData", "structJoinGameData.html", "structJoinGameData" ],
     [ "JoinRoomData", "structJoinRoomData.html", "structJoinRoomData" ],
     [ "KickPlayerData", "structKickPlayerData.html", "structKickPlayerData" ],
     [ "Message", "structMessage.html", "structMessage" ],
     [ "MessageHeader", "structMessageHeader.html", "structMessageHeader" ],
-    [ "Renderer", "classRenderer.html", "classRenderer" ],
     [ "Response", "structResponse.html", "structResponse" ],
     [ "ResponseHeader", "structResponseHeader.html", "structResponseHeader" ],
     [ "ServerClientDisconnectedData", "structServerClientDisconnectedData.html", "structServerClientDisconnectedData" ],
-    [ "SfmlAudio", "classSfmlAudio.html", null ],
-    [ "SfmlDisplay", "classSfmlDisplay.html", "classSfmlDisplay" ],
-    [ "SfmlEvent", "classSfmlEvent.html", null ],
-    [ "SfmlRenderer", "classSfmlRenderer.html", "classSfmlRenderer" ],
-    [ "SfmlTexture", "classSfmlTexture.html", null ],
     [ "SpectateData", "structSpectateData.html", "structSpectateData" ],
-    [ "Texture", "classTexture.html", "classTexture" ],
     [ "TimedMessage", "structTimedMessage.html", "structTimedMessage" ],
     [ "UpdateNameData", "structUpdateNameData.html", "structUpdateNameData" ]
 ];
