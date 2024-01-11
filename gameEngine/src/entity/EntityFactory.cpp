@@ -12,6 +12,7 @@
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/entity/EntityBuilder.hpp"
 
 namespace GameEngine::Entity
@@ -26,7 +27,9 @@ namespace GameEngine::Entity
       .networkedEntity = true,
       .metaData = true,
       .position = true,
-      .gravity = true}};
+      .gravity = true,
+      .hitbox = true,
+    }};
 
   EntityBluePrint EntityFactory::enemyEntity {
     .light = false,
@@ -37,7 +40,9 @@ namespace GameEngine::Entity
       .networkedEntity = true,
       .metaData = true,
       .position = true,
-      .gravity = true}};
+      .gravity = true,
+      .hitbox = true,
+    }};
 
   EntityBluePrint EntityFactory::bulletEntity {
     .light = false,
@@ -48,7 +53,9 @@ namespace GameEngine::Entity
       .networkedEntity = true,
       .metaData = true,
       .position = true,
-      .gravity = true}};
+      .gravity = true,
+      .hitbox = true,
+    }};
 
   EntityBluePrint EntityFactory::backgroundEntity {
     .light = false,
@@ -153,6 +160,9 @@ namespace GameEngine::Entity
     }
     if (payload.blueprint.gravity) {
       builder.buildComponent(ComponentRType::Gravity {});
+    }
+    if (payload.blueprint.hitbox) {
+      builder.buildComponent(ComponentRType::Hitbox {});
     }
     auto entity = builder.getResult();
     m_entities.push_back(entity);
