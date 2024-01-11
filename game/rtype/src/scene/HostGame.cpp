@@ -10,7 +10,6 @@
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/Spawning.hpp"
-#include "gameEngine/system/ControlableEntity.hpp"
 
 namespace Rtype::Scene
 {
