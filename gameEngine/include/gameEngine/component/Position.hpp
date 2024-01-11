@@ -18,6 +18,7 @@ namespace ComponentRType
     sf::Vector2f position;
     sf::Vector2f latestPosition;
     sf::Vector2f latestValidPosition;
+    bool isValid = true;
 
     Position() = default;
 
@@ -36,6 +37,7 @@ namespace ComponentRType
       archive & position;
       archive & latestPosition;
       archive & latestValidPosition;
+      archive & isValid;
     }
   };
 
