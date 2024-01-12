@@ -5,9 +5,7 @@
 #include "scene/Welcome.hpp"
 #include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/system/Renderer.hpp"
-#include "gameEngine/component/Transform.hpp"
-#include "gameEngine/component/Position.hpp"
-#include "gameEngine/component/Clickable.hpp"
+#include "gameEngine/UI/UIFactory.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Rtype::Scene
@@ -27,21 +25,8 @@ namespace Rtype::Scene
   void Welcome::initEntities()
   {
     SimpleScene::initEntities();
-    auto enttBackground = m_ecsRegistry->createEntity();
-    m_entities.push_back(enttBackground);
-    m_ecsRegistry->addComponent(
-      enttBackground,
-      ComponentRType::Displayable(GameEngine::Asset::getTexture("game/rtype/assets/welcome/bg.jpg")));
-
-    auto enttButton = m_ecsRegistry->createEntity();
-    m_entities.push_back(enttButton);
-    m_ecsRegistry->addComponent(
-      enttButton,
-      ComponentRType::Displayable(
-        GameEngine::Asset::getTexture("game/rtype/assets/welcome/rtype_button.jpg")));
-    m_ecsRegistry->addComponent(enttButton, ComponentRType::Transform());
-    m_ecsRegistry->addComponent(enttButton, ComponentRType::Position(615, 480));
-    m_ecsRegistry->addComponent(enttButton, ComponentRType::Clickable(615, 480, 690, 120));
+    GameEngine::UI::UIFactory uiFactory(m_entities, getEcsRegistry());
+    uiFactory.loadUIFromJSON("game/rtype/config/menu_welcome.json");
   }
 
   void Welcome::initEvents()

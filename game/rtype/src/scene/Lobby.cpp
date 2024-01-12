@@ -5,10 +5,12 @@
 #include "scene/Lobby.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/InputCatcher.hpp"
+#include "gameEngine/UI/UIFactory.hpp"
 #include "gameEngine/event/Events.hpp"
 #include "gameEngine/component/Transform.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Clickable.hpp"
+#include "gameEngine/component/Text.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Rtype::Scene
@@ -28,42 +30,8 @@ namespace Rtype::Scene
   void Lobby::initEntities()
   {
     SimpleScene::initEntities();
-
-    auto enttBackground = m_ecsRegistry->createEntity();
-    m_entities.push_back(enttBackground);
-    m_ecsRegistry->addComponent(
-      enttBackground,
-      ComponentRType::Displayable(GameEngine::Asset::getTexture("game/rtype/assets/lobby/bg.png")));
-
-    auto enttJoinButton = m_ecsRegistry->createEntity();
-    m_entities.push_back(enttJoinButton);
-    m_ecsRegistry->addComponent(enttJoinButton, ComponentRType::Transform());
-    m_ecsRegistry->addComponent(enttJoinButton, ComponentRType::Position(963, 720));
-    m_ecsRegistry->addComponent(enttJoinButton, ComponentRType::Clickable());
-    m_ecsRegistry->addComponent(
-      enttJoinButton,
-      ComponentRType::Displayable(
-        GameEngine::Asset::getTexture("game/rtype/assets/lobby/accept_button.png")));
-
-    auto enttReturnButton = m_ecsRegistry->createEntity();
-    m_entities.push_back(enttReturnButton);
-    m_ecsRegistry->addComponent(enttReturnButton, ComponentRType::Transform());
-    m_ecsRegistry->addComponent(enttReturnButton, ComponentRType::Clickable());
-    m_ecsRegistry->addComponent(enttReturnButton, ComponentRType::Position(803, 720));
-    m_ecsRegistry->addComponent(
-      enttReturnButton,
-      ComponentRType::Displayable(
-        GameEngine::Asset::getTexture("game/rtype/assets/lobby/return_button.png")));
-
-    auto enttEscapeButton = m_ecsRegistry->createEntity();
-    m_entities.push_back(enttEscapeButton);
-    m_ecsRegistry->addComponent(enttEscapeButton, ComponentRType::Transform());
-    m_ecsRegistry->addComponent(enttEscapeButton, ComponentRType::Position(1182, 270));
-    m_ecsRegistry->addComponent(enttEscapeButton, ComponentRType::Clickable());
-    m_ecsRegistry->addComponent(
-      enttEscapeButton,
-      ComponentRType::Displayable(
-        GameEngine::Asset::getTexture("game/rtype/assets/lobby/escape_button.png")));
+    GameEngine::UI::UIFactory uiFactory(m_entities, getEcsRegistry());
+    uiFactory.loadUIFromJSON("game/rtype/config/menu_lobby.json");
   }
 
   void Lobby::initEvents()
