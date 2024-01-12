@@ -150,24 +150,26 @@ $(document).ready(function(){initNavTree('EntityFactory_8hpp_source.html',''); i
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    GameEngine::ECS::Entity createFromBluePrint(<a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> <span class="keyword">const</span> &amp;payload);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> playerEntity;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> enemyEntity;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> bulletEntity;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a> = <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> playerEntity;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> enemyEntity;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> bulletEntity;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> backgroundEntity;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::vector&lt;GameEngine::ECS::Entity&gt; &amp;m_entities; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;m_registry;            </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  };</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <span class="comment">// GameEngine::Entity</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a> = <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::vector&lt;GameEngine::ECS::Entity&gt; &amp;m_entities; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;m_registry;            </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  };</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// GameEngine::Entity</span></div>
 <div class="ttc" id="aclassGameEngine_1_1Asset_1_1AssetManager_html"><div class="ttname"><a href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a></div><div class="ttdef"><b>Definition:</b> AssetManager.hpp:17</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1Registry_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a></div><div class="ttdef"><b>Definition:</b> Registry.hpp:19</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Entity_1_1EntityFactory_html"><div class="ttname"><a href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a></div><div class="ttdef"><b>Definition:</b> EntityFactory.hpp:18</div></div>
 <div class="ttc" id="astructComponentRType_1_1MetaData_html"><div class="ttname"><a href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a></div><div class="ttdef"><b>Definition:</b> MetaData.hpp:18</div></div>
 <div class="ttc" id="astructComponentRType_1_1NetworkedEntity_html"><div class="ttname"><a href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a></div><div class="ttdef"><b>Definition:</b> NetworkedEntity.hpp:16</div></div>
-<div class="ttc" id="astructGameEngine_1_1Entity_1_1EntityBluePrint_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">GameEngine::Entity::EntityBluePrint</a></div><div class="ttdef"><b>Definition:</b> EntityType.hpp:58</div></div>
+<div class="ttc" id="astructGameEngine_1_1Entity_1_1EntityBluePrint_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">GameEngine::Entity::EntityBluePrint</a></div><div class="ttdef"><b>Definition:</b> EntityType.hpp:84</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
