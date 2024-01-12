@@ -18,6 +18,7 @@
       "health": 100,
       "attackPattern": "Zigzag",
       "speed": 2
+
     },
     {
       "type": "Boss",

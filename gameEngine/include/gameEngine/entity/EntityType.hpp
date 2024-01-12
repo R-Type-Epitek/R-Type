@@ -25,6 +25,7 @@ namespace GameEngine::Entity
     };
 
     static EntityType getEntityType(const std::string& typeStr) {
+      
       static const std::unordered_map<std::string, EntityType> typeMap = {
         {"None", None},
         {"Player", Player},
@@ -49,6 +50,18 @@ namespace GameEngine::Entity
         {Bullet, "Bullet"},
         {Boss, "Boss"}
       };
+      
+  struct ComponentBluePrint {
+    bool transform = false;
+    bool displayable = false;
+    bool clickable = false;
+    bool controllable = false;
+    bool networkedEntity = false;
+    bool metaData = false;
+    bool position = false;
+    bool gravity = false;
+    bool hitbox = false;
+  };
 
       auto it = typeMap.find(type);
       assert(it != typeMap.end());
