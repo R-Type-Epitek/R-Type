@@ -32,9 +32,8 @@ namespace GameEngine::System
    public:
     void bindEvent(Event::EventRegistry& eventRegistry) final
     {
-      eventRegistry.subscribeLambda<Event::MouseButtonPressed>(([this](const Event::IEvent& eventRaw) {
-        handleClick(eventRaw);
-      }));
+      eventRegistry.subscribeLambda<Event::MouseButtonPressed>(
+        ([this](const Event::IEvent& eventRaw) { handleClick(eventRaw); }));
     }
 
     void update()
@@ -58,9 +57,11 @@ namespace GameEngine::System
         auto& displayable = componentManager->getComponent<ComponentRType::Displayable>(entity);
         auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
 
-        if (displayable.sprite.getGlobalBounds().contains(
-              static_cast<float>(event.x),
-              static_cast<float>(event.y))) {
+        if (
+          displayable.sprite.getGlobalBounds().contains(
+            static_cast<float>(event.x),
+            static_cast<float>(event.y)) &&
+          clickable.callback) {
           clickable.callback();
         }
         displayable.sprite.setPosition(position.position);
