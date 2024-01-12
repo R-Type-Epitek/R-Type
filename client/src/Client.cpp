@@ -29,6 +29,17 @@ namespace Client
     initScenes();
   };
 
+  Client::Client(std::string const &ip, std::string const &port)
+    : ip(ip)
+    , port(port)
+    , appName("Rtype client")
+  {
+    spdlog::info("Starting Client...");
+    initNetwork();
+    initGameEngine();
+    initScenes();
+  };
+
   void Client::initNetwork()
   {
     try {

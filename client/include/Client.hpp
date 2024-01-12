@@ -18,6 +18,7 @@ namespace Client
      * @brief Construct a new Client object.
      */
     Client();
+    Client(std::string const &ip, std::string const &port);
 
     void initNetwork();
 
