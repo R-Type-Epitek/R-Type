@@ -105,4 +105,9 @@ namespace GameEngine::UI
     auto& elem = m_registry.getComponentManager()->getComponent<ComponentRType::UIElement>(entity);
     elem.callBackValue = callbackValue;
   }
+
+  std::map<std::string, ECS::Entity> UIFactory::getUIElements()
+  {
+    return m_uiElements;
+  }
 }
