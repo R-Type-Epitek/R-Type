@@ -132,15 +132,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3853737992912ff9ff85f09e74a8163a"><td class="memItemLeft" align="right" valign="top"><a id="a3853737992912ff9ff85f09e74a8163a"></a>
 sf::Texture &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTexture</b> (const std::string &amp;textureId)</td></tr>
 <tr class="separator:a3853737992912ff9ff85f09e74a8163a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd3608e915b8820badfafb05f18dfea"><td class="memItemLeft" align="right" valign="top"><a id="a7dd3608e915b8820badfafb05f18dfea"></a>
+sf::Font &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getFont</b> (const std::string &amp;fontId)</td></tr>
+<tr class="separator:a7dd3608e915b8820badfafb05f18dfea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cba658a6f8254082846f4742c397ff2"><td class="memItemLeft" align="right" valign="top"><a id="a6cba658a6f8254082846f4742c397ff2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>unloadTexture</b> (const std::string &amp;textureId)</td></tr>
 <tr class="separator:a6cba658a6f8254082846f4742c397ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ee7bf6d7ac340fcd4f6ff0a0c2e76b0"><td class="memItemLeft" align="right" valign="top"><a id="a0ee7bf6d7ac340fcd4f6ff0a0c2e76b0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>unloadFont</b> (const std::string &amp;fontId)</td></tr>
+<tr class="separator:a0ee7bf6d7ac340fcd4f6ff0a0c2e76b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab038822fe8fb56f9b1d213ec29f8e0ad"><td class="memItemLeft" align="right" valign="top"><a id="ab038822fe8fb56f9b1d213ec29f8e0ad"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadTexture</b> (const std::string &amp;path, const std::string &amp;textureId)</td></tr>
 <tr class="separator:ab038822fe8fb56f9b1d213ec29f8e0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78b857a80eeb134b9be46cbc7c17ec1b"><td class="memItemLeft" align="right" valign="top"><a id="a78b857a80eeb134b9be46cbc7c17ec1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadTexturesFromDirectories</b> (const std::string &amp;directory, const std::string &amp;fileExtension=&quot;.png&quot;)</td></tr>
-<tr class="separator:a78b857a80eeb134b9be46cbc7c17ec1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff55dfc96e04ef26c6004cf9fe4609c"><td class="memItemLeft" align="right" valign="top"><a id="a3ff55dfc96e04ef26c6004cf9fe4609c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFont</b> (const std::string &amp;path, const std::string &amp;fontId)</td></tr>
+<tr class="separator:a3ff55dfc96e04ef26c6004cf9fe4609c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580786e554aa54dfe6a1c37c1d0a5f09"><td class="memItemLeft" align="right" valign="top"><a id="a580786e554aa54dfe6a1c37c1d0a5f09"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadAssetsFromDirectories</b> (const std::string &amp;textureDirectory, const std::string &amp;fontDirectory, const std::string &amp;textureFileExtension=&quot;.png&quot;, const std::string &amp;fontFileExtension=&quot;.ttf&quot;)</td></tr>
+<tr class="separator:a580786e554aa54dfe6a1c37c1d0a5f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -153,6 +162,9 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:abc67e23fa8e4642d29e7dbf0e47885a2"><td class="memItemLeft" align="right" valign="top"><a id="abc67e23fa8e4642d29e7dbf0e47885a2"></a>
 static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>defaultTextureId</b> = &quot;game/rtype/assets/bobross.jpg&quot;</td></tr>
 <tr class="separator:abc67e23fa8e4642d29e7dbf0e47885a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6380812674d7d8b1d2085969ee1a1629"><td class="memItemLeft" align="right" valign="top"><a id="a6380812674d7d8b1d2085969ee1a1629"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>defaultFontId</b> = &quot;game/rtype/assets/font/nasalization-rg.ttf&quot;</td></tr>
+<tr class="separator:a6380812674d7d8b1d2085969ee1a1629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gameEngine/include/gameEngine/asset/<a class="el" href="AssetManager_8hpp_source.html">AssetManager.hpp</a></li>

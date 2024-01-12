@@ -14,9 +14,9 @@ var classClient_1_1Network =
     [ "getSerializedEcsState", "classClient_1_1Network.html#a8b2fc2f0a9566038d68d2485b71dedfe", null ],
     [ "godMode", "classClient_1_1Network.html#a5b5e5462b863cf0d284c430df9fd8cb3", null ],
     [ "handleSend", "classClient_1_1Network.html#aa433394ccb8d01696e30252eec870e66", null ],
-    [ "joinGame", "classClient_1_1Network.html#a8fb4a0ec6478049555f7ef13fe15d2f0", null ],
-    [ "joinRoom", "classClient_1_1Network.html#af9322d011cea31df49fe776392ad0648", null ],
-    [ "joinRoomAuto", "classClient_1_1Network.html#ad77a5162bc672e75a125603bed255703", null ],
+    [ "joinGame", "classClient_1_1Network.html#a18a08f3ffdb4c807d99b4469fc31be51", null ],
+    [ "joinRoom", "classClient_1_1Network.html#a2660fc82115df06196c376054a775fba", null ],
+    [ "joinRoomAuto", "classClient_1_1Network.html#abcac59eb1c6965592f73a2d9a84f556b", null ],
     [ "kickPlayer", "classClient_1_1Network.html#ac6249495a00bfc861a4cf2e3ba37460c", null ],
     [ "onCheckConnectionMessage", "classClient_1_1Network.html#a36443c385e3362690cbbc6a2ab8c16d6", null ],
     [ "onReceive", "classClient_1_1Network.html#a6b3e2b7068834a8663ce7c1797e3089d", null ],
@@ -32,7 +32,7 @@ var classClient_1_1Network =
     [ "setName", "classClient_1_1Network.html#a17f5c274ef1658e21cba3c1b96a06ef9", null ],
     [ "setRemoteEndpoint", "classClient_1_1Network.html#ae2cc6225754b3f7b46fa87422c6540da", null ],
     [ "setRoomId", "classClient_1_1Network.html#a32740d05d50258cbe320af2a3d82529c", null ],
-    [ "spectate", "classClient_1_1Network.html#adc3c50dae4d5a9f6e6f3b9a981750b92", null ],
+    [ "spectate", "classClient_1_1Network.html#aa75cbc2ac4cdeb78c94cb359f23638ea", null ],
     [ "startReceive", "classClient_1_1Network.html#ab0adb2e5baaca04802dd5b2a99e2599c", null ],
-    [ "updateName", "classClient_1_1Network.html#a9090adb4709e633a7787595896adcc07", null ]
+    [ "updateName", "classClient_1_1Network.html#a417c2a0f6c32086d6c2e14934d9311b2", null ]
 ];

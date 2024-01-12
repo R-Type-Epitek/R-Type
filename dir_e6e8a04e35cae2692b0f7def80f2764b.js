@@ -9,5 +9,7 @@ var dir_e6e8a04e35cae2692b0f7def80f2764b =
     [ "Parallax.hpp", "system_2Parallax_8hpp_source.html", null ],
     [ "Physics.hpp", "Physics_8hpp_source.html", null ],
     [ "Renderer.hpp", "system_2Renderer_8hpp_source.html", null ],
-    [ "Spawning.hpp", "Spawning_8hpp_source.html", null ]
+    [ "Spawning.hpp", "Spawning_8hpp_source.html", null ],
+    [ "TextRenderer.hpp", "TextRenderer_8hpp_source.html", null ],
+    [ "UI.hpp", "UI_8hpp_source.html", null ]
 ];

@@ -1,150 +1,219 @@
 <!-- HTML header for doxygen 1.9.8-->
 <!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=11" />
-  <meta name="generator" content="Doxygen 1.9.8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: GameEngine::Scene::SceneContainer Class Reference</title>
-  <link href="tabs.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="jquery.js"></script>
-  <script type="text/javascript" src="dynsections.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
-  <script type="text/javascript">
-      DoxygenAwesomeDarkModeToggle.init()
-      DoxygenAwesomeFragmentCopyButton.init()
-      DoxygenAwesomeParagraphLink.init()
-      DoxygenAwesomeInteractiveToc.init()
-      DoxygenAwesomeTabs.init()
-  </script>
-  <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-  <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-  <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/xhtml;charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="IE=11" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.9.8" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>R-Type: GameEngine::Scene::SceneContainer Class Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="dynsections.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-darkmode-toggle.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-fragment-copy-button.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-paragraph-link.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-interactive-toc.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-tabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeParagraphLink.init()
+        DoxygenAwesomeInteractiveToc.init()
+        DoxygenAwesomeTabs.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+    <script src="resize.js" type="text/javascript"></script>
+    <script src="navtreedata.js" type="text/javascript"></script>
+    <script src="navtree.js" type="text/javascript"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+    <script src="search/searchdata.js" type="text/javascript"></script>
+    <script src="search/search.js" type="text/javascript"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-      <div id="titlearea">
-        <table cellspacing="0" cellpadding="0">
-          <tbody>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellpadding="0" cellspacing="0">
+            <tbody>
             <tr id="projectrow">
-              <td id="projectalign">
-                <div id="projectname">R-Type
-                </div>
-                <div id="projectbrief">R-Type is a 2D shoot&#39;em up game developed by a team of 5 students from Epitech Bordeaux.</div>
-              </td>
+                <td id="projectalign">
+                    <div id="projectname">R-Type
+                    </div>
+                    <div id="projectbrief">R-Type is a 2D shoot&#39;em up game developed by a team of 5 students from
+                        Epitech Bordeaux.
+                    </div>
+                </td>
             </tr>
-          </tbody>
+            </tbody>
         </table>
-      </div>
-      <!-- end header part --><!-- Generated by Doxygen 1.9.8 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
     </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
+    <!-- end header part --><!-- Generated by Doxygen 1.9.8 -->
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+        var searchBox = new SearchBox("searchBox", "search/", '.html');
+        /* @license-end */
+    </script>
+    <script src="menudata.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+        $(function () {
+            initMenu('', true, false, 'search.php', 'Search');
+            $(document).ready(function () {
+                init_search();
+            });
+        });
+        /* @license-end */
+    </script>
+    <div id="main-nav"></div>
+</div><!-- top -->
+<div class="ui-resizable side-nav-resizable" id="side-nav">
+    <div id="nav-tree">
+        <div id="nav-tree-contents">
+            <div class="sync" id="nav-sync"></div>
+        </div>
+    </div>
+    <div class="ui-resizable-handle" id="splitbar"
+         style="-moz-user-select:none;">
+    </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('class_game_engine_1_1_scene_1_1_scene_container.html',''); initResizable(); });
-/* @license-end */
+    /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+    $(document).ready(function () {
+        initNavTree('class_game_engine_1_1_scene_1_1_scene_container.html', '');
+        initResizable();
+    });
+    /* @license-end */
 </script>
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+    <!-- window showing the filter options -->
+    <div id="MSearchSelectWindow"
+         onkeydown="return searchBox.OnSearchSelectKey(event)"
+         onmouseout="return searchBox.OnSearchSelectHide()"
+         onmouseover="return searchBox.OnSearchSelectShow()">
+    </div>
 
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">Loading...</div>
-<div class="SRStatus" id="Searching">Searching...</div>
-<div class="SRStatus" id="NoMatches">No Matches</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- iframe showing the search results (closed by default) -->
+    <div id="MSearchResultsWindow">
+        <div id="MSearchResults">
+            <div class="SRPage">
+                <div id="SRIndex">
+                    <div id="SRResults"></div>
+                    <div class="SRStatus" id="Loading">Loading...</div>
+                    <div class="SRStatus" id="Searching">Searching...</div>
+                    <div class="SRStatus" id="NoMatches">No Matches</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_game_engine_1_1_scene_1_1_scene_container-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">GameEngine::Scene::SceneContainer Class Reference</div></div>
-</div><!--header-->
-<div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:af9d99b58c428ea41fd489e09fa1d2e17" id="r_af9d99b58c428ea41fd489e09fa1d2e17"><td class="memItemLeft" align="right" valign="top"><a id="af9d99b58c428ea41fd489e09fa1d2e17" name="af9d99b58c428ea41fd489e09fa1d2e17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addScene</b> (std::string const &amp;name, std::unique_ptr&lt; <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &gt; scene)</td></tr>
-<tr class="separator:af9d99b58c428ea41fd489e09fa1d2e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52341ce0fe17f2f1e0cd77fd6788fc13" id="r_a52341ce0fe17f2f1e0cd77fd6788fc13"><td class="memItemLeft" align="right" valign="top"><a id="a52341ce0fe17f2f1e0cd77fd6788fc13" name="a52341ce0fe17f2f1e0cd77fd6788fc13"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deleteScene</b> (std::string const &amp;name)</td></tr>
-<tr class="separator:a52341ce0fe17f2f1e0cd77fd6788fc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa15ee761498557503e4e7cac486535a4" id="r_aa15ee761498557503e4e7cac486535a4"><td class="memItemLeft" align="right" valign="top"><a id="aa15ee761498557503e4e7cac486535a4" name="aa15ee761498557503e4e7cac486535a4"></a>
-<a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getScene</b> (std::string const &amp;name)</td></tr>
-<tr class="separator:aa15ee761498557503e4e7cac486535a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a236e187f5becbc4918dba8cbd20d638e" id="r_a236e187f5becbc4918dba8cbd20d638e"><td class="memItemLeft" align="right" valign="top"><a id="a236e187f5becbc4918dba8cbd20d638e" name="a236e187f5becbc4918dba8cbd20d638e"></a>
-<a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (std::string const &amp;name)</td></tr>
-<tr class="separator:a236e187f5becbc4918dba8cbd20d638e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10474b3a05ca248f69b648f94287ca74" id="r_a10474b3a05ca248f69b648f94287ca74"><td class="memItemLeft" align="right" valign="top"><a id="a10474b3a05ca248f69b648f94287ca74" name="a10474b3a05ca248f69b648f94287ca74"></a>
-std::map&lt; std::string, std::unique_ptr&lt; <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
-<tr class="separator:a10474b3a05ca248f69b648f94287ca74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d45bdec2e7db5e41269ce12bf7d3f3" id="r_a00d45bdec2e7db5e41269ce12bf7d3f3"><td class="memItemLeft" align="right" valign="top"><a id="a00d45bdec2e7db5e41269ce12bf7d3f3" name="a00d45bdec2e7db5e41269ce12bf7d3f3"></a>
-std::map&lt; std::string, std::unique_ptr&lt; <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
-<tr class="separator:a00d45bdec2e7db5e41269ce12bf7d3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>gameEngine/include/gameEngine/scene/<a class="el" href="_scene_container_8hpp_source.html">SceneContainer.hpp</a></li>
-<li>gameEngine/src/scene/<b>SceneContainer.cpp</b></li>
-</ul>
-</div><!-- contents -->
+    <div class="header">
+        <div class="summary">
+            <a href="#pub-methods">Public Member Functions</a> &#124;
+            <a href="class_game_engine_1_1_scene_1_1_scene_container-members.html">List of all members</a></div>
+        <div class="headertitle">
+            <div class="title">GameEngine::Scene::SceneContainer Class Reference</div>
+        </div>
+    </div><!--header-->
+    <div class="contents">
+        <table class="memberdecls">
+            <tr class="heading">
+                <td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+                    Public Member Functions</h2></td>
+            </tr>
+            <tr class="memitem:af9d99b58c428ea41fd489e09fa1d2e17" id="r_af9d99b58c428ea41fd489e09fa1d2e17">
+                <td align="right" class="memItemLeft" valign="top"><a id="af9d99b58c428ea41fd489e09fa1d2e17"
+                                                                      name="af9d99b58c428ea41fd489e09fa1d2e17"></a>
+                    void&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>addScene</b> (std::string const &amp;name, std::unique_ptr&lt;
+                    <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &gt; scene)
+                </td>
+            </tr>
+            <tr class="separator:af9d99b58c428ea41fd489e09fa1d2e17">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a52341ce0fe17f2f1e0cd77fd6788fc13" id="r_a52341ce0fe17f2f1e0cd77fd6788fc13">
+                <td align="right" class="memItemLeft" valign="top"><a id="a52341ce0fe17f2f1e0cd77fd6788fc13"
+                                                                      name="a52341ce0fe17f2f1e0cd77fd6788fc13"></a>
+                    void&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>deleteScene</b> (std::string const &amp;name)</td>
+            </tr>
+            <tr class="separator:a52341ce0fe17f2f1e0cd77fd6788fc13">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:aa15ee761498557503e4e7cac486535a4" id="r_aa15ee761498557503e4e7cac486535a4">
+                <td align="right" class="memItemLeft" valign="top"><a id="aa15ee761498557503e4e7cac486535a4"
+                                                                      name="aa15ee761498557503e4e7cac486535a4"></a>
+                    <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &amp;&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>getScenes</b> (std::string const &amp;name)</td>
+            </tr>
+            <tr class="separator:aa15ee761498557503e4e7cac486535a4">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a236e187f5becbc4918dba8cbd20d638e" id="r_a236e187f5becbc4918dba8cbd20d638e">
+                <td align="right" class="memItemLeft" valign="top"><a id="a236e187f5becbc4918dba8cbd20d638e"
+                                                                      name="a236e187f5becbc4918dba8cbd20d638e"></a>
+                    <a class="el" href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a> &amp;&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>find</b> (std::string const &amp;name)</td>
+            </tr>
+            <tr class="separator:a236e187f5becbc4918dba8cbd20d638e">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a10474b3a05ca248f69b648f94287ca74" id="r_a10474b3a05ca248f69b648f94287ca74">
+                <td align="right" class="memItemLeft" valign="top"><a id="a10474b3a05ca248f69b648f94287ca74"
+                                                                      name="a10474b3a05ca248f69b648f94287ca74"></a>
+                    std::map&lt; std::string, std::unique_ptr&lt; <a class="el"
+                                                                     href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a>
+                    &gt; &gt;::iterator&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>begin</b> ()</td>
+            </tr>
+            <tr class="separator:a10474b3a05ca248f69b648f94287ca74">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a00d45bdec2e7db5e41269ce12bf7d3f3" id="r_a00d45bdec2e7db5e41269ce12bf7d3f3">
+                <td align="right" class="memItemLeft" valign="top"><a id="a00d45bdec2e7db5e41269ce12bf7d3f3"
+                                                                      name="a00d45bdec2e7db5e41269ce12bf7d3f3"></a>
+                    std::map&lt; std::string, std::unique_ptr&lt; <a class="el"
+                                                                     href="class_game_engine_1_1_scene_1_1_i_scene.html">IScene</a>
+                    &gt; &gt;::iterator&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>end</b> ()</td>
+            </tr>
+            <tr class="separator:a00d45bdec2e7db5e41269ce12bf7d3f3">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+        </table>
+        <hr/>
+        The documentation for this class was generated from the following files:
+        <ul>
+            <li>gameEngine/include/gameEngine/scene/<a class="el" href="_scene_container_8hpp_source.html">SceneContainer.hpp</a>
+            </li>
+            <li>gameEngine/src/scene/<b>SceneContainer.cpp</b></li>
+        </ul>
+    </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>GameEngine</b></li><li class="navelem"><b>Scene</b></li><li class="navelem"><a class="el" href="class_game_engine_1_1_scene_1_1_scene_container.html">SceneContainer</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
-  </ul>
+<div class="navpath" id="nav-path"><!-- id is needed for treeview function! -->
+    <ul>
+        <li class="navelem"><b>GameEngine</b></li>
+        <li class="navelem"><b>Scene</b></li>
+        <li class="navelem"><a class="el" href="class_game_engine_1_1_scene_1_1_scene_container.html">SceneContainer</a>
+        </li>
+        <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img alt="doxygen"
+                                                                                          class="footer" height="31"
+                                                                                          src="doxygen.svg"
+                                                                                          width="104"/></a> 1.9.8
+        </li>
+    </ul>
 </div>
 </body>
 </html>

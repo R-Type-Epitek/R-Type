@@ -164,36 +164,37 @@ $(document).ready(function(){initNavTree('Core_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//    - Scene -</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> loadScenes();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> addScene(<span class="keyword">const</span> std::string&amp; name, std::unique_ptr&lt;Scene::IScene&gt; scene);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classGameEngine_1_1Scene_1_1IScene.html">Scene::IScene</a>&amp; getCurrentScene();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> setCurrentScene(<span class="keyword">const</span> std::string&amp; name);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//    GUI</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> enableGUI();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> disableGUI();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::shared_ptr&lt;UI::Window&gt; getGUI();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//    - Tick rate -</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> setTicksPerSecond(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ticksPerSecond);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getTicksPerSecond() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">//    - Getters -</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> std::string&amp; getProjectName() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> GameEngineState&amp; getGameEngineState() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> std::string m_projectName;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_ticksPerSecond;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::chrono::steady_clock::time_point m_lastFrameTime;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    GameEngineState m_gameEngineState;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> m_graphical;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::function&lt;void()&gt; m_updateExternClosure;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_updateClosureRate;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::shared_ptr&lt;Scene::ISceneManager&gt; m_sceneManager;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::shared_ptr&lt;UI::Window&gt; m_gui;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  };</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// namespace GameEngine::Core</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::shared_ptr&lt;Scene::ISceneManager&gt; getSceneManager();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classGameEngine_1_1Scene_1_1IScene.html">Scene::IScene</a>&amp; getCurrentScene();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setCurrentScene(<span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//    GUI</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> enableGUI();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> disableGUI();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::shared_ptr&lt;UI::Window&gt; getGUI();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//    - Tick rate -</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> setTicksPerSecond(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ticksPerSecond);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getTicksPerSecond() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">//    - Getters -</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> std::string&amp; getProjectName() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">const</span> GameEngineState&amp; getGameEngineState() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">const</span> std::string m_projectName;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_ticksPerSecond;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::chrono::steady_clock::time_point m_lastFrameTime;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    GameEngineState m_gameEngineState;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> m_graphical;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::function&lt;void()&gt; m_updateExternClosure;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_updateClosureRate;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::shared_ptr&lt;Scene::ISceneManager&gt; m_sceneManager;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::shared_ptr&lt;UI::Window&gt; m_gui;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace GameEngine::Core</span></div>
 <div class="ttc" id="aclassGameEngine_1_1Core_1_1Core_html"><div class="ttname"><a href="classGameEngine_1_1Core_1_1Core.html">GameEngine::Core::Core</a></div><div class="ttdef"><b>Definition:</b> Core.hpp:23</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Scene_1_1IScene_html"><div class="ttname"><a href="classGameEngine_1_1Scene_1_1IScene.html">GameEngine::Scene::IScene</a></div><div class="ttdoc">IScene class specifically designed for game functionality in an application.</div><div class="ttdef"><b>Definition:</b> IScene.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->

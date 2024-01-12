@@ -128,40 +128,52 @@ $(document).ready(function(){initNavTree('AssetManager_8hpp_source.html',''); in
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics/Texture.hpp&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>GameEngine::Asset</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classGameEngine_1_1Asset_1_1AssetManager.html">   15</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> std::string defaultTextureId;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a>&amp; getInstance();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    sf::Texture&amp; getTexture(<span class="keyword">const</span> std::string&amp; textureId);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> unloadTexture(<span class="keyword">const</span> std::string&amp; textureId);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> loadTexture(<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> std::string&amp; textureId);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics/Font.hpp&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;spdlog/spdlog.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>GameEngine::Asset</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classGameEngine_1_1Asset_1_1AssetManager.html">   17</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> std::string defaultTextureId;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> std::string defaultFontId;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a>&amp; getInstance();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    sf::Texture&amp; getTexture(<span class="keyword">const</span> std::string&amp; textureId);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    sf::Font&amp; getFont(<span class="keyword">const</span> std::string&amp; fontId);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> loadTexturesFromDirectories(<span class="keyword">const</span> std::string&amp; directory, <span class="keyword">const</span> std::string&amp; fileExtension = <span class="stringliteral">&quot;.png&quot;</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::unordered_map&lt;std::string, sf::Texture&gt; m_textures;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Private function to check if the texture exists</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> textureExists(<span class="keyword">const</span> std::string&amp; textureId) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  sf::Texture&amp; getTexture(<span class="keyword">const</span> std::string&amp; textureId = AssetManager::defaultTextureId);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">// namespace GameEngine::Asset::AssetManager</span></div>
-<div class="ttc" id="aclassGameEngine_1_1Asset_1_1AssetManager_html"><div class="ttname"><a href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a></div><div class="ttdef"><b>Definition:</b> AssetManager.hpp:15</div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> unloadTexture(<span class="keyword">const</span> std::string&amp; textureId);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> unloadFont(<span class="keyword">const</span> std::string&amp; fontId);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> loadTexture(<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> std::string&amp; textureId);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> loadFont(<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> std::string&amp; fontId);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> loadAssetsFromDirectories(</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">const</span> std::string&amp; textureDirectory,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">const</span> std::string&amp; fontDirectory,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">const</span> std::string&amp; textureFileExtension = <span class="stringliteral">&quot;.png&quot;</span>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">const</span> std::string&amp; fontFileExtension = <span class="stringliteral">&quot;.ttf&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::unordered_map&lt;std::string, sf::Texture&gt; m_textures;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::unordered_map&lt;std::string, sf::Font&gt; m_fonts;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> textureExists(<span class="keyword">const</span> std::string&amp; textureId) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> fontExists(<span class="keyword">const</span> std::string&amp; fontId) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  sf::Texture&amp; getTexture(<span class="keyword">const</span> std::string&amp; textureId = AssetManager::defaultTextureId);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  sf::Font&amp; getFont(<span class="keyword">const</span> std::string&amp; fontId = AssetManager::defaultFontId);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace GameEngine::Asset</span></div>
+<div class="ttc" id="aclassGameEngine_1_1Asset_1_1AssetManager_html"><div class="ttname"><a href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a></div><div class="ttdef"><b>Definition:</b> AssetManager.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

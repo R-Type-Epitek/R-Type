@@ -128,21 +128,32 @@ $(document).ready(function(){initNavTree('INetworkController_8hpp_source.html','
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;gameEngine/constants/Keybinds.hpp&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>GameEngine::Network</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classGameEngine_1_1Network_1_1INetworkController.html">   11</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1Network_1_1INetworkController.html">INetworkController</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classGameEngine_1_1Network_1_1INetworkController.html">INetworkController</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> sendKey(GameEngine::Keybinds key) = 0;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> connect() = 0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> std::vector&lt;std::vector&lt;char&gt;&gt; getSerializedEcsState() = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  };</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;} <span class="comment">// namespace GameEngine::Network</span></div>
-<div class="ttc" id="aclassGameEngine_1_1Network_1_1INetworkController_html"><div class="ttname"><a href="classGameEngine_1_1Network_1_1INetworkController.html">GameEngine::Network::INetworkController</a></div><div class="ttdef"><b>Definition:</b> INetworkController.hpp:11</div></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>GameEngine::Network</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classGameEngine_1_1Network_1_1INetworkController.html">   12</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1Network_1_1INetworkController.html">INetworkController</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classGameEngine_1_1Network_1_1INetworkController.html">INetworkController</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> sendKey(GameEngine::Keybinds key) = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> connect() = 0;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> joinRoomAuto() = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> joinRoom(<span class="keywordtype">int</span> roomId) = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> spectate(<span class="keywordtype">int</span> roomId) = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> joinGame(<span class="keywordtype">int</span> roomId) = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> updateName(std::string name) = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> std::vector&lt;std::vector&lt;char&gt;&gt; getSerializedEcsState() = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace GameEngine::Network</span></div>
+<div class="ttc" id="aclassGameEngine_1_1Network_1_1INetworkController_html"><div class="ttname"><a href="classGameEngine_1_1Network_1_1INetworkController.html">GameEngine::Network::INetworkController</a></div><div class="ttdef"><b>Definition:</b> INetworkController.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

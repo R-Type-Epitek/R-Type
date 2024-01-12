@@ -12,6 +12,8 @@ var classGameEngine_1_1Builder_1_1RegistryBuilder =
     [ "buildSystemPhysics", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#ab60e412e46c3737ccf96fb1b741a6c82", null ],
     [ "buildSystemRenderer", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a3ab7a64d567f9ff08c045a9fc7ea68ab", null ],
     [ "buildSystemSpawning", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#aee0d9655e8598a91f57086ca39d9aa46", null ],
+    [ "buildSystemTextRenderer", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a2bced7e5aa203a96dd45e166df22d234", null ],
+    [ "buildSystemUI", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a535ee624065a7ca48aadc35f67221d06", null ],
     [ "getResult", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a57e4bc4cc1d4c687ab68bdb5f2458931", null ],
     [ "registerAllMandatoryComponent", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a8ab52b22fc1a13d781e649f4d2660185", null ],
     [ "registerComponent", "classGameEngine_1_1Builder_1_1RegistryBuilder.html#a2e5f9834efe13aa57321eee6248722da", null ]

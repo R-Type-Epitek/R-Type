@@ -9,5 +9,7 @@ var dir_aa17dbcb77c470b4b54e6c04fee460e3 =
     [ "NetworkedEntity.hpp", "NetworkedEntity_8hpp_source.html", null ],
     [ "Parallax.hpp", "component_2Parallax_8hpp_source.html", null ],
     [ "Position.hpp", "Position_8hpp_source.html", null ],
-    [ "Transform.hpp", "Transform_8hpp_source.html", null ]
+    [ "Text.hpp", "component_2Text_8hpp_source.html", null ],
+    [ "Transform.hpp", "Transform_8hpp_source.html", null ],
+    [ "UiElement.hpp", "UiElement_8hpp_source.html", null ]
 ];

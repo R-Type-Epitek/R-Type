@@ -34,7 +34,9 @@ var annotated_dup =
       [ "NetworkedEntity", "structComponentRType_1_1NetworkedEntity.html", "structComponentRType_1_1NetworkedEntity" ],
       [ "Parallax", "structComponentRType_1_1Parallax.html", null ],
       [ "Position", "structComponentRType_1_1Position.html", "structComponentRType_1_1Position" ],
-      [ "Transform", "structComponentRType_1_1Transform.html", "structComponentRType_1_1Transform" ]
+      [ "Text", "structComponentRType_1_1Text.html", "structComponentRType_1_1Text" ],
+      [ "Transform", "structComponentRType_1_1Transform.html", "structComponentRType_1_1Transform" ],
+      [ "UIElement", "structComponentRType_1_1UIElement.html", "structComponentRType_1_1UIElement" ]
     ] ],
     [ "GameEngine", null, [
       [ "Asset", null, [
@@ -68,6 +70,7 @@ var annotated_dup =
         [ "EventRegistry", "classGameEngine_1_1Event_1_1EventRegistry.html", "classGameEngine_1_1Event_1_1EventRegistry" ],
         [ "EntityCollision", "structGameEngine_1_1Event_1_1EntityCollision.html", "structGameEngine_1_1Event_1_1EntityCollision" ],
         [ "KeyboardInput", "structGameEngine_1_1Event_1_1KeyboardInput.html", "structGameEngine_1_1Event_1_1KeyboardInput" ],
+        [ "MouseButtonPressed", "structGameEngine_1_1Event_1_1MouseButtonPressed.html", "structGameEngine_1_1Event_1_1MouseButtonPressed" ],
         [ "MoveUp", "structGameEngine_1_1Event_1_1MoveUp.html", "structGameEngine_1_1Event_1_1MoveUp" ],
         [ "Movedown", "structGameEngine_1_1Event_1_1Movedown.html", "structGameEngine_1_1Event_1_1Movedown" ],
         [ "MoveLeft", "structGameEngine_1_1Event_1_1MoveLeft.html", "structGameEngine_1_1Event_1_1MoveLeft" ],
@@ -111,9 +114,12 @@ var annotated_dup =
         [ "Parallax", "classGameEngine_1_1System_1_1Parallax.html", null ],
         [ "Physics", "classGameEngine_1_1System_1_1Physics.html", "classGameEngine_1_1System_1_1Physics" ],
         [ "Renderer", "classGameEngine_1_1System_1_1Renderer.html", "classGameEngine_1_1System_1_1Renderer" ],
-        [ "Spawn", "classGameEngine_1_1System_1_1Spawn.html", "classGameEngine_1_1System_1_1Spawn" ]
+        [ "Spawn", "classGameEngine_1_1System_1_1Spawn.html", "classGameEngine_1_1System_1_1Spawn" ],
+        [ "TextRenderer", "classGameEngine_1_1System_1_1TextRenderer.html", "classGameEngine_1_1System_1_1TextRenderer" ],
+        [ "UI", "classGameEngine_1_1System_1_1UI.html", "classGameEngine_1_1System_1_1UI" ]
       ] ],
       [ "UI", null, [
+        [ "UIFactory", "classGameEngine_1_1UI_1_1UIFactory.html", "classGameEngine_1_1UI_1_1UIFactory" ],
         [ "Window", "classGameEngine_1_1UI_1_1Window.html", "classGameEngine_1_1UI_1_1Window" ]
       ] ]
     ] ],

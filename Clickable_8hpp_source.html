@@ -127,23 +127,25 @@ $(document).ready(function(){initNavTree('Clickable_8hpp_source.html',''); initR
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics/RectangleShape.hpp&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>ComponentRType</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structComponentRType_1_1Clickable.html">   12</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    sf::RectangleShape rect;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a>(<span class="keywordtype">size_t</span> x, <span class="keywordtype">size_t</span> y, <span class="keywordtype">size_t</span> w, <span class="keywordtype">size_t</span> h)</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>ComponentRType</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structComponentRType_1_1Clickable.html">   13</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structComponentRType_1_1Clickable.html">Clickable</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; callback)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      : callback(callback)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      rect.setPosition(x, y);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      rect.setSize(sf::Vector2f(w, h));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;} <span class="comment">// namespace ComponentRType</span></div>
-<div class="ttc" id="astructComponentRType_1_1Clickable_html"><div class="ttname"><a href="structComponentRType_1_1Clickable.html">ComponentRType::Clickable</a></div><div class="ttdoc">A component representing if a entity is clickable.</div><div class="ttdef"><b>Definition:</b> Clickable.hpp:12</div></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::function&lt;void()&gt; callback = []() {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <span class="comment">// namespace ComponentRType</span></div>
+<div class="ttc" id="astructComponentRType_1_1Clickable_html"><div class="ttname"><a href="structComponentRType_1_1Clickable.html">ComponentRType::Clickable</a></div><div class="ttdoc">A component representing if a entity is clickable.</div><div class="ttdef"><b>Definition:</b> Clickable.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
