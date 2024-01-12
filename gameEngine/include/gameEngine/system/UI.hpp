@@ -39,6 +39,13 @@ namespace GameEngine::System
 
     void update()
     {
+      for (auto const& entity : m_entities) {
+        auto& componentManager = getEcsRegistry().getComponentManager();
+        auto& displayable = componentManager->getComponent<ComponentRType::Displayable>(entity);
+        auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
+
+        displayable.sprite.setPosition(position.position);
+      }
     }
 
     void handleClick(const Event::IEvent& eventRaw)

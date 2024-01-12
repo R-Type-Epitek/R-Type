@@ -203,6 +203,7 @@ namespace GameEngine::Builder
 
     signature.set(m_registry->getComponentType<ComponentRType::Position>());
     signature.set(m_registry->getComponentType<ComponentRType::Clickable>());
+    signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     signature.set(m_registry->getComponentType<ComponentRType::UIElement>());
     m_registry->setSystemSignature<SystemType>(signature);
   }
