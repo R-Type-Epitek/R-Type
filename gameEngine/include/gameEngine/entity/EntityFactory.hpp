@@ -27,9 +27,12 @@ namespace GameEngine::Entity
 
     GameEngine::ECS::Entity createFromBluePrint(EntityBluePrint const &payload);
 
+
+
     static EntityBluePrint playerEntity;
     static EntityBluePrint enemyEntity;
     static EntityBluePrint bulletEntity;
+    static EntityBluePrint backgroundEntity;
 
    private:
     using AssetManager = GameEngine::Asset::AssetManager;
@@ -37,5 +40,4 @@ namespace GameEngine::Entity
     std::vector<GameEngine::ECS::Entity> &m_entities; ///< Vector of entities in the Factory context.
     GameEngine::ECS::Registry &m_registry;            ///< Reference to the ECS registry.
   };
-
 } // GameEngine::Entity

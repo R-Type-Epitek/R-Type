@@ -18,31 +18,39 @@ namespace GameEngine::Entity
       None,
       Player,
       Asteroid,
+      Background,
       Enemy,
       Boss,
       Bullet
     };
 
-    static EntityType getEntityTypeFromString(const std::string& typeStr)
-    {
+    static EntityType getEntityType(const std::string& typeStr) {
+      
       static const std::unordered_map<std::string, EntityType> typeMap = {
         {"None", None},
         {"Player", Player},
         {"Asteroid", Asteroid},
+        {"Background", Background},
         {"Enemy", Enemy},
         {"Bullet", Bullet},
         {"Boss", Boss}};
 
       auto it = typeMap.find(typeStr);
-      if (it != typeMap.end()) {
-        return it->second;
-      } else {
-        std::cerr << "Error: Unknown entity type '" << typeStr << "'" << std::endl;
-        throw std::invalid_argument("Unknown entity type");
-      }
+      assert(it != typeMap.end());
+      return it->second;
     }
-  };
 
+    static std::string getEntityType(const EntityType& type) {
+      static const std::unordered_map<EntityType, std::string> typeMap = {
+        {None, "None"},
+        {Player, "Player"},
+        {Asteroid, "Asteroid"},
+        {Background, "Background"},
+        {Enemy, "Enemy"},
+        {Bullet, "Bullet"},
+        {Boss, "Boss"}
+      };
+      
   struct ComponentBluePrint {
     bool transform = false;
     bool displayable = false;
@@ -55,11 +63,29 @@ namespace GameEngine::Entity
     bool hitbox = false;
   };
 
-  struct EntityBluePrint {
-    bool light = true;
-    std::string defaultAssetPath = "";
-    ComponentBluePrint blueprint;
+      auto it = typeMap.find(type);
+      assert(it != typeMap.end());
+      return it->second;
+    }
   };
 
-  using EntityType = EntityTypeHelper::EntityType;
+struct ComponentBluePrint {
+  bool transform = false;
+  bool displayable = false;
+  bool clickable = false;
+  bool controllable = false;
+  bool networkedEntity = false;
+  bool metaData = false;
+  bool position = false;
+  bool gravity = false;
+  bool hitbox = false;
+};
+
+struct EntityBluePrint {
+  bool light = true;
+  std::string defaultAssetPath = "";
+  ComponentBluePrint blueprint;
+};
+
+using EntityType = EntityTypeHelper::EntityType;
 } // namespace GameEngine::Entity
