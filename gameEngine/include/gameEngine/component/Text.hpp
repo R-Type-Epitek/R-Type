@@ -17,14 +17,13 @@ namespace ComponentRType
 
     Text() = default;
 
-    Text(std::string const &str, size_t x, size_t y, size_t size, sf::Font &font = assetManager::getFont())
+    Text(std::string const &str, size_t size, sf::Font &font = assetManager::getFont())
     {
       text = sf::Text();
       text.setFont(font);
       text.setString(str);
       text.setCharacterSize(size);
       text.setFillColor(sf::Color::White);
-      text.setPosition(x, y);
     }
   };
 
