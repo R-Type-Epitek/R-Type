@@ -5,6 +5,7 @@
 #include "scene/Welcome.hpp"
 #include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/system/Renderer.hpp"
+#include "gameEngine/system/TextRenderer.hpp"
 #include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/UiElement.hpp"
 #include "gameEngine/UI/UIFactory.hpp"
@@ -58,6 +59,10 @@ namespace Rtype::Scene
     }
     {
       auto system = ecsRegistry.getSystem<GameEngine::System::Renderer>();
+      system->update(ecsRegistry, m_controller.getRenderer());
+    }
+    {
+      auto system = ecsRegistry.getSystem<GameEngine::System::TextRenderer>();
       system->update(ecsRegistry, m_controller.getRenderer());
     }
   }
