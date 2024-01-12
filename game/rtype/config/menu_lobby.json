@@ -1,0 +1,115 @@
+{
+  "ui": [
+    {
+      "name": "BackGround",
+      "type": "Image",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/bg_lobby.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "JoinButton",
+      "type": "Button",
+      "position": {
+        "x": 963,
+        "y": 720
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/accept_button.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "EscapeButton",
+      "type": "Button",
+      "position": {
+        "x": 1182,
+        "y": 270
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/escape_button.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "JoinRoom0Button",
+      "type": "Button",
+      "position": {
+        "x": 748,
+        "y": 495
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "JoinRoom1Button",
+      "type": "Button",
+      "position": {
+        "x": 998,
+        "y": 495
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "JoinRoom2Button",
+      "type": "Button",
+      "position": {
+        "x": 748,
+        "y": 595
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "JoinRoom3Button",
+      "type": "Button",
+      "position": {
+        "x": 998,
+        "y": 595
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
+      "text": "ROOM 3",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "AutoRoomButton",
+      "type": "Button",
+      "position": {
+        "x": 718,
+        "y": 445
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/auto_select_button.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "SpectatorButton",
+      "type": "Button",
+      "position": {
+        "x": 803,
+        "y": 720
+      },
+      "assetPath": "game/rtype/assets/sprites/menu/accept_button.png",
+      "callbackValue": "callbackValueDefault"
+    },
+    {
+      "name": "IpText",
+      "type": "Text",
+      "position": {
+        "x": 729,
+        "y": 346
+      },
+      "content": "127.0.0.1",
+      "fontSize": 24
+    },
+    {
+      "name": "PortText",
+      "type": "Text",
+      "position": {
+        "x": 972,
+        "y": 346
+      },
+      "content": "4242",
+      "fontSize": 24
+    }
+  ]
+}
