@@ -16,8 +16,18 @@
         "x": 963,
         "y": 720
       },
-      "assetPath": "game/rtype/assets/sprites/menu/accept_button.png",
+      "assetPath": "game/rtype/assets/sprites/menu/join_button.png",
       "callbackValue": "joinGame0"
+    },
+    {
+      "name": "JoinText",
+      "type": "Text",
+      "position": {
+        "x": 1008,
+        "y": 728
+      },
+      "content": "JOIN",
+      "fontSize": 24
     },
     {
       "name": "EscapeButton",
@@ -87,8 +97,18 @@
         "x": 803,
         "y": 720
       },
-      "assetPath": "game/rtype/assets/sprites/menu/accept_button.png",
+      "assetPath": "game/rtype/assets/sprites/menu/spectator_button.png",
       "callbackValue": "spectate0"
+    },
+    {
+      "name": "SpectatorText",
+      "type": "Text",
+      "position": {
+        "x": 806,
+        "y": 728
+      },
+      "content": "SPECTATOR",
+      "fontSize": 24
     },
     {
       "name": "IpText",
