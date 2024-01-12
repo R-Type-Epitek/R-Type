@@ -23,6 +23,12 @@ namespace GameEngine::System
       if (auto* sfmlRenderer = dynamic_cast<Gfx::Sfml::Renderer*>(&renderer)) {
         for (auto const& entity : m_entities) {
           auto& textC = componentManager->getComponent<ComponentRType::Text>(entity);
+          if (componentManager->hasComponent<ComponentRType::Position>(entity)) {
+            auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
+            textC.text.setPosition(position.position);
+          }
+          auto& position = componentManager->getComponent<ComponentRType::Text>(entity);
+          textC.text.setFont(*textC.text.getFont());
           textC.text.setFont(*textC.text.getFont());
           sfmlRenderer->draw(textC.text);
         }
