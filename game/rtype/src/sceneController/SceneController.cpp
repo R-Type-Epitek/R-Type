@@ -9,7 +9,7 @@ namespace Rtype::Controller
   SceneController::SceneController(std::shared_ptr<GameEngine::Scene::ISceneManager> sceneManager)
     : m_sceneManager(std::move(sceneManager)) {};
 
-  GameEngine::Scene::ISceneManager& SceneController::getScene()
+  GameEngine::Scene::ISceneManager& SceneController::getScenes()
   {
     return *m_sceneManager;
   }
