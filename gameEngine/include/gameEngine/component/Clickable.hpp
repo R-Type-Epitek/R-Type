@@ -4,20 +4,22 @@
 
 #pragma once
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <functional>
 
 namespace ComponentRType
 {
 
   /// \brief A component representing if a entity is clickable.
   struct Clickable {
-    sf::RectangleShape rect;
-
     Clickable() = default;
 
-    explicit Clickable(size_t x, size_t y, size_t w, size_t h)
+    explicit Clickable(std::function<void()> callback)
+      : callback(callback)
     {
-      rect.setPosition(x, y);
-      rect.setSize(sf::Vector2f(w, h));
     }
+
+    std::function<void()> callback = []() {
+    };
+    ;
   };
 } // namespace ComponentRType

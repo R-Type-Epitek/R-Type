@@ -12,7 +12,7 @@ namespace Rtype::Controller
     explicit SceneController(std::shared_ptr<GameEngine::Scene::ISceneManager> sceneManager);
     ~SceneController() = default;
 
-    GameEngine::Scene::ISceneManager& getScene();
+    GameEngine::Scene::ISceneManager& getScenes();
 
    private:
     std::shared_ptr<GameEngine::Scene::ISceneManager> m_sceneManager;

@@ -28,6 +28,11 @@ namespace GameEngine::System
             sfmlRenderer->getWindow().close();
             return;
           }
+          if (event.type == sf::Event::MouseButtonPressed) {
+            auto mousePos = sf::Mouse::getPosition(sfmlRenderer->getWindow());
+            mouseButtonPressedEventPublisher(eventRegistry, mousePos.x, mousePos.y);
+            return;
+          }
           if (event.type == sf::Event::KeyPressed) {
             keyPressedEventPublisher(eventRegistry, convertKey(event.key.code));
           }
@@ -35,6 +40,11 @@ namespace GameEngine::System
       } else {
         throw std::runtime_error("System::Renderer::update: renderer is not compatible");
       }
+    }
+
+    static void mouseButtonPressedEventPublisher(Event::EventRegistry& eventRegistry, int x, int y)
+    {
+      eventRegistry.publish<Event::MouseButtonPressed>(Event::MouseButtonPressed {x, y});
     }
 
     static void

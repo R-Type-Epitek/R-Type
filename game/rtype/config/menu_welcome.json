@@ -1,0 +1,23 @@
+{
+  "ui": [
+    {
+      "name": "Background",
+      "type": "Image",
+      "assetPath": "game/rtype/assets/sprites/menu/bg_welcome.jpg",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "name": "ButtonGotoLobby",
+      "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/rtype_title.jpg",
+      "position": {
+        "x": 615,
+        "y": 480
+      },
+      "callbackValue": "goToLobbyScene"
+    }
+  ]
+}

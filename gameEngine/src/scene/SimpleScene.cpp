@@ -12,6 +12,7 @@
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
+#include "gameEngine/system/UI.hpp"
 
 namespace GameEngine::Scene
 {
@@ -30,6 +31,8 @@ namespace GameEngine::Scene
     builder.buildSystemNetworkEventPusher();
     builder.buildSystemPhysics();
     builder.buildSystemRenderer();
+    builder.buildSystemTextRenderer();
+    builder.buildSystemUI();
     builder.buildSystemEcsSerializer();
     builder.buildSystemParallax();
     m_ecsRegistry = builder.getResult();
@@ -88,6 +91,10 @@ namespace GameEngine::Scene
       {
         auto system = ecsRegistry.getSystem<GameEngine::System::Physics>();
         system->updateClient();
+      }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::UI>();
+        system->update();
       }
     } catch (const std::exception& e) {
       spdlog::error("[Client update] Error: {}", e.what());

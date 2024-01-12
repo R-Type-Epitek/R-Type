@@ -12,6 +12,8 @@ add_library(${LIBRARY} STATIC
         src/sceneController/SceneController.cpp
         src/sceneController/NetworkController.cpp
         src/sceneController/RendererController.cpp
+        src/sceneController/BindingController.cpp
+        src/sceneController/BindingController.cpp
 )
 
 target_include_directories(${LIBRARY}

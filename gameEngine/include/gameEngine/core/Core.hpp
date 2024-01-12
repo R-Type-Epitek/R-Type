@@ -41,6 +41,7 @@ namespace GameEngine::Core
     //    - Scene -
     void loadScenes();
     void addScene(const std::string& name, std::unique_ptr<Scene::IScene> scene);
+    std::shared_ptr<Scene::ISceneManager> getSceneManager();
     Scene::IScene& getCurrentScene();
     void setCurrentScene(const std::string& name);
 

@@ -28,6 +28,16 @@ namespace GameEngine::Event
     ECS::Entity entity = -1;
   };
 
+  struct MouseButtonPressed : public IEvent {
+    MouseButtonPressed() = default;
+    explicit MouseButtonPressed(int x, int y)
+      : x {x}
+      , y {y} {};
+
+    int x;
+    int y;
+  };
+
   struct MoveUp : public IEvent {
     MoveUp() = default;
     explicit MoveUp(ECS::Entity entity)

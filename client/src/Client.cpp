@@ -73,13 +73,16 @@ namespace Client
 
   void Client::initScenes()
   {
-    auto controller =
-      Rtype::Controller::GraphicController(m_coreGE->getGUI()->getSharedRenderer(), m_network);
+    auto controller = Rtype::Controller::GraphicController(
+      m_coreGE->getGUI()->getSharedRenderer(),
+      m_network,
+      m_coreGE->getSceneManager());
+
     m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
     m_coreGE->addScene("lobby", std::make_unique<Rtype::Scene::Lobby>(controller));
     m_coreGE->addScene("welcome", std::make_unique<Rtype::Scene::Welcome>(controller));
 
-    m_coreGE->setCurrentScene("game");
+    m_coreGE->setCurrentScene("welcome");
     m_coreGE->loadScenes();
   }
 
