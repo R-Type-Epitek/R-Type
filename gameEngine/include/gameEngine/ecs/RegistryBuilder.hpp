@@ -32,7 +32,9 @@ namespace GameEngine::Builder
     void buildSystemParallax();
     void buildSystemPhysics();
     void buildSystemRenderer();
+    void buildSystemTextRenderer();
     void buildSystemSpawning();
+    void buildSystemUI();
 
    private:
     void feedSystemHolder();

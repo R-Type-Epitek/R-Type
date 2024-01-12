@@ -14,6 +14,8 @@
 #include "gameEngine/component/Clickable.hpp"
 #include "gameEngine/component/Parallax.hpp"
 #include "gameEngine/component/Hitbox.hpp"
+#include "gameEngine/component/Text.hpp"
+#include "gameEngine/component/UiElement.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -24,11 +26,13 @@
 #include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Renderer.hpp"
+#include "gameEngine/system/TextRenderer.hpp"
 #include "gameEngine/system/Parallax.hpp"
 #include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/ControlableEntity.hpp"
 #include "gameEngine/system/Spawning.hpp"
 #include "gameEngine/system/NetworkEventPusher.hpp"
+#include "gameEngine/system/UI.hpp"
 
 #include <memory>
 #include <utility>
@@ -64,6 +68,8 @@ namespace GameEngine::Builder
     registerComponent<ComponentRType::Displayable>();
     registerComponent<ComponentRType::Parallax>();
     registerComponent<ComponentRType::Hitbox>();
+    registerComponent<ComponentRType::Text>();
+    registerComponent<ComponentRType::UIElement>();
   }
 
   void RegistryBuilder::buildSystemAnimation()
@@ -167,6 +173,16 @@ namespace GameEngine::Builder
     m_registry->setSystemSignature<SystemType>(signature);
   }
 
+  void RegistryBuilder::buildSystemTextRenderer()
+  {
+    using SystemType = GameEngine::System::TextRenderer;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Text>());
+    m_registry->setSystemSignature<SystemType>(signature);
+  }
+
   void RegistryBuilder::buildSystemSpawning()
   {
     using SystemType = GameEngine::System::Spawn;
@@ -176,6 +192,18 @@ namespace GameEngine::Builder
     signature.set(m_registry->getComponentType<ComponentRType::Position>());
     signature.set(m_registry->getComponentType<ComponentRType::NetworkedEntity>());
     signature.set(m_registry->getComponentType<ComponentRType::MetaData>());
+    m_registry->setSystemSignature<SystemType>(signature);
+  }
+
+  void RegistryBuilder::buildSystemUI()
+  {
+    using SystemType = GameEngine::System::UI;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    signature.set(m_registry->getComponentType<ComponentRType::Clickable>());
+    signature.set(m_registry->getComponentType<ComponentRType::UIElement>());
     m_registry->setSystemSignature<SystemType>(signature);
   }
 
