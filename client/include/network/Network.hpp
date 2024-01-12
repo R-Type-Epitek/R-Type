@@ -242,21 +242,21 @@ namespace Client
      *
      * @param name The new name to be set for the client.
      */
-    void updateName(std::string name);
+    void updateName(std::string name) final;
 
     /**
      * @brief Join a room with a specified room ID.
      *
      * @param roomId The ID of the room to join.
      */
-    void joinRoom(int roomId);
+    void joinRoom(int roomId) final;
 
     /**
      * @brief Join a room automatically.
      *
      * This function sends a request to the server to join a room automatically.
      */
-    void joinRoomAuto();
+    void joinRoomAuto() final;
 
     /**
      * @brief Kick a player.
@@ -288,14 +288,14 @@ namespace Client
      *
      * @param roomId The ID of the game room to join.
      */
-    void joinGame(int roomId);
+    void joinGame(int roomId) final;
 
     /**
      * @brief Spectate a game with a specified room ID.
      *
      * @param roomId The ID of the game room to spectate.
      */
-    void spectate(int roomId);
+    void spectate(int roomId) final;
 
     //    Game engine interface bridge
 
