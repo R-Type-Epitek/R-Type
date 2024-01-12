@@ -7,6 +7,7 @@
 #include "gameEngine/gfx/IRenderer.hpp"
 #include "gameEngine/gfx/sfml/Renderer.hpp"
 #include "gameEngine/component/Text.hpp"
+#include "gameEngine/component/Position.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 
@@ -27,8 +28,6 @@ namespace GameEngine::System
             auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
             textC.text.setPosition(position.position);
           }
-          auto& position = componentManager->getComponent<ComponentRType::Text>(entity);
-          textC.text.setFont(*textC.text.getFont());
           textC.text.setFont(*textC.text.getFont());
           sfmlRenderer->draw(textC.text);
         }
