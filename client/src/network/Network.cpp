@@ -413,6 +413,13 @@ void Client::Network::spectate(int roomId)
 
 void Client::Network::connect()
 {
+  spdlog::info("Establishing Network connection...");
+  connectToServer();
+  spdlog::info("Done connection established");
+  spdlog::info("Getting player id...");
+  while (getClientId() == -1) {
+  };
+  spdlog::info("Done");
 }
 
 std::vector<std::vector<char>> Client::Network::getSerializedEcsState()
