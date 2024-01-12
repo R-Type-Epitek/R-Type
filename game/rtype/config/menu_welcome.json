@@ -2,21 +2,22 @@
   "ui": [
     {
       "name": "Background",
-      "type": "Displayable",
-      "texturePath": "game/rtype/assets/welcome/bg.jpg",
+      "type": "Image",
+      "assetPath": "game/rtype/assets/sprites/menu/bg_welcome.jpg",
       "position": {
-        "x": 615,
-        "y": 480
+        "x": 0,
+        "y": 0
       }
     },
     {
-      "name": "Button",
-      "type": "Displayable",
-      "texturePath": "game/rtype/assets/welcome/rtype_button.jpg",
+      "name": "ButtonGotoLobby",
+      "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/rtype_title.jpg",
       "position": {
         "x": 615,
         "y": 480
-      }
+      },
+      "callbackValue": "callbackValueDefault"
     }
   ]
 }
