@@ -7,11 +7,8 @@
 #include "gameEngine/event/IEventBindable.hpp"
 
 #include "gameEngine/system/Animation.hpp"
-#include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/system/NetworkEventPusher.hpp"
 #include "gameEngine/system/Physics.hpp"
-#include "gameEngine/system/Renderer.hpp"
-#include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/system/UI.hpp"
 
 namespace GameEngine::Scene

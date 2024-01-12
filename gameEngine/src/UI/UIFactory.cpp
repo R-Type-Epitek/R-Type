@@ -74,7 +74,7 @@ namespace GameEngine::UI
 
   void UIFactory::parseText(const GameEngine::ECS::Entity& entity, const json& config)
   {
-    std::string text = config.value("text", "");
+    std::string text = config.value("content", "");
     int size = config.value("fontSize", 24);
     std::string path = config.value("fontPath", AssetManager::defaultFontId);
     auto textComponent = ComponentRType::Text(text, size, AssetManager::getInstance().getFont(path));
