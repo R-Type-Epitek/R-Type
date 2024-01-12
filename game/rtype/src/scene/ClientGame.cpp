@@ -6,9 +6,9 @@
 #include "gameEngine/system/Renderer.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/system/NetworkEventPusher.hpp"
+#include "gameEngine/UI/UIFactory.hpp"
 #include "gameEngine/system/InputCatcher.hpp"
 #include "gameEngine/event/Events.hpp"
-#include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "spdlog/spdlog.h"
 
 namespace Rtype::Scene
@@ -28,12 +28,20 @@ namespace Rtype::Scene
   void ClientGame::initEntities()
   {
     SimpleScene::initEntities();
-    auto enttBackground = m_ecsRegistry->createEntity();
-    m_entities.push_back(enttBackground);
-    m_ecsRegistry->addComponent<ComponentRType::Displayable>(
-      enttBackground,
-      ComponentRType::Displayable(
-        GameEngine::Asset::getTexture("game/rtype/assets/background_starfield.png")));
+
+    GameEngine::UI::UIFactory uiFactory(m_entities, getEcsRegistry());
+    uiFactory.loadUIFromJSON("game/rtype/config/menu_lobby.json");
+
+    m_controller.initClassBinding();
+    auto &componentManager = getEcsRegistry().getComponentManager();
+    auto configElements = uiFactory.getUIElements();
+    for (auto &[configId, entity] : configElements) {
+      if (componentManager->hasComponent<ComponentRType::Clickable>(entity)) {
+        auto &uiElement = componentManager->getComponent<ComponentRType::UIElement>(entity);
+        auto &clickable = componentManager->getComponent<ComponentRType::Clickable>(entity);
+        clickable.callback = m_controller.getBinding(uiElement.callBackValue);
+      }
+    }
   }
 
   void ClientGame::initEvents()
