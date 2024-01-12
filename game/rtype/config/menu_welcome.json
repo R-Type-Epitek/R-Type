@@ -17,7 +17,7 @@
         "x": 615,
         "y": 480
       },
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "goToLobbyScene"
     }
   ]
 }
