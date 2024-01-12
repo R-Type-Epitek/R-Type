@@ -28,6 +28,7 @@ namespace GameEngine::UI
 
     void loadUIFromJSON(const std::string &jsonFilePath);
     void createUIEntity(const json &config);
+    std::map<std::string, ECS::Entity> getUIElements();
 
     void parseDisplayable(const GameEngine::ECS::Entity &entity, const json &config);
     void parseText(const GameEngine::ECS::Entity &entity, const json &config);
