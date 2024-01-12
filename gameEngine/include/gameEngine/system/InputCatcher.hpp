@@ -44,7 +44,7 @@ namespace GameEngine::System
 
     static void mouseButtonPressedEventPublisher(Event::EventRegistry& eventRegistry, int x, int y)
     {
-      eventRegistry.publish<Event::KeyboardInput>(Event::MouseButtonPressed {x, y});
+      eventRegistry.publish<Event::MouseButtonPressed>(Event::MouseButtonPressed {x, y});
     }
 
     static void
