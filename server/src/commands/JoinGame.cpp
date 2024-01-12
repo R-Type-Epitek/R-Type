@@ -32,6 +32,25 @@ std::vector<char> Network::JoinGameCommandHandler::handleCommand(Message *messag
       0,
       RES_UNAUTHORIZED);
   Client &client = clientOpt.value();
+  int clientRoomId = client.getRoomId();
+
+  if (client.getIsInGame())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client is already in a game",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+
+  if (room.getId() != client.getRoomId() || clientRoomId == -1)
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      clientRoomId == -1 ? "Client not in a room" : "Client not in the same room",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
 
   client.setIsInGame(true);
   client.setIsSpectator(false);
