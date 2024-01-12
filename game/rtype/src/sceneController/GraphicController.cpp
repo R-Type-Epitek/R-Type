@@ -36,6 +36,7 @@ namespace Rtype::Controller
     addBinding("joinRoomAuto", [this]() { this->joinRoomAuto(); });
     addBinding("connect", [this]() { this->connect(); });
     addBinding("setName", [this]() { this->setName("Jhon Doe"); });
+    addBinding("exitFast", [this]() { exit(0); });
   }
 
   void GraphicController::goToWelcomeScene()
