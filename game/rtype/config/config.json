@@ -10,7 +10,7 @@
   "enemyTypes": [
     {
       "type": "Background",
-      "path": "assets/background_starfield.png"
+      "path": "game/rtype/assets/background_starfield.png"
     },
     {
       "type": "Enemy",
@@ -21,7 +21,7 @@
     },
     {
       "type": "Boss",
-      "path": "assets/sprites/r-typesheet14.gif",
+      "path": "game/rtype/assets/sprites/r-typesheet14.gif",
       "health": 100,
       "attackPattern": "Zigzag",
       "speed": 2

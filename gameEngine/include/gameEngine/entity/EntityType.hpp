@@ -65,6 +65,7 @@ struct ComponentBluePrint {
   bool metaData = false;
   bool position = false;
   bool gravity = false;
+  bool hitbox = false;
 };
 
 struct EntityBluePrint {
