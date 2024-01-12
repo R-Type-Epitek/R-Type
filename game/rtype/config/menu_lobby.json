@@ -7,8 +7,7 @@
         "x": 0,
         "y": 0
       },
-      "assetPath": "game/rtype/assets/sprites/menu/bg_lobby.png",
-      "callbackValue": "callbackValueDefault"
+      "assetPath": "game/rtype/assets/sprites/menu/bg_lobby.png"
     },
     {
       "name": "JoinButton",
@@ -18,7 +17,7 @@
         "y": 720
       },
       "assetPath": "game/rtype/assets/sprites/menu/accept_button.png",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "joinGame0"
     },
     {
       "name": "EscapeButton",
@@ -28,7 +27,7 @@
         "y": 270
       },
       "assetPath": "game/rtype/assets/sprites/menu/escape_button.png",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "exitFast"
     },
     {
       "name": "JoinRoom0Button",
@@ -38,7 +37,7 @@
         "y": 495
       },
       "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "joinRoom0"
     },
     {
       "name": "JoinRoom1Button",
@@ -48,7 +47,7 @@
         "y": 495
       },
       "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "joinRoom1"
     },
     {
       "name": "JoinRoom2Button",
@@ -58,7 +57,7 @@
         "y": 595
       },
       "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "joinRoom2"
     },
     {
       "name": "JoinRoom3Button",
@@ -69,7 +68,7 @@
       },
       "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
       "text": "ROOM 3",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "joinRoom3"
     },
     {
       "name": "AutoRoomButton",
@@ -79,7 +78,7 @@
         "y": 445
       },
       "assetPath": "game/rtype/assets/sprites/menu/auto_select_button.png",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "joinRoomAuto"
     },
     {
       "name": "SpectatorButton",
@@ -89,7 +88,7 @@
         "y": 720
       },
       "assetPath": "game/rtype/assets/sprites/menu/accept_button.png",
-      "callbackValue": "callbackValueDefault"
+      "callbackValue": "spectate0"
     },
     {
       "name": "IpText",
