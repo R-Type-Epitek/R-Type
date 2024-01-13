@@ -19,6 +19,8 @@
 namespace GameEngine::Entity
 {
 
+  size_t EntityFactory::idOffset = 2000;
+
   EntityFactory::EntityFactory(std::vector<GameEngine::ECS::Entity> &entities, ECS::Registry &registry)
     : m_entities(entities)
     , m_registry(registry)
@@ -27,7 +29,7 @@ namespace GameEngine::Entity
 
   GameEngine::ECS::Entity EntityFactory::createFromNetwork(
     ComponentRType::NetworkedEntity &id,
-    const EntityTemplate &entityTemplate)
+    EntityTemplate &entityTemplate)
   {
     spdlog::info("[EntityFactory] Creating entity from Network...");
     auto &componentManager = m_registry.getComponentManager();
@@ -51,7 +53,7 @@ namespace GameEngine::Entity
     return entity;
   }
 
-  GameEngine::ECS::Entity EntityFactory::createFromBluePrint(ComponentsBluePrint const &bluePrint)
+  GameEngine::ECS::Entity EntityFactory::createFromBluePrint(ComponentsBluePrint &bluePrint)
   {
     spdlog::info("[EntityFactory] Creating entity from BluePrint...");
 
@@ -88,39 +90,55 @@ namespace GameEngine::Entity
     return entity;
   }
 
-  GameEngine::ECS::Entity EntityFactory::createFromTemplate(const EntityTemplate &entityTemplate)
+  GameEngine::ECS::Entity EntityFactory::createFromTemplate(EntityTemplate &entityTemplate)
   {
     auto builder = EntityBuilder(m_registry);
     if (entityTemplate.blueprint.transform) {
-      builder.buildComponent(entityTemplate.transform);
+      builder.buildComponent(std::move(entityTemplate.transform));
+    }
+    if (entityTemplate.blueprint.controllable) {
+      builder.buildComponent(std::move(entityTemplate.controllable));
+    }
+    if (entityTemplate.blueprint.networkedEntity) {
+      builder.buildComponent(std::move(entityTemplate.networkedEntity));
+    }
+    if (entityTemplate.blueprint.metaData) {
+      builder.buildComponent(std::move(entityTemplate.metaData));
+    }
+    if (entityTemplate.blueprint.position) {
+      builder.buildComponent(std::move(entityTemplate.position));
+    }
+    if (entityTemplate.blueprint.gravity) {
+      builder.buildComponent(std::move(entityTemplate.gravity));
+    }
+    if (entityTemplate.blueprint.hitbox) {
+      builder.buildComponent(std::move(entityTemplate.hitbox));
     }
     if (entityTemplate.blueprint.displayable) {
       auto &ref = entityTemplate.displayable;
-      builder.buildComponent(ComponentRType::Displayable(
+      ref.sprite.setPosition(entityTemplate.position.position.x, entityTemplate.position.position.y);
+      ComponentRType::Displayable newComponent(
         ref.assetPath,
-        {ref.rectLeft, ref.rectTop, ref.rectWidth, ref.rectHeight}));
-    }
-    if (entityTemplate.blueprint.controllable) {
-      builder.buildComponent(entityTemplate.controllable);
-    }
-    if (entityTemplate.blueprint.networkedEntity) {
-      builder.buildComponent(entityTemplate.networkedEntity);
-    }
-    if (entityTemplate.blueprint.metaData) {
-      builder.buildComponent(entityTemplate.metaData);
-    }
-    if (entityTemplate.blueprint.position) {
-      builder.buildComponent(entityTemplate.position);
-    }
-    if (entityTemplate.blueprint.gravity) {
-      builder.buildComponent(entityTemplate.gravity);
-    }
-    if (entityTemplate.blueprint.hitbox) {
-      builder.buildComponent(entityTemplate.hitbox);
+        {ref.rectLeft, ref.rectTop, ref.rectWidth, ref.rectHeight});
+      newComponent.sprite.setPosition(entityTemplate.position.position);
+      builder.buildComponent(std::move(newComponent));
     }
     auto entity = builder.getResult();
     m_entities.push_back(entity);
     return entity;
+  }
+
+  GameEngine::ECS::Entity EntityFactory::createFromTemplateNetwork(EntityTemplate &entityTemplate)
+  {
+    entityTemplate.metaData.bluePrint = entityTemplate.blueprint;
+    entityTemplate.networkedEntity.id = EntityFactory::idOffset++;
+    return createFromTemplate(entityTemplate);
+  }
+
+  GameEngine::ECS::Entity EntityFactory::createFromTemplateName(const std::string &name)
+  {
+    auto scheme = getEntityTemplate(name);
+    return createFromTemplate(scheme);
   }
 
   std::map<std::string, EntityTemplate> &EntityFactory::getEntitiesTemplate()
