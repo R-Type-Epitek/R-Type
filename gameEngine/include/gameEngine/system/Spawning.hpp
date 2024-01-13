@@ -53,8 +53,7 @@ namespace GameEngine::System
 
       auto compId = ComponentRType::NetworkedEntity {player.id};
       auto scheme = m_entityFactory->getEntityTemplate("Player");
-      auto e = m_entityFactory->createFromNetwork(compId, scheme);
-      auto& c = getEcsRegistry().getComponentManager()->getComponent<ComponentRType::Displayable>(e);
+      m_entityFactory->createFromNetwork(compId, scheme);
     }
 
     void spawnEnemy(const Event::IEvent&)
