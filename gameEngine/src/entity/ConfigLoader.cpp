@@ -124,17 +124,15 @@ namespace GameEngine::Entity
     std::string assetPath = config.value("assetPath", "");
     entity.displayable.assetPath = assetPath;
 
-    if (config.contains("rect")) {
-      int rectX = config["rect"].value("x", -1);
-      int rectY = config["rect"].value("y", -1);
-      int rectWidth = config["rect"].value("width", -1);
-      int rectHeight = config["rect"].value("height", -1);
-
-      entity.displayable = ComponentRType::Displayable(assetPath, {rectX, rectY, rectWidth, rectHeight});
-    } else {
-      auto component = ComponentRType::Displayable(assetPath);
-      entity.displayable = component;
+    if (!config.contains("rect")) {
+      entity.displayable = ComponentRType::Displayable(assetPath);
+      return;
     }
+    int rectX = config["rect"].value("x", -1);
+    int rectY = config["rect"].value("y", -1);
+    int rectWidth = config["rect"].value("width", -1);
+    int rectHeight = config["rect"].value("height", -1);
+    entity.displayable = ComponentRType::Displayable(assetPath, {rectX, rectY, rectWidth, rectHeight});
   }
 
   void ConfigLoader::parseControllable(EntityTemplate &entity, const json &)

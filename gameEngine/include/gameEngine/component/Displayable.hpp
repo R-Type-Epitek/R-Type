@@ -39,6 +39,10 @@ namespace ComponentRType
 
     Displayable(std::string assetPath, sf::IntRect const& rect)
       : assetPath(std::move(assetPath))
+      , rectTop(rect.top)
+      , rectLeft(rect.left)
+      , rectWidth(rect.width)
+      , rectHeight(rect.height)
     {
       sprite.setTexture(assetManager::getTexture(this->assetPath));
       if (rect.width > 0 || rect.height > 0)

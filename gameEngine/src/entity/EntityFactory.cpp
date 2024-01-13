@@ -95,7 +95,10 @@ namespace GameEngine::Entity
       builder.buildComponent(entityTemplate.transform);
     }
     if (entityTemplate.blueprint.displayable) {
-      builder.buildComponent(entityTemplate.displayable);
+      auto &ref = entityTemplate.displayable;
+      builder.buildComponent(ComponentRType::Displayable(
+        ref.assetPath,
+        {ref.rectLeft, ref.rectTop, ref.rectWidth, ref.rectHeight}));
     }
     if (entityTemplate.blueprint.controllable) {
       builder.buildComponent(entityTemplate.controllable);

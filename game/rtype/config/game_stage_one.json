@@ -55,7 +55,13 @@
         },
         {
           "name": "Displayable",
-          "assetPath": "game/rtype/assets/sprites/r-typesheet24.gif"
+          "assetPath": "game/rtype/assets/sprites/r-typesheet24.gif",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 50,
+            "height": 60
+          }
         },
         {
           "name": "Position",
