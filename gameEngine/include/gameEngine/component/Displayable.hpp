@@ -4,7 +4,9 @@
 
 #pragma once
 #include "gameEngine/asset/AssetManager.hpp"
+#include "gameEngine/network/Serializer.hpp"
 
+#include <boost/serialization/access.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <string>
 
@@ -13,24 +15,46 @@ namespace ComponentRType
 
   namespace assetManager = GameEngine::Asset;
 
-  struct Displayable {
+  struct Displayable : public GameEngine::Network::Serializer::BaseNetworkComponent {
+    friend class boost::serialization::access;
     sf::Sprite sprite;
+    std::string assetPath = "";
+    int rectTop = -1;
+    int rectLeft = -1;
+    int rectWidth = -1;
+    int rectHeight = -1;
 
     Displayable()
     {
-      sprite.setTexture(assetManager::getTexture());
+      sprite.setTexture(assetManager::getTexture(this->assetPath));
+      if (rectWidth > 0 || rectHeight > 0)
+        sprite.setTextureRect(sf::IntRect(rectLeft, rectTop, rectWidth, rectHeight));
     }
 
-    Displayable(sf::Texture& texture)
+    Displayable(std::string assetPath)
+      : assetPath(std::move(assetPath))
     {
-      sprite.setTexture(texture);
+      sprite.setTexture(assetManager::getTexture(this->assetPath));
     }
 
-    Displayable(sf::Texture& texture, sf::IntRect const& rect)
+    Displayable(std::string assetPath, sf::IntRect const& rect)
+      : assetPath(std::move(assetPath))
     {
-      sprite.setTexture(texture);
-      if (rect.width > 0 || rect.height < 0)
+      sprite.setTexture(assetManager::getTexture(this->assetPath));
+      if (rect.width > 0 || rect.height > 0)
         sprite.setTextureRect(rect);
+    }
+
+    template<class Archive>
+    void serialize(Archive& archive, const unsigned int)
+    {
+      archive& boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
+        *this);
+      archive & assetPath;
+      archive & rectTop;
+      archive & rectLeft;
+      archive & rectWidth;
+      archive & rectHeight;
     }
   };
 

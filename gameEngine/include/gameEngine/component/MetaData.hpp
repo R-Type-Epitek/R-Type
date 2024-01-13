@@ -17,13 +17,12 @@ namespace ComponentRType
 
   struct MetaData : public GameEngine::Network::Serializer::BaseNetworkComponent {
     friend class boost::serialization::access;
-    std::string texturePath;
-    GameEngine::Entity::EntityType entityType = GameEngine::Entity::EntityType::Player;
+    GameEngine::Entity::ComponentsBluePrint bluePrint;
 
     MetaData() = default;
-    explicit MetaData(std::string path, GameEngine::Entity::EntityType type)
-      : texturePath(std::move(path))
-      , entityType(type)
+
+    explicit MetaData(GameEngine::Entity::ComponentsBluePrint bluePrint)
+      : bluePrint(bluePrint)
     {
     }
 
@@ -32,8 +31,7 @@ namespace ComponentRType
     {
       archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
         *this);
-      archive & texturePath;
-      archive & entityType;
+      archive & bluePrint;
     }
   };
 
