@@ -31,7 +31,7 @@ namespace Rtype::Scene
     SimpleScene::initEntities();
 
     GameEngine::UI::UIFactory uiFactory(m_entities, getEcsRegistry());
-    uiFactory.loadUIFromJSON("game/rtype/config/menu_lobby.json");
+    uiFactory.loadUIFromJSON("game/rtype/config/menu_hud_game.json");
 
     m_controller.initClassBinding();
     auto &componentManager = getEcsRegistry().getComponentManager();
