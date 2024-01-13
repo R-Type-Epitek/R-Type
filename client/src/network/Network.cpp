@@ -299,7 +299,7 @@ void Client::Network::setRoomId(int id)
   this->roomId = id;
 }
 
-int Client::Network::getRoomId() const
+int Client::Network::getRoomId()
 {
   return this->roomId;
 }

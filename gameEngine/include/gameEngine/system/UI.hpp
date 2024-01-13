@@ -62,6 +62,9 @@ namespace GameEngine::System
             static_cast<float>(event.x),
             static_cast<float>(event.y)) &&
           clickable.callback) {
+          sf::Color colorCliked = displayable.sprite.getColor();
+          colorCliked.a = 200;
+          displayable.sprite.setColor(colorCliked);
           clickable.callback();
         }
         displayable.sprite.setPosition(position.position);
