@@ -11,5 +11,5 @@ namespace GameEngine::ECS
 
   using ComponentType = std::uint8_t;
 
-  size_t constexpr MAX_COMPONENTS = 32;
+  size_t constexpr MAX_COMPONENTS = 300;
 }; // namespace GameEngine::ECS
