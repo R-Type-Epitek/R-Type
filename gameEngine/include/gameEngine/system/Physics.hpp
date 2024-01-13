@@ -25,9 +25,8 @@ namespace GameEngine::System
    public:
     void bindEvent(Event::EventRegistry& eventRegistry) final
     {
-      eventRegistry.subscribeLambda<Event::EntityCollision>(([this](const Event::IEvent& eventRaw) {
-        handleCollision(eventRaw);
-      }));
+      eventRegistry.subscribeLambda<Event::EntityCollision>(
+        ([this](const Event::IEvent& eventRaw) { handleCollision(eventRaw); }));
     }
 
     void update()
@@ -39,13 +38,13 @@ namespace GameEngine::System
         auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
         auto& position = componentManager->getComponent<ComponentRType::Position>(entity);
 
-        position.position = spriteC.sprite.getPosition();
         if (!position.isValid) {
           position.position = position.latestValidPosition;
           spriteC.sprite.setPosition(position.position);
         } else {
-          position.latestValidPosition = spriteC.sprite.getPosition();
           spriteC.sprite.move(transform.movement);
+          position.position = spriteC.sprite.getPosition();
+          position.latestValidPosition = position.position;
         }
       }
     }
@@ -68,7 +67,9 @@ namespace GameEngine::System
       auto event = dynamic_cast<const Event::EntityCollision&>(eventRaw);
 
       auto& transformA = componentManager->getComponent<ComponentRType::Transform>(event.entityA);
+      auto& position = componentManager->getComponent<ComponentRType::Position>(event.entityA);
 
+      position.isValid = false;
       transformA.movement = {0, 0};
     }
   };
