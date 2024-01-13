@@ -16,7 +16,7 @@
 namespace GameEngine::Asset
 {
 
-  std::string AssetManager::defaultTextureId = "game/rtype/assets/bobross.jpg";
+  std::string AssetManager::defaultTextureId = "gameEngine/assets/defaultTexture.png";
   std::string AssetManager::defaultFontId = "game/rtype/assets/font/nasalization-rg.ttf";
 
   sf::Texture& getTexture(const std::string& textureId)
