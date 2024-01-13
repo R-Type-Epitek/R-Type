@@ -4,6 +4,7 @@
 
 #pragma once
 #include "Registry.hpp"
+#include "gameEngine/event/EventRegistry.hpp"
 
 #include <memory>
 
@@ -36,8 +37,11 @@ namespace GameEngine::Builder
     void buildSystemSpawning();
     void buildSystemUI();
 
+    static void feedSystemHolder(
+      std::shared_ptr<ECS::Registry> ecsRegistry,
+      std::shared_ptr<Event::EventRegistry> eventRegistry);
+
    private:
-    void feedSystemHolder();
     std::shared_ptr<GameEngine::ECS::Registry> m_registry;
   };
 }; // namespace GameEngine::Builder
