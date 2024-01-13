@@ -106,7 +106,6 @@ namespace GameEngine::System
         comp = ComponentRType::Displayable(
           comp.assetPath,
           {comp.rectLeft, comp.rectTop, comp.rectWidth, comp.rectHeight});
-        //        comp.sprite.setPosition(pos.position);
       }
     }
 
