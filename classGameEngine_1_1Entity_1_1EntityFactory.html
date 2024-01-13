@@ -119,7 +119,6 @@ $(document).ready(function(){initNavTree('classGameEngine_1_1Entity_1_1EntityFac
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classGameEngine_1_1Entity_1_1EntityFactory-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GameEngine::Entity::EntityFactory Class Reference</div>  </div>
@@ -131,162 +130,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a55adfe84d6d020d53f1961c1ddd804af"><td class="memItemLeft" align="right" valign="top"><a id="a55adfe84d6d020d53f1961c1ddd804af"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>EntityFactory</b> (std::vector&lt; GameEngine::ECS::Entity &gt; &amp;entities, <a class="el" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;registry)</td></tr>
 <tr class="separator:a55adfe84d6d020d53f1961c1ddd804af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91d5f6a5b2b031ef99d6ebed678179f7"><td class="memItemLeft" align="right" valign="top"><a id="a91d5f6a5b2b031ef99d6ebed678179f7"></a>
-GameEngine::ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>create</b> (const EntityType &amp;type)</td></tr>
-<tr class="separator:a91d5f6a5b2b031ef99d6ebed678179f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac72d1d75cb25804259c0aa15baf3ccd"><td class="memItemLeft" align="right" valign="top"><a id="aac72d1d75cb25804259c0aa15baf3ccd"></a>
-GameEngine::ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>createFromNetwork</b> (<a class="el" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> &amp;networkId, <a class="el" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a> &amp;metaData)</td></tr>
-<tr class="separator:aac72d1d75cb25804259c0aa15baf3ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73beef1abf4c32d93ddc735323cd36ed"><td class="memItemLeft" align="right" valign="top"><a id="a73beef1abf4c32d93ddc735323cd36ed"></a>
-GameEngine::ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>createFromBluePrint</b> (<a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> const &amp;payload)</td></tr>
-<tr class="separator:a73beef1abf4c32d93ddc735323cd36ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:aba74b06609ef10db3981251a7c6df170"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>playerEntity</b></td></tr>
-<tr class="separator:aba74b06609ef10db3981251a7c6df170"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9776b8327afc88babf6a4eebc1df317"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>enemyEntity</b></td></tr>
-<tr class="separator:af9776b8327afc88babf6a4eebc1df317"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04b93ed8ff88534fe2f809b88e109fa8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bulletEntity</b></td></tr>
-<tr class="separator:a04b93ed8ff88534fe2f809b88e109fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc17b34a7f298821401d3255b96918b6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>backgroundEntity</b></td></tr>
-<tr class="separator:afc17b34a7f298821401d3255b96918b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acee929bd86d91ebdc140d5685aa00ae2"><td class="memItemLeft" align="right" valign="top"><a id="acee929bd86d91ebdc140d5685aa00ae2"></a>
+GameEngine::ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>createFromNetwork</b> (<a class="el" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> &amp;id, const <a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate)</td></tr>
+<tr class="separator:acee929bd86d91ebdc140d5685aa00ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a843deac3b6a6dd5241fbe9cd1f253479"><td class="memItemLeft" align="right" valign="top"><a id="a843deac3b6a6dd5241fbe9cd1f253479"></a>
+GameEngine::ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>loadFromNetwork</b> (<a class="el" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> &amp;networkId, <a class="el" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a> &amp;metaData)</td></tr>
+<tr class="separator:a843deac3b6a6dd5241fbe9cd1f253479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6aeb3405d685a6f18f8aaf739e455a6"><td class="memItemLeft" align="right" valign="top"><a id="ab6aeb3405d685a6f18f8aaf739e455a6"></a>
+GameEngine::ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>createFromBluePrint</b> (<a class="el" href="structGameEngine_1_1Entity_1_1ComponentsBluePrint.html">ComponentsBluePrint</a> const &amp;bluePrint)</td></tr>
+<tr class="separator:ab6aeb3405d685a6f18f8aaf739e455a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92232be188b9142ef525ec3c137f2e83"><td class="memItemLeft" align="right" valign="top"><a id="a92232be188b9142ef525ec3c137f2e83"></a>
+GameEngine::ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>createFromTemplate</b> (<a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> const &amp;entityTemplate)</td></tr>
+<tr class="separator:a92232be188b9142ef525ec3c137f2e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1791707623a6085e812621cc2647f548"><td class="memItemLeft" align="right" valign="top"><a id="a1791707623a6085e812621cc2647f548"></a>
+std::map&lt; std::string, <a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEntitiesTemplate</b> ()</td></tr>
+<tr class="separator:a1791707623a6085e812621cc2647f548"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcf9d117a9217c10437d2763ab18265d"><td class="memItemLeft" align="right" valign="top"><a id="adcf9d117a9217c10437d2763ab18265d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addEntityTemplate</b> (const std::string &amp;name, const <a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate)</td></tr>
+<tr class="separator:adcf9d117a9217c10437d2763ab18265d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dccba5c7a2cdc30d527b5b970d970a1"><td class="memItemLeft" align="right" valign="top"><a id="a6dccba5c7a2cdc30d527b5b970d970a1"></a>
+<a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getEntityTemplate</b> (const std::string &amp;name)</td></tr>
+<tr class="separator:a6dccba5c7a2cdc30d527b5b970d970a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acde78198ac1dddd0be678323a5177ff8"><td class="memItemLeft" align="right" valign="top"><a id="acde78198ac1dddd0be678323a5177ff8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>entityTemplateExist</b> (const std::string &amp;name)</td></tr>
+<tr class="separator:acde78198ac1dddd0be678323a5177ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="afc17b34a7f298821401d3255b96918b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc17b34a7f298821401d3255b96918b6">&#9670;&nbsp;</a></span>backgroundEntity</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> GameEngine::Entity::EntityFactory::backgroundEntity</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    .light = <span class="keyword">false</span>,</div>
-<div class="line">    .blueprint = {</div>
-<div class="line">      .transform = <span class="keyword">true</span>,</div>
-<div class="line">      .displayable = <span class="keyword">true</span>,</div>
-<div class="line">      .controllable = <span class="keyword">false</span>,</div>
-<div class="line">      .networkedEntity = <span class="keyword">true</span>,</div>
-<div class="line">      .metaData = <span class="keyword">true</span>,</div>
-<div class="line">      .position = <span class="keyword">true</span>,</div>
-<div class="line">      .gravity = <span class="keyword">false</span>}}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a04b93ed8ff88534fe2f809b88e109fa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04b93ed8ff88534fe2f809b88e109fa8">&#9670;&nbsp;</a></span>bulletEntity</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> GameEngine::Entity::EntityFactory::bulletEntity</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    .light = <span class="keyword">false</span>,</div>
-<div class="line">    .blueprint = {</div>
-<div class="line">      .transform = <span class="keyword">true</span>,</div>
-<div class="line">      .displayable = <span class="keyword">true</span>,</div>
-<div class="line">      .controllable = <span class="keyword">true</span>,</div>
-<div class="line">      .networkedEntity = <span class="keyword">true</span>,</div>
-<div class="line">      .metaData = <span class="keyword">true</span>,</div>
-<div class="line">      .position = <span class="keyword">true</span>,</div>
-<div class="line">      .gravity = <span class="keyword">true</span>,</div>
-<div class="line">      .hitbox = <span class="keyword">true</span>,</div>
-<div class="line">    }}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="af9776b8327afc88babf6a4eebc1df317"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9776b8327afc88babf6a4eebc1df317">&#9670;&nbsp;</a></span>enemyEntity</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> GameEngine::Entity::EntityFactory::enemyEntity</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    .light = <span class="keyword">false</span>,</div>
-<div class="line">    .blueprint = {</div>
-<div class="line">      .transform = <span class="keyword">true</span>,</div>
-<div class="line">      .displayable = <span class="keyword">true</span>,</div>
-<div class="line">      .controllable = <span class="keyword">true</span>,</div>
-<div class="line">      .networkedEntity = <span class="keyword">true</span>,</div>
-<div class="line">      .metaData = <span class="keyword">true</span>,</div>
-<div class="line">      .position = <span class="keyword">true</span>,</div>
-<div class="line">      .gravity = <span class="keyword">true</span>,</div>
-<div class="line">      .hitbox = <span class="keyword">true</span>,</div>
-<div class="line">    }}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aba74b06609ef10db3981251a7c6df170"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba74b06609ef10db3981251a7c6df170">&#9670;&nbsp;</a></span>playerEntity</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structGameEngine_1_1Entity_1_1EntityBluePrint.html">EntityBluePrint</a> GameEngine::Entity::EntityFactory::playerEntity</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    .light = <span class="keyword">false</span>,</div>
-<div class="line">    .blueprint = {</div>
-<div class="line">      .transform = <span class="keyword">true</span>,</div>
-<div class="line">      .displayable = <span class="keyword">true</span>,</div>
-<div class="line">      .controllable = <span class="keyword">true</span>,</div>
-<div class="line">      .networkedEntity = <span class="keyword">true</span>,</div>
-<div class="line">      .metaData = <span class="keyword">true</span>,</div>
-<div class="line">      .position = <span class="keyword">true</span>,</div>
-<div class="line">      .gravity = <span class="keyword">true</span>,</div>
-<div class="line">      .hitbox = <span class="keyword">true</span>,</div>
-<div class="line">    }}</div>
-</div><!-- fragment -->
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gameEngine/include/gameEngine/entity/<a class="el" href="EntityFactory_8hpp_source.html">EntityFactory.hpp</a></li>
 <li>gameEngine/src/entity/EntityFactory.cpp</li>

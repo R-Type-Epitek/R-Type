@@ -59,11 +59,11 @@ var annotated_dup =
         [ "SystemManager", "classGameEngine_1_1ECS_1_1SystemManager.html", "classGameEngine_1_1ECS_1_1SystemManager" ]
       ] ],
       [ "Entity", null, [
+        [ "ConfigLoader", "classGameEngine_1_1Entity_1_1ConfigLoader.html", "classGameEngine_1_1Entity_1_1ConfigLoader" ],
         [ "EntityBuilder", "classGameEngine_1_1Entity_1_1EntityBuilder.html", "classGameEngine_1_1Entity_1_1EntityBuilder" ],
+        [ "EntityTemplate", "structGameEngine_1_1Entity_1_1EntityTemplate.html", "structGameEngine_1_1Entity_1_1EntityTemplate" ],
         [ "EntityFactory", "classGameEngine_1_1Entity_1_1EntityFactory.html", "classGameEngine_1_1Entity_1_1EntityFactory" ],
-        [ "EntityTypeHelper", "structGameEngine_1_1Entity_1_1EntityTypeHelper.html", "structGameEngine_1_1Entity_1_1EntityTypeHelper" ],
-        [ "ComponentBluePrint", "structGameEngine_1_1Entity_1_1ComponentBluePrint.html", "structGameEngine_1_1Entity_1_1ComponentBluePrint" ],
-        [ "EntityBluePrint", "structGameEngine_1_1Entity_1_1EntityBluePrint.html", "structGameEngine_1_1Entity_1_1EntityBluePrint" ]
+        [ "ComponentsBluePrint", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html", "structGameEngine_1_1Entity_1_1ComponentsBluePrint" ]
       ] ],
       [ "Event", null, [
         [ "EventListenerWrapper", "classGameEngine_1_1Event_1_1EventListenerWrapper.html", "classGameEngine_1_1Event_1_1EventListenerWrapper" ],
@@ -149,7 +149,6 @@ var annotated_dup =
     [ "Tools", null, [
       [ "EndianConverter", "classTools_1_1EndianConverter.html", "classTools_1_1EndianConverter" ]
     ] ],
-    [ "ConfigLoader", "classConfigLoader.html", "classConfigLoader" ],
     [ "GodModeData", "structGodModeData.html", "structGodModeData" ],
     [ "InputData", "structInputData.html", "structInputData" ],
     [ "JoinGameData", "structJoinGameData.html", "structJoinGameData" ],

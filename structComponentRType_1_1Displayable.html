@@ -120,26 +120,61 @@ $(document).ready(function(){initNavTree('structComponentRType_1_1Displayable.ht
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="structComponentRType_1_1Displayable-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ComponentRType::Displayable Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for ComponentRType::Displayable:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structComponentRType_1_1Displayable.png" usemap="#ComponentRType::Displayable_map" alt=""/>
+  <map id="ComponentRType::Displayable_map" name="ComponentRType::Displayable_map">
+<area href="classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent.html" alt="GameEngine::Network::Serializer::BaseNetworkComponent" shape="rect" coords="0,0,338,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a31b5c18010d29b3623205395ec52f0bb"><td class="memItemLeft" align="right" valign="top"><a id="a31b5c18010d29b3623205395ec52f0bb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Displayable</b> (sf::Texture &amp;texture)</td></tr>
-<tr class="separator:a31b5c18010d29b3623205395ec52f0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3180da3aa766c56f568ef9bc2abb3b7c"><td class="memItemLeft" align="right" valign="top"><a id="a3180da3aa766c56f568ef9bc2abb3b7c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Displayable</b> (sf::Texture &amp;texture, sf::IntRect const &amp;rect)</td></tr>
-<tr class="separator:a3180da3aa766c56f568ef9bc2abb3b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d2adea5006e4140bfd222c9920c6daf"><td class="memItemLeft" align="right" valign="top"><a id="a8d2adea5006e4140bfd222c9920c6daf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Displayable</b> (std::string assetPath)</td></tr>
+<tr class="separator:a8d2adea5006e4140bfd222c9920c6daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412e056edbd35684b7c0a72ab22ddd09"><td class="memItemLeft" align="right" valign="top"><a id="a412e056edbd35684b7c0a72ab22ddd09"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Displayable</b> (std::string assetPath, sf::IntRect const &amp;rect)</td></tr>
+<tr class="separator:a412e056edbd35684b7c0a72ab22ddd09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad88051725706bffd521d9ef92a8f41de"><td class="memTemplParams" colspan="2"><a id="ad88051725706bffd521d9ef92a8f41de"></a>
+template&lt;class Archive &gt; </td></tr>
+<tr class="memitem:ad88051725706bffd521d9ef92a8f41de"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>serialize</b> (Archive &amp;archive, const unsigned int)</td></tr>
+<tr class="separator:ad88051725706bffd521d9ef92a8f41de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a6f267ecc906ba2ca42c5d3a029fa1f3f"><td class="memItemLeft" align="right" valign="top"><a id="a6f267ecc906ba2ca42c5d3a029fa1f3f"></a>
 sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>sprite</b></td></tr>
 <tr class="separator:a6f267ecc906ba2ca42c5d3a029fa1f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d6454606025764eceeecaf81e580a0"><td class="memItemLeft" align="right" valign="top"><a id="ac3d6454606025764eceeecaf81e580a0"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>assetPath</b> = &quot;&quot;</td></tr>
+<tr class="separator:ac3d6454606025764eceeecaf81e580a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c242e672fd77f7e5724a77829cbf0a"><td class="memItemLeft" align="right" valign="top"><a id="a93c242e672fd77f7e5724a77829cbf0a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>rectTop</b> = -1</td></tr>
+<tr class="separator:a93c242e672fd77f7e5724a77829cbf0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d45d33011d3ae29d71b5508ee08f306"><td class="memItemLeft" align="right" valign="top"><a id="a0d45d33011d3ae29d71b5508ee08f306"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>rectLeft</b> = -1</td></tr>
+<tr class="separator:a0d45d33011d3ae29d71b5508ee08f306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef620f23c85acdaa3b469244aba82b6f"><td class="memItemLeft" align="right" valign="top"><a id="aef620f23c85acdaa3b469244aba82b6f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>rectWidth</b> = -1</td></tr>
+<tr class="separator:aef620f23c85acdaa3b469244aba82b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e3bec51a030c69a43d1b4cf40e718c"><td class="memItemLeft" align="right" valign="top"><a id="af2e3bec51a030c69a43d1b4cf40e718c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>rectHeight</b> = -1</td></tr>
+<tr class="separator:af2e3bec51a030c69a43d1b4cf40e718c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ac98d07dd8f7b70e16ccb9a01abf56b9c"><td class="memItemLeft" align="right" valign="top"><a id="ac98d07dd8f7b70e16ccb9a01abf56b9c"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>boost::serialization::access</b></td></tr>
+<tr class="separator:ac98d07dd8f7b70e16ccb9a01abf56b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>gameEngine/include/gameEngine/component/<a class="el" href="Displayable_8hpp_source.html">Displayable.hpp</a></li>
