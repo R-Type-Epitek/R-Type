@@ -1,0 +1,132 @@
+{
+  "mode": "Infinite",
+  "settings": {
+    "difficulty": "Medium",
+    "enemySpawnRate": 1.5,
+    "powerUpFrequency": 3,
+    "background": "Space",
+    "playerLives": 3
+  },
+  "entityTemplate": [
+    {
+      "typeName": "Background",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/background_starfield.png",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": 0,
+            "y": 0
+          },
+          "speed": 2
+        }
+      ]
+    },
+    {
+      "typeName": "Player",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet24.gif"
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "name": "Transform"
+        },
+        {
+          "name": "Controllable"
+        },
+        {
+          "name": "Hitbox",
+          "mask": 1
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet28.gif"
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "name": "Transform"
+        },
+        {
+          "name": "Hitbox",
+          "mask": 2
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "baseType": "Enemy",
+      "type": "Boss",
+      "health": 100,
+      "attackPattern": "Zigzag",
+      "speed": 2
+    }
+  ],
+  "powerUps": [
+    {
+      "type": "ExtraLife",
+      "frequency": 15
+    },
+    {
+      "type": "Shield",
+      "frequency": 10
+    },
+    {
+      "type": "DoubleFire",
+      "frequency": 8
+    }
+  ]
+}
