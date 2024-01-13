@@ -41,9 +41,10 @@ namespace GameEngine::System
         if (!position.isValid) {
           position.position = position.latestValidPosition;
           spriteC.sprite.setPosition(position.position);
+          position.isValid = true;
         } else {
-          spriteC.sprite.move(transform.movement);
           position.position = spriteC.sprite.getPosition();
+          spriteC.sprite.move(transform.movement);
           position.latestValidPosition = position.position;
         }
       }
