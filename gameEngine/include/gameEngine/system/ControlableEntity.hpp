@@ -28,21 +28,16 @@ namespace GameEngine::System
    public:
     void bindEvent(Event::EventRegistry& eventRegistry) final
     {
-      eventRegistry.subscribeLambda<Event::MoveUp>(([this](const Event::IEvent& eventRaw) {
-        moveUp(eventRaw);
-      }));
-      eventRegistry.subscribeLambda<Event::Movedown>(([this](const Event::IEvent& eventRaw) {
-        moveDown(eventRaw);
-      }));
-      eventRegistry.subscribeLambda<Event::MoveLeft>(([this](const Event::IEvent& eventRaw) {
-        moveLeft(eventRaw);
-      }));
-      eventRegistry.subscribeLambda<Event::MoveRight>(([this](const Event::IEvent& eventRaw) {
-        moveRight(eventRaw);
-      }));
-      eventRegistry.subscribeLambda<Event::PressSpace>(([this](const Event::IEvent& eventRaw) {
-        pressSpace(eventRaw);
-      }));
+      eventRegistry.subscribeLambda<Event::MoveUp>(
+        ([this](const Event::IEvent& eventRaw) { moveUp(eventRaw); }));
+      eventRegistry.subscribeLambda<Event::Movedown>(
+        ([this](const Event::IEvent& eventRaw) { moveDown(eventRaw); }));
+      eventRegistry.subscribeLambda<Event::MoveLeft>(
+        ([this](const Event::IEvent& eventRaw) { moveLeft(eventRaw); }));
+      eventRegistry.subscribeLambda<Event::MoveRight>(
+        ([this](const Event::IEvent& eventRaw) { moveRight(eventRaw); }));
+      eventRegistry.subscribeLambda<Event::PressSpace>(
+        ([this](const Event::IEvent& eventRaw) { pressSpace(eventRaw); }));
     }
 
     void moveUp(const Event::IEvent& eventRaw)
@@ -91,9 +86,13 @@ namespace GameEngine::System
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::PressSpace&>(eventRaw);
       auto entity = getEntitybyId(event.entity);
-      auto& transform = componentManager->getComponent<ComponentRType::Transform>(entity);
+      auto& position = componentManager->getComponent<ComponentRType::Position>(entity).position;
 
-      transform.movement = sf::Vector2f(0, 0);
+      Event::PlayerShoot shootEvent("PlayerBullet", event.entity, position.x, position.y);
+      getEventRegistry().publish<Event::PlayerShoot>(shootEvent);
+
+      auto& transformC = componentManager->getComponent<ComponentRType::Transform>(entity);
+      transformC.movement = sf::Vector2f(0, 0);
     }
 
    private:

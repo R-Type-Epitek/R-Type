@@ -108,6 +108,20 @@ namespace GameEngine::Event
     float y;
   };
 
+  struct PlayerShoot : public IEvent {
+    PlayerShoot() = default;
+    explicit PlayerShoot(std::string entityTypeName, ECS::Entity entityActor, float x, float y)
+      : entityTypeName(entityTypeName)
+      , entityActor(entityActor)
+      , x(x)
+      , y(y) {};
+
+    std::string entityTypeName;
+    ECS::Entity entityActor;
+    float x;
+    float y;
+  };
+
   struct DisconnectedPlayer : public IEvent {
     DisconnectedPlayer() = default;
     explicit DisconnectedPlayer(size_t id)

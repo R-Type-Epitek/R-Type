@@ -75,7 +75,7 @@ namespace GameEngine::Network::Serializer
       auto &component = componentManager.getComponent<T>(entity);
       T componentData = deserializeComponent<T>(archive);
 
-      component = componentData;
+      component = std::move(componentData);
       return component;
     }
   };

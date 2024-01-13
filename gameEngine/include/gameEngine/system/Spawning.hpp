@@ -37,6 +37,9 @@ namespace GameEngine::System
 
       eventRegistry.subscribeLambda<Event::DisconnectedPlayer>(
         ([this](const Event::IEvent& eventRaw) { destroyPlayer(eventRaw); }));
+
+      eventRegistry.subscribeLambda<Event::PlayerShoot>(
+        ([this](const Event::IEvent& eventRaw) { spawnEntityType(eventRaw); }));
     }
 
     void setEntityFactory(std::shared_ptr<Entity::EntityFactory> entityFactory)
@@ -62,6 +65,20 @@ namespace GameEngine::System
 
     void destroyPlayer(const Event::IEvent&)
     {
+    }
+
+    void spawnEntityType(const Event::IEvent& eventRaw)
+    {
+      if (!m_entityFactory) {
+        return;
+      }
+      auto event = dynamic_cast<const Event::PlayerShoot&>(eventRaw);
+
+      auto scheme = m_entityFactory->getEntityTemplate(event.entityTypeName);
+      ComponentRType::Position position {event.x, event.y};
+      position.isValid = false;
+      scheme.position = std::move(position);
+      m_entityFactory->createFromTemplateNetwork(scheme);
     }
 
    private:

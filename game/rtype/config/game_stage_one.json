@@ -83,6 +83,46 @@
       ]
     },
     {
+      "typeName": "PlayerBullet",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet43.gif",
+          "rect": {
+            "x": 200,
+            "y": 37,
+            "width": 48,
+            "height": 12
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 10,
+            "y": 10
+          }
+        },
+        {
+          "name": "Transform",
+          "speed": 25,
+          "movement": {
+            "x": 25,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 3
+        }
+      ]
+    },
+    {
       "typeName": "Enemy",
       "components": [
         {

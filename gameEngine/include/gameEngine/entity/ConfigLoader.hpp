@@ -42,8 +42,6 @@ namespace GameEngine::Entity
     void parseGravity(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseHitbox(GameEngine::Entity::EntityTemplate &entity, const json &config);
 
-    static size_t idOffset;
-
    private:
     json m_config;
   };

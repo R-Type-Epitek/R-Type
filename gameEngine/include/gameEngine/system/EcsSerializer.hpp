@@ -98,7 +98,6 @@ namespace GameEngine::System
       } else {
         entity = entityFactory.loadFromNetwork(componentNE, componentMD);
         updateEntity(componentManager, entity, archive);
-        //      Deserialize sprite once
         Serializer::deserializeComponentToEntity<ComponentRType::Displayable>(
           componentManager,
           entity,
@@ -107,6 +106,7 @@ namespace GameEngine::System
         comp = ComponentRType::Displayable(
           comp.assetPath,
           {comp.rectLeft, comp.rectTop, comp.rectWidth, comp.rectHeight});
+        //        comp.sprite.setPosition(pos.position);
       }
     }
 

@@ -9,8 +9,6 @@
 namespace GameEngine::Entity
 {
 
-  size_t ConfigLoader::idOffset = 2000;
-
   ConfigLoader::ConfigLoader()
   {
   }
@@ -62,10 +60,10 @@ namespace GameEngine::Entity
     std::string type = baseTypeStr.empty() ? typeStr : baseTypeStr;
 
     EntityTemplate entityTemplate = entityFactory.getEntityTemplate(type);
-    entityTemplate.networkedEntity = ComponentRType::NetworkedEntity {idOffset};
+    entityTemplate.networkedEntity = ComponentRType::NetworkedEntity {EntityFactory::idOffset};
     entityTemplate.metaData.bluePrint = entityTemplate.blueprint;
     entityFactory.createFromTemplate(entityTemplate);
-    idOffset++;
+    EntityFactory::idOffset++;
   }
 
   EntityTemplate ConfigLoader::parseComponents(const json &config)
@@ -111,7 +109,7 @@ namespace GameEngine::Entity
     if (config.contains("movement")) {
       int x = config["movement"].value("x", 0);
       int y = config["movement"].value("y", 0);
-      int speed = config["movement"].value("speed", ComponentRType::defaultSpeed);
+      int speed = config.value("speed", ComponentRType::defaultSpeed);
 
       entity.transform.movement = {static_cast<float>(x), static_cast<float>(y)};
       entity.transform.speed = speed;

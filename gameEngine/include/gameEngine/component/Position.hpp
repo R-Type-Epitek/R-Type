@@ -22,7 +22,7 @@ namespace ComponentRType
 
     Position() = default;
 
-    explicit Position(size_t x, size_t y)
+    explicit Position(float x, float y)
       : position(x, y)
       , latestPosition(x, y)
       , latestValidPosition(x, y)
