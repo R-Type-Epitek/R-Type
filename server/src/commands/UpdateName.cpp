@@ -21,7 +21,18 @@ std::vector<char> Network::UpdateNameCommandHandler::handleCommand(Message *mess
 {
   UpdateNameData *data = (UpdateNameData *)message->data;
 
-  this->server.getClients()[message->header.clientId].setName(data->name);
+  auto clientOpt = this->server.getClientById(message->header.clientId);
+  if (!clientOpt.has_value())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client not found",
+      nullptr,
+      0,
+      RES_UNAUTHORIZED);
+  Client &client = clientOpt.value();
+
+  client.setName(data->name);
 
   UpdateNameData dataToSend;
   strcpy(dataToSend.name, data->name);
