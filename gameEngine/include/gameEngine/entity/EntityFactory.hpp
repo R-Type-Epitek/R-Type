@@ -5,8 +5,14 @@
 #pragma once
 
 #include "gameEngine/ecs/entity/Entity.hpp"
-#include "gameEngine/component/MetaData.hpp"
+#include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/Controllable.hpp"
 #include "gameEngine/component/NetworkedEntity.hpp"
+#include "gameEngine/component/MetaData.hpp"
+#include "gameEngine/component/Position.hpp"
+#include "gameEngine/component/Gravity.hpp"
+#include "gameEngine/component/Hitbox.hpp"
 #include "EntityType.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "spdlog/spdlog.h"
@@ -15,28 +21,44 @@
 namespace GameEngine::Entity
 {
 
+  struct EntityTemplate {
+    ComponentsBluePrint blueprint;
+    ComponentRType::Transform transform;
+    ComponentRType::Displayable displayable;
+    ComponentRType::Controllable controllable;
+    ComponentRType::NetworkedEntity networkedEntity;
+    ComponentRType::MetaData metaData;
+    ComponentRType::Position position;
+    ComponentRType::Gravity gravity;
+    ComponentRType::Hitbox hitbox;
+  };
+
   class EntityFactory {
    public:
     EntityFactory(std::vector<GameEngine::ECS::Entity> &entities, GameEngine::ECS::Registry &registry);
 
-    GameEngine::ECS::Entity create(const EntityType &type);
+    //    GameEngine::ECS::Entity create(const EntityType &type);
 
     GameEngine::ECS::Entity createFromNetwork(
+      ComponentRType::NetworkedEntity &id,
+      const EntityTemplate &entityTemplate);
+
+    GameEngine::ECS::Entity loadFromNetwork(
       ComponentRType::NetworkedEntity &networkId,
       ComponentRType::MetaData &metaData);
 
-    GameEngine::ECS::Entity createFromBluePrint(EntityBluePrint const &payload);
+    GameEngine::ECS::Entity createFromBluePrint(ComponentsBluePrint const &bluePrint);
+    GameEngine::ECS::Entity createFromTemplate(EntityTemplate const &entityTemplate);
 
-
-
-    static EntityBluePrint playerEntity;
-    static EntityBluePrint enemyEntity;
-    static EntityBluePrint bulletEntity;
-    static EntityBluePrint backgroundEntity;
+    std::map<std::string, EntityTemplate> &getEntitiesTemplate();
+    void addEntityTemplate(const std::string &name, const EntityTemplate &entityTemplate);
+    EntityTemplate getEntityTemplate(const std::string &name);
+    bool entityTemplateExist(const std::string &name);
 
    private:
     using AssetManager = GameEngine::Asset::AssetManager;
 
+    std::map<std::string, EntityTemplate> m_entitiesTemplate;
     std::vector<GameEngine::ECS::Entity> &m_entities; ///< Vector of entities in the Factory context.
     GameEngine::ECS::Registry &m_registry;            ///< Reference to the ECS registry.
   };

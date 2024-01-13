@@ -14,59 +14,10 @@
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/entity/EntityBuilder.hpp"
+#include "spdlog/spdlog.h"
 
 namespace GameEngine::Entity
 {
-
-  EntityBluePrint EntityFactory::playerEntity {
-    .light = false,
-    .blueprint = {
-      .transform = true,
-      .displayable = true,
-      .controllable = true,
-      .networkedEntity = true,
-      .metaData = true,
-      .position = true,
-      .gravity = true,
-      .hitbox = true,
-    }};
-
-  EntityBluePrint EntityFactory::enemyEntity {
-    .light = false,
-    .blueprint = {
-      .transform = true,
-      .displayable = true,
-      .controllable = true,
-      .networkedEntity = true,
-      .metaData = true,
-      .position = true,
-      .gravity = true,
-      .hitbox = true,
-    }};
-
-  EntityBluePrint EntityFactory::bulletEntity {
-    .light = false,
-    .blueprint = {
-      .transform = true,
-      .displayable = true,
-      .controllable = true,
-      .networkedEntity = true,
-      .metaData = true,
-      .position = true,
-      .gravity = true,
-      .hitbox = true,
-    }};
-
-  EntityBluePrint EntityFactory::backgroundEntity {
-    .light = false,
-    .blueprint = {
-      .transform = true,
-      .displayable = true,
-      .controllable = false,
-      .networkedEntity = true,
-      .metaData = true,
-      .position = true,
-      .gravity = false}};
 
   EntityFactory::EntityFactory(std::vector<GameEngine::ECS::Entity> &entities, ECS::Registry &registry)
     : m_entities(entities)
@@ -74,99 +25,123 @@ namespace GameEngine::Entity
   {
   }
 
-  GameEngine::ECS::Entity EntityFactory::create(const EntityType &type)
-  {
-    spdlog::info("[EntityFactory] Creating entity...");
-    const std::unordered_map<EntityType, std::function<GameEngine::ECS::Entity()>> typeMap = {
-      {EntityType::Player,
-       [&]() {
-         spdlog::info("[EntityFactory] Creating Player entity...");
-         return createFromBluePrint(playerEntity);
-       }},
-      {EntityType::Enemy,
-       [&]() {
-         spdlog::info("[EntityFactory] Creating Enemy entity...");
-         return createFromBluePrint(enemyEntity);
-       }},
-      {EntityType::Bullet,
-       [&]() {
-         spdlog::info("[EntityFactory] Creating Bullet entity...");
-         return createFromBluePrint(bulletEntity);
-       }},
-      {EntityType::Boss,
-       [&]() {
-         spdlog::info("[EntityFactory] Creating Bullet entity...");
-         return createFromBluePrint(enemyEntity);
-       }},
-      {EntityType::Background,
-       [&]() {
-         spdlog::info("[EntityFactory] Creating Bullet entity...");
-         return createFromBluePrint(backgroundEntity);
-       }},
-      {EntityType::None, []() -> GameEngine::ECS::Entity {
-         throw std::runtime_error("Cannot create entity of type None");
-       }}};
-
-    auto it = typeMap.find(type);
-    assert(it != typeMap.end());
-    return it->second();
-  }
-
   GameEngine::ECS::Entity EntityFactory::createFromNetwork(
     ComponentRType::NetworkedEntity &id,
-    ComponentRType::MetaData &metaData)
+    const EntityTemplate &entityTemplate)
   {
     spdlog::info("[EntityFactory] Creating entity from Network...");
-    auto entity = create(metaData.entityType);
     auto &componentManager = m_registry.getComponentManager();
-
-    auto &idMem = componentManager->getComponent<ComponentRType::NetworkedEntity>(entity);
-    auto &metaDataMem = componentManager->getComponent<ComponentRType::MetaData>(entity);
-    idMem = id;
-    metaDataMem = metaData;
-
-    auto compDisplay = ComponentRType::Displayable(GameEngine::Asset::getTexture(metaData.texturePath));
-    auto &compDisplayMem = componentManager->getComponent<ComponentRType::Displayable>(entity);
-    compDisplayMem = compDisplay;
+    auto entity = createFromTemplate(entityTemplate);
+    componentManager->getComponent<ComponentRType::NetworkedEntity>(entity) = id;
+    componentManager->getComponent<ComponentRType::MetaData>(entity).bluePrint = entityTemplate.blueprint;
 
     return entity;
   }
 
-  GameEngine::ECS::Entity EntityFactory::createFromBluePrint(EntityBluePrint const &payload)
+  GameEngine::ECS::Entity EntityFactory::loadFromNetwork(
+    ComponentRType::NetworkedEntity &id,
+    ComponentRType::MetaData &metaData)
+  {
+    spdlog::info("[EntityFactory] Creating entity from Network...");
+    auto &componentManager = m_registry.getComponentManager();
+    auto entity = createFromBluePrint(metaData.bluePrint);
+
+    componentManager->getComponent<ComponentRType::MetaData>(entity) = metaData;
+    componentManager->getComponent<ComponentRType::NetworkedEntity>(entity) = id;
+    return entity;
+  }
+
+  GameEngine::ECS::Entity EntityFactory::createFromBluePrint(ComponentsBluePrint const &bluePrint)
   {
     spdlog::info("[EntityFactory] Creating entity from BluePrint...");
 
     auto builder = EntityBuilder(m_registry);
-    if (payload.blueprint.transform) {
+    if (bluePrint.transform) {
       builder.buildComponent(ComponentRType::Transform {});
     }
-    if (payload.blueprint.displayable) {
-      builder.buildComponent(ComponentRType::Displayable(GameEngine::Asset::getTexture()));
+    if (bluePrint.displayable) {
+      builder.buildComponent(ComponentRType::Displayable());
     }
-    if (payload.blueprint.clickable) {
+    if (bluePrint.clickable) {
       builder.buildComponent(ComponentRType::Clickable {});
     }
-    if (payload.blueprint.controllable) {
+    if (bluePrint.controllable) {
       builder.buildComponent(ComponentRType::Controllable {});
     }
-    if (payload.blueprint.networkedEntity) {
+    if (bluePrint.networkedEntity) {
       builder.buildComponent(ComponentRType::NetworkedEntity {});
     }
-    if (payload.blueprint.metaData) {
+    if (bluePrint.metaData) {
       builder.buildComponent(ComponentRType::MetaData {});
     }
-    if (payload.blueprint.position) {
+    if (bluePrint.position) {
       builder.buildComponent(ComponentRType::Position {});
     }
-    if (payload.blueprint.gravity) {
+    if (bluePrint.gravity) {
       builder.buildComponent(ComponentRType::Gravity {});
     }
-    if (payload.blueprint.hitbox) {
+    if (bluePrint.hitbox) {
       builder.buildComponent(ComponentRType::Hitbox {});
     }
     auto entity = builder.getResult();
     m_entities.push_back(entity);
     return entity;
+  }
+
+  GameEngine::ECS::Entity EntityFactory::createFromTemplate(const EntityTemplate &entityTemplate)
+  {
+    auto builder = EntityBuilder(m_registry);
+    if (entityTemplate.blueprint.transform) {
+      builder.buildComponent(entityTemplate.transform);
+    }
+    if (entityTemplate.blueprint.displayable) {
+      builder.buildComponent(entityTemplate.displayable);
+    }
+    if (entityTemplate.blueprint.controllable) {
+      builder.buildComponent(entityTemplate.controllable);
+    }
+    if (entityTemplate.blueprint.networkedEntity) {
+      builder.buildComponent(entityTemplate.networkedEntity);
+    }
+    if (entityTemplate.blueprint.metaData) {
+      builder.buildComponent(entityTemplate.metaData);
+    }
+    if (entityTemplate.blueprint.position) {
+      builder.buildComponent(entityTemplate.position);
+    }
+    if (entityTemplate.blueprint.gravity) {
+      builder.buildComponent(entityTemplate.gravity);
+    }
+    if (entityTemplate.blueprint.hitbox) {
+      builder.buildComponent(entityTemplate.hitbox);
+    }
+    auto entity = builder.getResult();
+    m_entities.push_back(entity);
+    return entity;
+  }
+
+  std::map<std::string, EntityTemplate> &EntityFactory::getEntitiesTemplate()
+  {
+    return m_entitiesTemplate;
+  }
+
+  void EntityFactory::addEntityTemplate(const std::string &name, const EntityTemplate &entityTemplate)
+  {
+    m_entitiesTemplate[name] = entityTemplate;
+  }
+
+  EntityTemplate EntityFactory::getEntityTemplate(const std::string &name)
+  {
+    if (!entityTemplateExist(name)) {
+      spdlog::error("[EntityFactory] Entity template {} does not exist", name);
+      throw std::runtime_error("Entity template " + name + " does not exist");
+    }
+    return m_entitiesTemplate.at(name);
+  }
+
+  bool EntityFactory::entityTemplateExist(const std::string &name)
+  {
+    return m_entitiesTemplate.find(name) != m_entitiesTemplate.end();
   }
 
 } // GameEngine::Entity

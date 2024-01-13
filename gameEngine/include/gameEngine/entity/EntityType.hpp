@@ -3,55 +3,31 @@
 //
 
 #pragma once
-#include <string>
-#include <vector>
-#include <unordered_map>
-#include <iostream>
-#include <stdexcept>
-#include <SFML/System/Vector2.hpp>
+#include "gameEngine/network/Serializer.hpp"
+#include <boost/serialization/access.hpp>
 
 namespace GameEngine::Entity
 {
-  struct EntityTypeHelper {
-    enum EntityType
+
+  struct ComponentsBluePrint : public GameEngine::Network::Serializer::BaseNetworkComponent {
+    friend class boost::serialization::access;
+    ComponentsBluePrint() = default;
+    template<class Archive>
+    void serialize(Archive &archive, const unsigned int)
     {
-      None,
-      Player,
-      Asteroid,
-      Background,
-      Enemy,
-      Boss,
-      Bullet
-    };
-
-    static EntityType getEntityType(const std::string& typeStr) {
-      
-      static const std::unordered_map<std::string, EntityType> typeMap = {
-        {"None", None},
-        {"Player", Player},
-        {"Asteroid", Asteroid},
-        {"Background", Background},
-        {"Enemy", Enemy},
-        {"Bullet", Bullet},
-        {"Boss", Boss}};
-
-      auto it = typeMap.find(typeStr);
-      assert(it != typeMap.end());
-      return it->second;
+      archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
+        *this);
+      archive & transform;
+      archive & displayable;
+      archive & clickable;
+      archive & controllable;
+      archive & networkedEntity;
+      archive & metaData;
+      archive & position;
+      archive & gravity;
+      archive & hitbox;
     }
 
-    static std::string getEntityType(const EntityType& type) {
-      static const std::unordered_map<EntityType, std::string> typeMap = {
-        {None, "None"},
-        {Player, "Player"},
-        {Asteroid, "Asteroid"},
-        {Background, "Background"},
-        {Enemy, "Enemy"},
-        {Bullet, "Bullet"},
-        {Boss, "Boss"}
-      };
-      
-  struct ComponentBluePrint {
     bool transform = false;
     bool displayable = false;
     bool clickable = false;
@@ -63,29 +39,4 @@ namespace GameEngine::Entity
     bool hitbox = false;
   };
 
-      auto it = typeMap.find(type);
-      assert(it != typeMap.end());
-      return it->second;
-    }
-  };
-
-struct ComponentBluePrint {
-  bool transform = false;
-  bool displayable = false;
-  bool clickable = false;
-  bool controllable = false;
-  bool networkedEntity = false;
-  bool metaData = false;
-  bool position = false;
-  bool gravity = false;
-  bool hitbox = false;
-};
-
-struct EntityBluePrint {
-  bool light = true;
-  std::string defaultAssetPath = "";
-  ComponentBluePrint blueprint;
-};
-
-using EntityType = EntityTypeHelper::EntityType;
 } // namespace GameEngine::Entity
