@@ -6,6 +6,7 @@
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/entity/EntityFactory.hpp"
+#include "gameEngine/entity/ConfigLoader.hpp"
 #include "gameEngine/scene/IScene.hpp"
 #include "gameEngine/scene/SimpleScene.hpp"
 #include "sceneController/HostGameController.hpp"
@@ -28,6 +29,7 @@ namespace Rtype::Scene
     void onUpdate(size_t df) final;
 
    private:
+    GameEngine::Entity::ConfigLoader m_configLoader;
     SceneController::HostGameController m_controller;
   };
 } // namespace Client
