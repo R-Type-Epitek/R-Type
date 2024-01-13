@@ -20,9 +20,21 @@ bool Network::JoinRoomCommandHandler::isAuthorized(int clientId)
 std::vector<char> Network::JoinRoomCommandHandler::handleCommand(Message *message)
 {
   JoinRoomData *data = (JoinRoomData *)message->data;
-  std::string statusMessage = "";
+  std::string statusMessage;
   int status = RES_SUCCESS;
   std::vector<Room> &rooms = this->server.getRooms();
+
+  auto clientOpt = this->server.getClientById(message->header.clientId);
+  if (!clientOpt.has_value())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client not found",
+      nullptr,
+      0,
+      RES_BAD_REQUEST);
+
+  Client &client = clientOpt.value();
 
   if (data->roomId < 0 || data->roomId >= (int)rooms.size()) {
     statusMessage = "Invalid room ID";
@@ -31,8 +43,17 @@ std::vector<char> Network::JoinRoomCommandHandler::handleCommand(Message *messag
     statusMessage = "Room is full";
     status = RES_BAD_REQUEST;
   } else {
-    statusMessage = "Joined room " + std::to_string(data->roomId);
-    this->server.getClients()[message->header.clientId].setRoomId(data->roomId);
+    int oldRoomId = client.getRoomId();
+    if (oldRoomId != -1) {
+      rooms[oldRoomId].removePlayer(message->header.clientId);
+      statusMessage =
+        "Left room " + std::to_string(oldRoomId) + " to join room " + std::to_string(data->roomId);
+      if (client.getIsInGame())
+        client.setIsInGame(false);
+    } else {
+      statusMessage = "Joined room " + std::to_string(data->roomId);
+    }
+    client.setRoomId(data->roomId);
     rooms[data->roomId].addPlayer(message->header.clientId);
   }
   std::vector<char> dataToSend(sizeof(*data));
