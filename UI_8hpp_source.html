@@ -185,13 +185,16 @@ $(document).ready(function(){initNavTree('UI_8hpp_source.html',''); initResizabl
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(event.x),</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<span class="keyword">event</span>.y)) &amp;&amp;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;          clickable.callback) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;          clickable.callback();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        displayable.sprite.setPosition(position.position);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  };</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;          sf::Color colorCliked = displayable.sprite.getColor();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;          colorCliked.a = 200;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          displayable.sprite.setColor(colorCliked);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;          clickable.callback();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        displayable.sprite.setPosition(position.position);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  };</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1RegistryHolder_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></div><div class="ttdef"><b>Definition:</b> RegistryHolder.hpp:14</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1System_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div><div class="ttdef"><b>Definition:</b> System.hpp:12</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Event_1_1EventRegistry_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a></div><div class="ttdef"><b>Definition:</b> EventRegistry.hpp:18</div></div>
