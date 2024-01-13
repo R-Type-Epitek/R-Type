@@ -21,6 +21,7 @@
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
 #include "gameEngine/ecs/Signature.hpp"
 
+#include "gameEngine/event/EventRegistry.hpp"
 #include "gameEngine/system/Animation.hpp"
 #include "gameEngine/system/EcsSerializer.hpp"
 #include "gameEngine/system/InputCatcher.hpp"
@@ -47,7 +48,6 @@ namespace GameEngine::Builder
 
   std::shared_ptr<GameEngine::ECS::Registry> RegistryBuilder::getResult()
   {
-    feedSystemHolder();
     return std::move(m_registry);
   }
 
@@ -209,13 +209,16 @@ namespace GameEngine::Builder
     m_registry->setSystemSignature<SystemType>(signature);
   }
 
-  void RegistryBuilder::feedSystemHolder()
+  void RegistryBuilder::feedSystemHolder(
+    std::shared_ptr<ECS::Registry> ecsRegistry,
+    std::shared_ptr<Event::EventRegistry> eventRegistry)
   {
-    auto &&systems = m_registry->getSystems();
+    auto &&systems = ecsRegistry->getSystems();
 
     for (auto &[typeId, system_ptr] : systems) {
       if (auto sys = std::dynamic_pointer_cast<ECS::RegistryHolder>(system_ptr)) {
-        sys->setEcsRegistry(m_registry);
+        sys->setEcsRegistry(ecsRegistry);
+        sys->setEventRegistry(eventRegistry);
       }
     }
   }
