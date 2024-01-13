@@ -64,16 +64,12 @@ namespace GameEngine::System
     {
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
-      auto& posA = componentManager->getComponent<ComponentRType::Position>(entity);
       sf::FloatRect globalBounds = spriteC.sprite.getGlobalBounds();
 
       if (
         globalBounds.left < 0 || globalBounds.left + globalBounds.width > 1920 || globalBounds.top < 0 ||
         globalBounds.top + globalBounds.height > 1080) {
-        posA.isValid = false;
-        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, entity});
-      } else {
-        posA.isValid = true;
+        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, 666});
       }
     }
   };

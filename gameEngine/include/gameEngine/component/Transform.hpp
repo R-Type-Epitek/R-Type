@@ -13,14 +13,14 @@ using Vec3 = int;
 
 namespace ComponentRType
 {
-  static const float defaultSpeed = 20.F;
+  static const float defaultSpeed = 10.F;
 
   /// \brief A component representing the transformation properties of an entity.
   struct Transform : public GameEngine::Network::Serializer::BaseNetworkComponent {
     friend class boost::serialization::access;
-    sf::Vector2f rotation;
     float speed = defaultSpeed;
     sf::Vector2f movement;
+    sf::Vector2f rotation;
 
     template<class Archive>
     void serialize(Archive &ar, unsigned int const)

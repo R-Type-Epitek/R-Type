@@ -4,7 +4,7 @@ set(LIBRARY "GameEngine")
 
 add_library(${LIBRARY} STATIC
         src/asset/AssetManager.cpp
-        src/asset/ConfigLoader.cpp
+        src/entity/ConfigLoader.cpp
         src/core/Core.cpp
         src/ecs/entity/EntityManager.cpp
         src/ecs/RegistryBuilder.cpp

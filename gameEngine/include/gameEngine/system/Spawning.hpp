@@ -29,17 +29,14 @@ namespace GameEngine::System
    public:
     void bindEvent(Event::EventRegistry& eventRegistry) final
     {
-      eventRegistry.subscribeLambda<Event::NewPlayer>(([this](const Event::IEvent& eventRaw) {
-        spawnPlayer(eventRaw);
-      }));
+      eventRegistry.subscribeLambda<Event::NewPlayer>(
+        ([this](const Event::IEvent& eventRaw) { spawnPlayer(eventRaw); }));
 
-      eventRegistry.subscribeLambda<Event::NewEnemy>(([this](const Event::IEvent& eventRaw) {
-        spawnEnemy(eventRaw);
-      }));
+      eventRegistry.subscribeLambda<Event::NewEnemy>(
+        ([this](const Event::IEvent& eventRaw) { spawnEnemy(eventRaw); }));
 
-      eventRegistry.subscribeLambda<Event::DisconnectedPlayer>(([this](const Event::IEvent& eventRaw) {
-        destroyPlayer(eventRaw);
-      }));
+      eventRegistry.subscribeLambda<Event::DisconnectedPlayer>(
+        ([this](const Event::IEvent& eventRaw) { destroyPlayer(eventRaw); }));
     }
 
     void setEntityFactory(std::shared_ptr<Entity::EntityFactory> entityFactory)
@@ -55,12 +52,8 @@ namespace GameEngine::System
       auto player = dynamic_cast<const Event::NewPlayer&>(eventRaw);
 
       auto compId = ComponentRType::NetworkedEntity {player.id};
-      auto compMetaData = ComponentRType::MetaData(
-        "game/rtype/assets/sprites/r-typesheet26.gif",
-        GameEngine::Entity::EntityType::Player);
-      auto entity = m_entityFactory->createFromNetwork(compId, compMetaData);
-      auto& hitbox = getEcsRegistry().getComponentManager()->getComponent<ComponentRType::Hitbox>(entity);
-      hitbox.mask = 1;
+      auto scheme = m_entityFactory->getEntityTemplate("Player");
+      m_entityFactory->createFromNetwork(compId, scheme);
     }
 
     void spawnEnemy(const Event::IEvent&)

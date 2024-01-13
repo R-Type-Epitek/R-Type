@@ -3,7 +3,7 @@
 //
 
 #include "scene/HostGame.hpp"
-#include "gameEngine/asset/ConfigLoader.hpp"
+#include "gameEngine/entity/ConfigLoader.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "sceneController/HostGameController.hpp"
 #include "gameEngine/component/Displayable.hpp"
@@ -39,7 +39,9 @@ namespace Rtype::Scene
   {
     GameEngine::Scene::SimpleScene::initEntities();
 
-    ConfigLoader::loadEntities(m_entityFactory);
+    m_configLoader.loadFromJson("game/rtype/config/game_stage_one.json");
+    m_configLoader.loadEntitiesTemplate(getEntityFactory());
+    m_configLoader.loadEntities(getEntityFactory());
   }
 
   void HostGame::initEvents()

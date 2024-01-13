@@ -8,6 +8,7 @@
 #include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/asset/AssetManager.hpp"
 
 #include "gameEngine/entity/EntityFactory.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -71,6 +72,7 @@ namespace GameEngine::System
       Serializer::serializeComponent<ComponentRType::MetaData>(componentManager, entity, archive);
       Serializer::serializeComponent<ComponentRType::Position>(componentManager, entity, archive);
       Serializer::serializeComponent<ComponentRType::Transform>(componentManager, entity, archive);
+      Serializer::serializeComponent<ComponentRType::Displayable>(componentManager, entity, archive);
 
       std::string dataStr = oss.str();
       serializedData.assign(dataStr.begin(), dataStr.end());
@@ -92,10 +94,20 @@ namespace GameEngine::System
       auto entityOpt = getNetworkedEntityById(componentNE, componentManager);
       if (entityOpt.has_value()) {
         entity = entityOpt.value();
+        return updateEntity(componentManager, entity, archive);
       } else {
-        entity = entityFactory.createFromNetwork(componentNE, componentMD);
+        entity = entityFactory.loadFromNetwork(componentNE, componentMD);
+        updateEntity(componentManager, entity, archive);
+        //      Deserialize sprite once
+        Serializer::deserializeComponentToEntity<ComponentRType::Displayable>(
+          componentManager,
+          entity,
+          archive);
+        auto &comp = componentManager.getComponent<ComponentRType::Displayable>(entity);
+        comp = ComponentRType::Displayable(
+          comp.assetPath,
+          {comp.rectLeft, comp.rectTop, comp.rectWidth, comp.rectHeight});
       }
-      return updateEntity(componentManager, entity, archive);
     }
 
    private:

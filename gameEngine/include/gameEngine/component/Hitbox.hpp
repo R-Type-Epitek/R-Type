@@ -11,7 +11,7 @@ namespace ComponentRType
   /// \brief A component representing if a entity is clickable.
   struct Hitbox {
     Hitbox() = default;
-    explicit Hitbox(size_t mask, sf::Vector2f size)
+    explicit Hitbox(int mask, sf::Vector2f size)
       : mask {mask}
       , shape(size)
     {
@@ -20,7 +20,7 @@ namespace ComponentRType
       shape.setOutlineThickness(1);
     }
 
-    size_t mask = 0;
+    int mask = 0;
     sf::RectangleShape shape;
   };
 } // namespace ComponentRType
