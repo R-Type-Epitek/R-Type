@@ -27,18 +27,44 @@ std::vector<char> Network::JoinRoomAutoCommandHandler::handleCommand(Message *me
   int status = RES_SUCCESS;
   std::vector<Room> &rooms = this->server.getRooms();
 
+  auto clientOpt = this->server.getClientById(message->header.clientId);
+  if (!clientOpt.has_value())
+    return this->server.createResponseBuffer(
+      message->header.clientId,
+      message->header,
+      "Client not found",
+      nullptr,
+      0,
+      RES_BAD_REQUEST);
+
+  Client &client = clientOpt.value();
+
   std::vector<int> roomIndices(rooms.size());
   std::iota(roomIndices.begin(), roomIndices.end(), 0);
 
   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
   std::shuffle(roomIndices.begin(), roomIndices.end(), std::default_random_engine(seed));
 
+  int oldRoomId = client.getRoomId();
+  if (oldRoomId != -1) {
+    rooms[client.getRoomId()].removePlayer(message->header.clientId);
+    statusMessage = "Left room " + std::to_string(client.getRoomId());
+    if (client.getIsInGame())
+      client.setIsInGame(false);
+  }
+
   for (int index : roomIndices) {
     if (rooms[index].isFull())
       continue;
     Room &room = rooms[index];
-    statusMessage = "Joined room " + std::to_string(room.getId());
-    this->server.getClients()[message->header.clientId].setRoomId(room.getId());
+    if (room.getId() == oldRoomId)
+      continue;
+    if (oldRoomId != -1)
+      statusMessage += " to join room ";
+    else
+      statusMessage = "Joined room ";
+    statusMessage += std::to_string(room.getId());
+    client.setRoomId(room.getId());
     room.addPlayer(message->header.clientId);
     data.roomId = room.getId();
     break;

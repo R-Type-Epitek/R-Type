@@ -64,6 +64,7 @@ void Client::Network::registerCommandHandlers()
   this->commandHandlers[JOIN_GAME_COMMAND] = std::make_shared<JoinGameCommandHandler>(*this);
   this->commandHandlers[KICK_PLAYER_COMMAND] = std::make_shared<KickPlayerCommandHandler>(*this);
   this->commandHandlers[GOD_MODE_COMMAND] = std::make_shared<GodModeCommandHandler>(*this);
+  this->commandHandlers[SPECTATE_COMMAND] = std::make_shared<SpectateCommandHandler>(*this);
 }
 
 std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(const std::string &name)
@@ -72,7 +73,7 @@ std::shared_ptr<Client::ICommandHandler> Client::Network::getCommandHandler(cons
   if (it != this->commandHandlers.end()) {
     return it->second;
   }
-  throw std::runtime_error("Invalid command name");
+  throw std::runtime_error("Invalid command name: " + name);
 }
 
 void Client::Network::send(boost::asio::const_buffer const &buffer)
