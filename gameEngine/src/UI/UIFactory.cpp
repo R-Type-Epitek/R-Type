@@ -67,8 +67,8 @@ namespace GameEngine::UI
 
   void UIFactory::parseDisplayable(const GameEngine::ECS::Entity& entity, const json& config)
   {
-    std::string path = config.value("assetPath", AssetManager::defaultTextureId);
-    auto displayableComponent = ComponentRType::Displayable(AssetManager::getInstance().getTexture(path));
+    std::string assetPath = config.value("assetPath", AssetManager::defaultTextureId);
+    auto displayableComponent = ComponentRType::Displayable(assetPath);
     m_registry.addComponent(entity, displayableComponent);
   }
 
