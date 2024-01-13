@@ -27,6 +27,8 @@ namespace GameEngine::Network
 
     virtual void updateName(std::string name) = 0;
 
+    virtual int getRoomId() = 0;
+
     virtual std::vector<std::vector<char>> getSerializedEcsState() = 0;
   };
 } // namespace GameEngine::Network

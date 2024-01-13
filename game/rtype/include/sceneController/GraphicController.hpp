@@ -32,9 +32,9 @@ namespace Rtype::Controller
 
     //    Network
     void joinRoom(int id);
-    void joinGame(int id);
+    void joinGame();
     void joinRoomAuto();
-    void spectate(int id);
+    void spectate();
     void connect();
     void setName(std::string name);
   };
