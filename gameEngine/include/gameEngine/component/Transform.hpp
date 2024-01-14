@@ -25,10 +25,10 @@ namespace ComponentRType
     template<class Archive>
     void serialize(Archive &ar, unsigned int const)
     {
-      ar &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*this);
-      ar & rotation;
-      ar & speed;
-      ar & movement;
+      boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*this);
+      ar &(rotation);
+      ar &(speed);
+      ar &(movement);
     }
   };
 } // namespace ComponentRType

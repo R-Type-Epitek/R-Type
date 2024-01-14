@@ -13,6 +13,7 @@
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/Hitbox.hpp"
+#include "gameEngine/component/Parallax.hpp"
 #include "EntityType.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "spdlog/spdlog.h"
@@ -31,6 +32,7 @@ namespace GameEngine::Entity
     ComponentRType::Position position;
     ComponentRType::Gravity gravity;
     ComponentRType::Hitbox hitbox;
+    ComponentRType::Parallax parallax;
   };
 
   class EntityFactory {
@@ -41,19 +43,23 @@ namespace GameEngine::Entity
 
     GameEngine::ECS::Entity createFromNetwork(
       ComponentRType::NetworkedEntity &id,
-      const EntityTemplate &entityTemplate);
+      EntityTemplate &entityTemplate);
 
     GameEngine::ECS::Entity loadFromNetwork(
       ComponentRType::NetworkedEntity &networkId,
       ComponentRType::MetaData &metaData);
 
-    GameEngine::ECS::Entity createFromBluePrint(ComponentsBluePrint const &bluePrint);
-    GameEngine::ECS::Entity createFromTemplate(EntityTemplate const &entityTemplate);
+    GameEngine::ECS::Entity createFromBluePrint(ComponentsBluePrint &bluePrint);
+    GameEngine::ECS::Entity createFromTemplate(EntityTemplate &entityTemplate);
+    GameEngine::ECS::Entity createFromTemplateNetwork(EntityTemplate &entityTemplate);
+    GameEngine::ECS::Entity createFromTemplateName(const std::string &name);
 
     std::map<std::string, EntityTemplate> &getEntitiesTemplate();
     void addEntityTemplate(const std::string &name, const EntityTemplate &entityTemplate);
     EntityTemplate getEntityTemplate(const std::string &name);
     bool entityTemplateExist(const std::string &name);
+
+    static size_t idOffset;
 
    private:
     using AssetManager = GameEngine::Asset::AssetManager;

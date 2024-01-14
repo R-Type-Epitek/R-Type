@@ -67,6 +67,12 @@ namespace GameEngine::System
       auto& componentManager = getEcsRegistry().getComponentManager();
       auto event = dynamic_cast<const Event::EntityCollision&>(eventRaw);
 
+      if ((event.maskA == 6 && event.maskB == 6) || (event.maskA == 6 && event.maskB == -1)) {
+        getEventRegistry().publish<Event::DestroyEntity>(Event::DestroyEntity {event.entityA});
+      }
+      if (event.maskA != -1 && event.maskB != -1 && event.maskA != event.maskB) {
+        return;
+      }
       auto& transformA = componentManager->getComponent<ComponentRType::Transform>(event.entityA);
       auto& position = componentManager->getComponent<ComponentRType::Position>(event.entityA);
 

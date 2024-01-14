@@ -77,7 +77,7 @@ namespace Client
     m_coreGE = std::make_unique<GameEngine::Core::Core>(appName);
     m_coreGE->loadPlugins();
     m_coreGE->enableGUI();
-    m_coreGE->setTicksPerSecond(200);
+    m_coreGE->setTicksPerSecond(30);
 
     spdlog::info("Done");
   }

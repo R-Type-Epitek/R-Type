@@ -3,6 +3,8 @@
 //
 
 #include "RTypeNetwork.hpp"
+#include <mutex>
+#include "Room.hpp"
 
 Network::Room::Room(int id, int size)
   : size(size)
@@ -108,6 +110,41 @@ void Network::Room::setState(RoomState state)
 bool Network::Room::isFull() const
 {
   return (int)this->players.size() == this->size;
+}
+
+std::vector<char> Network::Room::getEntitiesStateBuffer()
+{
+  std::vector<char> entitiesBuffer;
+  static const std::string delimiter = "\x1FRtype\x1F";
+
+  auto entities = getHostedGame().getSerializedEntities();
+
+  if (entities.empty())
+    return entitiesBuffer;
+  for (auto& entity : entities) {
+    entitiesBuffer.insert(entitiesBuffer.end(), entity.begin(), entity.end());
+    entitiesBuffer.insert(entitiesBuffer.end(), delimiter.begin(), delimiter.end());
+  }
+
+  if (!entitiesBuffer.empty() && !entities.empty()) {
+    entitiesBuffer.erase(entitiesBuffer.end() - delimiter.size(), entitiesBuffer.end());
+  }
+
+  std::vector<std::vector<char>> entitiesReconstructed;
+  {
+    std::string dataString(entitiesBuffer.begin(), entitiesBuffer.end());
+    size_t pos = 0;
+    std::string token;
+
+    while ((pos = dataString.find(delimiter)) != std::string::npos) {
+      token = dataString.substr(0, pos);
+      entitiesReconstructed.push_back(std::vector<char>(token.begin(), token.end()));
+      dataString.erase(0, pos + delimiter.length());
+    }
+
+    entitiesReconstructed.push_back(std::vector<char>(dataString.begin(), dataString.end()));
+  }
+  return entitiesBuffer;
 }
 
 Server::Game::Game& Network::Room::getHostedGame()

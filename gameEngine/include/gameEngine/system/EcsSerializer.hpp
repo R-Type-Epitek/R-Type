@@ -8,6 +8,7 @@
 #include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 
 #include "gameEngine/entity/EntityFactory.hpp"
@@ -17,8 +18,10 @@
 #include "gameEngine/ecs/entity/Entity.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/network/Serializer.hpp"
+#include "spdlog/spdlog.h"
 
 #include <algorithm>
+#include <boost/archive/archive_exception.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 #include <cstdlib>
@@ -32,37 +35,44 @@
 namespace GameEngine::System
 {
   class EcsSerializer
-    : public GameEngine::ECS::System
-    , public GameEngine::ECS::RegistryHolder {
-    using Serializer = GameEngine::Network::Serializer::EcsSerializer;
+    : public ECS::System
+    , public ECS::RegistryHolder {
+    using Serializer = Network::Serializer::EcsSerializer;
 
    public:
     std::vector<std::vector<char>> serialise()
     {
       auto &componentManager = getEcsRegistry().getComponentManager();
       std::vector<std::vector<char>> serializedDataFinal;
+      try {
+        for (auto const &entity : m_entities) {
+          serializedDataFinal.push_back(serializeEntity(*componentManager, entity));
+        }
 
-      for (auto const &entity : m_entities) {
-        serializedDataFinal.push_back(serializeEntity(*componentManager, entity));
+      } catch (const boost::archive::archive_exception &e) {
+        spdlog::error("Caught boost::archive::archive_exception: {}", e.what());
       }
       return serializedDataFinal;
     }
 
     void deserialize(
       const std::vector<std::vector<char>> &serializedData,
-      GameEngine::Entity::EntityFactory &entityFactory)
+      Entity::EntityFactory &entityFactory)
     {
-      auto &componentManager = getEcsRegistry().getComponentManager();
+      std::set<ECS::Entity> activeEntities;
 
-      for (const auto &serializedEntityData : serializedData) {
-        deserializeEntity(*componentManager, serializedEntityData, entityFactory);
+      try {
+        for (const auto &serializedEntityData : serializedData) {
+          activeEntities.insert(deserializeEntity(serializedEntityData, entityFactory));
+        }
+        cleanUpEntity(activeEntities);
+      } catch (const boost::archive::archive_exception &e) {
+        spdlog::error("Caught boost::archive::archive_exception: {}", e.what());
       }
     }
 
    protected:
-    static std::vector<char> serializeEntity(
-      ECS::ComponentManager &componentManager,
-      GameEngine::ECS::Entity entity)
+    static std::vector<char> serializeEntity(ECS::ComponentManager &componentManager, ECS::Entity entity)
     {
       std::vector<char> serializedData;
       std::ostringstream oss;
@@ -79,45 +89,68 @@ namespace GameEngine::System
       return serializedData;
     }
 
-    void deserializeEntity(
-      ECS::ComponentManager &componentManager,
+    ECS::Entity deserializeEntity(
       const std::vector<char> &serializedData,
-      GameEngine::Entity::EntityFactory &entityFactory)
+      Entity::EntityFactory &entityFactory)
     {
-      GameEngine::ECS::Entity entity = 0;
       std::istringstream iss(std::string(serializedData.begin(), serializedData.end()));
       boost::archive::binary_iarchive archive(iss);
 
       auto componentNE = Serializer::deserializeComponent<ComponentRType::NetworkedEntity>(archive);
       auto componentMD = Serializer::deserializeComponent<ComponentRType::MetaData>(archive);
 
-      auto entityOpt = getNetworkedEntityById(componentNE, componentManager);
+      auto &componentManager = getEcsRegistry().getComponentManager();
+      auto entityOpt = getNetworkedEntityById(componentNE, *componentManager);
       if (entityOpt.has_value()) {
-        entity = entityOpt.value();
-        return updateEntity(componentManager, entity, archive);
-      } else {
-        entity = entityFactory.loadFromNetwork(componentNE, componentMD);
-        updateEntity(componentManager, entity, archive);
-        //      Deserialize sprite once
-        Serializer::deserializeComponentToEntity<ComponentRType::Displayable>(
-          componentManager,
-          entity,
-          archive);
-        auto &comp = componentManager.getComponent<ComponentRType::Displayable>(entity);
-        comp = ComponentRType::Displayable(
-          comp.assetPath,
-          {comp.rectLeft, comp.rectTop, comp.rectWidth, comp.rectHeight});
+        return updateEntity(entityOpt.value(), archive);
       }
+      return createEntity(entityFactory, componentNE, componentMD, archive);
     }
 
    private:
-    void updateEntity(
-      GameEngine::ECS::ComponentManager &componentManager,
-      const GameEngine::ECS::Entity &entity,
+    ECS::Entity updateEntity(const ECS::Entity &entity, boost::archive::binary_iarchive &archive)
+    {
+      auto &componentManager = getEcsRegistry().getComponentManager();
+
+      Serializer::deserializeComponentToEntity<ComponentRType::Position>(*componentManager, entity, archive);
+      Serializer::deserializeComponentToEntity<ComponentRType::Transform>(*componentManager, entity, archive);
+      return entity;
+    }
+
+    ECS::Entity createEntity(
+      Entity::EntityFactory &entityFactory,
+      ComponentRType::NetworkedEntity componentNE,
+      ComponentRType::MetaData componentMD,
       boost::archive::binary_iarchive &archive)
     {
-      Serializer::deserializeComponentToEntity<ComponentRType::Position>(componentManager, entity, archive);
-      Serializer::deserializeComponentToEntity<ComponentRType::Transform>(componentManager, entity, archive);
+      auto &componentManager = getEcsRegistry().getComponentManager();
+      const ECS::Entity entity = entityFactory.loadFromNetwork(componentNE, componentMD);
+
+      updateEntity(entity, archive);
+      Serializer::deserializeComponentToEntity<ComponentRType::Displayable>(
+        *componentManager,
+        entity,
+        archive);
+      auto &comp = componentManager->getComponent<ComponentRType::Displayable>(entity);
+      comp = ComponentRType::Displayable(
+        comp.assetPath,
+        {comp.rectLeft, comp.rectTop, comp.rectWidth, comp.rectHeight});
+      return entity;
+    }
+
+    void cleanUpEntity(std::set<ECS::Entity> &activeEntities)
+    {
+      std::set<ECS::Entity> m_garbageEntities {};
+
+      for (auto &entity : m_entities) {
+        if (activeEntities.find(entity) == activeEntities.end()) {
+          m_garbageEntities.insert(entity);
+        }
+      }
+      for (auto &garbageEntity : m_garbageEntities) {
+        m_entities.erase(garbageEntity);
+        getEcsRegistry().destroyEntity(garbageEntity);
+      }
     }
 
     std::optional<const ECS::Entity> getNetworkedEntityById(
@@ -127,12 +160,12 @@ namespace GameEngine::System
       auto it = std::find_if(
         m_entities.begin(),
         m_entities.end(),
-        [&componentManager, &id](const GameEngine::ECS::Entity &entity) {
+        [&componentManager, &id](const ECS::Entity &entity) {
           auto currentId = componentManager.getComponent<ComponentRType::NetworkedEntity>(entity);
           return id == currentId;
         });
 
-      static std::optional<const GameEngine::ECS::Entity> emptyOptional;
+      static std::optional<const ECS::Entity> emptyOptional;
       return (it != m_entities.end()) ? std::ref(*it) : emptyOptional;
     }
   };

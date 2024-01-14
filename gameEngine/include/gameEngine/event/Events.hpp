@@ -10,12 +10,16 @@
 namespace GameEngine::Event
 {
   struct EntityCollision : public IEvent {
-    explicit EntityCollision(ECS::Entity entityA, ECS::Entity entityB)
+    explicit EntityCollision(ECS::Entity entityA, ECS::Entity entityB, int maskA = -1, int maskB = -1)
       : entityA(entityA)
-      , entityB(entityB) {};
+      , entityB(entityB)
+      , maskA(maskA)
+      , maskB(maskB) {};
 
     ECS::Entity entityA;
     ECS::Entity entityB;
+    int maskA;
+    int maskB;
   };
 
   struct KeyboardInput : public IEvent {
@@ -85,17 +89,6 @@ namespace GameEngine::Event
     size_t id;
   };
 
-  struct NewProjectile : public IEvent {
-    explicit NewProjectile(size_t id, float x, float y)
-      : id(id)
-      , x(x)
-      , y(y) {};
-
-    size_t id;
-    int x;
-    int y;
-  };
-
   struct NewEnemy : public IEvent {
     NewEnemy() = default;
     explicit NewEnemy(size_t id, float x, float y)
@@ -108,12 +101,33 @@ namespace GameEngine::Event
     float y;
   };
 
+  struct PlayerShoot : public IEvent {
+    PlayerShoot() = default;
+    explicit PlayerShoot(std::string entityTypeName, ECS::Entity entityActor, float x, float y)
+      : entityTypeName(entityTypeName)
+      , entityActor(entityActor)
+      , x(x)
+      , y(y) {};
+
+    std::string entityTypeName;
+    ECS::Entity entityActor;
+    float x;
+    float y;
+  };
+
   struct DisconnectedPlayer : public IEvent {
     DisconnectedPlayer() = default;
     explicit DisconnectedPlayer(size_t id)
       : id(id) {};
 
     size_t id;
+  };
+
+  struct DestroyEntity : public IEvent {
+    explicit DestroyEntity(ECS::Entity entity)
+      : entity(entity) {};
+
+    ECS::Entity entity = -1;
   };
 
 } // namespace GameEngine::Event

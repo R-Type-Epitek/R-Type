@@ -25,14 +25,9 @@ namespace GameEngine::System
    public:
     void update(GameEngine::Event::EventRegistry& eventRegistry)
     {
-      auto& componentManager = getEcsRegistry().getComponentManager();
-
       for (auto const& entity : m_entities) {
-        checkMapBounding(eventRegistry, entity);
-        auto entityMaskA = componentManager->getComponent<ComponentRType::Hitbox>(entity).mask;
         for (auto otherEntity : m_entities) {
-          auto entityMaskB = componentManager->getComponent<ComponentRType::Hitbox>(otherEntity).mask;
-          if (entity == otherEntity || entityMaskA != entityMaskB) {
+          if (entity == otherEntity) {
             continue;
           }
           checkForCollision(eventRegistry, entity, otherEntity);
@@ -45,31 +40,27 @@ namespace GameEngine::System
       const GameEngine::ECS::Entity& entity,
       const GameEngine::ECS::Entity& otherEntity)
     {
-      auto& componentManager = getEcsRegistry().getComponentManager();
-      auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
-      auto& otherSpriteC = componentManager->getComponent<ComponentRType::Displayable>(otherEntity);
-      auto& posA = componentManager->getComponent<ComponentRType::Position>(entity);
-
-      if (spriteC.sprite.getGlobalBounds().intersects(otherSpriteC.sprite.getGlobalBounds())) {
-        posA.isValid = false;
-        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, otherEntity});
-      } else {
-        posA.isValid = true;
+      if (!m_entities.contains(otherEntity) && !m_entities.contains(entity)) {
+        return;
       }
-    }
-
-    void checkMapBounding(
-      GameEngine::Event::EventRegistry& eventRegistry,
-      const GameEngine::ECS::Entity& entity)
-    {
       auto& componentManager = getEcsRegistry().getComponentManager();
-      auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
-      sf::FloatRect globalBounds = spriteC.sprite.getGlobalBounds();
+      const auto globalBounds =
+        componentManager->getComponent<ComponentRType::Displayable>(entity).sprite.getGlobalBounds();
+      const auto globalBoundsOther =
+        componentManager->getComponent<ComponentRType::Displayable>(otherEntity).sprite.getGlobalBounds();
 
-      if (
-        globalBounds.left < 0 || globalBounds.left + globalBounds.width > 1920 || globalBounds.top < 0 ||
-        globalBounds.top + globalBounds.height > 1080) {
-        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, 666});
+      //      Check collision AABB
+      if (globalBounds.intersects(globalBoundsOther)) {
+        int const mask = componentManager->getComponent<ComponentRType::Hitbox>(entity).mask;
+        int const maskOther = componentManager->getComponent<ComponentRType::Hitbox>(otherEntity).mask;
+        eventRegistry.publish<Event::EntityCollision>(
+          Event::EntityCollision {entity, otherEntity, mask, maskOther});
+      }
+      //      Check map bounds
+      if (int const mask = componentManager->getComponent<ComponentRType::Hitbox>(entity).mask;
+          globalBounds.left < 0 || globalBounds.left + globalBounds.width > 1920 || globalBounds.top < 0 ||
+          globalBounds.top + globalBounds.height > 1080) {
+        eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, 666, mask, -1});
       }
     }
   };

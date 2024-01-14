@@ -149,6 +149,13 @@ namespace Network
     bool isFull() const;
 
     /**
+     * @brief Gets the entities state buffer the room.
+     *
+     * @return Server::Game::Game The game hosted by the room.
+     */
+    std::vector<char> getEntitiesStateBuffer();
+
+    /**
      * @brief Gets the game hosted by the room.
      *
      * @return Server::Game::Game The game hosted by the room.

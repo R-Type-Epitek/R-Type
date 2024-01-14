@@ -42,7 +42,8 @@ namespace GameEngine::Scene
 
   void SimpleScene::initEvents()
   {
-    m_eventRegistry = std::make_unique<Event::EventRegistry>();
+    m_eventRegistry = std::make_shared<Event::EventRegistry>();
+    Builder::RegistryBuilder::feedSystemHolder(m_ecsRegistry, m_eventRegistry);
 
     auto&& systems = getEcsRegistry().getSystems();
     for (auto& [typeId, system_ptr] : systems) {

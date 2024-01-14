@@ -19,13 +19,7 @@
         },
         {
           "name": "Displayable",
-          "assetPath": "game/rtype/assets/background_starfield.png",
-          "rect": {
-            "x": 0,
-            "y": 0,
-            "width": 1920,
-            "height": 1080
-          }
+          "assetPath": "game/rtype/assets/sprites/parallax_bg_stage01.png"
         },
         {
           "name": "Position",
@@ -35,12 +29,15 @@
           }
         },
         {
+          "name": "Parallax"
+        },
+        {
           "name": "Transform",
           "movement": {
-            "x": 0,
+            "x": -2,
             "y": 0
           },
-          "speed": 2
+          "speed": 10
         }
       ]
     },
@@ -83,6 +80,46 @@
       ]
     },
     {
+      "typeName": "PlayerBullet",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet43.gif",
+          "rect": {
+            "x": 200,
+            "y": 37,
+            "width": 48,
+            "height": 12
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": -100,
+            "y": -100
+          }
+        },
+        {
+          "name": "Transform",
+          "speed": 25,
+          "movement": {
+            "x": 25,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 6
+        }
+      ]
+    },
+    {
       "typeName": "Enemy",
       "components": [
         {
@@ -98,8 +135,8 @@
         {
           "name": "Position",
           "position": {
-            "x": 0,
-            "y": 0
+            "x": 250,
+            "y": 150
           }
         },
         {
@@ -113,6 +150,10 @@
     }
   ],
   "entities": [
+    {
+      "baseType": "Background",
+      "type": "Parallax"
+    },
     {
       "baseType": "Enemy",
       "type": "Boss",
