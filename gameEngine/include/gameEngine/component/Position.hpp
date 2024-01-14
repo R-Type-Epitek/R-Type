@@ -32,12 +32,11 @@ namespace ComponentRType
     template<class Archive>
     void serialize(Archive &archive, const unsigned int)
     {
-      archive &boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
-        *this);
-      archive & position;
-      archive & latestPosition;
-      archive & latestValidPosition;
-      archive & isValid;
+      boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*this);
+      archive &BOOST_SERIALIZATION_NVP(position);
+      archive &BOOST_SERIALIZATION_NVP(latestPosition);
+      archive &BOOST_SERIALIZATION_NVP(latestValidPosition);
+      archive &BOOST_SERIALIZATION_NVP(isValid);
     }
   };
 

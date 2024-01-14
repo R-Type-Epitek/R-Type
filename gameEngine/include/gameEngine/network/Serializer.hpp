@@ -7,9 +7,10 @@
 #include "gameEngine/ecs/component/ComponentManager.hpp"
 #include "gameEngine/ecs/entity/Entity.hpp"
 
-#include <boost/archive/text_iarchive.hpp>
-#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
 #include <boost/serialization/access.hpp>
+#include <boost/serialization/export.hpp>
 #include <cstdlib>
 #include <cstring>
 #include <memory>
@@ -35,10 +36,11 @@ namespace GameEngine::Network::Serializer
 
   class BaseNetworkComponent {
    public:
+    friend class boost::serialization::access;
+
     virtual ~BaseNetworkComponent() = default;
 
    private:
-    friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive &, const unsigned int)
     {
@@ -75,7 +77,7 @@ namespace GameEngine::Network::Serializer
       auto &component = componentManager.getComponent<T>(entity);
       T componentData = deserializeComponent<T>(archive);
 
-      component = std::move(componentData);
+      component = componentData;
       return component;
     }
   };

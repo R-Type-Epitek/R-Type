@@ -8,6 +8,7 @@
 #include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Transform.hpp"
+#include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 
 #include "gameEngine/entity/EntityFactory.hpp"
@@ -41,9 +42,13 @@ namespace GameEngine::System
     {
       auto &componentManager = getEcsRegistry().getComponentManager();
       std::vector<std::vector<char>> serializedDataFinal;
+      try {
+        for (auto const &entity : m_entities) {
+          serializedDataFinal.push_back(serializeEntity(*componentManager, entity));
+        }
 
-      for (auto const &entity : m_entities) {
-        serializedDataFinal.push_back(serializeEntity(*componentManager, entity));
+      } catch (const boost::archive::archive_exception &e) {
+        spdlog::error("Caught boost::archive::archive_exception: {}", e.what());
       }
       return serializedDataFinal;
     }
@@ -53,9 +58,12 @@ namespace GameEngine::System
       GameEngine::Entity::EntityFactory &entityFactory)
     {
       auto &componentManager = getEcsRegistry().getComponentManager();
-
-      for (const auto &serializedEntityData : serializedData) {
-        deserializeEntity(*componentManager, serializedEntityData, entityFactory);
+      try {
+        for (const auto &serializedEntityData : serializedData) {
+          deserializeEntity(*componentManager, serializedEntityData, entityFactory);
+        }
+      } catch (const boost::archive::archive_exception &e) {
+        spdlog::error("Caught boost::archive::archive_exception: {}", e.what());
       }
     }
 

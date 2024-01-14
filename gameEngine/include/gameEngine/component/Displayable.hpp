@@ -52,13 +52,12 @@ namespace ComponentRType
     template<class Archive>
     void serialize(Archive& archive, const unsigned int)
     {
-      archive& boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(
-        *this);
-      archive & assetPath;
-      archive & rectTop;
-      archive & rectLeft;
-      archive & rectWidth;
-      archive & rectHeight;
+      boost::serialization::base_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*this);
+      archive& BOOST_SERIALIZATION_NVP(assetPath);
+      archive& BOOST_SERIALIZATION_NVP(rectTop);
+      archive& BOOST_SERIALIZATION_NVP(rectLeft);
+      archive& BOOST_SERIALIZATION_NVP(rectWidth);
+      archive& BOOST_SERIALIZATION_NVP(rectHeight);
     }
   };
 
