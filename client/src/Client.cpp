@@ -77,7 +77,7 @@ namespace Client
     m_coreGE = std::make_unique<GameEngine::Core::Core>(appName);
     m_coreGE->loadPlugins();
     m_coreGE->enableGUI();
-    m_coreGE->setTicksPerSecond(200);
+    m_coreGE->setTicksPerSecond(30);
 
     spdlog::info("Done");
   }
@@ -93,7 +93,7 @@ namespace Client
     m_coreGE->addScene("lobby", std::make_unique<Rtype::Scene::Lobby>(controller));
     m_coreGE->addScene("welcome", std::make_unique<Rtype::Scene::Welcome>(controller));
 
-    m_coreGE->setCurrentScene("welcome");
+    m_coreGE->setCurrentScene("game");
     m_coreGE->loadScenes();
   }
 
