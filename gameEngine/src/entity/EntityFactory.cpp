@@ -15,6 +15,7 @@
 #include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/component/Parallax.hpp"
 #include "gameEngine/entity/EntityBuilder.hpp"
+#include "gameEngine/script/ScriptManager.hpp"
 #include "spdlog/spdlog.h"
 
 namespace GameEngine::Entity
@@ -89,6 +90,9 @@ namespace GameEngine::Entity
     if (bluePrint.parallax) {
       builder.buildComponent(ComponentRType::Parallax {});
     }
+    if (bluePrint.scriptable) {
+      builder.buildComponent(ComponentRType::Scriptable {});
+    }
     auto entity = builder.getResult();
     m_entities.push_back(entity);
     return entity;
@@ -120,6 +124,9 @@ namespace GameEngine::Entity
     }
     if (entityTemplate.blueprint.parallax) {
       builder.buildComponent(std::move(entityTemplate.parallax));
+    }
+    if (entityTemplate.blueprint.scriptable) {
+      builder.buildComponent(std::move(entityTemplate.scriptable));
     }
     if (entityTemplate.blueprint.displayable) {
       auto &ref = entityTemplate.displayable;
@@ -170,6 +177,11 @@ namespace GameEngine::Entity
   bool EntityFactory::entityTemplateExist(const std::string &name)
   {
     return m_entitiesTemplate.find(name) != m_entitiesTemplate.end();
+  }
+
+  Script::ScriptManager &EntityFactory::getScriptManager()
+  {
+    return m_scriptManager;
   }
 
 } // GameEngine::Entity
