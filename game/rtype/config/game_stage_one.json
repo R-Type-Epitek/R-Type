@@ -140,7 +140,8 @@
           }
         },
         {
-          "name": "Transform"
+          "name": "Transform",
+          "speed": 7
         },
         {
           "name": "Hitbox",
@@ -148,7 +149,7 @@
         },
         {
           "name": "Scriptable",
-          "scriptName": "EnemyLinear"
+          "scriptName": "EnemySinusoidal"
         }
       ]
     }

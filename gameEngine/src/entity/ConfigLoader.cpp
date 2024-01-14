@@ -109,13 +109,14 @@ namespace GameEngine::Entity
   void ConfigLoader::parseTransform(EntityTemplate &entity, const json &config)
   {
     entity.blueprint.transform = true;
+    int speed = config.value("speed", ComponentRType::defaultSpeed);
+    entity.transform.speed = speed;
+
     if (config.contains("movement")) {
       int x = config["movement"].value("x", 0);
       int y = config["movement"].value("y", 0);
-      int speed = config.value("speed", ComponentRType::defaultSpeed);
 
       entity.transform.movement = {static_cast<float>(x), static_cast<float>(y)};
-      entity.transform.speed = speed;
     }
   }
 
