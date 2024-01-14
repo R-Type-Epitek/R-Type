@@ -18,7 +18,7 @@ namespace Server::Game
     m_coreGE = std::make_unique<GameEngine::Core::Core>("Rtype server");
     m_coreGE->loadPlugins();
     m_coreGE->disableGUI();
-    m_coreGE->setTicksPerSecond(200);
+    m_coreGE->setTicksPerSecond(100);
 
     initScenes();
     spdlog::info("Done");
@@ -44,6 +44,11 @@ namespace Server::Game
   void Game::update(unsigned int df)
   {
     m_coreGE->tickUpdate(df);
+  }
+
+  void Game::run()
+  {
+    m_coreGE->run();
   }
 
   void Game::pushEvent(Event event, Player player)

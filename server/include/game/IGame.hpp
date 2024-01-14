@@ -35,6 +35,8 @@ namespace Server::Game
 
     virtual void update(unsigned int df) = 0;
 
+    virtual void run() = 0;
+
     virtual void pushEvent(Event, Player) = 0;
   };
 } // namespace Server::Game

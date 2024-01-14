@@ -22,6 +22,8 @@ namespace Server::Game
 
     void update(unsigned int df) final;
 
+    void run() final;
+
     void pushEvent(Event event, Player player) final;
 
    private:
