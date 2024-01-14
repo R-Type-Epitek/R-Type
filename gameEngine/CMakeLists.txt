@@ -15,6 +15,7 @@ add_library(${LIBRARY} STATIC
         src/scene/SimpleScene.cpp
         src/UI/Window.cpp
         src/UI/UIFactory.cpp
+        src/script/ScriptManager.cpp
 )
 
 target_include_directories(${LIBRARY}
