@@ -35,6 +35,7 @@
 #include "gameEngine/system/Spawning.hpp"
 #include "gameEngine/system/NetworkEventPusher.hpp"
 #include "gameEngine/system/UI.hpp"
+#include "gameEngine/system/ScriptableEntity.hpp"
 
 #include <memory>
 #include <utility>
@@ -222,6 +223,18 @@ namespace GameEngine::Builder
         sys->setEventRegistry(eventRegistry);
       }
     }
+  }
+
+  void RegistryBuilder::buildSystemScriptableEntity()
+  {
+    using SystemType = GameEngine::System::ScriptableEntity;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Scriptable>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
+    m_registry->setSystemSignature<SystemType>(signature);
   }
 
 }; // namespace GameEngine::Builder
