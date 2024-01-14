@@ -1,0 +1,42 @@
+\hypertarget{client_2include_2Client_8hpp_source}{}\doxysection{Client.\+hpp}
+\label{client_2include_2Client_8hpp_source}\index{client/include/Client.hpp@{client/include/Client.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/20/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/core/Core.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}network/Network.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1Client}{Client}} \{}
+\DoxyCodeLine{16    \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{classClient_1_1Client}{Client}}();}
+\DoxyCodeLine{21     \mbox{\hyperlink{classClient_1_1Client}{Client}}(std::string \textcolor{keyword}{const} \&ip, std::string \textcolor{keyword}{const} \&port);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} initNetwork();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} initGameEngine();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} initScenes();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} run();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31    \textcolor{keyword}{private}:}
+\DoxyCodeLine{32     std::string ip;}
+\DoxyCodeLine{33     std::string port;}
+\DoxyCodeLine{34     std::string appName;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     std::unique\_ptr<GameEngine::Core::Core> m\_coreGE;}
+\DoxyCodeLine{37     std::shared\_ptr<Network> m\_network;}
+\DoxyCodeLine{38   \};}
+\DoxyCodeLine{39 \} \textcolor{comment}{// namespace Client}}
+
+\end{DoxyCode}

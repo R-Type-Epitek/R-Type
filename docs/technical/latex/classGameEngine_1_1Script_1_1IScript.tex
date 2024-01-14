@@ -1,0 +1,102 @@
+\hypertarget{classGameEngine_1_1Script_1_1IScript}{}\doxysection{Game\+Engine\+::Script\+::IScript Class Reference}
+\label{classGameEngine_1_1Script_1_1IScript}\index{GameEngine::Script::IScript@{GameEngine::Script::IScript}}
+
+
+Interface for game scripts.  
+
+
+
+
+{\ttfamily \#include $<$IScript.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1IScript_a079f6c7646bdfb1e2c8821a5b85a26bc}\label{classGameEngine_1_1Script_1_1IScript_a079f6c7646bdfb1e2c8821a5b85a26bc}} 
+virtual {\bfseries $\sim$\+IScript} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1IScript_a59d721f432cc9eb1181befba8a2e566f}\label{classGameEngine_1_1Script_1_1IScript_a59d721f432cc9eb1181befba8a2e566f}} 
+virtual void {\bfseries subscribe\+Event} ()=0
+\begin{DoxyCompactList}\small\item\em Subscribe to relevant events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1IScript_accf0f6c4d525defcc2fd2e4f2021290f}\label{classGameEngine_1_1Script_1_1IScript_accf0f6c4d525defcc2fd2e4f2021290f}} 
+virtual bool {\bfseries is\+Configured} ()=0
+\begin{DoxyCompactList}\small\item\em If the script is configured. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_aa391517c8f837d7c71bffbeb920e516e}{execute}} (int df)=0
+\begin{DoxyCompactList}\small\item\em Update function called per frame. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a137b5f54b5f8e843d39de363e49f08ef}{attach\+Entity}} (const ECS\+::\+Entity entity)=0
+\begin{DoxyCompactList}\small\item\em Attach the script to an entity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a665b239c8a792f0218ce1aa0818ee19e}{attach\+Ecs\+Registry}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS\+::\+Registry}} $>$ ecs\+Registry)=0
+\begin{DoxyCompactList}\small\item\em Attach the script to an ECS registry. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a8beb5b2d34dc897178771205a0fe45ab}{attach\+Event\+Registry}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event\+::\+Event\+Registry}} $>$ event\+Registry)=0
+\begin{DoxyCompactList}\small\item\em Attach the script to an event registry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for game scripts. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1IScript_a665b239c8a792f0218ce1aa0818ee19e}\label{classGameEngine_1_1Script_1_1IScript_a665b239c8a792f0218ce1aa0818ee19e}} 
+\index{GameEngine::Script::IScript@{GameEngine::Script::IScript}!attachEcsRegistry@{attachEcsRegistry}}
+\index{attachEcsRegistry@{attachEcsRegistry}!GameEngine::Script::IScript@{GameEngine::Script::IScript}}
+\doxysubsubsection{\texorpdfstring{attachEcsRegistry()}{attachEcsRegistry()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Script\+::\+IScript\+::attach\+Ecs\+Registry (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS\+::\+Registry}} $>$}]{ecs\+Registry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Attach the script to an ECS registry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ecs\+Registry} & The ECS registry to attach. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1IScript_a137b5f54b5f8e843d39de363e49f08ef}\label{classGameEngine_1_1Script_1_1IScript_a137b5f54b5f8e843d39de363e49f08ef}} 
+\index{GameEngine::Script::IScript@{GameEngine::Script::IScript}!attachEntity@{attachEntity}}
+\index{attachEntity@{attachEntity}!GameEngine::Script::IScript@{GameEngine::Script::IScript}}
+\doxysubsubsection{\texorpdfstring{attachEntity()}{attachEntity()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Script\+::\+IScript\+::attach\+Entity (\begin{DoxyParamCaption}\item[{const ECS\+::\+Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Attach the script to an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to attach the script. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1IScript_a8beb5b2d34dc897178771205a0fe45ab}\label{classGameEngine_1_1Script_1_1IScript_a8beb5b2d34dc897178771205a0fe45ab}} 
+\index{GameEngine::Script::IScript@{GameEngine::Script::IScript}!attachEventRegistry@{attachEventRegistry}}
+\index{attachEventRegistry@{attachEventRegistry}!GameEngine::Script::IScript@{GameEngine::Script::IScript}}
+\doxysubsubsection{\texorpdfstring{attachEventRegistry()}{attachEventRegistry()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Script\+::\+IScript\+::attach\+Event\+Registry (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event\+::\+Event\+Registry}} $>$}]{event\+Registry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Attach the script to an event registry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event\+Registry} & The event registry to attach. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1IScript_aa391517c8f837d7c71bffbeb920e516e}\label{classGameEngine_1_1Script_1_1IScript_aa391517c8f837d7c71bffbeb920e516e}} 
+\index{GameEngine::Script::IScript@{GameEngine::Script::IScript}!execute@{execute}}
+\index{execute@{execute}!GameEngine::Script::IScript@{GameEngine::Script::IScript}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Script\+::\+IScript\+::execute (\begin{DoxyParamCaption}\item[{int}]{df }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Update function called per frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em df} & The delta time in milliseconds. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/script/IScript.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\hypertarget{Tracker_8hpp_source}{}\doxysection{Tracker.\+hpp}
+\label{Tracker_8hpp_source}\index{client/include/network/commands/Tracker.hpp@{client/include/network/commands/Tracker.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 24/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{20   \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1CommandTracker}{CommandTracker}} \{}
+\DoxyCodeLine{21    \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{classClient_1_1CommandTracker_aa297a865c00ba4c39e97444bc90739d4}{CommandTracker}}(\textcolor{keyword}{const} std::string \&command);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{32     \mbox{\hyperlink{classClient_1_1CommandTracker_aab185e0c6ce71b3cc60a5332cb25bbd1}{\string~CommandTracker}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{39     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classClient_1_1CommandTracker_aac480c574b3e2084c4d263f3c31f5788}{getCommand}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{47     \textcolor{keyword}{const} std::chrono::steady\_clock::time\_point \&\mbox{\hyperlink{classClient_1_1CommandTracker_aac5d5c9a16ed8a4d53d95edb3e37b483}{getSendTime}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClient_1_1CommandTracker_aec7401fff6318723da8056e31455c68c}{getIsCompleted}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1CommandTracker_a6a375933a9845d1e12f75d15f1650d13}{setIsCompleted}}(\textcolor{keywordtype}{bool} isCompleted);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63    \textcolor{keyword}{private}:}
+\DoxyCodeLine{64     std::string command;                            }
+\DoxyCodeLine{65     std::chrono::steady\_clock::time\_point sendTime; }
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} isCompleted;                               }
+\DoxyCodeLine{67   \};}
+\DoxyCodeLine{68 \} \textcolor{comment}{// namespace Client}}
+
+\end{DoxyCode}

@@ -1,0 +1,31 @@
+\hypertarget{Hitbox_8hpp_source}{}\doxysection{Hitbox.\+hpp}
+\label{Hitbox_8hpp_source}\index{gameEngine/include/gameEngine/component/Hitbox.hpp@{gameEngine/include/gameEngine/component/Hitbox.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/4/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <SFML/Graphics/RectangleShape.hpp>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{12   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1Hitbox}{Hitbox}} \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{structComponentRType_1_1Hitbox}{Hitbox}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{14     \textcolor{keyword}{explicit} \mbox{\hyperlink{structComponentRType_1_1Hitbox}{Hitbox}}(\textcolor{keywordtype}{int} mask, sf::Vector2f size)}
+\DoxyCodeLine{15       : mask \{mask\}}
+\DoxyCodeLine{16       , shape(size)}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18       shape.setFillColor(sf::Color::Transparent);}
+\DoxyCodeLine{19       shape.setOutlineColor(sf::Color::Red);}
+\DoxyCodeLine{20       shape.setOutlineThickness(1);}
+\DoxyCodeLine{21     \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} mask = 0;}
+\DoxyCodeLine{24     sf::RectangleShape shape;}
+\DoxyCodeLine{25   \};}
+\DoxyCodeLine{26 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

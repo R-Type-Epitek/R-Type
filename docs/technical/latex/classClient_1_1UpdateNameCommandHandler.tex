@@ -1,0 +1,125 @@
+\hypertarget{classClient_1_1UpdateNameCommandHandler}{}\doxysection{Client\+::Update\+Name\+Command\+Handler Class Reference}
+\label{classClient_1_1UpdateNameCommandHandler}\index{Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}}
+
+
+Handler for update name commands in a networked environment.  
+
+
+
+
+{\ttfamily \#include $<$Update\+Name.\+hpp$>$}
+
+Inheritance diagram for Client\+::Update\+Name\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classClient_1_1UpdateNameCommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler_acaf1d26fdc8aa93eaf3069cd65b65a92}{Update\+Name\+Command\+Handler}} (\mbox{\hyperlink{classClient_1_1Network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler}{Update\+Name\+Command\+Handler}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler_a922e3c4bc3886fb6f914049d5aa572d6}{set\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Set the name for the update name command. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler_a30bbaf622ea03fae8c820563c3928198}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Get the name associated with the update name command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler_ad3581fc6628913d32f645cf0f4cf5368}{send}} () override
+\begin{DoxyCompactList}\small\item\em Send the update name command to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler_ae67cfd0f25a2fa49845534f0fa9ff6a2}{on\+Response}} (\mbox{\hyperlink{structResponse}{Response}} $\ast$response) override
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the update name command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for update name commands in a networked environment. 
+
+\mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler}{Update\+Name\+Command\+Handler}} is responsible for managing update name commands and their interactions with the network. It implements the \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}} interface, providing specific functionality for handling requests to update a user\textquotesingle{}s name. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_1_1UpdateNameCommandHandler_acaf1d26fdc8aa93eaf3069cd65b65a92}\label{classClient_1_1UpdateNameCommandHandler_acaf1d26fdc8aa93eaf3069cd65b65a92}} 
+\index{Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}!UpdateNameCommandHandler@{UpdateNameCommandHandler}}
+\index{UpdateNameCommandHandler@{UpdateNameCommandHandler}!Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{UpdateNameCommandHandler()}{UpdateNameCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Update\+Name\+Command\+Handler\+::\+Update\+Name\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClient_1_1Network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classClient_1_1UpdateNameCommandHandler}{Update\+Name\+Command\+Handler}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \mbox{\hyperlink{classClient_1_1Network}{Network}} instance used for handling network communications. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_1_1UpdateNameCommandHandler_a30bbaf622ea03fae8c820563c3928198}\label{classClient_1_1UpdateNameCommandHandler_a30bbaf622ea03fae8c820563c3928198}} 
+\index{Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}!getName@{getName}}
+\index{getName@{getName}!Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Client\+::\+Update\+Name\+Command\+Handler\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the name associated with the update name command. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::string\& Reference to the name currently set for the update name command. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_1_1UpdateNameCommandHandler_ae67cfd0f25a2fa49845534f0fa9ff6a2}\label{classClient_1_1UpdateNameCommandHandler_ae67cfd0f25a2fa49845534f0fa9ff6a2}} 
+\index{Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}!onResponse@{onResponse}}
+\index{onResponse@{onResponse}!Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{onResponse()}{onResponse()}}
+{\footnotesize\ttfamily void Client\+::\+Update\+Name\+Command\+Handler\+::on\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structResponse}{Response}} $\ast$}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle the server\textquotesingle{}s response to the update name command. 
+
+Implements the on\+Response method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, processing the response received from the server in relation to the update name command sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1UpdateNameCommandHandler_ad3581fc6628913d32f645cf0f4cf5368}\label{classClient_1_1UpdateNameCommandHandler_ad3581fc6628913d32f645cf0f4cf5368}} 
+\index{Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}!send@{send}}
+\index{send@{send}!Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void Client\+::\+Update\+Name\+Command\+Handler\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send the update name command to the server. 
+
+Implements the send method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, specifically handling the sending of update name commands to the server. 
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1UpdateNameCommandHandler_a922e3c4bc3886fb6f914049d5aa572d6}\label{classClient_1_1UpdateNameCommandHandler_a922e3c4bc3886fb6f914049d5aa572d6}} 
+\index{Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}!setName@{setName}}
+\index{setName@{setName}!Client::UpdateNameCommandHandler@{Client::UpdateNameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Client\+::\+Update\+Name\+Command\+Handler\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Set the name for the update name command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The new name to be set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/include/network/commands/Update\+Name.\+hpp\item 
+client/src/network/commands/Update\+Name.\+cpp\end{DoxyCompactItemize}

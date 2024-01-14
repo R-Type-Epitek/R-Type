@@ -18,9 +18,15 @@ int {\bfseries client\+Id}
 \mbox{\Hypertarget{structMessageHeader_a19f672c6735d819940166a11e25a321b}\label{structMessageHeader_a19f672c6735d819940166a11e25a321b}} 
 char {\bfseries command} \mbox{[}32\mbox{]}
 \begin{DoxyCompactList}\small\item\em Command type in ASCII format. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMessageHeader_a10ba7181decd6d343b3ebca9548a8b46}\label{structMessageHeader_a10ba7181decd6d343b3ebca9548a8b46}} 
+int {\bfseries command\+Id}
+\begin{DoxyCompactList}\small\item\em Unique identifier for the command. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structMessageHeader_ac81cf10687f6cf52e454e4dec5a5cd6e}\label{structMessageHeader_ac81cf10687f6cf52e454e4dec5a5cd6e}} 
 uint32\+\_\+t {\bfseries data\+Length}
-\begin{DoxyCompactList}\small\item\em Length of the following data in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Length of the following data in bytes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structMessageHeader_ad3ae5785b700ff9f1b3c2bc362e78e4b}\label{structMessageHeader_ad3ae5785b700ff9f1b3c2bc362e78e4b}} 
+uint32\+\_\+t {\bfseries timestamp}
+\begin{DoxyCompactList}\small\item\em The time at which the message was sent. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -30,4 +36,4 @@ This structure contains the client identifier, command, and length of the data t
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/game\+Engine/include/network/Messages.\+hpp\end{DoxyCompactItemize}
+game\+Engine/include/game\+Engine/network/Messages.\+hpp\end{DoxyCompactItemize}

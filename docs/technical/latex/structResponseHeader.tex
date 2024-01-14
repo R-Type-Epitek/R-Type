@@ -1,25 +1,42 @@
 \hypertarget{structResponseHeader}{}\doxysection{Response\+Header Struct Reference}
 \label{structResponseHeader}\index{ResponseHeader@{ResponseHeader}}
+
+
+Structure representing the header of a network message.  
+
+
+
+
+{\ttfamily \#include $<$Responses.\+hpp$>$}
+
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{structResponseHeader_ad4e2006d15648172d22b8d20b3ef4620}\label{structResponseHeader_ad4e2006d15648172d22b8d20b3ef4620}} 
 int {\bfseries client\+Id}
-\item 
+\begin{DoxyCompactList}\small\item\em Unique identifier for the client. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structResponseHeader_a00075c0555fe33707c7ceda8dd4c9b4a}\label{structResponseHeader_a00075c0555fe33707c7ceda8dd4c9b4a}} 
 char {\bfseries command} \mbox{[}32\mbox{]}
-\item 
+\begin{DoxyCompactList}\small\item\em Command type in ASCII format. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structResponseHeader_a9e04618b99646057fcb4a936ff040010}\label{structResponseHeader_a9e04618b99646057fcb4a936ff040010}} 
+int {\bfseries command\+Id}
+\begin{DoxyCompactList}\small\item\em Unique identifier for the command. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structResponseHeader_a296b49d4a863241ed16882995986f977}\label{structResponseHeader_a296b49d4a863241ed16882995986f977}} 
 uint32\+\_\+t {\bfseries data\+Length}
-\item 
+\begin{DoxyCompactList}\small\item\em Length of the following data in bytes. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structResponseHeader_adb599931da8f178e612807762eab84d1}\label{structResponseHeader_adb599931da8f178e612807762eab84d1}} 
 int {\bfseries status}
-\item 
+\begin{DoxyCompactList}\small\item\em Status of the command. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structResponseHeader_a4c2e15ad2d4f5b30f2802dfc3f9e1ceb}\label{structResponseHeader_a4c2e15ad2d4f5b30f2802dfc3f9e1ceb}} 
 char {\bfseries status\+Message} \mbox{[}128\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Status message of the command. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Structure representing the header of a network message. 
+
+This structure contains the client identifier, command, the identifier of the command, the length of the data that follows in the message, the status of the command and the status message. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/game\+Engine/include/network/Responses.\+hpp\end{DoxyCompactItemize}
+game\+Engine/include/game\+Engine/network/Responses.\+hpp\end{DoxyCompactItemize}

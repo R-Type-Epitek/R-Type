@@ -1,0 +1,80 @@
+\hypertarget{UI_8hpp_source}{}\doxysection{UI.\+hpp}
+\label{UI_8hpp_source}\index{gameEngine/include/gameEngine/system/UI.hpp@{gameEngine/include/gameEngine/system/UI.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/12/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{//}}
+\DoxyCodeLine{8 \textcolor{comment}{// Created by Alexandre Decobert on 16/12/2023.}}
+\DoxyCodeLine{9 \textcolor{comment}{//}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}gameEngine/component/Gravity.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}gameEngine/component/Transform.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}gameEngine/component/Displayable.hpp"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}gameEngine/component/Position.hpp"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}gameEngine/component/Clickable.hpp"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/System.hpp"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/RegistryHolder.hpp"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}gameEngine/event/IEventBindable.hpp"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}gameEngine/event/Events.hpp"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}gameEngine/event/IEvent.hpp"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }GameEngine::System}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1System_1_1UI}{UI}}}
+\DoxyCodeLine{29     : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1System}{GameEngine::ECS::System}}}
+\DoxyCodeLine{30     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1RegistryHolder}{GameEngine::ECS::RegistryHolder}}}
+\DoxyCodeLine{31     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEventBindable}{Event::IEventBindable}} \{}
+\DoxyCodeLine{32    \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} bindEvent(\mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event::EventRegistry}}\& eventRegistry) \textcolor{keyword}{final}}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35       eventRegistry.subscribeLambda<\mbox{\hyperlink{structGameEngine_1_1Event_1_1MouseButtonPressed}{Event::MouseButtonPressed}}>(}
+\DoxyCodeLine{36         ([\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw) \{ handleClick(eventRaw); \}));}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} update()}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& entity : m\_entities) \{}
+\DoxyCodeLine{42         \textcolor{keyword}{auto}\& componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{43         \textcolor{keyword}{auto}\& displayable = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Displayable}{ComponentRType::Displayable}}>(entity);}
+\DoxyCodeLine{44         \textcolor{keyword}{auto}\& position = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Position}{ComponentRType::Position}}>(entity);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         displayable.sprite.setPosition(position.position);}
+\DoxyCodeLine{47       \}}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} handleClick(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw)}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52       \textcolor{keyword}{auto}\& componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{53       \textcolor{keyword}{auto} \textcolor{keyword}{event} = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{structGameEngine_1_1Event_1_1MouseButtonPressed}{Event::MouseButtonPressed}}\&\textcolor{keyword}{>}(eventRaw);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& entity : m\_entities) \{}
+\DoxyCodeLine{56         \textcolor{keyword}{auto}\& clickable = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Clickable}{ComponentRType::Clickable}}>(entity);}
+\DoxyCodeLine{57         \textcolor{keyword}{auto}\& displayable = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Displayable}{ComponentRType::Displayable}}>(entity);}
+\DoxyCodeLine{58         \textcolor{keyword}{auto}\& position = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Position}{ComponentRType::Position}}>(entity);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} (}
+\DoxyCodeLine{61           displayable.sprite.getGlobalBounds().contains(}
+\DoxyCodeLine{62             \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(event.x),}
+\DoxyCodeLine{63             \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(\textcolor{keyword}{event}.y)) \&\&}
+\DoxyCodeLine{64           clickable.callback) \{}
+\DoxyCodeLine{65           sf::Color colorCliked = displayable.sprite.getColor();}
+\DoxyCodeLine{66           colorCliked.a = 200;}
+\DoxyCodeLine{67           displayable.sprite.setColor(colorCliked);}
+\DoxyCodeLine{68           clickable.callback();}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{70         displayable.sprite.setPosition(position.position);}
+\DoxyCodeLine{71       \}}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73   \};}
+\DoxyCodeLine{74 \} \textcolor{comment}{// namespace GameEngine::System}}
+
+\end{DoxyCode}

@@ -1,9 +1,13 @@
 var dir_e78bc7dd5332565f8ea5c424eaa02c21 =
 [
-    [ "ConnectToServer.hpp", "server_2include_2commands_2_connect_to_server_8hpp_source.html", null ],
-    [ "IHandler.hpp", "server_2include_2commands_2_i_handler_8hpp_source.html", null ],
-    [ "Input.hpp", "server_2include_2commands_2_input_8hpp_source.html", null ],
-    [ "JoinGame.hpp", "server_2include_2commands_2_join_game_8hpp_source.html", null ],
-    [ "JoinRoom.hpp", "server_2include_2commands_2_join_room_8hpp_source.html", null ],
-    [ "UpdateName.hpp", "server_2include_2commands_2_update_name_8hpp_source.html", null ]
+    [ "ConnectToServer.hpp", "server_2include_2commands_2ConnectToServer_8hpp_source.html", null ],
+    [ "GodMode.hpp", "server_2include_2commands_2GodMode_8hpp_source.html", null ],
+    [ "IHandler.hpp", "server_2include_2commands_2IHandler_8hpp_source.html", null ],
+    [ "Input.hpp", "server_2include_2commands_2Input_8hpp_source.html", null ],
+    [ "JoinGame.hpp", "server_2include_2commands_2JoinGame_8hpp_source.html", null ],
+    [ "JoinRoom.hpp", "server_2include_2commands_2JoinRoom_8hpp_source.html", null ],
+    [ "JoinRoomAuto.hpp", "server_2include_2commands_2JoinRoomAuto_8hpp_source.html", null ],
+    [ "KickPlayer.hpp", "server_2include_2commands_2KickPlayer_8hpp_source.html", null ],
+    [ "Spectate.hpp", "server_2include_2commands_2Spectate_8hpp_source.html", null ],
+    [ "UpdateName.hpp", "server_2include_2commands_2UpdateName_8hpp_source.html", null ]
 ];

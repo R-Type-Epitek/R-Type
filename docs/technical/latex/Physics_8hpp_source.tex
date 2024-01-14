@@ -1,0 +1,89 @@
+\hypertarget{Physics_8hpp_source}{}\doxysection{Physics.\+hpp}
+\label{Physics_8hpp_source}\index{gameEngine/include/gameEngine/system/Physics.hpp@{gameEngine/include/gameEngine/system/Physics.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Alexandre Decobert on 16/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/component/Gravity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/component/Transform.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/component/Position.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}gameEngine/component/Clickable.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/System.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/RegistryHolder.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}gameEngine/event/IEventBindable.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}gameEngine/event/Events.hpp"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}gameEngine/event/IEvent.hpp"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }GameEngine::System}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1System_1_1Physics}{Physics}}}
+\DoxyCodeLine{22     : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1System}{GameEngine::ECS::System}}}
+\DoxyCodeLine{23     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1RegistryHolder}{GameEngine::ECS::RegistryHolder}}}
+\DoxyCodeLine{24     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEventBindable}{Event::IEventBindable}} \{}
+\DoxyCodeLine{25    \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} bindEvent(\mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event::EventRegistry}}\& eventRegistry) \textcolor{keyword}{final}}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28       eventRegistry.subscribeLambda<\mbox{\hyperlink{structGameEngine_1_1Event_1_1EntityCollision}{Event::EntityCollision}}>(}
+\DoxyCodeLine{29         ([\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw) \{ handleCollision(eventRaw); \}));}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} update()}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34       \textcolor{keyword}{auto}\& componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& entity : m\_entities) \{}
+\DoxyCodeLine{37         \textcolor{keyword}{auto}\& spriteC = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Displayable}{ComponentRType::Displayable}}>(entity);}
+\DoxyCodeLine{38         \textcolor{keyword}{auto}\& transform = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Transform}{ComponentRType::Transform}}>(entity);}
+\DoxyCodeLine{39         \textcolor{keyword}{auto}\& position = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Position}{ComponentRType::Position}}>(entity);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{keywordflow}{if} (!position.isValid) \{}
+\DoxyCodeLine{42           position.position = position.latestValidPosition;}
+\DoxyCodeLine{43           spriteC.sprite.setPosition(position.position);}
+\DoxyCodeLine{44           position.isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{45         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{46           position.position = spriteC.sprite.getPosition();}
+\DoxyCodeLine{47           spriteC.sprite.move(transform.movement);}
+\DoxyCodeLine{48           position.latestValidPosition = position.position;}
+\DoxyCodeLine{49         \}}
+\DoxyCodeLine{50       \}}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} updateClient()}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55       \textcolor{keyword}{auto}\& componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& entity : m\_entities) \{}
+\DoxyCodeLine{58         \textcolor{keyword}{auto}\& spriteC = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Displayable}{ComponentRType::Displayable}}>(entity);}
+\DoxyCodeLine{59         \textcolor{keyword}{auto}\& position = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Position}{ComponentRType::Position}}>(entity);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         spriteC.sprite.setPosition(position.position);}
+\DoxyCodeLine{62       \}}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} handleCollision(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw)}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67       \textcolor{keyword}{auto}\& componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{68       \textcolor{keyword}{auto} \textcolor{keyword}{event} = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{structGameEngine_1_1Event_1_1EntityCollision}{Event::EntityCollision}}\&\textcolor{keyword}{>}(eventRaw);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70       \textcolor{keywordflow}{if} ((event.maskA == 6 \&\& event.maskB == 6) || (\textcolor{keyword}{event}.maskA == 6 \&\& \textcolor{keyword}{event}.maskB == -\/1)) \{}
+\DoxyCodeLine{71         getEventRegistry().publish<\mbox{\hyperlink{structGameEngine_1_1Event_1_1DestroyEntity}{Event::DestroyEntity}}>(\mbox{\hyperlink{structGameEngine_1_1Event_1_1DestroyEntity}{Event::DestroyEntity}} \{\textcolor{keyword}{event}.entityA\});}
+\DoxyCodeLine{72       \}}
+\DoxyCodeLine{73       \textcolor{keywordflow}{if} (event.maskA != -\/1 \&\& event.maskB != -\/1 \&\& event.maskA != event.maskB) \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{75       \}}
+\DoxyCodeLine{76       \textcolor{keyword}{auto}\& transformA = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Transform}{ComponentRType::Transform}}>(\textcolor{keyword}{event}.entityA);}
+\DoxyCodeLine{77       \textcolor{keyword}{auto}\& position = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Position}{ComponentRType::Position}}>(\textcolor{keyword}{event}.entityA);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79       position.isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{80       transformA.movement = \{0, 0\};}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82   \};}
+\DoxyCodeLine{83 \} \textcolor{comment}{// namespace GameEngine::System}}
+
+\end{DoxyCode}

@@ -1,5 +1,5 @@
 \hypertarget{Entity_8hpp_source}{}\doxysection{Entity.\+hpp}
-\label{Entity_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ECS/entity/Entity.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ECS/entity/Entity.hpp}}
+\label{Entity_8hpp_source}\index{gameEngine/include/gameEngine/ecs/entity/Entity.hpp@{gameEngine/include/gameEngine/ecs/entity/Entity.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
@@ -7,12 +7,14 @@
 \DoxyCodeLine{3 \textcolor{comment}{//}}
 \DoxyCodeLine{4 }
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdint>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <cstdint>}}
 \DoxyCodeLine{8 }
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{using }Entity = std::uint32\_t;}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} MAX\_ENTITIES = 5000;}
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }GameEngine::ECS}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{using }Entity = std::uint32\_t;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13   \textcolor{keywordtype}{size\_t} \textcolor{keyword}{constexpr} MAX\_ENTITIES = 5000;}
+\DoxyCodeLine{14 \} \textcolor{comment}{// namespace GameEngine::ECS}}
 
 \end{DoxyCode}

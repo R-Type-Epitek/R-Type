@@ -1,0 +1,70 @@
+\hypertarget{Displayable_8hpp_source}{}\doxysection{Displayable.\+hpp}
+\label{Displayable_8hpp_source}\index{gameEngine/include/gameEngine/component/Displayable.hpp@{gameEngine/include/gameEngine/component/Displayable.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Alexandre Decobert on 17/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/network/Serializer.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <boost/serialization/access.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <SFML/Graphics/Sprite.hpp>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   \textcolor{keyword}{namespace }assetManager = GameEngine::Asset;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1Displayable}{Displayable}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent}{GameEngine::Network::Serializer::BaseNetworkComponent}} \{}
+\DoxyCodeLine{19     \textcolor{keyword}{friend} \textcolor{keyword}{class }boost::serialization::access;}
+\DoxyCodeLine{20     sf::Sprite sprite;}
+\DoxyCodeLine{21     std::string assetPath = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} rectTop = -\/1;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} rectLeft = -\/1;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} rectWidth = -\/1;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} rectHeight = -\/1;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{structComponentRType_1_1Displayable}{Displayable}}()}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29       sprite.setTexture(assetManager::getTexture(this-\/>assetPath));}
+\DoxyCodeLine{30       \textcolor{keywordflow}{if} (rectWidth > 0 || rectHeight > 0)}
+\DoxyCodeLine{31         sprite.setTextureRect(sf::IntRect(rectLeft, rectTop, rectWidth, rectHeight));}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{structComponentRType_1_1Displayable}{Displayable}}(std::string assetPath)}
+\DoxyCodeLine{35       : assetPath(std::move(assetPath))}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37       sprite.setTexture(assetManager::getTexture(this-\/>assetPath));}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \mbox{\hyperlink{structComponentRType_1_1Displayable}{Displayable}}(std::string assetPath, sf::IntRect \textcolor{keyword}{const}\& rect)}
+\DoxyCodeLine{41       : assetPath(std::move(assetPath))}
+\DoxyCodeLine{42       , rectTop(rect.top)}
+\DoxyCodeLine{43       , rectLeft(rect.left)}
+\DoxyCodeLine{44       , rectWidth(rect.width)}
+\DoxyCodeLine{45       , rectHeight(rect.height)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47       sprite.setTexture(assetManager::getTexture(this-\/>assetPath));}
+\DoxyCodeLine{48       \textcolor{keywordflow}{if} (rect.width > 0 || rect.height > 0)}
+\DoxyCodeLine{49         sprite.setTextureRect(rect);}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} serialize(Archive\& archive, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55       boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*\textcolor{keyword}{this});}
+\DoxyCodeLine{56       archive\& BOOST\_SERIALIZATION\_NVP(assetPath);}
+\DoxyCodeLine{57       archive\& BOOST\_SERIALIZATION\_NVP(rectTop);}
+\DoxyCodeLine{58       archive\& BOOST\_SERIALIZATION\_NVP(rectLeft);}
+\DoxyCodeLine{59       archive\& BOOST\_SERIALIZATION\_NVP(rectWidth);}
+\DoxyCodeLine{60       archive\& BOOST\_SERIALIZATION\_NVP(rectHeight);}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62   \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

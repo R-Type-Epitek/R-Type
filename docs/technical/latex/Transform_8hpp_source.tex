@@ -1,0 +1,39 @@
+\hypertarget{Transform_8hpp_source}{}\doxysection{Transform.\+hpp}
+\label{Transform_8hpp_source}\index{gameEngine/include/gameEngine/component/Transform.hpp@{gameEngine/include/gameEngine/component/Transform.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Alexandre Decobert on 15/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/network/Serializer.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <boost/serialization/base\_object.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using }Vec3 = int;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{float} defaultSpeed = 10.F;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{19   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1Transform}{Transform}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent}{GameEngine::Network::Serializer::BaseNetworkComponent}} \{}
+\DoxyCodeLine{20     \textcolor{keyword}{friend} \textcolor{keyword}{class }boost::serialization::access;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float} speed = defaultSpeed;}
+\DoxyCodeLine{22     sf::Vector2f movement;}
+\DoxyCodeLine{23     sf::Vector2f rotation;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} serialize(Archive \&ar, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \textcolor{keyword}{const})}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28       boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*\textcolor{keyword}{this});}
+\DoxyCodeLine{29       ar \&(rotation);}
+\DoxyCodeLine{30       ar \&(speed);}
+\DoxyCodeLine{31       ar \&(movement);}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33   \};}
+\DoxyCodeLine{34 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

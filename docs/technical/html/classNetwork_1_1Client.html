@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('classNetwork_1_1Client.html',''); init
 <p>Represents a network client.  
  <a href="classNetwork_1_1Client.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="Client_8hpp_source.html">Client.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="server_2include_2Client_8hpp_source.html">Client.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -138,6 +138,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7eab98c178b5ea21dc1363658f9815ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a7eab98c178b5ea21dc1363658f9815ea">setName</a> (std::string name)</td></tr>
 <tr class="memdesc:a7eab98c178b5ea21dc1363658f9815ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name of the client.  <a href="classNetwork_1_1Client.html#a7eab98c178b5ea21dc1363658f9815ea">More...</a><br /></td></tr>
 <tr class="separator:a7eab98c178b5ea21dc1363658f9815ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6421f3fe7f031be9ab47ec1c34b04cf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a6421f3fe7f031be9ab47ec1c34b04cf0">setRoomId</a> (int roomId)</td></tr>
+<tr class="memdesc:a6421f3fe7f031be9ab47ec1c34b04cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the identifier of the room.  <a href="classNetwork_1_1Client.html#a6421f3fe7f031be9ab47ec1c34b04cf0">More...</a><br /></td></tr>
+<tr class="separator:a6421f3fe7f031be9ab47ec1c34b04cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3226b24dbca2a87dcca3f9ba02394b7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a3226b24dbca2a87dcca3f9ba02394b7c">getRoomId</a> () const</td></tr>
+<tr class="memdesc:a3226b24dbca2a87dcca3f9ba02394b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the identifier of the room.  <a href="classNetwork_1_1Client.html#a3226b24dbca2a87dcca3f9ba02394b7c">More...</a><br /></td></tr>
+<tr class="separator:a3226b24dbca2a87dcca3f9ba02394b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3be4336d2684741cbc37d8eea26df1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#ad3be4336d2684741cbc37d8eea26df1d">updateLastMessageTime</a> ()</td></tr>
+<tr class="memdesc:ad3be4336d2684741cbc37d8eea26df1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the last message time of the client.  <a href="classNetwork_1_1Client.html#ad3be4336d2684741cbc37d8eea26df1d">More...</a><br /></td></tr>
+<tr class="separator:ad3be4336d2684741cbc37d8eea26df1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaccc5c179993bbffb72618702127adc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#aaccc5c179993bbffb72618702127adc9">isInactiveFor</a> (long milliseconds)</td></tr>
+<tr class="memdesc:aaccc5c179993bbffb72618702127adc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client has been inactive for a given amount of milliseconds.  <a href="classNetwork_1_1Client.html#aaccc5c179993bbffb72618702127adc9">More...</a><br /></td></tr>
+<tr class="separator:aaccc5c179993bbffb72618702127adc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a427cbf4305b0adf9b317db09c39e3c66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a427cbf4305b0adf9b317db09c39e3c66">setIsInGame</a> (bool isInGame)</td></tr>
+<tr class="memdesc:a427cbf4305b0adf9b317db09c39e3c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the client is in a game.  <a href="classNetwork_1_1Client.html#a427cbf4305b0adf9b317db09c39e3c66">More...</a><br /></td></tr>
+<tr class="separator:a427cbf4305b0adf9b317db09c39e3c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f997c3a698b5a233177c770754b0c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a94f997c3a698b5a233177c770754b0c5">getIsInGame</a> () const</td></tr>
+<tr class="memdesc:a94f997c3a698b5a233177c770754b0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client is in a game.  <a href="classNetwork_1_1Client.html#a94f997c3a698b5a233177c770754b0c5">More...</a><br /></td></tr>
+<tr class="separator:a94f997c3a698b5a233177c770754b0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e961ffbe3174066b88896cca6d004f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a05e961ffbe3174066b88896cca6d004f">setIsGodMode</a> (bool isGodMode)</td></tr>
+<tr class="memdesc:a05e961ffbe3174066b88896cca6d004f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the client is in god mode.  <a href="classNetwork_1_1Client.html#a05e961ffbe3174066b88896cca6d004f">More...</a><br /></td></tr>
+<tr class="separator:a05e961ffbe3174066b88896cca6d004f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac949375a72177b5735c757894dca5be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#aac949375a72177b5735c757894dca5be">getIsGodMode</a> () const</td></tr>
+<tr class="memdesc:aac949375a72177b5735c757894dca5be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client is in god mode.  <a href="classNetwork_1_1Client.html#aac949375a72177b5735c757894dca5be">More...</a><br /></td></tr>
+<tr class="separator:aac949375a72177b5735c757894dca5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a166f5232b82c514719e1db9d148c5687"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a166f5232b82c514719e1db9d148c5687">setIsSpectator</a> (bool isSpectator)</td></tr>
+<tr class="memdesc:a166f5232b82c514719e1db9d148c5687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the client is a spectator.  <a href="classNetwork_1_1Client.html#a166f5232b82c514719e1db9d148c5687">More...</a><br /></td></tr>
+<tr class="separator:a166f5232b82c514719e1db9d148c5687"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a136c071c20d86b7a24d6aca7be3b42da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1Client.html#a136c071c20d86b7a24d6aca7be3b42da">getIsSpectator</a> () const</td></tr>
+<tr class="memdesc:a136c071c20d86b7a24d6aca7be3b42da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the client is a spectator.  <a href="classNetwork_1_1Client.html#a136c071c20d86b7a24d6aca7be3b42da">More...</a><br /></td></tr>
+<tr class="separator:a136c071c20d86b7a24d6aca7be3b42da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Represents a network client. </p>
@@ -204,6 +234,66 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aac949375a72177b5735c757894dca5be" name="aac949375a72177b5735c757894dca5be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac949375a72177b5735c757894dca5be">&#9670;&nbsp;</a></span>getIsGodMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Client::getIsGodMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client is in god mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client is in god mode, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a94f997c3a698b5a233177c770754b0c5" name="a94f997c3a698b5a233177c770754b0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f997c3a698b5a233177c770754b0c5">&#9670;&nbsp;</a></span>getIsInGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Client::getIsInGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client is in a game. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client is in a game, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a136c071c20d86b7a24d6aca7be3b42da" name="a136c071c20d86b7a24d6aca7be3b42da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136c071c20d86b7a24d6aca7be3b42da">&#9670;&nbsp;</a></span>getIsSpectator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Client::getIsSpectator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client is a spectator. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client is a spectator, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a436cfc281877445713aa8d63cc5fa52b" name="a436cfc281877445713aa8d63cc5fa52b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a436cfc281877445713aa8d63cc5fa52b">&#9670;&nbsp;</a></span>getName()</h2>
 
@@ -221,6 +311,53 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets the name of the client. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::string The name of the client. </dd></dl>
+
+</div>
+</div>
+<a id="a3226b24dbca2a87dcca3f9ba02394b7c" name="a3226b24dbca2a87dcca3f9ba02394b7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3226b24dbca2a87dcca3f9ba02394b7c">&#9670;&nbsp;</a></span>getRoomId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Network::Client::getRoomId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the identifier of the room. </p>
+<dl class="section return"><dt>Returns</dt><dd>int The identifier of the room. </dd></dl>
+
+</div>
+</div>
+<a id="aaccc5c179993bbffb72618702127adc9" name="aaccc5c179993bbffb72618702127adc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaccc5c179993bbffb72618702127adc9">&#9670;&nbsp;</a></span>isInactiveFor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::Client::isInactiveFor </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>milliseconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the client has been inactive for a given amount of milliseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">milliseconds</td><td>The amount of milliseconds to check for.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the client has been inactive for the given amount of milliseconds, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -276,6 +413,84 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a05e961ffbe3174066b88896cca6d004f" name="a05e961ffbe3174066b88896cca6d004f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e961ffbe3174066b88896cca6d004f">&#9670;&nbsp;</a></span>setIsGodMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::setIsGodMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isGodMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets whether the client is in god mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>True if the client is in god mode, false otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a427cbf4305b0adf9b317db09c39e3c66" name="a427cbf4305b0adf9b317db09c39e3c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427cbf4305b0adf9b317db09c39e3c66">&#9670;&nbsp;</a></span>setIsInGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::setIsInGame </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isInGame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets whether the client is in a game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>True if the client is in a game, false otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a166f5232b82c514719e1db9d148c5687" name="a166f5232b82c514719e1db9d148c5687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a166f5232b82c514719e1db9d148c5687">&#9670;&nbsp;</a></span>setIsSpectator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::setIsSpectator </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isSpectator</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets whether the client is a spectator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bool</td><td>True if the client is a spectator, false otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7eab98c178b5ea21dc1363658f9815ea" name="a7eab98c178b5ea21dc1363658f9815ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7eab98c178b5ea21dc1363658f9815ea">&#9670;&nbsp;</a></span>setName()</h2>
 
@@ -302,9 +517,55 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6421f3fe7f031be9ab47ec1c34b04cf0" name="a6421f3fe7f031be9ab47ec1c34b04cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6421f3fe7f031be9ab47ec1c34b04cf0">&#9670;&nbsp;</a></span>setRoomId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::setRoomId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>roomId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the identifier of the room. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roomId</td><td>The new identifier to be set for the room. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad3be4336d2684741cbc37d8eea26df1d" name="ad3be4336d2684741cbc37d8eea26df1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3be4336d2684741cbc37d8eea26df1d">&#9670;&nbsp;</a></span>updateLastMessageTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::Client::updateLastMessageTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the last message time of the client. </p>
+<p >This method is called whenever the client sends a message to the server. It updates the last message time of the client to the current time. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/raphael/epitech/tech3/OOP/R-Type/server/include/<a class="el" href="Client_8hpp_source.html">Client.hpp</a></li>
-<li>/home/raphael/epitech/tech3/OOP/R-Type/server/src/Client.cpp</li>
+<li>server/include/<a class="el" href="server_2include_2Client_8hpp_source.html">Client.hpp</a></li>
+<li>server/src/Client.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

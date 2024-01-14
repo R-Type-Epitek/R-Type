@@ -1,0 +1,84 @@
+\hypertarget{EntityFactory_8hpp_source}{}\doxysection{Entity\+Factory.\+hpp}
+\label{EntityFactory_8hpp_source}\index{gameEngine/include/gameEngine/entity/EntityFactory.hpp@{gameEngine/include/gameEngine/entity/EntityFactory.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/4/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/component/Transform.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/component/Displayable.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}gameEngine/component/Controllable.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}gameEngine/component/NetworkedEntity.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}gameEngine/component/MetaData.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}gameEngine/component/Position.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}gameEngine/component/Gravity.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}gameEngine/component/Hitbox.hpp"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}gameEngine/component/Parallax.hpp"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}gameEngine/component/Scriptable.hpp"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}gameEngine/script/ScriptManager.hpp"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}EntityType.hpp"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}spdlog/spdlog.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }GameEngine::Entity}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{EntityTemplate}} \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{structGameEngine_1_1Entity_1_1ComponentsBluePrint}{ComponentsBluePrint}} blueprint;}
+\DoxyCodeLine{30     \mbox{\hyperlink{structComponentRType_1_1Transform}{ComponentRType::Transform}} transform;}
+\DoxyCodeLine{31     \mbox{\hyperlink{structComponentRType_1_1Displayable}{ComponentRType::Displayable}} displayable;}
+\DoxyCodeLine{32     \mbox{\hyperlink{structComponentRType_1_1Controllable}{ComponentRType::Controllable}} controllable;}
+\DoxyCodeLine{33     \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{ComponentRType::NetworkedEntity}} networkedEntity;}
+\DoxyCodeLine{34     \mbox{\hyperlink{structComponentRType_1_1MetaData}{ComponentRType::MetaData}} metaData;}
+\DoxyCodeLine{35     \mbox{\hyperlink{structComponentRType_1_1Position}{ComponentRType::Position}} position;}
+\DoxyCodeLine{36     \mbox{\hyperlink{structComponentRType_1_1Gravity}{ComponentRType::Gravity}} gravity;}
+\DoxyCodeLine{37     \mbox{\hyperlink{structComponentRType_1_1Hitbox}{ComponentRType::Hitbox}} hitbox;}
+\DoxyCodeLine{38     \mbox{\hyperlink{structComponentRType_1_1Parallax}{ComponentRType::Parallax}} parallax;}
+\DoxyCodeLine{39     \mbox{\hyperlink{structComponentRType_1_1Scriptable}{ComponentRType::Scriptable}} scriptable;}
+\DoxyCodeLine{40   \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{EntityFactory}} \{}
+\DoxyCodeLine{43    \textcolor{keyword}{public}:}
+\DoxyCodeLine{44     \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{EntityFactory}}(std::vector<GameEngine::ECS::Entity> \&entities, \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{GameEngine::ECS::Registry}} \&registry);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{//    GameEngine::ECS::Entity create(const EntityType \&type);}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     GameEngine::ECS::Entity createFromNetwork(}
+\DoxyCodeLine{49       \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{ComponentRType::NetworkedEntity}} \&\textcolor{keywordtype}{id},}
+\DoxyCodeLine{50       \mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{EntityTemplate}} \&entityTemplate);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     GameEngine::ECS::Entity loadFromNetwork(}
+\DoxyCodeLine{53       \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{ComponentRType::NetworkedEntity}} \&networkId,}
+\DoxyCodeLine{54       \mbox{\hyperlink{structComponentRType_1_1MetaData}{ComponentRType::MetaData}} \&metaData);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     GameEngine::ECS::Entity createFromBluePrint(\mbox{\hyperlink{structGameEngine_1_1Entity_1_1ComponentsBluePrint}{ComponentsBluePrint}} \&bluePrint);}
+\DoxyCodeLine{57     GameEngine::ECS::Entity createFromTemplate(\mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{EntityTemplate}} \&entityTemplate);}
+\DoxyCodeLine{58     GameEngine::ECS::Entity createFromTemplateNetwork(\mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{EntityTemplate}} \&entityTemplate);}
+\DoxyCodeLine{59     GameEngine::ECS::Entity createFromTemplateName(\textcolor{keyword}{const} std::string \&name);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     std::map<std::string, EntityTemplate> \&getEntitiesTemplate();}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} addEntityTemplate(\textcolor{keyword}{const} std::string \&name, \textcolor{keyword}{const} \mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{EntityTemplate}} \&entityTemplate);}
+\DoxyCodeLine{63     \mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{EntityTemplate}} getEntityTemplate(\textcolor{keyword}{const} std::string \&name);}
+\DoxyCodeLine{64     \textcolor{keywordtype}{bool} entityTemplateExist(\textcolor{keyword}{const} std::string \&name);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager}{Script::ScriptManager}} \&getScriptManager();}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} idOffset;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70    \textcolor{keyword}{private}:}
+\DoxyCodeLine{71     \textcolor{keyword}{using }\mbox{\hyperlink{classGameEngine_1_1Asset_1_1AssetManager}{AssetManager}} = \mbox{\hyperlink{classGameEngine_1_1Asset_1_1AssetManager}{GameEngine::Asset::AssetManager}};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager}{Script::ScriptManager}} m\_scriptManager;}
+\DoxyCodeLine{74     std::map<std::string, EntityTemplate> m\_entitiesTemplate;}
+\DoxyCodeLine{75     std::vector<GameEngine::ECS::Entity> \&m\_entities; }
+\DoxyCodeLine{76     \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{GameEngine::ECS::Registry}} \&m\_registry;            }
+\DoxyCodeLine{77   \};}
+\DoxyCodeLine{78 \} \textcolor{comment}{// GameEngine::Entity}}
+
+\end{DoxyCode}

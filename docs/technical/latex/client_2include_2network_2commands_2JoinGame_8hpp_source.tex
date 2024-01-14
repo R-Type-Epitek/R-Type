@@ -1,0 +1,34 @@
+\hypertarget{client_2include_2network_2commands_2JoinGame_8hpp_source}{}\doxysection{Join\+Game.\+hpp}
+\label{client_2include_2network_2commands_2JoinGame_8hpp_source}\index{client/include/network/commands/JoinGame.hpp@{client/include/network/commands/JoinGame.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 24/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}network/Network.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1JoinGameCommandHandler}{JoinGameCommandHandler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommandHandler}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_ac0790140c901695392a49b2ccc95ddf1}{JoinGameCommandHandler}}(\mbox{\hyperlink{classClient_1_1Network}{Network}}\& network);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_ab940a8a1719058b6042bcc540ff173b5}{setRoomId}}(\textcolor{keywordtype}{int} roomId);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_a0908b3e7f6b492595484215e60064c38}{getRoomId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_aed806343b2b60d5bdde7eaca758c4d0d}{send}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_a007041dce1cb36936855fbd7c7219444}{onResponse}}(\mbox{\hyperlink{structResponse}{Response}}* response) \textcolor{keyword}{override};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{61    \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     \mbox{\hyperlink{classClient_1_1Network}{Network}}\& network; }
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} roomId;       }
+\DoxyCodeLine{64   \};}
+\DoxyCodeLine{65 \} \textcolor{comment}{// namespace Client}}
+
+\end{DoxyCode}

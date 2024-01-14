@@ -1,15 +1,25 @@
 \hypertarget{Commands_8hpp_source}{}\doxysection{Commands.\+hpp}
-\label{Commands_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/network/Commands.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/network/Commands.hpp}}
+\label{Commands_8hpp_source}\index{gameEngine/include/gameEngine/network/Commands.hpp@{gameEngine/include/gameEngine/network/Commands.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
 \DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 14/12/23.}}
 \DoxyCodeLine{3 \textcolor{comment}{//}}
 \DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#define HELLO\_COMMAND "{}/hello"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#define UPDATE\_NAME\_COMMAND "{}/execute\_name"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#define JOIN\_ROOM\_COMMAND "{}/join\_room"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#define INPUT\_COMMAND "{}/input"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#define START\_GAME\_COMMAND "{}/start\_game"{}}}
+\DoxyCodeLine{5 \textcolor{comment}{// Client -\/> Server}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define CONNECT\_TO\_SERVER\_COMMAND "{}/connect"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define UPDATE\_NAME\_COMMAND       "{}/update\_name"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define JOIN\_ROOM\_COMMAND         "{}/join\_room"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define JOIN\_ROOM\_AUTO\_COMMAND    "{}/join\_room\_auto"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define INPUT\_COMMAND             "{}/input"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define JOIN\_GAME\_COMMAND         "{}/join\_game"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define KICK\_PLAYER\_COMMAND       "{}/kick\_player"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define GOD\_MODE\_COMMAND          "{}/god\_mode"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define SPECTATE\_COMMAND          "{}/spectate"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{// Server -\/> Client}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define SERVER\_COMMAND\_CHECK\_CONNECTION    "{}/check\_connection"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define SERVER\_COMMAND\_CLIENT\_DISCONNECTED "{}/client\_disconnected"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define SERVER\_COMMAND\_UPDATE\_GAME         "{}/update\_game"{}}}
 
 \end{DoxyCode}

@@ -1,0 +1,23 @@
+\hypertarget{IEventListener_8hpp_source}{}\doxysection{IEvent\+Listener.\+hpp}
+\label{IEventListener_8hpp_source}\index{gameEngine/include/gameEngine/event/IEventListener.hpp@{gameEngine/include/gameEngine/event/IEventListener.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/8/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/event/Events.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }GameEngine::Event}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Event_1_1IEventListener}{IEventListener}} \{}
+\DoxyCodeLine{12    \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEventListener}{\string~IEventListener}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} handleEvent(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \&event) = 0;}
+\DoxyCodeLine{16   \};}
+\DoxyCodeLine{17 \} \textcolor{comment}{// namespace GameEngine::Event}}
+
+\end{DoxyCode}

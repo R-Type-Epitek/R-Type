@@ -1,0 +1,43 @@
+\hypertarget{MetaData_8hpp_source}{}\doxysection{Meta\+Data.\+hpp}
+\label{MetaData_8hpp_source}\index{gameEngine/include/gameEngine/component/MetaData.hpp@{gameEngine/include/gameEngine/component/MetaData.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/23/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/network/Serializer.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/entity/EntityType.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <boost/serialization/access.hpp>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1MetaData}{MetaData}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent}{GameEngine::Network::Serializer::BaseNetworkComponent}} \{}
+\DoxyCodeLine{19     \textcolor{keyword}{friend} \textcolor{keyword}{class }boost::serialization::access;}
+\DoxyCodeLine{20     \mbox{\hyperlink{structGameEngine_1_1Entity_1_1ComponentsBluePrint}{GameEngine::Entity::ComponentsBluePrint}} bluePrint;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{structComponentRType_1_1MetaData}{MetaData}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{explicit} \mbox{\hyperlink{structComponentRType_1_1MetaData}{MetaData}}(\mbox{\hyperlink{structGameEngine_1_1Entity_1_1ComponentsBluePrint}{GameEngine::Entity::ComponentsBluePrint}} bluePrint)}
+\DoxyCodeLine{25       : bluePrint(bluePrint)}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} serialize(Archive \&archive, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32       boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*\textcolor{keyword}{this});}
+\DoxyCodeLine{33       archive \&BOOST\_SERIALIZATION\_NVP(bluePrint);}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35   \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

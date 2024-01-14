@@ -1,5 +1,5 @@
 \hypertarget{ThreadSafeQueue_8hpp_source}{}\doxysection{Thread\+Safe\+Queue.\+hpp}
-\label{ThreadSafeQueue_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/ThreadSafeQueue.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/ThreadSafeQueue.hpp}}
+\label{ThreadSafeQueue_8hpp_source}\index{server/include/ThreadSafeQueue.hpp@{server/include/ThreadSafeQueue.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
@@ -12,19 +12,19 @@
 \DoxyCodeLine{8 }
 \DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
 \DoxyCodeLine{10 \{}
-\DoxyCodeLine{19     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{20     \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue}{ThreadSafeQueue}} \{}
-\DoxyCodeLine{21         \textcolor{keyword}{public}:}
-\DoxyCodeLine{30             \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue_a410f64f6c8bae7cbf7df18a39ed46b1b}{push}}(T value);}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{40             T \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue_a38d6f4d684ae1aaa02aaf71d0091f22a}{pop}}();}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42         \textcolor{keyword}{protected}:}
-\DoxyCodeLine{43         \textcolor{keyword}{private}:}
-\DoxyCodeLine{44             std::queue<T> queue; }
-\DoxyCodeLine{45             std::mutex mutex;    }
-\DoxyCodeLine{46             std::condition\_variable cond; }
-\DoxyCodeLine{47     \};}
-\DoxyCodeLine{48 \}}
+\DoxyCodeLine{20   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{21   \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue}{ThreadSafeQueue}} \{}
+\DoxyCodeLine{22    \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue_a410f64f6c8bae7cbf7df18a39ed46b1b}{push}}(T value);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{41     T \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue_a38d6f4d684ae1aaa02aaf71d0091f22a}{pop}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{44    \textcolor{keyword}{private}:}
+\DoxyCodeLine{45     std::queue<T> queue;          }
+\DoxyCodeLine{46     std::mutex mutex;             }
+\DoxyCodeLine{48     std::condition\_variable cond; }
+\DoxyCodeLine{50   \};}
+\DoxyCodeLine{51 \} \textcolor{comment}{// namespace Network}}
 
 \end{DoxyCode}

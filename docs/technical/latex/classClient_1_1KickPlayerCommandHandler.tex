@@ -1,0 +1,125 @@
+\hypertarget{classClient_1_1KickPlayerCommandHandler}{}\doxysection{Client\+::Kick\+Player\+Command\+Handler Class Reference}
+\label{classClient_1_1KickPlayerCommandHandler}\index{Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}}
+
+
+Handler for kick player commands in a networked environment.  
+
+
+
+
+{\ttfamily \#include $<$Kick\+Player.\+hpp$>$}
+
+Inheritance diagram for Client\+::Kick\+Player\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classClient_1_1KickPlayerCommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler_a453f93c362ab002adf0fe7d12aa5a1f1}{Kick\+Player\+Command\+Handler}} (\mbox{\hyperlink{classClient_1_1Network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler}{Kick\+Player\+Command\+Handler}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler_a45fc3abdeec7cbcc26864afb9aebdc97}{set\+Client\+Id}} (int client\+Id)
+\begin{DoxyCompactList}\small\item\em Set the client ID for the kick player command. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler_af196117031e5f2d2750e38872e7be104}{get\+Client\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the client ID associated with the kick player command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler_a12e13a7a823c3df76c5e2726f30fbfb1}{send}} () override
+\begin{DoxyCompactList}\small\item\em Send the kick player command to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler_a13c76e84c1476d7a05dae4bf32475604}{on\+Response}} (\mbox{\hyperlink{structResponse}{Response}} $\ast$response) override
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the kick player command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for kick player commands in a networked environment. 
+
+\mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler}{Kick\+Player\+Command\+Handler}} is responsible for managing kick player commands and their interactions with the network. It implements the \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}} interface, providing specific functionality for handling kick player requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_1_1KickPlayerCommandHandler_a453f93c362ab002adf0fe7d12aa5a1f1}\label{classClient_1_1KickPlayerCommandHandler_a453f93c362ab002adf0fe7d12aa5a1f1}} 
+\index{Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}!KickPlayerCommandHandler@{KickPlayerCommandHandler}}
+\index{KickPlayerCommandHandler@{KickPlayerCommandHandler}!Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{KickPlayerCommandHandler()}{KickPlayerCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Kick\+Player\+Command\+Handler\+::\+Kick\+Player\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClient_1_1Network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classClient_1_1KickPlayerCommandHandler}{Kick\+Player\+Command\+Handler}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \mbox{\hyperlink{classClient_1_1Network}{Network}} instance used for handling network communications. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_1_1KickPlayerCommandHandler_af196117031e5f2d2750e38872e7be104}\label{classClient_1_1KickPlayerCommandHandler_af196117031e5f2d2750e38872e7be104}} 
+\index{Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}!getClientId@{getClientId}}
+\index{getClientId@{getClientId}!Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{getClientId()}{getClientId()}}
+{\footnotesize\ttfamily int Client\+::\+Kick\+Player\+Command\+Handler\+::get\+Client\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the client ID associated with the kick player command. 
+
+\begin{DoxyReturn}{Returns}
+int The ID of the client currently set to kick. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_1_1KickPlayerCommandHandler_a13c76e84c1476d7a05dae4bf32475604}\label{classClient_1_1KickPlayerCommandHandler_a13c76e84c1476d7a05dae4bf32475604}} 
+\index{Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}!onResponse@{onResponse}}
+\index{onResponse@{onResponse}!Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{onResponse()}{onResponse()}}
+{\footnotesize\ttfamily void Client\+::\+Kick\+Player\+Command\+Handler\+::on\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structResponse}{Response}} $\ast$}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle the server\textquotesingle{}s response to the kick player command. 
+
+Implements the on\+Response method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, processing the response received from the server in relation to the kick player command sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1KickPlayerCommandHandler_a12e13a7a823c3df76c5e2726f30fbfb1}\label{classClient_1_1KickPlayerCommandHandler_a12e13a7a823c3df76c5e2726f30fbfb1}} 
+\index{Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}!send@{send}}
+\index{send@{send}!Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void Client\+::\+Kick\+Player\+Command\+Handler\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send the kick player command to the server. 
+
+Implements the send method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, specifically handling the sending of kick player commands to the server. 
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1KickPlayerCommandHandler_a45fc3abdeec7cbcc26864afb9aebdc97}\label{classClient_1_1KickPlayerCommandHandler_a45fc3abdeec7cbcc26864afb9aebdc97}} 
+\index{Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}!setClientId@{setClientId}}
+\index{setClientId@{setClientId}!Client::KickPlayerCommandHandler@{Client::KickPlayerCommandHandler}}
+\doxysubsubsection{\texorpdfstring{setClientId()}{setClientId()}}
+{\footnotesize\ttfamily void Client\+::\+Kick\+Player\+Command\+Handler\+::set\+Client\+Id (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})}
+
+
+
+Set the client ID for the kick player command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the player to kick. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/include/network/commands/Kick\+Player.\+hpp\item 
+client/src/network/commands/Kick\+Player.\+cpp\end{DoxyCompactItemize}

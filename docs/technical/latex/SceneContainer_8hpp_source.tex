@@ -1,0 +1,42 @@
+\hypertarget{SceneContainer_8hpp_source}{}\doxysection{Scene\+Container.\+hpp}
+\label{SceneContainer_8hpp_source}\index{gameEngine/include/gameEngine/scene/SceneContainer.hpp@{gameEngine/include/gameEngine/scene/SceneContainer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/20/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}IScene.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }GameEngine::Scene}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{20   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer}{SceneContainer}} \{}
+\DoxyCodeLine{21    \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a6e2e3846acdc866703d0dbad1a9d2d28}{SceneContainer}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a0763a92287f4fa4d4117a155a78703ff}{addScene}}(std::string name, std::unique\_ptr<IScene> scene);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a1a6a6cb209a127fb8b9dc88692227bf4}{deleteScene}}(\textcolor{keyword}{const} std::string\& name);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{51     \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a97e4ea3777e2e08a217300c0207f3729}{getScene}}(\textcolor{keyword}{const} std::string\& name);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{60     \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a9ec6abd4eb385cbc7b997f2502a31a01}{find}}(\textcolor{keyword}{const} std::string\& name);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a7187a965e3c577dd64dd97b15e87f44d}{exist}}(\textcolor{keyword}{const} std::string\& name);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{75     \textcolor{keyword}{typename} std::map<std::string, std::unique\_ptr<IScene>>::iterator \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a10474b3a05ca248f69b648f94287ca74}{begin}}();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{82     \textcolor{keyword}{typename} std::map<std::string, std::unique\_ptr<IScene>>::iterator \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a00d45bdec2e7db5e41269ce12bf7d3f3}{end}}();}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84    \textcolor{keyword}{private}:}
+\DoxyCodeLine{85     std::map<std::string, std::unique\_ptr<IScene>> m\_scenes;}
+\DoxyCodeLine{86   \};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \} \textcolor{comment}{// namespace GameEngine::Scene}}
+
+\end{DoxyCode}

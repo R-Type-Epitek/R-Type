@@ -1,0 +1,61 @@
+\hypertarget{classGameEngine_1_1ECS_1_1Registry}{}\doxysection{Game\+Engine\+::ECS\+::Registry Class Reference}
+\label{classGameEngine_1_1ECS_1_1Registry}\index{GameEngine::ECS::Registry@{GameEngine::ECS::Registry}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a6875023a1b556ff78445d0378dec91fc}\label{classGameEngine_1_1ECS_1_1Registry_a6875023a1b556ff78445d0378dec91fc}} 
+Entity {\bfseries create\+Entity} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_ad2410dc82f59e2b5e1e88d019b30e63c}\label{classGameEngine_1_1ECS_1_1Registry_ad2410dc82f59e2b5e1e88d019b30e63c}} 
+void {\bfseries destroy\+Entity} (Entity entity)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a9b8499602885b0a91b70c4aaf95dfd79}\label{classGameEngine_1_1ECS_1_1Registry_a9b8499602885b0a91b70c4aaf95dfd79}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries register\+Component} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_adafd379be9234e1e42ae0703436e2771}\label{classGameEngine_1_1ECS_1_1Registry_adafd379be9234e1e42ae0703436e2771}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries add\+Component} (Entity entity, T component)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a34e6702eea58ca65f31454589e8bcc27}\label{classGameEngine_1_1ECS_1_1Registry_a34e6702eea58ca65f31454589e8bcc27}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries remove\+Component} (Entity entity)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a0d9bf6f43d059c1a23485857b3a336b3}\label{classGameEngine_1_1ECS_1_1Registry_a0d9bf6f43d059c1a23485857b3a336b3}} 
+{\footnotesize template$<$typename T $>$ }\\T \& {\bfseries get\+Component} (Entity entity)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a6646eb11293014236fbf70f25009e4e2}\label{classGameEngine_1_1ECS_1_1Registry_a6646eb11293014236fbf70f25009e4e2}} 
+{\footnotesize template$<$typename T $>$ }\\bool {\bfseries has\+Component} (Entity entity)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_ab7aaf119e31bfcf483ed0db99d900fd2}\label{classGameEngine_1_1ECS_1_1Registry_ab7aaf119e31bfcf483ed0db99d900fd2}} 
+{\footnotesize template$<$typename T $>$ }\\Component\+Type {\bfseries get\+Component\+Type} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_adb521fdf7af4fc8067e23a62950cd8ad}\label{classGameEngine_1_1ECS_1_1Registry_adb521fdf7af4fc8067e23a62950cd8ad}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ {\bfseries register\+System} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a0f1d8c9aaaa2583d6e07ea59137a36a1}\label{classGameEngine_1_1ECS_1_1Registry_a0f1d8c9aaaa2583d6e07ea59137a36a1}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries set\+System\+Signature} (Signature signature)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a910582073c8ba191939d9199b8333a8e}\label{classGameEngine_1_1ECS_1_1Registry_a910582073c8ba191939d9199b8333a8e}} 
+std\+::unordered\+\_\+map$<$ char const $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1System}{System}} $>$ $>$ {\bfseries get\+Systems} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a42407921e75596b087614af031054e02}\label{classGameEngine_1_1ECS_1_1Registry_a42407921e75596b087614af031054e02}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ {\bfseries get\+System} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a31937563eccc69c8424fa0e02904f75b}\label{classGameEngine_1_1ECS_1_1Registry_a31937563eccc69c8424fa0e02904f75b}} 
+std\+::unordered\+\_\+map$<$ char const $\ast$, Signature $>$ {\bfseries get\+Signatures} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_aff08ea99810453ba320e96872b7e407f}\label{classGameEngine_1_1ECS_1_1Registry_aff08ea99810453ba320e96872b7e407f}} 
+Signature {\bfseries get\+System\+Signature} (char const $\ast$name)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_ae09034991c23fc453468ce06ce60115f}\label{classGameEngine_1_1ECS_1_1Registry_ae09034991c23fc453468ce06ce60115f}} 
+Signature {\bfseries get\+Entity\+Signature} (Entity \&entity)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a77426f7b83288dd6b2b8a08fcdd58347}\label{classGameEngine_1_1ECS_1_1Registry_a77426f7b83288dd6b2b8a08fcdd58347}} 
+std\+::unordered\+\_\+map$<$ char const $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1IComponentArray}{IComponent\+Array}} $>$ $>$ {\bfseries get\+Components} (Entity \&entity)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1Registry_a49c3b14527cb9282e05b169e5201c42c}\label{classGameEngine_1_1ECS_1_1Registry_a49c3b14527cb9282e05b169e5201c42c}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager}{Component\+Manager}} $>$ \& {\bfseries get\+Component\+Manager} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/ecs/Registry.\+hpp\end{DoxyCompactItemize}

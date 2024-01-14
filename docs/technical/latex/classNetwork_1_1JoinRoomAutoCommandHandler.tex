@@ -1,0 +1,75 @@
+\hypertarget{classNetwork_1_1JoinRoomAutoCommandHandler}{}\doxysection{Network\+::Join\+Room\+Auto\+Command\+Handler Class Reference}
+\label{classNetwork_1_1JoinRoomAutoCommandHandler}\index{Network::JoinRoomAutoCommandHandler@{Network::JoinRoomAutoCommandHandler}}
+Inheritance diagram for Network\+::Join\+Room\+Auto\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNetwork_1_1JoinRoomAutoCommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetwork_1_1JoinRoomAutoCommandHandler_a053bda101a2b2adc31ae1a4d14f9325d}\label{classNetwork_1_1JoinRoomAutoCommandHandler_a053bda101a2b2adc31ae1a4d14f9325d}} 
+{\bfseries Join\+Room\+Auto\+Command\+Handler} (\mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \&server)
+\item 
+bool \mbox{\hyperlink{classNetwork_1_1JoinRoomAutoCommandHandler_a8007a4a4346da72a5fea4e86f275c3f7}{is\+Authorized}} (int client\+Id) override
+\begin{DoxyCompactList}\small\item\em Checks if a client is authorized. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{classNetwork_1_1JoinRoomAutoCommandHandler_af7443b8a52dbb11febfcdccb953beb36}{handle\+Command}} (\mbox{\hyperlink{structMessage}{Message}} $\ast$message) override
+\begin{DoxyCompactList}\small\item\em Handles a received command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetwork_1_1JoinRoomAutoCommandHandler_af7443b8a52dbb11febfcdccb953beb36}\label{classNetwork_1_1JoinRoomAutoCommandHandler_af7443b8a52dbb11febfcdccb953beb36}} 
+\index{Network::JoinRoomAutoCommandHandler@{Network::JoinRoomAutoCommandHandler}!handleCommand@{handleCommand}}
+\index{handleCommand@{handleCommand}!Network::JoinRoomAutoCommandHandler@{Network::JoinRoomAutoCommandHandler}}
+\doxysubsubsection{\texorpdfstring{handleCommand()}{handleCommand()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+Join\+Room\+Auto\+Command\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessage}{Message}} $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles a received command. 
+
+Processes the given command message and generates a response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the message to be handled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The response to the command. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a03d397e650d6d2bad03f4a9fae2ef916}{Network\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classNetwork_1_1JoinRoomAutoCommandHandler_a8007a4a4346da72a5fea4e86f275c3f7}\label{classNetwork_1_1JoinRoomAutoCommandHandler_a8007a4a4346da72a5fea4e86f275c3f7}} 
+\index{Network::JoinRoomAutoCommandHandler@{Network::JoinRoomAutoCommandHandler}!isAuthorized@{isAuthorized}}
+\index{isAuthorized@{isAuthorized}!Network::JoinRoomAutoCommandHandler@{Network::JoinRoomAutoCommandHandler}}
+\doxysubsubsection{\texorpdfstring{isAuthorized()}{isAuthorized()}}
+{\footnotesize\ttfamily bool Network\+::\+Join\+Room\+Auto\+Command\+Handler\+::is\+Authorized (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if a client is authorized. 
+
+Determines if the given client is authorized to execute commands.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The identifier of the client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the client is authorized, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a2247483da1e56599d5fd9a2e891e0767}{Network\+::\+ICommand\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/commands/Join\+Room\+Auto.\+hpp\item 
+server/src/commands/Join\+Room\+Auto.\+cpp\end{DoxyCompactItemize}
