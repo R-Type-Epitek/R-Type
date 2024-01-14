@@ -6,5 +6,8 @@
 
 namespace ComponentRType
 {
-  struct Health {};
+  struct Health {
+    int value;
+    bool isAlive;
+  };
 } // namespace ComponentRType

@@ -184,9 +184,9 @@ namespace GameEngine::Entity
   {
     entity.blueprint.health = true;
     int health = config.value("health", 0);
-    // int damage = config.value("damage", 0);
-    // entity.health.health = health;
-    // entity.health.damage = damage;
+    bool isAlive = config.value("isAlive", true);
+    entity.health.value = health;
+    entity.health.isAlive = isAlive;
   }
 
   void ConfigLoader::parseScriptable(EntityTemplate &entity, const json &config)
