@@ -4,8 +4,8 @@
       "name": "Health",
       "type": "Text",
       "position": {
-        "x": 972,
-        "y": 346
+        "x": 1500,
+        "y": 0
       },
       "content": "Health player:",
       "fontSize": 24
@@ -14,8 +14,8 @@
       "name": "Score",
       "type": "Text",
       "position": {
-        "x": 1008,
-        "y": 728
+        "x": 1000,
+        "y": 0
       },
       "content": "Score:",
       "fontSize": 24
