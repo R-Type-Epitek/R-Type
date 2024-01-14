@@ -19,13 +19,7 @@
         },
         {
           "name": "Displayable",
-          "assetPath": "game/rtype/assets/background_starfield.png",
-          "rect": {
-            "x": 0,
-            "y": 0,
-            "width": 1920,
-            "height": 1080
-          }
+          "assetPath": "game/rtype/assets/sprites/parallax_bg_stage01.png"
         },
         {
           "name": "Position",
@@ -37,10 +31,10 @@
         {
           "name": "Transform",
           "movement": {
-            "x": 0,
+            "x": -2,
             "y": 0
           },
-          "speed": 2
+          "speed": 10
         }
       ]
     },
@@ -159,6 +153,10 @@
       "health": 100,
       "attackPattern": "Zigzag",
       "speed": 2
+    },
+    {
+      "baseType": "Background",
+      "type": "Parallax"
     }
   ],
   "powerUps": [
