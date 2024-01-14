@@ -25,8 +25,8 @@ namespace GameEngine::System
         auto& displayable = componentManager->getComponent<ComponentRType::Displayable>(entity);
         auto position = componentManager->getComponent<ComponentRType::Position>(entity).position;
         const auto rect = displayable.sprite.getTextureRect();
-        
-        if (position.x <= -(rect.width - 1920)) {
+
+        if (position.x <= -(static_cast<float>(rect.width) - 1920)) {
           displayable.sprite.setPosition(0, 0);
         }
       }
