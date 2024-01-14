@@ -10,6 +10,7 @@
 #include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/Spawning.hpp"
 #include "gameEngine/system/Parallax.hpp"
+#include "gameEngine/system/Gameplay.hpp"
 
 namespace Rtype::Scene
 {
@@ -33,6 +34,7 @@ namespace Rtype::Scene
     builder.buildSystemPhysics();
     builder.buildSystemSpawning();
     builder.buildSystemParallax();
+    builder.buildSystemGameplay();
     m_ecsRegistry = builder.getResult();
   }
 
@@ -72,6 +74,10 @@ namespace Rtype::Scene
       }
       {
         auto system = ecsRegistry.getSystem<GameEngine::System::Spawn>();
+        system->update();
+      }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Gameplay>();
         system->update();
       }
     } catch (const std::exception& e) {
