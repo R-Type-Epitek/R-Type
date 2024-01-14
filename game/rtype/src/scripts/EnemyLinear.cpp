@@ -21,7 +21,7 @@ namespace Rtype::Script
     spdlog::info("EnemyLinear::subscribeEvent");
   }
 
-  void EnemyLinear::execute(int df)
+  void EnemyLinear::execute(int)
   {
     auto &componentManager = m_ecsRegistry->getComponentManager();
     auto &transform = componentManager->getComponent<ComponentRType::Transform>(m_entity);

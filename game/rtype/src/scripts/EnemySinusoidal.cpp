@@ -22,7 +22,7 @@ namespace Rtype::Script
     spdlog::info("EnemySinusoidal::subscribeEvent");
   }
 
-  void EnemySinusoidal::execute(int df)
+  void EnemySinusoidal::execute(int)
   {
     auto &componentManager = m_ecsRegistry->getComponentManager();
     auto &transform = componentManager->getComponent<ComponentRType::Transform>(m_entity);
