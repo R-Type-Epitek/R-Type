@@ -184,7 +184,7 @@ namespace Client
      *
      * @return int The current room ID.
      */
-    int getRoomId() const;
+    int getRoomId();
 
     /**
      * @brief Set the name of the client.
@@ -329,7 +329,7 @@ namespace Client
     bool stopReceiveThread = false;
     QueueEcsSerialized m_serializedEcsDataQueue;
     int clientId;
-    int roomId;
+    int roomId = -1;
     std::string name;
     int ping;
   };

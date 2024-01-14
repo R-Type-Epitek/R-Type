@@ -25,14 +25,8 @@ namespace Rtype::Controller
     addBinding("joinRoom1", [this]() { this->joinRoom(1); });
     addBinding("joinRoom2", [this]() { this->joinRoom(2); });
     addBinding("joinRoom3", [this]() { this->joinRoom(3); });
-    addBinding("joinGame0", [this]() { this->joinGame(0); });
-    addBinding("joinGame1", [this]() { this->joinGame(1); });
-    addBinding("joinGame2", [this]() { this->joinGame(2); });
-    addBinding("joinGame3", [this]() { this->joinGame(3); });
-    addBinding("spectate0", [this]() { this->spectate(0); });
-    addBinding("spectate1", [this]() { this->spectate(1); });
-    addBinding("spectate2", [this]() { this->spectate(2); });
-    addBinding("spectate3", [this]() { this->spectate(3); });
+    addBinding("joinGame", [this]() { this->joinGame(); });
+    addBinding("spectate", [this]() { this->spectate(); });
     addBinding("joinRoomAuto", [this]() { this->joinRoomAuto(); });
     addBinding("connect", [this]() { this->connect(); });
     addBinding("setName", [this]() { this->setName("Jhon Doe"); });
@@ -59,9 +53,14 @@ namespace Rtype::Controller
     getNetwork().joinRoom(id);
   }
 
-  void GraphicController::joinGame(int id)
+  void GraphicController::joinGame()
   {
-    getNetwork().joinGame(id);
+    int id = getNetwork().getRoomId();
+
+    if (id != -1) {
+      getNetwork().joinGame(id);
+      getScenes().setCurrent("game");
+    }
   }
 
   void GraphicController::joinRoomAuto()
@@ -69,9 +68,14 @@ namespace Rtype::Controller
     getNetwork().joinRoomAuto();
   }
 
-  void GraphicController::spectate(int id)
+  void GraphicController::spectate()
   {
-    getNetwork().spectate(id);
+    int id = getNetwork().getRoomId();
+
+    if (id != -1) {
+      getNetwork().spectate(id);
+      getScenes().setCurrent("game");
+    }
   }
 
   void GraphicController::connect()

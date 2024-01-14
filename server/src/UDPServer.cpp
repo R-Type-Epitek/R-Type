@@ -465,7 +465,12 @@ void Network::UDPServer::notifyAndRemoveClient(int clientId)
     this->createMessageBuffer(clientId, SERVER_COMMAND_CLIENT_DISCONNECTED, dataToSend, sizeof(data));
 
   spdlog::info("Client {} disconnected", clientId);
-  this->rooms[client.getRoomId()].removePlayer(clientId);
+  Room &room = this->rooms[client.getRoomId()];
+  Server::Game::Player player = {.id = static_cast<size_t>(client.getId()), .name = client.getName()};
+
+  room.getHostedGame().pushEvent(Server::Game::Event::Disconnect, player);
+  room.removePlayer(clientId);
+
   logMessage("Server message", (Message *)messageBuffer.data(), client);
   this->sendToAllClientsInRoom(
     boost::asio::buffer(messageBuffer.data(), messageBuffer.size()),
