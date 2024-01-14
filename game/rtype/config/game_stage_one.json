@@ -144,7 +144,7 @@
         },
         {
           "name": "Hitbox",
-          "mask": 2
+          "mask": 0
         },
         {
           "name": "Scriptable",
