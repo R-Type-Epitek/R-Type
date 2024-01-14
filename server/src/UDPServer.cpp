@@ -421,19 +421,8 @@ void Network::UDPServer::gameLoop()
           if (room.getState() != RUNNING)
             continue;
           room.getHostedGame().update(1);
-          std::vector<std::vector<char>> entities = room.getHostedGame().getSerializedEntities();
-          if (entities.empty())
-            return;
-          std::vector<char> entitiesBuffer;
-          const std::string delimiter = "\x1F";
 
-          for (auto &entity : entities) {
-            entitiesBuffer.insert(entitiesBuffer.end(), entity.begin(), entity.end());
-            entitiesBuffer.insert(entitiesBuffer.end(), delimiter.begin(), delimiter.end());
-          }
-
-          if (!entitiesBuffer.empty() && !entities.empty())
-            entitiesBuffer.erase(entitiesBuffer.end() - delimiter.size(), entitiesBuffer.end());
+          std::vector<char> entitiesBuffer = room.getEntitiesStateBuffer();
 
           std::vector<char> messageBuffer = this->createMessageBuffer(
             -1,

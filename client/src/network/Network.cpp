@@ -267,7 +267,7 @@ void Client::Network::onUpdateGameMessage(Message *message)
   std::vector<std::vector<char>> entities;
 
   std::string dataString(data.begin(), data.end());
-  const std::string delimiter = "\x1F";
+  const std::string delimiter = "\x1FRtype\x1F";
   size_t pos = 0;
   std::string token;
 
@@ -276,7 +276,6 @@ void Client::Network::onUpdateGameMessage(Message *message)
     entities.push_back(std::vector<char>(token.begin(), token.end()));
     dataString.erase(0, pos + delimiter.length());
   }
-
   entities.push_back(std::vector<char>(dataString.begin(), dataString.end()));
 
   this->m_serializedEcsDataQueue = entities;
