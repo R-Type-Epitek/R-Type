@@ -1,0 +1,60 @@
+\hypertarget{gfx_2sfml_2Renderer_8hpp_source}{}\doxysection{Renderer.\+hpp}
+\label{gfx_2sfml_2Renderer_8hpp_source}\index{gameEngine/include/gameEngine/gfx/sfml/Renderer.hpp@{gameEngine/include/gameEngine/gfx/sfml/Renderer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/10/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/gfx/IRenderer.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}SFML/Graphics.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }GameEngine::Gfx::Sfml}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer}{Renderer}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Gfx_1_1IRenderer}{IRenderer}} \{}
+\DoxyCodeLine{12    \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer}{Renderer}}(\textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height, \textcolor{keyword}{const} std::string\& name)}
+\DoxyCodeLine{14       : m\_window(sf::VideoMode(width, height), name) \{\};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} clear() \textcolor{keyword}{final}}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18       m\_window.clear();}
+\DoxyCodeLine{19     \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} display() \textcolor{keyword}{final}}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23       m\_window.display();}
+\DoxyCodeLine{24     \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} isActive() \textcolor{keyword}{final}}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28       \textcolor{keywordflow}{return} m\_window.isOpen();}
+\DoxyCodeLine{29     \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} setFramerateLimit(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} limit) \textcolor{keyword}{final}}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33       m\_window.setFramerateLimit(limit);}
+\DoxyCodeLine{34     \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{classGameEngine_1_1Gfx_1_1IRenderer}{IRenderer}}\& getRenderer() \textcolor{keyword}{final}}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{39     \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} draw(\textcolor{keyword}{const} sf::Drawable\& drawable)}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43       m\_window.draw(drawable);}
+\DoxyCodeLine{44     \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     sf::RenderWindow\& getWindow()}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48       \textcolor{keywordflow}{return} m\_window;}
+\DoxyCodeLine{49     \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51    \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     sf::RenderWindow m\_window;}
+\DoxyCodeLine{53   \};}
+\DoxyCodeLine{54 \} \textcolor{comment}{// namespace GameEngine::Gfx::Sfml}}
+
+\end{DoxyCode}

@@ -1,0 +1,66 @@
+\hypertarget{server_2include_2Client_8hpp_source}{}\doxysection{Client.\+hpp}
+\label{server_2include_2Client_8hpp_source}\index{server/include/Client.hpp@{server/include/Client.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 13/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1Client}{Client}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{classNetwork_1_1Client_a1bfaed07b94b9fc835b6667efd0b705d}{Client}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{30     \mbox{\hyperlink{classNetwork_1_1Client_a4e8e5fe86070c5996e49e02bea3abd02}{\string~Client}}();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{37     boost::asio::ip::udp::endpoint \mbox{\hyperlink{classNetwork_1_1Client_a67507fa077e2a1781500207e08dc46b3}{getEndpoint}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_a8c64f36120e3c8e03b0300c3a5dcef26}{setEndpoint}}(boost::asio::ip::udp::endpoint endpoint);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetwork_1_1Client_a1b788b125572f455745b4d9d537fc0cb}{getId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_af9390388b249ecc73f5585f0c20210cf}{setId}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{65     std::string \mbox{\hyperlink{classNetwork_1_1Client_a436cfc281877445713aa8d63cc5fa52b}{getName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_a7eab98c178b5ea21dc1363658f9815ea}{setName}}(std::string name);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_a6421f3fe7f031be9ab47ec1c34b04cf0}{setRoomId}}(\textcolor{keywordtype}{int} roomId);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetwork_1_1Client_a3226b24dbca2a87dcca3f9ba02394b7c}{getRoomId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_ad3be4336d2684741cbc37d8eea26df1d}{updateLastMessageTime}}();}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1Client_aaccc5c179993bbffb72618702127adc9}{isInactiveFor}}(\textcolor{keywordtype}{long} milliseconds);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_a427cbf4305b0adf9b317db09c39e3c66}{setIsInGame}}(\textcolor{keywordtype}{bool} isInGame);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1Client_a94f997c3a698b5a233177c770754b0c5}{getIsInGame}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{126     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_a05e961ffbe3174066b88896cca6d004f}{setIsGodMode}}(\textcolor{keywordtype}{bool} isGodMode);}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{133     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1Client_aac949375a72177b5735c757894dca5be}{getIsGodMode}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{140     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Client_a166f5232b82c514719e1db9d148c5687}{setIsSpectator}}(\textcolor{keywordtype}{bool} isSpectator);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{147     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1Client_a136c071c20d86b7a24d6aca7be3b42da}{getIsSpectator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{150    \textcolor{keyword}{private}:}
+\DoxyCodeLine{151     boost::asio::ip::udp::endpoint endpoint;               }
+\DoxyCodeLine{152     \textcolor{keywordtype}{int} id;                                                }
+\DoxyCodeLine{153     std::string name;                                      }
+\DoxyCodeLine{154     \textcolor{keywordtype}{int} roomId;                                            }
+\DoxyCodeLine{155     std::chrono::steady\_clock::time\_point lastMessageTime; }
+\DoxyCodeLine{156     \textcolor{keywordtype}{bool} isInGame;                                         }
+\DoxyCodeLine{157     \textcolor{keywordtype}{bool} isGodMode;                                        }
+\DoxyCodeLine{158     \textcolor{keywordtype}{bool} isSpectator;                                      }
+\DoxyCodeLine{159   \};}
+\DoxyCodeLine{160 \} \textcolor{comment}{// namespace Network}}
+
+\end{DoxyCode}

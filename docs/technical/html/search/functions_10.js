@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['_7eclient_0',['~Client',['../class_network_1_1_client.html#a4e8e5fe86070c5996e49e02bea3abd02',1,'Network::Client']]],
-  ['_7ecommandtracker_1',['~CommandTracker',['../class_client_1_1_command_tracker.html#aab185e0c6ce71b3cc60a5332cb25bbd1',1,'Client::CommandTracker']]],
-  ['_7eicommandhandler_2',['~icommandhandler',['../class_network_1_1_i_command_handler.html#ac588e08e2986f5eff95e59cde7cb4439',1,'Network::ICommandHandler::~ICommandHandler()'],['../class_client_1_1_i_command_handler.html#aa9d71c56de179b38a3ea071df1f60676',1,'Client::ICommandHandler::~ICommandHandler()']]],
-  ['_7enetwork_3',['~Network',['../class_client_1_1_network.html#a9781434da3b6a72fab9b5e846e490a80',1,'Client::Network']]],
-  ['_7eroom_4',['~Room',['../class_network_1_1_room.html#aa6449f53d721de21a5a08aa032acc00a',1,'Network::Room']]],
-  ['_7escenemanager_5',['~SceneManager',['../class_client_1_1_scene_1_1_scene_manager.html#a44384cc046469736e7948c351e3b7a05',1,'Client::Scene::SceneManager']]],
-  ['_7eudpserver_6',['~UDPServer',['../class_network_1_1_u_d_p_server.html#a6ae6efb6b05e6b6518195512e90a216d',1,'Network::UDPServer']]]
+  ['udpserver_0',['UDPServer',['../classNetwork_1_1UDPServer.html#a8e48a3fb2808976e3cb450ad23fddc8e',1,'Network::UDPServer::UDPServer(boost::asio::io_context &amp;io)'],['../classNetwork_1_1UDPServer.html#afec9bb314cf033eee17817a554124e22',1,'Network::UDPServer::UDPServer(boost::asio::io_context &amp;io, int port)']]],
+  ['updateclientlastmessagetimefromdata_1',['updateClientLastMessageTimeFromData',['../classNetwork_1_1UDPServer.html#a4928e7aa98d5e037872d25cff45c9f8a',1,'Network::UDPServer']]],
+  ['updatelastmessagetime_2',['updateLastMessageTime',['../classNetwork_1_1Client.html#ad3be4336d2684741cbc37d8eea26df1d',1,'Network::Client']]],
+  ['updatename_3',['updateName',['../classClient_1_1Network.html#a417c2a0f6c32086d6c2e14934d9311b2',1,'Client::Network']]],
+  ['updatenamecommandhandler_4',['UpdateNameCommandHandler',['../classClient_1_1UpdateNameCommandHandler.html#acaf1d26fdc8aa93eaf3069cd65b65a92',1,'Client::UpdateNameCommandHandler']]]
 ];

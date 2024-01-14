@@ -1,0 +1,25 @@
+\hypertarget{server_2include_2commands_2IHandler_8hpp_source}{}\doxysection{IHandler.\+hpp}
+\label{server_2include_2commands_2IHandler_8hpp_source}\index{server/include/commands/IHandler.hpp@{server/include/commands/IHandler.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 20/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1ICommandHandler}{ICommandHandler}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNetwork_1_1ICommandHandler_ac588e08e2986f5eff95e59cde7cb4439}{\string~ICommandHandler}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a2247483da1e56599d5fd9a2e891e0767}{isAuthorized}}(\textcolor{keywordtype}{int} clientId) = 0;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} std::vector<char> \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a03d397e650d6d2bad03f4a9fae2ef916}{handleCommand}}(\mbox{\hyperlink{structMessage}{Message}} *message) = 0;}
+\DoxyCodeLine{45   \};}
+\DoxyCodeLine{46 \} \textcolor{comment}{// namespace Network}}
+
+\end{DoxyCode}

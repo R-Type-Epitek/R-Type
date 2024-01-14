@@ -1,0 +1,38 @@
+\hypertarget{classGameEngine_1_1UI_1_1UIFactory}{}\doxysection{Game\+Engine\+::UI\+::UIFactory Class Reference}
+\label{classGameEngine_1_1UI_1_1UIFactory}\index{GameEngine::UI::UIFactory@{GameEngine::UI::UIFactory}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_a0fed055aac99ed93d1bb07573aedbc00}\label{classGameEngine_1_1UI_1_1UIFactory_a0fed055aac99ed93d1bb07573aedbc00}} 
+{\bfseries UIFactory} (std\+::vector$<$ Game\+Engine\+::\+ECS\+::\+Entity $>$ \&entities, \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{Game\+Engine\+::\+ECS\+::\+Registry}} \&registry)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_af42212d56f6ae0f313cbe9a6f7c92961}\label{classGameEngine_1_1UI_1_1UIFactory_af42212d56f6ae0f313cbe9a6f7c92961}} 
+void {\bfseries load\+UIFrom\+JSON} (const std\+::string \&json\+File\+Path)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_a40e2fff724a2577ac7604933d1bab36a}\label{classGameEngine_1_1UI_1_1UIFactory_a40e2fff724a2577ac7604933d1bab36a}} 
+void {\bfseries create\+UIEntity} (const json \&config)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_ae7d10fadc6cbaaf19be83504bfdf8bad}\label{classGameEngine_1_1UI_1_1UIFactory_ae7d10fadc6cbaaf19be83504bfdf8bad}} 
+std\+::map$<$ std\+::string, ECS\+::\+Entity $>$ {\bfseries get\+UIElements} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_ad8972e3824b3ac7584797dda17945688}\label{classGameEngine_1_1UI_1_1UIFactory_ad8972e3824b3ac7584797dda17945688}} 
+void {\bfseries parse\+Displayable} (const Game\+Engine\+::\+ECS\+::\+Entity \&entity, const json \&config)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_a0e0ac22b0d75311d14f68472d7160f35}\label{classGameEngine_1_1UI_1_1UIFactory_a0e0ac22b0d75311d14f68472d7160f35}} 
+void {\bfseries parse\+Text} (const Game\+Engine\+::\+ECS\+::\+Entity \&entity, const json \&config)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_afd088eb906428e8f04f7d8bf2a104cd8}\label{classGameEngine_1_1UI_1_1UIFactory_afd088eb906428e8f04f7d8bf2a104cd8}} 
+void {\bfseries parse\+Position} (const Game\+Engine\+::\+ECS\+::\+Entity \&entity, const json \&config)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_a8b1c749f1a675c2444aa15b25567d0fe}\label{classGameEngine_1_1UI_1_1UIFactory_a8b1c749f1a675c2444aa15b25567d0fe}} 
+void {\bfseries parse\+Clickable} (const Game\+Engine\+::\+ECS\+::\+Entity \&entity, const json \&config)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1UI_1_1UIFactory_af3e46b4a72a35598a819519c5472d214}\label{classGameEngine_1_1UI_1_1UIFactory_af3e46b4a72a35598a819519c5472d214}} 
+void {\bfseries parse\+UIElement} (const Game\+Engine\+::\+ECS\+::\+Entity \&entity, const json \&config)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/\+UI/UIFactory.\+hpp\item 
+game\+Engine/src/\+UI/UIFactory.\+cpp\end{DoxyCompactItemize}

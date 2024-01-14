@@ -16,6 +16,7 @@
 #include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/component/Text.hpp"
 #include "gameEngine/component/UiElement.hpp"
+#include "gameEngine/component/Scriptable.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -34,6 +35,7 @@
 #include "gameEngine/system/Spawning.hpp"
 #include "gameEngine/system/NetworkEventPusher.hpp"
 #include "gameEngine/system/UI.hpp"
+#include "gameEngine/system/ScriptableEntity.hpp"
 
 #include <memory>
 #include <utility>
@@ -70,6 +72,7 @@ namespace GameEngine::Builder
     registerComponent<ComponentRType::Hitbox>();
     registerComponent<ComponentRType::Text>();
     registerComponent<ComponentRType::UIElement>();
+    registerComponent<ComponentRType::Scriptable>();
   }
 
   void RegistryBuilder::buildSystemAnimation()
@@ -220,6 +223,18 @@ namespace GameEngine::Builder
         sys->setEventRegistry(eventRegistry);
       }
     }
+  }
+
+  void RegistryBuilder::buildSystemScriptableEntity()
+  {
+    using SystemType = GameEngine::System::ScriptableEntity;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Scriptable>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
+    m_registry->setSystemSignature<SystemType>(signature);
   }
 
 }; // namespace GameEngine::Builder

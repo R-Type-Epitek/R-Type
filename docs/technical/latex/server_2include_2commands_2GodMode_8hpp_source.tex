@@ -1,0 +1,27 @@
+\hypertarget{server_2include_2commands_2GodMode_8hpp_source}{}\doxysection{God\+Mode.\+hpp}
+\label{server_2include_2commands_2GodMode_8hpp_source}\index{server/include/commands/GodMode.hpp@{server/include/commands/GodMode.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 09/01/2024.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1GodModeCommandHandler}{GodModeCommandHandler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classNetwork_1_1ICommandHandler}{ICommandHandler}} \{}
+\DoxyCodeLine{12    \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{classNetwork_1_1GodModeCommandHandler}{GodModeCommandHandler}}(\mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \&server);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1GodModeCommandHandler_a99fee93fd4f176ea0e5d60acd7c75c7f}{isAuthorized}}(\textcolor{keywordtype}{int} clientId) \textcolor{keyword}{override};}
+\DoxyCodeLine{15     std::vector<char> \mbox{\hyperlink{classNetwork_1_1GodModeCommandHandler_acf521a98d3edeb6109c198dd5ef89d41}{handleCommand}}(\mbox{\hyperlink{structMessage}{Message}} *message) \textcolor{keyword}{override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18    \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \&server;}
+\DoxyCodeLine{20   \};}
+\DoxyCodeLine{21 \} \textcolor{comment}{// namespace Network}}
+
+\end{DoxyCode}

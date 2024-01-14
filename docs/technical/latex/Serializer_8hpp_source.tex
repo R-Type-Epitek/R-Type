@@ -1,0 +1,90 @@
+\hypertarget{Serializer_8hpp_source}{}\doxysection{Serializer.\+hpp}
+\label{Serializer_8hpp_source}\index{gameEngine/include/gameEngine/network/Serializer.hpp@{gameEngine/include/gameEngine/network/Serializer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/24/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/component/ComponentManager.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <boost/archive/binary\_iarchive.hpp>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <boost/archive/binary\_oarchive.hpp>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <boost/serialization/access.hpp>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <boost/serialization/export.hpp>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{namespace }boost::serialization}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>}
+\DoxyCodeLine{26   \textcolor{keywordtype}{void} serialize(Archive \&archive, sf::Vector2f \&vector, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})}
+\DoxyCodeLine{27   \{}
+\DoxyCodeLine{28     archive \& vector.x;}
+\DoxyCodeLine{29     archive \& vector.y;}
+\DoxyCodeLine{30   \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \} \textcolor{comment}{// namespace boost::serialization}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{namespace }GameEngine::Network::Serializer}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent}{BaseNetworkComponent}} \{}
+\DoxyCodeLine{38    \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     \textcolor{keyword}{friend} \textcolor{keyword}{class }boost::serialization::access;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent}{\string~BaseNetworkComponent}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43    \textcolor{keyword}{private}:}
+\DoxyCodeLine{44     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} serialize(Archive \&, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47       \textcolor{comment}{// Base class has no data to serialize}}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49   \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1EcsSerializer}{EcsSerializer}} \{}
+\DoxyCodeLine{52    \textcolor{keyword}{public}:}
+\DoxyCodeLine{53     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Archive>}
+\DoxyCodeLine{54     \textcolor{keyword}{static} \textcolor{keywordtype}{void} serializeComponent(}
+\DoxyCodeLine{55       \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager}{GameEngine::ECS::ComponentManager}} \&componentManager,}
+\DoxyCodeLine{56       \textcolor{keyword}{const} GameEngine::ECS::Entity \&entity,}
+\DoxyCodeLine{57       Archive \&archive)}
+\DoxyCodeLine{58     \{}
+\DoxyCodeLine{59       \textcolor{keyword}{auto} \&component = componentManager.\mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<T>(entity);}
+\DoxyCodeLine{60       archive << component;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Archive>}
+\DoxyCodeLine{64     \textcolor{keyword}{static} T deserializeComponent(Archive \&archive)}
+\DoxyCodeLine{65     \{}
+\DoxyCodeLine{66       T component;}
+\DoxyCodeLine{67       archive >> component;}
+\DoxyCodeLine{68       \textcolor{keywordflow}{return} component;}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Archive>}
+\DoxyCodeLine{72     \textcolor{keyword}{static} T \&deserializeComponentToEntity(}
+\DoxyCodeLine{73       \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager}{GameEngine::ECS::ComponentManager}} \&componentManager,}
+\DoxyCodeLine{74       \textcolor{keyword}{const} GameEngine::ECS::Entity \&entity,}
+\DoxyCodeLine{75       Archive \&archive)}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77       \textcolor{keyword}{auto} \&component = componentManager.\mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<T>(entity);}
+\DoxyCodeLine{78       T componentData = deserializeComponent<T>(archive);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80       component = componentData;}
+\DoxyCodeLine{81       \textcolor{keywordflow}{return} component;}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83   \};}
+\DoxyCodeLine{84 \}; \textcolor{comment}{// namespace GameEngine::Network::Serializer}}
+
+\end{DoxyCode}

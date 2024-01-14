@@ -1,0 +1,125 @@
+\hypertarget{classClient_1_1SpectateCommandHandler}{}\doxysection{Client\+::Spectate\+Command\+Handler Class Reference}
+\label{classClient_1_1SpectateCommandHandler}\index{Client::SpectateCommandHandler@{Client::SpectateCommandHandler}}
+
+
+Handler for spectate commands in a networked environment.  
+
+
+
+
+{\ttfamily \#include $<$Spectate.\+hpp$>$}
+
+Inheritance diagram for Client\+::Spectate\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classClient_1_1SpectateCommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClient_1_1SpectateCommandHandler_ab93ffc00684bf911d3f7af1ab19de8d1}{Spectate\+Command\+Handler}} (\mbox{\hyperlink{classClient_1_1Network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classClient_1_1SpectateCommandHandler}{Spectate\+Command\+Handler}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_a1e6c6323a69a895128487919398f8512}{set\+Room\+Id}} (int room\+Id)
+\begin{DoxyCompactList}\small\item\em Set the room ID for the spectate command. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_ab7f2cbd7bca0ee4933724e752cdee37a}{get\+Room\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the room ID associated with the spectate command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_a849a424c783fdefaa0a112dc78ffbcc3}{send}} () override
+\begin{DoxyCompactList}\small\item\em Send the spectate command to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_a478485f3846aec1fbd84dae4c8ed001a}{on\+Response}} (\mbox{\hyperlink{structResponse}{Response}} $\ast$response) override
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the spectate command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for spectate commands in a networked environment. 
+
+\mbox{\hyperlink{classClient_1_1SpectateCommandHandler}{Spectate\+Command\+Handler}} is responsible for managing spectate commands and their interactions with the network. It extends the \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}} interface, providing specific implementations for handling spectate requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_1_1SpectateCommandHandler_ab93ffc00684bf911d3f7af1ab19de8d1}\label{classClient_1_1SpectateCommandHandler_ab93ffc00684bf911d3f7af1ab19de8d1}} 
+\index{Client::SpectateCommandHandler@{Client::SpectateCommandHandler}!SpectateCommandHandler@{SpectateCommandHandler}}
+\index{SpectateCommandHandler@{SpectateCommandHandler}!Client::SpectateCommandHandler@{Client::SpectateCommandHandler}}
+\doxysubsubsection{\texorpdfstring{SpectateCommandHandler()}{SpectateCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Spectate\+Command\+Handler\+::\+Spectate\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClient_1_1Network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classClient_1_1SpectateCommandHandler}{Spectate\+Command\+Handler}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \mbox{\hyperlink{classClient_1_1Network}{Network}} instance used for handling network communications. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_1_1SpectateCommandHandler_ab7f2cbd7bca0ee4933724e752cdee37a}\label{classClient_1_1SpectateCommandHandler_ab7f2cbd7bca0ee4933724e752cdee37a}} 
+\index{Client::SpectateCommandHandler@{Client::SpectateCommandHandler}!getRoomId@{getRoomId}}
+\index{getRoomId@{getRoomId}!Client::SpectateCommandHandler@{Client::SpectateCommandHandler}}
+\doxysubsubsection{\texorpdfstring{getRoomId()}{getRoomId()}}
+{\footnotesize\ttfamily int Client\+::\+Spectate\+Command\+Handler\+::get\+Room\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the room ID associated with the spectate command. 
+
+\begin{DoxyReturn}{Returns}
+int The ID of the room to spectate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_1_1SpectateCommandHandler_a478485f3846aec1fbd84dae4c8ed001a}\label{classClient_1_1SpectateCommandHandler_a478485f3846aec1fbd84dae4c8ed001a}} 
+\index{Client::SpectateCommandHandler@{Client::SpectateCommandHandler}!onResponse@{onResponse}}
+\index{onResponse@{onResponse}!Client::SpectateCommandHandler@{Client::SpectateCommandHandler}}
+\doxysubsubsection{\texorpdfstring{onResponse()}{onResponse()}}
+{\footnotesize\ttfamily void Client\+::\+Spectate\+Command\+Handler\+::on\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structResponse}{Response}} $\ast$}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle the server\textquotesingle{}s response to the spectate command. 
+
+Implements the on\+Response method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, processing the response received from the server in relation to the spectate command sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1SpectateCommandHandler_a849a424c783fdefaa0a112dc78ffbcc3}\label{classClient_1_1SpectateCommandHandler_a849a424c783fdefaa0a112dc78ffbcc3}} 
+\index{Client::SpectateCommandHandler@{Client::SpectateCommandHandler}!send@{send}}
+\index{send@{send}!Client::SpectateCommandHandler@{Client::SpectateCommandHandler}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void Client\+::\+Spectate\+Command\+Handler\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send the spectate command to the server. 
+
+Implements the send method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, specifically handling the sending of spectate commands to the server. 
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1SpectateCommandHandler_a1e6c6323a69a895128487919398f8512}\label{classClient_1_1SpectateCommandHandler_a1e6c6323a69a895128487919398f8512}} 
+\index{Client::SpectateCommandHandler@{Client::SpectateCommandHandler}!setRoomId@{setRoomId}}
+\index{setRoomId@{setRoomId}!Client::SpectateCommandHandler@{Client::SpectateCommandHandler}}
+\doxysubsubsection{\texorpdfstring{setRoomId()}{setRoomId()}}
+{\footnotesize\ttfamily void Client\+::\+Spectate\+Command\+Handler\+::set\+Room\+Id (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Set the room ID for the spectate command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room to spectate. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/include/network/commands/Spectate.\+hpp\item 
+client/src/network/commands/Spectate.\+cpp\end{DoxyCompactItemize}

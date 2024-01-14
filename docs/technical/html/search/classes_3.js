@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['display_0',['Display',['../class_display.html',1,'']]],
-  ['displayable_1',['Displayable',['../struct_component_r_type_1_1_displayable.html',1,'ComponentRType']]]
+  ['destroyentity_0',['DestroyEntity',['../structGameEngine_1_1Event_1_1DestroyEntity.html',1,'GameEngine::Event']]],
+  ['disconnectedplayer_1',['DisconnectedPlayer',['../structGameEngine_1_1Event_1_1DisconnectedPlayer.html',1,'GameEngine::Event']]],
+  ['displayable_2',['Displayable',['../structComponentRType_1_1Displayable.html',1,'ComponentRType']]]
 ];

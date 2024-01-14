@@ -1,0 +1,34 @@
+\hypertarget{client_2include_2network_2commands_2GodMode_8hpp_source}{}\doxysection{God\+Mode.\+hpp}
+\label{client_2include_2network_2commands_2GodMode_8hpp_source}\index{client/include/network/commands/GodMode.hpp@{client/include/network/commands/GodMode.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 24/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}network/Network.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1GodModeCommandHandler}{GodModeCommandHandler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommandHandler}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{classClient_1_1GodModeCommandHandler_ac4784bf41faba5a150474f5b7c757f3a}{GodModeCommandHandler}}(\mbox{\hyperlink{classClient_1_1Network}{Network}}\& network);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1GodModeCommandHandler_a6268ed304ae3ec56bd85fd766cccd8f4}{setClientId}}(\textcolor{keywordtype}{int} clientId);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} \mbox{\hyperlink{classClient_1_1GodModeCommandHandler_a87565e8e29821c1fddb39805e78b36c6}{getClientId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1GodModeCommandHandler_a8d1f95c6e7b0ff759bfbc13e70a3bb55}{send}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1GodModeCommandHandler_a02a7017ed86ab7f63c53bab4c2257716}{onResponse}}(\mbox{\hyperlink{structResponse}{Response}}* response) \textcolor{keyword}{override};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{61    \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     \mbox{\hyperlink{classClient_1_1Network}{Network}}\& network; }
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} clientId;     }
+\DoxyCodeLine{64   \};}
+\DoxyCodeLine{65 \} \textcolor{comment}{// namespace Client}}
+
+\end{DoxyCode}

@@ -1,0 +1,109 @@
+\hypertarget{classGameEngine_1_1Network_1_1INetworkController}{}\doxysection{Game\+Engine\+::Network\+::INetwork\+Controller Class Reference}
+\label{classGameEngine_1_1Network_1_1INetworkController}\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+Inheritance diagram for Game\+Engine\+::Network\+::INetwork\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameEngine_1_1Network_1_1INetworkController}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController_a3317f95ad5338d5be2cea8f3dbdc4440}{send\+Key}} (Game\+Engine\+::\+Keybinds key)=0
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a028311a74f2984a3fbfcfcbf912a32a2}\label{classGameEngine_1_1Network_1_1INetworkController_a028311a74f2984a3fbfcfcbf912a32a2}} 
+virtual void {\bfseries connect} ()=0
+\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController_a8a1cf2862ec6e80ccbd3e441865d6844}{join\+Room\+Auto}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController_a13fb54b693cafdf426d06909cd77c0e3}{join\+Room}} (int room\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController_a38addd4155eeec7329f13b1850175417}{spectate}} (int room\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController_a82e25ac58bf008ec27985f092a1c859f}{join\+Game}} (int room\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController_a1651e2d1458475ec28521b0bec1ea897}{update\+Name}} (std\+::string name)=0
+\item 
+virtual int \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController_a9225c8a84418f00399d2c64db9ac7830}{get\+Room\+Id}} ()=0
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a9518560284f6b687ad0106d254768f96}\label{classGameEngine_1_1Network_1_1INetworkController_a9518560284f6b687ad0106d254768f96}} 
+virtual std\+::vector$<$ std\+::vector$<$ char $>$ $>$ {\bfseries get\+Serialized\+Ecs\+State} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a9225c8a84418f00399d2c64db9ac7830}\label{classGameEngine_1_1Network_1_1INetworkController_a9225c8a84418f00399d2c64db9ac7830}} 
+\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}!getRoomId@{getRoomId}}
+\index{getRoomId@{getRoomId}!GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+\doxysubsubsection{\texorpdfstring{getRoomId()}{getRoomId()}}
+{\footnotesize\ttfamily virtual int Game\+Engine\+::\+Network\+::\+INetwork\+Controller\+::get\+Room\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClient_1_1Network_ad968dbee4f62f908db50e82396481d19}{Client\+::\+Network}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a82e25ac58bf008ec27985f092a1c859f}\label{classGameEngine_1_1Network_1_1INetworkController_a82e25ac58bf008ec27985f092a1c859f}} 
+\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}!joinGame@{joinGame}}
+\index{joinGame@{joinGame}!GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+\doxysubsubsection{\texorpdfstring{joinGame()}{joinGame()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Network\+::\+INetwork\+Controller\+::join\+Game (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClient_1_1Network_a18a08f3ffdb4c807d99b4469fc31be51}{Client\+::\+Network}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a13fb54b693cafdf426d06909cd77c0e3}\label{classGameEngine_1_1Network_1_1INetworkController_a13fb54b693cafdf426d06909cd77c0e3}} 
+\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}!joinRoom@{joinRoom}}
+\index{joinRoom@{joinRoom}!GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+\doxysubsubsection{\texorpdfstring{joinRoom()}{joinRoom()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Network\+::\+INetwork\+Controller\+::join\+Room (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClient_1_1Network_a2660fc82115df06196c376054a775fba}{Client\+::\+Network}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a8a1cf2862ec6e80ccbd3e441865d6844}\label{classGameEngine_1_1Network_1_1INetworkController_a8a1cf2862ec6e80ccbd3e441865d6844}} 
+\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}!joinRoomAuto@{joinRoomAuto}}
+\index{joinRoomAuto@{joinRoomAuto}!GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+\doxysubsubsection{\texorpdfstring{joinRoomAuto()}{joinRoomAuto()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Network\+::\+INetwork\+Controller\+::join\+Room\+Auto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClient_1_1Network_abcac59eb1c6965592f73a2d9a84f556b}{Client\+::\+Network}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a3317f95ad5338d5be2cea8f3dbdc4440}\label{classGameEngine_1_1Network_1_1INetworkController_a3317f95ad5338d5be2cea8f3dbdc4440}} 
+\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}!sendKey@{sendKey}}
+\index{sendKey@{sendKey}!GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+\doxysubsubsection{\texorpdfstring{sendKey()}{sendKey()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Network\+::\+INetwork\+Controller\+::send\+Key (\begin{DoxyParamCaption}\item[{Game\+Engine\+::\+Keybinds}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClient_1_1Network_a6d26c867399589c0276b8e3950b9e695}{Client\+::\+Network}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a38addd4155eeec7329f13b1850175417}\label{classGameEngine_1_1Network_1_1INetworkController_a38addd4155eeec7329f13b1850175417}} 
+\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}!spectate@{spectate}}
+\index{spectate@{spectate}!GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+\doxysubsubsection{\texorpdfstring{spectate()}{spectate()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Network\+::\+INetwork\+Controller\+::spectate (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClient_1_1Network_aa75cbc2ac4cdeb78c94cb359f23638ea}{Client\+::\+Network}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Network_1_1INetworkController_a1651e2d1458475ec28521b0bec1ea897}\label{classGameEngine_1_1Network_1_1INetworkController_a1651e2d1458475ec28521b0bec1ea897}} 
+\index{GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}!updateName@{updateName}}
+\index{updateName@{updateName}!GameEngine::Network::INetworkController@{GameEngine::Network::INetworkController}}
+\doxysubsubsection{\texorpdfstring{updateName()}{updateName()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Network\+::\+INetwork\+Controller\+::update\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classClient_1_1Network_a417c2a0f6c32086d6c2e14934d9311b2}{Client\+::\+Network}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/network/INetwork\+Controller.\+hpp\end{DoxyCompactItemize}

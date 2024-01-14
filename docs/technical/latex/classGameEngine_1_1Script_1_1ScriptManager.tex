@@ -1,0 +1,102 @@
+\hypertarget{classGameEngine_1_1Script_1_1ScriptManager}{}\doxysection{Game\+Engine\+::Script\+::Script\+Manager Class Reference}
+\label{classGameEngine_1_1Script_1_1ScriptManager}\index{GameEngine::Script::ScriptManager@{GameEngine::Script::ScriptManager}}
+
+
+Manager for handling scripts and their bindings.  
+
+
+
+
+{\ttfamily \#include $<$Script\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1ScriptManager_a2a6991b1517aada2b4d2e5e7a507fa59}\label{classGameEngine_1_1Script_1_1ScriptManager_a2a6991b1517aada2b4d2e5e7a507fa59}} 
+virtual {\bfseries $\sim$\+Script\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager_ad3178b6723441f622199051982860ff1}{register\+Script}} (const std\+::string \&script\+Name, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript}{Game\+Engine\+::\+Script\+::\+IScript}} $>$ script)
+\begin{DoxyCompactList}\small\item\em Register a script with a given name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager_a6ad816dcf0d9e5f3539523d4cfad4e5d}{add\+Script\+Binding}} (const std\+::string \&script\+Name, const std\+::string \&base\+Script\+Name)
+\begin{DoxyCompactList}\small\item\em Add a script binding. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript}{Game\+Engine\+::\+Script\+::\+IScript}} $>$ \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager_a0f88a002d34304ed4ba50e937da624bf}{get\+Script}} (const std\+::string \&script\+Name)
+\begin{DoxyCompactList}\small\item\em Get the script associated with a given name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager for handling scripts and their bindings. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1ScriptManager_a6ad816dcf0d9e5f3539523d4cfad4e5d}\label{classGameEngine_1_1Script_1_1ScriptManager_a6ad816dcf0d9e5f3539523d4cfad4e5d}} 
+\index{GameEngine::Script::ScriptManager@{GameEngine::Script::ScriptManager}!addScriptBinding@{addScriptBinding}}
+\index{addScriptBinding@{addScriptBinding}!GameEngine::Script::ScriptManager@{GameEngine::Script::ScriptManager}}
+\doxysubsubsection{\texorpdfstring{addScriptBinding()}{addScriptBinding()}}
+{\footnotesize\ttfamily void Game\+Engine\+::\+Script\+::\+Script\+Manager\+::add\+Script\+Binding (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{script\+Name,  }\item[{const std\+::string \&}]{base\+Script\+Name }\end{DoxyParamCaption})}
+
+
+
+Add a script binding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em script\+Name} & The name of the script to bind. \\
+\hline
+{\em base\+Script\+Name} & The name of the base script to which the given script is bound. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the script to bind does not exist or the base script is not found. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1ScriptManager_a0f88a002d34304ed4ba50e937da624bf}\label{classGameEngine_1_1Script_1_1ScriptManager_a0f88a002d34304ed4ba50e937da624bf}} 
+\index{GameEngine::Script::ScriptManager@{GameEngine::Script::ScriptManager}!getScript@{getScript}}
+\index{getScript@{getScript}!GameEngine::Script::ScriptManager@{GameEngine::Script::ScriptManager}}
+\doxysubsubsection{\texorpdfstring{getScript()}{getScript()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript}{IScript}} $>$ Game\+Engine\+::\+Script\+::\+Script\+Manager\+::get\+Script (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{script\+Name }\end{DoxyParamCaption})}
+
+
+
+Get the script associated with a given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em script\+Name} & The name of the script to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the script. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the script or its binding is not found. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGameEngine_1_1Script_1_1ScriptManager_ad3178b6723441f622199051982860ff1}\label{classGameEngine_1_1Script_1_1ScriptManager_ad3178b6723441f622199051982860ff1}} 
+\index{GameEngine::Script::ScriptManager@{GameEngine::Script::ScriptManager}!registerScript@{registerScript}}
+\index{registerScript@{registerScript}!GameEngine::Script::ScriptManager@{GameEngine::Script::ScriptManager}}
+\doxysubsubsection{\texorpdfstring{registerScript()}{registerScript()}}
+{\footnotesize\ttfamily void Game\+Engine\+::\+Script\+::\+Script\+Manager\+::register\+Script (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{script\+Name,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript}{Game\+Engine\+::\+Script\+::\+IScript}} $>$}]{script }\end{DoxyParamCaption})}
+
+
+
+Register a script with a given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em script\+Name} & The name of the script. \\
+\hline
+{\em script} & The script to be registered. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If a script with the same name is already registered. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/script/Script\+Manager.\+hpp\item 
+game\+Engine/src/script/Script\+Manager.\+cpp\end{DoxyCompactItemize}

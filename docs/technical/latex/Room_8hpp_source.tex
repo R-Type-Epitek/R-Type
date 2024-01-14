@@ -1,5 +1,5 @@
 \hypertarget{Room_8hpp_source}{}\doxysection{Room.\+hpp}
-\label{Room_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/Room.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/Room.hpp}}
+\label{Room_8hpp_source}\index{server/include/Room.hpp@{server/include/Room.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
@@ -9,35 +9,64 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeNetwork.hpp"{}}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
-\DoxyCodeLine{10 \{}
-\DoxyCodeLine{17     \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \{}
-\DoxyCodeLine{18         \textcolor{keyword}{public}:}
-\DoxyCodeLine{27             \mbox{\hyperlink{classNetwork_1_1Room_a921559d500021651da4203e4b3e44336}{Room}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} size);}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{32             \mbox{\hyperlink{classNetwork_1_1Room_aa6449f53d721de21a5a08aa032acc00a}{\string~Room}}();}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{39             \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_ae37c0b6e8381ffa76dd8ffa7032351fd}{addPlayer}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{46             \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_a1fcbc27e73b2fd043942dd607040c2e6}{removePlayer}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{53             \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetwork_1_1Room_a4194c540b15a95da36bbfcebcb2e8ce5}{getId}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{60             \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_ac21adfc504a4ef56c960eff9b94b9b33}{setId}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
-\DoxyCodeLine{61 }
-\DoxyCodeLine{67             \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetwork_1_1Room_a24e2920279a125d79efd2474c1778d7e}{getSize}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{74             \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_aea2f2865062de4920d71d55399eea862}{setSize}}(\textcolor{keywordtype}{int} size);}
-\DoxyCodeLine{75 }
-\DoxyCodeLine{81             std::vector<int> \mbox{\hyperlink{classNetwork_1_1Room_a92553cf90665a33507b0b976d3b577a6}{getPlayers}}();}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83         \textcolor{keyword}{protected}:}
-\DoxyCodeLine{84         \textcolor{keyword}{private}:}
-\DoxyCodeLine{85             \textcolor{keywordtype}{int} size; }
-\DoxyCodeLine{86             \textcolor{keywordtype}{int} id; }
-\DoxyCodeLine{87             std::vector<int> players; }
-\DoxyCodeLine{88     \};}
-\DoxyCodeLine{89 \}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}game/Game.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }Network}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{enum} RoomState}
+\DoxyCodeLine{19   \{}
+\DoxyCodeLine{20     WAITING,}
+\DoxyCodeLine{21     RUNNING,}
+\DoxyCodeLine{22     FINISHED}
+\DoxyCodeLine{23   \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{31   \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \{}
+\DoxyCodeLine{32    \textcolor{keyword}{public}:}
+\DoxyCodeLine{42     \mbox{\hyperlink{classNetwork_1_1Room_a921559d500021651da4203e4b3e44336}{Room}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{49     \mbox{\hyperlink{classNetwork_1_1Room_a921559d500021651da4203e4b3e44336}{Room}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNetwork_1_1Room}{Room}}\& room);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{56     \mbox{\hyperlink{classNetwork_1_1Room_a921559d500021651da4203e4b3e44336}{Room}}(\mbox{\hyperlink{classNetwork_1_1Room}{Room}}\&\& room);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{64     \mbox{\hyperlink{classNetwork_1_1Room}{Room}}\& \mbox{\hyperlink{classNetwork_1_1Room_a5807a4389e66585ff67f390904d3c7c1}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNetwork_1_1Room}{Room}}\& room);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{72     \mbox{\hyperlink{classNetwork_1_1Room}{Room}}\& \mbox{\hyperlink{classNetwork_1_1Room_a5807a4389e66585ff67f390904d3c7c1}{operator=}}(\mbox{\hyperlink{classNetwork_1_1Room}{Room}}\&\& room);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{77     \mbox{\hyperlink{classNetwork_1_1Room_aa6449f53d721de21a5a08aa032acc00a}{\string~Room}}();}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_ae37c0b6e8381ffa76dd8ffa7032351fd}{addPlayer}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_a1fcbc27e73b2fd043942dd607040c2e6}{removePlayer}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetwork_1_1Room_a4194c540b15a95da36bbfcebcb2e8ce5}{getId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_ac21adfc504a4ef56c960eff9b94b9b33}{setId}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetwork_1_1Room_a24e2920279a125d79efd2474c1778d7e}{getSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_aea2f2865062de4920d71d55399eea862}{setSize}}(\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{127     std::vector<int> \mbox{\hyperlink{classNetwork_1_1Room_a92553cf90665a33507b0b976d3b577a6}{getPlayers}}();}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{134     RoomState \mbox{\hyperlink{classNetwork_1_1Room_abe4ddca044c548d5658ea8d8e24e624a}{getState}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1Room_a450ff0773926707112db25e3e40eb227}{setState}}(RoomState state);}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{149     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1Room_aec809e76b88ff1fb19c652c8d6da9e13}{isFull}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{156     std::vector<char> \mbox{\hyperlink{classNetwork_1_1Room_adfc8a32646570b53fda984fc5a3ea6bf}{getEntitiesStateBuffer}}();}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{163     \mbox{\hyperlink{classServer_1_1Game_1_1Game}{Server::Game::Game}}\& \mbox{\hyperlink{classNetwork_1_1Room_a1d665c737a5f848575c55cd3cc30038d}{getHostedGame}}();}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{166    \textcolor{keyword}{private}:}
+\DoxyCodeLine{167     \textcolor{keywordtype}{int} size;                                         }
+\DoxyCodeLine{168     \textcolor{keywordtype}{int} id;                                           }
+\DoxyCodeLine{169     std::vector<int> players;                         }
+\DoxyCodeLine{170     RoomState state;                                  }
+\DoxyCodeLine{171     std::unique\_ptr<Server::Game::Game> m\_hostedGame; }
+\DoxyCodeLine{172   \};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \} \textcolor{comment}{// namespace Network}}
 
 \end{DoxyCode}

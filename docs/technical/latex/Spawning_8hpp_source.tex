@@ -1,0 +1,126 @@
+\hypertarget{Spawning_8hpp_source}{}\doxysection{Spawning.\+hpp}
+\label{Spawning_8hpp_source}\index{gameEngine/include/gameEngine/system/Spawning.hpp@{gameEngine/include/gameEngine/system/Spawning.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/10/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/component/Gravity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/component/Transform.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/constants/Keybinds.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}gameEngine/component/Clickable.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}gameEngine/component/Displayable.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}gameEngine/component/Hitbox.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}gameEngine/component/Position.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}gameEngine/component/NetworkedEntity.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/System.hpp"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/RegistryHolder.hpp"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}gameEngine/entity/EntityFactory.hpp"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}gameEngine/event/Events.hpp"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}gameEngine/event/IEventBindable.hpp"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}gameEngine/event/EventRegistry.hpp"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }GameEngine::System}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1System_1_1Spawn}{Spawn}}}
+\DoxyCodeLine{27     : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1System}{GameEngine::ECS::System}}}
+\DoxyCodeLine{28     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1RegistryHolder}{GameEngine::ECS::RegistryHolder}}}
+\DoxyCodeLine{29     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEventBindable}{GameEngine::Event::IEventBindable}} \{}
+\DoxyCodeLine{30    \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} bindEvent(\mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event::EventRegistry}}\& eventRegistry) \textcolor{keyword}{final}}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33       eventRegistry.subscribeLambda<\mbox{\hyperlink{structGameEngine_1_1Event_1_1NewPlayer}{Event::NewPlayer}}>(}
+\DoxyCodeLine{34         ([\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw) \{ spawnPlayer(eventRaw); \}));}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36       eventRegistry.subscribeLambda<\mbox{\hyperlink{structGameEngine_1_1Event_1_1NewEnemy}{Event::NewEnemy}}>(}
+\DoxyCodeLine{37         ([\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw) \{ spawnEnemy(eventRaw); \}));}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39       eventRegistry.subscribeLambda<\mbox{\hyperlink{structGameEngine_1_1Event_1_1DisconnectedPlayer}{Event::DisconnectedPlayer}}>(}
+\DoxyCodeLine{40         ([\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw) \{ destroyPlayer(eventRaw); \}));}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42       eventRegistry.subscribeLambda<\mbox{\hyperlink{structGameEngine_1_1Event_1_1PlayerShoot}{Event::PlayerShoot}}>(}
+\DoxyCodeLine{43         ([\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw) \{ spawnEntityType(eventRaw); \}));}
+\DoxyCodeLine{44       eventRegistry.subscribeLambda<\mbox{\hyperlink{structGameEngine_1_1Event_1_1DestroyEntity}{Event::DestroyEntity}}>(}
+\DoxyCodeLine{45         ([\textcolor{keyword}{this}](\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw) \{ destroyEntity(eventRaw); \}));}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} update()}
+\DoxyCodeLine{49     \{}
+\DoxyCodeLine{50       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} entityId : m\_garbageEntities) \{}
+\DoxyCodeLine{51         getEcsRegistry().destroyEntity(entityId);}
+\DoxyCodeLine{52       \}}
+\DoxyCodeLine{53       m\_garbageEntities.clear();}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} setEntityFactory(std::shared\_ptr<Entity::EntityFactory> entityFactory)}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58       m\_entityFactory = std::move(entityFactory);}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} spawnPlayer(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw)}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63       \textcolor{keywordflow}{if} (!m\_entityFactory) \{}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{65       \}}
+\DoxyCodeLine{66       \textcolor{keyword}{auto} player = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{structGameEngine_1_1Event_1_1NewPlayer}{Event::NewPlayer}}\&\textcolor{keyword}{>}(eventRaw);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68       \textcolor{keyword}{auto} compId = \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{ComponentRType::NetworkedEntity}} \{player.id\};}
+\DoxyCodeLine{69       \textcolor{keyword}{auto} scheme = m\_entityFactory-\/>getEntityTemplate(\textcolor{stringliteral}{"{}Player"{}});}
+\DoxyCodeLine{70       m\_entityFactory-\/>createFromNetwork(compId, scheme);}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} spawnEnemy(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\&)}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} destroyPlayer(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw)}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79       \textcolor{keywordflow}{if} (!m\_entityFactory) \{}
+\DoxyCodeLine{80         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{81       \}}
+\DoxyCodeLine{82       \textcolor{keyword}{auto} \textcolor{keyword}{event} = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{structGameEngine_1_1Event_1_1DisconnectedPlayer}{Event::DisconnectedPlayer}}\&\textcolor{keyword}{>}(eventRaw);}
+\DoxyCodeLine{83       m\_garbageEntities.insert(getEntitybyId(event.id));}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} spawnEntityType(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw)}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88       \textcolor{keywordflow}{if} (!m\_entityFactory) \{}
+\DoxyCodeLine{89         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{90       \}}
+\DoxyCodeLine{91       \textcolor{keyword}{auto} \textcolor{keyword}{event} = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{structGameEngine_1_1Event_1_1PlayerShoot}{Event::PlayerShoot}}\&\textcolor{keyword}{>}(eventRaw);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93       \textcolor{keyword}{auto} scheme = m\_entityFactory-\/>getEntityTemplate(event.entityTypeName);}
+\DoxyCodeLine{94       \mbox{\hyperlink{structComponentRType_1_1Position}{ComponentRType::Position}} position \{\textcolor{keyword}{event}.x, \textcolor{keyword}{event}.y\};}
+\DoxyCodeLine{95       position.isValid = \textcolor{keyword}{false};}
+\DoxyCodeLine{96       scheme.position = std::move(position);}
+\DoxyCodeLine{97       m\_entityFactory-\/>createFromTemplateNetwork(scheme);}
+\DoxyCodeLine{98     \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} destroyEntity(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{Event::IEvent}}\& eventRaw)}
+\DoxyCodeLine{101     \{}
+\DoxyCodeLine{102       \textcolor{keywordflow}{if} (!m\_entityFactory) \{}
+\DoxyCodeLine{103         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{104       \}}
+\DoxyCodeLine{105       \textcolor{keyword}{auto} \textcolor{keyword}{event} = \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{structGameEngine_1_1Event_1_1DestroyEntity}{Event::DestroyEntity}}\&\textcolor{keyword}{>}(eventRaw);}
+\DoxyCodeLine{106       m\_garbageEntities.insert(event.entity);}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109    \textcolor{keyword}{private}:}
+\DoxyCodeLine{110     std::set<ECS::Entity> m\_garbageEntities \{\};}
+\DoxyCodeLine{111     std::shared\_ptr<Entity::EntityFactory> m\_entityFactory;}
+\DoxyCodeLine{112     ECS::Entity getEntitybyId(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{113     \{}
+\DoxyCodeLine{114       \textcolor{keywordflow}{return} ComponentRType::NetworkedEntity::getEntityByNetworkedId(}
+\DoxyCodeLine{115         \textcolor{keywordtype}{id},}
+\DoxyCodeLine{116         m\_entities,}
+\DoxyCodeLine{117         *getEcsRegistry().getComponentManager());}
+\DoxyCodeLine{118     \}}
+\DoxyCodeLine{119   \};}
+\DoxyCodeLine{120 \} \textcolor{comment}{// namespace GameEngine::System}}
+
+\end{DoxyCode}

@@ -36,6 +36,7 @@ namespace GameEngine::Builder
     void buildSystemTextRenderer();
     void buildSystemSpawning();
     void buildSystemUI();
+    void buildSystemScriptableEntity();
 
     static void feedSystemHolder(
       std::shared_ptr<ECS::Registry> ecsRegistry,

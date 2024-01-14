@@ -4,6 +4,9 @@
 
 #include "gameEngine/entity/ConfigLoader.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
+#include <fstream>
+#include <iostream>
+#include "gameEngine/entity/EntityFactory.hpp"
 #include "spdlog/spdlog.h"
 
 namespace GameEngine::Entity
@@ -27,20 +30,9 @@ namespace GameEngine::Entity
 
     try {
       file >> m_config;
-
     } catch (const std::exception &e) {
       spdlog::error("Error parsing JSON: {}", jsonFilePath);
       std::cerr << "Error parsing JSON: " << e.what() << std::endl;
-    }
-  }
-
-  void ConfigLoader::loadEntitiesTemplate(GameEngine::Entity::EntityFactory &entityFactory)
-  {
-    if (m_config.contains("entityTemplate") && m_config["entityTemplate"].is_array()) {
-      for (const auto &element : m_config["entityTemplate"]) {
-        EntityTemplate entityTemplate = parseComponents(element["components"]);
-        entityFactory.addEntityTemplate(element["typeName"], entityTemplate);
-      }
     }
   }
 
@@ -66,6 +58,15 @@ namespace GameEngine::Entity
     EntityFactory::idOffset++;
   }
 
+  void ConfigLoader::loadEntitiesTemplate(GameEngine::Entity::EntityFactory &entityFactory)
+  {
+    if (m_config.contains("entityTemplate") && m_config["entityTemplate"].is_array()) {
+      for (const auto &element : m_config["entityTemplate"]) {
+        EntityTemplate entityTemplate = parseComponents(element["components"]);
+        entityFactory.addEntityTemplate(element["typeName"], entityTemplate);
+      }
+    }
+  }
   EntityTemplate ConfigLoader::parseComponents(const json &config)
   {
     EntityTemplate entityTplt;
@@ -88,6 +89,7 @@ namespace GameEngine::Entity
       tryParseComponents(name, "Gravity", entityTplt, element, &ConfigLoader::parseGravity);
       tryParseComponents(name, "Hitbox", entityTplt, element, &ConfigLoader::parseHitbox);
       tryParseComponents(name, "Parallax", entityTplt, element, &ConfigLoader::parseParallax);
+      tryParseComponents(name, "Scriptable", entityTplt, element, &ConfigLoader::parseScriptable);
     }
     return entityTplt;
   }
@@ -107,13 +109,14 @@ namespace GameEngine::Entity
   void ConfigLoader::parseTransform(EntityTemplate &entity, const json &config)
   {
     entity.blueprint.transform = true;
+    int speed = config.value("speed", ComponentRType::defaultSpeed);
+    entity.transform.speed = speed;
+
     if (config.contains("movement")) {
       int x = config["movement"].value("x", 0);
       int y = config["movement"].value("y", 0);
-      int speed = config.value("speed", ComponentRType::defaultSpeed);
 
       entity.transform.movement = {static_cast<float>(x), static_cast<float>(y)};
-      entity.transform.speed = speed;
     }
   }
 
@@ -170,9 +173,34 @@ namespace GameEngine::Entity
     entity.hitbox.mask = mask;
   }
 
-  void ConfigLoader::parseParallax(EntityTemplate &entity, const json &config)
+  void ConfigLoader::parseParallax(EntityTemplate &entity, const json &)
   {
     entity.blueprint.parallax = true;
+  }
+
+  void ConfigLoader::parseScriptable(EntityTemplate &entity, const json &config)
+  {
+    entity.blueprint.scriptable = true;
+    std::string scriptName = config.value("scriptName", "");
+    entity.scriptable.scriptName = scriptName;
+  }
+
+  void ConfigLoader::loadScripts(GameEngine::Entity::EntityFactory &entityFactory)
+  {
+    if (m_config.contains("entitiesScript") && m_config["entitiesScript"].is_array()) {
+      for (const auto &element : m_config["entitiesScript"]) {
+        parseScript(element, entityFactory.getScriptManager());
+      }
+    }
+  }
+
+  void ConfigLoader::parseScript(const json &config, Script::ScriptManager &scriptManager)
+  {
+    std::string name = config["name"];
+    std::string baseScriptName = config["scriptName"];
+    std::string scriptPath = config.value("scriptPath", "");
+
+    scriptManager.addScriptBinding(name, baseScriptName);
   }
 
 } // namespace GameEngine::Loader

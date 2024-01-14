@@ -1,0 +1,34 @@
+\hypertarget{client_2include_2network_2commands_2Spectate_8hpp_source}{}\doxysection{Spectate.\+hpp}
+\label{client_2include_2network_2commands_2Spectate_8hpp_source}\index{client/include/network/commands/Spectate.hpp@{client/include/network/commands/Spectate.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 24/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}network/Network.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1SpectateCommandHandler}{SpectateCommandHandler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommandHandler}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_ab93ffc00684bf911d3f7af1ab19de8d1}{SpectateCommandHandler}}(\mbox{\hyperlink{classClient_1_1Network}{Network}}\& network);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_a1e6c6323a69a895128487919398f8512}{setRoomId}}(\textcolor{keywordtype}{int} roomId);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_ab7f2cbd7bca0ee4933724e752cdee37a}{getRoomId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_a849a424c783fdefaa0a112dc78ffbcc3}{send}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1SpectateCommandHandler_a478485f3846aec1fbd84dae4c8ed001a}{onResponse}}(\mbox{\hyperlink{structResponse}{Response}}* response) \textcolor{keyword}{override};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{61    \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     \mbox{\hyperlink{classClient_1_1Network}{Network}}\& network; }
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} roomId;       }
+\DoxyCodeLine{64   \};}
+\DoxyCodeLine{65 \} \textcolor{comment}{// namespace Client}}
+
+\end{DoxyCode}

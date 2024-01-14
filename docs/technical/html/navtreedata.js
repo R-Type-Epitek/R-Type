@@ -25,14 +25,14 @@
 var NAVTREE =
 [
   [ "R-Type", "index.html", [
-    [ "Technical Documentation", "md_docs_2technical_2_r_e_a_d_m_e.html", null ],
+    [ "Technical Documentation", "md_docs_technical_README.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ]
       ] ]
@@ -45,8 +45,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_animation_8hpp_source.html",
-"class_network_1_1_room.html#aa6449f53d721de21a5a08aa032acc00a"
+"Animation_8hpp_source.html",
+"classGameEngine_1_1Script_1_1IScript.html",
+"server_2include_2tools_2EndianConverter_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

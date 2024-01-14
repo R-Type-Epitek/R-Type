@@ -1,28 +1,7 @@
 var searchData=
 [
-  ['send_0',['send',['../class_client_1_1_connect_to_server_command_handler.html#afd670aa53786e5f2cd6ae068f382ef1e',1,'Client::ConnectToServerCommandHandler::send()'],['../class_client_1_1_i_command_handler.html#a60b6f5dddfe26766a906891488284645',1,'Client::ICommandHandler::send()'],['../class_client_1_1_input_command_handler.html#a234beadaa593eeec72ae849f4739157e',1,'Client::InputCommandHandler::send()'],['../class_client_1_1_join_game_command_handler.html#aed806343b2b60d5bdde7eaca758c4d0d',1,'Client::JoinGameCommandHandler::send()'],['../class_client_1_1_join_room_command_handler.html#a1d704fec862bb89e79577a640c3b9b39',1,'Client::JoinRoomCommandHandler::send()'],['../class_client_1_1_update_name_command_handler.html#ad3581fc6628913d32f645cf0f4cf5368',1,'Client::UpdateNameCommandHandler::send()'],['../class_client_1_1_network.html#a9ecc0c46e23354a22e7bc0880974e609',1,'Client::Network::send()']]],
-  ['sendcheckconnection_1',['sendCheckConnection',['../class_network_1_1_u_d_p_server.html#a60ae214e6da64da40df29b14970b25a1',1,'Network::UDPServer']]],
-  ['sendkey_2',['sendKey',['../class_client_1_1_network.html#a1e00a6174658b13f4962b4f8eb81037d',1,'Client::Network']]],
-  ['sendmessage_3',['sendMessage',['../class_client_1_1_network.html#ad7c37dc6ab96aae55c0afbce268d1f9c',1,'Client::Network']]],
-  ['sendresponse_4',['sendResponse',['../class_client_1_1_network.html#a091bc465021f4b8e49aa03a58e145246',1,'Client::Network']]],
-  ['sendresponseandlog_5',['sendResponseAndLog',['../class_network_1_1_u_d_p_server.html#ae6df6365d9c49e58434876ef104817a9',1,'Network::UDPServer']]],
-  ['sendtoall_6',['sendToAll',['../class_network_1_1_u_d_p_server.html#ac811ac0c540ab08eeb7fd4002e4af9d4',1,'Network::UDPServer']]],
-  ['sendtoallclientsinroom_7',['sendToAllClientsInRoom',['../class_network_1_1_u_d_p_server.html#a9a296cd50ace6d20256e4a94290bf1b4',1,'Network::UDPServer']]],
-  ['sendtoallclientsinroomingame_8',['sendToAllClientsInRoomInGame',['../class_network_1_1_u_d_p_server.html#a4c3186c7dcf335536c43e4d1564ee0e0',1,'Network::UDPServer']]],
-  ['sendtoclient_9',['sendToClient',['../class_network_1_1_u_d_p_server.html#a9c2f0877b54c60de4ca0a2d21696ba93',1,'Network::UDPServer']]],
-  ['setclientid_10',['setClientId',['../class_client_1_1_network.html#a02b0fb41b307eb039b3e91026497ff12',1,'Client::Network']]],
-  ['setendpoint_11',['setEndpoint',['../class_network_1_1_client.html#a8c64f36120e3c8e03b0300c3a5dcef26',1,'Network::Client']]],
-  ['setid_12',['setid',['../class_network_1_1_client.html#af9390388b249ecc73f5585f0c20210cf',1,'Network::Client::setId()'],['../class_network_1_1_room.html#ac21adfc504a4ef56c960eff9b94b9b33',1,'Network::Room::setId()']]],
-  ['setiscompleted_13',['setIsCompleted',['../class_client_1_1_command_tracker.html#a6a375933a9845d1e12f75d15f1650d13',1,'Client::CommandTracker']]],
-  ['setisingame_14',['setIsInGame',['../class_network_1_1_client.html#a427cbf4305b0adf9b317db09c39e3c66',1,'Network::Client']]],
-  ['setkey_15',['setKey',['../class_client_1_1_input_command_handler.html#a825627254c05d7353b5c6a711ec7dec9',1,'Client::InputCommandHandler']]],
-  ['setname_16',['setname',['../class_network_1_1_client.html#a7eab98c178b5ea21dc1363658f9815ea',1,'Network::Client::setName()'],['../class_client_1_1_update_name_command_handler.html#a922e3c4bc3886fb6f914049d5aa572d6',1,'Client::UpdateNameCommandHandler::setName()'],['../class_client_1_1_network.html#a17f5c274ef1658e21cba3c1b96a06ef9',1,'Client::Network::setName()']]],
-  ['setposition_17',['setPosition',['../class_sfml_display.html#a09614caf88914e7f5b1178fa9076bb4e',1,'SfmlDisplay']]],
-  ['setremoteendpoint_18',['setRemoteEndpoint',['../class_client_1_1_network.html#ae2cc6225754b3f7b46fa87422c6540da',1,'Client::Network']]],
-  ['setroomid_19',['setroomid',['../class_network_1_1_client.html#a6421f3fe7f031be9ab47ec1c34b04cf0',1,'Network::Client::setRoomId()'],['../class_client_1_1_join_game_command_handler.html#ab940a8a1719058b6042bcc540ff173b5',1,'Client::JoinGameCommandHandler::setRoomId()'],['../class_client_1_1_join_room_command_handler.html#a7d270d813cd2fe72725fa52187c8dc9d',1,'Client::JoinRoomCommandHandler::setRoomId()'],['../class_client_1_1_network.html#a32740d05d50258cbe320af2a3d82529c',1,'Client::Network::setRoomId()']]],
-  ['setsignature_20',['setsignature',['../class_game_engine_1_1_e_c_s_1_1_entity_manager.html#afef51dc211cfcc97f0a3fb476dcb58fc',1,'GameEngine::ECS::EntityManager::setSignature()'],['../class_game_engine_1_1_e_c_s_1_1_system_manager.html#afed8684f95cf9609929106ea5fd17bd6',1,'GameEngine::ECS::SystemManager::setSignature()']]],
-  ['setsize_21',['setSize',['../class_network_1_1_room.html#aea2f2865062de4920d71d55399eea862',1,'Network::Room']]],
-  ['setstate_22',['setState',['../class_network_1_1_room.html#a450ff0773926707112db25e3e40eb227',1,'Network::Room']]],
-  ['startclienttimercheck_23',['startClientTimerCheck',['../class_network_1_1_u_d_p_server.html#ace11e347c4bfbad29bfe8d1cb6f2bba2',1,'Network::UDPServer']]],
-  ['startreceive_24',['startreceive',['../class_network_1_1_u_d_p_server.html#ac2a6fa9962f244fd7ba8578d89296874',1,'Network::UDPServer::startReceive()'],['../class_client_1_1_network.html#ab0adb2e5baaca04802dd5b2a99e2599c',1,'Client::Network::startReceive()']]]
+  ['pop_0',['pop',['../classNetwork_1_1ThreadSafeQueue.html#a38d6f4d684ae1aaa02aaf71d0091f22a',1,'Network::ThreadSafeQueue']]],
+  ['processmessage_1',['processMessage',['../classNetwork_1_1UDPServer.html#ad31c0be7001a0123b1fe8434161665de',1,'Network::UDPServer']]],
+  ['processresponse_2',['processResponse',['../classNetwork_1_1UDPServer.html#a16bd0e5a013230d835b30a3b0cfd86d9',1,'Network::UDPServer']]],
+  ['push_3',['push',['../classNetwork_1_1ThreadSafeQueue.html#a410f64f6c8bae7cbf7df18a39ed46b1b',1,'Network::ThreadSafeQueue']]]
 ];

@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['registry_0',['Registry',['../class_game_engine_1_1_e_c_s_1_1_registry.html',1,'GameEngine::ECS']]],
-  ['registrybuilder_1',['RegistryBuilder',['../class_game_engine_1_1_builder_1_1_registry_builder.html',1,'GameEngine::Builder']]],
-  ['renderer_2',['renderer',['../class_game_engine_1_1_system_1_1_renderer.html',1,'GameEngine::System::Renderer'],['../class_renderer.html',1,'Renderer']]],
-  ['response_3',['Response',['../struct_response.html',1,'']]],
-  ['responseheader_4',['ResponseHeader',['../struct_response_header.html',1,'']]],
-  ['room_5',['Room',['../class_network_1_1_room.html',1,'Network']]],
-  ['rtypegame_6',['RtypeGame',['../class_server_1_1_game_1_1_rtype_game.html',1,'Server::Game']]],
-  ['rtypescene_7',['RtypeScene',['../class_server_1_1_game_1_1_rtype_scene.html',1,'Server::Game']]]
+  ['parallax_0',['Parallax',['../structComponentRType_1_1Parallax.html',1,'ComponentRType::Parallax'],['../classGameEngine_1_1System_1_1Parallax.html',1,'GameEngine::System::Parallax']]],
+  ['physics_1',['Physics',['../classGameEngine_1_1System_1_1Physics.html',1,'GameEngine::System']]],
+  ['player_2',['Player',['../structServer_1_1Game_1_1Player.html',1,'Server::Game']]],
+  ['playershoot_3',['PlayerShoot',['../structGameEngine_1_1Event_1_1PlayerShoot.html',1,'GameEngine::Event']]],
+  ['position_4',['Position',['../structComponentRType_1_1Position.html',1,'ComponentRType']]],
+  ['pressspace_5',['PressSpace',['../structGameEngine_1_1Event_1_1PressSpace.html',1,'GameEngine::Event']]]
 ];

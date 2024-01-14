@@ -1,0 +1,177 @@
+\hypertarget{classGameEngine_1_1Scene_1_1SceneContainer}{}\doxysection{Game\+Engine\+::Scene\+::Scene\+Container Class Reference}
+\label{classGameEngine_1_1Scene_1_1SceneContainer}\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+
+
+A container class for managing scenes.  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Container.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a6e2e3846acdc866703d0dbad1a9d2d28}\label{classGameEngine_1_1Scene_1_1SceneContainer_a6e2e3846acdc866703d0dbad1a9d2d28}} 
+{\bfseries Scene\+Container} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer}{Scene\+Container}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a0763a92287f4fa4d4117a155a78703ff}{add\+Scene}} (std\+::string name, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} $>$ scene)
+\begin{DoxyCompactList}\small\item\em Adds a scene to the container. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a1a6a6cb209a127fb8b9dc88692227bf4}{delete\+Scene}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Deletes a scene from the container. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} \& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a97e4ea3777e2e08a217300c0207f3729}{get\+Scene}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Gets a reference to a scene by name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} \& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a9ec6abd4eb385cbc7b997f2502a31a01}{find}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Finds a scene by name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a7187a965e3c577dd64dd97b15e87f44d}{exist}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Checks if a scene with a given name exists. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} $>$ $>$\+::iterator \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a10474b3a05ca248f69b648f94287ca74}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the beginning of the scenes. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} $>$ $>$\+::iterator \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer_a00d45bdec2e7db5e41269ce12bf7d3f3}{end}} ()
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the end of the scenes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A container class for managing scenes. 
+
+The {\ttfamily \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer}{Scene\+Container}}} class allows adding, deleting, and retrieving scenes. It also provides iterators for iterating over the stored scenes. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a0763a92287f4fa4d4117a155a78703ff}\label{classGameEngine_1_1Scene_1_1SceneContainer_a0763a92287f4fa4d4117a155a78703ff}} 
+\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}!addScene@{addScene}}
+\index{addScene@{addScene}!GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}}
+{\footnotesize\ttfamily void Game\+Engine\+::\+Scene\+::\+Scene\+Container\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} $>$}]{scene }\end{DoxyParamCaption})}
+
+
+
+Adds a scene to the container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene. \\
+\hline
+{\em scene} & A unique pointer to the scene. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if a scene with the same name already exists. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a10474b3a05ca248f69b648f94287ca74}\label{classGameEngine_1_1Scene_1_1SceneContainer_a10474b3a05ca248f69b648f94287ca74}} 
+\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}!begin@{begin}}
+\index{begin@{begin}!GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} $>$ $>$\+::iterator Game\+Engine\+::\+Scene\+::\+Scene\+Container\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns an iterator to the beginning of the scenes. 
+
+\begin{DoxyReturn}{Returns}
+An iterator to the beginning. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a1a6a6cb209a127fb8b9dc88692227bf4}\label{classGameEngine_1_1Scene_1_1SceneContainer_a1a6a6cb209a127fb8b9dc88692227bf4}} 
+\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}!deleteScene@{deleteScene}}
+\index{deleteScene@{deleteScene}!GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+\doxysubsubsection{\texorpdfstring{deleteScene()}{deleteScene()}}
+{\footnotesize\ttfamily void Game\+Engine\+::\+Scene\+::\+Scene\+Container\+::delete\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Deletes a scene from the container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene to be deleted. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the scene with the specified name doesn\textquotesingle{}t exist. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a00d45bdec2e7db5e41269ce12bf7d3f3}\label{classGameEngine_1_1Scene_1_1SceneContainer_a00d45bdec2e7db5e41269ce12bf7d3f3}} 
+\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}!end@{end}}
+\index{end@{end}!GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} $>$ $>$\+::iterator Game\+Engine\+::\+Scene\+::\+Scene\+Container\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns an iterator to the end of the scenes. 
+
+\begin{DoxyReturn}{Returns}
+An iterator to the end. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a7187a965e3c577dd64dd97b15e87f44d}\label{classGameEngine_1_1Scene_1_1SceneContainer_a7187a965e3c577dd64dd97b15e87f44d}} 
+\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}!exist@{exist}}
+\index{exist@{exist}!GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+\doxysubsubsection{\texorpdfstring{exist()}{exist()}}
+{\footnotesize\ttfamily bool Game\+Engine\+::\+Scene\+::\+Scene\+Container\+::exist (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Checks if a scene with a given name exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the scene exists, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a9ec6abd4eb385cbc7b997f2502a31a01}\label{classGameEngine_1_1Scene_1_1SceneContainer_a9ec6abd4eb385cbc7b997f2502a31a01}} 
+\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}!find@{find}}
+\index{find@{find}!GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} \& Game\+Engine\+::\+Scene\+::\+Scene\+Container\+::find (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Finds a scene by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the found scene. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if the scene with the specified name is not found. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1SceneContainer_a97e4ea3777e2e08a217300c0207f3729}\label{classGameEngine_1_1Scene_1_1SceneContainer_a97e4ea3777e2e08a217300c0207f3729}} 
+\index{GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}!getScene@{getScene}}
+\index{getScene@{getScene}!GameEngine::Scene::SceneContainer@{GameEngine::Scene::SceneContainer}}
+\doxysubsubsection{\texorpdfstring{getScene()}{getScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} \& Game\+Engine\+::\+Scene\+::\+Scene\+Container\+::get\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to a scene by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the scene. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the specified scene. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if the scene with the specified name is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/scene/Scene\+Container.\+hpp\item 
+game\+Engine/src/scene/Scene\+Container.\+cpp\end{DoxyCompactItemize}

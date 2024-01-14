@@ -1,0 +1,36 @@
+\hypertarget{component_2Text_8hpp_source}{}\doxysection{Text.\+hpp}
+\label{component_2Text_8hpp_source}\index{gameEngine/include/gameEngine/component/Text.hpp@{gameEngine/include/gameEngine/component/Text.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Alexandre Decobert on 17/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13   \textcolor{keyword}{namespace }assetManager = GameEngine::Asset;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1Text}{Text}} \{}
+\DoxyCodeLine{16     sf::Text text;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{structComponentRType_1_1Text}{Text}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{structComponentRType_1_1Text}{Text}}(std::string \textcolor{keyword}{const} \&str, \textcolor{keywordtype}{size\_t} size, sf::Font \&font = assetManager::getFont())}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22       text = sf::Text();}
+\DoxyCodeLine{23       text.setFont(font);}
+\DoxyCodeLine{24       text.setString(str);}
+\DoxyCodeLine{25       text.setCharacterSize(size);}
+\DoxyCodeLine{26       text.setFillColor(sf::Color::White);}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28   \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

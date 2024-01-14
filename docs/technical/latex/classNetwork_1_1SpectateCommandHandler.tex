@@ -1,0 +1,75 @@
+\hypertarget{classNetwork_1_1SpectateCommandHandler}{}\doxysection{Network\+::Spectate\+Command\+Handler Class Reference}
+\label{classNetwork_1_1SpectateCommandHandler}\index{Network::SpectateCommandHandler@{Network::SpectateCommandHandler}}
+Inheritance diagram for Network\+::Spectate\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNetwork_1_1SpectateCommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetwork_1_1SpectateCommandHandler_a81cf27ce4d18425e0250b0220facde45}\label{classNetwork_1_1SpectateCommandHandler_a81cf27ce4d18425e0250b0220facde45}} 
+{\bfseries Spectate\+Command\+Handler} (\mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \&server)
+\item 
+bool \mbox{\hyperlink{classNetwork_1_1SpectateCommandHandler_a5182e851bbe151d9280cde336e146892}{is\+Authorized}} (int client\+Id) override
+\begin{DoxyCompactList}\small\item\em Checks if a client is authorized. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{classNetwork_1_1SpectateCommandHandler_a85f6b6fc770574c33faec2f5c5fd9246}{handle\+Command}} (\mbox{\hyperlink{structMessage}{Message}} $\ast$message) override
+\begin{DoxyCompactList}\small\item\em Handles a received command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetwork_1_1SpectateCommandHandler_a85f6b6fc770574c33faec2f5c5fd9246}\label{classNetwork_1_1SpectateCommandHandler_a85f6b6fc770574c33faec2f5c5fd9246}} 
+\index{Network::SpectateCommandHandler@{Network::SpectateCommandHandler}!handleCommand@{handleCommand}}
+\index{handleCommand@{handleCommand}!Network::SpectateCommandHandler@{Network::SpectateCommandHandler}}
+\doxysubsubsection{\texorpdfstring{handleCommand()}{handleCommand()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+Spectate\+Command\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessage}{Message}} $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handles a received command. 
+
+Processes the given command message and generates a response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the message to be handled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The response to the command. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a03d397e650d6d2bad03f4a9fae2ef916}{Network\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classNetwork_1_1SpectateCommandHandler_a5182e851bbe151d9280cde336e146892}\label{classNetwork_1_1SpectateCommandHandler_a5182e851bbe151d9280cde336e146892}} 
+\index{Network::SpectateCommandHandler@{Network::SpectateCommandHandler}!isAuthorized@{isAuthorized}}
+\index{isAuthorized@{isAuthorized}!Network::SpectateCommandHandler@{Network::SpectateCommandHandler}}
+\doxysubsubsection{\texorpdfstring{isAuthorized()}{isAuthorized()}}
+{\footnotesize\ttfamily bool Network\+::\+Spectate\+Command\+Handler\+::is\+Authorized (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if a client is authorized. 
+
+Determines if the given client is authorized to execute commands.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The identifier of the client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the client is authorized, false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a2247483da1e56599d5fd9a2e891e0767}{Network\+::\+ICommand\+Handler}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/include/commands/Spectate.\+hpp\item 
+server/src/commands/Spectate.\+cpp\end{DoxyCompactItemize}

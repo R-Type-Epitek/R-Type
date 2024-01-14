@@ -1,0 +1,40 @@
+\hypertarget{IScene_8hpp_source}{}\doxysection{IScene.\+hpp}
+\label{IScene_8hpp_source}\index{gameEngine/include/gameEngine/scene/IScene.hpp@{gameEngine/include/gameEngine/scene/IScene.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/20/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/entity/EntityFactory.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/event/EventRegistry.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }GameEngine::Scene}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_afe991eaaa52626a983028a520aeaa559}{\string~IScene}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a71b018775667a5bdd99fd5a02a6bae08}{initRegistries}}() = 0;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_abeb4e2fbc719bb0bd8d0d1e02d7f61f0}{initEntities}}() = 0;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a0b1a73e090fd5efdaa657115cdbd9ee3}{initEvents}}() = 0;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS::Registry}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a6c77ee256f34964c04b89840deec5965}{getEcsRegistry}}() = 0;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} std::shared\_ptr<ECS::Registry> \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a81c414810721c6d8a37c65e5ae87ad2d}{getSharedEcsRegistry}}() = 0;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event::EventRegistry}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_ad5635449606c9c0f5bc70ee32e33b8e4}{getEventRegistry}}() = 0;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector<ECS::Entity>\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_aa134a2fe43dfa1b6d7f511fd43b77c2a}{getEntities}}() = 0;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{78     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{GameEngine::Entity::EntityFactory}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a634dcc0a79f723f288c678822bc97e18}{getEntityFactory}}() = 0;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} onUpdate(\textcolor{keywordtype}{size\_t} df) = 0;}
+\DoxyCodeLine{81   \};}
+\DoxyCodeLine{82 \} \textcolor{comment}{// namespace GameEngine::Scene}}
+
+\end{DoxyCode}

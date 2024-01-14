@@ -10,6 +10,9 @@
 #include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/Spawning.hpp"
 #include "gameEngine/system/Parallax.hpp"
+#include "gameEngine/system/ScriptableEntity.hpp"
+#include "script/EnemyLinear.hpp"
+#include "script/EnemySinusoidal.hpp"
 
 namespace Rtype::Scene
 {
@@ -33,6 +36,7 @@ namespace Rtype::Scene
     builder.buildSystemPhysics();
     builder.buildSystemSpawning();
     builder.buildSystemParallax();
+    builder.buildSystemScriptableEntity();
     m_ecsRegistry = builder.getResult();
   }
 
@@ -41,6 +45,7 @@ namespace Rtype::Scene
     GameEngine::Scene::SimpleScene::initEntities();
 
     m_configLoader.loadFromJson("game/rtype/config/game_stage_one.json");
+    initScripts();
     m_configLoader.loadEntitiesTemplate(getEntityFactory());
     m_configLoader.loadEntities(getEntityFactory());
   }
@@ -53,6 +58,19 @@ namespace Rtype::Scene
     system->setEntityFactory(m_entityFactory);
   }
 
+  void HostGame::initScripts()
+  {
+    auto& scriptManager = m_entityFactory->getScriptManager();
+    scriptManager.registerScript(
+      "EnemyLinear",
+      std::make_shared<Script::EnemyLinear>(m_ecsRegistry, m_eventRegistry));
+    scriptManager.registerScript(
+      "EnemySinusoidal",
+      std::make_shared<Script::EnemySinusoidal>(m_ecsRegistry, m_eventRegistry));
+
+    m_configLoader.loadScripts(*m_entityFactory);
+  }
+
   void HostGame::onUpdate(size_t df)
   {
     (void)df;
@@ -61,6 +79,10 @@ namespace Rtype::Scene
       {
         auto system = ecsRegistry.getSystem<GameEngine::System::Parallax>();
         system->update();
+      }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::ScriptableEntity>();
+        system->update(getEntityFactory(), df);
       }
       {
         auto system = ecsRegistry.getSystem<GameEngine::System::Collider>();
@@ -75,7 +97,7 @@ namespace Rtype::Scene
         system->update();
       }
     } catch (const std::exception& e) {
-      spdlog::error("[Client update] Error: {}", e.what());
+      spdlog::error("[Client execute] Error: {}", e.what());
     }
   }
 

@@ -1,0 +1,30 @@
+\hypertarget{Clickable_8hpp_source}{}\doxysection{Clickable.\+hpp}
+\label{Clickable_8hpp_source}\index{gameEngine/include/gameEngine/component/Clickable.hpp@{gameEngine/include/gameEngine/component/Clickable.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Edouard on 1/4/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <SFML/Graphics/RectangleShape.hpp>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{13   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1Clickable}{Clickable}} \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{structComponentRType_1_1Clickable}{Clickable}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{explicit} \mbox{\hyperlink{structComponentRType_1_1Clickable}{Clickable}}(std::function<\textcolor{keywordtype}{void}()> callback)}
+\DoxyCodeLine{17       : callback(callback)}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     std::function<void()> callback = []() \{}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23     ;}
+\DoxyCodeLine{24   \};}
+\DoxyCodeLine{25 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

@@ -17,7 +17,75 @@ Manages a UDP server for handling network communication.
 \mbox{\hyperlink{classNetwork_1_1UDPServer_afec9bb314cf033eee17817a554124e22}{UDPServer}} (boost\+::asio\+::io\+\_\+context \&io, int port)
 \begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} with a specified I/O context and port. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classNetwork_1_1UDPServer_a6ae6efb6b05e6b6518195512e90a216d}{$\sim$\+UDPServer}} ()
-\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}}. \end{DoxyCompactList}\item 
+boost\+::asio\+::ip\+::udp\+::socket \& \mbox{\hyperlink{classNetwork_1_1UDPServer_ac32cc82757d28952e4429a16189b4216}{get\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Gets the UDP socket used by the server. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classNetwork_1_1Client}{Network\+::\+Client}} $>$ \& \mbox{\hyperlink{classNetwork_1_1UDPServer_a6577105fddee863d8d7bbae6f7bac2f7}{get\+Clients}} ()
+\begin{DoxyCompactList}\small\item\em Gets the list of connected clients. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classNetwork_1_1Client}{Network\+::\+Client}} $>$ $>$ \mbox{\hyperlink{classNetwork_1_1UDPServer_a9a01c57b42d3b2ee144cf7bd4aa9706e}{get\+Client\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Get the client by id. \end{DoxyCompactList}\item 
+boost\+::array$<$ char, 65536 $>$ \mbox{\hyperlink{classNetwork_1_1UDPServer_abc40e08966da73a1b12d380a0dce6053}{get\+Recv\+Buffer}} () const
+\begin{DoxyCompactList}\small\item\em Gets the receive buffer. \end{DoxyCompactList}\item 
+boost\+::asio\+::ip\+::udp\+::endpoint \mbox{\hyperlink{classNetwork_1_1UDPServer_a9f7a52213bf27b1cd095cf526d6736ac}{get\+Remote\+Endpoint}} () const
+\begin{DoxyCompactList}\small\item\em Gets the remote endpoint. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classNetwork_1_1Room}{Network\+::\+Room}} $>$ \& \mbox{\hyperlink{classNetwork_1_1UDPServer_a421b82239515eafa196dc68cc573fc2b}{get\+Rooms}} ()
+\begin{DoxyCompactList}\small\item\em Gets the list of rooms. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classNetwork_1_1UDPServer_a2c13629ee0ccbf4d9b12deb117080603}{get\+Next\+Client\+Id\+And\+Increment}} ()
+\begin{DoxyCompactList}\small\item\em Gets the next client ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_abdff6274a3af6cd99c418197c4630a75}{add\+Client}} (\mbox{\hyperlink{classNetwork_1_1Client}{Network\+::\+Client}} client)
+\begin{DoxyCompactList}\small\item\em Adds a client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a8d43c1630c01f9eefa4909772057e9c8}{init\+Server}} (int port)
+\begin{DoxyCompactList}\small\item\em Initializes the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ac4b4c1cd19635deb604ceb2a63839f4d}{init\+Rooms}} (int count)
+\begin{DoxyCompactList}\small\item\em Init the rooms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ac2a6fa9962f244fd7ba8578d89296874}{start\+Receive}} ()
+\begin{DoxyCompactList}\small\item\em Start to receive data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ac97d512d745687229613d23b27a71bae}{handle\+Receive}} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+\_\+transferred)
+\begin{DoxyCompactList}\small\item\em Handle receive data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a4928e7aa98d5e037872d25cff45c9f8a}{update\+Client\+Last\+Message\+Time\+From\+Data}} (char $\ast$data)
+\begin{DoxyCompactList}\small\item\em Update the client last message time from data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ac811ac0c540ab08eeb7fd4002e4af9d4}{send\+To\+All}} (boost\+::asio\+::const\+\_\+buffer const \&buffer)
+\begin{DoxyCompactList}\small\item\em Send data to all clients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a9a296cd50ace6d20256e4a94290bf1b4}{send\+To\+All\+Clients\+In\+Room}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int room\+Id)
+\begin{DoxyCompactList}\small\item\em Send data to all clients in a room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a4c3186c7dcf335536c43e4d1564ee0e0}{send\+To\+All\+Clients\+In\+Room\+In\+Game}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int room\+Id)
+\begin{DoxyCompactList}\small\item\em Send data to all clients in a room in game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a9c2f0877b54c60de4ca0a2d21696ba93}{send\+To\+Client}} (boost\+::asio\+::const\+\_\+buffer const \&buffer, int id)
+\begin{DoxyCompactList}\small\item\em Send data to a specific client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a7d721dae9793f447e2199f8780096e53}{handle\+Send}} (boost\+::system\+::error\+\_\+code const \&error, std\+::size\+\_\+t bytes\+Transferred)
+\begin{DoxyCompactList}\small\item\em Handle the sending of data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ad31c0be7001a0123b1fe8434161665de}{process\+Message}} (\mbox{\hyperlink{structTimedMessage}{Timed\+Message}} message)
+\begin{DoxyCompactList}\small\item\em Process a \mbox{\hyperlink{structTimedMessage}{Timed\+Message}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a16bd0e5a013230d835b30a3b0cfd86d9}{process\+Response}} (\mbox{\hyperlink{structResponse}{Response}} $\ast$response)
+\begin{DoxyCompactList}\small\item\em Process a \mbox{\hyperlink{structResponse}{Response}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_aabec654d8576481b31d0c1e689b66699}{worker\+Function}} ()
+\begin{DoxyCompactList}\small\item\em Function executed by worker threads. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{classNetwork_1_1UDPServer_a4031d156ae82ff57038b16f3d214d781}{create\+Message\+Buffer}} (int client\+Id, std\+::string const \&command, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0)
+\begin{DoxyCompactList}\small\item\em Create a message to a client command. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{classNetwork_1_1UDPServer_a0a2583c36c354de1725dcfab25c5e14d}{create\+Response\+Buffer}} (int client\+Id, \mbox{\hyperlink{structMessageHeader}{Message\+Header}} const \&message\+Header, std\+::string const \&status\+Message, char const data\mbox{[}$\,$\mbox{]}=nullptr, int data\+Size=0, int status=RES\+\_\+\+SUCCESS)
+\begin{DoxyCompactList}\small\item\em Create a response to a client command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ae6df6365d9c49e58434876ef104817a9}{send\+Response\+And\+Log}} (\mbox{\hyperlink{structTimedMessage}{Timed\+Message}} timed\+Message, std\+::vector$<$ char $>$ response\+Buffer)
+\begin{DoxyCompactList}\small\item\em Send a response and log it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetwork_1_1UDPServer_ab2d04421510f1fd72b2158aa171241e9}{is\+Client\+Registered}} (int client\+Id)
+\begin{DoxyCompactList}\small\item\em Check if a client is registered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a82f424a15da216aade28273353dad9eb}{register\+Command\+Handlers}} ()
+\begin{DoxyCompactList}\small\item\em Register command handlers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_af9906b402d8c7af8b1b6f9d4332bb60c}{check\+Client\+Timers}} ()
+\begin{DoxyCompactList}\small\item\em Check client timers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ace11e347c4bfbad29bfe8d1cb6f2bba2}{start\+Client\+Timer\+Check}} ()
+\begin{DoxyCompactList}\small\item\em Start the client timer check. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_af419e1866cc5630292523ae901aa7c0f}{game\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Game loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_ac1d3c03a7b8e6d002d8938e70fd4ba36}{notify\+And\+Remove\+Client}} (int client\+Id)
+\begin{DoxyCompactList}\small\item\em Notify and remove a client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1UDPServer_a60ae214e6da64da40df29b14970b25a1}{send\+Check\+Connection}} (int client\+Id)
+\begin{DoxyCompactList}\small\item\em Send a check connection message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_aef0ef5329ac37e03dd21cc4ea24b65db}\label{classNetwork_1_1UDPServer_aef0ef5329ac37e03dd21cc4ea24b65db}} 
+std\+::mutex {\bfseries rooms\+Mutex}
+\begin{DoxyCompactList}\small\item\em Mutex for room management. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -74,7 +142,508 @@ Destructor for \mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}}.
 
 Cleans up resources used by the \mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} instance. Ensures proper shutdown of the server and releases network resources. 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_abdff6274a3af6cd99c418197c4630a75}\label{classNetwork_1_1UDPServer_abdff6274a3af6cd99c418197c4630a75}} 
+\index{Network::UDPServer@{Network::UDPServer}!addClient@{addClient}}
+\index{addClient@{addClient}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{addClient()}{addClient()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::add\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNetwork_1_1Client}{Network\+::\+Client}}}]{client }\end{DoxyParamCaption})}
+
+
+
+Adds a client. 
+
+Adds the specified client to the list of connected clients.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{classNetwork_1_1Client}{Network\+::\+Client}} to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_af9906b402d8c7af8b1b6f9d4332bb60c}\label{classNetwork_1_1UDPServer_af9906b402d8c7af8b1b6f9d4332bb60c}} 
+\index{Network::UDPServer@{Network::UDPServer}!checkClientTimers@{checkClientTimers}}
+\index{checkClientTimers@{checkClientTimers}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{checkClientTimers()}{checkClientTimers()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::check\+Client\+Timers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check client timers. 
+
+Check the timers of all clients and remove inactive clients. \mbox{\Hypertarget{classNetwork_1_1UDPServer_a4031d156ae82ff57038b16f3d214d781}\label{classNetwork_1_1UDPServer_a4031d156ae82ff57038b16f3d214d781}} 
+\index{Network::UDPServer@{Network::UDPServer}!createMessageBuffer@{createMessageBuffer}}
+\index{createMessageBuffer@{createMessageBuffer}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{createMessageBuffer()}{createMessageBuffer()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+UDPServer\+::create\+Message\+Buffer (\begin{DoxyParamCaption}\item[{int}]{client\+Id,  }\item[{std\+::string const \&}]{command,  }\item[{char const}]{data\mbox{[}$\,$\mbox{]} = {\ttfamily nullptr},  }\item[{int}]{data\+Size = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Create a message to a client command. 
+
+Create a message buffer to send to the client with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & Integer specifying the ID of the client to send the message to. \\
+\hline
+{\em command} & String containing the command to send. \\
+\hline
+{\em data} & Pointer to the data to send. \\
+\hline
+{\em data\+Size} & Integer specifying the size of the data to send.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector containing the message. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a0a2583c36c354de1725dcfab25c5e14d}\label{classNetwork_1_1UDPServer_a0a2583c36c354de1725dcfab25c5e14d}} 
+\index{Network::UDPServer@{Network::UDPServer}!createResponseBuffer@{createResponseBuffer}}
+\index{createResponseBuffer@{createResponseBuffer}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{createResponseBuffer()}{createResponseBuffer()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+UDPServer\+::create\+Response\+Buffer (\begin{DoxyParamCaption}\item[{int}]{client\+Id,  }\item[{\mbox{\hyperlink{structMessageHeader}{Message\+Header}} const \&}]{message\+Header,  }\item[{std\+::string const \&}]{status\+Message,  }\item[{char const}]{data\mbox{[}$\,$\mbox{]} = {\ttfamily nullptr},  }\item[{int}]{data\+Size = {\ttfamily 0},  }\item[{int}]{status = {\ttfamily RES\+\_\+SUCCESS} }\end{DoxyParamCaption})}
+
+
+
+Create a response to a client command. 
+
+Create a response buffer to send to the client with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & Integer specifying the ID of the client to send the response to. \\
+\hline
+{\em message\+Header} & \mbox{\hyperlink{structMessageHeader}{Message\+Header}} containing the header of the message to which the response is sent. \\
+\hline
+{\em status\+Message} & String containing the status message to send. \\
+\hline
+{\em data} & Pointer to the data to send. \\
+\hline
+{\em status} & Integer specifying the status code to send.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector containing the response. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_af419e1866cc5630292523ae901aa7c0f}\label{classNetwork_1_1UDPServer_af419e1866cc5630292523ae901aa7c0f}} 
+\index{Network::UDPServer@{Network::UDPServer}!gameLoop@{gameLoop}}
+\index{gameLoop@{gameLoop}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{gameLoop()}{gameLoop()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::game\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Game loop. 
+
+Game loop for the server. \mbox{\Hypertarget{classNetwork_1_1UDPServer_a9a01c57b42d3b2ee144cf7bd4aa9706e}\label{classNetwork_1_1UDPServer_a9a01c57b42d3b2ee144cf7bd4aa9706e}} 
+\index{Network::UDPServer@{Network::UDPServer}!getClientById@{getClientById}}
+\index{getClientById@{getClientById}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getClientById()}{getClientById()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classNetwork_1_1Client}{Network\+::\+Client}} $>$ $>$ Network\+::\+UDPServer\+::get\+Client\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Get the client by id. 
+
+Return the client correponding to the given id.
+
+\begin{DoxyReturn}{Returns}
+std\+::optional$<$\+Network\+::\+Client \&$>$ containing the client 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a6577105fddee863d8d7bbae6f7bac2f7}\label{classNetwork_1_1UDPServer_a6577105fddee863d8d7bbae6f7bac2f7}} 
+\index{Network::UDPServer@{Network::UDPServer}!getClients@{getClients}}
+\index{getClients@{getClients}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getClients()}{getClients()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classNetwork_1_1Client}{Network\+::\+Client}} $>$ \& Network\+::\+UDPServer\+::get\+Clients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the list of connected clients. 
+
+Returns a vector containing the list of clients currently connected to the server.
+
+\begin{DoxyReturn}{Returns}
+Vector containing the list of connected clients. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a2c13629ee0ccbf4d9b12deb117080603}\label{classNetwork_1_1UDPServer_a2c13629ee0ccbf4d9b12deb117080603}} 
+\index{Network::UDPServer@{Network::UDPServer}!getNextClientIdAndIncrement@{getNextClientIdAndIncrement}}
+\index{getNextClientIdAndIncrement@{getNextClientIdAndIncrement}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getNextClientIdAndIncrement()}{getNextClientIdAndIncrement()}}
+{\footnotesize\ttfamily int Network\+::\+UDPServer\+::get\+Next\+Client\+Id\+And\+Increment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the next client ID. 
+
+Returns the ID of the next client to connect to the server and increments the ID.
+
+\begin{DoxyReturn}{Returns}
+Integer specifying the ID of the next client to connect. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_abc40e08966da73a1b12d380a0dce6053}\label{classNetwork_1_1UDPServer_abc40e08966da73a1b12d380a0dce6053}} 
+\index{Network::UDPServer@{Network::UDPServer}!getRecvBuffer@{getRecvBuffer}}
+\index{getRecvBuffer@{getRecvBuffer}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getRecvBuffer()}{getRecvBuffer()}}
+{\footnotesize\ttfamily boost\+::array$<$ char, 65536 $>$ Network\+::\+UDPServer\+::get\+Recv\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the receive buffer. 
+
+Returns a boost\+::array containing the receive buffer used by the server.
+
+\begin{DoxyReturn}{Returns}
+boost\+::array containing the receive buffer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a9f7a52213bf27b1cd095cf526d6736ac}\label{classNetwork_1_1UDPServer_a9f7a52213bf27b1cd095cf526d6736ac}} 
+\index{Network::UDPServer@{Network::UDPServer}!getRemoteEndpoint@{getRemoteEndpoint}}
+\index{getRemoteEndpoint@{getRemoteEndpoint}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getRemoteEndpoint()}{getRemoteEndpoint()}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::udp\+::endpoint Network\+::\+UDPServer\+::get\+Remote\+Endpoint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the remote endpoint. 
+
+Returns a boost\+::asio\+::ip\+::udp\+::endpoint containing the remote endpoint.
+
+\begin{DoxyReturn}{Returns}
+boost\+::asio\+::ip\+::udp\+::endpoint containing the remote endpoint. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a421b82239515eafa196dc68cc573fc2b}\label{classNetwork_1_1UDPServer_a421b82239515eafa196dc68cc573fc2b}} 
+\index{Network::UDPServer@{Network::UDPServer}!getRooms@{getRooms}}
+\index{getRooms@{getRooms}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getRooms()}{getRooms()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classNetwork_1_1Room}{Network\+::\+Room}} $>$ \& Network\+::\+UDPServer\+::get\+Rooms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the list of rooms. 
+
+Returns a vector containing the list of rooms currently available on the server.
+
+\begin{DoxyReturn}{Returns}
+Vector containing the list of rooms. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ac32cc82757d28952e4429a16189b4216}\label{classNetwork_1_1UDPServer_ac32cc82757d28952e4429a16189b4216}} 
+\index{Network::UDPServer@{Network::UDPServer}!getSocket@{getSocket}}
+\index{getSocket@{getSocket}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{getSocket()}{getSocket()}}
+{\footnotesize\ttfamily boost\+::asio\+::ip\+::udp\+::socket \& Network\+::\+UDPServer\+::get\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the UDP socket used by the server. 
+
+Returns a reference to the UDP socket used by the server for communication.
+
+\begin{DoxyReturn}{Returns}
+Reference to the UDP socket. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ac97d512d745687229613d23b27a71bae}\label{classNetwork_1_1UDPServer_ac97d512d745687229613d23b27a71bae}} 
+\index{Network::UDPServer@{Network::UDPServer}!handleReceive@{handleReceive}}
+\index{handleReceive@{handleReceive}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{handleReceive()}{handleReceive()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::handle\+Receive (\begin{DoxyParamCaption}\item[{boost\+::system\+::error\+\_\+code const \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+\_\+transferred }\end{DoxyParamCaption})}
+
+
+
+Handle receive data. 
+
+Handle the received data by creating a new \mbox{\hyperlink{structTimedMessage}{Timed\+Message}} and pushing it into the message queue. \mbox{\Hypertarget{classNetwork_1_1UDPServer_a7d721dae9793f447e2199f8780096e53}\label{classNetwork_1_1UDPServer_a7d721dae9793f447e2199f8780096e53}} 
+\index{Network::UDPServer@{Network::UDPServer}!handleSend@{handleSend}}
+\index{handleSend@{handleSend}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{handleSend()}{handleSend()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::handle\+Send (\begin{DoxyParamCaption}\item[{boost\+::system\+::error\+\_\+code const \&}]{error,  }\item[{std\+::size\+\_\+t}]{bytes\+Transferred }\end{DoxyParamCaption})}
+
+
+
+Handle the sending of data. 
+
+Handle the sending of data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & boost\+::system\+::error\+\_\+code containing the error code. \\
+\hline
+{\em bytes\+Transferred} & std\+::size\+\_\+t containing the number of bytes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ac4b4c1cd19635deb604ceb2a63839f4d}\label{classNetwork_1_1UDPServer_ac4b4c1cd19635deb604ceb2a63839f4d}} 
+\index{Network::UDPServer@{Network::UDPServer}!initRooms@{initRooms}}
+\index{initRooms@{initRooms}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{initRooms()}{initRooms()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::init\+Rooms (\begin{DoxyParamCaption}\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+Init the rooms. 
+
+Initializes the rooms by creating the specified number of rooms.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Integer specifying the number of rooms to create. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a8d43c1630c01f9eefa4909772057e9c8}\label{classNetwork_1_1UDPServer_a8d43c1630c01f9eefa4909772057e9c8}} 
+\index{Network::UDPServer@{Network::UDPServer}!initServer@{initServer}}
+\index{initServer@{initServer}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{initServer()}{initServer()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::init\+Server (\begin{DoxyParamCaption}\item[{int}]{port }\end{DoxyParamCaption})}
+
+
+
+Initializes the server. 
+
+Initializes the server by binding the socket to the specified port and starting the worker threads.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Integer specifying the port number on which the server will listen. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ab2d04421510f1fd72b2158aa171241e9}\label{classNetwork_1_1UDPServer_ab2d04421510f1fd72b2158aa171241e9}} 
+\index{Network::UDPServer@{Network::UDPServer}!isClientRegistered@{isClientRegistered}}
+\index{isClientRegistered@{isClientRegistered}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{isClientRegistered()}{isClientRegistered()}}
+{\footnotesize\ttfamily bool Network\+::\+UDPServer\+::is\+Client\+Registered (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})}
+
+
+
+Check if a client is registered. 
+
+Check if the client with the specified ID is registered to the server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & Integer specifying the ID of the client to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean indicating whether the client is registered. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ac1d3c03a7b8e6d002d8938e70fd4ba36}\label{classNetwork_1_1UDPServer_ac1d3c03a7b8e6d002d8938e70fd4ba36}} 
+\index{Network::UDPServer@{Network::UDPServer}!notifyAndRemoveClient@{notifyAndRemoveClient}}
+\index{notifyAndRemoveClient@{notifyAndRemoveClient}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{notifyAndRemoveClient()}{notifyAndRemoveClient()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::notify\+And\+Remove\+Client (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})}
+
+
+
+Notify and remove a client. 
+
+Notify all clients in the room of the client that the specified client has been removed and remove it from the list of clients.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & Integer specifying the ID of the client to remove.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetwork_1_1Room}{Network\+::\+Room}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ad31c0be7001a0123b1fe8434161665de}\label{classNetwork_1_1UDPServer_ad31c0be7001a0123b1fe8434161665de}} 
+\index{Network::UDPServer@{Network::UDPServer}!processMessage@{processMessage}}
+\index{processMessage@{processMessage}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{processMessage()}{processMessage()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::process\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimedMessage}{Timed\+Message}}}]{message }\end{DoxyParamCaption})}
+
+
+
+Process a \mbox{\hyperlink{structTimedMessage}{Timed\+Message}}. 
+
+Process the specified \mbox{\hyperlink{structTimedMessage}{Timed\+Message}} by calling the appropriate command handler. \mbox{\Hypertarget{classNetwork_1_1UDPServer_a16bd0e5a013230d835b30a3b0cfd86d9}\label{classNetwork_1_1UDPServer_a16bd0e5a013230d835b30a3b0cfd86d9}} 
+\index{Network::UDPServer@{Network::UDPServer}!processResponse@{processResponse}}
+\index{processResponse@{processResponse}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{processResponse()}{processResponse()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::process\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structResponse}{Response}} $\ast$}]{response }\end{DoxyParamCaption})}
+
+
+
+Process a \mbox{\hyperlink{structResponse}{Response}}. 
+
+Process the specified \mbox{\hyperlink{structResponse}{Response}} by sending it to the client and logging it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & \mbox{\hyperlink{structResponse}{Response}} to process. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a82f424a15da216aade28273353dad9eb}\label{classNetwork_1_1UDPServer_a82f424a15da216aade28273353dad9eb}} 
+\index{Network::UDPServer@{Network::UDPServer}!registerCommandHandlers@{registerCommandHandlers}}
+\index{registerCommandHandlers@{registerCommandHandlers}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{registerCommandHandlers()}{registerCommandHandlers()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::register\+Command\+Handlers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Register command handlers. 
+
+Register all command handlers for the server.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetwork_1_1ICommandHandler}{ICommand\+Handler}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a60ae214e6da64da40df29b14970b25a1}\label{classNetwork_1_1UDPServer_a60ae214e6da64da40df29b14970b25a1}} 
+\index{Network::UDPServer@{Network::UDPServer}!sendCheckConnection@{sendCheckConnection}}
+\index{sendCheckConnection@{sendCheckConnection}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{sendCheckConnection()}{sendCheckConnection()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+Check\+Connection (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})}
+
+
+
+Send a check connection message. 
+
+Send a check connection message to the client with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & Integer specifying the ID of the client to send the message to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ae6df6365d9c49e58434876ef104817a9}\label{classNetwork_1_1UDPServer_ae6df6365d9c49e58434876ef104817a9}} 
+\index{Network::UDPServer@{Network::UDPServer}!sendResponseAndLog@{sendResponseAndLog}}
+\index{sendResponseAndLog@{sendResponseAndLog}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{sendResponseAndLog()}{sendResponseAndLog()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+Response\+And\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTimedMessage}{Timed\+Message}}}]{timed\+Message,  }\item[{std\+::vector$<$ char $>$}]{response\+Buffer }\end{DoxyParamCaption})}
+
+
+
+Send a response and log it. 
+
+Send the specified response to the client with the specified ID and log it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timed\+Message} & \mbox{\hyperlink{structTimedMessage}{Timed\+Message}} containing the message to which the response is sent. \\
+\hline
+{\em response\+Buffer} & Vector containing the response to send. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ac811ac0c540ab08eeb7fd4002e4af9d4}\label{classNetwork_1_1UDPServer_ac811ac0c540ab08eeb7fd4002e4af9d4}} 
+\index{Network::UDPServer@{Network::UDPServer}!sendToAll@{sendToAll}}
+\index{sendToAll@{sendToAll}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{sendToAll()}{sendToAll()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Send data to all clients. 
+
+Send the specified data to all clients connected to the server.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & boost\+::asio\+::const\+\_\+buffer containing the data to send. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a9a296cd50ace6d20256e4a94290bf1b4}\label{classNetwork_1_1UDPServer_a9a296cd50ace6d20256e4a94290bf1b4}} 
+\index{Network::UDPServer@{Network::UDPServer}!sendToAllClientsInRoom@{sendToAllClientsInRoom}}
+\index{sendToAllClientsInRoom@{sendToAllClientsInRoom}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{sendToAllClientsInRoom()}{sendToAllClientsInRoom()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All\+Clients\+In\+Room (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer,  }\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Send data to all clients in a room. 
+
+Send the specified data to all clients in the room with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & boost\+::asio\+::const\+\_\+buffer containing the data to send. \\
+\hline
+{\em room\+Id} & Integer specifying the ID of the room to send the data to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a4c3186c7dcf335536c43e4d1564ee0e0}\label{classNetwork_1_1UDPServer_a4c3186c7dcf335536c43e4d1564ee0e0}} 
+\index{Network::UDPServer@{Network::UDPServer}!sendToAllClientsInRoomInGame@{sendToAllClientsInRoomInGame}}
+\index{sendToAllClientsInRoomInGame@{sendToAllClientsInRoomInGame}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{sendToAllClientsInRoomInGame()}{sendToAllClientsInRoomInGame()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+All\+Clients\+In\+Room\+In\+Game (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer,  }\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Send data to all clients in a room in game. 
+
+Send the specified data to all clients in the room with the specified ID that are in game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & boost\+::asio\+::const\+\_\+buffer containing the data to send. \\
+\hline
+{\em room\+Id} & Integer specifying the ID of the room to send the data to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_a9c2f0877b54c60de4ca0a2d21696ba93}\label{classNetwork_1_1UDPServer_a9c2f0877b54c60de4ca0a2d21696ba93}} 
+\index{Network::UDPServer@{Network::UDPServer}!sendToClient@{sendToClient}}
+\index{sendToClient@{sendToClient}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{sendToClient()}{sendToClient()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::send\+To\+Client (\begin{DoxyParamCaption}\item[{boost\+::asio\+::const\+\_\+buffer const \&}]{buffer,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Send data to a specific client. 
+
+Send the specified data to the client with the specified ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & boost\+::asio\+::const\+\_\+buffer containing the data to send. \\
+\hline
+{\em id} & Integer specifying the ID of the client to send the data to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_ace11e347c4bfbad29bfe8d1cb6f2bba2}\label{classNetwork_1_1UDPServer_ace11e347c4bfbad29bfe8d1cb6f2bba2}} 
+\index{Network::UDPServer@{Network::UDPServer}!startClientTimerCheck@{startClientTimerCheck}}
+\index{startClientTimerCheck@{startClientTimerCheck}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{startClientTimerCheck()}{startClientTimerCheck()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::start\+Client\+Timer\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the client timer check. 
+
+Start the timer for checking client timers. \mbox{\Hypertarget{classNetwork_1_1UDPServer_ac2a6fa9962f244fd7ba8578d89296874}\label{classNetwork_1_1UDPServer_ac2a6fa9962f244fd7ba8578d89296874}} 
+\index{Network::UDPServer@{Network::UDPServer}!startReceive@{startReceive}}
+\index{startReceive@{startReceive}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{startReceive()}{startReceive()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::start\+Receive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start to receive data. 
+
+Start to listen for incoming data on the socket. \mbox{\Hypertarget{classNetwork_1_1UDPServer_a4928e7aa98d5e037872d25cff45c9f8a}\label{classNetwork_1_1UDPServer_a4928e7aa98d5e037872d25cff45c9f8a}} 
+\index{Network::UDPServer@{Network::UDPServer}!updateClientLastMessageTimeFromData@{updateClientLastMessageTimeFromData}}
+\index{updateClientLastMessageTimeFromData@{updateClientLastMessageTimeFromData}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{updateClientLastMessageTimeFromData()}{updateClientLastMessageTimeFromData()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::update\+Client\+Last\+Message\+Time\+From\+Data (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Update the client last message time from data. 
+
+Update the last message time of the client with the specified ID from the specified data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the data containing the client ID. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1UDPServer_aabec654d8576481b31d0c1e689b66699}\label{classNetwork_1_1UDPServer_aabec654d8576481b31d0c1e689b66699}} 
+\index{Network::UDPServer@{Network::UDPServer}!workerFunction@{workerFunction}}
+\index{workerFunction@{workerFunction}!Network::UDPServer@{Network::UDPServer}}
+\doxysubsubsection{\texorpdfstring{workerFunction()}{workerFunction()}}
+{\footnotesize\ttfamily void Network\+::\+UDPServer\+::worker\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function executed by worker threads. 
+
+Function executed by worker threads. It pops a \mbox{\hyperlink{structTimedMessage}{Timed\+Message}} from the message queue, logged the message header and calls the process\+Message function. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/include/UDPServer.\+hpp\item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/src/UDPServer.\+cpp\end{DoxyCompactItemize}
+server/include/UDPServer.\+hpp\item 
+server/src/UDPServer.\+cpp\end{DoxyCompactItemize}

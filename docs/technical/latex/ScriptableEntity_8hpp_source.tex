@@ -1,0 +1,44 @@
+\hypertarget{ScriptableEntity_8hpp_source}{}\doxysection{Scriptable\+Entity.\+hpp}
+\label{ScriptableEntity_8hpp_source}\index{gameEngine/include/gameEngine/system/ScriptableEntity.hpp@{gameEngine/include/gameEngine/system/ScriptableEntity.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/10/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/component/Scriptable.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/RegistryHolder.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/event/EventRegistry.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}gameEngine/entity/EntityFactory.hpp"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }GameEngine::System}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1System_1_1ScriptableEntity}{ScriptableEntity}}}
+\DoxyCodeLine{16     : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1System}{GameEngine::ECS::System}}}
+\DoxyCodeLine{17     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1RegistryHolder}{GameEngine::ECS::RegistryHolder}} \{}
+\DoxyCodeLine{18    \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} update(\mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{Entity::EntityFactory}}\& entityFactory, \textcolor{keywordtype}{int} df)}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21       \textcolor{keyword}{auto}\& componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{22       \textcolor{keyword}{auto}\& scriptManager = entityFactory.getScriptManager();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& entity : m\_entities) \{}
+\DoxyCodeLine{25         \textcolor{keyword}{auto}\& scriptData = componentManager-\/>getComponent<\mbox{\hyperlink{structComponentRType_1_1Scriptable}{ComponentRType::Scriptable}}>(entity);}
+\DoxyCodeLine{26         \textcolor{keyword}{auto} script = scriptManager.getScript(scriptData.scriptName);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         script-\/>attachEntity(entity);}
+\DoxyCodeLine{29         \textcolor{keywordflow}{if} (!script-\/>isConfigured()) \{}
+\DoxyCodeLine{30           script-\/>attachEcsRegistry(getSharedEcsRegistry());}
+\DoxyCodeLine{31           script-\/>attachEventRegistry(getSharedEventRegistry());}
+\DoxyCodeLine{32           script-\/>subscribeEvent();}
+\DoxyCodeLine{33         \}}
+\DoxyCodeLine{34         script-\/>execute(df);}
+\DoxyCodeLine{35       \}}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37   \};}
+\DoxyCodeLine{38 \} \textcolor{comment}{// namespace GameEngine::System}}
+
+\end{DoxyCode}

@@ -14,6 +14,14 @@ Represents a room in the network context.
 \item 
 \mbox{\hyperlink{classNetwork_1_1Room_a921559d500021651da4203e4b3e44336}{Room}} (int id, int size)
 \begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNetwork_1_1Room_ab2f050cf97659709a040e6934fd48eef}{Room}} (const \mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&room)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNetwork_1_1Room_aa21622466bbf16a091a940901afea7ae}{Room}} (\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&\&room)
+\begin{DoxyCompactList}\small\item\em Move constructor for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \& \mbox{\hyperlink{classNetwork_1_1Room_a5807a4389e66585ff67f390904d3c7c1}{operator=}} (const \mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&room)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \& \mbox{\hyperlink{classNetwork_1_1Room_a479a5e854754bb4a188f232732c68ab9}{operator=}} (\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&\&room)
+\begin{DoxyCompactList}\small\item\em Move assignment operator for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classNetwork_1_1Room_aa6449f53d721de21a5a08aa032acc00a}\label{classNetwork_1_1Room_aa6449f53d721de21a5a08aa032acc00a}} 
 {\bfseries $\sim$\+Room} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. \end{DoxyCompactList}\item 
@@ -30,7 +38,17 @@ int \mbox{\hyperlink{classNetwork_1_1Room_a24e2920279a125d79efd2474c1778d7e}{get
 void \mbox{\hyperlink{classNetwork_1_1Room_aea2f2865062de4920d71d55399eea862}{set\+Size}} (int size)
 \begin{DoxyCompactList}\small\item\em Sets the size of the room. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \mbox{\hyperlink{classNetwork_1_1Room_a92553cf90665a33507b0b976d3b577a6}{get\+Players}} ()
-\begin{DoxyCompactList}\small\item\em Gets the list of players in the room. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the list of players in the room. \end{DoxyCompactList}\item 
+Room\+State \mbox{\hyperlink{classNetwork_1_1Room_abe4ddca044c548d5658ea8d8e24e624a}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em Gets the state of the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1Room_a450ff0773926707112db25e3e40eb227}{set\+State}} (Room\+State state)
+\begin{DoxyCompactList}\small\item\em Sets the state of the room. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetwork_1_1Room_aec809e76b88ff1fb19c652c8d6da9e13}{is\+Full}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the room is full. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{classNetwork_1_1Room_adfc8a32646570b53fda984fc5a3ea6bf}{get\+Entities\+State\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Gets the entities state buffer the room. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServer_1_1Game_1_1Game}{Server\+::\+Game\+::\+Game}} \& \mbox{\hyperlink{classNetwork_1_1Room_a1d665c737a5f848575c55cd3cc30038d}{get\+Hosted\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Gets the game hosted by the room. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -42,7 +60,7 @@ This class encapsulates the properties of a room in a networked environment, inc
 \mbox{\Hypertarget{classNetwork_1_1Room_a921559d500021651da4203e4b3e44336}\label{classNetwork_1_1Room_a921559d500021651da4203e4b3e44336}} 
 \index{Network::Room@{Network::Room}!Room@{Room}}
 \index{Room@{Room}!Network::Room@{Network::Room}}
-\doxysubsubsection{\texorpdfstring{Room()}{Room()}}
+\doxysubsubsection{\texorpdfstring{Room()}{Room()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Network\+::\+Room\+::\+Room (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{size }\end{DoxyParamCaption})}
 
 
@@ -56,6 +74,36 @@ Initializes a \mbox{\hyperlink{classNetwork_1_1Room}{Room}} with a given ID and 
 {\em id} & The unique identifier for the room. \\
 \hline
 {\em size} & The size of the room, typically representing its capacity. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Room_ab2f050cf97659709a040e6934fd48eef}\label{classNetwork_1_1Room_ab2f050cf97659709a040e6934fd48eef}} 
+\index{Network::Room@{Network::Room}!Room@{Room}}
+\index{Room@{Room}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{Room()}{Room()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Network\+::\+Room\+::\+Room (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&}]{room }\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & The room to copy. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Room_aa21622466bbf16a091a940901afea7ae}\label{classNetwork_1_1Room_aa21622466bbf16a091a940901afea7ae}} 
+\index{Network::Room@{Network::Room}!Room@{Room}}
+\index{Room@{Room}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{Room()}{Room()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Network\+::\+Room\+::\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&\&}]{room }\end{DoxyParamCaption})}
+
+
+
+Move constructor for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & The room to move. \\
 \hline
 \end{DoxyParams}
 
@@ -76,6 +124,32 @@ Adds a player to the room.
 {\em id} & The ID of the player to be added. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Room_adfc8a32646570b53fda984fc5a3ea6bf}\label{classNetwork_1_1Room_adfc8a32646570b53fda984fc5a3ea6bf}} 
+\index{Network::Room@{Network::Room}!getEntitiesStateBuffer@{getEntitiesStateBuffer}}
+\index{getEntitiesStateBuffer@{getEntitiesStateBuffer}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{getEntitiesStateBuffer()}{getEntitiesStateBuffer()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Network\+::\+Room\+::get\+Entities\+State\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the entities state buffer the room. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classServer_1_1Game_1_1Game}{Server\+::\+Game\+::\+Game}} The game hosted by the room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Room_a1d665c737a5f848575c55cd3cc30038d}\label{classNetwork_1_1Room_a1d665c737a5f848575c55cd3cc30038d}} 
+\index{Network::Room@{Network::Room}!getHostedGame@{getHostedGame}}
+\index{getHostedGame@{getHostedGame}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{getHostedGame()}{getHostedGame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classServer_1_1Game_1_1Game}{Server\+::\+Game\+::\+Game}} \& Network\+::\+Room\+::get\+Hosted\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the game hosted by the room. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classServer_1_1Game_1_1Game}{Server\+::\+Game\+::\+Game}} The game hosted by the room. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classNetwork_1_1Room_a4194c540b15a95da36bbfcebcb2e8ce5}\label{classNetwork_1_1Room_a4194c540b15a95da36bbfcebcb2e8ce5}} 
 \index{Network::Room@{Network::Room}!getId@{getId}}
 \index{getId@{getId}!Network::Room@{Network::Room}}
@@ -114,6 +188,70 @@ Gets the size of the room.
 
 \begin{DoxyReturn}{Returns}
 int The size of the room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Room_abe4ddca044c548d5658ea8d8e24e624a}\label{classNetwork_1_1Room_abe4ddca044c548d5658ea8d8e24e624a}} 
+\index{Network::Room@{Network::Room}!getState@{getState}}
+\index{getState@{getState}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily Network\+::\+Room\+State Network\+::\+Room\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the state of the room. 
+
+\begin{DoxyReturn}{Returns}
+Room\+State The state of the room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Room_aec809e76b88ff1fb19c652c8d6da9e13}\label{classNetwork_1_1Room_aec809e76b88ff1fb19c652c8d6da9e13}} 
+\index{Network::Room@{Network::Room}!isFull@{isFull}}
+\index{isFull@{isFull}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{isFull()}{isFull()}}
+{\footnotesize\ttfamily bool Network\+::\+Room\+::is\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the room is full. 
+
+\begin{DoxyReturn}{Returns}
+true If the room is full. 
+
+false If the room is not full. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Room_a5807a4389e66585ff67f390904d3c7c1}\label{classNetwork_1_1Room_a5807a4389e66585ff67f390904d3c7c1}} 
+\index{Network::Room@{Network::Room}!operator=@{operator=}}
+\index{operator=@{operator=}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNetwork_1_1Room}{Network\+::\+Room}} \& Network\+::\+Room\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&}]{room }\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & The room to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classNetwork_1_1Room}{Room}}\& A reference to the copied room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Room_a479a5e854754bb4a188f232732c68ab9}\label{classNetwork_1_1Room_a479a5e854754bb4a188f232732c68ab9}} 
+\index{Network::Room@{Network::Room}!operator=@{operator=}}
+\index{operator=@{operator=}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNetwork_1_1Room}{Network\+::\+Room}} \& Network\+::\+Room\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNetwork_1_1Room}{Room}} \&\&}]{room }\end{DoxyParamCaption})}
+
+
+
+Move assignment operator for \mbox{\hyperlink{classNetwork_1_1Room}{Room}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room} & The room to move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classNetwork_1_1Room}{Room}}\& A reference to the moved room. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classNetwork_1_1Room_a1fcbc27e73b2fd043942dd607040c2e6}\label{classNetwork_1_1Room_a1fcbc27e73b2fd043942dd607040c2e6}} 
 \index{Network::Room@{Network::Room}!removePlayer@{removePlayer}}
@@ -160,9 +298,24 @@ Sets the size of the room.
 {\em size} & The new size of the room. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Room_a450ff0773926707112db25e3e40eb227}\label{classNetwork_1_1Room_a450ff0773926707112db25e3e40eb227}} 
+\index{Network::Room@{Network::Room}!setState@{setState}}
+\index{setState@{setState}!Network::Room@{Network::Room}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Network\+::\+Room\+::set\+State (\begin{DoxyParamCaption}\item[{Room\+State}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the state of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The new state of the room. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/include/Room.\+hpp\item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/src/Room.\+cpp\end{DoxyCompactItemize}
+server/include/Room.\+hpp\item 
+server/src/Room.\+cpp\end{DoxyCompactItemize}

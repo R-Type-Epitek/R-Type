@@ -26,6 +26,8 @@ namespace Rtype::Scene
 
     void initEvents() final;
 
+    void initScripts();
+
     void onUpdate(size_t df) final;
 
    private:

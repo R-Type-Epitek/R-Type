@@ -1,0 +1,40 @@
+\hypertarget{INetworkController_8hpp_source}{}\doxysection{INetwork\+Controller.\+hpp}
+\label{INetworkController_8hpp_source}\index{gameEngine/include/gameEngine/network/INetworkController.hpp@{gameEngine/include/gameEngine/network/INetworkController.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/10/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/constants/Keybinds.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }GameEngine::Network}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController}{INetworkController}} \{}
+\DoxyCodeLine{13    \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Network_1_1INetworkController}{\string~INetworkController}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} sendKey(GameEngine::Keybinds key) = 0;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} connect() = 0;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} joinRoomAuto() = 0;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} joinRoom(\textcolor{keywordtype}{int} roomId) = 0;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} spectate(\textcolor{keywordtype}{int} roomId) = 0;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} joinGame(\textcolor{keywordtype}{int} roomId) = 0;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} updateName(std::string name) = 0;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} getRoomId() = 0;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} std::vector<std::vector<char>> getSerializedEcsState() = 0;}
+\DoxyCodeLine{33   \};}
+\DoxyCodeLine{34 \} \textcolor{comment}{// namespace GameEngine::Network}}
+
+\end{DoxyCode}

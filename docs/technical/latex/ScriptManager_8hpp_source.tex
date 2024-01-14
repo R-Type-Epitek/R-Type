@@ -1,0 +1,36 @@
+\hypertarget{ScriptManager_8hpp_source}{}\doxysection{Script\+Manager.\+hpp}
+\label{ScriptManager_8hpp_source}\index{gameEngine/include/gameEngine/script/ScriptManager.hpp@{gameEngine/include/gameEngine/script/ScriptManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/14/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}IScript.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }GameEngine::Script}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager}{ScriptManager}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager_a2a6991b1517aada2b4d2e5e7a507fa59}{\string~ScriptManager}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager_ad3178b6723441f622199051982860ff1}{registerScript}}(\textcolor{keyword}{const} std::string \&scriptName, std::shared\_ptr<GameEngine::Script::IScript> script);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager_a6ad816dcf0d9e5f3539523d4cfad4e5d}{addScriptBinding}}(\textcolor{keyword}{const} std::string \&scriptName, \textcolor{keyword}{const} std::string \&baseScriptName);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{50     std::shared\_ptr<GameEngine::Script::IScript> \mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager_a0f88a002d34304ed4ba50e937da624bf}{getScript}}(\textcolor{keyword}{const} std::string \&scriptName);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52    \textcolor{keyword}{private}:}
+\DoxyCodeLine{53     std::unordered\_map<std::string, std::shared\_ptr<GameEngine::Script::IScript>> m\_scriptsRegistered;}
+\DoxyCodeLine{54     std::unordered\_map<std::string, std::string> m\_scriptsBindings;}
+\DoxyCodeLine{55   \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \} \textcolor{comment}{// namespace GameEngine::Script}}
+
+\end{DoxyCode}

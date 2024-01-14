@@ -1,0 +1,37 @@
+\hypertarget{EntityBuilder_8hpp_source}{}\doxysection{Entity\+Builder.\+hpp}
+\label{EntityBuilder_8hpp_source}\index{gameEngine/include/gameEngine/entity/EntityBuilder.hpp@{gameEngine/include/gameEngine/entity/EntityBuilder.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/4/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }GameEngine::Entity}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityBuilder}{EntityBuilder}} \{}
+\DoxyCodeLine{13    \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityBuilder}{EntityBuilder}}(\mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{GameEngine::ECS::Registry}} \&registry);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} buildComponent(T component)}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19       m\_registry.addComponent(m\_entity, component);}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     GameEngine::ECS::Entity getResult();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24    \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{GameEngine::ECS::Registry}} \&m\_registry;}
+\DoxyCodeLine{26     GameEngine::ECS::Entity m\_entity;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     GameEngine::ECS::Entity newEntity();}
+\DoxyCodeLine{29   \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \} \textcolor{comment}{// GameEngine}}
+
+\end{DoxyCode}

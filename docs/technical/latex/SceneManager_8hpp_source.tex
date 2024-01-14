@@ -1,0 +1,36 @@
+\hypertarget{SceneManager_8hpp_source}{}\doxysection{Scene\+Manager.\+hpp}
+\label{SceneManager_8hpp_source}\index{gameEngine/include/gameEngine/scene/SceneManager.hpp@{gameEngine/include/gameEngine/scene/SceneManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/21/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}IScene.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}ISceneManager.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SceneContainer.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }GameEngine::Scene}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneManager}{SceneManager}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1ISceneManager}{ISceneManager}} \{}
+\DoxyCodeLine{14    \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneManager}{SceneManager}}() \{\};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} initScenes() \textcolor{keyword}{final};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}}\& getCurrent() \textcolor{keyword}{final};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} setCurrent(\textcolor{keyword}{const} std::string\& name) \textcolor{keyword}{final};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} addScene(\textcolor{keyword}{const} std::string\& name, std::unique\_ptr<IScene> scene) \textcolor{keyword}{final};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25    \textcolor{keyword}{private}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SceneContainer}{SceneContainer}} m\_scenes;}
+\DoxyCodeLine{27     std::string m\_currentSceneName;}
+\DoxyCodeLine{28   \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \}; \textcolor{comment}{// namespace GameEngine::Scene}}
+
+\end{DoxyCode}

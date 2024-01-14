@@ -1,0 +1,65 @@
+\hypertarget{classGameEngine_1_1Core_1_1Core}{}\doxysection{Game\+Engine\+::Core\+::Core Class Reference}
+\label{classGameEngine_1_1Core_1_1Core}\index{GameEngine::Core::Core@{GameEngine::Core::Core}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a6cbb9084c9034949b995949d025679bf}\label{classGameEngine_1_1Core_1_1Core_a6cbb9084c9034949b995949d025679bf}} 
+{\bfseries Core} (std\+::string project\+Name)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a537fd995a32f2004be1b436ca1cedeca}\label{classGameEngine_1_1Core_1_1Core_a537fd995a32f2004be1b436ca1cedeca}} 
+void {\bfseries run} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_ac83b85a50e5293326f87f3f68f28e517}\label{classGameEngine_1_1Core_1_1Core_ac83b85a50e5293326f87f3f68f28e517}} 
+void {\bfseries tick\+Update} (unsigned int df)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a9aeefe537967e5684067fe97fdf0faf5}\label{classGameEngine_1_1Core_1_1Core_a9aeefe537967e5684067fe97fdf0faf5}} 
+void {\bfseries assign\+Update\+Closure} (const std\+::function$<$ void()$>$ \&closure, unsigned int update\+Rate)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_ae695fd8054ff90011c8812a577b4f792}\label{classGameEngine_1_1Core_1_1Core_ae695fd8054ff90011c8812a577b4f792}} 
+void {\bfseries stop} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a26ebe537e5289c3bf3cef9ea63cfdf9c}\label{classGameEngine_1_1Core_1_1Core_a26ebe537e5289c3bf3cef9ea63cfdf9c}} 
+void {\bfseries load\+Plugins} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_acdfead69ab509aeacb0d2b4285ccaf1c}\label{classGameEngine_1_1Core_1_1Core_acdfead69ab509aeacb0d2b4285ccaf1c}} 
+void {\bfseries load\+Scenes} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a1dd351f86cdfa11114d05841129405e5}\label{classGameEngine_1_1Core_1_1Core_a1dd351f86cdfa11114d05841129405e5}} 
+void {\bfseries add\+Scene} (const std\+::string \&name, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{Scene\+::\+IScene}} $>$ scene)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a118cb6ac06d0f867a2b1fa525a3aa00d}\label{classGameEngine_1_1Core_1_1Core_a118cb6ac06d0f867a2b1fa525a3aa00d}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1ISceneManager}{Scene\+::\+IScene\+Manager}} $>$ {\bfseries get\+Scene\+Manager} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_ad284c9e6e62993d7e44aebd05564438a}\label{classGameEngine_1_1Core_1_1Core_ad284c9e6e62993d7e44aebd05564438a}} 
+\mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{Scene\+::\+IScene}} \& {\bfseries get\+Current\+Scene} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_af20925f672d1fa3dbf11e24a471d447a}\label{classGameEngine_1_1Core_1_1Core_af20925f672d1fa3dbf11e24a471d447a}} 
+void {\bfseries set\+Current\+Scene} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a8fcb1cf6a49da6d997cf7ac629e83c2a}\label{classGameEngine_1_1Core_1_1Core_a8fcb1cf6a49da6d997cf7ac629e83c2a}} 
+void {\bfseries enable\+GUI} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_afd927eac51e6dd9c5531ddcc36c915eb}\label{classGameEngine_1_1Core_1_1Core_afd927eac51e6dd9c5531ddcc36c915eb}} 
+void {\bfseries disable\+GUI} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a1f55d761b6fbac604fad1f5427805b65}\label{classGameEngine_1_1Core_1_1Core_a1f55d761b6fbac604fad1f5427805b65}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1UI_1_1Window}{UI\+::\+Window}} $>$ {\bfseries get\+GUI} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a406dc45dd8dfb051d9d7b295b7c14f75}\label{classGameEngine_1_1Core_1_1Core_a406dc45dd8dfb051d9d7b295b7c14f75}} 
+void {\bfseries set\+Ticks\+Per\+Second} (unsigned int ticks\+Per\+Second)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a034bd52ca46394171ec785baae35a168}\label{classGameEngine_1_1Core_1_1Core_a034bd52ca46394171ec785baae35a168}} 
+unsigned int {\bfseries get\+Ticks\+Per\+Second} () const
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_a97a85f0a0a9d549ef2a2977b735b29b3}\label{classGameEngine_1_1Core_1_1Core_a97a85f0a0a9d549ef2a2977b735b29b3}} 
+const std\+::string \& {\bfseries get\+Project\+Name} () const
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Core_1_1Core_abe55364618fc8c1b32bdbbbc024c8bc8}\label{classGameEngine_1_1Core_1_1Core_abe55364618fc8c1b32bdbbbc024c8bc8}} 
+const Game\+Engine\+State \& {\bfseries get\+Game\+Engine\+State} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/core/Core.\+hpp\item 
+game\+Engine/src/core/Core.\+cpp\end{DoxyCompactItemize}

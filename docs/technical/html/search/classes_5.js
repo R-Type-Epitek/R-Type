@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['gamescene_0',['GameScene',['../class_client_1_1_game_scene.html',1,'Client']]],
-  ['gravity_1',['Gravity',['../struct_component_r_type_1_1_gravity.html',1,'ComponentRType']]],
-  ['gui_2',['GUI',['../class_client_1_1_g_u_i.html',1,'Client']]]
+  ['game_0',['Game',['../classServer_1_1Game_1_1Game.html',1,'Server::Game']]],
+  ['godmodecommandhandler_1',['GodModeCommandHandler',['../classClient_1_1GodModeCommandHandler.html',1,'Client::GodModeCommandHandler'],['../classNetwork_1_1GodModeCommandHandler.html',1,'Network::GodModeCommandHandler']]],
+  ['godmodedata_2',['GodModeData',['../structGodModeData.html',1,'']]],
+  ['gravity_3',['Gravity',['../structComponentRType_1_1Gravity.html',1,'ComponentRType']]]
 ];

@@ -1,0 +1,125 @@
+\hypertarget{classClient_1_1InputCommandHandler}{}\doxysection{Client\+::Input\+Command\+Handler Class Reference}
+\label{classClient_1_1InputCommandHandler}\index{Client::InputCommandHandler@{Client::InputCommandHandler}}
+
+
+Handler for input commands in a networked environment.  
+
+
+
+
+{\ttfamily \#include $<$Input.\+hpp$>$}
+
+Inheritance diagram for Client\+::Input\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classClient_1_1InputCommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClient_1_1InputCommandHandler_ab89711fd84af1ee82abe1015e428dce0}{Input\+Command\+Handler}} (\mbox{\hyperlink{classClient_1_1Network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classClient_1_1InputCommandHandler}{Input\+Command\+Handler}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1InputCommandHandler_a825627254c05d7353b5c6a711ec7dec9}{set\+Key}} (Game\+Engine\+::\+Keybinds key)
+\begin{DoxyCompactList}\small\item\em Set the key for the input command. \end{DoxyCompactList}\item 
+const Game\+Engine\+::\+Keybinds \& \mbox{\hyperlink{classClient_1_1InputCommandHandler_aaead3d9a3f93fba4552a19b0712743ad}{get\+Key}} () const
+\begin{DoxyCompactList}\small\item\em Get the key associated with the input command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1InputCommandHandler_a234beadaa593eeec72ae849f4739157e}{send}} () override
+\begin{DoxyCompactList}\small\item\em Send the input command to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1InputCommandHandler_ad27a8a0e6e537f7df8133dce9fd3cf7e}{on\+Response}} (\mbox{\hyperlink{structResponse}{Response}} $\ast$response) override
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the input command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for input commands in a networked environment. 
+
+\mbox{\hyperlink{classClient_1_1InputCommandHandler}{Input\+Command\+Handler}} is responsible for managing input-\/related commands and their interaction with the network. It extends the \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}} interface, providing specific implementations for input command handling. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_1_1InputCommandHandler_ab89711fd84af1ee82abe1015e428dce0}\label{classClient_1_1InputCommandHandler_ab89711fd84af1ee82abe1015e428dce0}} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!InputCommandHandler@{InputCommandHandler}}
+\index{InputCommandHandler@{InputCommandHandler}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{InputCommandHandler()}{InputCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Input\+Command\+Handler\+::\+Input\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClient_1_1Network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classClient_1_1InputCommandHandler}{Input\+Command\+Handler}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \mbox{\hyperlink{classClient_1_1Network}{Network}} instance used for handling network communications. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_1_1InputCommandHandler_aaead3d9a3f93fba4552a19b0712743ad}\label{classClient_1_1InputCommandHandler_aaead3d9a3f93fba4552a19b0712743ad}} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!getKey@{getKey}}
+\index{getKey@{getKey}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
+{\footnotesize\ttfamily const Game\+Engine\+::\+Keybinds \& Client\+::\+Input\+Command\+Handler\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the key associated with the input command. 
+
+\begin{DoxyReturn}{Returns}
+const Game\+Engine\+::\+Keybinds\& Reference to the key currently set for this input command. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_1_1InputCommandHandler_ad27a8a0e6e537f7df8133dce9fd3cf7e}\label{classClient_1_1InputCommandHandler_ad27a8a0e6e537f7df8133dce9fd3cf7e}} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!onResponse@{onResponse}}
+\index{onResponse@{onResponse}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{onResponse()}{onResponse()}}
+{\footnotesize\ttfamily void Client\+::\+Input\+Command\+Handler\+::on\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structResponse}{Response}} $\ast$}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle the server\textquotesingle{}s response to the input command. 
+
+Implements the on\+Response method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, processing the response received from the server in relation to the input command sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1InputCommandHandler_a234beadaa593eeec72ae849f4739157e}\label{classClient_1_1InputCommandHandler_a234beadaa593eeec72ae849f4739157e}} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!send@{send}}
+\index{send@{send}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void Client\+::\+Input\+Command\+Handler\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send the input command to the server. 
+
+Implements the send method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, specifically handling the sending of input commands to the server. 
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1InputCommandHandler_a825627254c05d7353b5c6a711ec7dec9}\label{classClient_1_1InputCommandHandler_a825627254c05d7353b5c6a711ec7dec9}} 
+\index{Client::InputCommandHandler@{Client::InputCommandHandler}!setKey@{setKey}}
+\index{setKey@{setKey}!Client::InputCommandHandler@{Client::InputCommandHandler}}
+\doxysubsubsection{\texorpdfstring{setKey()}{setKey()}}
+{\footnotesize\ttfamily void Client\+::\+Input\+Command\+Handler\+::set\+Key (\begin{DoxyParamCaption}\item[{Game\+Engine\+::\+Keybinds}]{key }\end{DoxyParamCaption})}
+
+
+
+Set the key for the input command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to be set for this input command. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/include/network/commands/Input.\+hpp\item 
+client/src/network/commands/Input.\+cpp\end{DoxyCompactItemize}

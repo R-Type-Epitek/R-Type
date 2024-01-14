@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('classNetwork_1_1UDPServer.html',''); i
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classNetwork_1_1UDPServer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Network::UDPServer Class Reference</div></div>
 </div><!--header-->
@@ -122,6 +123,106 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ae6efb6b05e6b6518195512e90a216d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a6ae6efb6b05e6b6518195512e90a216d">~UDPServer</a> ()</td></tr>
 <tr class="memdesc:a6ae6efb6b05e6b6518195512e90a216d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="classNetwork_1_1UDPServer.html" title="Manages a UDP server for handling network communication.">UDPServer</a>.  <a href="classNetwork_1_1UDPServer.html#a6ae6efb6b05e6b6518195512e90a216d">More...</a><br /></td></tr>
 <tr class="separator:a6ae6efb6b05e6b6518195512e90a216d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac32cc82757d28952e4429a16189b4216"><td class="memItemLeft" align="right" valign="top">boost::asio::ip::udp::socket &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ac32cc82757d28952e4429a16189b4216">getSocket</a> ()</td></tr>
+<tr class="memdesc:ac32cc82757d28952e4429a16189b4216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the UDP socket used by the server.  <a href="classNetwork_1_1UDPServer.html#ac32cc82757d28952e4429a16189b4216">More...</a><br /></td></tr>
+<tr class="separator:ac32cc82757d28952e4429a16189b4216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6577105fddee863d8d7bbae6f7bac2f7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a6577105fddee863d8d7bbae6f7bac2f7">getClients</a> ()</td></tr>
+<tr class="memdesc:a6577105fddee863d8d7bbae6f7bac2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of connected clients.  <a href="classNetwork_1_1UDPServer.html#a6577105fddee863d8d7bbae6f7bac2f7">More...</a><br /></td></tr>
+<tr class="separator:a6577105fddee863d8d7bbae6f7bac2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a01c57b42d3b2ee144cf7bd4aa9706e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::reference_wrapper&lt; <a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a9a01c57b42d3b2ee144cf7bd4aa9706e">getClientById</a> (int id)</td></tr>
+<tr class="memdesc:a9a01c57b42d3b2ee144cf7bd4aa9706e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the client by id.  <a href="classNetwork_1_1UDPServer.html#a9a01c57b42d3b2ee144cf7bd4aa9706e">More...</a><br /></td></tr>
+<tr class="separator:a9a01c57b42d3b2ee144cf7bd4aa9706e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc40e08966da73a1b12d380a0dce6053"><td class="memItemLeft" align="right" valign="top">boost::array&lt; char, 65536 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#abc40e08966da73a1b12d380a0dce6053">getRecvBuffer</a> () const</td></tr>
+<tr class="memdesc:abc40e08966da73a1b12d380a0dce6053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the receive buffer.  <a href="classNetwork_1_1UDPServer.html#abc40e08966da73a1b12d380a0dce6053">More...</a><br /></td></tr>
+<tr class="separator:abc40e08966da73a1b12d380a0dce6053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f7a52213bf27b1cd095cf526d6736ac"><td class="memItemLeft" align="right" valign="top">boost::asio::ip::udp::endpoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a9f7a52213bf27b1cd095cf526d6736ac">getRemoteEndpoint</a> () const</td></tr>
+<tr class="memdesc:a9f7a52213bf27b1cd095cf526d6736ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the remote endpoint.  <a href="classNetwork_1_1UDPServer.html#a9f7a52213bf27b1cd095cf526d6736ac">More...</a><br /></td></tr>
+<tr class="separator:a9f7a52213bf27b1cd095cf526d6736ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a421b82239515eafa196dc68cc573fc2b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classNetwork_1_1Room.html">Network::Room</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a421b82239515eafa196dc68cc573fc2b">getRooms</a> ()</td></tr>
+<tr class="memdesc:a421b82239515eafa196dc68cc573fc2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of rooms.  <a href="classNetwork_1_1UDPServer.html#a421b82239515eafa196dc68cc573fc2b">More...</a><br /></td></tr>
+<tr class="separator:a421b82239515eafa196dc68cc573fc2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c13629ee0ccbf4d9b12deb117080603"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a2c13629ee0ccbf4d9b12deb117080603">getNextClientIdAndIncrement</a> ()</td></tr>
+<tr class="memdesc:a2c13629ee0ccbf4d9b12deb117080603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the next client ID.  <a href="classNetwork_1_1UDPServer.html#a2c13629ee0ccbf4d9b12deb117080603">More...</a><br /></td></tr>
+<tr class="separator:a2c13629ee0ccbf4d9b12deb117080603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdff6274a3af6cd99c418197c4630a75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#abdff6274a3af6cd99c418197c4630a75">addClient</a> (<a class="el" href="classNetwork_1_1Client.html">Network::Client</a> client)</td></tr>
+<tr class="memdesc:abdff6274a3af6cd99c418197c4630a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a client.  <a href="classNetwork_1_1UDPServer.html#abdff6274a3af6cd99c418197c4630a75">More...</a><br /></td></tr>
+<tr class="separator:abdff6274a3af6cd99c418197c4630a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d43c1630c01f9eefa4909772057e9c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a8d43c1630c01f9eefa4909772057e9c8">initServer</a> (int port)</td></tr>
+<tr class="memdesc:a8d43c1630c01f9eefa4909772057e9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the server.  <a href="classNetwork_1_1UDPServer.html#a8d43c1630c01f9eefa4909772057e9c8">More...</a><br /></td></tr>
+<tr class="separator:a8d43c1630c01f9eefa4909772057e9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b4c1cd19635deb604ceb2a63839f4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ac4b4c1cd19635deb604ceb2a63839f4d">initRooms</a> (int count)</td></tr>
+<tr class="memdesc:ac4b4c1cd19635deb604ceb2a63839f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init the rooms.  <a href="classNetwork_1_1UDPServer.html#ac4b4c1cd19635deb604ceb2a63839f4d">More...</a><br /></td></tr>
+<tr class="separator:ac4b4c1cd19635deb604ceb2a63839f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a6fa9962f244fd7ba8578d89296874"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ac2a6fa9962f244fd7ba8578d89296874">startReceive</a> ()</td></tr>
+<tr class="memdesc:ac2a6fa9962f244fd7ba8578d89296874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start to receive data.  <a href="classNetwork_1_1UDPServer.html#ac2a6fa9962f244fd7ba8578d89296874">More...</a><br /></td></tr>
+<tr class="separator:ac2a6fa9962f244fd7ba8578d89296874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97d512d745687229613d23b27a71bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ac97d512d745687229613d23b27a71bae">handleReceive</a> (boost::system::error_code const &amp;error, std::size_t bytes_transferred)</td></tr>
+<tr class="memdesc:ac97d512d745687229613d23b27a71bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle receive data.  <a href="classNetwork_1_1UDPServer.html#ac97d512d745687229613d23b27a71bae">More...</a><br /></td></tr>
+<tr class="separator:ac97d512d745687229613d23b27a71bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4928e7aa98d5e037872d25cff45c9f8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a4928e7aa98d5e037872d25cff45c9f8a">updateClientLastMessageTimeFromData</a> (char *data)</td></tr>
+<tr class="memdesc:a4928e7aa98d5e037872d25cff45c9f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the client last message time from data.  <a href="classNetwork_1_1UDPServer.html#a4928e7aa98d5e037872d25cff45c9f8a">More...</a><br /></td></tr>
+<tr class="separator:a4928e7aa98d5e037872d25cff45c9f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac811ac0c540ab08eeb7fd4002e4af9d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ac811ac0c540ab08eeb7fd4002e4af9d4">sendToAll</a> (boost::asio::const_buffer const &amp;buffer)</td></tr>
+<tr class="memdesc:ac811ac0c540ab08eeb7fd4002e4af9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all clients.  <a href="classNetwork_1_1UDPServer.html#ac811ac0c540ab08eeb7fd4002e4af9d4">More...</a><br /></td></tr>
+<tr class="separator:ac811ac0c540ab08eeb7fd4002e4af9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a296cd50ace6d20256e4a94290bf1b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a9a296cd50ace6d20256e4a94290bf1b4">sendToAllClientsInRoom</a> (boost::asio::const_buffer const &amp;buffer, int roomId)</td></tr>
+<tr class="memdesc:a9a296cd50ace6d20256e4a94290bf1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all clients in a room.  <a href="classNetwork_1_1UDPServer.html#a9a296cd50ace6d20256e4a94290bf1b4">More...</a><br /></td></tr>
+<tr class="separator:a9a296cd50ace6d20256e4a94290bf1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c3186c7dcf335536c43e4d1564ee0e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a4c3186c7dcf335536c43e4d1564ee0e0">sendToAllClientsInRoomInGame</a> (boost::asio::const_buffer const &amp;buffer, int roomId)</td></tr>
+<tr class="memdesc:a4c3186c7dcf335536c43e4d1564ee0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to all clients in a room in game.  <a href="classNetwork_1_1UDPServer.html#a4c3186c7dcf335536c43e4d1564ee0e0">More...</a><br /></td></tr>
+<tr class="separator:a4c3186c7dcf335536c43e4d1564ee0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2f0877b54c60de4ca0a2d21696ba93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a9c2f0877b54c60de4ca0a2d21696ba93">sendToClient</a> (boost::asio::const_buffer const &amp;buffer, int id)</td></tr>
+<tr class="memdesc:a9c2f0877b54c60de4ca0a2d21696ba93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to a specific client.  <a href="classNetwork_1_1UDPServer.html#a9c2f0877b54c60de4ca0a2d21696ba93">More...</a><br /></td></tr>
+<tr class="separator:a9c2f0877b54c60de4ca0a2d21696ba93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d721dae9793f447e2199f8780096e53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a7d721dae9793f447e2199f8780096e53">handleSend</a> (boost::system::error_code const &amp;error, std::size_t bytesTransferred)</td></tr>
+<tr class="memdesc:a7d721dae9793f447e2199f8780096e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle the sending of data.  <a href="classNetwork_1_1UDPServer.html#a7d721dae9793f447e2199f8780096e53">More...</a><br /></td></tr>
+<tr class="separator:a7d721dae9793f447e2199f8780096e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31c0be7001a0123b1fe8434161665de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ad31c0be7001a0123b1fe8434161665de">processMessage</a> (<a class="el" href="structTimedMessage.html">TimedMessage</a> message)</td></tr>
+<tr class="memdesc:ad31c0be7001a0123b1fe8434161665de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a <a class="el" href="structTimedMessage.html" title="Used to represent a message with a timestamp.">TimedMessage</a>.  <a href="classNetwork_1_1UDPServer.html#ad31c0be7001a0123b1fe8434161665de">More...</a><br /></td></tr>
+<tr class="separator:ad31c0be7001a0123b1fe8434161665de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16bd0e5a013230d835b30a3b0cfd86d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a16bd0e5a013230d835b30a3b0cfd86d9">processResponse</a> (<a class="el" href="structResponse.html">Response</a> *response)</td></tr>
+<tr class="memdesc:a16bd0e5a013230d835b30a3b0cfd86d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process a <a class="el" href="structResponse.html" title="Structure representing a complete network message.">Response</a>.  <a href="classNetwork_1_1UDPServer.html#a16bd0e5a013230d835b30a3b0cfd86d9">More...</a><br /></td></tr>
+<tr class="separator:a16bd0e5a013230d835b30a3b0cfd86d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabec654d8576481b31d0c1e689b66699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#aabec654d8576481b31d0c1e689b66699">workerFunction</a> ()</td></tr>
+<tr class="memdesc:aabec654d8576481b31d0c1e689b66699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function executed by worker threads.  <a href="classNetwork_1_1UDPServer.html#aabec654d8576481b31d0c1e689b66699">More...</a><br /></td></tr>
+<tr class="separator:aabec654d8576481b31d0c1e689b66699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4031d156ae82ff57038b16f3d214d781"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a4031d156ae82ff57038b16f3d214d781">createMessageBuffer</a> (int clientId, std::string const &amp;command, char const data[]=nullptr, int dataSize=0)</td></tr>
+<tr class="memdesc:a4031d156ae82ff57038b16f3d214d781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a message to a client command.  <a href="classNetwork_1_1UDPServer.html#a4031d156ae82ff57038b16f3d214d781">More...</a><br /></td></tr>
+<tr class="separator:a4031d156ae82ff57038b16f3d214d781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a2583c36c354de1725dcfab25c5e14d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a0a2583c36c354de1725dcfab25c5e14d">createResponseBuffer</a> (int clientId, <a class="el" href="structMessageHeader.html">MessageHeader</a> const &amp;messageHeader, std::string const &amp;statusMessage, char const data[]=nullptr, int dataSize=0, int status=RES_SUCCESS)</td></tr>
+<tr class="memdesc:a0a2583c36c354de1725dcfab25c5e14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a response to a client command.  <a href="classNetwork_1_1UDPServer.html#a0a2583c36c354de1725dcfab25c5e14d">More...</a><br /></td></tr>
+<tr class="separator:a0a2583c36c354de1725dcfab25c5e14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6df6365d9c49e58434876ef104817a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ae6df6365d9c49e58434876ef104817a9">sendResponseAndLog</a> (<a class="el" href="structTimedMessage.html">TimedMessage</a> timedMessage, std::vector&lt; char &gt; responseBuffer)</td></tr>
+<tr class="memdesc:ae6df6365d9c49e58434876ef104817a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a response and log it.  <a href="classNetwork_1_1UDPServer.html#ae6df6365d9c49e58434876ef104817a9">More...</a><br /></td></tr>
+<tr class="separator:ae6df6365d9c49e58434876ef104817a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2d04421510f1fd72b2158aa171241e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ab2d04421510f1fd72b2158aa171241e9">isClientRegistered</a> (int clientId)</td></tr>
+<tr class="memdesc:ab2d04421510f1fd72b2158aa171241e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a client is registered.  <a href="classNetwork_1_1UDPServer.html#ab2d04421510f1fd72b2158aa171241e9">More...</a><br /></td></tr>
+<tr class="separator:ab2d04421510f1fd72b2158aa171241e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82f424a15da216aade28273353dad9eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a82f424a15da216aade28273353dad9eb">registerCommandHandlers</a> ()</td></tr>
+<tr class="memdesc:a82f424a15da216aade28273353dad9eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register command handlers.  <a href="classNetwork_1_1UDPServer.html#a82f424a15da216aade28273353dad9eb">More...</a><br /></td></tr>
+<tr class="separator:a82f424a15da216aade28273353dad9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9906b402d8c7af8b1b6f9d4332bb60c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#af9906b402d8c7af8b1b6f9d4332bb60c">checkClientTimers</a> ()</td></tr>
+<tr class="memdesc:af9906b402d8c7af8b1b6f9d4332bb60c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check client timers.  <a href="classNetwork_1_1UDPServer.html#af9906b402d8c7af8b1b6f9d4332bb60c">More...</a><br /></td></tr>
+<tr class="separator:af9906b402d8c7af8b1b6f9d4332bb60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace11e347c4bfbad29bfe8d1cb6f2bba2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ace11e347c4bfbad29bfe8d1cb6f2bba2">startClientTimerCheck</a> ()</td></tr>
+<tr class="memdesc:ace11e347c4bfbad29bfe8d1cb6f2bba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the client timer check.  <a href="classNetwork_1_1UDPServer.html#ace11e347c4bfbad29bfe8d1cb6f2bba2">More...</a><br /></td></tr>
+<tr class="separator:ace11e347c4bfbad29bfe8d1cb6f2bba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af419e1866cc5630292523ae901aa7c0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#af419e1866cc5630292523ae901aa7c0f">gameLoop</a> ()</td></tr>
+<tr class="memdesc:af419e1866cc5630292523ae901aa7c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Game loop.  <a href="classNetwork_1_1UDPServer.html#af419e1866cc5630292523ae901aa7c0f">More...</a><br /></td></tr>
+<tr class="separator:af419e1866cc5630292523ae901aa7c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d3c03a7b8e6d002d8938e70fd4ba36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#ac1d3c03a7b8e6d002d8938e70fd4ba36">notifyAndRemoveClient</a> (int clientId)</td></tr>
+<tr class="memdesc:ac1d3c03a7b8e6d002d8938e70fd4ba36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify and remove a client.  <a href="classNetwork_1_1UDPServer.html#ac1d3c03a7b8e6d002d8938e70fd4ba36">More...</a><br /></td></tr>
+<tr class="separator:ac1d3c03a7b8e6d002d8938e70fd4ba36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60ae214e6da64da40df29b14970b25a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1UDPServer.html#a60ae214e6da64da40df29b14970b25a1">sendCheckConnection</a> (int clientId)</td></tr>
+<tr class="memdesc:a60ae214e6da64da40df29b14970b25a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a check connection message.  <a href="classNetwork_1_1UDPServer.html#a60ae214e6da64da40df29b14970b25a1">More...</a><br /></td></tr>
+<tr class="separator:a60ae214e6da64da40df29b14970b25a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aef0ef5329ac37e03dd21cc4ea24b65db"><td class="memItemLeft" align="right" valign="top"><a id="aef0ef5329ac37e03dd21cc4ea24b65db" name="aef0ef5329ac37e03dd21cc4ea24b65db"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>roomsMutex</b></td></tr>
+<tr class="memdesc:aef0ef5329ac37e03dd21cc4ea24b65db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for room management. <br /></td></tr>
+<tr class="separator:aef0ef5329ac37e03dd21cc4ea24b65db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Manages a UDP server for handling network communication. </p>
@@ -212,9 +313,885 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abdff6274a3af6cd99c418197c4630a75" name="abdff6274a3af6cd99c418197c4630a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdff6274a3af6cd99c418197c4630a75">&#9670;&nbsp;</a></span>addClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::addClient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNetwork_1_1Client.html">Network::Client</a>&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a client. </p>
+<p >Adds the specified client to the list of connected clients.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client</td><td><a class="el" href="classNetwork_1_1Client.html" title="Represents a network client.">Network::Client</a> to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af9906b402d8c7af8b1b6f9d4332bb60c" name="af9906b402d8c7af8b1b6f9d4332bb60c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9906b402d8c7af8b1b6f9d4332bb60c">&#9670;&nbsp;</a></span>checkClientTimers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::checkClientTimers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check client timers. </p>
+<p >Check the timers of all clients and remove inactive clients. </p>
+
+</div>
+</div>
+<a id="a4031d156ae82ff57038b16f3d214d781" name="a4031d156ae82ff57038b16f3d214d781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4031d156ae82ff57038b16f3d214d781">&#9670;&nbsp;</a></span>createMessageBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; char &gt; Network::UDPServer::createMessageBuffer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>clientId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const&#160;</td>
+          <td class="paramname"><em>data</em>[] = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dataSize</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a message to a client command. </p>
+<p >Create a message buffer to send to the client with the specified ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>Integer specifying the ID of the client to send the message to. </td></tr>
+    <tr><td class="paramname">command</td><td>String containing the command to send. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the data to send. </td></tr>
+    <tr><td class="paramname">dataSize</td><td>Integer specifying the size of the data to send.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing the message. </dd></dl>
+
+</div>
+</div>
+<a id="a0a2583c36c354de1725dcfab25c5e14d" name="a0a2583c36c354de1725dcfab25c5e14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a2583c36c354de1725dcfab25c5e14d">&#9670;&nbsp;</a></span>createResponseBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; char &gt; Network::UDPServer::createResponseBuffer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>clientId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structMessageHeader.html">MessageHeader</a> const &amp;&#160;</td>
+          <td class="paramname"><em>messageHeader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>statusMessage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const&#160;</td>
+          <td class="paramname"><em>data</em>[] = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dataSize</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>status</em> = <code>RES_SUCCESS</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a response to a client command. </p>
+<p >Create a response buffer to send to the client with the specified ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>Integer specifying the ID of the client to send the response to. </td></tr>
+    <tr><td class="paramname">messageHeader</td><td><a class="el" href="structMessageHeader.html" title="Structure representing the header of a network message.">MessageHeader</a> containing the header of the message to which the response is sent. </td></tr>
+    <tr><td class="paramname">statusMessage</td><td>String containing the status message to send. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the data to send. </td></tr>
+    <tr><td class="paramname">status</td><td>Integer specifying the status code to send.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing the response. </dd></dl>
+
+</div>
+</div>
+<a id="af419e1866cc5630292523ae901aa7c0f" name="af419e1866cc5630292523ae901aa7c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af419e1866cc5630292523ae901aa7c0f">&#9670;&nbsp;</a></span>gameLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::gameLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Game loop. </p>
+<p >Game loop for the server. </p>
+
+</div>
+</div>
+<a id="a9a01c57b42d3b2ee144cf7bd4aa9706e" name="a9a01c57b42d3b2ee144cf7bd4aa9706e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a01c57b42d3b2ee144cf7bd4aa9706e">&#9670;&nbsp;</a></span>getClientById()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; std::reference_wrapper&lt; <a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &gt; &gt; Network::UDPServer::getClientById </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the client by id. </p>
+<p >Return the client correponding to the given id.</p>
+<dl class="section return"><dt>Returns</dt><dd>std::optional&lt;Network::Client &amp;&gt; containing the client </dd></dl>
+
+</div>
+</div>
+<a id="a6577105fddee863d8d7bbae6f7bac2f7" name="a6577105fddee863d8d7bbae6f7bac2f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6577105fddee863d8d7bbae6f7bac2f7">&#9670;&nbsp;</a></span>getClients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classNetwork_1_1Client.html">Network::Client</a> &gt; &amp; Network::UDPServer::getClients </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the list of connected clients. </p>
+<p >Returns a vector containing the list of clients currently connected to the server.</p>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing the list of connected clients. </dd></dl>
+
+</div>
+</div>
+<a id="a2c13629ee0ccbf4d9b12deb117080603" name="a2c13629ee0ccbf4d9b12deb117080603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c13629ee0ccbf4d9b12deb117080603">&#9670;&nbsp;</a></span>getNextClientIdAndIncrement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Network::UDPServer::getNextClientIdAndIncrement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the next client ID. </p>
+<p >Returns the ID of the next client to connect to the server and increments the ID.</p>
+<dl class="section return"><dt>Returns</dt><dd>Integer specifying the ID of the next client to connect. </dd></dl>
+
+</div>
+</div>
+<a id="abc40e08966da73a1b12d380a0dce6053" name="abc40e08966da73a1b12d380a0dce6053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc40e08966da73a1b12d380a0dce6053">&#9670;&nbsp;</a></span>getRecvBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::array&lt; char, 65536 &gt; Network::UDPServer::getRecvBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the receive buffer. </p>
+<p >Returns a boost::array containing the receive buffer used by the server.</p>
+<dl class="section return"><dt>Returns</dt><dd>boost::array containing the receive buffer. </dd></dl>
+
+</div>
+</div>
+<a id="a9f7a52213bf27b1cd095cf526d6736ac" name="a9f7a52213bf27b1cd095cf526d6736ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f7a52213bf27b1cd095cf526d6736ac">&#9670;&nbsp;</a></span>getRemoteEndpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::asio::ip::udp::endpoint Network::UDPServer::getRemoteEndpoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the remote endpoint. </p>
+<p >Returns a boost::asio::ip::udp::endpoint containing the remote endpoint.</p>
+<dl class="section return"><dt>Returns</dt><dd>boost::asio::ip::udp::endpoint containing the remote endpoint. </dd></dl>
+
+</div>
+</div>
+<a id="a421b82239515eafa196dc68cc573fc2b" name="a421b82239515eafa196dc68cc573fc2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a421b82239515eafa196dc68cc573fc2b">&#9670;&nbsp;</a></span>getRooms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classNetwork_1_1Room.html">Network::Room</a> &gt; &amp; Network::UDPServer::getRooms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the list of rooms. </p>
+<p >Returns a vector containing the list of rooms currently available on the server.</p>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing the list of rooms. </dd></dl>
+
+</div>
+</div>
+<a id="ac32cc82757d28952e4429a16189b4216" name="ac32cc82757d28952e4429a16189b4216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac32cc82757d28952e4429a16189b4216">&#9670;&nbsp;</a></span>getSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::asio::ip::udp::socket &amp; Network::UDPServer::getSocket </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the UDP socket used by the server. </p>
+<p >Returns a reference to the UDP socket used by the server for communication.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the UDP socket. </dd></dl>
+
+</div>
+</div>
+<a id="ac97d512d745687229613d23b27a71bae" name="ac97d512d745687229613d23b27a71bae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac97d512d745687229613d23b27a71bae">&#9670;&nbsp;</a></span>handleReceive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::handleReceive </td>
+          <td>(</td>
+          <td class="paramtype">boost::system::error_code const &amp;&#160;</td>
+          <td class="paramname"><em>error</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>bytes_transferred</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle receive data. </p>
+<p >Handle the received data by creating a new <a class="el" href="structTimedMessage.html" title="Used to represent a message with a timestamp.">TimedMessage</a> and pushing it into the message queue. </p>
+
+</div>
+</div>
+<a id="a7d721dae9793f447e2199f8780096e53" name="a7d721dae9793f447e2199f8780096e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d721dae9793f447e2199f8780096e53">&#9670;&nbsp;</a></span>handleSend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::handleSend </td>
+          <td>(</td>
+          <td class="paramtype">boost::system::error_code const &amp;&#160;</td>
+          <td class="paramname"><em>error</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>bytesTransferred</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle the sending of data. </p>
+<p >Handle the sending of data.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>boost::system::error_code containing the error code. </td></tr>
+    <tr><td class="paramname">bytesTransferred</td><td>std::size_t containing the number of bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4b4c1cd19635deb604ceb2a63839f4d" name="ac4b4c1cd19635deb604ceb2a63839f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4b4c1cd19635deb604ceb2a63839f4d">&#9670;&nbsp;</a></span>initRooms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::initRooms </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Init the rooms. </p>
+<p >Initializes the rooms by creating the specified number of rooms.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Integer specifying the number of rooms to create. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8d43c1630c01f9eefa4909772057e9c8" name="a8d43c1630c01f9eefa4909772057e9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d43c1630c01f9eefa4909772057e9c8">&#9670;&nbsp;</a></span>initServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::initServer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the server. </p>
+<p >Initializes the server by binding the socket to the specified port and starting the worker threads.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Integer specifying the port number on which the server will listen. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2d04421510f1fd72b2158aa171241e9" name="ab2d04421510f1fd72b2158aa171241e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2d04421510f1fd72b2158aa171241e9">&#9670;&nbsp;</a></span>isClientRegistered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Network::UDPServer::isClientRegistered </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>clientId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a client is registered. </p>
+<p >Check if the client with the specified ID is registered to the server.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>Integer specifying the ID of the client to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Boolean indicating whether the client is registered. </dd></dl>
+
+</div>
+</div>
+<a id="ac1d3c03a7b8e6d002d8938e70fd4ba36" name="ac1d3c03a7b8e6d002d8938e70fd4ba36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1d3c03a7b8e6d002d8938e70fd4ba36">&#9670;&nbsp;</a></span>notifyAndRemoveClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::notifyAndRemoveClient </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>clientId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Notify and remove a client. </p>
+<p >Notify all clients in the room of the client that the specified client has been removed and remove it from the list of clients.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>Integer specifying the ID of the client to remove.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classNetwork_1_1Room.html" title="Represents a room in the network context.">Network::Room</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad31c0be7001a0123b1fe8434161665de" name="ad31c0be7001a0123b1fe8434161665de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31c0be7001a0123b1fe8434161665de">&#9670;&nbsp;</a></span>processMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::processMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTimedMessage.html">TimedMessage</a>&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Process a <a class="el" href="structTimedMessage.html" title="Used to represent a message with a timestamp.">TimedMessage</a>. </p>
+<p >Process the specified <a class="el" href="structTimedMessage.html" title="Used to represent a message with a timestamp.">TimedMessage</a> by calling the appropriate command handler. </p>
+
+</div>
+</div>
+<a id="a16bd0e5a013230d835b30a3b0cfd86d9" name="a16bd0e5a013230d835b30a3b0cfd86d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16bd0e5a013230d835b30a3b0cfd86d9">&#9670;&nbsp;</a></span>processResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::processResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structResponse.html">Response</a> *&#160;</td>
+          <td class="paramname"><em>response</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Process a <a class="el" href="structResponse.html" title="Structure representing a complete network message.">Response</a>. </p>
+<p >Process the specified <a class="el" href="structResponse.html" title="Structure representing a complete network message.">Response</a> by sending it to the client and logging it.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">response</td><td><a class="el" href="structResponse.html" title="Structure representing a complete network message.">Response</a> to process. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a82f424a15da216aade28273353dad9eb" name="a82f424a15da216aade28273353dad9eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82f424a15da216aade28273353dad9eb">&#9670;&nbsp;</a></span>registerCommandHandlers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::registerCommandHandlers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register command handlers. </p>
+<p >Register all command handlers for the server.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classNetwork_1_1ICommandHandler.html" title="Interface for handling network commands.">ICommandHandler</a> </dd></dl>
+
+</div>
+</div>
+<a id="a60ae214e6da64da40df29b14970b25a1" name="a60ae214e6da64da40df29b14970b25a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ae214e6da64da40df29b14970b25a1">&#9670;&nbsp;</a></span>sendCheckConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::sendCheckConnection </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>clientId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a check connection message. </p>
+<p >Send a check connection message to the client with the specified ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>Integer specifying the ID of the client to send the message to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae6df6365d9c49e58434876ef104817a9" name="ae6df6365d9c49e58434876ef104817a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6df6365d9c49e58434876ef104817a9">&#9670;&nbsp;</a></span>sendResponseAndLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::sendResponseAndLog </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structTimedMessage.html">TimedMessage</a>&#160;</td>
+          <td class="paramname"><em>timedMessage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>responseBuffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a response and log it. </p>
+<p >Send the specified response to the client with the specified ID and log it.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timedMessage</td><td><a class="el" href="structTimedMessage.html" title="Used to represent a message with a timestamp.">TimedMessage</a> containing the message to which the response is sent. </td></tr>
+    <tr><td class="paramname">responseBuffer</td><td>Vector containing the response to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac811ac0c540ab08eeb7fd4002e4af9d4" name="ac811ac0c540ab08eeb7fd4002e4af9d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac811ac0c540ab08eeb7fd4002e4af9d4">&#9670;&nbsp;</a></span>sendToAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::sendToAll </td>
+          <td>(</td>
+          <td class="paramtype">boost::asio::const_buffer const &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send data to all clients. </p>
+<p >Send the specified data to all clients connected to the server.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>boost::asio::const_buffer containing the data to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a296cd50ace6d20256e4a94290bf1b4" name="a9a296cd50ace6d20256e4a94290bf1b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a296cd50ace6d20256e4a94290bf1b4">&#9670;&nbsp;</a></span>sendToAllClientsInRoom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::sendToAllClientsInRoom </td>
+          <td>(</td>
+          <td class="paramtype">boost::asio::const_buffer const &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>roomId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send data to all clients in a room. </p>
+<p >Send the specified data to all clients in the room with the specified ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>boost::asio::const_buffer containing the data to send. </td></tr>
+    <tr><td class="paramname">roomId</td><td>Integer specifying the ID of the room to send the data to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4c3186c7dcf335536c43e4d1564ee0e0" name="a4c3186c7dcf335536c43e4d1564ee0e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c3186c7dcf335536c43e4d1564ee0e0">&#9670;&nbsp;</a></span>sendToAllClientsInRoomInGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::sendToAllClientsInRoomInGame </td>
+          <td>(</td>
+          <td class="paramtype">boost::asio::const_buffer const &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>roomId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send data to all clients in a room in game. </p>
+<p >Send the specified data to all clients in the room with the specified ID that are in game.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>boost::asio::const_buffer containing the data to send. </td></tr>
+    <tr><td class="paramname">roomId</td><td>Integer specifying the ID of the room to send the data to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9c2f0877b54c60de4ca0a2d21696ba93" name="a9c2f0877b54c60de4ca0a2d21696ba93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2f0877b54c60de4ca0a2d21696ba93">&#9670;&nbsp;</a></span>sendToClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::sendToClient </td>
+          <td>(</td>
+          <td class="paramtype">boost::asio::const_buffer const &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send data to a specific client. </p>
+<p >Send the specified data to the client with the specified ID.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>boost::asio::const_buffer containing the data to send. </td></tr>
+    <tr><td class="paramname">id</td><td>Integer specifying the ID of the client to send the data to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ace11e347c4bfbad29bfe8d1cb6f2bba2" name="ace11e347c4bfbad29bfe8d1cb6f2bba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace11e347c4bfbad29bfe8d1cb6f2bba2">&#9670;&nbsp;</a></span>startClientTimerCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::startClientTimerCheck </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start the client timer check. </p>
+<p >Start the timer for checking client timers. </p>
+
+</div>
+</div>
+<a id="ac2a6fa9962f244fd7ba8578d89296874" name="ac2a6fa9962f244fd7ba8578d89296874"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a6fa9962f244fd7ba8578d89296874">&#9670;&nbsp;</a></span>startReceive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::startReceive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start to receive data. </p>
+<p >Start to listen for incoming data on the socket. </p>
+
+</div>
+</div>
+<a id="a4928e7aa98d5e037872d25cff45c9f8a" name="a4928e7aa98d5e037872d25cff45c9f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4928e7aa98d5e037872d25cff45c9f8a">&#9670;&nbsp;</a></span>updateClientLastMessageTimeFromData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::updateClientLastMessageTimeFromData </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update the client last message time from data. </p>
+<p >Update the last message time of the client with the specified ID from the specified data.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Pointer to the data containing the client ID. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aabec654d8576481b31d0c1e689b66699" name="aabec654d8576481b31d0c1e689b66699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabec654d8576481b31d0c1e689b66699">&#9670;&nbsp;</a></span>workerFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::UDPServer::workerFunction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function executed by worker threads. </p>
+<p >Function executed by worker threads. It pops a <a class="el" href="structTimedMessage.html" title="Used to represent a message with a timestamp.">TimedMessage</a> from the message queue, logged the message header and calls the processMessage function. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/raphael/epitech/tech3/OOP/R-Type/server/include/<a class="el" href="UDPServer_8hpp_source.html">UDPServer.hpp</a></li>
-<li>/home/raphael/epitech/tech3/OOP/R-Type/server/src/UDPServer.cpp</li>
+<li>server/include/<a class="el" href="UDPServer_8hpp_source.html">UDPServer.hpp</a></li>
+<li>server/src/UDPServer.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

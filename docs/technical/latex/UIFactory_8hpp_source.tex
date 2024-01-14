@@ -1,0 +1,53 @@
+\hypertarget{UIFactory_8hpp_source}{}\doxysection{UIFactory.\+hpp}
+\label{UIFactory_8hpp_source}\index{gameEngine/include/gameEngine/UI/UIFactory.hpp@{gameEngine/include/gameEngine/UI/UIFactory.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/12/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/component/NetworkedEntity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}gameEngine/component/Position.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}gameEngine/component/Clickable.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}gameEngine/component/Displayable.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}gameEngine/component/Text.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}gameEngine/component/UiElement.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <nlohmann/json.hpp>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }GameEngine::UI}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20   \textcolor{keyword}{using }json = nlohmann::json;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1UI_1_1UIFactory}{UIFactory}} \{}
+\DoxyCodeLine{23    \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{classGameEngine_1_1UI_1_1UIFactory}{UIFactory}}(std::vector<GameEngine::ECS::Entity> \&entities, \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{GameEngine::ECS::Registry}} \&registry)}
+\DoxyCodeLine{25       : m\_entities(entities)}
+\DoxyCodeLine{26       , m\_registry(registry) \{\};}
+\DoxyCodeLine{27     \mbox{\hyperlink{classGameEngine_1_1UI_1_1UIFactory}{\string~UIFactory}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} loadUIFromJSON(\textcolor{keyword}{const} std::string \&jsonFilePath);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} createUIEntity(\textcolor{keyword}{const} json \&config);}
+\DoxyCodeLine{31     std::map<std::string, ECS::Entity> getUIElements();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} parseDisplayable(\textcolor{keyword}{const} GameEngine::ECS::Entity \&entity, \textcolor{keyword}{const} json \&config);}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} parseText(\textcolor{keyword}{const} GameEngine::ECS::Entity \&entity, \textcolor{keyword}{const} json \&config);}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} parsePosition(\textcolor{keyword}{const} GameEngine::ECS::Entity \&entity, \textcolor{keyword}{const} json \&config);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} parseClickable(\textcolor{keyword}{const} GameEngine::ECS::Entity \&entity, \textcolor{keyword}{const} json \&config);}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} parseUIElement(\textcolor{keyword}{const} GameEngine::ECS::Entity \&entity, \textcolor{keyword}{const} json \&config);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39    \textcolor{keyword}{private}:}
+\DoxyCodeLine{40     \textcolor{keyword}{using }\mbox{\hyperlink{classGameEngine_1_1Asset_1_1AssetManager}{AssetManager}} = \mbox{\hyperlink{classGameEngine_1_1Asset_1_1AssetManager}{GameEngine::Asset::AssetManager}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     std::map<std::string, GameEngine::ECS::Entity> m\_uiElements;}
+\DoxyCodeLine{43     std::vector<GameEngine::ECS::Entity> \&m\_entities; }
+\DoxyCodeLine{44     \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{GameEngine::ECS::Registry}} \&m\_registry;            }
+\DoxyCodeLine{45   \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \} \textcolor{comment}{// namespace UI}}
+
+\end{DoxyCode}
