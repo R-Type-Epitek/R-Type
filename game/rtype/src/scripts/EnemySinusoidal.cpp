@@ -28,11 +28,13 @@ namespace Rtype::Script
     auto &transform = componentManager->getComponent<ComponentRType::Transform>(m_entity);
     auto &position = componentManager->getComponent<ComponentRType::Position>(m_entity);
 
-    static const double amplitude = transform.speed;
-    double frequency = position.position.x / 50;
+    static const double amplitude = 500.0;
+    static const double frequency = 0.1;
 
     transform.movement.x = transform.speed;
-    transform.movement.y = amplitude * std::sin(frequency);
+
+    float y = amplitude * std::sin(frequency * (position.position.x)) / 200;
+    transform.movement.y = y;
   }
 
 } // namespace GameEngine::Script
