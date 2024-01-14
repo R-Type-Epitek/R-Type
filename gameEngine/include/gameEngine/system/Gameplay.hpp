@@ -16,13 +16,13 @@ namespace GameEngine::System
    public:
     void update()
     {
-      auto &componentManager = getEcsRegistry().getComponentManager();
-      auto &stats = componentManager->getComponent<ComponentRType::Stats>();
-      std::cout << "PLAYER HEALTH IS 0 => DEAD" << std::endl;
-      stats.health -= 1;
-      if (stats.health <= 0) {
-        // entity.destroy();
-      }
+      // auto &componentManager = getEcsRegistry().getComponentManager();
+      // auto &health = componentManager->getComponent<ComponentRType::Health>();
+      std::cout << "PLAYER HEALTH SYSTEM" << std::endl;
+      // health.health -= 1;
+      // if (health.health <= 0) {
+      //   // entity.destroy();
+      // }
     }
   };
 } // namespace GameEngine::System

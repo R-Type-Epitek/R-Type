@@ -1,4 +1,24 @@
 {
   "ui": [
+    {
+      "name": "Health",
+      "type": "Text",
+      "position": {
+        "x": 972,
+        "y": 346
+      },
+      "content": "Health player:",
+      "fontSize": 24
+    },
+    {
+      "name": "Score",
+      "type": "Text",
+      "position": {
+        "x": 1008,
+        "y": 728
+      },
+      "content": "Score:",
+      "fontSize": 24
+    }
   ]
 }

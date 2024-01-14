@@ -3,7 +3,7 @@
 //
 
 #include "gameEngine/entity/ConfigLoader.hpp"
-#include "gameEngine/asset/AssetManager.hpp"
+#include <fstream>
 #include "spdlog/spdlog.h"
 
 namespace GameEngine::Entity
@@ -88,6 +88,7 @@ namespace GameEngine::Entity
       tryParseComponents(name, "Gravity", entityTplt, element, &ConfigLoader::parseGravity);
       tryParseComponents(name, "Hitbox", entityTplt, element, &ConfigLoader::parseHitbox);
       tryParseComponents(name, "Parallax", entityTplt, element, &ConfigLoader::parseParallax);
+      tryParseComponents(name, "Health", entityTplt, element, &ConfigLoader::parseHealth);
     }
     return entityTplt;
   }
@@ -175,4 +176,13 @@ namespace GameEngine::Entity
     entity.blueprint.parallax = true;
   }
 
+  void ConfigLoader::parseHealth(EntityTemplate &entity, const json &config)
+  {
+    entity.blueprint.health = true;
+    int health = config.value("health", 0);
+    std ::cout << "PARSE HEALTH: " << std::endl;
+    // int damage = config.value("damage", 0);
+    // entity.health.health = health;
+    // entity.health.damage = damage;
+  }
 } // namespace GameEngine::Loader

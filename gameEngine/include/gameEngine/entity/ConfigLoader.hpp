@@ -3,12 +3,8 @@
 //
 
 #pragma once
-#include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
-#include <assert.h>
-#include <fstream>
-#include <vector>
 #include "gameEngine/entity/EntityFactory.hpp"
 
 namespace GameEngine::Entity
@@ -42,6 +38,7 @@ namespace GameEngine::Entity
     void parseGravity(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseHitbox(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseParallax(GameEngine::Entity::EntityTemplate &entity, const json &config);
+    void parseHealth(GameEngine::Entity::EntityTemplate &entity, const json &config);
 
    private:
     json m_config;

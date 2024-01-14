@@ -16,6 +16,7 @@
 #include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/component/Text.hpp"
 #include "gameEngine/component/UiElement.hpp"
+#include "gameEngine/component/Health.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -34,6 +35,7 @@
 #include "gameEngine/system/Spawning.hpp"
 #include "gameEngine/system/NetworkEventPusher.hpp"
 #include "gameEngine/system/UI.hpp"
+#include "gameEngine/system/Gameplay.hpp"
 
 #include <memory>
 #include <utility>
@@ -70,6 +72,7 @@ namespace GameEngine::Builder
     registerComponent<ComponentRType::Hitbox>();
     registerComponent<ComponentRType::Text>();
     registerComponent<ComponentRType::UIElement>();
+    registerComponent<ComponentRType::Health>();
   }
 
   void RegistryBuilder::buildSystemAnimation()
@@ -205,6 +208,18 @@ namespace GameEngine::Builder
     signature.set(m_registry->getComponentType<ComponentRType::Clickable>());
     signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     signature.set(m_registry->getComponentType<ComponentRType::UIElement>());
+    m_registry->setSystemSignature<SystemType>(signature);
+  }
+
+  void RegistryBuilder::buildSystemGameplay()
+  {
+    using SystemType = GameEngine::System::Gameplay;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Health>());
+    signature.set(m_registry->getComponentType<ComponentRType::NetworkedEntity>());
+    signature.set(m_registry->getComponentType<ComponentRType::Text>());
     m_registry->setSystemSignature<SystemType>(signature);
   }
 

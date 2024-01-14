@@ -27,6 +27,7 @@ namespace GameEngine::Entity
       archive & gravity;
       archive & hitbox;
       archive & parallax;
+      archive & health;
     }
 
     bool transform = false;
@@ -39,6 +40,7 @@ namespace GameEngine::Entity
     bool gravity = false;
     bool hitbox = false;
     bool parallax = false;
+    bool health = false;
   };
 
 } // namespace GameEngine::Entity

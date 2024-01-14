@@ -32,6 +32,7 @@ namespace GameEngine::Scene
     builder.buildSystemUI();
     builder.buildSystemEcsSerializer();
     builder.buildSystemParallax();
+    builder.buildSystemGameplay();
     m_ecsRegistry = builder.getResult();
   }
 
