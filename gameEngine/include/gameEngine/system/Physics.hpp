@@ -84,7 +84,7 @@ namespace GameEngine::System
       }
 
       // Check for collision to stop velocity
-      if (event.maskA != -1 && event.maskB != -1 && event.maskA != event.maskB) {
+      if ((event.maskA != -1 && event.maskB != -1) || (event.maskA != event.maskB)) {
         return;
       }
       auto& componentManager = getEcsRegistry().getComponentManager();
