@@ -26,8 +26,11 @@ namespace Rtype::Script
     auto &componentManager = m_ecsRegistry->getComponentManager();
     auto &transform = componentManager->getComponent<ComponentRType::Transform>(m_entity);
 
-    transform.movement.x = transform.speed;
-    transform.movement.y = -2;
+    if (transform.movement.x > 0) {
+      transform.movement.x = transform.speed;
+    } else {
+      transform.movement.x = -transform.speed;
+    }
   }
 
 } // namespace GameEngine::Script
