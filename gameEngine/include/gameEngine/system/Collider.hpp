@@ -44,7 +44,6 @@ namespace GameEngine::System
         return;
       }
       auto& componentManager = getEcsRegistry().getComponentManager();
-      auto& otherSpriteC = componentManager->getComponent<ComponentRType::Displayable>(otherEntity);
       const auto globalBounds =
         componentManager->getComponent<ComponentRType::Displayable>(entity).sprite.getGlobalBounds();
       const auto globalBoundsOther =
