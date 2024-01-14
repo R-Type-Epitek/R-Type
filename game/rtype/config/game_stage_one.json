@@ -29,6 +29,9 @@
           }
         },
         {
+          "name": "Parallax"
+        },
+        {
           "name": "Transform",
           "movement": {
             "x": -2,
@@ -132,8 +135,8 @@
         {
           "name": "Position",
           "position": {
-            "x": 0,
-            "y": 0
+            "x": 250,
+            "y": 150
           }
         },
         {
@@ -148,15 +151,15 @@
   ],
   "entities": [
     {
+      "baseType": "Background",
+      "type": "Parallax"
+    },
+    {
       "baseType": "Enemy",
       "type": "Boss",
       "health": 100,
       "attackPattern": "Zigzag",
       "speed": 2
-    },
-    {
-      "baseType": "Background",
-      "type": "Parallax"
     }
   ],
   "powerUps": [

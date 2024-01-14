@@ -13,6 +13,7 @@
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Hitbox.hpp"
+#include "gameEngine/component/Parallax.hpp"
 #include "gameEngine/entity/EntityBuilder.hpp"
 #include "spdlog/spdlog.h"
 
@@ -85,6 +86,9 @@ namespace GameEngine::Entity
     if (bluePrint.hitbox) {
       builder.buildComponent(ComponentRType::Hitbox {});
     }
+    if (bluePrint.parallax) {
+      builder.buildComponent(ComponentRType::Parallax {});
+    }
     auto entity = builder.getResult();
     m_entities.push_back(entity);
     return entity;
@@ -113,6 +117,9 @@ namespace GameEngine::Entity
     }
     if (entityTemplate.blueprint.hitbox) {
       builder.buildComponent(std::move(entityTemplate.hitbox));
+    }
+    if (entityTemplate.blueprint.parallax) {
+      builder.buildComponent(std::move(entityTemplate.parallax));
     }
     if (entityTemplate.blueprint.displayable) {
       auto &ref = entityTemplate.displayable;

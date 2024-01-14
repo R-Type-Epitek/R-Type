@@ -147,7 +147,6 @@ namespace GameEngine::Builder
 
     signature.set(m_registry->getComponentType<ComponentRType::Parallax>());
     signature.set(m_registry->getComponentType<ComponentRType::Transform>());
-    signature.set(m_registry->getComponentType<ComponentRType::Position>());
     signature.set(m_registry->getComponentType<ComponentRType::Displayable>());
     m_registry->setSystemSignature<SystemType>(signature);
   }

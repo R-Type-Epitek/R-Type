@@ -3,13 +3,13 @@
 //
 
 #include "scene/HostGame.hpp"
-#include "gameEngine/entity/ConfigLoader.hpp"
 #include "gameEngine/ecs/RegistryBuilder.hpp"
 #include "sceneController/HostGameController.hpp"
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/system/Physics.hpp"
 #include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/Spawning.hpp"
+#include "gameEngine/system/Parallax.hpp"
 
 namespace Rtype::Scene
 {
@@ -32,6 +32,7 @@ namespace Rtype::Scene
     builder.buildSystemControlableEntity();
     builder.buildSystemPhysics();
     builder.buildSystemSpawning();
+    builder.buildSystemParallax();
     m_ecsRegistry = builder.getResult();
   }
 
@@ -57,6 +58,10 @@ namespace Rtype::Scene
     (void)df;
     auto& ecsRegistry = getEcsRegistry();
     try {
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Parallax>();
+        system->update();
+      }
       {
         auto system = ecsRegistry.getSystem<GameEngine::System::Collider>();
         system->update(getEventRegistry());

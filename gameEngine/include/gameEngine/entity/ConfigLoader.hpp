@@ -41,6 +41,7 @@ namespace GameEngine::Entity
     void parsePosition(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseGravity(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseHitbox(GameEngine::Entity::EntityTemplate &entity, const json &config);
+    void parseParallax(GameEngine::Entity::EntityTemplate &entity, const json &config);
 
    private:
     json m_config;

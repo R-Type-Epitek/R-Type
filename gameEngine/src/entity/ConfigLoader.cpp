@@ -87,6 +87,7 @@ namespace GameEngine::Entity
       tryParseComponents(name, "Position", entityTplt, element, &ConfigLoader::parsePosition);
       tryParseComponents(name, "Gravity", entityTplt, element, &ConfigLoader::parseGravity);
       tryParseComponents(name, "Hitbox", entityTplt, element, &ConfigLoader::parseHitbox);
+      tryParseComponents(name, "Parallax", entityTplt, element, &ConfigLoader::parseParallax);
     }
     return entityTplt;
   }
@@ -167,6 +168,11 @@ namespace GameEngine::Entity
     entity.blueprint.hitbox = true;
     int mask = config.value("mask", 0);
     entity.hitbox.mask = mask;
+  }
+
+  void ConfigLoader::parseParallax(EntityTemplate &entity, const json &config)
+  {
+    entity.blueprint.parallax = true;
   }
 
 } // namespace GameEngine::Loader

@@ -13,6 +13,7 @@
 #include "gameEngine/component/Position.hpp"
 #include "gameEngine/component/Gravity.hpp"
 #include "gameEngine/component/Hitbox.hpp"
+#include "gameEngine/component/Parallax.hpp"
 #include "EntityType.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "spdlog/spdlog.h"
@@ -31,6 +32,7 @@ namespace GameEngine::Entity
     ComponentRType::Position position;
     ComponentRType::Gravity gravity;
     ComponentRType::Hitbox hitbox;
+    ComponentRType::Parallax parallax;
   };
 
   class EntityFactory {
