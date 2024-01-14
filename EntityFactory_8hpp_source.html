@@ -137,75 +137,87 @@ $(document).ready(function(){initNavTree('EntityFactory_8hpp_source.html',''); i
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Gravity.hpp&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Hitbox.hpp&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Parallax.hpp&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;EntityType.hpp&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;gameEngine/asset/AssetManager.hpp&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;spdlog/spdlog.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>GameEngine::Entity</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">   25</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="structGameEngine_1_1Entity_1_1ComponentsBluePrint.html">ComponentsBluePrint</a> blueprint;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a> transform;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a> displayable;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="structComponentRType_1_1Controllable.html">ComponentRType::Controllable</a> controllable;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> networkedEntity;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a> metaData;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a> position;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="structComponentRType_1_1Gravity.html">ComponentRType::Gravity</a> gravity;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="structComponentRType_1_1Hitbox.html">ComponentRType::Hitbox</a> hitbox;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="structComponentRType_1_1Parallax.html">ComponentRType::Parallax</a> parallax;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classGameEngine_1_1Entity_1_1EntityFactory.html">   38</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">EntityFactory</a> {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">EntityFactory</a>(std::vector&lt;GameEngine::ECS::Entity&gt; &amp;entities, <a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;registry);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">//    GameEngine::ECS::Entity create(const EntityType &amp;type);</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Health.hpp&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Scriptable.hpp&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;gameEngine/script/ScriptManager.hpp&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;EntityType.hpp&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;gameEngine/asset/AssetManager.hpp&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;spdlog/spdlog.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>GameEngine::Entity</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">   29</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="structGameEngine_1_1Entity_1_1ComponentsBluePrint.html">ComponentsBluePrint</a> blueprint;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a> transform;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a> displayable;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="structComponentRType_1_1Controllable.html">ComponentRType::Controllable</a> controllable;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> networkedEntity;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a> metaData;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a> position;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="structComponentRType_1_1Gravity.html">ComponentRType::Gravity</a> gravity;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="structComponentRType_1_1Hitbox.html">ComponentRType::Hitbox</a> hitbox;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="structComponentRType_1_1Parallax.html">ComponentRType::Parallax</a> parallax;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="structComponentRType_1_1Health.html">ComponentRType::Health</a> health;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structComponentRType_1_1Scriptable.html">ComponentRType::Scriptable</a> scriptable;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  };</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    GameEngine::ECS::Entity createFromNetwork(</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <a class="code" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> &amp;<span class="keywordtype">id</span>,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classGameEngine_1_1Entity_1_1EntityFactory.html">   44</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">EntityFactory</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">EntityFactory</a>(std::vector&lt;GameEngine::ECS::Entity&gt; &amp;entities, <a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;registry);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    GameEngine::ECS::Entity loadFromNetwork(</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <a class="code" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> &amp;networkId,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <a class="code" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a> &amp;metaData);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    GameEngine::ECS::Entity createFromBluePrint(<a class="code" href="structGameEngine_1_1Entity_1_1ComponentsBluePrint.html">ComponentsBluePrint</a> &amp;bluePrint);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    GameEngine::ECS::Entity createFromTemplate(<a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    GameEngine::ECS::Entity createFromTemplateNetwork(<a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    GameEngine::ECS::Entity createFromTemplateName(<span class="keyword">const</span> std::string &amp;name);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::map&lt;std::string, EntityTemplate&gt; &amp;getEntitiesTemplate();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> addEntityTemplate(<span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> getEntityTemplate(<span class="keyword">const</span> std::string &amp;name);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> entityTemplateExist(<span class="keyword">const</span> std::string &amp;name);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> idOffset;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a> = <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::map&lt;std::string, EntityTemplate&gt; m_entitiesTemplate;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::vector&lt;GameEngine::ECS::Entity&gt; &amp;m_entities; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;m_registry;            </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  };</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">// GameEngine::Entity</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//    GameEngine::ECS::Entity create(const EntityType &amp;type);</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    GameEngine::ECS::Entity createFromNetwork(</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <a class="code" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> &amp;<span class="keywordtype">id</span>,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    GameEngine::ECS::Entity loadFromNetwork(</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <a class="code" href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a> &amp;networkId,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <a class="code" href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a> &amp;metaData);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    GameEngine::ECS::Entity createFromBluePrint(<a class="code" href="structGameEngine_1_1Entity_1_1ComponentsBluePrint.html">ComponentsBluePrint</a> &amp;bluePrint);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    GameEngine::ECS::Entity createFromTemplate(<a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    GameEngine::ECS::Entity createFromTemplateNetwork(<a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    GameEngine::ECS::Entity createFromTemplateName(<span class="keyword">const</span> std::string &amp;name);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::map&lt;std::string, EntityTemplate&gt; &amp;getEntitiesTemplate();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> addEntityTemplate(<span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> <a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> &amp;entityTemplate);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a> getEntityTemplate(<span class="keyword">const</span> std::string &amp;name);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> entityTemplateExist(<span class="keyword">const</span> std::string &amp;name);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classGameEngine_1_1Script_1_1ScriptManager.html">Script::ScriptManager</a> &amp;getScriptManager();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> idOffset;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">AssetManager</a> = <a class="code" href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classGameEngine_1_1Script_1_1ScriptManager.html">Script::ScriptManager</a> m_scriptManager;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::map&lt;std::string, EntityTemplate&gt; m_entitiesTemplate;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::vector&lt;GameEngine::ECS::Entity&gt; &amp;m_entities; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a> &amp;m_registry;            </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  };</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;} <span class="comment">// GameEngine::Entity</span></div>
 <div class="ttc" id="aclassGameEngine_1_1Asset_1_1AssetManager_html"><div class="ttname"><a href="classGameEngine_1_1Asset_1_1AssetManager.html">GameEngine::Asset::AssetManager</a></div><div class="ttdef"><b>Definition:</b> AssetManager.hpp:17</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1Registry_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a></div><div class="ttdef"><b>Definition:</b> Registry.hpp:19</div></div>
-<div class="ttc" id="aclassGameEngine_1_1Entity_1_1EntityFactory_html"><div class="ttname"><a href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a></div><div class="ttdef"><b>Definition:</b> EntityFactory.hpp:38</div></div>
+<div class="ttc" id="aclassGameEngine_1_1Entity_1_1EntityFactory_html"><div class="ttname"><a href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a></div><div class="ttdef"><b>Definition:</b> EntityFactory.hpp:44</div></div>
+<div class="ttc" id="aclassGameEngine_1_1Script_1_1ScriptManager_html"><div class="ttname"><a href="classGameEngine_1_1Script_1_1ScriptManager.html">GameEngine::Script::ScriptManager</a></div><div class="ttdoc">Manager for handling scripts and their bindings.</div><div class="ttdef"><b>Definition:</b> ScriptManager.hpp:18</div></div>
 <div class="ttc" id="astructComponentRType_1_1Controllable_html"><div class="ttname"><a href="structComponentRType_1_1Controllable.html">ComponentRType::Controllable</a></div><div class="ttdoc">A component representing if a entity is controllable.</div><div class="ttdef"><b>Definition:</b> Controllable.hpp:11</div></div>
 <div class="ttc" id="astructComponentRType_1_1Displayable_html"><div class="ttname"><a href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a></div><div class="ttdef"><b>Definition:</b> Displayable.hpp:18</div></div>
 <div class="ttc" id="astructComponentRType_1_1Gravity_html"><div class="ttname"><a href="structComponentRType_1_1Gravity.html">ComponentRType::Gravity</a></div><div class="ttdoc">A component representing gravity with a force value.</div><div class="ttdef"><b>Definition:</b> Gravity.hpp:12</div></div>
+<div class="ttc" id="astructComponentRType_1_1Health_html"><div class="ttname"><a href="structComponentRType_1_1Health.html">ComponentRType::Health</a></div><div class="ttdef"><b>Definition:</b> Health.hpp:11</div></div>
 <div class="ttc" id="astructComponentRType_1_1Hitbox_html"><div class="ttname"><a href="structComponentRType_1_1Hitbox.html">ComponentRType::Hitbox</a></div><div class="ttdoc">A component representing if a entity is clickable.</div><div class="ttdef"><b>Definition:</b> Hitbox.hpp:12</div></div>
 <div class="ttc" id="astructComponentRType_1_1MetaData_html"><div class="ttname"><a href="structComponentRType_1_1MetaData.html">ComponentRType::MetaData</a></div><div class="ttdef"><b>Definition:</b> MetaData.hpp:18</div></div>
 <div class="ttc" id="astructComponentRType_1_1NetworkedEntity_html"><div class="ttname"><a href="structComponentRType_1_1NetworkedEntity.html">ComponentRType::NetworkedEntity</a></div><div class="ttdef"><b>Definition:</b> NetworkedEntity.hpp:16</div></div>
 <div class="ttc" id="astructComponentRType_1_1Parallax_html"><div class="ttname"><a href="structComponentRType_1_1Parallax.html">ComponentRType::Parallax</a></div><div class="ttdoc">A component representing if a entity is parallax.</div><div class="ttdef"><b>Definition:</b> Parallax.hpp:11</div></div>
 <div class="ttc" id="astructComponentRType_1_1Position_html"><div class="ttname"><a href="structComponentRType_1_1Position.html">ComponentRType::Position</a></div><div class="ttdef"><b>Definition:</b> Position.hpp:15</div></div>
+<div class="ttc" id="astructComponentRType_1_1Scriptable_html"><div class="ttname"><a href="structComponentRType_1_1Scriptable.html">ComponentRType::Scriptable</a></div><div class="ttdoc">A component representing if a entity is scriptable.</div><div class="ttdef"><b>Definition:</b> Scriptable.hpp:13</div></div>
 <div class="ttc" id="astructComponentRType_1_1Transform_html"><div class="ttname"><a href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a></div><div class="ttdoc">A component representing the transformation properties of an entity.</div><div class="ttdef"><b>Definition:</b> Transform.hpp:19</div></div>
 <div class="ttc" id="astructGameEngine_1_1Entity_1_1ComponentsBluePrint_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1ComponentsBluePrint.html">GameEngine::Entity::ComponentsBluePrint</a></div><div class="ttdef"><b>Definition:</b> EntityType.hpp:12</div></div>
-<div class="ttc" id="astructGameEngine_1_1Entity_1_1EntityTemplate_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1EntityTemplate.html">GameEngine::Entity::EntityTemplate</a></div><div class="ttdef"><b>Definition:</b> EntityFactory.hpp:25</div></div>
+<div class="ttc" id="astructGameEngine_1_1Entity_1_1EntityTemplate_html"><div class="ttname"><a href="structGameEngine_1_1Entity_1_1EntityTemplate.html">GameEngine::Entity::EntityTemplate</a></div><div class="ttdef"><b>Definition:</b> EntityFactory.hpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

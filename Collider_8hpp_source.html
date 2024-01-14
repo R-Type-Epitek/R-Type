@@ -180,14 +180,16 @@ $(document).ready(function(){initNavTree('Collider_8hpp_source.html',''); initRe
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          <a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a> {entity, otherEntity, mask, maskOther});</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">//      Check map bounds</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span> (<span class="keywordtype">int</span> <span class="keyword">const</span> mask = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Hitbox.html">ComponentRType::Hitbox</a>&gt;(entity).mask;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;          globalBounds.left &lt; 0 || globalBounds.left + globalBounds.width &gt; 1920 || globalBounds.top &lt; 0 ||</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;          globalBounds.top + globalBounds.height &gt; 1080) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        eventRegistry.publish&lt;<a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a>&gt;(<a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a> {entity, 666, mask, -1});</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  };</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordtype">int</span> <span class="keyword">const</span> mask = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Hitbox.html">ComponentRType::Hitbox</a>&gt;(entity).mask;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordflow">if</span> (</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        mask != 0 &amp;&amp;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        (globalBounds.left &lt; 0 || globalBounds.left + globalBounds.width &gt; 1920 || globalBounds.top &lt; 0 ||</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;         globalBounds.top + globalBounds.height &gt; 1080)) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        eventRegistry.publish&lt;<a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a>&gt;(<a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a> {entity, 666, mask, -1});</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  };</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1RegistryHolder_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></div><div class="ttdef"><b>Definition:</b> RegistryHolder.hpp:15</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1System_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div><div class="ttdef"><b>Definition:</b> System.hpp:12</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Event_1_1EventRegistry_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a></div><div class="ttdef"><b>Definition:</b> EventRegistry.hpp:18</div></div>

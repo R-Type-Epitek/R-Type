@@ -159,15 +159,17 @@ $(document).ready(function(){initNavTree('RegistryBuilder_8hpp_source.html','');
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> buildSystemTextRenderer();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> buildSystemSpawning();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> buildSystemUI();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> feedSystemHolder(</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      std::shared_ptr&lt;ECS::Registry&gt; ecsRegistry,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      std::shared_ptr&lt;Event::EventRegistry&gt; eventRegistry);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::shared_ptr&lt;GameEngine::ECS::Registry&gt; m_registry;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  };</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}; <span class="comment">// namespace GameEngine::Builder</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> buildSystemGameplay();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> buildSystemScriptableEntity();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> feedSystemHolder(</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      std::shared_ptr&lt;ECS::Registry&gt; ecsRegistry,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      std::shared_ptr&lt;Event::EventRegistry&gt; eventRegistry);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::shared_ptr&lt;GameEngine::ECS::Registry&gt; m_registry;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}; <span class="comment">// namespace GameEngine::Builder</span></div>
 <div class="ttc" id="aclassGameEngine_1_1Builder_1_1RegistryBuilder_html"><div class="ttname"><a href="classGameEngine_1_1Builder_1_1RegistryBuilder.html">GameEngine::Builder::RegistryBuilder</a></div><div class="ttdef"><b>Definition:</b> RegistryBuilder.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

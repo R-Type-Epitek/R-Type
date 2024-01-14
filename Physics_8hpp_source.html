@@ -187,23 +187,38 @@ $(document).ready(function(){initNavTree('Physics_8hpp_source.html',''); initRes
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> handleCollision(<span class="keyword">const</span> <a class="code" href="classGameEngine_1_1Event_1_1IEvent.html">Event::IEvent</a>&amp; eventRaw)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = getEcsRegistry().getComponentManager();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">auto</span>&amp; eventRegistry = getEventRegistry();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">auto</span> <span class="keyword">event</span> = <span class="keyword">dynamic_cast&lt;</span><span class="keyword">const </span><a class="code" href="structGameEngine_1_1Event_1_1EntityCollision.html">Event::EntityCollision</a>&amp;<span class="keyword">&gt;</span>(eventRaw);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">if</span> ((event.maskA == 6 &amp;&amp; event.maskB == 6) || (<span class="keyword">event</span>.maskA == 6 &amp;&amp; <span class="keyword">event</span>.maskB == -1)) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        getEventRegistry().publish&lt;<a class="code" href="structGameEngine_1_1Event_1_1DestroyEntity.html">Event::DestroyEntity</a>&gt;(<a class="code" href="structGameEngine_1_1Event_1_1DestroyEntity.html">Event::DestroyEntity</a> {<span class="keyword">event</span>.entityA});</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordflow">if</span> (event.maskA != -1 &amp;&amp; event.maskB != -1 &amp;&amp; event.maskA != event.maskB) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="comment">// Collision between enemy and bullet</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keywordflow">if</span> (event.maskA == 0 &amp;&amp; event.maskB == 6) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        eventRegistry.publish&lt;<a class="code" href="structGameEngine_1_1Event_1_1EntityHit.html">Event::EntityHit</a>&gt;(</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;          <a class="code" href="structGameEngine_1_1Event_1_1EntityHit.html">Event::EntityHit</a> {<span class="keyword">event</span>.entityA, <span class="keyword">event</span>.entityA, <span class="keyword">event</span>.maskA, <span class="keyword">event</span>.maskB});</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        eventRegistry.publish&lt;<a class="code" href="structGameEngine_1_1Event_1_1DestroyEntity.html">Event::DestroyEntity</a>&gt;(<a class="code" href="structGameEngine_1_1Event_1_1DestroyEntity.html">Event::DestroyEntity</a> {<span class="keyword">event</span>.entityA});</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">auto</span>&amp; transformA = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a>&gt;(<span class="keyword">event</span>.entityA);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keyword">auto</span>&amp; position = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a>&gt;(<span class="keyword">event</span>.entityA);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      position.isValid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      transformA.movement = {0, 0};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  };</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="comment">//      // Collision between enemy and Player</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="comment">//      if ((event.maskA == 6 &amp;&amp; event.maskB == 1)) {</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="comment">//        eventRegistry.publish&lt;Event::EntityHit&gt;(</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="comment">//          Event::EntityHit {event.entityA, event.entityA, event.maskA, event.maskB});</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="comment">//      }</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="comment">// Collision between bullet and itself or walls</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordflow">if</span> ((event.maskA == 6 &amp;&amp; event.maskB == 6) || (<span class="keyword">event</span>.maskA == 6 &amp;&amp; <span class="keyword">event</span>.maskB == -1)) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        eventRegistry.publish&lt;<a class="code" href="structGameEngine_1_1Event_1_1DestroyEntity.html">Event::DestroyEntity</a>&gt;(<a class="code" href="structGameEngine_1_1Event_1_1DestroyEntity.html">Event::DestroyEntity</a> {<span class="keyword">event</span>.entityA});</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="comment">// Check for collision to stop velocity</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keywordflow">if</span> (event.maskA != -1 &amp;&amp; event.maskB != -1 &amp;&amp; event.maskA != event.maskB) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = getEcsRegistry().getComponentManager();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keyword">auto</span>&amp; transformA = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a>&gt;(<span class="keyword">event</span>.entityA);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keyword">auto</span>&amp; position = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a>&gt;(<span class="keyword">event</span>.entityA);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      position.isValid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      transformA.movement = {0, 0};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  };</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1RegistryHolder_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1RegistryHolder.html">GameEngine::ECS::RegistryHolder</a></div><div class="ttdef"><b>Definition:</b> RegistryHolder.hpp:15</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1System_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div><div class="ttdef"><b>Definition:</b> System.hpp:12</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Event_1_1EventRegistry_html"><div class="ttname"><a href="classGameEngine_1_1Event_1_1EventRegistry.html">GameEngine::Event::EventRegistry</a></div><div class="ttdef"><b>Definition:</b> EventRegistry.hpp:18</div></div>
@@ -213,8 +228,9 @@ $(document).ready(function(){initNavTree('Physics_8hpp_source.html',''); initRes
 <div class="ttc" id="astructComponentRType_1_1Displayable_html"><div class="ttname"><a href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a></div><div class="ttdef"><b>Definition:</b> Displayable.hpp:18</div></div>
 <div class="ttc" id="astructComponentRType_1_1Position_html"><div class="ttname"><a href="structComponentRType_1_1Position.html">ComponentRType::Position</a></div><div class="ttdef"><b>Definition:</b> Position.hpp:15</div></div>
 <div class="ttc" id="astructComponentRType_1_1Transform_html"><div class="ttname"><a href="structComponentRType_1_1Transform.html">ComponentRType::Transform</a></div><div class="ttdoc">A component representing the transformation properties of an entity.</div><div class="ttdef"><b>Definition:</b> Transform.hpp:19</div></div>
-<div class="ttc" id="astructGameEngine_1_1Event_1_1DestroyEntity_html"><div class="ttname"><a href="structGameEngine_1_1Event_1_1DestroyEntity.html">GameEngine::Event::DestroyEntity</a></div><div class="ttdef"><b>Definition:</b> Events.hpp:126</div></div>
+<div class="ttc" id="astructGameEngine_1_1Event_1_1DestroyEntity_html"><div class="ttname"><a href="structGameEngine_1_1Event_1_1DestroyEntity.html">GameEngine::Event::DestroyEntity</a></div><div class="ttdef"><b>Definition:</b> Events.hpp:140</div></div>
 <div class="ttc" id="astructGameEngine_1_1Event_1_1EntityCollision_html"><div class="ttname"><a href="structGameEngine_1_1Event_1_1EntityCollision.html">GameEngine::Event::EntityCollision</a></div><div class="ttdef"><b>Definition:</b> Events.hpp:12</div></div>
+<div class="ttc" id="astructGameEngine_1_1Event_1_1EntityHit_html"><div class="ttname"><a href="structGameEngine_1_1Event_1_1EntityHit.html">GameEngine::Event::EntityHit</a></div><div class="ttdef"><b>Definition:</b> Events.hpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

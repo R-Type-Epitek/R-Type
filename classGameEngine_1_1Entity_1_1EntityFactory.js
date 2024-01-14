@@ -10,5 +10,6 @@ var classGameEngine_1_1Entity_1_1EntityFactory =
     [ "entityTemplateExist", "classGameEngine_1_1Entity_1_1EntityFactory.html#acde78198ac1dddd0be678323a5177ff8", null ],
     [ "getEntitiesTemplate", "classGameEngine_1_1Entity_1_1EntityFactory.html#a1791707623a6085e812621cc2647f548", null ],
     [ "getEntityTemplate", "classGameEngine_1_1Entity_1_1EntityFactory.html#a6dccba5c7a2cdc30d527b5b970d970a1", null ],
+    [ "getScriptManager", "classGameEngine_1_1Entity_1_1EntityFactory.html#a82519ddde9f472dd5a8b1cd31b27ca02", null ],
     [ "loadFromNetwork", "classGameEngine_1_1Entity_1_1EntityFactory.html#a843deac3b6a6dd5241fbe9cd1f253479", null ]
 ];

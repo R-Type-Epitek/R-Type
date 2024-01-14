@@ -1,1037 +1,1667 @@
 <!-- HTML header for doxygen 1.9.8-->
 <!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=11" />
-  <meta name="generator" content="Doxygen 1.9.8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: Client::Network Class Reference</title>
-  <link href="tabs.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="jquery.js"></script>
-  <script type="text/javascript" src="dynsections.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
-  <script type="text/javascript">
-      DoxygenAwesomeDarkModeToggle.init()
-      DoxygenAwesomeFragmentCopyButton.init()
-      DoxygenAwesomeParagraphLink.init()
-      DoxygenAwesomeInteractiveToc.init()
-      DoxygenAwesomeTabs.init()
-  </script>
-  <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-  <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-  <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/xhtml;charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="IE=11" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.9.8" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>R-Type: Client::Network Class Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="dynsections.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-darkmode-toggle.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-fragment-copy-button.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-paragraph-link.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-interactive-toc.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-tabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeParagraphLink.init()
+        DoxygenAwesomeInteractiveToc.init()
+        DoxygenAwesomeTabs.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+    <script src="resize.js" type="text/javascript"></script>
+    <script src="navtreedata.js" type="text/javascript"></script>
+    <script src="navtree.js" type="text/javascript"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+    <script src="search/searchdata.js" type="text/javascript"></script>
+    <script src="search/search.js" type="text/javascript"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-      <div id="titlearea">
-        <table cellspacing="0" cellpadding="0">
-          <tbody>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellpadding="0" cellspacing="0">
+            <tbody>
             <tr id="projectrow">
-              <td id="projectalign">
-                <div id="projectname">R-Type
-                </div>
-                <div id="projectbrief">R-Type is a 2D shoot&#39;em up game developed by a team of 5 students from Epitech Bordeaux.</div>
-              </td>
+                <td id="projectalign">
+                    <div id="projectname">R-Type
+                    </div>
+                    <div id="projectbrief">R-Type is a 2D shoot&#39;em up game developed by a team of 5 students from
+                        Epitech Bordeaux.
+                    </div>
+                </td>
             </tr>
-          </tbody>
+            </tbody>
         </table>
-      </div>
-      <!-- end header part --><!-- Generated by Doxygen 1.9.8 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
     </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
+    <!-- end header part --><!-- Generated by Doxygen 1.9.8 -->
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+        var searchBox = new SearchBox("searchBox", "search/", '.html');
+        /* @license-end */
+    </script>
+    <script src="menudata.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+        $(function () {
+            initMenu('', true, false, 'search.php', 'Search');
+            $(document).ready(function () {
+                init_search();
+            });
+        });
+        /* @license-end */
+    </script>
+    <div id="main-nav"></div>
+</div><!-- top -->
+<div class="ui-resizable side-nav-resizable" id="side-nav">
+    <div id="nav-tree">
+        <div id="nav-tree-contents">
+            <div class="sync" id="nav-sync"></div>
+        </div>
+    </div>
+    <div class="ui-resizable-handle" id="splitbar"
+         style="-moz-user-select:none;">
+    </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('class_client_1_1_network.html',''); initResizable(); });
-/* @license-end */
+    /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+    $(document).ready(function () {
+        initNavTree('class_client_1_1_network.html', '');
+        initResizable();
+    });
+    /* @license-end */
 </script>
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
-
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">Loading...</div>
-<div class="SRStatus" id="Searching">Searching...</div>
-<div class="SRStatus" id="NoMatches">No Matches</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="header">
-  <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="class_client_1_1_network-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Client::Network Class Reference</div></div>
-</div><!--header-->
-<div class="contents">
-
-<p>Class responsible for network operations in a client.  
- <a href="class_client_1_1_network.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_network_8hpp_source.html">Network.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a808d8f2121532e7d6856a226e95a8a2d" id="r_a808d8f2121532e7d6856a226e95a8a2d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a> = std::vector&lt; std::vector&lt; char &gt; &gt;</td></tr>
-<tr class="memdesc:a808d8f2121532e7d6856a226e95a8a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the queue of serialized ECS data.  <br /></td></tr>
-<tr class="separator:a808d8f2121532e7d6856a226e95a8a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a27d7f8cf48354afeb62a66326ba7aa46" id="r_a27d7f8cf48354afeb62a66326ba7aa46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a27d7f8cf48354afeb62a66326ba7aa46">Network</a> (std::string ip, std::string port)</td></tr>
-<tr class="memdesc:a27d7f8cf48354afeb62a66326ba7aa46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_client_1_1_network.html" title="Class responsible for network operations in a client.">Network</a> object.  <br /></td></tr>
-<tr class="separator:a27d7f8cf48354afeb62a66326ba7aa46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9781434da3b6a72fab9b5e846e490a80" id="r_a9781434da3b6a72fab9b5e846e490a80"><td class="memItemLeft" align="right" valign="top"><a id="a9781434da3b6a72fab9b5e846e490a80" name="a9781434da3b6a72fab9b5e846e490a80"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~Network</b> ()</td></tr>
-<tr class="memdesc:a9781434da3b6a72fab9b5e846e490a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor for <a class="el" href="class_client_1_1_network.html" title="Class responsible for network operations in a client.">Network</a>. <br /></td></tr>
-<tr class="separator:a9781434da3b6a72fab9b5e846e490a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a074881e54ca1e4648c78b94ac03ef3b9" id="r_a074881e54ca1e4648c78b94ac03ef3b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a074881e54ca1e4648c78b94ac03ef3b9">registerCommandHandlers</a> ()</td></tr>
-<tr class="memdesc:a074881e54ca1e4648c78b94ac03ef3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register command handlers for different types of network commands.  <br /></td></tr>
-<tr class="separator:a074881e54ca1e4648c78b94ac03ef3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd47f4da82a25982486c788f656b1ff" id="r_a9dd47f4da82a25982486c788f656b1ff"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_client_1_1_i_command_handler.html">ICommandHandler</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a9dd47f4da82a25982486c788f656b1ff">getCommandHandler</a> (std::string const &amp;name)</td></tr>
-<tr class="memdesc:a9dd47f4da82a25982486c788f656b1ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the command handler for a specific command.  <br /></td></tr>
-<tr class="separator:a9dd47f4da82a25982486c788f656b1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ecc0c46e23354a22e7bc0880974e609" id="r_a9ecc0c46e23354a22e7bc0880974e609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a9ecc0c46e23354a22e7bc0880974e609">send</a> (boost::asio::const_buffer const &amp;buffer)</td></tr>
-<tr class="memdesc:a9ecc0c46e23354a22e7bc0880974e609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send raw data over the network.  <br /></td></tr>
-<tr class="separator:a9ecc0c46e23354a22e7bc0880974e609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa433394ccb8d01696e30252eec870e66" id="r_aa433394ccb8d01696e30252eec870e66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#aa433394ccb8d01696e30252eec870e66">handleSend</a> (boost::system::error_code const &amp;error, std::size_t bytesTransferred)</td></tr>
-<tr class="memdesc:aa433394ccb8d01696e30252eec870e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for handling data sent over the network.  <br /></td></tr>
-<tr class="separator:aa433394ccb8d01696e30252eec870e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7c37dc6ab96aae55c0afbce268d1f9c" id="r_ad7c37dc6ab96aae55c0afbce268d1f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#ad7c37dc6ab96aae55c0afbce268d1f9c">sendMessage</a> (std::string const &amp;command, char const data[]=nullptr, int dataSize=0)</td></tr>
-<tr class="memdesc:ad7c37dc6ab96aae55c0afbce268d1f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command message over the network.  <br /></td></tr>
-<tr class="separator:ad7c37dc6ab96aae55c0afbce268d1f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091bc465021f4b8e49aa03a58e145246" id="r_a091bc465021f4b8e49aa03a58e145246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a091bc465021f4b8e49aa03a58e145246">sendResponse</a> (std::string const &amp;command, std::string const &amp;statusMessage, char const data[]=nullptr, int dataSize=0, int status=RES_SUCCESS)</td></tr>
-<tr class="memdesc:a091bc465021f4b8e49aa03a58e145246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a response message over the network.  <br /></td></tr>
-<tr class="separator:a091bc465021f4b8e49aa03a58e145246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0adb2e5baaca04802dd5b2a99e2599c" id="r_ab0adb2e5baaca04802dd5b2a99e2599c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#ab0adb2e5baaca04802dd5b2a99e2599c">startReceive</a> ()</td></tr>
-<tr class="memdesc:ab0adb2e5baaca04802dd5b2a99e2599c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the process of receiving data from the network.  <br /></td></tr>
-<tr class="separator:ab0adb2e5baaca04802dd5b2a99e2599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b3e2b7068834a8663ce7c1797e3089d" id="r_a6b3e2b7068834a8663ce7c1797e3089d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a6b3e2b7068834a8663ce7c1797e3089d">onReceive</a> (boost::system::error_code const &amp;error, std::size_t bytesTransferred)</td></tr>
-<tr class="memdesc:a6b3e2b7068834a8663ce7c1797e3089d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function for handling data received from the network.  <br /></td></tr>
-<tr class="separator:a6b3e2b7068834a8663ce7c1797e3089d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1445fd7305ca6060d759731f24c2be3" id="r_aa1445fd7305ca6060d759731f24c2be3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#aa1445fd7305ca6060d759731f24c2be3">onServerResponse</a> (<a class="el" href="struct_response.html">Response</a> *response)</td></tr>
-<tr class="memdesc:aa1445fd7305ca6060d759731f24c2be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle a server response.  <br /></td></tr>
-<tr class="separator:aa1445fd7305ca6060d759731f24c2be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c9d8c820efe4258bd5149aa73398807" id="r_a5c9d8c820efe4258bd5149aa73398807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a5c9d8c820efe4258bd5149aa73398807">onServerMessage</a> (<a class="el" href="struct_message.html">Message</a> *message)</td></tr>
-<tr class="memdesc:a5c9d8c820efe4258bd5149aa73398807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle a server message.  <br /></td></tr>
-<tr class="separator:a5c9d8c820efe4258bd5149aa73398807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36443c385e3362690cbbc6a2ab8c16d6" id="r_a36443c385e3362690cbbc6a2ab8c16d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a36443c385e3362690cbbc6a2ab8c16d6">onCheckConnectionMessage</a> (<a class="el" href="struct_message.html">Message</a> *message)</td></tr>
-<tr class="memdesc:a36443c385e3362690cbbc6a2ab8c16d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle a check connection message from the server.  <br /></td></tr>
-<tr class="separator:a36443c385e3362690cbbc6a2ab8c16d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba5ad34da87d5cb96c83b75534c1214b" id="r_aba5ad34da87d5cb96c83b75534c1214b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#aba5ad34da87d5cb96c83b75534c1214b">onUpdateGameMessage</a> (<a class="el" href="struct_message.html">Message</a> *message)</td></tr>
-<tr class="memdesc:aba5ad34da87d5cb96c83b75534c1214b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle an update game message from the server.  <br /></td></tr>
-<tr class="separator:aba5ad34da87d5cb96c83b75534c1214b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02b0fb41b307eb039b3e91026497ff12" id="r_a02b0fb41b307eb039b3e91026497ff12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a02b0fb41b307eb039b3e91026497ff12">setClientId</a> (int id)</td></tr>
-<tr class="memdesc:a02b0fb41b307eb039b3e91026497ff12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the client's ID.  <br /></td></tr>
-<tr class="separator:a02b0fb41b307eb039b3e91026497ff12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7a790ce27c24b4e06ca2527e1ef60b4" id="r_ad7a790ce27c24b4e06ca2527e1ef60b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#ad7a790ce27c24b4e06ca2527e1ef60b4">getClientId</a> () const</td></tr>
-<tr class="memdesc:ad7a790ce27c24b4e06ca2527e1ef60b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the client's ID.  <br /></td></tr>
-<tr class="separator:ad7a790ce27c24b4e06ca2527e1ef60b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32740d05d50258cbe320af2a3d82529c" id="r_a32740d05d50258cbe320af2a3d82529c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a32740d05d50258cbe320af2a3d82529c">setRoomId</a> (int id)</td></tr>
-<tr class="memdesc:a32740d05d50258cbe320af2a3d82529c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the ID of the room the client is connected to.  <br /></td></tr>
-<tr class="separator:a32740d05d50258cbe320af2a3d82529c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa901bacaeffbed0bbfc51820065deab5" id="r_aa901bacaeffbed0bbfc51820065deab5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#aa901bacaeffbed0bbfc51820065deab5">getRoomId</a> () const</td></tr>
-<tr class="memdesc:aa901bacaeffbed0bbfc51820065deab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the room the client is connected to.  <br /></td></tr>
-<tr class="separator:aa901bacaeffbed0bbfc51820065deab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17f5c274ef1658e21cba3c1b96a06ef9" id="r_a17f5c274ef1658e21cba3c1b96a06ef9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a17f5c274ef1658e21cba3c1b96a06ef9">setName</a> (std::string name)</td></tr>
-<tr class="memdesc:a17f5c274ef1658e21cba3c1b96a06ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the name of the client.  <br /></td></tr>
-<tr class="separator:a17f5c274ef1658e21cba3c1b96a06ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22fd352e18ad5618d8b7e5eb233ff1db" id="r_a22fd352e18ad5618d8b7e5eb233ff1db"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a22fd352e18ad5618d8b7e5eb233ff1db">getName</a> () const</td></tr>
-<tr class="memdesc:a22fd352e18ad5618d8b7e5eb233ff1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the client.  <br /></td></tr>
-<tr class="separator:a22fd352e18ad5618d8b7e5eb233ff1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2cc6225754b3f7b46fa87422c6540da" id="r_ae2cc6225754b3f7b46fa87422c6540da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#ae2cc6225754b3f7b46fa87422c6540da">setRemoteEndpoint</a> (std::string &amp;ip, std::string &amp;port)</td></tr>
-<tr class="memdesc:ae2cc6225754b3f7b46fa87422c6540da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the remote endpoint for the network connection.  <br /></td></tr>
-<tr class="separator:ae2cc6225754b3f7b46fa87422c6540da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f198af430067b2174e2f69b0a78ada6" id="r_a0f198af430067b2174e2f69b0a78ada6"><td class="memItemLeft" align="right" valign="top">boost::asio::ip::udp::endpoint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a0f198af430067b2174e2f69b0a78ada6">getRemoteEndpoint</a> () const</td></tr>
-<tr class="memdesc:a0f198af430067b2174e2f69b0a78ada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the remote endpoint of the network connection.  <br /></td></tr>
-<tr class="separator:a0f198af430067b2174e2f69b0a78ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f3906ec4967fc8be1936ef21b41741c" id="r_a5f3906ec4967fc8be1936ef21b41741c"><td class="memItemLeft" align="right" valign="top"><a id="a5f3906ec4967fc8be1936ef21b41741c" name="a5f3906ec4967fc8be1936ef21b41741c"></a>
-<a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSerializedEcsQueue</b> ()</td></tr>
-<tr class="separator:a5f3906ec4967fc8be1936ef21b41741c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57" id="r_a15a45ffff3cdcbf99901d537a5aa2a57"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Func &gt; </td></tr>
-<tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a15a45ffff3cdcbf99901d537a5aa2a57">executeCommand</a> (const std::string &amp;commandName, Func action)</td></tr>
-<tr class="memdesc:a15a45ffff3cdcbf99901d537a5aa2a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a command with a specified action.  <br /></td></tr>
-<tr class="separator:a15a45ffff3cdcbf99901d537a5aa2a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e6e450be2f058ef29e21b5a17f3e5ee" id="r_a4e6e450be2f058ef29e21b5a17f3e5ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a4e6e450be2f058ef29e21b5a17f3e5ee">connectToServer</a> ()</td></tr>
-<tr class="memdesc:a4e6e450be2f058ef29e21b5a17f3e5ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect to a server.  <br /></td></tr>
-<tr class="separator:a4e6e450be2f058ef29e21b5a17f3e5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9090adb4709e633a7787595896adcc07" id="r_a9090adb4709e633a7787595896adcc07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a9090adb4709e633a7787595896adcc07">updateName</a> (std::string name)</td></tr>
-<tr class="memdesc:a9090adb4709e633a7787595896adcc07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the client's name.  <br /></td></tr>
-<tr class="separator:a9090adb4709e633a7787595896adcc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9322d011cea31df49fe776392ad0648" id="r_af9322d011cea31df49fe776392ad0648"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#af9322d011cea31df49fe776392ad0648">joinRoom</a> (int roomId)</td></tr>
-<tr class="memdesc:af9322d011cea31df49fe776392ad0648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join a room with a specified room ID.  <br /></td></tr>
-<tr class="separator:af9322d011cea31df49fe776392ad0648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e00a6174658b13f4962b4f8eb81037d" id="r_a1e00a6174658b13f4962b4f8eb81037d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a1e00a6174658b13f4962b4f8eb81037d">sendKey</a> (GameEngine::Keybinds key)</td></tr>
-<tr class="memdesc:a1e00a6174658b13f4962b4f8eb81037d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a key command to the server.  <br /></td></tr>
-<tr class="separator:a1e00a6174658b13f4962b4f8eb81037d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb4a0ec6478049555f7ef13fe15d2f0" id="r_a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_client_1_1_network.html#a8fb4a0ec6478049555f7ef13fe15d2f0">joinGame</a> (int roomId)</td></tr>
-<tr class="memdesc:a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join a game with a specified room ID.  <br /></td></tr>
-<tr class="separator:a8fb4a0ec6478049555f7ef13fe15d2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class responsible for network operations in a client. </p>
-<p>The <a class="el" href="class_client_1_1_network.html" title="Class responsible for network operations in a client.">Network</a> class handles all network communications for a client, including sending and receiving messages and responses, managing command handlers, and keeping track of client and room states. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a808d8f2121532e7d6856a226e95a8a2d" name="a808d8f2121532e7d6856a226e95a8a2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a808d8f2121532e7d6856a226e95a8a2d">&#9670;&#160;</a></span>QueueEcsSerialized</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">Client::Network::QueueEcsSerialized</a> =  std::vector&lt;std::vector&lt;char&gt; &gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the queue of serialized ECS data. </p>
-<p>This function returns a reference to the queue holding serialized data from the Entity Component System (ECS), ready for network transmission.</p>
-<dl class="section return"><dt>Returns</dt><dd>QueueEcsSerialized&amp; Reference to the queue of serialized ECS data. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a27d7f8cf48354afeb62a66326ba7aa46" name="a27d7f8cf48354afeb62a66326ba7aa46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27d7f8cf48354afeb62a66326ba7aa46">&#9670;&#160;</a></span>Network()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Client::Network::Network </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>ip</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>port</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a new <a class="el" href="class_client_1_1_network.html" title="Class responsible for network operations in a client.">Network</a> object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ip</td><td>The IP address of the server to connect to. </td></tr>
-    <tr><td class="paramname">port</td><td>The port number for the network connection. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4e6e450be2f058ef29e21b5a17f3e5ee" name="a4e6e450be2f058ef29e21b5a17f3e5ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e6e450be2f058ef29e21b5a17f3e5ee">&#9670;&#160;</a></span>connectToServer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::connectToServer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Connect to a server. </p>
-<p>This function initiates a connection to the server using the network parameters. </p>
-
-</div>
-</div>
-<a id="a15a45ffff3cdcbf99901d537a5aa2a57" name="a15a45ffff3cdcbf99901d537a5aa2a57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a45ffff3cdcbf99901d537a5aa2a57">&#9670;&#160;</a></span>executeCommand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename Func &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::executeCommand </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>commandName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Func&#160;</td>
-          <td class="paramname"><em>action</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Execute a command with a specified action. </p>
-<p>This template function allows for the execution of a command along with a specified action. It can be used to handle various command types dynamically.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the command. </td></tr>
-    <tr><td class="paramname">Func</td><td>The function type for the action to be executed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">commandName</td><td>The name of the command to execute. </td></tr>
-    <tr><td class="paramname">action</td><td>The action to be performed in association with the command. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad7a790ce27c24b4e06ca2527e1ef60b4" name="ad7a790ce27c24b4e06ca2527e1ef60b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7a790ce27c24b4e06ca2527e1ef60b4">&#9670;&#160;</a></span>getClientId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Client::Network::getClientId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the client's ID. </p>
-<dl class="section return"><dt>Returns</dt><dd>int The current ID of the client. </dd></dl>
-
-</div>
-</div>
-<a id="a9dd47f4da82a25982486c788f656b1ff" name="a9dd47f4da82a25982486c788f656b1ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dd47f4da82a25982486c788f656b1ff">&#9670;&#160;</a></span>getCommandHandler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a> &gt; Client::Network::getCommandHandler </td>
-          <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the command handler for a specific command. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The name of the command for which the handler is required. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;ICommandHandler&gt; Shared pointer to the requested command handler. </dd></dl>
-
-</div>
-</div>
-<a id="a22fd352e18ad5618d8b7e5eb233ff1db" name="a22fd352e18ad5618d8b7e5eb233ff1db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22fd352e18ad5618d8b7e5eb233ff1db">&#9670;&#160;</a></span>getName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string Client::Network::getName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the name of the client. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string The current name of the client. </dd></dl>
-
-</div>
-</div>
-<a id="a0f198af430067b2174e2f69b0a78ada6" name="a0f198af430067b2174e2f69b0a78ada6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f198af430067b2174e2f69b0a78ada6">&#9670;&#160;</a></span>getRemoteEndpoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::asio::ip::udp::endpoint Client::Network::getRemoteEndpoint </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the remote endpoint of the network connection. </p>
-<dl class="section return"><dt>Returns</dt><dd>boost::asio::ip::udp::endpoint The current remote endpoint. </dd></dl>
-
-</div>
-</div>
-<a id="aa901bacaeffbed0bbfc51820065deab5" name="aa901bacaeffbed0bbfc51820065deab5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa901bacaeffbed0bbfc51820065deab5">&#9670;&#160;</a></span>getRoomId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Client::Network::getRoomId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the ID of the room the client is connected to. </p>
-<dl class="section return"><dt>Returns</dt><dd>int The current room ID. </dd></dl>
-
-</div>
-</div>
-<a id="aa433394ccb8d01696e30252eec870e66" name="aa433394ccb8d01696e30252eec870e66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa433394ccb8d01696e30252eec870e66">&#9670;&#160;</a></span>handleSend()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::handleSend </td>
-          <td>(</td>
-          <td class="paramtype">boost::system::error_code const &amp;&#160;</td>
-          <td class="paramname"><em>error</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>bytesTransferred</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Callback function for handling data sent over the network. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">error</td><td>Boost ASIO error code indicating the status of the send operation. </td></tr>
-    <tr><td class="paramname">bytesTransferred</td><td>The number of bytes sent over the network. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8fb4a0ec6478049555f7ef13fe15d2f0" name="a8fb4a0ec6478049555f7ef13fe15d2f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fb4a0ec6478049555f7ef13fe15d2f0">&#9670;&#160;</a></span>joinGame()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::joinGame </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>roomId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Join a game with a specified room ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">roomId</td><td>The ID of the game room to join. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af9322d011cea31df49fe776392ad0648" name="af9322d011cea31df49fe776392ad0648"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9322d011cea31df49fe776392ad0648">&#9670;&#160;</a></span>joinRoom()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::joinRoom </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>roomId</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Join a room with a specified room ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">roomId</td><td>The ID of the room to join. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a36443c385e3362690cbbc6a2ab8c16d6" name="a36443c385e3362690cbbc6a2ab8c16d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36443c385e3362690cbbc6a2ab8c16d6">&#9670;&#160;</a></span>onCheckConnectionMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::onCheckConnectionMessage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handle a check connection message from the server. </p>
-<p>This function processes a message specifically intended to check the connection status between the client and the server.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>Pointer to the <a class="el" href="struct_message.html" title="Structure representing a complete network message.">Message</a> object received from the server. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6b3e2b7068834a8663ce7c1797e3089d" name="a6b3e2b7068834a8663ce7c1797e3089d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b3e2b7068834a8663ce7c1797e3089d">&#9670;&#160;</a></span>onReceive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::onReceive </td>
-          <td>(</td>
-          <td class="paramtype">boost::system::error_code const &amp;&#160;</td>
-          <td class="paramname"><em>error</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>bytesTransferred</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Callback function for handling data received from the network. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">error</td><td>Boost ASIO error code indicating the status of the receive operation. </td></tr>
-    <tr><td class="paramname">bytesTransferred</td><td>The number of bytes received from the network. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5c9d8c820efe4258bd5149aa73398807" name="a5c9d8c820efe4258bd5149aa73398807"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c9d8c820efe4258bd5149aa73398807">&#9670;&#160;</a></span>onServerMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::onServerMessage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handle a server message. </p>
-<p>This function processes a message received from the server.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>Pointer to the <a class="el" href="struct_message.html" title="Structure representing a complete network message.">Message</a> object received from the server. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa1445fd7305ca6060d759731f24c2be3" name="aa1445fd7305ca6060d759731f24c2be3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1445fd7305ca6060d759731f24c2be3">&#9670;&#160;</a></span>onServerResponse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::onServerResponse </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_response.html">Response</a> *&#160;</td>
-          <td class="paramname"><em>response</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handle a server response. </p>
-<p>This function processes a response received from the server.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">response</td><td>Pointer to the <a class="el" href="struct_response.html">Response</a> object received from the server. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aba5ad34da87d5cb96c83b75534c1214b" name="aba5ad34da87d5cb96c83b75534c1214b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba5ad34da87d5cb96c83b75534c1214b">&#9670;&#160;</a></span>onUpdateGameMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::onUpdateGameMessage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
-          <td class="paramname"><em>message</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handle an update game message from the server. </p>
-<p>This function processes a message received from the server that contains updates related to the game state.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>Pointer to the <a class="el" href="struct_message.html" title="Structure representing a complete network message.">Message</a> object received from the server. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a074881e54ca1e4648c78b94ac03ef3b9" name="a074881e54ca1e4648c78b94ac03ef3b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a074881e54ca1e4648c78b94ac03ef3b9">&#9670;&#160;</a></span>registerCommandHandlers()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::registerCommandHandlers </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Register command handlers for different types of network commands. </p>
-<p>This function initializes and sets up command handlers that will be used to process various commands received over the network. </p>
-
-</div>
-</div>
-<a id="a9ecc0c46e23354a22e7bc0880974e609" name="a9ecc0c46e23354a22e7bc0880974e609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ecc0c46e23354a22e7bc0880974e609">&#9670;&#160;</a></span>send()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::send </td>
-          <td>(</td>
-          <td class="paramtype">boost::asio::const_buffer const &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Send raw data over the network. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>The constant buffer containing data to be sent. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1e00a6174658b13f4962b4f8eb81037d" name="a1e00a6174658b13f4962b4f8eb81037d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e00a6174658b13f4962b4f8eb81037d">&#9670;&#160;</a></span>sendKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::sendKey </td>
-          <td>(</td>
-          <td class="paramtype">GameEngine::Keybinds&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Send a key command to the server. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>The key command to be sent. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad7c37dc6ab96aae55c0afbce268d1f9c" name="ad7c37dc6ab96aae55c0afbce268d1f9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7c37dc6ab96aae55c0afbce268d1f9c">&#9670;&#160;</a></span>sendMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::sendMessage </td>
-          <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char const&#160;</td>
-          <td class="paramname"><em>data</em>[] = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dataSize</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Send a command message over the network. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>The command to be sent. </td></tr>
-    <tr><td class="paramname">data</td><td>Optional data to be sent with the command. </td></tr>
-    <tr><td class="paramname">dataSize</td><td>The size of the data being sent. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a091bc465021f4b8e49aa03a58e145246" name="a091bc465021f4b8e49aa03a58e145246"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a091bc465021f4b8e49aa03a58e145246">&#9670;&#160;</a></span>sendResponse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::sendResponse </td>
-          <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>statusMessage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char const&#160;</td>
-          <td class="paramname"><em>data</em>[] = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dataSize</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>status</em> = <code>RES_SUCCESS</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Send a response message over the network. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">command</td><td>The command associated with the response. </td></tr>
-    <tr><td class="paramname">statusMessage</td><td>The status message to be sent. </td></tr>
-    <tr><td class="paramname">data</td><td>Optional data to be included in the response. </td></tr>
-    <tr><td class="paramname">dataSize</td><td>The size of the data being sent. </td></tr>
-    <tr><td class="paramname">status</td><td>The status code of the response (default is RES_SUCCESS). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a02b0fb41b307eb039b3e91026497ff12" name="a02b0fb41b307eb039b3e91026497ff12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02b0fb41b307eb039b3e91026497ff12">&#9670;&#160;</a></span>setClientId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::setClientId </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the client's ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The new ID to be set for the client. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a17f5c274ef1658e21cba3c1b96a06ef9" name="a17f5c274ef1658e21cba3c1b96a06ef9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17f5c274ef1658e21cba3c1b96a06ef9">&#9670;&#160;</a></span>setName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::setName </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the name of the client. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The new name to be set for the client. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae2cc6225754b3f7b46fa87422c6540da" name="ae2cc6225754b3f7b46fa87422c6540da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2cc6225754b3f7b46fa87422c6540da">&#9670;&#160;</a></span>setRemoteEndpoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::setRemoteEndpoint </td>
-          <td>(</td>
-          <td class="paramtype">std::string &amp;&#160;</td>
-          <td class="paramname"><em>ip</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string &amp;&#160;</td>
-          <td class="paramname"><em>port</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the remote endpoint for the network connection. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ip</td><td>The IP address of the remote endpoint. </td></tr>
-    <tr><td class="paramname">port</td><td>The port number of the remote endpoint. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a32740d05d50258cbe320af2a3d82529c" name="a32740d05d50258cbe320af2a3d82529c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32740d05d50258cbe320af2a3d82529c">&#9670;&#160;</a></span>setRoomId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::setRoomId </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the ID of the room the client is connected to. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The ID of the room to be set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab0adb2e5baaca04802dd5b2a99e2599c" name="ab0adb2e5baaca04802dd5b2a99e2599c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0adb2e5baaca04802dd5b2a99e2599c">&#9670;&#160;</a></span>startReceive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::startReceive </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Start the process of receiving data from the network. </p>
-<p>This function sets up the network to begin receiving data, setting up the necessary callbacks and buffers for handling incoming data. </p>
-
-</div>
-</div>
-<a id="a9090adb4709e633a7787595896adcc07" name="a9090adb4709e633a7787595896adcc07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9090adb4709e633a7787595896adcc07">&#9670;&#160;</a></span>updateName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Client::Network::updateName </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update the client's name. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>The new name to be set for the client. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>client/include/network/<a class="el" href="_network_8hpp_source.html">Network.hpp</a></li>
-<li>client/src/network/<b>Network.cpp</b></li>
-</ul>
-</div><!-- contents -->
+    <!-- window showing the filter options -->
+    <div id="MSearchSelectWindow"
+         onkeydown="return searchBox.OnSearchSelectKey(event)"
+         onmouseout="return searchBox.OnSearchSelectHide()"
+         onmouseover="return searchBox.OnSearchSelectShow()">
+    </div>
+
+    <!-- iframe showing the search results (closed by default) -->
+    <div id="MSearchResultsWindow">
+        <div id="MSearchResults">
+            <div class="SRPage">
+                <div id="SRIndex">
+                    <div id="SRResults"></div>
+                    <div class="SRStatus" id="Loading">Loading...</div>
+                    <div class="SRStatus" id="Searching">Searching...</div>
+                    <div class="SRStatus" id="NoMatches">No Matches</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="summary">
+            <a href="#pub-types">Public Types</a> &#124;
+            <a href="#pub-methods">Public Member Functions</a> &#124;
+            <a href="class_client_1_1_network-members.html">List of all members</a></div>
+        <div class="headertitle">
+            <div class="title">Client::Network Class Reference</div>
+        </div>
+    </div><!--header-->
+    <div class="contents">
+
+        <p>Class responsible for network operations in a client.
+            <a href="class_client_1_1_network.html#details">More...</a></p>
+
+        <p><code>#include &lt;<a class="el" href="_network_8hpp_source.html">Network.hpp</a>&gt;</code></p>
+        <table class="memberdecls">
+            <tr class="heading">
+                <td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+                    Public Types</h2></td>
+            </tr>
+            <tr class="memitem:a808d8f2121532e7d6856a226e95a8a2d" id="r_a808d8f2121532e7d6856a226e95a8a2d">
+                <td align="right" class="memItemLeft" valign="top">using&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a>
+                    = std::vector&lt; std::vector&lt; char &gt; &gt;
+                </td>
+            </tr>
+            <tr class="memdesc:a808d8f2121532e7d6856a226e95a8a2d">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Get the queue of serialized ECS data. <br/></td>
+            </tr>
+            <tr class="separator:a808d8f2121532e7d6856a226e95a8a2d">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+        </table>
+        <table class="memberdecls">
+            <tr class="heading">
+                <td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+                    Public Member Functions</h2></td>
+            </tr>
+            <tr class="memitem:a27d7f8cf48354afeb62a66326ba7aa46" id="r_a27d7f8cf48354afeb62a66326ba7aa46">
+                <td align="right" class="memItemLeft" valign="top">&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a27d7f8cf48354afeb62a66326ba7aa46">Network</a>
+                    (std::string ip, std::string port)
+                </td>
+            </tr>
+            <tr class="memdesc:a27d7f8cf48354afeb62a66326ba7aa46">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Construct a new <a class="el" href="class_client_1_1_network.html"
+                                                          title="Class responsible for network operations in a client.">Network</a>
+                    object. <br/></td>
+            </tr>
+            <tr class="separator:a27d7f8cf48354afeb62a66326ba7aa46">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a9781434da3b6a72fab9b5e846e490a80" id="r_a9781434da3b6a72fab9b5e846e490a80">
+                <td align="right" class="memItemLeft" valign="top"><a id="a9781434da3b6a72fab9b5e846e490a80"
+                                                                      name="a9781434da3b6a72fab9b5e846e490a80"></a>
+                    &#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>~Network</b> ()</td>
+            </tr>
+            <tr class="memdesc:a9781434da3b6a72fab9b5e846e490a80">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Default destructor for <a class="el" href="class_client_1_1_network.html"
+                                                                 title="Class responsible for network operations in a client.">Network</a>.
+                    <br/></td>
+            </tr>
+            <tr class="separator:a9781434da3b6a72fab9b5e846e490a80">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a074881e54ca1e4648c78b94ac03ef3b9" id="r_a074881e54ca1e4648c78b94ac03ef3b9">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a074881e54ca1e4648c78b94ac03ef3b9">registerCommandHandlers</a>
+                    ()
+                </td>
+            </tr>
+            <tr class="memdesc:a074881e54ca1e4648c78b94ac03ef3b9">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Register command handlers for different types of network commands. <br/></td>
+            </tr>
+            <tr class="separator:a074881e54ca1e4648c78b94ac03ef3b9">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a9dd47f4da82a25982486c788f656b1ff" id="r_a9dd47f4da82a25982486c788f656b1ff">
+                <td align="right" class="memItemLeft" valign="top">std::shared_ptr&lt; <a class="el"
+                                                                                          href="class_client_1_1_i_command_handler.html">ICommandHandler</a>
+                    &gt;&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a9dd47f4da82a25982486c788f656b1ff">getCommandHandler</a>
+                    (std::string const &amp;name)
+                </td>
+            </tr>
+            <tr class="memdesc:a9dd47f4da82a25982486c788f656b1ff">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Get the command handler for a specific command. <br/></td>
+            </tr>
+            <tr class="separator:a9dd47f4da82a25982486c788f656b1ff">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a9ecc0c46e23354a22e7bc0880974e609" id="r_a9ecc0c46e23354a22e7bc0880974e609">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a9ecc0c46e23354a22e7bc0880974e609">send</a>
+                    (boost::asio::const_buffer const &amp;buffer)
+                </td>
+            </tr>
+            <tr class="memdesc:a9ecc0c46e23354a22e7bc0880974e609">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Send raw data over the network. <br/></td>
+            </tr>
+            <tr class="separator:a9ecc0c46e23354a22e7bc0880974e609">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:aa433394ccb8d01696e30252eec870e66" id="r_aa433394ccb8d01696e30252eec870e66">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#aa433394ccb8d01696e30252eec870e66">handleSend</a>
+                    (boost::system::error_code const &amp;error, std::size_t bytesTransferred)
+                </td>
+            </tr>
+            <tr class="memdesc:aa433394ccb8d01696e30252eec870e66">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Callback function for handling data sent over the network. <br/></td>
+            </tr>
+            <tr class="separator:aa433394ccb8d01696e30252eec870e66">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:ad7c37dc6ab96aae55c0afbce268d1f9c" id="r_ad7c37dc6ab96aae55c0afbce268d1f9c">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#ad7c37dc6ab96aae55c0afbce268d1f9c">sendMessage</a>
+                    (std::string const &amp;command, char const data[]=nullptr, int dataSize=0)
+                </td>
+            </tr>
+            <tr class="memdesc:ad7c37dc6ab96aae55c0afbce268d1f9c">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Send a command message over the network. <br/></td>
+            </tr>
+            <tr class="separator:ad7c37dc6ab96aae55c0afbce268d1f9c">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a091bc465021f4b8e49aa03a58e145246" id="r_a091bc465021f4b8e49aa03a58e145246">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a091bc465021f4b8e49aa03a58e145246">sendResponse</a>
+                    (std::string const &amp;command, std::string const &amp;statusMessage, char const data[]=nullptr,
+                    int dataSize=0, int status=RES_SUCCESS)
+                </td>
+            </tr>
+            <tr class="memdesc:a091bc465021f4b8e49aa03a58e145246">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Send a response message over the network. <br/></td>
+            </tr>
+            <tr class="separator:a091bc465021f4b8e49aa03a58e145246">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:ab0adb2e5baaca04802dd5b2a99e2599c" id="r_ab0adb2e5baaca04802dd5b2a99e2599c">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#ab0adb2e5baaca04802dd5b2a99e2599c">startReceive</a>
+                    ()
+                </td>
+            </tr>
+            <tr class="memdesc:ab0adb2e5baaca04802dd5b2a99e2599c">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Start the process of receiving data from the network. <br/></td>
+            </tr>
+            <tr class="separator:ab0adb2e5baaca04802dd5b2a99e2599c">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a6b3e2b7068834a8663ce7c1797e3089d" id="r_a6b3e2b7068834a8663ce7c1797e3089d">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a6b3e2b7068834a8663ce7c1797e3089d">onReceive</a>
+                    (boost::system::error_code const &amp;error, std::size_t bytesTransferred)
+                </td>
+            </tr>
+            <tr class="memdesc:a6b3e2b7068834a8663ce7c1797e3089d">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Callback function for handling data received from the network. <br/></td>
+            </tr>
+            <tr class="separator:a6b3e2b7068834a8663ce7c1797e3089d">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:aa1445fd7305ca6060d759731f24c2be3" id="r_aa1445fd7305ca6060d759731f24c2be3">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#aa1445fd7305ca6060d759731f24c2be3">onServerResponse</a>
+                    (<a class="el" href="struct_response.html">Response</a> *response)
+                </td>
+            </tr>
+            <tr class="memdesc:aa1445fd7305ca6060d759731f24c2be3">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Handle a server response. <br/></td>
+            </tr>
+            <tr class="separator:aa1445fd7305ca6060d759731f24c2be3">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a5c9d8c820efe4258bd5149aa73398807" id="r_a5c9d8c820efe4258bd5149aa73398807">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a5c9d8c820efe4258bd5149aa73398807">onServerMessage</a>
+                    (<a class="el" href="struct_message.html">Message</a> *message)
+                </td>
+            </tr>
+            <tr class="memdesc:a5c9d8c820efe4258bd5149aa73398807">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Handle a server message. <br/></td>
+            </tr>
+            <tr class="separator:a5c9d8c820efe4258bd5149aa73398807">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a36443c385e3362690cbbc6a2ab8c16d6" id="r_a36443c385e3362690cbbc6a2ab8c16d6">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a36443c385e3362690cbbc6a2ab8c16d6">onCheckConnectionMessage</a>
+                    (<a class="el" href="struct_message.html">Message</a> *message)
+                </td>
+            </tr>
+            <tr class="memdesc:a36443c385e3362690cbbc6a2ab8c16d6">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Handle a check connection message from the server. <br/></td>
+            </tr>
+            <tr class="separator:a36443c385e3362690cbbc6a2ab8c16d6">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:aba5ad34da87d5cb96c83b75534c1214b" id="r_aba5ad34da87d5cb96c83b75534c1214b">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#aba5ad34da87d5cb96c83b75534c1214b">onUpdateGameMessage</a>
+                    (<a class="el" href="struct_message.html">Message</a> *message)
+                </td>
+            </tr>
+            <tr class="memdesc:aba5ad34da87d5cb96c83b75534c1214b">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Handle an execute game message from the server. <br/></td>
+            </tr>
+            <tr class="separator:aba5ad34da87d5cb96c83b75534c1214b">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a02b0fb41b307eb039b3e91026497ff12" id="r_a02b0fb41b307eb039b3e91026497ff12">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a02b0fb41b307eb039b3e91026497ff12">setClientId</a>
+                    (int id)
+                </td>
+            </tr>
+            <tr class="memdesc:a02b0fb41b307eb039b3e91026497ff12">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Set the client's ID. <br/></td>
+            </tr>
+            <tr class="separator:a02b0fb41b307eb039b3e91026497ff12">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:ad7a790ce27c24b4e06ca2527e1ef60b4" id="r_ad7a790ce27c24b4e06ca2527e1ef60b4">
+                <td align="right" class="memItemLeft" valign="top">int&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#ad7a790ce27c24b4e06ca2527e1ef60b4">getClientId</a>
+                    () const
+                </td>
+            </tr>
+            <tr class="memdesc:ad7a790ce27c24b4e06ca2527e1ef60b4">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Get the client's ID. <br/></td>
+            </tr>
+            <tr class="separator:ad7a790ce27c24b4e06ca2527e1ef60b4">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a32740d05d50258cbe320af2a3d82529c" id="r_a32740d05d50258cbe320af2a3d82529c">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a32740d05d50258cbe320af2a3d82529c">setRoomId</a>
+                    (int id)
+                </td>
+            </tr>
+            <tr class="memdesc:a32740d05d50258cbe320af2a3d82529c">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Set the ID of the room the client is connected to. <br/></td>
+            </tr>
+            <tr class="separator:a32740d05d50258cbe320af2a3d82529c">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:aa901bacaeffbed0bbfc51820065deab5" id="r_aa901bacaeffbed0bbfc51820065deab5">
+                <td align="right" class="memItemLeft" valign="top">int&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#aa901bacaeffbed0bbfc51820065deab5">getRoomId</a>
+                    () const
+                </td>
+            </tr>
+            <tr class="memdesc:aa901bacaeffbed0bbfc51820065deab5">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Get the ID of the room the client is connected to. <br/></td>
+            </tr>
+            <tr class="separator:aa901bacaeffbed0bbfc51820065deab5">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a17f5c274ef1658e21cba3c1b96a06ef9" id="r_a17f5c274ef1658e21cba3c1b96a06ef9">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a17f5c274ef1658e21cba3c1b96a06ef9">setName</a>
+                    (std::string name)
+                </td>
+            </tr>
+            <tr class="memdesc:a17f5c274ef1658e21cba3c1b96a06ef9">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Set the name of the client. <br/></td>
+            </tr>
+            <tr class="separator:a17f5c274ef1658e21cba3c1b96a06ef9">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a22fd352e18ad5618d8b7e5eb233ff1db" id="r_a22fd352e18ad5618d8b7e5eb233ff1db">
+                <td align="right" class="memItemLeft" valign="top">std::string&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a22fd352e18ad5618d8b7e5eb233ff1db">getName</a>
+                    () const
+                </td>
+            </tr>
+            <tr class="memdesc:a22fd352e18ad5618d8b7e5eb233ff1db">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Get the name of the client. <br/></td>
+            </tr>
+            <tr class="separator:a22fd352e18ad5618d8b7e5eb233ff1db">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:ae2cc6225754b3f7b46fa87422c6540da" id="r_ae2cc6225754b3f7b46fa87422c6540da">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#ae2cc6225754b3f7b46fa87422c6540da">setRemoteEndpoint</a>
+                    (std::string &amp;ip, std::string &amp;port)
+                </td>
+            </tr>
+            <tr class="memdesc:ae2cc6225754b3f7b46fa87422c6540da">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Set the remote endpoint for the network connection. <br/></td>
+            </tr>
+            <tr class="separator:ae2cc6225754b3f7b46fa87422c6540da">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a0f198af430067b2174e2f69b0a78ada6" id="r_a0f198af430067b2174e2f69b0a78ada6">
+                <td align="right" class="memItemLeft" valign="top">boost::asio::ip::udp::endpoint&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a0f198af430067b2174e2f69b0a78ada6">getRemoteEndpoint</a>
+                    () const
+                </td>
+            </tr>
+            <tr class="memdesc:a0f198af430067b2174e2f69b0a78ada6">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Get the remote endpoint of the network connection. <br/></td>
+            </tr>
+            <tr class="separator:a0f198af430067b2174e2f69b0a78ada6">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a5f3906ec4967fc8be1936ef21b41741c" id="r_a5f3906ec4967fc8be1936ef21b41741c">
+                <td align="right" class="memItemLeft" valign="top"><a id="a5f3906ec4967fc8be1936ef21b41741c"
+                                                                      name="a5f3906ec4967fc8be1936ef21b41741c"></a>
+                    <a class="el" href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">QueueEcsSerialized</a>
+                    &amp;&#160;
+                </td>
+                <td class="memItemRight" valign="bottom"><b>getSerializedEcsQueue</b> ()</td>
+            </tr>
+            <tr class="separator:a5f3906ec4967fc8be1936ef21b41741c">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57" id="r_a15a45ffff3cdcbf99901d537a5aa2a57">
+                <td class="memTemplParams" colspan="2">template&lt;typename T , typename Func &gt;</td>
+            </tr>
+            <tr class="memitem:a15a45ffff3cdcbf99901d537a5aa2a57">
+                <td align="right" class="memTemplItemLeft" valign="top">void&#160;</td>
+                <td class="memTemplItemRight" valign="bottom"><a class="el"
+                                                                 href="class_client_1_1_network.html#a15a45ffff3cdcbf99901d537a5aa2a57">executeCommand</a>
+                    (const std::string &amp;commandName, Func action)
+                </td>
+            </tr>
+            <tr class="memdesc:a15a45ffff3cdcbf99901d537a5aa2a57">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Execute a command with a specified action. <br/></td>
+            </tr>
+            <tr class="separator:a15a45ffff3cdcbf99901d537a5aa2a57">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a4e6e450be2f058ef29e21b5a17f3e5ee" id="r_a4e6e450be2f058ef29e21b5a17f3e5ee">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a4e6e450be2f058ef29e21b5a17f3e5ee">connectToServer</a>
+                    ()
+                </td>
+            </tr>
+            <tr class="memdesc:a4e6e450be2f058ef29e21b5a17f3e5ee">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Connect to a server. <br/></td>
+            </tr>
+            <tr class="separator:a4e6e450be2f058ef29e21b5a17f3e5ee">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a9090adb4709e633a7787595896adcc07" id="r_a9090adb4709e633a7787595896adcc07">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a9090adb4709e633a7787595896adcc07">updateName</a>
+                    (std::string name)
+                </td>
+            </tr>
+            <tr class="memdesc:a9090adb4709e633a7787595896adcc07">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Update the client's name. <br/></td>
+            </tr>
+            <tr class="separator:a9090adb4709e633a7787595896adcc07">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:af9322d011cea31df49fe776392ad0648" id="r_af9322d011cea31df49fe776392ad0648">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#af9322d011cea31df49fe776392ad0648">joinRoom</a>
+                    (int roomId)
+                </td>
+            </tr>
+            <tr class="memdesc:af9322d011cea31df49fe776392ad0648">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Join a room with a specified room ID. <br/></td>
+            </tr>
+            <tr class="separator:af9322d011cea31df49fe776392ad0648">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a1e00a6174658b13f4962b4f8eb81037d" id="r_a1e00a6174658b13f4962b4f8eb81037d">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a1e00a6174658b13f4962b4f8eb81037d">sendKey</a>
+                    (GameEngine::Keybinds key)
+                </td>
+            </tr>
+            <tr class="memdesc:a1e00a6174658b13f4962b4f8eb81037d">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Send a key command to the server. <br/></td>
+            </tr>
+            <tr class="separator:a1e00a6174658b13f4962b4f8eb81037d">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+            <tr class="memitem:a8fb4a0ec6478049555f7ef13fe15d2f0" id="r_a8fb4a0ec6478049555f7ef13fe15d2f0">
+                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+                <td class="memItemRight" valign="bottom"><a class="el"
+                                                            href="class_client_1_1_network.html#a8fb4a0ec6478049555f7ef13fe15d2f0">joinGame</a>
+                    (int roomId)
+                </td>
+            </tr>
+            <tr class="memdesc:a8fb4a0ec6478049555f7ef13fe15d2f0">
+                <td class="mdescLeft">&#160;</td>
+                <td class="mdescRight">Join a game with a specified room ID. <br/></td>
+            </tr>
+            <tr class="separator:a8fb4a0ec6478049555f7ef13fe15d2f0">
+                <td class="memSeparator" colspan="2">&#160;</td>
+            </tr>
+        </table>
+        <a id="details" name="details"></a>
+        <h2 class="groupheader">Detailed Description</h2>
+        <div class="textblock"><p>Class responsible for network operations in a client. </p>
+            <p>The <a class="el" href="class_client_1_1_network.html"
+                      title="Class responsible for network operations in a client.">Network</a> class handles all
+                network communications for a client, including sending and receiving messages and responses, managing
+                command handlers, and keeping track of client and room states. </p>
+        </div>
+        <h2 class="groupheader">Member Typedef Documentation</h2>
+        <a id="a808d8f2121532e7d6856a226e95a8a2d" name="a808d8f2121532e7d6856a226e95a8a2d"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a808d8f2121532e7d6856a226e95a8a2d">&#9670;&#160;</a></span>QueueEcsSerialized</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">using <a class="el"
+                                                     href="class_client_1_1_network.html#a808d8f2121532e7d6856a226e95a8a2d">Client::Network::QueueEcsSerialized</a>
+                            = std::vector&lt;std::vector&lt;char&gt; &gt;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Get the queue of serialized ECS data. </p>
+                <p>This function returns a reference to the queue holding serialized data from the Entity Component
+                    System (ECS), ready for network transmission.</p>
+                <dl class="section return">
+                    <dt>Returns</dt>
+                    <dd>QueueEcsSerialized&amp; Reference to the queue of serialized ECS data.</dd>
+                </dl>
+
+            </div>
+        </div>
+        <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+        <a id="a27d7f8cf48354afeb62a66326ba7aa46" name="a27d7f8cf48354afeb62a66326ba7aa46"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a27d7f8cf48354afeb62a66326ba7aa46">&#9670;&#160;</a></span>Network()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">Client::Network::Network</td>
+                        <td>(</td>
+                        <td class="paramtype">std::string&#160;</td>
+                        <td class="paramname"><em>ip</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">std::string&#160;</td>
+                        <td class="paramname"><em>port</em>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Construct a new <a class="el" href="class_client_1_1_network.html"
+                                      title="Class responsible for network operations in a client.">Network</a> object.
+                </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">ip</td>
+                                <td>The IP address of the server to connect to.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">port</td>
+                                <td>The port number for the network connection.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <h2 class="groupheader">Member Function Documentation</h2>
+        <a id="a4e6e450be2f058ef29e21b5a17f3e5ee" name="a4e6e450be2f058ef29e21b5a17f3e5ee"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a4e6e450be2f058ef29e21b5a17f3e5ee">&#9670;&#160;</a></span>connectToServer()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::connectToServer</td>
+                        <td>(</td>
+                        <td class="paramname"></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Connect to a server. </p>
+                <p>This function initiates a connection to the server using the network parameters. </p>
+
+            </div>
+        </div>
+        <a id="a15a45ffff3cdcbf99901d537a5aa2a57" name="a15a45ffff3cdcbf99901d537a5aa2a57"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a15a45ffff3cdcbf99901d537a5aa2a57">&#9670;&#160;</a></span>executeCommand()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <div class="memtemplate">
+                    template&lt;typename T , typename Func &gt;
+                </div>
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::executeCommand</td>
+                        <td>(</td>
+                        <td class="paramtype">const std::string &amp;&#160;</td>
+                        <td class="paramname"><em>commandName</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">Func&#160;</td>
+                        <td class="paramname"><em>action</em>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Execute a command with a specified action. </p>
+                <p>This template function allows for the execution of a command along with a specified action. It can be
+                    used to handle various command types dynamically.</p>
+                <dl class="tparams">
+                    <dt>Template Parameters</dt>
+                    <dd>
+                        <table class="tparams">
+                            <tr>
+                                <td class="paramname">T</td>
+                                <td>The type of the command.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">Func</td>
+                                <td>The function type for the action to be executed.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">commandName</td>
+                                <td>The name of the command to execute.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">action</td>
+                                <td>The action to be performed in association with the command.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="ad7a790ce27c24b4e06ca2527e1ef60b4" name="ad7a790ce27c24b4e06ca2527e1ef60b4"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#ad7a790ce27c24b4e06ca2527e1ef60b4">&#9670;&#160;</a></span>getClientId()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">int Client::Network::getClientId</td>
+                        <td>(</td>
+                        <td class="paramname"></td>
+                        <td>)</td>
+                        <td> const</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Get the client's ID. </p>
+                <dl class="section return">
+                    <dt>Returns</dt>
+                    <dd>int The current ID of the client.</dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a9dd47f4da82a25982486c788f656b1ff" name="a9dd47f4da82a25982486c788f656b1ff"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a9dd47f4da82a25982486c788f656b1ff">&#9670;&#160;</a></span>getCommandHandler()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">std::shared_ptr&lt; <a class="el"
+                                                                   href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a>
+                            &gt; Client::Network::getCommandHandler
+                        </td>
+                        <td>(</td>
+                        <td class="paramtype">std::string const &amp;&#160;</td>
+                        <td class="paramname"><em>name</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Get the command handler for a specific command. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">name</td>
+                                <td>The name of the command for which the handler is required.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+                <dl class="section return">
+                    <dt>Returns</dt>
+                    <dd>std::shared_ptr&lt;ICommandHandler&gt; Shared pointer to the requested command handler.</dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a22fd352e18ad5618d8b7e5eb233ff1db" name="a22fd352e18ad5618d8b7e5eb233ff1db"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a22fd352e18ad5618d8b7e5eb233ff1db">&#9670;&#160;</a></span>getName()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">std::string Client::Network::getName</td>
+                        <td>(</td>
+                        <td class="paramname"></td>
+                        <td>)</td>
+                        <td> const</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Get the name of the client. </p>
+                <dl class="section return">
+                    <dt>Returns</dt>
+                    <dd>std::string The current name of the client.</dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a0f198af430067b2174e2f69b0a78ada6" name="a0f198af430067b2174e2f69b0a78ada6"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a0f198af430067b2174e2f69b0a78ada6">&#9670;&#160;</a></span>getRemoteEndpoint()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">boost::asio::ip::udp::endpoint Client::Network::getRemoteEndpoint</td>
+                        <td>(</td>
+                        <td class="paramname"></td>
+                        <td>)</td>
+                        <td> const</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Get the remote endpoint of the network connection. </p>
+                <dl class="section return">
+                    <dt>Returns</dt>
+                    <dd>boost::asio::ip::udp::endpoint The current remote endpoint.</dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="aa901bacaeffbed0bbfc51820065deab5" name="aa901bacaeffbed0bbfc51820065deab5"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#aa901bacaeffbed0bbfc51820065deab5">&#9670;&#160;</a></span>getRoomId()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">int Client::Network::getRoomId</td>
+                        <td>(</td>
+                        <td class="paramname"></td>
+                        <td>)</td>
+                        <td> const</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Get the ID of the room the client is connected to. </p>
+                <dl class="section return">
+                    <dt>Returns</dt>
+                    <dd>int The current room ID.</dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="aa433394ccb8d01696e30252eec870e66" name="aa433394ccb8d01696e30252eec870e66"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#aa433394ccb8d01696e30252eec870e66">&#9670;&#160;</a></span>handleSend()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::handleSend</td>
+                        <td>(</td>
+                        <td class="paramtype">boost::system::error_code const &amp;&#160;</td>
+                        <td class="paramname"><em>error</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">std::size_t&#160;</td>
+                        <td class="paramname"><em>bytesTransferred</em>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Callback function for handling data sent over the network. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">error</td>
+                                <td>Boost ASIO error code indicating the status of the send operation.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">bytesTransferred</td>
+                                <td>The number of bytes sent over the network.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a8fb4a0ec6478049555f7ef13fe15d2f0" name="a8fb4a0ec6478049555f7ef13fe15d2f0"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a8fb4a0ec6478049555f7ef13fe15d2f0">&#9670;&#160;</a></span>joinGame()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::joinGame</td>
+                        <td>(</td>
+                        <td class="paramtype">int&#160;</td>
+                        <td class="paramname"><em>roomId</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Join a game with a specified room ID. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">roomId</td>
+                                <td>The ID of the game room to join.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="af9322d011cea31df49fe776392ad0648" name="af9322d011cea31df49fe776392ad0648"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#af9322d011cea31df49fe776392ad0648">&#9670;&#160;</a></span>joinRoom()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::joinRoom</td>
+                        <td>(</td>
+                        <td class="paramtype">int&#160;</td>
+                        <td class="paramname"><em>roomId</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Join a room with a specified room ID. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">roomId</td>
+                                <td>The ID of the room to join.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a36443c385e3362690cbbc6a2ab8c16d6" name="a36443c385e3362690cbbc6a2ab8c16d6"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a36443c385e3362690cbbc6a2ab8c16d6">&#9670;&#160;</a></span>onCheckConnectionMessage()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::onCheckConnectionMessage</td>
+                        <td>(</td>
+                        <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
+                        <td class="paramname"><em>message</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Handle a check connection message from the server. </p>
+                <p>This function processes a message specifically intended to check the connection status between the
+                    client and the server.</p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">message</td>
+                                <td>Pointer to the <a class="el" href="struct_message.html"
+                                                      title="Structure representing a complete network message.">Message</a>
+                                    object received from the server.
+                                </td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a6b3e2b7068834a8663ce7c1797e3089d" name="a6b3e2b7068834a8663ce7c1797e3089d"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a6b3e2b7068834a8663ce7c1797e3089d">&#9670;&#160;</a></span>onReceive()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::onReceive</td>
+                        <td>(</td>
+                        <td class="paramtype">boost::system::error_code const &amp;&#160;</td>
+                        <td class="paramname"><em>error</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">std::size_t&#160;</td>
+                        <td class="paramname"><em>bytesTransferred</em>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Callback function for handling data received from the network. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">error</td>
+                                <td>Boost ASIO error code indicating the status of the receive operation.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">bytesTransferred</td>
+                                <td>The number of bytes received from the network.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a5c9d8c820efe4258bd5149aa73398807" name="a5c9d8c820efe4258bd5149aa73398807"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a5c9d8c820efe4258bd5149aa73398807">&#9670;&#160;</a></span>onServerMessage()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::onServerMessage</td>
+                        <td>(</td>
+                        <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
+                        <td class="paramname"><em>message</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Handle a server message. </p>
+                <p>This function processes a message received from the server.</p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">message</td>
+                                <td>Pointer to the <a class="el" href="struct_message.html"
+                                                      title="Structure representing a complete network message.">Message</a>
+                                    object received from the server.
+                                </td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="aa1445fd7305ca6060d759731f24c2be3" name="aa1445fd7305ca6060d759731f24c2be3"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#aa1445fd7305ca6060d759731f24c2be3">&#9670;&#160;</a></span>onServerResponse()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::onServerResponse</td>
+                        <td>(</td>
+                        <td class="paramtype"><a class="el" href="struct_response.html">Response</a> *&#160;</td>
+                        <td class="paramname"><em>response</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Handle a server response. </p>
+                <p>This function processes a response received from the server.</p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">response</td>
+                                <td>Pointer to the <a class="el" href="struct_response.html">Response</a> object
+                                    received from the server.
+                                </td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="aba5ad34da87d5cb96c83b75534c1214b" name="aba5ad34da87d5cb96c83b75534c1214b"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#aba5ad34da87d5cb96c83b75534c1214b">&#9670;&#160;</a></span>onUpdateGameMessage()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::onUpdateGameMessage</td>
+                        <td>(</td>
+                        <td class="paramtype"><a class="el" href="struct_message.html">Message</a> *&#160;</td>
+                        <td class="paramname"><em>message</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Handle an execute game message from the server. </p>
+                <p>This function processes a message received from the server that contains updates related to the game
+                    state.</p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">message</td>
+                                <td>Pointer to the <a class="el" href="struct_message.html"
+                                                      title="Structure representing a complete network message.">Message</a>
+                                    object received from the server.
+                                </td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a074881e54ca1e4648c78b94ac03ef3b9" name="a074881e54ca1e4648c78b94ac03ef3b9"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a074881e54ca1e4648c78b94ac03ef3b9">&#9670;&#160;</a></span>registerCommandHandlers()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::registerCommandHandlers</td>
+                        <td>(</td>
+                        <td class="paramname"></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Register command handlers for different types of network commands. </p>
+                <p>This function initializes and sets up command handlers that will be used to process various commands
+                    received over the network. </p>
+
+            </div>
+        </div>
+        <a id="a9ecc0c46e23354a22e7bc0880974e609" name="a9ecc0c46e23354a22e7bc0880974e609"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a9ecc0c46e23354a22e7bc0880974e609">&#9670;&#160;</a></span>send()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::send</td>
+                        <td>(</td>
+                        <td class="paramtype">boost::asio::const_buffer const &amp;&#160;</td>
+                        <td class="paramname"><em>buffer</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Send raw data over the network. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">buffer</td>
+                                <td>The constant buffer containing data to be sent.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a1e00a6174658b13f4962b4f8eb81037d" name="a1e00a6174658b13f4962b4f8eb81037d"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a1e00a6174658b13f4962b4f8eb81037d">&#9670;&#160;</a></span>sendKey()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::sendKey</td>
+                        <td>(</td>
+                        <td class="paramtype">GameEngine::Keybinds&#160;</td>
+                        <td class="paramname"><em>key</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Send a key command to the server. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">key</td>
+                                <td>The key command to be sent.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="ad7c37dc6ab96aae55c0afbce268d1f9c" name="ad7c37dc6ab96aae55c0afbce268d1f9c"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#ad7c37dc6ab96aae55c0afbce268d1f9c">&#9670;&#160;</a></span>sendMessage()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::sendMessage</td>
+                        <td>(</td>
+                        <td class="paramtype">std::string const &amp;&#160;</td>
+                        <td class="paramname"><em>command</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">char const&#160;</td>
+                        <td class="paramname"><em>data</em>[] = <code>nullptr</code>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">int&#160;</td>
+                        <td class="paramname"><em>dataSize</em> = <code>0</code>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Send a command message over the network. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">command</td>
+                                <td>The command to be sent.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">data</td>
+                                <td>Optional data to be sent with the command.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">dataSize</td>
+                                <td>The size of the data being sent.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a091bc465021f4b8e49aa03a58e145246" name="a091bc465021f4b8e49aa03a58e145246"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a091bc465021f4b8e49aa03a58e145246">&#9670;&#160;</a></span>sendResponse()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::sendResponse</td>
+                        <td>(</td>
+                        <td class="paramtype">std::string const &amp;&#160;</td>
+                        <td class="paramname"><em>command</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">std::string const &amp;&#160;</td>
+                        <td class="paramname"><em>statusMessage</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">char const&#160;</td>
+                        <td class="paramname"><em>data</em>[] = <code>nullptr</code>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">int&#160;</td>
+                        <td class="paramname"><em>dataSize</em> = <code>0</code>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">int&#160;</td>
+                        <td class="paramname"><em>status</em> = <code>RES_SUCCESS</code>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Send a response message over the network. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">command</td>
+                                <td>The command associated with the response.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">statusMessage</td>
+                                <td>The status message to be sent.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">data</td>
+                                <td>Optional data to be included in the response.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">dataSize</td>
+                                <td>The size of the data being sent.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">status</td>
+                                <td>The status code of the response (default is RES_SUCCESS).</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a02b0fb41b307eb039b3e91026497ff12" name="a02b0fb41b307eb039b3e91026497ff12"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a02b0fb41b307eb039b3e91026497ff12">&#9670;&#160;</a></span>setClientId()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::setClientId</td>
+                        <td>(</td>
+                        <td class="paramtype">int&#160;</td>
+                        <td class="paramname"><em>id</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Set the client's ID. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">id</td>
+                                <td>The new ID to be set for the client.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a17f5c274ef1658e21cba3c1b96a06ef9" name="a17f5c274ef1658e21cba3c1b96a06ef9"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a17f5c274ef1658e21cba3c1b96a06ef9">&#9670;&#160;</a></span>setName()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::setName</td>
+                        <td>(</td>
+                        <td class="paramtype">std::string&#160;</td>
+                        <td class="paramname"><em>name</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Set the name of the client. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">name</td>
+                                <td>The new name to be set for the client.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="ae2cc6225754b3f7b46fa87422c6540da" name="ae2cc6225754b3f7b46fa87422c6540da"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#ae2cc6225754b3f7b46fa87422c6540da">&#9670;&#160;</a></span>setRemoteEndpoint()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::setRemoteEndpoint</td>
+                        <td>(</td>
+                        <td class="paramtype">std::string &amp;&#160;</td>
+                        <td class="paramname"><em>ip</em>,</td>
+                    </tr>
+                    <tr>
+                        <td class="paramkey"></td>
+                        <td></td>
+                        <td class="paramtype">std::string &amp;&#160;</td>
+                        <td class="paramname"><em>port</em>&#160;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Set the remote endpoint for the network connection. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">ip</td>
+                                <td>The IP address of the remote endpoint.</td>
+                            </tr>
+                            <tr>
+                                <td class="paramname">port</td>
+                                <td>The port number of the remote endpoint.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="a32740d05d50258cbe320af2a3d82529c" name="a32740d05d50258cbe320af2a3d82529c"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a32740d05d50258cbe320af2a3d82529c">&#9670;&#160;</a></span>setRoomId()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::setRoomId</td>
+                        <td>(</td>
+                        <td class="paramtype">int&#160;</td>
+                        <td class="paramname"><em>id</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Set the ID of the room the client is connected to. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">id</td>
+                                <td>The ID of the room to be set.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <a id="ab0adb2e5baaca04802dd5b2a99e2599c" name="ab0adb2e5baaca04802dd5b2a99e2599c"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#ab0adb2e5baaca04802dd5b2a99e2599c">&#9670;&#160;</a></span>startReceive()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::startReceive</td>
+                        <td>(</td>
+                        <td class="paramname"></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Start the process of receiving data from the network. </p>
+                <p>This function sets up the network to begin receiving data, setting up the necessary callbacks and
+                    buffers for handling incoming data. </p>
+
+            </div>
+        </div>
+        <a id="a9090adb4709e633a7787595896adcc07" name="a9090adb4709e633a7787595896adcc07"></a>
+        <h2 class="memtitle"><span class="permalink"><a
+                href="#a9090adb4709e633a7787595896adcc07">&#9670;&#160;</a></span>updateName()</h2>
+
+        <div class="memitem">
+            <div class="memproto">
+                <table class="memname">
+                    <tr>
+                        <td class="memname">void Client::Network::updateName</td>
+                        <td>(</td>
+                        <td class="paramtype">std::string&#160;</td>
+                        <td class="paramname"><em>name</em></td>
+                        <td>)</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="memdoc">
+
+                <p>Update the client's name. </p>
+                <dl class="params">
+                    <dt>Parameters</dt>
+                    <dd>
+                        <table class="params">
+                            <tr>
+                                <td class="paramname">name</td>
+                                <td>The new name to be set for the client.</td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+        <hr/>
+        The documentation for this class was generated from the following files:
+        <ul>
+            <li>client/include/network/<a class="el" href="_network_8hpp_source.html">Network.hpp</a></li>
+            <li>client/src/network/<b>Network.cpp</b></li>
+        </ul>
+    </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>Client</b></li><li class="navelem"><a class="el" href="class_client_1_1_network.html">Network</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
-  </ul>
+<div class="navpath" id="nav-path"><!-- id is needed for treeview function! -->
+    <ul>
+        <li class="navelem"><b>Client</b></li>
+        <li class="navelem"><a class="el" href="class_client_1_1_network.html">Network</a></li>
+        <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img alt="doxygen"
+                                                                                          class="footer" height="31"
+                                                                                          src="doxygen.svg"
+                                                                                          width="104"/></a> 1.9.8
+        </li>
+    </ul>
 </div>
 </body>
 </html>

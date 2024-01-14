@@ -130,21 +130,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aba7f0f2f4d7a375bdfad4c31ff8eecce"><td class="memItemLeft" align="right" valign="top"><a id="aba7f0f2f4d7a375bdfad4c31ff8eecce"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFromJson</b> (const std::string &amp;jsonFilePath)</td></tr>
 <tr class="separator:aba7f0f2f4d7a375bdfad4c31ff8eecce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5662324ea985aa981b15211dc67b3e66"><td class="memItemLeft" align="right" valign="top"><a id="a5662324ea985aa981b15211dc67b3e66"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadEntitiesTemplate</b> (<a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory)</td></tr>
-<tr class="separator:a5662324ea985aa981b15211dc67b3e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af00668aacbb1a23782c8a091139927d6"><td class="memItemLeft" align="right" valign="top"><a id="af00668aacbb1a23782c8a091139927d6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadEntities</b> (<a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory)</td></tr>
 <tr class="separator:af00668aacbb1a23782c8a091139927d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2fe1aeb3b28466b4fe0cd8cdb97677"><td class="memItemLeft" align="right" valign="top"><a id="abe2fe1aeb3b28466b4fe0cd8cdb97677"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parseEntity</b> (const json &amp;config, <a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory)</td></tr>
+<tr class="separator:abe2fe1aeb3b28466b4fe0cd8cdb97677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5662324ea985aa981b15211dc67b3e66"><td class="memItemLeft" align="right" valign="top"><a id="a5662324ea985aa981b15211dc67b3e66"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadEntitiesTemplate</b> (<a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory)</td></tr>
+<tr class="separator:a5662324ea985aa981b15211dc67b3e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc13dd43386d84c6341407c5bfbf15d1"><td class="memItemLeft" align="right" valign="top"><a id="abc13dd43386d84c6341407c5bfbf15d1"></a>
 <a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">EntityTemplate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parseComponents</b> (const json &amp;config)</td></tr>
 <tr class="separator:abc13dd43386d84c6341407c5bfbf15d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8c3fde663885054a96e8c5ac99e16e5"><td class="memItemLeft" align="right" valign="top"><a id="ac8c3fde663885054a96e8c5ac99e16e5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>tryParseComponents</b> (const std::string &amp;componentName, const std::string &amp;keyComponent, <a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">Entity::EntityTemplate</a> &amp;entity, const json &amp;config, void(ConfigLoader::*function)(<a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">Entity::EntityTemplate</a> &amp;entity, const json &amp;config))</td></tr>
 <tr class="separator:ac8c3fde663885054a96e8c5ac99e16e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe2fe1aeb3b28466b4fe0cd8cdb97677"><td class="memItemLeft" align="right" valign="top"><a id="abe2fe1aeb3b28466b4fe0cd8cdb97677"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>parseEntity</b> (const json &amp;config, <a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory)</td></tr>
-<tr class="separator:abe2fe1aeb3b28466b4fe0cd8cdb97677"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaabd6199b20b79fa5e9698832e1e43b5"><td class="memItemLeft" align="right" valign="top"><a id="aaabd6199b20b79fa5e9698832e1e43b5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>parseTransform</b> (<a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">Entity::EntityTemplate</a> &amp;entity, const json &amp;config)</td></tr>
 <tr class="separator:aaabd6199b20b79fa5e9698832e1e43b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +172,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>parseHitbox</b> (<a c
 <tr class="memitem:af76308225835de453aa9a60ee43d4837"><td class="memItemLeft" align="right" valign="top"><a id="af76308225835de453aa9a60ee43d4837"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>parseParallax</b> (<a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">GameEngine::Entity::EntityTemplate</a> &amp;entity, const json &amp;config)</td></tr>
 <tr class="separator:af76308225835de453aa9a60ee43d4837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3c0ec5854dfe6bc9610ba4efda92b0"><td class="memItemLeft" align="right" valign="top"><a id="abc3c0ec5854dfe6bc9610ba4efda92b0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parseScriptable</b> (<a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">GameEngine::Entity::EntityTemplate</a> &amp;entity, const json &amp;config)</td></tr>
+<tr class="separator:abc3c0ec5854dfe6bc9610ba4efda92b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac31ec675a97e985d905c1e04e6d080d4"><td class="memItemLeft" align="right" valign="top"><a id="ac31ec675a97e985d905c1e04e6d080d4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parseHealth</b> (<a class="el" href="structGameEngine_1_1Entity_1_1EntityTemplate.html">GameEngine::Entity::EntityTemplate</a> &amp;entity, const json &amp;config)</td></tr>
+<tr class="separator:ac31ec675a97e985d905c1e04e6d080d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a3efa3aae61c6849db8072238b9e27"><td class="memItemLeft" align="right" valign="top"><a id="ae7a3efa3aae61c6849db8072238b9e27"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadScripts</b> (<a class="el" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory)</td></tr>
+<tr class="separator:ae7a3efa3aae61c6849db8072238b9e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8cf8d1370b54db354b697a4bd3abd63"><td class="memItemLeft" align="right" valign="top"><a id="ad8cf8d1370b54db354b697a4bd3abd63"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parseScript</b> (const json &amp;config, <a class="el" href="classGameEngine_1_1Script_1_1ScriptManager.html">Script::ScriptManager</a> &amp;scriptManager)</td></tr>
+<tr class="separator:ad8cf8d1370b54db354b697a4bd3abd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>gameEngine/include/gameEngine/entity/<a class="el" href="ConfigLoader_8hpp_source.html">ConfigLoader.hpp</a></li>
