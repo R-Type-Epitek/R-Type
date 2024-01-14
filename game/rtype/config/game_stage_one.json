@@ -76,6 +76,12 @@
         {
           "name": "Hitbox",
           "mask": 1
+        },
+        {
+          "name": "Health",
+          "health": 200,
+          "damage": 100,
+          "isAlive": true
         }
       ]
     },
@@ -116,6 +122,12 @@
         {
           "name": "Hitbox",
           "mask": 6
+        },
+        {
+          "name": "Health",
+          "health": 10,
+          "damage": 20,
+          "isAlive": true
         }
       ]
     },
@@ -148,6 +160,12 @@
           "mask": 0
         },
         {
+          "name": "Health",
+          "health": 100,
+          "damage": 10,
+          "isAlive": true
+        },
+        {
           "name": "Scriptable",
           "scriptName": "EnemySinusoidal"
         }
@@ -173,8 +191,28 @@
       "baseType": "Enemy",
       "type": "Boss",
       "health": 100,
-      "scriptName": "EnemyLinear",
       "speed": 2
+    },
+    {
+      "baseType": "Enemy",
+      "type": "Boss",
+      "health": 100,
+      "speed": 0,
+      "position": {
+        "x": 200,
+        "y": 200
+      }
+    },
+    {
+      "baseType": "Enemy",
+      "type": "bob",
+      "health": 100,
+      "scriptName": "EnemyLinear",
+      "speed": 1,
+      "position": {
+        "x": 500,
+        "y": 200
+      }
     }
   ],
   "powerUps": [
