@@ -52,12 +52,12 @@
         },
         {
           "name": "Displayable",
-          "assetPath": "game/rtype/assets/sprites/r-typesheet24.gif",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet42.gif",
           "rect": {
-            "x": 0,
+            "x": 34,
             "y": 0,
-            "width": 50,
-            "height": 60
+            "width": 34,
+            "height": 18
           }
         },
         {
@@ -130,7 +130,7 @@
         },
         {
           "name": "Displayable",
-          "assetPath": "game/rtype/assets/sprites/r-typesheet28.gif"
+          "assetPath": "game/rtype/assets/sprites/r-typesheet23.gif"
         },
         {
           "name": "Position",
@@ -145,8 +145,22 @@
         {
           "name": "Hitbox",
           "mask": 2
+        },
+        {
+          "name": "Scriptable",
+          "scriptName": "EnemyLinear"
         }
       ]
+    }
+  ],
+  "entitiesScript": [
+    {
+      "name": "EnemyLinear",
+      "scriptName": "EnemyLinear"
+    },
+    {
+      "name": "EnemyZigzag",
+      "scriptName": "EnemyZigzag"
     }
   ],
   "entities": [

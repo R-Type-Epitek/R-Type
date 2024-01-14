@@ -14,6 +14,8 @@ add_library(${LIBRARY} STATIC
         src/sceneController/RendererController.cpp
         src/sceneController/BindingController.cpp
         src/sceneController/BindingController.cpp
+        src/scripts/DataHolder.cpp
+        src/scripts/EnemyLinear.cpp
 )
 
 target_include_directories(${LIBRARY}
