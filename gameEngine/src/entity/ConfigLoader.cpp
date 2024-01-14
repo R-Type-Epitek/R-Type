@@ -55,6 +55,22 @@ namespace GameEngine::Entity
     EntityTemplate entityTemplate = entityFactory.getEntityTemplate(type);
     entityTemplate.networkedEntity = ComponentRType::NetworkedEntity {EntityFactory::idOffset};
     entityTemplate.metaData.bluePrint = entityTemplate.blueprint;
+
+    if (config.contains("position")) {
+      int x = config["position"].value("x", 0);
+      int y = config["position"].value("y", 0);
+      entityTemplate.position.position = {static_cast<float>(x), static_cast<float>(y)};
+    }
+    if (config.contains("speed") && entityTemplate.blueprint.transform) {
+      entityTemplate.transform.speed = config["speed"];
+    }
+    if (config.contains("scriptName") && entityTemplate.blueprint.scriptable) {
+      entityTemplate.scriptable.scriptName = config["scriptName"];
+    }
+    if (config.contains("health") && entityTemplate.blueprint.health) {
+      entityTemplate.health.value = config["health"];
+    }
+
     entityFactory.createFromTemplate(entityTemplate);
     EntityFactory::idOffset++;
   }
