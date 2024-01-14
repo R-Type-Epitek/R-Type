@@ -65,6 +65,10 @@ namespace Rtype::Scene
         auto system = ecsRegistry.getSystem<GameEngine::System::Physics>();
         system->update();
       }
+      {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Spawn>();
+        system->update();
+      }
     } catch (const std::exception& e) {
       spdlog::error("[Client update] Error: {}", e.what());
     }

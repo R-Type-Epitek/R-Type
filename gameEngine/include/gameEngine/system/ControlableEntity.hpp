@@ -88,7 +88,7 @@ namespace GameEngine::System
       auto entity = getEntitybyId(event.entity);
       auto& position = componentManager->getComponent<ComponentRType::Position>(entity).position;
 
-      Event::PlayerShoot shootEvent("PlayerBullet", event.entity, position.x, position.y);
+      Event::PlayerShoot shootEvent("PlayerBullet", event.entity, position.x + 20, position.y);
       getEventRegistry().publish<Event::PlayerShoot>(shootEvent);
 
       auto& transformC = componentManager->getComponent<ComponentRType::Transform>(entity);

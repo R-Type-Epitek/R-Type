@@ -41,6 +41,16 @@ namespace GameEngine::System
 
       eventRegistry.subscribeLambda<Event::PlayerShoot>(
         ([this](const Event::IEvent& eventRaw) { spawnEntityType(eventRaw); }));
+      eventRegistry.subscribeLambda<Event::DestroyEntity>(
+        ([this](const Event::IEvent& eventRaw) { destroyEntity(eventRaw); }));
+    }
+
+    void update()
+    {
+      for (int entityId : m_garbageEntities) {
+        getEcsRegistry().destroyEntity(entityId);
+      }
+      m_garbageEntities.clear();
     }
 
     void setEntityFactory(std::shared_ptr<Entity::EntityFactory> entityFactory)
@@ -70,8 +80,7 @@ namespace GameEngine::System
         return;
       }
       auto event = dynamic_cast<const Event::DisconnectedPlayer&>(eventRaw);
-      auto entity = getEntitybyId(event.id);
-      getEcsRegistry().destroyEntity(entity);
+      m_garbageEntities.insert(getEntitybyId(event.id));
     }
 
     void spawnEntityType(const Event::IEvent& eventRaw)
@@ -88,7 +97,17 @@ namespace GameEngine::System
       m_entityFactory->createFromTemplateNetwork(scheme);
     }
 
+    void destroyEntity(const Event::IEvent& eventRaw)
+    {
+      if (!m_entityFactory) {
+        return;
+      }
+      auto event = dynamic_cast<const Event::DestroyEntity&>(eventRaw);
+      m_garbageEntities.insert(event.entity);
+    }
+
    private:
+    std::set<ECS::Entity> m_garbageEntities {};
     std::shared_ptr<Entity::EntityFactory> m_entityFactory;
     ECS::Entity getEntitybyId(size_t id)
     {

@@ -112,7 +112,7 @@
         },
         {
           "name": "Hitbox",
-          "mask": 3
+          "mask": 6
         }
       ]
     },
