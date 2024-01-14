@@ -11,6 +11,7 @@
 #include "gameEngine/component/Displayable.hpp"
 #include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/component/Position.hpp"
+#include "gameEngine/component/NetworkedEntity.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -63,8 +64,14 @@ namespace GameEngine::System
     {
     }
 
-    void destroyPlayer(const Event::IEvent&)
+    void destroyPlayer(const Event::IEvent& eventRaw)
     {
+      if (!m_entityFactory) {
+        return;
+      }
+      auto event = dynamic_cast<const Event::DisconnectedPlayer&>(eventRaw);
+      auto entity = getEntitybyId(event.id);
+      getEcsRegistry().destroyEntity(entity);
     }
 
     void spawnEntityType(const Event::IEvent& eventRaw)
@@ -83,5 +90,12 @@ namespace GameEngine::System
 
    private:
     std::shared_ptr<Entity::EntityFactory> m_entityFactory;
+    ECS::Entity getEntitybyId(size_t id)
+    {
+      return ComponentRType::NetworkedEntity::getEntityByNetworkedId(
+        id,
+        m_entities,
+        *getEcsRegistry().getComponentManager());
+    }
   };
 } // namespace GameEngine::System
