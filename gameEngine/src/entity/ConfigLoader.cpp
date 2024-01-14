@@ -79,6 +79,10 @@ namespace GameEngine::Entity
   {
     if (m_config.contains("entityTemplate") && m_config["entityTemplate"].is_array()) {
       for (const auto &element : m_config["entityTemplate"]) {
+        if (!element.contains("typeName") || !element.contains("components")) {
+          spdlog::error("Error: entityTemplate must have a typeName and components");
+          throw std::runtime_error("Error: entityTemplate must have a typeName and components");
+        }
         EntityTemplate entityTemplate = parseComponents(element["components"]);
         entityFactory.addEntityTemplate(element["typeName"], entityTemplate);
       }
@@ -200,9 +204,11 @@ namespace GameEngine::Entity
   {
     entity.blueprint.health = true;
     int health = config.value("health", 0);
+    int damage = config.value("damage", ComponentRType::kdefaultDamage);
     bool isAlive = config.value("isAlive", true);
     entity.health.value = health;
     entity.health.isAlive = isAlive;
+    entity.health.damage = damage;
   }
 
   void ConfigLoader::parseScriptable(EntityTemplate &entity, const json &config)

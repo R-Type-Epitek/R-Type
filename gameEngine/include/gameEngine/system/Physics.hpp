@@ -64,15 +64,30 @@ namespace GameEngine::System
 
     void handleCollision(const Event::IEvent& eventRaw)
     {
-      auto& componentManager = getEcsRegistry().getComponentManager();
+      auto& eventRegistry = getEventRegistry();
       auto event = dynamic_cast<const Event::EntityCollision&>(eventRaw);
 
-      if ((event.maskA == 6 && event.maskB == 6) || (event.maskA == 6 && event.maskB == -1)) {
-        getEventRegistry().publish<Event::DestroyEntity>(Event::DestroyEntity {event.entityA});
+      // Collision between enemy and bullet
+      if (event.maskA == 0 && event.maskB == 6) {
+        eventRegistry.publish<Event::EntityHit>(
+          Event::EntityHit {event.entityA, event.entityA, event.maskA, event.maskB});
+        eventRegistry.publish<Event::DestroyEntity>(Event::DestroyEntity {event.entityA});
       }
+      //      // Collision between enemy and Player
+      //      if ((event.maskA == 6 && event.maskB == 1)) {
+      //        eventRegistry.publish<Event::EntityHit>(
+      //          Event::EntityHit {event.entityA, event.entityA, event.maskA, event.maskB});
+      //      }
+      // Collision between bullet and itself or walls
+      if ((event.maskA == 6 && event.maskB == 6) || (event.maskA == 6 && event.maskB == -1)) {
+        eventRegistry.publish<Event::DestroyEntity>(Event::DestroyEntity {event.entityA});
+      }
+
+      // Check for collision to stop velocity
       if (event.maskA != -1 && event.maskB != -1 && event.maskA != event.maskB) {
         return;
       }
+      auto& componentManager = getEcsRegistry().getComponentManager();
       auto& transformA = componentManager->getComponent<ComponentRType::Transform>(event.entityA);
       auto& position = componentManager->getComponent<ComponentRType::Position>(event.entityA);
 
