@@ -16,6 +16,7 @@
 #include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/component/Text.hpp"
 #include "gameEngine/component/UiElement.hpp"
+#include "gameEngine/component/Scriptable.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -70,6 +71,7 @@ namespace GameEngine::Builder
     registerComponent<ComponentRType::Hitbox>();
     registerComponent<ComponentRType::Text>();
     registerComponent<ComponentRType::UIElement>();
+    registerComponent<ComponentRType::Scriptable>();
   }
 
   void RegistryBuilder::buildSystemAnimation()
