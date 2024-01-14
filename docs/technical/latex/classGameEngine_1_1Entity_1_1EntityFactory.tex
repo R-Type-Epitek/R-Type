@@ -1,0 +1,53 @@
+\hypertarget{classGameEngine_1_1Entity_1_1EntityFactory}{}\doxysection{Game\+Engine\+::Entity\+::Entity\+Factory Class Reference}
+\label{classGameEngine_1_1Entity_1_1EntityFactory}\index{GameEngine::Entity::EntityFactory@{GameEngine::Entity::EntityFactory}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a55adfe84d6d020d53f1961c1ddd804af}\label{classGameEngine_1_1Entity_1_1EntityFactory_a55adfe84d6d020d53f1961c1ddd804af}} 
+{\bfseries Entity\+Factory} (std\+::vector$<$ Game\+Engine\+::\+ECS\+::\+Entity $>$ \&entities, \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{Game\+Engine\+::\+ECS\+::\+Registry}} \&registry)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a57bc7c9c09e66f9bfa775e7e5b174462}\label{classGameEngine_1_1Entity_1_1EntityFactory_a57bc7c9c09e66f9bfa775e7e5b174462}} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create\+From\+Network} (\mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{Component\+RType\+::\+Networked\+Entity}} \&id, \mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{Entity\+Template}} \&entity\+Template)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a843deac3b6a6dd5241fbe9cd1f253479}\label{classGameEngine_1_1Entity_1_1EntityFactory_a843deac3b6a6dd5241fbe9cd1f253479}} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries load\+From\+Network} (\mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{Component\+RType\+::\+Networked\+Entity}} \&network\+Id, \mbox{\hyperlink{structComponentRType_1_1MetaData}{Component\+RType\+::\+Meta\+Data}} \&meta\+Data)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_acabe55f2015e31a6b42f6f8eb704e62c}\label{classGameEngine_1_1Entity_1_1EntityFactory_acabe55f2015e31a6b42f6f8eb704e62c}} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create\+From\+Blue\+Print} (\mbox{\hyperlink{structGameEngine_1_1Entity_1_1ComponentsBluePrint}{Components\+Blue\+Print}} \&blue\+Print)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a8b58581dc6d68e986b986d5dc745ffd4}\label{classGameEngine_1_1Entity_1_1EntityFactory_a8b58581dc6d68e986b986d5dc745ffd4}} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create\+From\+Template} (\mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{Entity\+Template}} \&entity\+Template)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_afddc8e869bd0c73d12617306409f3864}\label{classGameEngine_1_1Entity_1_1EntityFactory_afddc8e869bd0c73d12617306409f3864}} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create\+From\+Template\+Network} (\mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{Entity\+Template}} \&entity\+Template)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_aba2415bb5a188b485e5cb6102d96cd96}\label{classGameEngine_1_1Entity_1_1EntityFactory_aba2415bb5a188b485e5cb6102d96cd96}} 
+Game\+Engine\+::\+ECS\+::\+Entity {\bfseries create\+From\+Template\+Name} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a1791707623a6085e812621cc2647f548}\label{classGameEngine_1_1Entity_1_1EntityFactory_a1791707623a6085e812621cc2647f548}} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{Entity\+Template}} $>$ \& {\bfseries get\+Entities\+Template} ()
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_adcf9d117a9217c10437d2763ab18265d}\label{classGameEngine_1_1Entity_1_1EntityFactory_adcf9d117a9217c10437d2763ab18265d}} 
+void {\bfseries add\+Entity\+Template} (const std\+::string \&name, const \mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{Entity\+Template}} \&entity\+Template)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a6dccba5c7a2cdc30d527b5b970d970a1}\label{classGameEngine_1_1Entity_1_1EntityFactory_a6dccba5c7a2cdc30d527b5b970d970a1}} 
+\mbox{\hyperlink{structGameEngine_1_1Entity_1_1EntityTemplate}{Entity\+Template}} {\bfseries get\+Entity\+Template} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_acde78198ac1dddd0be678323a5177ff8}\label{classGameEngine_1_1Entity_1_1EntityFactory_acde78198ac1dddd0be678323a5177ff8}} 
+bool {\bfseries entity\+Template\+Exist} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a82519ddde9f472dd5a8b1cd31b27ca02}\label{classGameEngine_1_1Entity_1_1EntityFactory_a82519ddde9f472dd5a8b1cd31b27ca02}} 
+\mbox{\hyperlink{classGameEngine_1_1Script_1_1ScriptManager}{Script\+::\+Script\+Manager}} \& {\bfseries get\+Script\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Entity_1_1EntityFactory_a90071cbc26108ce87a128aedb9ec382e}\label{classGameEngine_1_1Entity_1_1EntityFactory_a90071cbc26108ce87a128aedb9ec382e}} 
+static size\+\_\+t {\bfseries id\+Offset} = 2000
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/entity/Entity\+Factory.\+hpp\item 
+game\+Engine/src/entity/Entity\+Factory.\+cpp\end{DoxyCompactItemize}

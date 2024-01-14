@@ -1,0 +1,154 @@
+\hypertarget{md_docs_technical_README_autotoc_md1}{}\doxysubsection{Introduction}\label{md_docs_technical_README_autotoc_md1}
+Welcome to the comprehensive documentation for our project. This guide is designed to provide you with all the necessary information to install, understand, and effectively utilize our software.\hypertarget{md_docs_technical_README_autotoc_md2}{}\doxysubsection{Installation Guide}\label{md_docs_technical_README_autotoc_md2}
+To install the project, please use the following command\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{justfile}
+
+\end{DoxyCode}
+\hypertarget{md_docs_technical_README_autotoc_md3}{}\doxysubsection{Project Structure}\label{md_docs_technical_README_autotoc_md3}
+Our project is structured into three main components, each serving a unique purpose in the overall functionality of the software.
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{The ECS (Entity Component System)\+:}} This part focuses on handling the data processing and logic of the software.
+\item {\bfseries{The Server\+:}} Responsible for managing the backend processes, the server can be launched using the command\+:
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./r-\/type\_server}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{The Client\+:}} The user interface and interaction component of our software. Start the client using\+:
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./r-\/type\_client}
+
+\end{DoxyCode}
+\hypertarget{md_docs_technical_README_autotoc_md4}{}\doxysubsection{Server / Client Protocol}\label{md_docs_technical_README_autotoc_md4}
+The server and client communicate using a custom protocol. The protocol is based on the UDP protocol and is designed to be lightweight and efficient. The UDP is optimized for speed and is ideal for our use case. The protocol is designed to be as simple as possible, with a minimal number of messages and fields. The protocol is designed to be as simple as possible, with a minimal number of messages and fields. The data is serialized to optimize the transmission speed and reduce the size of the packets.
+
+The server and the clients communicate using a custom protocol. The protocol uses two main types of messages\+:
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{structMessage}{Message}}
+\item \mbox{\hyperlink{structResponse}{Response}}
+\end{DoxyItemize}
+
+Here is the structure of a {\bfseries{message}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct }\mbox{\hyperlink{structMessageHeader}{MessageHeader}} \{}
+\DoxyCodeLine{  \textcolor{keywordtype}{int} \mbox{\hyperlink{structMessageHeader_a705418d85961d98b6f84f4fba9f9f799}{clientId}};}
+\DoxyCodeLine{  \textcolor{keywordtype}{char} \mbox{\hyperlink{structMessageHeader_a19f672c6735d819940166a11e25a321b}{command}}[32];}
+\DoxyCodeLine{  \textcolor{keywordtype}{int} \mbox{\hyperlink{structMessageHeader_a10ba7181decd6d343b3ebca9548a8b46}{commandId}};}
+\DoxyCodeLine{  uint32\_t \mbox{\hyperlink{structMessageHeader_ac81cf10687f6cf52e454e4dec5a5cd6e}{dataLength}};}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{struct }\mbox{\hyperlink{structMessage}{Message}} \{}
+\DoxyCodeLine{  MessageType \mbox{\hyperlink{structMessage_a6fc78df47d3755e088e7c658db565fc5}{type}} = MessageType::Message;}
+\DoxyCodeLine{  \mbox{\hyperlink{structMessageHeader}{MessageHeader}} \mbox{\hyperlink{structMessage_a704863f3c71f270459d015102d61f7c8}{header}};}
+\DoxyCodeLine{  \textcolor{keywordtype}{char} \mbox{\hyperlink{structMessage_ae5226de4e2ee84b6813ae068bcccc211}{data}}[];}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Here is the structure of a {\bfseries{response}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct }\mbox{\hyperlink{structResponseHeader}{ResponseHeader}} \{}
+\DoxyCodeLine{  \textcolor{keywordtype}{int} \mbox{\hyperlink{structResponseHeader_ad4e2006d15648172d22b8d20b3ef4620}{clientId}};}
+\DoxyCodeLine{  \textcolor{keywordtype}{char} \mbox{\hyperlink{structResponseHeader_a00075c0555fe33707c7ceda8dd4c9b4a}{command}}[32];}
+\DoxyCodeLine{  \textcolor{keywordtype}{int} \mbox{\hyperlink{structResponseHeader_a9e04618b99646057fcb4a936ff040010}{commandId}};}
+\DoxyCodeLine{  uint32\_t \mbox{\hyperlink{structResponseHeader_a296b49d4a863241ed16882995986f977}{dataLength}};}
+\DoxyCodeLine{  \textcolor{keywordtype}{int} \mbox{\hyperlink{structResponseHeader_adb599931da8f178e612807762eab84d1}{status}};}
+\DoxyCodeLine{  \textcolor{keywordtype}{char} \mbox{\hyperlink{structResponseHeader_a4c2e15ad2d4f5b30f2802dfc3f9e1ceb}{statusMessage}}[128];}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{struct }\mbox{\hyperlink{structResponse}{Response}} \{}
+\DoxyCodeLine{  MessageType \mbox{\hyperlink{structResponse_a08ce134a630bc34de033eb6e0f10255e}{type}} = MessageType::Message; }
+\DoxyCodeLine{  \mbox{\hyperlink{structResponseHeader}{ResponseHeader}} \mbox{\hyperlink{structResponse_a60f46003fc199ff082e72cb0c0aa5d00}{header}};}
+\DoxyCodeLine{  \textcolor{keywordtype}{char} \mbox{\hyperlink{structResponse_abb5c2eaf9db838a63d3f830a75c5804b}{data}}[];}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md_docs_technical_README_autotoc_md5}{}\doxysubsubsection{Server to Client Messages}\label{md_docs_technical_README_autotoc_md5}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Command   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Data    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Command   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Data    }\\\cline{1-3}
+\endhead
+{\ttfamily /update\+\_\+game}   &This command is sent automatically every 500ms when a room has the state RUNNING.   &{\ttfamily char data\mbox{[}\mbox{]}}~\newline
+The data is a {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::vector\texorpdfstring{$<$}{<}char\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} serialized in binary and contains the entities and theirs components. (number of bytes defined in the message header)    \\\cline{1-3}
+{\ttfamily /check\+\_\+connection}   &This command is sent automatically to a client, if the server has not received message from him in the last second.   &\\\cline{1-3}
+\end{longtabu}
+$\vert$ {\ttfamily /client\+\_\+disconnected} $\vert$ This command is sent to all the players in the same room than the disconnected client when a client has disconnected. $\vert$ {\ttfamily struct \mbox{\hyperlink{structServerClientDisconnectedData}{Server\+Client\+Disconnected\+Data}} \{int client\+Id;\}} (8 bytes\+: defined in the message header) $\vert$ $\vert$\hypertarget{md_docs_technical_README_autotoc_md6}{}\doxysubsubsection{Client to Server Messages}\label{md_docs_technical_README_autotoc_md6}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Command   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Data    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Command   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Data    }\\\cline{1-3}
+\endhead
+{\ttfamily /connect}   &The client sent this command to the server when he wants to connect. ~\newline
+~\newline
+The server will then generate an id and send it back to the client.   &\\\cline{1-3}
+{\ttfamily /update\+\_\+name}   &This client send this command to the server to execute his name.   &{\ttfamily char data\mbox{[}\mbox{]}}~\newline
+The data is a {\ttfamily struct Send\+Name\+Data \{char name\mbox{[}32\mbox{]};\}} (8 bytes\+: defined in the message header)    \\\cline{1-3}
+{\ttfamily /join\+\_\+room}   &The client send this command to the server to join a room.   &{\ttfamily char data\mbox{[}\mbox{]}}~\newline
+The data is a {\ttfamily struct \mbox{\hyperlink{structJoinRoomData}{Join\+Room\+Data}} \{int room\+Id;\};} (8 bytes\+: defined in the message header)    \\\cline{1-3}
+{\ttfamily /join\+\_\+room\+\_\+auto}   &The client send this command to the server to join a room automatically.   &\\\cline{1-3}
+{\ttfamily /input}   &The client send this command when he moves.   &\\\cline{1-3}
+{\ttfamily /join\+\_\+game}   &The client send this command when he wants to start the game in his current room.~\newline
+If the game will then start and the client will join the running game.~\newline
+~\newline
+If the game is already running, the client will only join the room.   &{\ttfamily char data\mbox{[}\mbox{]}}~\newline
+The data is a {\ttfamily struct \mbox{\hyperlink{structJoinGameData}{Join\+Game\+Data}} \{int room\+Id;\};} (8 bytes\+: defined in the message header)    \\\cline{1-3}
+{\ttfamily /kick\+\_\+player}   &The client send this command when he want to kick a player from the game, the player to kick must be in the same room.   &{\ttfamily char data\mbox{[}\mbox{]}}~\newline
+The data is a {\ttfamily struct \mbox{\hyperlink{structKickPlayerData}{Kick\+Player\+Data}} \{int client\+Id;\};} (8 bytes\+: defined in the message header)    \\\cline{1-3}
+{\ttfamily /god\+\_\+mode}   &The client send this command when he want to set a player to god mode (unlimited lives).   &{\ttfamily char data\mbox{[}\mbox{]}}~\newline
+The data is a {\ttfamily struct \mbox{\hyperlink{structGodModeData}{God\+Mode\+Data}} \{int client\+Id;\};} (8 bytes\+: defined in the message header)    \\\cline{1-3}
+{\ttfamily /spectate}   &The client send this command when he wants to spectate the game in his current room.   &{\ttfamily char data\mbox{[}\mbox{]}}~\newline
+The data is a {\ttfamily struct \mbox{\hyperlink{structSpectateData}{Spectate\+Data}} \{int room\+Id;\};} (8 bytes\+: defined in the message header)   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_docs_technical_README_autotoc_md7}{}\doxysubsection{Support and Contributions}\label{md_docs_technical_README_autotoc_md7}
+For any assistance, queries, or contributions, please refer to our support guidelines or contact our team. We welcome contributions and feedback to improve the project.\hypertarget{md_docs_technical_README_autotoc_md8}{}\doxysubsection{Conclusion}\label{md_docs_technical_README_autotoc_md8}
+We hope this documentation provides a clear understanding of our project and assists you in its effective utilization. Thank you for choosing our software.
+
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Previous   }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Next    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Previous   }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Next    }\\\cline{1-2}
+\endhead
+Home   &\PBS\raggedleft Customization   \\\cline{1-2}
+\end{longtabu}
+
+
+ 

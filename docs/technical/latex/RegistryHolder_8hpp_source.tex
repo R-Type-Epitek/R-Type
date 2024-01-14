@@ -1,0 +1,60 @@
+\hypertarget{RegistryHolder_8hpp_source}{}\doxysection{Registry\+Holder.\+hpp}
+\label{RegistryHolder_8hpp_source}\index{gameEngine/include/gameEngine/ecs/system/RegistryHolder.hpp@{gameEngine/include/gameEngine/ecs/system/RegistryHolder.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 11/28/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/event/EventRegistry.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }GameEngine::ECS}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1ECS_1_1RegistryHolder}{RegistryHolder}} \{}
+\DoxyCodeLine{16    \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1RegistryHolder}{\string~RegistryHolder}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} setEcsRegistry(std::shared\_ptr<Registry> ecsRegistry)}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21       m\_ecsRegistry = std::move(ecsRegistry);}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{Registry}}\& getEcsRegistry()}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26       \textcolor{keywordflow}{return} *m\_ecsRegistry;}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     std::shared\_ptr<Registry> getSharedEcsRegistry()}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31       \textcolor{keywordflow}{return} m\_ecsRegistry;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} setEventRegistry(std::shared\_ptr<Event::EventRegistry> eventRegistry)}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36       m\_eventRegistry = std::move(eventRegistry);}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event::EventRegistry}}\& getEventRegistry()}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41       \textcolor{keywordflow}{return} *m\_eventRegistry;}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     std::shared\_ptr<Event::EventRegistry> getSharedEventRegistry()}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46       \textcolor{keywordflow}{return} m\_eventRegistry;}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49    \textcolor{keyword}{private}:}
+\DoxyCodeLine{50     std::shared\_ptr<Registry> m\_ecsRegistry;}
+\DoxyCodeLine{51     std::shared\_ptr<Event::EventRegistry> m\_eventRegistry;}
+\DoxyCodeLine{52   \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \} \textcolor{comment}{// namespace GameEngine::ECS}}
+
+\end{DoxyCode}

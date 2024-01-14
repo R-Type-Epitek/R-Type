@@ -1,0 +1,139 @@
+\hypertarget{Events_8hpp_source}{}\doxysection{Events.\+hpp}
+\label{Events_8hpp_source}\index{gameEngine/include/gameEngine/event/Events.hpp@{gameEngine/include/gameEngine/event/Events.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/8/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/event/IEvent.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/constants/Keybinds.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }GameEngine::Event}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1EntityCollision}{EntityCollision}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{13     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1EntityCollision}{EntityCollision}}(ECS::Entity entityA, ECS::Entity entityB, \textcolor{keywordtype}{int} maskA = -\/1, \textcolor{keywordtype}{int} maskB = -\/1)}
+\DoxyCodeLine{14       : entityA(entityA)}
+\DoxyCodeLine{15       , entityB(entityB)}
+\DoxyCodeLine{16       , maskA(maskA)}
+\DoxyCodeLine{17       , maskB(maskB) \{\};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     ECS::Entity entityA;}
+\DoxyCodeLine{20     ECS::Entity entityB;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} maskA;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} maskB;}
+\DoxyCodeLine{23   \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1KeyboardInput}{KeyboardInput}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{structGameEngine_1_1Event_1_1KeyboardInput}{KeyboardInput}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{27     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1KeyboardInput}{KeyboardInput}}(Keybinds key, ECS::Entity entity = -\/1)}
+\DoxyCodeLine{28       : key(key)}
+\DoxyCodeLine{29       , entity \{entity\} \{\};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     Keybinds key = Keybinds::Unknown;}
+\DoxyCodeLine{32     ECS::Entity entity = -\/1;}
+\DoxyCodeLine{33   \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1MouseButtonPressed}{MouseButtonPressed}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{36     \mbox{\hyperlink{structGameEngine_1_1Event_1_1MouseButtonPressed}{MouseButtonPressed}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{37     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1MouseButtonPressed}{MouseButtonPressed}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y)}
+\DoxyCodeLine{38       : x \{x\}}
+\DoxyCodeLine{39       , y \{y\} \{\};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{int} x;}
+\DoxyCodeLine{42     \textcolor{keywordtype}{int} y;}
+\DoxyCodeLine{43   \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveUp}{MoveUp}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveUp}{MoveUp}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{47     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveUp}{MoveUp}}(ECS::Entity entity)}
+\DoxyCodeLine{48       : entity(entity) \{\};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     ECS::Entity entity = -\/1;}
+\DoxyCodeLine{51   \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1Movedown}{Movedown}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{54     \mbox{\hyperlink{structGameEngine_1_1Event_1_1Movedown}{Movedown}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{55     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1Movedown}{Movedown}}(ECS::Entity entity)}
+\DoxyCodeLine{56       : entity(entity) \{\};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     ECS::Entity entity = -\/1;}
+\DoxyCodeLine{59   \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveLeft}{MoveLeft}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{62     \mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveLeft}{MoveLeft}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{63     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveLeft}{MoveLeft}}(ECS::Entity entity)}
+\DoxyCodeLine{64       : entity(entity) \{\};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     ECS::Entity entity = -\/1;}
+\DoxyCodeLine{67   \};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveRight}{MoveRight}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{70     \mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveRight}{MoveRight}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{71     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1MoveRight}{MoveRight}}(ECS::Entity entity)}
+\DoxyCodeLine{72       : entity(entity) \{\};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     ECS::Entity entity = -\/1;}
+\DoxyCodeLine{75   \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1PressSpace}{PressSpace}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{78     \mbox{\hyperlink{structGameEngine_1_1Event_1_1PressSpace}{PressSpace}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{79     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1PressSpace}{PressSpace}}(ECS::Entity entity)}
+\DoxyCodeLine{80       : entity(entity) \{\};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     ECS::Entity entity = -\/1;}
+\DoxyCodeLine{83   \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1NewPlayer}{NewPlayer}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{86     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1NewPlayer}{NewPlayer}}(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{87       : id(\textcolor{keywordtype}{id}) \{\};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{size\_t} id;}
+\DoxyCodeLine{90   \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1NewEnemy}{NewEnemy}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{93     \mbox{\hyperlink{structGameEngine_1_1Event_1_1NewEnemy}{NewEnemy}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{94     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1NewEnemy}{NewEnemy}}(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y)}
+\DoxyCodeLine{95       : id(\textcolor{keywordtype}{id})}
+\DoxyCodeLine{96       , x(x)}
+\DoxyCodeLine{97       , y(y) \{\};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{size\_t} id;}
+\DoxyCodeLine{100     \textcolor{keywordtype}{float} x;}
+\DoxyCodeLine{101     \textcolor{keywordtype}{float} y;}
+\DoxyCodeLine{102   \};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1PlayerShoot}{PlayerShoot}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{105     \mbox{\hyperlink{structGameEngine_1_1Event_1_1PlayerShoot}{PlayerShoot}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{106     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1PlayerShoot}{PlayerShoot}}(std::string entityTypeName, ECS::Entity entityActor, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y)}
+\DoxyCodeLine{107       : entityTypeName(entityTypeName)}
+\DoxyCodeLine{108       , entityActor(entityActor)}
+\DoxyCodeLine{109       , x(x)}
+\DoxyCodeLine{110       , y(y) \{\};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     std::string entityTypeName;}
+\DoxyCodeLine{113     ECS::Entity entityActor;}
+\DoxyCodeLine{114     \textcolor{keywordtype}{float} x;}
+\DoxyCodeLine{115     \textcolor{keywordtype}{float} y;}
+\DoxyCodeLine{116   \};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1DisconnectedPlayer}{DisconnectedPlayer}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{119     \mbox{\hyperlink{structGameEngine_1_1Event_1_1DisconnectedPlayer}{DisconnectedPlayer}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{120     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1DisconnectedPlayer}{DisconnectedPlayer}}(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{121       : id(\textcolor{keywordtype}{id}) \{\};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123     \textcolor{keywordtype}{size\_t} id;}
+\DoxyCodeLine{124   \};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126   \textcolor{keyword}{struct }\mbox{\hyperlink{structGameEngine_1_1Event_1_1DestroyEntity}{DestroyEntity}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}} \{}
+\DoxyCodeLine{127     \textcolor{keyword}{explicit} \mbox{\hyperlink{structGameEngine_1_1Event_1_1DestroyEntity}{DestroyEntity}}(ECS::Entity entity)}
+\DoxyCodeLine{128       : entity(entity) \{\};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     ECS::Entity entity = -\/1;}
+\DoxyCodeLine{131   \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \} \textcolor{comment}{// namespace GameEngine::Event}}
+
+\end{DoxyCode}

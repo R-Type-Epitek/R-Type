@@ -1,0 +1,88 @@
+\hypertarget{classNetwork_1_1ICommandHandler}{}\doxysection{Network\+::ICommand\+Handler Class Reference}
+\label{classNetwork_1_1ICommandHandler}\index{Network::ICommandHandler@{Network::ICommandHandler}}
+
+
+Interface for handling network commands.  
+
+
+
+
+{\ttfamily \#include $<$IHandler.\+hpp$>$}
+
+Inheritance diagram for Network\+::ICommand\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{classNetwork_1_1ICommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetwork_1_1ICommandHandler_ac588e08e2986f5eff95e59cde7cb4439}\label{classNetwork_1_1ICommandHandler_ac588e08e2986f5eff95e59cde7cb4439}} 
+virtual {\bfseries $\sim$\+ICommand\+Handler} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for interface. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a2247483da1e56599d5fd9a2e891e0767}{is\+Authorized}} (int client\+Id)=0
+\begin{DoxyCompactList}\small\item\em Checks if a client is authorized. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ char $>$ \mbox{\hyperlink{classNetwork_1_1ICommandHandler_a03d397e650d6d2bad03f4a9fae2ef916}{handle\+Command}} (\mbox{\hyperlink{structMessage}{Message}} $\ast$message)=0
+\begin{DoxyCompactList}\small\item\em Handles a received command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for handling network commands. 
+
+\mbox{\hyperlink{classNetwork_1_1ICommandHandler}{ICommand\+Handler}} provides an interface for processing network commands received from clients. It includes methods for checking authorization and handling specific commands. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetwork_1_1ICommandHandler_a03d397e650d6d2bad03f4a9fae2ef916}\label{classNetwork_1_1ICommandHandler_a03d397e650d6d2bad03f4a9fae2ef916}} 
+\index{Network::ICommandHandler@{Network::ICommandHandler}!handleCommand@{handleCommand}}
+\index{handleCommand@{handleCommand}!Network::ICommandHandler@{Network::ICommandHandler}}
+\doxysubsubsection{\texorpdfstring{handleCommand()}{handleCommand()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ char $>$ Network\+::\+ICommand\+Handler\+::handle\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMessage}{Message}} $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Handles a received command. 
+
+Processes the given command message and generates a response.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Pointer to the message to be handled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The response to the command. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classNetwork_1_1ConnectToServerCommandHandler_acfe75182ccaa6e576fbf222b24754a86}{Network\+::\+Connect\+To\+Server\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1GodModeCommandHandler_acf521a98d3edeb6109c198dd5ef89d41}{Network\+::\+God\+Mode\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1InputCommandHandler_adce9b62c17afac99bd069b2092efebe8}{Network\+::\+Input\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1JoinGameCommandHandler_a150446d39949c070755dd234298f7028}{Network\+::\+Join\+Game\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1JoinRoomCommandHandler_a008d22683463fe2f9a5e4809fa30e211}{Network\+::\+Join\+Room\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1JoinRoomAutoCommandHandler_af7443b8a52dbb11febfcdccb953beb36}{Network\+::\+Join\+Room\+Auto\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1KickPlayerCommandHandler_a0d99ae90b42b1c73e526192d53bbcdb6}{Network\+::\+Kick\+Player\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1SpectateCommandHandler_a85f6b6fc770574c33faec2f5c5fd9246}{Network\+::\+Spectate\+Command\+Handler}}, and \mbox{\hyperlink{classNetwork_1_1UpdateNameCommandHandler_a5c5aae4cf57e834dc3146bdbbfe4743e}{Network\+::\+Update\+Name\+Command\+Handler}}.
+
+\mbox{\Hypertarget{classNetwork_1_1ICommandHandler_a2247483da1e56599d5fd9a2e891e0767}\label{classNetwork_1_1ICommandHandler_a2247483da1e56599d5fd9a2e891e0767}} 
+\index{Network::ICommandHandler@{Network::ICommandHandler}!isAuthorized@{isAuthorized}}
+\index{isAuthorized@{isAuthorized}!Network::ICommandHandler@{Network::ICommandHandler}}
+\doxysubsubsection{\texorpdfstring{isAuthorized()}{isAuthorized()}}
+{\footnotesize\ttfamily virtual bool Network\+::\+ICommand\+Handler\+::is\+Authorized (\begin{DoxyParamCaption}\item[{int}]{client\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if a client is authorized. 
+
+Determines if the given client is authorized to execute commands.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The identifier of the client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the client is authorized, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classNetwork_1_1ConnectToServerCommandHandler_a13cddd20b6262ab6ef871fb9fa8963fc}{Network\+::\+Connect\+To\+Server\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1GodModeCommandHandler_a99fee93fd4f176ea0e5d60acd7c75c7f}{Network\+::\+God\+Mode\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1InputCommandHandler_a8e7839a15d2b62473b67b4296b388534}{Network\+::\+Input\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1JoinGameCommandHandler_aef7de1b5b64ca159e14130e5fc4285d4}{Network\+::\+Join\+Game\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1JoinRoomCommandHandler_a7097c949d5cce3914afcbe21cd0d2ee2}{Network\+::\+Join\+Room\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1JoinRoomAutoCommandHandler_a8007a4a4346da72a5fea4e86f275c3f7}{Network\+::\+Join\+Room\+Auto\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1KickPlayerCommandHandler_a2ff38f89f220ceb8e66bd120cbc79f6e}{Network\+::\+Kick\+Player\+Command\+Handler}}, \mbox{\hyperlink{classNetwork_1_1SpectateCommandHandler_a5182e851bbe151d9280cde336e146892}{Network\+::\+Spectate\+Command\+Handler}}, and \mbox{\hyperlink{classNetwork_1_1UpdateNameCommandHandler_a7e232f2ad3480ba5f6ba8fb58fd4bcb5}{Network\+::\+Update\+Name\+Command\+Handler}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/include/commands/IHandler.\+hpp\end{DoxyCompactItemize}

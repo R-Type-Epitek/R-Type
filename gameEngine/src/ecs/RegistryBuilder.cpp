@@ -17,6 +17,7 @@
 #include "gameEngine/component/Text.hpp"
 #include "gameEngine/component/UiElement.hpp"
 #include "gameEngine/component/Health.hpp"
+#include "gameEngine/component/Scriptable.hpp"
 
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/RegistryHolder.hpp"
@@ -36,6 +37,7 @@
 #include "gameEngine/system/NetworkEventPusher.hpp"
 #include "gameEngine/system/UI.hpp"
 #include "gameEngine/system/Gameplay.hpp"
+#include "gameEngine/system/ScriptableEntity.hpp"
 
 #include <memory>
 #include <utility>
@@ -73,6 +75,7 @@ namespace GameEngine::Builder
     registerComponent<ComponentRType::Text>();
     registerComponent<ComponentRType::UIElement>();
     registerComponent<ComponentRType::Health>();
+    registerComponent<ComponentRType::Scriptable>();
   }
 
   void RegistryBuilder::buildSystemAnimation()
@@ -218,8 +221,18 @@ namespace GameEngine::Builder
     m_registry->registerSystem<SystemType>();
 
     signature.set(m_registry->getComponentType<ComponentRType::Health>());
-    signature.set(m_registry->getComponentType<ComponentRType::NetworkedEntity>());
-    signature.set(m_registry->getComponentType<ComponentRType::Text>());
+    m_registry->setSystemSignature<SystemType>(signature);
+  }
+
+  void RegistryBuilder::buildSystemScriptableEntity()
+  {
+    using SystemType = GameEngine::System::ScriptableEntity;
+    GameEngine::ECS::Signature signature;
+    m_registry->registerSystem<SystemType>();
+
+    signature.set(m_registry->getComponentType<ComponentRType::Scriptable>());
+    signature.set(m_registry->getComponentType<ComponentRType::Position>());
+    signature.set(m_registry->getComponentType<ComponentRType::Transform>());
     m_registry->setSystemSignature<SystemType>(signature);
   }
 
@@ -236,5 +249,6 @@ namespace GameEngine::Builder
       }
     }
   }
+
 
 }; // namespace GameEngine::Builder

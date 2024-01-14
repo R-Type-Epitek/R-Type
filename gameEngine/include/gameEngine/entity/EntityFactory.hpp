@@ -15,9 +15,12 @@
 #include "gameEngine/component/Hitbox.hpp"
 #include "gameEngine/component/Parallax.hpp"
 #include "gameEngine/component/Health.hpp"
+#include "gameEngine/component/Scriptable.hpp"
+#include "gameEngine/script/ScriptManager.hpp"
 #include "EntityType.hpp"
 #include "gameEngine/asset/AssetManager.hpp"
 #include "spdlog/spdlog.h"
+#include <map>
 #include <stdexcept>
 
 namespace GameEngine::Entity
@@ -35,6 +38,7 @@ namespace GameEngine::Entity
     ComponentRType::Hitbox hitbox;
     ComponentRType::Parallax parallax;
     ComponentRType::Health health;
+    ComponentRType::Scriptable scriptable;
   };
 
   class EntityFactory {
@@ -61,11 +65,14 @@ namespace GameEngine::Entity
     EntityTemplate getEntityTemplate(const std::string &name);
     bool entityTemplateExist(const std::string &name);
 
+    Script::ScriptManager &getScriptManager();
+
     static size_t idOffset;
 
    private:
     using AssetManager = GameEngine::Asset::AssetManager;
 
+    Script::ScriptManager m_scriptManager;
     std::map<std::string, EntityTemplate> m_entitiesTemplate;
     std::vector<GameEngine::ECS::Entity> &m_entities; ///< Vector of entities in the Factory context.
     GameEngine::ECS::Registry &m_registry;            ///< Reference to the ECS registry.

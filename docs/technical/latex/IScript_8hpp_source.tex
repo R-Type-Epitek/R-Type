@@ -1,0 +1,36 @@
+\hypertarget{IScript_8hpp_source}{}\doxysection{IScript.\+hpp}
+\label{IScript_8hpp_source}\index{gameEngine/include/gameEngine/script/IScript.hpp@{gameEngine/include/gameEngine/script/IScript.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/14/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/event/EventRegistry.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }GameEngine::Script}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{16   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript}{IScript}} \{}
+\DoxyCodeLine{17    \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a079f6c7646bdfb1e2c8821a5b85a26bc}{\string~IScript}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a59d721f432cc9eb1181befba8a2e566f}{subscribeEvent}}() = 0;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_accf0f6c4d525defcc2fd2e4f2021290f}{isConfigured}}() = 0;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_aa391517c8f837d7c71bffbeb920e516e}{execute}}(\textcolor{keywordtype}{int} df) = 0;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a137b5f54b5f8e843d39de363e49f08ef}{attachEntity}}(\textcolor{keyword}{const} ECS::Entity entity) = 0;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a665b239c8a792f0218ce1aa0818ee19e}{attachEcsRegistry}}(std::shared\_ptr<ECS::Registry> ecsRegistry) = 0;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Script_1_1IScript_a8beb5b2d34dc897178771205a0fe45ab}{attachEventRegistry}}(std::shared\_ptr<Event::EventRegistry> eventRegistry) = 0;}
+\DoxyCodeLine{60   \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \} \textcolor{comment}{// namespace GameEngine::Script}}
+
+\end{DoxyCode}

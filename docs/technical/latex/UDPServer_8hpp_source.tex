@@ -1,5 +1,5 @@
 \hypertarget{UDPServer_8hpp_source}{}\doxysection{UDPServer.\+hpp}
-\label{UDPServer_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/UDPServer.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/server/include/UDPServer.hpp}}
+\label{UDPServer_8hpp_source}\index{server/include/UDPServer.hpp@{server/include/UDPServer.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
@@ -9,65 +9,114 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{6 }
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeNetwork.hpp"{}}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
-\DoxyCodeLine{10 \{}
-\DoxyCodeLine{19     \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \{}
-\DoxyCodeLine{20         \textcolor{keyword}{public}:}
-\DoxyCodeLine{29             \mbox{\hyperlink{classNetwork_1_1UDPServer_a8e48a3fb2808976e3cb450ad23fddc8e}{UDPServer}}(boost::asio::io\_context \&io);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{41             \mbox{\hyperlink{classNetwork_1_1UDPServer_a8e48a3fb2808976e3cb450ad23fddc8e}{UDPServer}}(boost::asio::io\_context \&io, \textcolor{keywordtype}{int} port);}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{49             \mbox{\hyperlink{classNetwork_1_1UDPServer_a6ae6efb6b05e6b6518195512e90a216d}{\string~UDPServer}}();}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51         \textcolor{keyword}{protected}:}
-\DoxyCodeLine{52         \textcolor{keyword}{private}:}
-\DoxyCodeLine{53             boost::asio::ip::udp::socket socket; }
-\DoxyCodeLine{54             std::vector<Network::Client> clients; }
-\DoxyCodeLine{55             boost::array<char, 1024> recvBuffer\{\}; }
-\DoxyCodeLine{56             boost::asio::ip::udp::endpoint remoteEndpoint; }
-\DoxyCodeLine{57             \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue}{Network::ThreadSafeQueue<Message *>}} messageQueue; }
-\DoxyCodeLine{58             std::vector<std::thread> workers; }
-\DoxyCodeLine{59             std::vector<Network::Room> rooms; }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{structTimedMessage}{TimedMessage}} \{}
+\DoxyCodeLine{19   \mbox{\hyperlink{structMessage}{Message}} *\mbox{\hyperlink{structTimedMessage_a2c1d25c80436512087308a036f01e86a}{message}};                                         }
+\DoxyCodeLine{20   std::chrono::high\_resolution\_clock::time\_point \mbox{\hyperlink{structTimedMessage_abd5fd4e205672e1fdd572a47e7736e67}{timestamp}}; }
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }Network}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{33   \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \{}
+\DoxyCodeLine{34    \textcolor{keyword}{public}:}
+\DoxyCodeLine{45     \mbox{\hyperlink{classNetwork_1_1UDPServer_a8e48a3fb2808976e3cb450ad23fddc8e}{UDPServer}}(boost::asio::io\_context \&io);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{59     \mbox{\hyperlink{classNetwork_1_1UDPServer_a8e48a3fb2808976e3cb450ad23fddc8e}{UDPServer}}(boost::asio::io\_context \&io, \textcolor{keywordtype}{int} port);}
 \DoxyCodeLine{60 }
-\DoxyCodeLine{69             \textcolor{keywordtype}{void} initServer(\textcolor{keywordtype}{int} port);}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{78             \textcolor{keywordtype}{void} initRooms(\textcolor{keywordtype}{int} count);}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{89             \textcolor{keywordtype}{void} handleReceive(}
-\DoxyCodeLine{90                 \textcolor{keyword}{const} boost::system::error\_code \&error,}
-\DoxyCodeLine{91                 std::size\_t bytesTransferred}
-\DoxyCodeLine{92             );}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{101             \textcolor{keywordtype}{void} sendToAll(\textcolor{keyword}{const} boost::asio::const\_buffer \&buffer);}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{111             \textcolor{keywordtype}{void} sendToClient(}
-\DoxyCodeLine{112                 \textcolor{keyword}{const} boost::asio::const\_buffer \&buffer,}
-\DoxyCodeLine{113                 \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}}
-\DoxyCodeLine{114             );}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{122             \textcolor{keywordtype}{void} startReceive();}
-\DoxyCodeLine{123 }
-\DoxyCodeLine{132             \textcolor{keywordtype}{void} processMessage(\mbox{\hyperlink{structMessage}{Message}} *message);}
-\DoxyCodeLine{133 }
-\DoxyCodeLine{140             \textcolor{keywordtype}{void} workerFunction();}
-\DoxyCodeLine{141 }
-\DoxyCodeLine{154             \mbox{\hyperlink{structResponse}{Response}} createResponse(}
-\DoxyCodeLine{155                 \textcolor{keywordtype}{int} clientId,}
-\DoxyCodeLine{156                 \textcolor{keyword}{const} std::string\& command,}
-\DoxyCodeLine{157                 \textcolor{keyword}{const} std::string\& statusMessage,}
-\DoxyCodeLine{158                 \textcolor{keywordtype}{int} status}
-\DoxyCodeLine{159             );}
-\DoxyCodeLine{160 }
-\DoxyCodeLine{168             \textcolor{keywordtype}{void} sendResponseAndLog(\textcolor{keyword}{const} \mbox{\hyperlink{structResponse}{Response}}\& response);}
-\DoxyCodeLine{169 }
-\DoxyCodeLine{170             \textcolor{comment}{// Command handling functions}}
-\DoxyCodeLine{171             \textcolor{keywordtype}{void} helloCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
-\DoxyCodeLine{172             \textcolor{keywordtype}{void} updateNameCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
-\DoxyCodeLine{173             \textcolor{keywordtype}{void} joinRoomCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
-\DoxyCodeLine{174             \textcolor{keywordtype}{void} inputCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
-\DoxyCodeLine{175             \textcolor{keywordtype}{void} startGameCommand(\mbox{\hyperlink{structMessage}{Message}} *message); }
-\DoxyCodeLine{176     \};}
-\DoxyCodeLine{177 \}}
+\DoxyCodeLine{67     \mbox{\hyperlink{classNetwork_1_1UDPServer_a6ae6efb6b05e6b6518195512e90a216d}{\string~UDPServer}}();}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{77     boost::asio::ip::udp::socket \&\mbox{\hyperlink{classNetwork_1_1UDPServer_ac32cc82757d28952e4429a16189b4216}{getSocket}}();}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{87     std::vector<Network::Client> \&\mbox{\hyperlink{classNetwork_1_1UDPServer_a6577105fddee863d8d7bbae6f7bac2f7}{getClients}}();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{96     std::optional<std::reference\_wrapper<Network::Client>> \mbox{\hyperlink{classNetwork_1_1UDPServer_a9a01c57b42d3b2ee144cf7bd4aa9706e}{getClientById}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{106     boost::array<char, 65536> \mbox{\hyperlink{classNetwork_1_1UDPServer_abc40e08966da73a1b12d380a0dce6053}{getRecvBuffer}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{117     boost::asio::ip::udp::endpoint \mbox{\hyperlink{classNetwork_1_1UDPServer_a9f7a52213bf27b1cd095cf526d6736ac}{getRemoteEndpoint}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{127     std::vector<Network::Room> \&\mbox{\hyperlink{classNetwork_1_1UDPServer_a421b82239515eafa196dc68cc573fc2b}{getRooms}}();}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{137     \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetwork_1_1UDPServer_a2c13629ee0ccbf4d9b12deb117080603}{getNextClientIdAndIncrement}}();}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{146     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_abdff6274a3af6cd99c418197c4630a75}{addClient}}(\mbox{\hyperlink{classNetwork_1_1Client}{Network::Client}} client);}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{157     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a8d43c1630c01f9eefa4909772057e9c8}{initServer}}(\textcolor{keywordtype}{int} port);}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{166     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ac4b4c1cd19635deb604ceb2a63839f4d}{initRooms}}(\textcolor{keywordtype}{int} count);}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{173     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ac2a6fa9962f244fd7ba8578d89296874}{startReceive}}();}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{181     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ac97d512d745687229613d23b27a71bae}{handleReceive}}(boost::system::error\_code \textcolor{keyword}{const} \&error, std::size\_t bytes\_transferred);}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{191     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a4928e7aa98d5e037872d25cff45c9f8a}{updateClientLastMessageTimeFromData}}(\textcolor{keywordtype}{char} *data);}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{200     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ac811ac0c540ab08eeb7fd4002e4af9d4}{sendToAll}}(boost::asio::const\_buffer \textcolor{keyword}{const} \&buffer);}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{212     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a9a296cd50ace6d20256e4a94290bf1b4}{sendToAllClientsInRoom}}(boost::asio::const\_buffer \textcolor{keyword}{const} \&buffer, \textcolor{keywordtype}{int} roomId);}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{224     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a4c3186c7dcf335536c43e4d1564ee0e0}{sendToAllClientsInRoomInGame}}(boost::asio::const\_buffer \textcolor{keyword}{const} \&buffer, \textcolor{keywordtype}{int} roomId);}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{235     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a9c2f0877b54c60de4ca0a2d21696ba93}{sendToClient}}(boost::asio::const\_buffer \textcolor{keyword}{const} \&buffer, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{245     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a7d721dae9793f447e2199f8780096e53}{handleSend}}(boost::system::error\_code \textcolor{keyword}{const} \&error, std::size\_t bytesTransferred);}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{253     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ad31c0be7001a0123b1fe8434161665de}{processMessage}}(\mbox{\hyperlink{structTimedMessage}{TimedMessage}} message);}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{263     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a16bd0e5a013230d835b30a3b0cfd86d9}{processResponse}}(\mbox{\hyperlink{structResponse}{Response}} *response);}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{272     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_aabec654d8576481b31d0c1e689b66699}{workerFunction}}();}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{287     std::vector<char> \mbox{\hyperlink{classNetwork_1_1UDPServer_a4031d156ae82ff57038b16f3d214d781}{createMessageBuffer}}(}
+\DoxyCodeLine{288       \textcolor{keywordtype}{int} clientId,}
+\DoxyCodeLine{289       std::string \textcolor{keyword}{const} \&command,}
+\DoxyCodeLine{290       \textcolor{keywordtype}{char} \textcolor{keyword}{const} data[] = \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{291       \textcolor{keywordtype}{int} dataSize = 0);}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{308     std::vector<char> \mbox{\hyperlink{classNetwork_1_1UDPServer_a0a2583c36c354de1725dcfab25c5e14d}{createResponseBuffer}}(}
+\DoxyCodeLine{309       \textcolor{keywordtype}{int} clientId,}
+\DoxyCodeLine{310       \mbox{\hyperlink{structMessageHeader}{MessageHeader}} \textcolor{keyword}{const} \&messageHeader,}
+\DoxyCodeLine{311       std::string \textcolor{keyword}{const} \&statusMessage,}
+\DoxyCodeLine{312       \textcolor{keywordtype}{char} \textcolor{keyword}{const} data[] = \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{313       \textcolor{keywordtype}{int} dataSize = 0,}
+\DoxyCodeLine{314       \textcolor{keywordtype}{int} status = RES\_SUCCESS);}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{326     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ae6df6365d9c49e58434876ef104817a9}{sendResponseAndLog}}(\mbox{\hyperlink{structTimedMessage}{TimedMessage}} timedMessage, std::vector<char> responseBuffer);}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{338     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1UDPServer_ab2d04421510f1fd72b2158aa171241e9}{isClientRegistered}}(\textcolor{keywordtype}{int} clientId);}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{347     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a82f424a15da216aade28273353dad9eb}{registerCommandHandlers}}();}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{354     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_af9906b402d8c7af8b1b6f9d4332bb60c}{checkClientTimers}}();}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{361     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ace11e347c4bfbad29bfe8d1cb6f2bba2}{startClientTimerCheck}}();}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{368     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_af419e1866cc5630292523ae901aa7c0f}{gameLoop}}();}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{380     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_ac1d3c03a7b8e6d002d8938e70fd4ba36}{notifyAndRemoveClient}}(\textcolor{keywordtype}{int} clientId);}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{390     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetwork_1_1UDPServer_a60ae214e6da64da40df29b14970b25a1}{sendCheckConnection}}(\textcolor{keywordtype}{int} clientId);}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392     std::mutex \mbox{\hyperlink{classNetwork_1_1UDPServer_aef0ef5329ac37e03dd21cc4ea24b65db}{roomsMutex}}; }
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{395    \textcolor{keyword}{private}:}
+\DoxyCodeLine{396     boost::asio::ip::udp::socket socket;                 }
+\DoxyCodeLine{397     std::vector<Network::Client> clients;                }
+\DoxyCodeLine{398     boost::array<char, 65536> recvBuffer \{\};             }
+\DoxyCodeLine{399     boost::asio::ip::udp::endpoint remoteEndpoint;       }
+\DoxyCodeLine{400     \mbox{\hyperlink{classNetwork_1_1ThreadSafeQueue}{Network::ThreadSafeQueue<TimedMessage>}} messageQueue; }
+\DoxyCodeLine{401     std::vector<std::thread> workers;                    }
+\DoxyCodeLine{402     \textcolor{keywordtype}{int} nextClientId;                                    }
+\DoxyCodeLine{403     std::vector<Network::Room> rooms;                    }
+\DoxyCodeLine{404     std::unordered\_map<std::string, std::unique\_ptr<ICommandHandler>>}
+\DoxyCodeLine{405       commandHandlers;                                }
+\DoxyCodeLine{406     boost::asio::steady\_timer clientsConnectionTimer; }
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408     \textcolor{keywordtype}{void} handleInvalidClient(\mbox{\hyperlink{structTimedMessage}{TimedMessage}} timedMessage);  }
+\DoxyCodeLine{409     \textcolor{keywordtype}{void} handleInvalidCommand(\mbox{\hyperlink{structTimedMessage}{TimedMessage}} timedMessage); }
+\DoxyCodeLine{410   \};}
+\DoxyCodeLine{411 \} \textcolor{comment}{// namespace Network}}
 
 \end{DoxyCode}

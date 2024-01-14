@@ -1,0 +1,30 @@
+\hypertarget{server_2include_2tools_2EndianConverter_8hpp_source}{}\doxysection{Endian\+Converter.\+hpp}
+\label{server_2include_2tools_2EndianConverter_8hpp_source}\index{server/include/tools/EndianConverter.hpp@{server/include/tools/EndianConverter.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 24/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <boost/asio/buffer.hpp>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <boost/endian/conversion.hpp>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Tools}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{class }\mbox{\hyperlink{classTools_1_1EndianConverter}{EndianConverter}} \{}
+\DoxyCodeLine{12    \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{classTools_1_1EndianConverter}{EndianConverter}}(boost::asio::const\_buffer \textcolor{keyword}{const} \&buffer);}
+\DoxyCodeLine{14     \mbox{\hyperlink{classTools_1_1EndianConverter}{\string~EndianConverter}}();}
+\DoxyCodeLine{15     boost::asio::const\_buffer getLittleEndian();}
+\DoxyCodeLine{16     boost::asio::const\_buffer getNativeEndian();}
+\DoxyCodeLine{17     boost::asio::const\_buffer getBuffer() \textcolor{keyword}{const};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} setBuffer(boost::asio::const\_buffer \textcolor{keyword}{const} \&buffer);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21    \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     boost::asio::const\_buffer buffer;}
+\DoxyCodeLine{23   \};}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,60 @@
+\hypertarget{Window_8hpp_source}{}\doxysection{Window.\+hpp}
+\label{Window_8hpp_source}\index{gameEngine/include/gameEngine/UI/Window.hpp@{gameEngine/include/gameEngine/UI/Window.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/20/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/gfx/IRenderer.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }GameEngine::UI}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1UI_1_1Window}{Window}} \{}
+\DoxyCodeLine{15    \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{classGameEngine_1_1UI_1_1Window}{Window}}(std::shared\_ptr<Gfx::IRenderer> renderer)}
+\DoxyCodeLine{17       : m\_renderer \{std::move(renderer)\} \{\};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} setFramerateLimit(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} limit)}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21       m\_renderer-\/>setFramerateLimit(limit);}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23     }
+\DoxyCodeLine{24     \mbox{\hyperlink{classGameEngine_1_1Gfx_1_1IRenderer}{Gfx::IRenderer}} \&getRenderer()}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26       \textcolor{keywordflow}{return} m\_renderer-\/>getRenderer();}
+\DoxyCodeLine{27     \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     std::shared\_ptr<Gfx::IRenderer> getSharedRenderer()}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31       \textcolor{keywordflow}{return} m\_renderer;}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} isOpen()}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36       \textcolor{keywordflow}{return} m\_renderer-\/>isActive();}
+\DoxyCodeLine{37     \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} display()}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41       m\_renderer-\/>display();}
+\DoxyCodeLine{42     \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} clear()}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46       m\_renderer-\/>clear();}
+\DoxyCodeLine{47     \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49    \textcolor{keyword}{private}:}
+\DoxyCodeLine{50     std::shared\_ptr<Gfx::IRenderer> m\_renderer;}
+\DoxyCodeLine{51     \textcolor{comment}{//    Gfx::IEvent m\_event;}}
+\DoxyCodeLine{52   \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \} \textcolor{comment}{// namespace GameEngine::UI}}
+
+\end{DoxyCode}

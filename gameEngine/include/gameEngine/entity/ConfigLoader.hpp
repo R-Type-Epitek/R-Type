@@ -3,9 +3,15 @@
 //
 
 #pragma once
+#include "gameEngine/entity/EntityFactory.hpp"
+#include "gameEngine/script/ScriptManager.hpp"
+#include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
 #include "gameEngine/entity/EntityFactory.hpp"
+#include <assert.h>
+#include <fstream>
+#include <vector>
 
 namespace GameEngine::Entity
 {
@@ -15,10 +21,13 @@ namespace GameEngine::Entity
    public:
     ConfigLoader();
     ~ConfigLoader();
-    void loadFromJson(const std::string &jsonFilePath);
-    void loadEntitiesTemplate(GameEngine::Entity::EntityFactory &entityFactory);
-    void loadEntities(GameEngine::Entity::EntityFactory &entityFactory);
 
+    void loadFromJson(const std::string &jsonFilePath);
+
+    void loadEntities(GameEngine::Entity::EntityFactory &entityFactory);
+    void parseEntity(const json &config, GameEngine::Entity::EntityFactory &entityFactory);
+
+    void loadEntitiesTemplate(GameEngine::Entity::EntityFactory &entityFactory);
     EntityTemplate parseComponents(const json &config);
     void tryParseComponents(
       const std::string &componentName,
@@ -26,9 +35,6 @@ namespace GameEngine::Entity
       Entity::EntityTemplate &entity,
       const json &config,
       void (ConfigLoader::*function)(Entity::EntityTemplate &entity, const json &config));
-
-    void parseEntity(const json &config, GameEngine::Entity::EntityFactory &entityFactory);
-
     void parseTransform(Entity::EntityTemplate &entity, const json &config);
     void parseDisplayable(Entity::EntityTemplate &entity, const json &config);
     void parseControllable(Entity::EntityTemplate &entity, const json &config);
@@ -38,7 +44,11 @@ namespace GameEngine::Entity
     void parseGravity(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseHitbox(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseParallax(GameEngine::Entity::EntityTemplate &entity, const json &config);
+    void parseScriptable(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseHealth(GameEngine::Entity::EntityTemplate &entity, const json &config);
+
+    void loadScripts(GameEngine::Entity::EntityFactory &entityFactory);
+    void parseScript(const json &config, Script::ScriptManager &scriptManager);
 
    private:
     json m_config;

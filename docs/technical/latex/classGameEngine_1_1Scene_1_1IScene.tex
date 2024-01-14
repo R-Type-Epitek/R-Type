@@ -1,0 +1,182 @@
+\hypertarget{classGameEngine_1_1Scene_1_1IScene}{}\doxysection{Game\+Engine\+::Scene\+::IScene Class Reference}
+\label{classGameEngine_1_1Scene_1_1IScene}\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+
+
+\mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} class specifically designed for game functionality in an application.  
+
+
+
+
+{\ttfamily \#include $<$IScene.\+hpp$>$}
+
+Inheritance diagram for Game\+Engine\+::Scene\+::IScene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameEngine_1_1Scene_1_1IScene}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_afe991eaaa52626a983028a520aeaa559}\label{classGameEngine_1_1Scene_1_1IScene_afe991eaaa52626a983028a520aeaa559}} 
+virtual {\bfseries $\sim$\+IScene} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a71b018775667a5bdd99fd5a02a6bae08}{init\+Registries}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize the ECS registry for the game scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_abeb4e2fbc719bb0bd8d0d1e02d7f61f0}{init\+Entities}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize entities for the game scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a0b1a73e090fd5efdaa657115cdbd9ee3}{init\+Events}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize event for the game scene. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS\+::\+Registry}} \& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a6c77ee256f34964c04b89840deec5965}{get\+Ecs\+Registry}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the ECS registry associated with the game scene. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS\+::\+Registry}} $>$ \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a81c414810721c6d8a37c65e5ae87ad2d}{get\+Shared\+Ecs\+Registry}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the ECS registry ownership associated with the game scene. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event\+::\+Event\+Registry}} \& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_ad5635449606c9c0f5bc70ee32e33b8e4}{get\+Event\+Registry}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the Event registry associated with the game scene. \end{DoxyCompactList}\item 
+virtual const std\+::vector$<$ ECS\+::\+Entity $>$ \& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_aa134a2fe43dfa1b6d7f511fd43b77c2a}{get\+Entities}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the Entity list associated with the game scene. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{Game\+Engine\+::\+Entity\+::\+Entity\+Factory}} \& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene_a634dcc0a79f723f288c678822bc97e18}{get\+Entity\+Factory}} ()=0
+\begin{DoxyCompactList}\small\item\em Get the Entity Factory associated with the game scene. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_a4266bef484388e6677539a13f7b35000}\label{classGameEngine_1_1Scene_1_1IScene_a4266bef484388e6677539a13f7b35000}} 
+virtual void {\bfseries on\+Update} (size\+\_\+t df)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} class specifically designed for game functionality in an application. 
+
+\mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{IScene}} interface provide functionalities specific to game scenes, including initialization of the ECS registry, entities, events and custom systems. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_a6c77ee256f34964c04b89840deec5965}\label{classGameEngine_1_1Scene_1_1IScene_a6c77ee256f34964c04b89840deec5965}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!getEcsRegistry@{getEcsRegistry}}
+\index{getEcsRegistry@{getEcsRegistry}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{getEcsRegistry()}{getEcsRegistry()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS\+::\+Registry}} \& Game\+Engine\+::\+Scene\+::\+IScene\+::get\+Ecs\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the ECS registry associated with the game scene. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{Game\+Engine\+::\+ECS\+::\+Registry}}\& Reference to the ECS registry. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a17595823658ef8e2da4cce90ebf4182a}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_aa134a2fe43dfa1b6d7f511fd43b77c2a}\label{classGameEngine_1_1Scene_1_1IScene_aa134a2fe43dfa1b6d7f511fd43b77c2a}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!getEntities@{getEntities}}
+\index{getEntities@{getEntities}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{getEntities()}{getEntities()}}
+{\footnotesize\ttfamily virtual const std\+::vector$<$ ECS\+::\+Entity $>$ \& Game\+Engine\+::\+Scene\+::\+IScene\+::get\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the Entity list associated with the game scene. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+ECS\+::\+Entity$>$\& Reference to the ECS registry. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a3302fc1d37080bff5b73efa9adad1f2f}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_a634dcc0a79f723f288c678822bc97e18}\label{classGameEngine_1_1Scene_1_1IScene_a634dcc0a79f723f288c678822bc97e18}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!getEntityFactory@{getEntityFactory}}
+\index{getEntityFactory@{getEntityFactory}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{getEntityFactory()}{getEntityFactory()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{Game\+Engine\+::\+Entity\+::\+Entity\+Factory}} \& Game\+Engine\+::\+Scene\+::\+IScene\+::get\+Entity\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the Entity Factory associated with the game scene. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{Game\+Engine\+::\+ECS\+::\+Registry}}\& Reference to the ECS registry. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a755c4d125a8392c47569e855bdd47316}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_ad5635449606c9c0f5bc70ee32e33b8e4}\label{classGameEngine_1_1Scene_1_1IScene_ad5635449606c9c0f5bc70ee32e33b8e4}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!getEventRegistry@{getEventRegistry}}
+\index{getEventRegistry@{getEventRegistry}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{getEventRegistry()}{getEventRegistry()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event\+::\+Event\+Registry}} \& Game\+Engine\+::\+Scene\+::\+IScene\+::get\+Event\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the Event registry associated with the game scene. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Game\+Engine\+::\+Event\+::\+Event\+Registry}}\& Reference to the ECS registry. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_ac1005d514ce42fb9acd8f201fb90c915}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_a81c414810721c6d8a37c65e5ae87ad2d}\label{classGameEngine_1_1Scene_1_1IScene_a81c414810721c6d8a37c65e5ae87ad2d}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!getSharedEcsRegistry@{getSharedEcsRegistry}}
+\index{getSharedEcsRegistry@{getSharedEcsRegistry}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{getSharedEcsRegistry()}{getSharedEcsRegistry()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS\+::\+Registry}} $>$ Game\+Engine\+::\+Scene\+::\+IScene\+::get\+Shared\+Ecs\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the ECS registry ownership associated with the game scene. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Event\+::\+Event\+Registry$>$ Pointer to the ECS registry. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a46330529b7a6c8e58b7ccdfff25f018a}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_abeb4e2fbc719bb0bd8d0d1e02d7f61f0}\label{classGameEngine_1_1Scene_1_1IScene_abeb4e2fbc719bb0bd8d0d1e02d7f61f0}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!initEntities@{initEntities}}
+\index{initEntities@{initEntities}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{initEntities()}{initEntities()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Scene\+::\+IScene\+::init\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initialize entities for the game scene. 
+
+This function sets up the entities required for the game, adding them to the ECS registry. 
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_acc209a39e64ab559f76a76ce54402022}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_a0b1a73e090fd5efdaa657115cdbd9ee3}\label{classGameEngine_1_1Scene_1_1IScene_a0b1a73e090fd5efdaa657115cdbd9ee3}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!initEvents@{initEvents}}
+\index{initEvents@{initEvents}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{initEvents()}{initEvents()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Scene\+::\+IScene\+::init\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initialize event for the game scene. 
+
+This function sets up the events bind required for the game by the systems. 
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a1b9acb35e524447b4be8d9f2d570b2b7}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+\mbox{\Hypertarget{classGameEngine_1_1Scene_1_1IScene_a71b018775667a5bdd99fd5a02a6bae08}\label{classGameEngine_1_1Scene_1_1IScene_a71b018775667a5bdd99fd5a02a6bae08}} 
+\index{GameEngine::Scene::IScene@{GameEngine::Scene::IScene}!initRegistries@{initRegistries}}
+\index{initRegistries@{initRegistries}!GameEngine::Scene::IScene@{GameEngine::Scene::IScene}}
+\doxysubsubsection{\texorpdfstring{initRegistries()}{initRegistries()}}
+{\footnotesize\ttfamily virtual void Game\+Engine\+::\+Scene\+::\+IScene\+::init\+Registries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initialize the ECS registry for the game scene. 
+
+
+
+Implemented in \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_ac86fe570169c5aa7dec9ae765dd68b62}{Game\+Engine\+::\+Scene\+::\+Simple\+Scene}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/scene/IScene.\+hpp\end{DoxyCompactItemize}

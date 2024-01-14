@@ -1,0 +1,65 @@
+\hypertarget{NetworkedEntity_8hpp_source}{}\doxysection{Networked\+Entity.\+hpp}
+\label{NetworkedEntity_8hpp_source}\index{gameEngine/include/gameEngine/component/NetworkedEntity.hpp@{gameEngine/include/gameEngine/component/NetworkedEntity.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/28/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}gameEngine/network/Serializer.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/component/ComponentManager.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <boost/serialization/base\_object.hpp>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{NetworkedEntity}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent}{GameEngine::Network::Serializer::BaseNetworkComponent}} \{}
+\DoxyCodeLine{17     \textcolor{keywordtype}{size\_t} id;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{NetworkedEntity}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{20     \textcolor{keyword}{explicit} \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{NetworkedEntity}}(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{21       : id(\textcolor{keywordtype}{id})}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{NetworkedEntity}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{NetworkedEntity}} \&rhs)}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27       \textcolor{keywordflow}{return} lhs.id == rhs.id;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{static} GameEngine::ECS::Entity getEntityByNetworkedId(}
+\DoxyCodeLine{31       \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \&\textcolor{keywordtype}{id},}
+\DoxyCodeLine{32       \textcolor{keyword}{const} std::set<GameEngine::ECS::Entity> \&entities,}
+\DoxyCodeLine{33       \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager}{GameEngine::ECS::ComponentManager}} \&componentManager)}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35       \textcolor{keyword}{auto} it = std::find\_if(}
+\DoxyCodeLine{36         entities.begin(),}
+\DoxyCodeLine{37         entities.end(),}
+\DoxyCodeLine{38         [\&componentManager, \textcolor{keywordtype}{id}](\textcolor{keyword}{const} GameEngine::ECS::Entity \&entity) \{}
+\DoxyCodeLine{39           auto currentId = componentManager.getComponent<ComponentRType::NetworkedEntity>(entity);}
+\DoxyCodeLine{40           return id == currentId.id;}
+\DoxyCodeLine{41         \});}
+\DoxyCodeLine{42       \textcolor{keywordflow}{if} (it != entities.end()) \{}
+\DoxyCodeLine{43         \textcolor{keywordflow}{return} *it;}
+\DoxyCodeLine{44       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}Entity not found with the specified ID"{}});}
+\DoxyCodeLine{46       \}}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49    \textcolor{keyword}{private}:}
+\DoxyCodeLine{50     \textcolor{keyword}{friend} \textcolor{keyword}{class }boost::serialization::access;}
+\DoxyCodeLine{51     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} serialize(Archive \&archive, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54       boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*\textcolor{keyword}{this});}
+\DoxyCodeLine{55       archive \&BOOST\_SERIALIZATION\_NVP(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57   \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

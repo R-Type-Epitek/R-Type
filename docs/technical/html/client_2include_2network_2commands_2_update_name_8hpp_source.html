@@ -1,164 +1,272 @@
 <!-- HTML header for doxygen 1.9.8-->
 <!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=11" />
-  <meta name="generator" content="Doxygen 1.9.8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: client/include/network/commands/UpdateName.hpp Source File</title>
-  <link href="tabs.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="jquery.js"></script>
-  <script type="text/javascript" src="dynsections.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
-  <script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
-  <script type="text/javascript">
-      DoxygenAwesomeDarkModeToggle.init()
-      DoxygenAwesomeFragmentCopyButton.init()
-      DoxygenAwesomeParagraphLink.init()
-      DoxygenAwesomeInteractiveToc.init()
-      DoxygenAwesomeTabs.init()
-  </script>
-  <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-  <link href="search/search.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="search/searchdata.js"></script>
-<script type="text/javascript" src="search/search.js"></script>
-  <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+    <meta content="text/xhtml;charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="IE=11" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.9.8" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>R-Type: client/include/network/commands/UpdateName.hpp Source File</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="dynsections.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-darkmode-toggle.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-fragment-copy-button.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-paragraph-link.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-interactive-toc.js" type="text/javascript"></script>
+    <script src="doxygen-awesome-tabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeParagraphLink.init()
+        DoxygenAwesomeInteractiveToc.init()
+        DoxygenAwesomeTabs.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+    <script src="resize.js" type="text/javascript"></script>
+    <script src="navtreedata.js" type="text/javascript"></script>
+    <script src="navtree.js" type="text/javascript"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+    <script src="search/searchdata.js" type="text/javascript"></script>
+    <script src="search/search.js" type="text/javascript"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-      <div id="titlearea">
-        <table cellspacing="0" cellpadding="0">
-          <tbody>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellpadding="0" cellspacing="0">
+            <tbody>
             <tr id="projectrow">
-              <td id="projectalign">
-                <div id="projectname">R-Type
-                </div>
-                <div id="projectbrief">R-Type is a 2D shoot&#39;em up game developed by a team of 5 students from Epitech Bordeaux.</div>
-              </td>
+                <td id="projectalign">
+                    <div id="projectname">R-Type
+                    </div>
+                    <div id="projectbrief">R-Type is a 2D shoot&#39;em up game developed by a team of 5 students from
+                        Epitech Bordeaux.
+                    </div>
+                </td>
             </tr>
-          </tbody>
+            </tbody>
         </table>
-      </div>
-      <!-- end header part --><!-- Generated by Doxygen 1.9.8 -->
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-var searchBox = new SearchBox("searchBox", "search/",'.html');
-/* @license-end */
-</script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */
-</script>
-<div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function() { init_codefold(0); });
-/* @license-end */
-</script>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
     </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
+    <!-- end header part --><!-- Generated by Doxygen 1.9.8 -->
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+        var searchBox = new SearchBox("searchBox", "search/", '.html');
+        /* @license-end */
+    </script>
+    <script src="menudata.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+        $(function () {
+            initMenu('', true, false, 'search.php', 'Search');
+            $(document).ready(function () {
+                init_search();
+            });
+        });
+        /* @license-end */
+    </script>
+    <div id="main-nav"></div>
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+        $(document).ready(function () {
+            init_codefold(0);
+        });
+        /* @license-end */
+    </script>
+</div><!-- top -->
+<div class="ui-resizable side-nav-resizable" id="side-nav">
+    <div id="nav-tree">
+        <div id="nav-tree-contents">
+            <div class="sync" id="nav-sync"></div>
+        </div>
+    </div>
+    <div class="ui-resizable-handle" id="splitbar"
+         style="-moz-user-select:none;">
+    </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('client_2include_2network_2commands_2_update_name_8hpp_source.html',''); initResizable(); });
-/* @license-end */
+    /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+    $(document).ready(function () {
+        initNavTree('client_2include_2network_2commands_2_update_name_8hpp_source.html', '');
+        initResizable();
+    });
+    /* @license-end */
 </script>
 <div id="doc-content">
-<!-- window showing the filter options -->
-<div id="MSearchSelectWindow"
-     onmouseover="return searchBox.OnSearchSelectShow()"
-     onmouseout="return searchBox.OnSearchSelectHide()"
-     onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+    <!-- window showing the filter options -->
+    <div id="MSearchSelectWindow"
+         onkeydown="return searchBox.OnSearchSelectKey(event)"
+         onmouseout="return searchBox.OnSearchSelectHide()"
+         onmouseover="return searchBox.OnSearchSelectShow()">
+    </div>
 
-<!-- iframe showing the search results (closed by default) -->
-<div id="MSearchResultsWindow">
-<div id="MSearchResults">
-<div class="SRPage">
-<div id="SRIndex">
-<div id="SRResults"></div>
-<div class="SRStatus" id="Loading">Loading...</div>
-<div class="SRStatus" id="Searching">Searching...</div>
-<div class="SRStatus" id="NoMatches">No Matches</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- iframe showing the search results (closed by default) -->
+    <div id="MSearchResultsWindow">
+        <div id="MSearchResults">
+            <div class="SRPage">
+                <div id="SRIndex">
+                    <div id="SRResults"></div>
+                    <div class="SRStatus" id="Loading">Loading...</div>
+                    <div class="SRStatus" id="Searching">Searching...</div>
+                    <div class="SRStatus" id="NoMatches">No Matches</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">UpdateName.hpp</div></div>
-</div><!--header-->
-<div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by Xavier VINCENT on 24/12/23.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;network/Network.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;network/commands/IHandler.hpp&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>Client</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_client_1_1_update_name_command_handler.html">   18</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_client_1_1_update_name_command_handler.html">UpdateNameCommandHandler</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_client_1_1_i_command_handler.html">ICommandHandler</a> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>   <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_client_1_1_update_name_command_handler.html">UpdateNameCommandHandler</a>(<a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_update_name_command_handler.html#a922e3c4bc3886fb6f914049d5aa572d6">setName</a>(std::string name);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">const</span> std::string&amp; <a class="code hl_function" href="class_client_1_1_update_name_command_handler.html#a30bbaf622ea03fae8c820563c3928198">getName</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_update_name_command_handler.html#ad3581fc6628913d32f645cf0f4cf5368">send</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_client_1_1_update_name_command_handler.html#ae67cfd0f25a2fa49845534f0fa9ff6a2">onResponse</a>(<a class="code hl_struct" href="struct_response.html">Response</a>* response) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>   <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>   <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network; </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string name; </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  };</div>
-</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <span class="comment">// namespace Client</span></div>
-<div class="ttc" id="aclass_client_1_1_i_command_handler_html"><div class="ttname"><a href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a></div><div class="ttdoc">Abstract class representing a command handler in the client.</div><div class="ttdef"><b>Definition</b> IHandler.hpp:17</div></div>
-<div class="ttc" id="aclass_client_1_1_network_html"><div class="ttname"><a href="class_client_1_1_network.html">Client::Network</a></div><div class="ttdoc">Class responsible for network operations in a client.</div><div class="ttdef"><b>Definition</b> Network.hpp:35</div></div>
-<div class="ttc" id="aclass_client_1_1_update_name_command_handler_html"><div class="ttname"><a href="class_client_1_1_update_name_command_handler.html">Client::UpdateNameCommandHandler</a></div><div class="ttdoc">Handler for update name commands in a networked environment.</div><div class="ttdef"><b>Definition</b> UpdateName.hpp:18</div></div>
-<div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_a30bbaf622ea03fae8c820563c3928198"><div class="ttname"><a href="class_client_1_1_update_name_command_handler.html#a30bbaf622ea03fae8c820563c3928198">Client::UpdateNameCommandHandler::getName</a></div><div class="ttdeci">const std::string &amp; getName() const</div><div class="ttdoc">Get the name associated with the update name command.</div><div class="ttdef"><b>Definition</b> UpdateName.cpp:21</div></div>
-<div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_a922e3c4bc3886fb6f914049d5aa572d6"><div class="ttname"><a href="class_client_1_1_update_name_command_handler.html#a922e3c4bc3886fb6f914049d5aa572d6">Client::UpdateNameCommandHandler::setName</a></div><div class="ttdeci">void setName(std::string name)</div><div class="ttdoc">Set the name for the update name command.</div><div class="ttdef"><b>Definition</b> UpdateName.cpp:16</div></div>
-<div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_ad3581fc6628913d32f645cf0f4cf5368"><div class="ttname"><a href="class_client_1_1_update_name_command_handler.html#ad3581fc6628913d32f645cf0f4cf5368">Client::UpdateNameCommandHandler::send</a></div><div class="ttdeci">void send() override</div><div class="ttdoc">Send the update name command to the server.</div><div class="ttdef"><b>Definition</b> UpdateName.cpp:26</div></div>
-<div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_ae67cfd0f25a2fa49845534f0fa9ff6a2"><div class="ttname"><a href="class_client_1_1_update_name_command_handler.html#ae67cfd0f25a2fa49845534f0fa9ff6a2">Client::UpdateNameCommandHandler::onResponse</a></div><div class="ttdeci">void onResponse(Response *response) override</div><div class="ttdoc">Handle the server's response to the update name command.</div><div class="ttdef"><b>Definition</b> UpdateName.cpp:39</div></div>
-<div class="ttc" id="astruct_response_html"><div class="ttname"><a href="struct_response.html">Response</a></div><div class="ttdef"><b>Definition</b> Responses.hpp:19</div></div>
-</div><!-- fragment --></div><!-- contents -->
+    <div class="header">
+        <div class="headertitle">
+            <div class="title">UpdateName.hpp</div>
+        </div>
+    </div><!--header-->
+    <div class="contents">
+        <div class="fragment">
+            <div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span
+                    class="comment">//</span></div>
+            <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by Xavier VINCENT on 24/12/23.</span>
+            </div>
+            <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span
+                    class="comment">//</span></div>
+            <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
+            <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span
+                    class="preprocessor">#pragma once</span></div>
+            <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span
+                    class="preprocessor">#include &quot;network/Network.hpp&quot;</span></div>
+            <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span
+                    class="preprocessor">#include &quot;network/commands/IHandler.hpp&quot;</span></div>
+            <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+            <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>Client
+            </div>
+            <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+            <div class="foldopen" data-end="};" data-start="{" id="foldopen00018">
+                <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line"
+                                                                                           href="class_client_1_1_update_name_command_handler.html">   18</a></span>
+                    <span class="keyword">class </span><a class="code hl_class"
+                                                          href="class_client_1_1_update_name_command_handler.html">UpdateNameCommandHandler</a>
+                    : <span class="keyword">public</span> <a class="code hl_class"
+                                                             href="class_client_1_1_i_command_handler.html">ICommandHandler</a>
+                    {
+                </div>
+                <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> <span
+                        class="keyword">public</span>:
+                </div>
+                <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <a
+                        class="code hl_class" href="class_client_1_1_update_name_command_handler.html">UpdateNameCommandHandler</a>(<a
+                        class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network);
+                </div>
+                <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+                <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> <span
+                        class="keywordtype">void</span> <a class="code hl_function"
+                                                           href="class_client_1_1_update_name_command_handler.html#a922e3c4bc3886fb6f914049d5aa572d6">setName</a>(std::string
+                    name);
+                </div>
+                <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+                <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> <span
+                        class="keyword">const</span> std::string&amp; <a class="code hl_function"
+                                                                         href="class_client_1_1_update_name_command_handler.html#a30bbaf622ea03fae8c820563c3928198">getName</a>()
+                    <span class="keyword">const</span>;
+                </div>
+                <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+                <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> <span
+                        class="keywordtype">void</span> <a class="code hl_function"
+                                                           href="class_client_1_1_update_name_command_handler.html#ad3581fc6628913d32f645cf0f4cf5368">send</a>()
+                    <span class="keyword">override</span>;
+                </div>
+                <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+                <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> <span
+                        class="keywordtype">void</span> <a class="code hl_function"
+                                                           href="class_client_1_1_update_name_command_handler.html#ae67cfd0f25a2fa49845534f0fa9ff6a2">onResponse</a>(<a
+                        class="code hl_struct" href="struct_response.html">Response</a>* response) <span
+                        class="keyword">override</span>;
+                </div>
+                <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+                <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> <span
+                        class="keyword">protected</span>:
+                </div>
+                <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> <span
+                        class="keyword">private</span>:
+                </div>
+                <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> <a
+                        class="code hl_class" href="class_client_1_1_network.html">Network</a>&amp; network;
+                </div>
+                <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> std::string name;
+                </div>
+                <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> };</div>
+            </div>
+            <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <span class="comment">// namespace Client</span>
+            </div>
+            <div class="ttc" id="aclass_client_1_1_i_command_handler_html">
+                <div class="ttname"><a href="class_client_1_1_i_command_handler.html">Client::ICommandHandler</a></div>
+                <div class="ttdoc">Abstract class representing a command handler in the client.</div>
+                <div class="ttdef"><b>Definition</b> IHandler.hpp:17</div>
+            </div>
+            <div class="ttc" id="aclass_client_1_1_network_html">
+                <div class="ttname"><a href="class_client_1_1_network.html">Client::Network</a></div>
+                <div class="ttdoc">Class responsible for network operations in a client.</div>
+                <div class="ttdef"><b>Definition</b> Network.hpp:35</div>
+            </div>
+            <div class="ttc" id="aclass_client_1_1_update_name_command_handler_html">
+                <div class="ttname"><a href="class_client_1_1_update_name_command_handler.html">Client::UpdateNameCommandHandler</a>
+                </div>
+                <div class="ttdoc">Handler for execute name commands in a networked environment.</div>
+                <div class="ttdef"><b>Definition</b> UpdateName.hpp:18</div>
+            </div>
+            <div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_a30bbaf622ea03fae8c820563c3928198">
+                <div class="ttname"><a
+                        href="class_client_1_1_update_name_command_handler.html#a30bbaf622ea03fae8c820563c3928198">Client::UpdateNameCommandHandler::getName</a>
+                </div>
+                <div class="ttdeci">const std::string &amp; getName() const</div>
+                <div class="ttdoc">Get the name associated with the execute name command.</div>
+                <div class="ttdef"><b>Definition</b> UpdateName.cpp:21</div>
+            </div>
+            <div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_a922e3c4bc3886fb6f914049d5aa572d6">
+                <div class="ttname"><a
+                        href="class_client_1_1_update_name_command_handler.html#a922e3c4bc3886fb6f914049d5aa572d6">Client::UpdateNameCommandHandler::setName</a>
+                </div>
+                <div class="ttdeci">void setName(std::string name)</div>
+                <div class="ttdoc">Set the name for the execute name command.</div>
+                <div class="ttdef"><b>Definition</b> UpdateName.cpp:16</div>
+            </div>
+            <div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_ad3581fc6628913d32f645cf0f4cf5368">
+                <div class="ttname"><a
+                        href="class_client_1_1_update_name_command_handler.html#ad3581fc6628913d32f645cf0f4cf5368">Client::UpdateNameCommandHandler::send</a>
+                </div>
+                <div class="ttdeci">void send() override</div>
+                <div class="ttdoc">Send the execute name command to the server.</div>
+                <div class="ttdef"><b>Definition</b> UpdateName.cpp:26</div>
+            </div>
+            <div class="ttc" id="aclass_client_1_1_update_name_command_handler_html_ae67cfd0f25a2fa49845534f0fa9ff6a2">
+                <div class="ttname"><a
+                        href="class_client_1_1_update_name_command_handler.html#ae67cfd0f25a2fa49845534f0fa9ff6a2">Client::UpdateNameCommandHandler::onResponse</a>
+                </div>
+                <div class="ttdeci">void onResponse(Response *response) override</div>
+                <div class="ttdoc">Handle the server's response to the execute name command.</div>
+                <div class="ttdef"><b>Definition</b> UpdateName.cpp:39</div>
+            </div>
+            <div class="ttc" id="astruct_response_html">
+                <div class="ttname"><a href="struct_response.html">Response</a></div>
+                <div class="ttdef"><b>Definition</b> Responses.hpp:19</div>
+            </div>
+        </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_db3a54907829b36871118d03417739cd.html">client</a></li><li class="navelem"><a class="el" href="dir_5c23080e296bbe846f4ed2d01d7b595d.html">include</a></li><li class="navelem"><a class="el" href="dir_b1ef0f2cacbcb136b53fa4683ffeb467.html">network</a></li><li class="navelem"><a class="el" href="dir_d8600f79ca59f9a81bb26ad762113c79.html">commands</a></li><li class="navelem"><b>UpdateName.hpp</b></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
-  </ul>
+<div class="navpath" id="nav-path"><!-- id is needed for treeview function! -->
+    <ul>
+        <li class="navelem"><a class="el" href="dir_db3a54907829b36871118d03417739cd.html">client</a></li>
+        <li class="navelem"><a class="el" href="dir_5c23080e296bbe846f4ed2d01d7b595d.html">include</a></li>
+        <li class="navelem"><a class="el" href="dir_b1ef0f2cacbcb136b53fa4683ffeb467.html">network</a></li>
+        <li class="navelem"><a class="el" href="dir_d8600f79ca59f9a81bb26ad762113c79.html">commands</a></li>
+        <li class="navelem"><b>UpdateName.hpp</b></li>
+        <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img alt="doxygen"
+                                                                                          class="footer" height="31"
+                                                                                          src="doxygen.svg"
+                                                                                          width="104"/></a> 1.9.8
+        </li>
+    </ul>
 </div>
 </body>
 </html>

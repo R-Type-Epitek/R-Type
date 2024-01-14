@@ -1,0 +1,27 @@
+\hypertarget{server_2include_2commands_2ConnectToServer_8hpp_source}{}\doxysection{Connect\+To\+Server.\+hpp}
+\label{server_2include_2commands_2ConnectToServer_8hpp_source}\index{server/include/commands/ConnectToServer.hpp@{server/include/commands/ConnectToServer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 20/12/2023.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}RTypeNetwork.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Network}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11   \textcolor{keyword}{class }\mbox{\hyperlink{classNetwork_1_1ConnectToServerCommandHandler}{ConnectToServerCommandHandler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classNetwork_1_1ICommandHandler}{ICommandHandler}} \{}
+\DoxyCodeLine{12    \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{classNetwork_1_1ConnectToServerCommandHandler}{ConnectToServerCommandHandler}}(\mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \&server);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetwork_1_1ConnectToServerCommandHandler_a13cddd20b6262ab6ef871fb9fa8963fc}{isAuthorized}}(\textcolor{keywordtype}{int} clientId) \textcolor{keyword}{override};}
+\DoxyCodeLine{15     std::vector<char> \mbox{\hyperlink{classNetwork_1_1ConnectToServerCommandHandler_acfe75182ccaa6e576fbf222b24754a86}{handleCommand}}(\mbox{\hyperlink{structMessage}{Message}} *message) \textcolor{keyword}{override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18    \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{classNetwork_1_1UDPServer}{UDPServer}} \&server;}
+\DoxyCodeLine{20   \};}
+\DoxyCodeLine{21 \} \textcolor{comment}{// namespace Network}}
+
+\end{DoxyCode}

@@ -28,7 +28,27 @@ void \mbox{\hyperlink{classNetwork_1_1Client_af9390388b249ecc73f5585f0c20210cf}{
 std\+::string \mbox{\hyperlink{classNetwork_1_1Client_a436cfc281877445713aa8d63cc5fa52b}{get\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Gets the name of the client. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNetwork_1_1Client_a7eab98c178b5ea21dc1363658f9815ea}{set\+Name}} (std\+::string name)
-\begin{DoxyCompactList}\small\item\em Sets the name of the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the name of the client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1Client_a6421f3fe7f031be9ab47ec1c34b04cf0}{set\+Room\+Id}} (int room\+Id)
+\begin{DoxyCompactList}\small\item\em Sets the identifier of the room. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classNetwork_1_1Client_a3226b24dbca2a87dcca3f9ba02394b7c}{get\+Room\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the identifier of the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1Client_ad3be4336d2684741cbc37d8eea26df1d}{update\+Last\+Message\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Updates the last message time of the client. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetwork_1_1Client_aaccc5c179993bbffb72618702127adc9}{is\+Inactive\+For}} (long milliseconds)
+\begin{DoxyCompactList}\small\item\em Checks if the client has been inactive for a given amount of milliseconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1Client_a427cbf4305b0adf9b317db09c39e3c66}{set\+Is\+In\+Game}} (bool is\+In\+Game)
+\begin{DoxyCompactList}\small\item\em Sets whether the client is in a game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetwork_1_1Client_a94f997c3a698b5a233177c770754b0c5}{get\+Is\+In\+Game}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the client is in a game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1Client_a05e961ffbe3174066b88896cca6d004f}{set\+Is\+God\+Mode}} (bool is\+God\+Mode)
+\begin{DoxyCompactList}\small\item\em Sets whether the client is in god mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetwork_1_1Client_aac949375a72177b5735c757894dca5be}{get\+Is\+God\+Mode}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the client is in god mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetwork_1_1Client_a166f5232b82c514719e1db9d148c5687}{set\+Is\+Spectator}} (bool is\+Spectator)
+\begin{DoxyCompactList}\small\item\em Sets whether the client is a spectator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetwork_1_1Client_a136c071c20d86b7a24d6aca7be3b42da}{get\+Is\+Spectator}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the client is a spectator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -76,6 +96,45 @@ Gets the identifier of the client.
 \begin{DoxyReturn}{Returns}
 int The identifier of the client. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Client_aac949375a72177b5735c757894dca5be}\label{classNetwork_1_1Client_aac949375a72177b5735c757894dca5be}} 
+\index{Network::Client@{Network::Client}!getIsGodMode@{getIsGodMode}}
+\index{getIsGodMode@{getIsGodMode}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getIsGodMode()}{getIsGodMode()}}
+{\footnotesize\ttfamily bool Network\+::\+Client\+::get\+Is\+God\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the client is in god mode. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the client is in god mode, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Client_a94f997c3a698b5a233177c770754b0c5}\label{classNetwork_1_1Client_a94f997c3a698b5a233177c770754b0c5}} 
+\index{Network::Client@{Network::Client}!getIsInGame@{getIsInGame}}
+\index{getIsInGame@{getIsInGame}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getIsInGame()}{getIsInGame()}}
+{\footnotesize\ttfamily bool Network\+::\+Client\+::get\+Is\+In\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the client is in a game. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the client is in a game, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Client_a136c071c20d86b7a24d6aca7be3b42da}\label{classNetwork_1_1Client_a136c071c20d86b7a24d6aca7be3b42da}} 
+\index{Network::Client@{Network::Client}!getIsSpectator@{getIsSpectator}}
+\index{getIsSpectator@{getIsSpectator}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getIsSpectator()}{getIsSpectator()}}
+{\footnotesize\ttfamily bool Network\+::\+Client\+::get\+Is\+Spectator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the client is a spectator. 
+
+\begin{DoxyReturn}{Returns}
+bool True if the client is a spectator, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classNetwork_1_1Client_a436cfc281877445713aa8d63cc5fa52b}\label{classNetwork_1_1Client_a436cfc281877445713aa8d63cc5fa52b}} 
 \index{Network::Client@{Network::Client}!getName@{getName}}
 \index{getName@{getName}!Network::Client@{Network::Client}}
@@ -88,6 +147,37 @@ Gets the name of the client.
 
 \begin{DoxyReturn}{Returns}
 std\+::string The name of the client. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Client_a3226b24dbca2a87dcca3f9ba02394b7c}\label{classNetwork_1_1Client_a3226b24dbca2a87dcca3f9ba02394b7c}} 
+\index{Network::Client@{Network::Client}!getRoomId@{getRoomId}}
+\index{getRoomId@{getRoomId}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{getRoomId()}{getRoomId()}}
+{\footnotesize\ttfamily int Network\+::\+Client\+::get\+Room\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the identifier of the room. 
+
+\begin{DoxyReturn}{Returns}
+int The identifier of the room. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetwork_1_1Client_aaccc5c179993bbffb72618702127adc9}\label{classNetwork_1_1Client_aaccc5c179993bbffb72618702127adc9}} 
+\index{Network::Client@{Network::Client}!isInactiveFor@{isInactiveFor}}
+\index{isInactiveFor@{isInactiveFor}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{isInactiveFor()}{isInactiveFor()}}
+{\footnotesize\ttfamily bool Network\+::\+Client\+::is\+Inactive\+For (\begin{DoxyParamCaption}\item[{long}]{milliseconds }\end{DoxyParamCaption})}
+
+
+
+Checks if the client has been inactive for a given amount of milliseconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em milliseconds} & The amount of milliseconds to check for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the client has been inactive for the given amount of milliseconds, false otherwise. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classNetwork_1_1Client_a8c64f36120e3c8e03b0300c3a5dcef26}\label{classNetwork_1_1Client_a8c64f36120e3c8e03b0300c3a5dcef26}} 
 \index{Network::Client@{Network::Client}!setEndpoint@{setEndpoint}}
@@ -119,6 +209,51 @@ Sets the identifier of the client.
 {\em id} & The new identifier to be set for the client. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Client_a05e961ffbe3174066b88896cca6d004f}\label{classNetwork_1_1Client_a05e961ffbe3174066b88896cca6d004f}} 
+\index{Network::Client@{Network::Client}!setIsGodMode@{setIsGodMode}}
+\index{setIsGodMode@{setIsGodMode}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setIsGodMode()}{setIsGodMode()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Is\+God\+Mode (\begin{DoxyParamCaption}\item[{bool}]{is\+God\+Mode }\end{DoxyParamCaption})}
+
+
+
+Sets whether the client is in god mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & True if the client is in god mode, false otherwise. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Client_a427cbf4305b0adf9b317db09c39e3c66}\label{classNetwork_1_1Client_a427cbf4305b0adf9b317db09c39e3c66}} 
+\index{Network::Client@{Network::Client}!setIsInGame@{setIsInGame}}
+\index{setIsInGame@{setIsInGame}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setIsInGame()}{setIsInGame()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Is\+In\+Game (\begin{DoxyParamCaption}\item[{bool}]{is\+In\+Game }\end{DoxyParamCaption})}
+
+
+
+Sets whether the client is in a game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & True if the client is in a game, false otherwise. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Client_a166f5232b82c514719e1db9d148c5687}\label{classNetwork_1_1Client_a166f5232b82c514719e1db9d148c5687}} 
+\index{Network::Client@{Network::Client}!setIsSpectator@{setIsSpectator}}
+\index{setIsSpectator@{setIsSpectator}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setIsSpectator()}{setIsSpectator()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Is\+Spectator (\begin{DoxyParamCaption}\item[{bool}]{is\+Spectator }\end{DoxyParamCaption})}
+
+
+
+Sets whether the client is a spectator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & True if the client is a spectator, false otherwise. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classNetwork_1_1Client_a7eab98c178b5ea21dc1363658f9815ea}\label{classNetwork_1_1Client_a7eab98c178b5ea21dc1363658f9815ea}} 
 \index{Network::Client@{Network::Client}!setName@{setName}}
 \index{setName@{setName}!Network::Client@{Network::Client}}
@@ -134,9 +269,34 @@ Sets the name of the client.
 {\em name} & The new name to be set for the client. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Client_a6421f3fe7f031be9ab47ec1c34b04cf0}\label{classNetwork_1_1Client_a6421f3fe7f031be9ab47ec1c34b04cf0}} 
+\index{Network::Client@{Network::Client}!setRoomId@{setRoomId}}
+\index{setRoomId@{setRoomId}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{setRoomId()}{setRoomId()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::set\+Room\+Id (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})}
 
+
+
+Sets the identifier of the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The new identifier to be set for the room. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetwork_1_1Client_ad3be4336d2684741cbc37d8eea26df1d}\label{classNetwork_1_1Client_ad3be4336d2684741cbc37d8eea26df1d}} 
+\index{Network::Client@{Network::Client}!updateLastMessageTime@{updateLastMessageTime}}
+\index{updateLastMessageTime@{updateLastMessageTime}!Network::Client@{Network::Client}}
+\doxysubsubsection{\texorpdfstring{updateLastMessageTime()}{updateLastMessageTime()}}
+{\footnotesize\ttfamily void Network\+::\+Client\+::update\+Last\+Message\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the last message time of the client. 
+
+This method is called whenever the client sends a message to the server. It updates the last message time of the client to the current time. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/include/Client.\+hpp\item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/server/src/Client.\+cpp\end{DoxyCompactItemize}
+server/include/Client.\+hpp\item 
+server/src/Client.\+cpp\end{DoxyCompactItemize}

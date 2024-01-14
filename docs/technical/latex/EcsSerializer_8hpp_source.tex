@@ -1,0 +1,178 @@
+\hypertarget{EcsSerializer_8hpp_source}{}\doxysection{Ecs\+Serializer.\+hpp}
+\label{EcsSerializer_8hpp_source}\index{gameEngine/include/gameEngine/system/EcsSerializer.hpp@{gameEngine/include/gameEngine/system/EcsSerializer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/24/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/component/MetaData.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/component/NetworkedEntity.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/component/Position.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}gameEngine/component/Transform.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}gameEngine/component/Displayable.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}gameEngine/asset/AssetManager.hpp"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}gameEngine/entity/EntityFactory.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/RegistryHolder.hpp"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/component/ComponentManager.hpp"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/system/System.hpp"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}gameEngine/network/Serializer.hpp"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}spdlog/spdlog.h"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <boost/archive/archive\_exception.hpp>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <boost/archive/binary\_iarchive.hpp>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <boost/archive/binary\_oarchive.hpp>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{namespace }GameEngine::System}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1System_1_1EcsSerializer}{EcsSerializer}}}
+\DoxyCodeLine{38     : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1System}{ECS::System}}}
+\DoxyCodeLine{39     , \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1RegistryHolder}{ECS::RegistryHolder}} \{}
+\DoxyCodeLine{40     \textcolor{keyword}{using }\mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1EcsSerializer}{Serializer}} = \mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1EcsSerializer}{Network::Serializer::EcsSerializer}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42    \textcolor{keyword}{public}:}
+\DoxyCodeLine{43     std::vector<std::vector<char>> serialise()}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45       \textcolor{keyword}{auto} \&componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{46       std::vector<std::vector<char>> serializedDataFinal;}
+\DoxyCodeLine{47       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{48         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const} \&entity : m\_entities) \{}
+\DoxyCodeLine{49           serializedDataFinal.push\_back(serializeEntity(*componentManager, entity));}
+\DoxyCodeLine{50         \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52       \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} boost::archive::archive\_exception \&e) \{}
+\DoxyCodeLine{53         spdlog::error(\textcolor{stringliteral}{"{}Caught boost::archive::archive\_exception: \{\}"{}}, e.what());}
+\DoxyCodeLine{54       \}}
+\DoxyCodeLine{55       \textcolor{keywordflow}{return} serializedDataFinal;}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} deserialize(}
+\DoxyCodeLine{59       \textcolor{keyword}{const} std::vector<std::vector<char>> \&serializedData,}
+\DoxyCodeLine{60       \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{Entity::EntityFactory}} \&entityFactory)}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62       std::set<ECS::Entity> activeEntities;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} \&serializedEntityData : serializedData) \{}
+\DoxyCodeLine{66           activeEntities.insert(deserializeEntity(serializedEntityData, entityFactory));}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68         cleanUpEntity(activeEntities);}
+\DoxyCodeLine{69       \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} boost::archive::archive\_exception \&e) \{}
+\DoxyCodeLine{70         spdlog::error(\textcolor{stringliteral}{"{}Caught boost::archive::archive\_exception: \{\}"{}}, e.what());}
+\DoxyCodeLine{71       \}}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{75     \textcolor{keyword}{static} std::vector<char> serializeEntity(\mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager}{ECS::ComponentManager}} \&componentManager, ECS::Entity entity)}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77       std::vector<char> serializedData;}
+\DoxyCodeLine{78       std::ostringstream oss;}
+\DoxyCodeLine{79       boost::archive::binary\_oarchive archive(oss);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81       Serializer::serializeComponent<ComponentRType::NetworkedEntity>(componentManager, entity, archive);}
+\DoxyCodeLine{82       Serializer::serializeComponent<ComponentRType::MetaData>(componentManager, entity, archive);}
+\DoxyCodeLine{83       Serializer::serializeComponent<ComponentRType::Position>(componentManager, entity, archive);}
+\DoxyCodeLine{84       Serializer::serializeComponent<ComponentRType::Transform>(componentManager, entity, archive);}
+\DoxyCodeLine{85       Serializer::serializeComponent<ComponentRType::Displayable>(componentManager, entity, archive);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87       std::string dataStr = oss.str();}
+\DoxyCodeLine{88       serializedData.assign(dataStr.begin(), dataStr.end());}
+\DoxyCodeLine{89       \textcolor{keywordflow}{return} serializedData;}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     ECS::Entity deserializeEntity(}
+\DoxyCodeLine{93       \textcolor{keyword}{const} std::vector<char> \&serializedData,}
+\DoxyCodeLine{94       \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{Entity::EntityFactory}} \&entityFactory)}
+\DoxyCodeLine{95     \{}
+\DoxyCodeLine{96       std::istringstream iss(std::string(serializedData.begin(), serializedData.end()));}
+\DoxyCodeLine{97       boost::archive::binary\_iarchive archive(iss);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99       \textcolor{keyword}{auto} componentNE = Serializer::deserializeComponent<ComponentRType::NetworkedEntity>(archive);}
+\DoxyCodeLine{100       \textcolor{keyword}{auto} componentMD = Serializer::deserializeComponent<ComponentRType::MetaData>(archive);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102       \textcolor{keyword}{auto} \&componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{103       \textcolor{keyword}{auto} entityOpt = getNetworkedEntityById(componentNE, *componentManager);}
+\DoxyCodeLine{104       \textcolor{keywordflow}{if} (entityOpt.has\_value()) \{}
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} updateEntity(entityOpt.value(), archive);}
+\DoxyCodeLine{106       \}}
+\DoxyCodeLine{107       \textcolor{keywordflow}{return} createEntity(entityFactory, componentNE, componentMD, archive);}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110    \textcolor{keyword}{private}:}
+\DoxyCodeLine{111     ECS::Entity updateEntity(\textcolor{keyword}{const} ECS::Entity \&entity, boost::archive::binary\_iarchive \&archive)}
+\DoxyCodeLine{112     \{}
+\DoxyCodeLine{113       \textcolor{keyword}{auto} \&componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115       Serializer::deserializeComponentToEntity<ComponentRType::Position>(*componentManager, entity, archive);}
+\DoxyCodeLine{116       Serializer::deserializeComponentToEntity<ComponentRType::Transform>(*componentManager, entity, archive);}
+\DoxyCodeLine{117       \textcolor{keywordflow}{return} entity;}
+\DoxyCodeLine{118     \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     ECS::Entity createEntity(}
+\DoxyCodeLine{121       \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{Entity::EntityFactory}} \&entityFactory,}
+\DoxyCodeLine{122       \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{ComponentRType::NetworkedEntity}} componentNE,}
+\DoxyCodeLine{123       \mbox{\hyperlink{structComponentRType_1_1MetaData}{ComponentRType::MetaData}} componentMD,}
+\DoxyCodeLine{124       boost::archive::binary\_iarchive \&archive)}
+\DoxyCodeLine{125     \{}
+\DoxyCodeLine{126       \textcolor{keyword}{auto} \&componentManager = getEcsRegistry().getComponentManager();}
+\DoxyCodeLine{127       \textcolor{keyword}{const} ECS::Entity entity = entityFactory.loadFromNetwork(componentNE, componentMD);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129       updateEntity(entity, archive);}
+\DoxyCodeLine{130       Serializer::deserializeComponentToEntity<ComponentRType::Displayable>(}
+\DoxyCodeLine{131         *componentManager,}
+\DoxyCodeLine{132         entity,}
+\DoxyCodeLine{133         archive);}
+\DoxyCodeLine{134       \textcolor{keyword}{auto} \&comp = componentManager-\/>\mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_a7e56e2c36fa9b19c916d958334c5e7d7}{getComponent}}<\mbox{\hyperlink{structComponentRType_1_1Displayable}{ComponentRType::Displayable}}>(entity);}
+\DoxyCodeLine{135       comp = \mbox{\hyperlink{structComponentRType_1_1Displayable}{ComponentRType::Displayable}}(}
+\DoxyCodeLine{136         comp.assetPath,}
+\DoxyCodeLine{137         \{comp.rectLeft, comp.rectTop, comp.rectWidth, comp.rectHeight\});}
+\DoxyCodeLine{138       \textcolor{keywordflow}{return} entity;}
+\DoxyCodeLine{139     \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} cleanUpEntity(std::set<ECS::Entity> \&activeEntities)}
+\DoxyCodeLine{142     \{}
+\DoxyCodeLine{143       std::set<ECS::Entity> m\_garbageEntities \{\};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&entity : m\_entities) \{}
+\DoxyCodeLine{146         \textcolor{keywordflow}{if} (activeEntities.find(entity) == activeEntities.end()) \{}
+\DoxyCodeLine{147           m\_garbageEntities.insert(entity);}
+\DoxyCodeLine{148         \}}
+\DoxyCodeLine{149       \}}
+\DoxyCodeLine{150       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&garbageEntity : m\_garbageEntities) \{}
+\DoxyCodeLine{151         m\_entities.erase(garbageEntity);}
+\DoxyCodeLine{152         getEcsRegistry().destroyEntity(garbageEntity);}
+\DoxyCodeLine{153       \}}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156     std::optional<const ECS::Entity> getNetworkedEntityById(}
+\DoxyCodeLine{157       \mbox{\hyperlink{structComponentRType_1_1NetworkedEntity}{ComponentRType::NetworkedEntity}} \textcolor{keywordtype}{id},}
+\DoxyCodeLine{158       \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager}{ECS::ComponentManager}} \&componentManager)}
+\DoxyCodeLine{159     \{}
+\DoxyCodeLine{160       \textcolor{keyword}{auto} it = std::find\_if(}
+\DoxyCodeLine{161         m\_entities.begin(),}
+\DoxyCodeLine{162         m\_entities.end(),}
+\DoxyCodeLine{163         [\&componentManager, \&\textcolor{keywordtype}{id}](\textcolor{keyword}{const} ECS::Entity \&entity) \{}
+\DoxyCodeLine{164           auto currentId = componentManager.getComponent<ComponentRType::NetworkedEntity>(entity);}
+\DoxyCodeLine{165           return id == currentId;}
+\DoxyCodeLine{166         \});}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168       \textcolor{keyword}{static} std::optional<const ECS::Entity> emptyOptional;}
+\DoxyCodeLine{169       \textcolor{keywordflow}{return} (it != m\_entities.end()) ? std::ref(*it) : emptyOptional;}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171   \};}
+\DoxyCodeLine{172 \}; \textcolor{comment}{// namespace GameEngine::System}}
+
+\end{DoxyCode}

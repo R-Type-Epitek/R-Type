@@ -413,14 +413,22 @@ void Network::UDPServer::startClientTimerCheck()
 void Network::UDPServer::gameLoop()
 {
   std::thread gameLoopThread([this]() {
+    using namespace std::chrono;
+
+    steady_clock::time_point lastUpdateTime = steady_clock::now();
+
     while (true) {
+      steady_clock::time_point currentTime = steady_clock::now();
+      duration<int> elapsedTime = duration_cast<duration<int>>(currentTime - lastUpdateTime);
+
       {
         std::lock_guard<std::mutex> lock(this->roomsMutex);
 
         for (auto &room : this->rooms) {
           if (room.getState() != RUNNING)
             continue;
-          room.getHostedGame().update(1);
+
+          room.getHostedGame().update(elapsedTime.count());
 
           std::vector<char> entitiesBuffer = room.getEntitiesStateBuffer();
 
@@ -433,8 +441,10 @@ void Network::UDPServer::gameLoop()
 
           this->sendToAllClientsInRoomInGame(buffer, room.getId());
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(21));
       }
+
+      lastUpdateTime = currentTime;
+      std::this_thread::sleep_for(std::chrono::milliseconds(21));
     }
   });
 

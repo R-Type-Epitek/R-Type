@@ -1,0 +1,149 @@
+\hypertarget{classGameEngine_1_1ECS_1_1ComponentManager}{}\doxysection{Game\+Engine\+::ECS\+::Component\+Manager Class Reference}
+\label{classGameEngine_1_1ECS_1_1ComponentManager}\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_a2603a9fde278f9686f9f0aa03364b5e8}\label{classGameEngine_1_1ECS_1_1ComponentManager_a2603a9fde278f9686f9f0aa03364b5e8}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries register\+Component} ()
+\begin{DoxyCompactList}\small\item\em Registers a new component type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Component\+Type \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_aaac9ecf193ba6bc59cc52b25beb10bb5}{get\+Component\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the type ID of a component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_a3c6e8e4441033d1b111f325b0d7b402b}{add\+Component}} (Entity entity, T component)
+\begin{DoxyCompactList}\small\item\em Adds a component to an entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_ad03af05b8b06641558f112373102420f}{remove\+Component}} (Entity entity)
+\begin{DoxyCompactList}\small\item\em Removes a component from an entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_a7e56e2c36fa9b19c916d958334c5e7d7}{get\+Component}} (Entity entity)
+\begin{DoxyCompactList}\small\item\em Retrieves a reference to an entity\textquotesingle{}s component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_adbe47a344f35fd5b738c14fb314e35cb}{has\+Component}} (Entity entity)
+\begin{DoxyCompactList}\small\item\em Retrieves if a component reference exist to an entity\textquotesingle{}s. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_a77d8ce6749e38c7a553f7fd65de13a2e}{entity\+Destroyed}} (Entity entity)
+\begin{DoxyCompactList}\small\item\em Notifies the component arrays that an entity has been destroyed. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ char const $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1IComponentArray}{IComponent\+Array}} $>$ $>$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1ComponentManager_ae3a5827a5c28371ee5cfe58938fc1b34}{get\+Components\+With\+Entity}} (Entity entity)
+\begin{DoxyCompactList}\small\item\em Retrieves all components associated with a specific entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_a3c6e8e4441033d1b111f325b0d7b402b}\label{classGameEngine_1_1ECS_1_1ComponentManager_a3c6e8e4441033d1b111f325b0d7b402b}} 
+\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Game\+Engine\+::\+ECS\+::\+Component\+Manager\+::add\+Component (\begin{DoxyParamCaption}\item[{Entity}]{entity,  }\item[{T}]{component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a component to an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+{\em T} & -\/ Component data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_a77d8ce6749e38c7a553f7fd65de13a2e}\label{classGameEngine_1_1ECS_1_1ComponentManager_a77d8ce6749e38c7a553f7fd65de13a2e}} 
+\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}!entityDestroyed@{entityDestroyed}}
+\index{entityDestroyed@{entityDestroyed}!GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{entityDestroyed()}{entityDestroyed()}}
+{\footnotesize\ttfamily void Game\+Engine\+::\+ECS\+::\+Component\+Manager\+::entity\+Destroyed (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Notifies the component arrays that an entity has been destroyed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_a7e56e2c36fa9b19c916d958334c5e7d7}\label{classGameEngine_1_1ECS_1_1ComponentManager_a7e56e2c36fa9b19c916d958334c5e7d7}} 
+\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}!getComponent@{getComponent}}
+\index{getComponent@{getComponent}!GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{getComponent()}{getComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& Game\+Engine\+::\+ECS\+::\+Component\+Manager\+::get\+Component (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a reference to an entity\textquotesingle{}s component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_ae3a5827a5c28371ee5cfe58938fc1b34}\label{classGameEngine_1_1ECS_1_1ComponentManager_ae3a5827a5c28371ee5cfe58938fc1b34}} 
+\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}!getComponentsWithEntity@{getComponentsWithEntity}}
+\index{getComponentsWithEntity@{getComponentsWithEntity}!GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{getComponentsWithEntity()}{getComponentsWithEntity()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ char const  $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGameEngine_1_1ECS_1_1IComponentArray}{IComponent\+Array}} $>$ $>$ Game\+Engine\+::\+ECS\+::\+Component\+Manager\+::get\+Components\+With\+Entity (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all components associated with a specific entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::unordered\+\_\+map$<$const char$\ast$, std\+::shared\+\_\+ptr$<$\+IComponent\+Array$>$$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_aaac9ecf193ba6bc59cc52b25beb10bb5}\label{classGameEngine_1_1ECS_1_1ComponentManager_aaac9ecf193ba6bc59cc52b25beb10bb5}} 
+\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}!getComponentType@{getComponentType}}
+\index{getComponentType@{getComponentType}!GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{getComponentType()}{getComponentType()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Component\+Type Game\+Engine\+::\+ECS\+::\+Component\+Manager\+::get\+Component\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the type ID of a component. 
+
+\begin{DoxyReturn}{Returns}
+Component\+Type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_adbe47a344f35fd5b738c14fb314e35cb}\label{classGameEngine_1_1ECS_1_1ComponentManager_adbe47a344f35fd5b738c14fb314e35cb}} 
+\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}!hasComponent@{hasComponent}}
+\index{hasComponent@{hasComponent}!GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{hasComponent()}{hasComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool Game\+Engine\+::\+ECS\+::\+Component\+Manager\+::has\+Component (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves if a component reference exist to an entity\textquotesingle{}s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameEngine_1_1ECS_1_1ComponentManager_ad03af05b8b06641558f112373102420f}\label{classGameEngine_1_1ECS_1_1ComponentManager_ad03af05b8b06641558f112373102420f}} 
+\index{GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}!removeComponent@{removeComponent}}
+\index{removeComponent@{removeComponent}!GameEngine::ECS::ComponentManager@{GameEngine::ECS::ComponentManager}}
+\doxysubsubsection{\texorpdfstring{removeComponent()}{removeComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Game\+Engine\+::\+ECS\+::\+Component\+Manager\+::remove\+Component (\begin{DoxyParamCaption}\item[{Entity}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a component from an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Entity} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+game\+Engine/include/game\+Engine/ecs/component/Component\+Manager.\+hpp\end{DoxyCompactItemize}

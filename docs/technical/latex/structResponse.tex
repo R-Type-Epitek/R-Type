@@ -1,16 +1,33 @@
 \hypertarget{structResponse}{}\doxysection{Response Struct Reference}
 \label{structResponse}\index{Response@{Response}}
+
+
+Structure representing a complete network message.  
+
+
+
+
+{\ttfamily \#include $<$Responses.\+hpp$>$}
+
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{structResponse_a08ce134a630bc34de033eb6e0f10255e}\label{structResponse_a08ce134a630bc34de033eb6e0f10255e}} 
+Message\+Type {\bfseries type} = Message\+Type\+::\+Message
+\begin{DoxyCompactList}\small\item\em Type of the response. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structResponse_a60f46003fc199ff082e72cb0c0aa5d00}\label{structResponse_a60f46003fc199ff082e72cb0c0aa5d00}} 
 \mbox{\hyperlink{structResponseHeader}{Response\+Header}} {\bfseries header}
-\item 
+\begin{DoxyCompactList}\small\item\em Header of the response. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{structResponse_abb5c2eaf9db838a63d3f830a75c5804b}\label{structResponse_abb5c2eaf9db838a63d3f830a75c5804b}} 
 char {\bfseries data} \mbox{[}$\,$\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Variable-\/length data payload. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Structure representing a complete network message. 
+
+This structure combines the \mbox{\hyperlink{structResponseHeader}{Response\+Header}} with the actual data payload, allowing for easy manipulation and transmission of network messages. 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/raphael/epitech/tech3/\+OOP/\+R-\/\+Type/game\+Engine/include/network/Responses.\+hpp\end{DoxyCompactItemize}
+game\+Engine/include/game\+Engine/network/Responses.\+hpp\end{DoxyCompactItemize}

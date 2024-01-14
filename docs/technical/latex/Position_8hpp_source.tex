@@ -1,0 +1,49 @@
+\hypertarget{Position_8hpp_source}{}\doxysection{Position.\+hpp}
+\label{Position_8hpp_source}\index{gameEngine/include/gameEngine/component/Position.hpp@{gameEngine/include/gameEngine/component/Position.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/24/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/network/Serializer.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <boost/serialization/base\_object.hpp>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }ComponentRType}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{struct }\mbox{\hyperlink{structComponentRType_1_1Position}{Position}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent}{GameEngine::Network::Serializer::BaseNetworkComponent}} \{}
+\DoxyCodeLine{16     \textcolor{keyword}{friend} \textcolor{keyword}{class }boost::serialization::access;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     sf::Vector2f position;}
+\DoxyCodeLine{19     sf::Vector2f latestPosition;}
+\DoxyCodeLine{20     sf::Vector2f latestValidPosition;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool} isValid = \textcolor{keyword}{true};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{structComponentRType_1_1Position}{Position}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{explicit} \mbox{\hyperlink{structComponentRType_1_1Position}{Position}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y)}
+\DoxyCodeLine{26       : position(x, y)}
+\DoxyCodeLine{27       , latestPosition(x, y)}
+\DoxyCodeLine{28       , latestValidPosition(x, y)}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{template}<\textcolor{keyword}{class} Archive>}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} serialize(Archive \&archive, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int})}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35       boost::serialization::base\_object<GameEngine::Network::Serializer::BaseNetworkComponent>(*\textcolor{keyword}{this});}
+\DoxyCodeLine{36       archive \&BOOST\_SERIALIZATION\_NVP(position);}
+\DoxyCodeLine{37       archive \&BOOST\_SERIALIZATION\_NVP(latestPosition);}
+\DoxyCodeLine{38       archive \&BOOST\_SERIALIZATION\_NVP(latestValidPosition);}
+\DoxyCodeLine{39       archive \&BOOST\_SERIALIZATION\_NVP(isValid);}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41   \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \} \textcolor{comment}{// namespace ComponentRType}}
+
+\end{DoxyCode}

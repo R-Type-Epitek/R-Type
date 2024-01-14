@@ -1,0 +1,55 @@
+\hypertarget{SimpleScene_8hpp_source}{}\doxysection{Simple\+Scene.\+hpp}
+\label{SimpleScene_8hpp_source}\index{gameEngine/include/gameEngine/scene/SimpleScene.hpp@{gameEngine/include/gameEngine/scene/SimpleScene.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/9/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{//}}
+\DoxyCodeLine{8 \textcolor{comment}{// Created by raphael on 12/21/23.}}
+\DoxyCodeLine{9 \textcolor{comment}{//}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Registry.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}gameEngine/event/EventRegistry.hpp"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}gameEngine/entity/EntityFactory.hpp"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}gameEngine/scene/IScene.hpp"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }GameEngine::Scene}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{29   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene}{SimpleScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{GameEngine::Scene::IScene}} \{}
+\DoxyCodeLine{30    \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_ac86fe570169c5aa7dec9ae765dd68b62}{initRegistries}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_acc209a39e64ab559f76a76ce54402022}{initEntities}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a1b9acb35e524447b4be8d9f2d570b2b7}{initEvents}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{classGameEngine_1_1ECS_1_1Registry}{ECS::Registry}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a17595823658ef8e2da4cce90ebf4182a}{getEcsRegistry}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     std::shared\_ptr<ECS::Registry> \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a46330529b7a6c8e58b7ccdfff25f018a}{getSharedEcsRegistry}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{Event::EventRegistry}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_ac1005d514ce42fb9acd8f201fb90c915}{getEventRegistry}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{const} std::vector<ECS::Entity>\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a3302fc1d37080bff5b73efa9adad1f2f}{getEntities}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \mbox{\hyperlink{classGameEngine_1_1Entity_1_1EntityFactory}{Entity::EntityFactory}}\& \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a755c4d125a8392c47569e855bdd47316}{getEntityFactory}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} onUpdate(\textcolor{keywordtype}{size\_t} df) \textcolor{keyword}{override};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{50     std::vector<ECS::Entity> \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a79ddb41acbe4211d9a9d0c75c820e813}{m\_entities}};                    }
+\DoxyCodeLine{51     std::shared\_ptr<ECS::Registry> \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_aef670fc1f2862dbc90513cfd34b56f57}{m\_ecsRegistry}};           }
+\DoxyCodeLine{52     std::shared\_ptr<Event::EventRegistry> \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_a747a072a221466d5078728b571e3a5ed}{m\_eventRegistry}};  }
+\DoxyCodeLine{53     std::shared\_ptr<Entity::EntityFactory> \mbox{\hyperlink{classGameEngine_1_1Scene_1_1SimpleScene_af99709b8c53a4fd2fe0e8ba7b0ca1342}{m\_entityFactory}}; }
+\DoxyCodeLine{54   \};}
+\DoxyCodeLine{55 \} \textcolor{comment}{// namespace Client}}
+
+\end{DoxyCode}

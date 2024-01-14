@@ -1,0 +1,125 @@
+\hypertarget{classClient_1_1JoinGameCommandHandler}{}\doxysection{Client\+::Join\+Game\+Command\+Handler Class Reference}
+\label{classClient_1_1JoinGameCommandHandler}\index{Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}}
+
+
+Handler for join game commands in a networked environment.  
+
+
+
+
+{\ttfamily \#include $<$Join\+Game.\+hpp$>$}
+
+Inheritance diagram for Client\+::Join\+Game\+Command\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classClient_1_1JoinGameCommandHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_ac0790140c901695392a49b2ccc95ddf1}{Join\+Game\+Command\+Handler}} (\mbox{\hyperlink{classClient_1_1Network}{Network}} \&network)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler}{Join\+Game\+Command\+Handler}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_ab940a8a1719058b6042bcc540ff173b5}{set\+Room\+Id}} (int room\+Id)
+\begin{DoxyCompactList}\small\item\em Set the room ID for the join game command. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_a0908b3e7f6b492595484215e60064c38}{get\+Room\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Get the room ID associated with the join game command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_aed806343b2b60d5bdde7eaca758c4d0d}{send}} () override
+\begin{DoxyCompactList}\small\item\em Send the join game command to the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler_a007041dce1cb36936855fbd7c7219444}{on\+Response}} (\mbox{\hyperlink{structResponse}{Response}} $\ast$response) override
+\begin{DoxyCompactList}\small\item\em Handle the server\textquotesingle{}s response to the join game command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler for join game commands in a networked environment. 
+
+\mbox{\hyperlink{classClient_1_1JoinGameCommandHandler}{Join\+Game\+Command\+Handler}} is responsible for managing join game commands and their interactions with the network. It extends the \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}} interface, providing specific implementations for handling join game requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClient_1_1JoinGameCommandHandler_ac0790140c901695392a49b2ccc95ddf1}\label{classClient_1_1JoinGameCommandHandler_ac0790140c901695392a49b2ccc95ddf1}} 
+\index{Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}!JoinGameCommandHandler@{JoinGameCommandHandler}}
+\index{JoinGameCommandHandler@{JoinGameCommandHandler}!Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{JoinGameCommandHandler()}{JoinGameCommandHandler()}}
+{\footnotesize\ttfamily Client\+::\+Join\+Game\+Command\+Handler\+::\+Join\+Game\+Command\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClient_1_1Network}{Network}} \&}]{network }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classClient_1_1JoinGameCommandHandler}{Join\+Game\+Command\+Handler}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & Reference to the \mbox{\hyperlink{classClient_1_1Network}{Network}} instance used for handling network communications. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClient_1_1JoinGameCommandHandler_a0908b3e7f6b492595484215e60064c38}\label{classClient_1_1JoinGameCommandHandler_a0908b3e7f6b492595484215e60064c38}} 
+\index{Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}!getRoomId@{getRoomId}}
+\index{getRoomId@{getRoomId}!Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{getRoomId()}{getRoomId()}}
+{\footnotesize\ttfamily int Client\+::\+Join\+Game\+Command\+Handler\+::get\+Room\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the room ID associated with the join game command. 
+
+\begin{DoxyReturn}{Returns}
+int The ID of the room to join. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClient_1_1JoinGameCommandHandler_a007041dce1cb36936855fbd7c7219444}\label{classClient_1_1JoinGameCommandHandler_a007041dce1cb36936855fbd7c7219444}} 
+\index{Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}!onResponse@{onResponse}}
+\index{onResponse@{onResponse}!Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{onResponse()}{onResponse()}}
+{\footnotesize\ttfamily void Client\+::\+Join\+Game\+Command\+Handler\+::on\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structResponse}{Response}} $\ast$}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Handle the server\textquotesingle{}s response to the join game command. 
+
+Implements the on\+Response method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, processing the response received from the server in relation to the join game command sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em response} & Pointer to the response received from the server. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a367a28c9a51483e2ba7f7460d6a63047}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1JoinGameCommandHandler_aed806343b2b60d5bdde7eaca758c4d0d}\label{classClient_1_1JoinGameCommandHandler_aed806343b2b60d5bdde7eaca758c4d0d}} 
+\index{Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}!send@{send}}
+\index{send@{send}!Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void Client\+::\+Join\+Game\+Command\+Handler\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send the join game command to the server. 
+
+Implements the send method from \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommand\+Handler}}, specifically handling the sending of join game commands to the server. 
+
+Implements \mbox{\hyperlink{classClient_1_1ICommandHandler_a60b6f5dddfe26766a906891488284645}{Client\+::\+ICommand\+Handler}}.
+
+\mbox{\Hypertarget{classClient_1_1JoinGameCommandHandler_ab940a8a1719058b6042bcc540ff173b5}\label{classClient_1_1JoinGameCommandHandler_ab940a8a1719058b6042bcc540ff173b5}} 
+\index{Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}!setRoomId@{setRoomId}}
+\index{setRoomId@{setRoomId}!Client::JoinGameCommandHandler@{Client::JoinGameCommandHandler}}
+\doxysubsubsection{\texorpdfstring{setRoomId()}{setRoomId()}}
+{\footnotesize\ttfamily void Client\+::\+Join\+Game\+Command\+Handler\+::set\+Room\+Id (\begin{DoxyParamCaption}\item[{int}]{room\+Id }\end{DoxyParamCaption})}
+
+
+
+Set the room ID for the join game command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Id} & The ID of the room to join. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/include/network/commands/Join\+Game.\+hpp\item 
+client/src/network/commands/Join\+Game.\+cpp\end{DoxyCompactItemize}

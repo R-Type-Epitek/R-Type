@@ -1,0 +1,80 @@
+\hypertarget{Core_8hpp_source}{}\doxysection{Core.\+hpp}
+\label{Core_8hpp_source}\index{gameEngine/include/gameEngine/core/Core.hpp@{gameEngine/include/gameEngine/core/Core.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/9/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <gameEngine/scene/ISceneManager.hpp>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/scene/SceneManager.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <gameEngine/UI/Window.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }GameEngine::Core}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16   \textcolor{keyword}{enum class} GameEngineState}
+\DoxyCodeLine{17   \{}
+\DoxyCodeLine{18     LOADING,}
+\DoxyCodeLine{19     RUNNING,}
+\DoxyCodeLine{20     STOPPED,}
+\DoxyCodeLine{21   \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Core_1_1Core}{Core}} \{}
+\DoxyCodeLine{24    \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{classGameEngine_1_1Core_1_1Core}{Core}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{classGameEngine_1_1Core_1_1Core}{Core}}(std::string projectName);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{classGameEngine_1_1Core_1_1Core}{\string~Core}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} run();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} tickUpdate(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} df);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} assignUpdateClosure(\textcolor{keyword}{const} std::function<\textcolor{keywordtype}{void}()>\& closure, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} updateRate);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} stop();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} loadPlugins();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{//    -\/ Scene -\/}}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} loadScenes();}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} addScene(\textcolor{keyword}{const} std::string\& name, std::unique\_ptr<Scene::IScene> scene);}
+\DoxyCodeLine{44     std::shared\_ptr<Scene::ISceneManager> getSceneManager();}
+\DoxyCodeLine{45     \mbox{\hyperlink{classGameEngine_1_1Scene_1_1IScene}{Scene::IScene}}\& getCurrentScene();}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} setCurrentScene(\textcolor{keyword}{const} std::string\& name);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{//    GUI}}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} enableGUI();}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} disableGUI();}
+\DoxyCodeLine{51     std::shared\_ptr<UI::Window> getGUI();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{//    -\/ Tick rate -\/}}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} setTicksPerSecond(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ticksPerSecond);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getTicksPerSecond() \textcolor{keyword}{const};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{//    -\/ Getters -\/}}
+\DoxyCodeLine{58     \textcolor{keyword}{const} std::string\& getProjectName() \textcolor{keyword}{const};}
+\DoxyCodeLine{59     \textcolor{keyword}{const} GameEngineState\& getGameEngineState() \textcolor{keyword}{const};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61    \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     \textcolor{keyword}{const} std::string m\_projectName;}
+\DoxyCodeLine{63     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_ticksPerSecond;}
+\DoxyCodeLine{64     std::chrono::steady\_clock::time\_point m\_lastFrameTime;}
+\DoxyCodeLine{65     GameEngineState m\_gameEngineState;}
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} m\_graphical;}
+\DoxyCodeLine{67     std::function<void()> m\_updateExternClosure;}
+\DoxyCodeLine{68     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_updateClosureRate;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     std::shared\_ptr<Scene::ISceneManager> m\_sceneManager;}
+\DoxyCodeLine{71     std::shared\_ptr<UI::Window> m\_gui;}
+\DoxyCodeLine{72   \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \} \textcolor{comment}{// namespace GameEngine::Core}}
+
+\end{DoxyCode}

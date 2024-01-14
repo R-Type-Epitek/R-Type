@@ -1,5 +1,5 @@
 \hypertarget{EntityManager_8hpp_source}{}\doxysection{Entity\+Manager.\+hpp}
-\label{EntityManager_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ECS/entity/EntityManager.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ECS/entity/EntityManager.hpp}}
+\label{EntityManager_8hpp_source}\index{gameEngine/include/gameEngine/ecs/entity/EntityManager.hpp@{gameEngine/include/gameEngine/ecs/entity/EntityManager.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
@@ -8,30 +8,34 @@
 \DoxyCodeLine{4 }
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <queue>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <array>}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Entity.hpp"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}ECS/Signature.hpp"{}}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classEntityManager}{EntityManager}}}
-\DoxyCodeLine{13 \{}
-\DoxyCodeLine{14 \textcolor{keyword}{public}:}
-\DoxyCodeLine{15     \mbox{\hyperlink{classEntityManager}{EntityManager}}();}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     Entity createEntity();}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \textcolor{keywordtype}{void} destroyEntity(Entity entity);}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     \textcolor{keywordtype}{void} setSignature(Entity entity, Signature signature);}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     Signature getSignature(Entity entity);}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25 \textcolor{keyword}{private}:}
-\DoxyCodeLine{26     std::queue<Entity> m\_availableEntities\{\};}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Entity.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Signature.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }GameEngine::ECS}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1ECS_1_1EntityManager}{EntityManager}} \{}
+\DoxyCodeLine{17    \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{classGameEngine_1_1ECS_1_1EntityManager}{EntityManager}}();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     Entity \mbox{\hyperlink{classGameEngine_1_1ECS_1_1EntityManager_af5887b54d1a418ebe06ab588b4c1f1d4}{createEntity}}();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1EntityManager_a5ef9d8f50b1b211edc91a4a52d25a53d}{destroyEntity}}(Entity entity);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1EntityManager_afef51dc211cfcc97f0a3fb476dcb58fc}{setSignature}}(Entity entity, Signature signature);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     Signature \mbox{\hyperlink{classGameEngine_1_1ECS_1_1EntityManager_ab59e2fca1086949aa1997fd10e358c3d}{getSignature}}(Entity entity);}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{28     std::array<Signature, MAX\_ENTITIES> m\_signatures\{\};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30     uint32\_t m\_livingEntityCount\{\};}
-\DoxyCodeLine{31 \};}
+\DoxyCodeLine{28    \textcolor{keyword}{private}:}
+\DoxyCodeLine{29     std::queue<Entity> m\_availableEntities \{\};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     std::array<Signature, ECS::MAX\_ENTITIES> m\_signatures \{\};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     uint32\_t m\_livingEntityCount \{\};}
+\DoxyCodeLine{34   \};}
+\DoxyCodeLine{35 \} \textcolor{comment}{// namespace GameEngine::ECS}}
 
 \end{DoxyCode}

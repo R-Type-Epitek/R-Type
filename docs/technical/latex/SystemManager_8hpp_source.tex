@@ -1,5 +1,5 @@
 \hypertarget{SystemManager_8hpp_source}{}\doxysection{System\+Manager.\+hpp}
-\label{SystemManager_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ECS/system/SystemManager.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/ECS/system/SystemManager.hpp}}
+\label{SystemManager_8hpp_source}\index{gameEngine/include/gameEngine/ecs/system/SystemManager.hpp@{gameEngine/include/gameEngine/ecs/system/SystemManager.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
@@ -7,68 +7,100 @@
 \DoxyCodeLine{3 \textcolor{comment}{//}}
 \DoxyCodeLine{4 }
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unordered\_map>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}ECS/Signature.hpp"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}ECS/entity/Entity.hpp"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}System.hpp"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cassert>}}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classSystemManager}{SystemManager}}}
-\DoxyCodeLine{14 \{}
-\DoxyCodeLine{15 \textcolor{keyword}{public}:}
-\DoxyCodeLine{16     \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{17     std::shared\_ptr<T> registerSystem()}
-\DoxyCodeLine{18     \{}
-\DoxyCodeLine{19         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* typeName = \textcolor{keyword}{typeid}(T).name();}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21         assert(m\_systems.find(typeName) == m\_systems.end() \&\& \textcolor{stringliteral}{"{}Registering system more than once."{}});}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23         \textcolor{keyword}{auto} system = std::make\_shared<T>();}
-\DoxyCodeLine{24         m\_systems.insert(\{typeName, system\});}
-\DoxyCodeLine{25         \textcolor{keywordflow}{return} system;}
-\DoxyCodeLine{26     \}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{29     \textcolor{keywordtype}{void} setSignature(Signature signature)}
-\DoxyCodeLine{30     \{}
-\DoxyCodeLine{31         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* typeName = \textcolor{keyword}{typeid}(T).name();}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33         assert(m\_systems.find(typeName) != m\_systems.end() \&\& \textcolor{stringliteral}{"{}System used before registered."{}});}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35         m\_signatures.insert(\{typeName, signature\});}
-\DoxyCodeLine{36     \}}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38     \textcolor{keywordtype}{void} entityDestroyed(Entity entity)}
-\DoxyCodeLine{39     \{}
-\DoxyCodeLine{40         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& pair : m\_systems)}
-\DoxyCodeLine{41         \{}
-\DoxyCodeLine{42             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& system = pair.second;}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44             system-\/>m\_entities.erase(entity);}
-\DoxyCodeLine{45         \}}
-\DoxyCodeLine{46     \}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}System.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/Signature.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }GameEngine::ECS}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1ECS_1_1SystemManager}{SystemManager}} \{}
+\DoxyCodeLine{17    \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{21     std::shared\_ptr<T> \mbox{\hyperlink{classGameEngine_1_1ECS_1_1SystemManager_af21cd2c42b305c50bef9313ddfbab646}{registerSystem}}()}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23       \textcolor{keywordtype}{char} \textcolor{keyword}{const}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25       assert(m\_systems.find(typeName) == m\_systems.end() \&\& \textcolor{stringliteral}{"{}Registering system more than once."{}});}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27       \textcolor{keyword}{auto} system = std::make\_shared<T>();}
+\DoxyCodeLine{28       m\_systems.insert(\{typeName, system\});}
+\DoxyCodeLine{29       \textcolor{keywordflow}{return} system;}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{34     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{classGameEngine_1_1ECS_1_1SystemManager_afed8684f95cf9609929106ea5fd17bd6}{setSignature}}(Signature signature)}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37       \textcolor{keywordtype}{char} \textcolor{keyword}{const}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39       assert(m\_systems.find(typeName) != m\_systems.end() \&\& \textcolor{stringliteral}{"{}System used before registered."{}});}
+\DoxyCodeLine{40       m\_signatures.insert(\{typeName, signature\});}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} entityDestroyed(Entity entity)}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& pair : m\_systems) \{}
+\DoxyCodeLine{46         \textcolor{keyword}{auto} \textcolor{keyword}{const}\& system = pair.second;}
 \DoxyCodeLine{47 }
-\DoxyCodeLine{48     \textcolor{keywordtype}{void} entitySignatureChanged(Entity entity, Signature entitySignature)}
-\DoxyCodeLine{49     \{}
-\DoxyCodeLine{50         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& pair : m\_systems)}
-\DoxyCodeLine{51         \{}
-\DoxyCodeLine{52             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& type = pair.first;}
-\DoxyCodeLine{53             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& system = pair.second;}
-\DoxyCodeLine{54             \textcolor{keyword}{auto} \textcolor{keyword}{const}\& systemSignature = m\_signatures[type];}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56             \textcolor{keywordflow}{if} ((entitySignature \& systemSignature) == systemSignature) \{}
-\DoxyCodeLine{57                 system-\/>m\_entities.insert(entity);}
-\DoxyCodeLine{58             \}}
-\DoxyCodeLine{59             \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{60                 system-\/>m\_entities.erase(entity);}
-\DoxyCodeLine{61             \}}
-\DoxyCodeLine{62         \}}
-\DoxyCodeLine{63     \}}
-\DoxyCodeLine{64 \textcolor{keyword}{private}:}
-\DoxyCodeLine{65     std::unordered\_map<const char*, Signature> m\_signatures\{\};}
+\DoxyCodeLine{48         system-\/>m\_entities.erase(entity);}
+\DoxyCodeLine{49       \}}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} entitySignatureChanged(Entity entity, Signature entitySignature)}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \textcolor{keyword}{const}\& pair : m\_systems) \{}
+\DoxyCodeLine{55         \textcolor{keyword}{auto} \textcolor{keyword}{const}\& type = pair.first;}
+\DoxyCodeLine{56         \textcolor{keyword}{auto} \textcolor{keyword}{const}\& system = pair.second;}
+\DoxyCodeLine{57         \textcolor{keyword}{auto} \textcolor{keyword}{const}\& systemSignature = m\_signatures[type];}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} ((entitySignature \& systemSignature) == systemSignature) \{}
+\DoxyCodeLine{60           system-\/>m\_entities.insert(entity);}
+\DoxyCodeLine{61         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{62           system-\/>m\_entities.erase(entity);}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{64       \}}
+\DoxyCodeLine{65     \}}
 \DoxyCodeLine{66 }
-\DoxyCodeLine{67     std::unordered\_map<const char*, std::shared\_ptr<System>> m\_systems\{\};}
-\DoxyCodeLine{68 \};}
+\DoxyCodeLine{67     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{68     std::shared\_ptr<T> getSystem()}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70       \textcolor{keywordtype}{char} \textcolor{keyword}{const}* typeName = \textcolor{keyword}{typeid}(T).name();}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72       assert(m\_systems.find(typeName) != m\_systems.end() \&\& \textcolor{stringliteral}{"{}System not found."{}});}
+\DoxyCodeLine{73       \textcolor{keywordflow}{if} (\textcolor{keyword}{auto} sys = std::dynamic\_pointer\_cast<T>(m\_systems[typeName])) \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{return} sys;}
+\DoxyCodeLine{75       \}}
+\DoxyCodeLine{76       \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}[ECS SystemManager] System not found."{}});}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     std::shared\_ptr<System> getSystemByName(\textcolor{keywordtype}{char} \textcolor{keyword}{const}* name)}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81       \textcolor{keywordflow}{return} m\_systems[name];}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     std::unordered\_map<char const*, std::shared\_ptr<System>> getSystems()}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86       \textcolor{keywordflow}{return} m\_systems;}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     Signature getSignature(\textcolor{keywordtype}{char} \textcolor{keyword}{const}* name)}
+\DoxyCodeLine{90     \{}
+\DoxyCodeLine{91       \textcolor{keywordflow}{return} m\_signatures[name];}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     std::unordered\_map<char const*, Signature> getSignatures()}
+\DoxyCodeLine{95     \{}
+\DoxyCodeLine{96       \textcolor{keywordflow}{return} m\_signatures;}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99    \textcolor{keyword}{private}:}
+\DoxyCodeLine{100     std::unordered\_map<char const*, Signature> m\_signatures \{\};}
+\DoxyCodeLine{101     std::unordered\_map<char const*, std::shared\_ptr<System>> m\_systems \{\};}
+\DoxyCodeLine{102   \};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \}; \textcolor{comment}{// namespace GameEngine::ECS}}
 
 \end{DoxyCode}

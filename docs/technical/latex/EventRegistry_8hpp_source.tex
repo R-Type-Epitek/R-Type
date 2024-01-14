@@ -1,0 +1,76 @@
+\hypertarget{EventRegistry_8hpp_source}{}\doxysection{Event\+Registry.\+hpp}
+\label{EventRegistry_8hpp_source}\index{gameEngine/include/gameEngine/event/EventRegistry.hpp@{gameEngine/include/gameEngine/event/EventRegistry.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 1/8/24.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/event/Events.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/event/IEventListener.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}gameEngine/event/EventListenerWrapper.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <typeindex>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }GameEngine::Event}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18   \textcolor{keyword}{class }\mbox{\hyperlink{classGameEngine_1_1Event_1_1EventRegistry}{EventRegistry}} \{}
+\DoxyCodeLine{19    \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \textcolor{keyword}{template}<\textcolor{keyword}{typename} EventType>}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} subscribe(std::shared\_ptr<IEventListener> listener)}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23       \textcolor{keywordtype}{char} \textcolor{keyword}{const}* typeName = \textcolor{keyword}{typeid}(EventType).name();}
+\DoxyCodeLine{24       subscribers[typeName].push\_back(listener);}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{template}<\textcolor{keyword}{typename} EventType>}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} subscribeLambda(std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}}\& event)> lambdaListener)}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30       \textcolor{keywordtype}{char} \textcolor{keyword}{const}* typeName = \textcolor{keyword}{typeid}(EventType).name();}
+\DoxyCodeLine{31       \textcolor{keyword}{auto} listener = std::make\_shared<EventListenerWrapper>(lambdaListener);}
+\DoxyCodeLine{32       subscribers[typeName].push\_back(listener);}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{template}<\textcolor{keyword}{typename} EventType>}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} unsubscribe(std::shared\_ptr<IEventListener> listener)}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38       \textcolor{keywordtype}{char} \textcolor{keyword}{const}* typeName = \textcolor{keyword}{typeid}(EventType).name();}
+\DoxyCodeLine{39       \textcolor{keyword}{auto} it = subscribers.find(typeName);}
+\DoxyCodeLine{40       \textcolor{keywordflow}{if} (it != subscribers.end()) \{}
+\DoxyCodeLine{41         \textcolor{keyword}{auto}\& listeners = it-\/>second;}
+\DoxyCodeLine{42         listeners.erase(}
+\DoxyCodeLine{43           std::remove\_if(}
+\DoxyCodeLine{44             listeners.begin(),}
+\DoxyCodeLine{45             listeners.end(),}
+\DoxyCodeLine{46             [\&listener](\textcolor{keyword}{const} std::shared\_ptr<IEventListener>\& storedListener) \{}
+\DoxyCodeLine{47               return listener.get() == storedListener.get();}
+\DoxyCodeLine{48             \}),}
+\DoxyCodeLine{49           listeners.end());}
+\DoxyCodeLine{50       \}}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{template}<\textcolor{keyword}{typename} EventType>}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} publish(\textcolor{keyword}{const} \mbox{\hyperlink{classGameEngine_1_1Event_1_1IEvent}{IEvent}}\& event)}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56       \textcolor{keywordtype}{char} \textcolor{keyword}{const}* typeName = \textcolor{keyword}{typeid}(EventType).name();}
+\DoxyCodeLine{57       \textcolor{keyword}{auto} it = subscribers.find(typeName);}
+\DoxyCodeLine{58       \textcolor{keywordflow}{if} (it != subscribers.end()) \{}
+\DoxyCodeLine{59         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& listener : it-\/>second) \{}
+\DoxyCodeLine{60           listener-\/>handleEvent(event);}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62       \}}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65    \textcolor{keyword}{private}:}
+\DoxyCodeLine{66     \textcolor{keyword}{using }ListenerList = std::vector<std::shared\_ptr<IEventListener>>;}
+\DoxyCodeLine{67     std::unordered\_map<char const*, ListenerList> subscribers;}
+\DoxyCodeLine{68   \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \} \textcolor{comment}{// namespace GameEngine::Event}}
+
+\end{DoxyCode}

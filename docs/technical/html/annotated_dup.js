@@ -1,130 +1,163 @@
 var annotated_dup =
 [
     [ "Client", null, [
-      [ "Scene", null, [
-        [ "SceneManager", "class_client_1_1_scene_1_1_scene_manager.html", "class_client_1_1_scene_1_1_scene_manager" ]
-      ] ],
-      [ "System", null, [
-        [ "Network", null, [
-          [ "Keyboard", "class_client_1_1_system_1_1_network_1_1_keyboard.html", "class_client_1_1_system_1_1_network_1_1_keyboard" ]
-        ] ]
-      ] ],
-      [ "Client", "class_client_1_1_client.html", "class_client_1_1_client" ],
-      [ "CommandTracker", "class_client_1_1_command_tracker.html", "class_client_1_1_command_tracker" ],
-      [ "ConnectToServerCommandHandler", "class_client_1_1_connect_to_server_command_handler.html", "class_client_1_1_connect_to_server_command_handler" ],
-      [ "GameScene", "class_client_1_1_game_scene.html", "class_client_1_1_game_scene" ],
-      [ "GUI", "class_client_1_1_g_u_i.html", null ],
-      [ "ICommandHandler", "class_client_1_1_i_command_handler.html", "class_client_1_1_i_command_handler" ],
-      [ "InputCommandHandler", "class_client_1_1_input_command_handler.html", "class_client_1_1_input_command_handler" ],
-      [ "JoinGameCommandHandler", "class_client_1_1_join_game_command_handler.html", "class_client_1_1_join_game_command_handler" ],
-      [ "JoinRoomCommandHandler", "class_client_1_1_join_room_command_handler.html", "class_client_1_1_join_room_command_handler" ],
-      [ "Network", "class_client_1_1_network.html", "class_client_1_1_network" ],
-      [ "UpdateNameCommandHandler", "class_client_1_1_update_name_command_handler.html", "class_client_1_1_update_name_command_handler" ]
+      [ "Client", "classClient_1_1Client.html", "classClient_1_1Client" ],
+      [ "CommandTracker", "classClient_1_1CommandTracker.html", "classClient_1_1CommandTracker" ],
+      [ "ConnectToServerCommandHandler", "classClient_1_1ConnectToServerCommandHandler.html", "classClient_1_1ConnectToServerCommandHandler" ],
+      [ "GodModeCommandHandler", "classClient_1_1GodModeCommandHandler.html", "classClient_1_1GodModeCommandHandler" ],
+      [ "ICommandHandler", "classClient_1_1ICommandHandler.html", "classClient_1_1ICommandHandler" ],
+      [ "InputCommandHandler", "classClient_1_1InputCommandHandler.html", "classClient_1_1InputCommandHandler" ],
+      [ "JoinGameCommandHandler", "classClient_1_1JoinGameCommandHandler.html", "classClient_1_1JoinGameCommandHandler" ],
+      [ "JoinRoomAutoCommandHandler", "classClient_1_1JoinRoomAutoCommandHandler.html", "classClient_1_1JoinRoomAutoCommandHandler" ],
+      [ "JoinRoomCommandHandler", "classClient_1_1JoinRoomCommandHandler.html", "classClient_1_1JoinRoomCommandHandler" ],
+      [ "KickPlayerCommandHandler", "classClient_1_1KickPlayerCommandHandler.html", "classClient_1_1KickPlayerCommandHandler" ],
+      [ "Network", "classClient_1_1Network.html", "classClient_1_1Network" ],
+      [ "SpectateCommandHandler", "classClient_1_1SpectateCommandHandler.html", "classClient_1_1SpectateCommandHandler" ],
+      [ "UpdateNameCommandHandler", "classClient_1_1UpdateNameCommandHandler.html", "classClient_1_1UpdateNameCommandHandler" ]
     ] ],
     [ "ComponentRType", null, [
-      [ "Clickable", "struct_component_r_type_1_1_clickable.html", null ],
-      [ "Controllable", "struct_component_r_type_1_1_controllable.html", null ],
-      [ "Displayable", "struct_component_r_type_1_1_displayable.html", null ],
-      [ "Gravity", "struct_component_r_type_1_1_gravity.html", null ],
-      [ "MetaData", "struct_component_r_type_1_1_meta_data.html", null ],
-      [ "NetworkedEntity", "struct_component_r_type_1_1_networked_entity.html", null ],
-      [ "Position", "struct_component_r_type_1_1_position.html", null ],
-      [ "Transform", "struct_component_r_type_1_1_transform.html", null ]
+      [ "Clickable", "structComponentRType_1_1Clickable.html", null ],
+      [ "Controllable", "structComponentRType_1_1Controllable.html", null ],
+      [ "Displayable", "structComponentRType_1_1Displayable.html", null ],
+      [ "Gravity", "structComponentRType_1_1Gravity.html", null ],
+      [ "Hitbox", "structComponentRType_1_1Hitbox.html", null ],
+      [ "MetaData", "structComponentRType_1_1MetaData.html", null ],
+      [ "NetworkedEntity", "structComponentRType_1_1NetworkedEntity.html", null ],
+      [ "Parallax", "structComponentRType_1_1Parallax.html", null ],
+      [ "Position", "structComponentRType_1_1Position.html", null ],
+      [ "Scriptable", "structComponentRType_1_1Scriptable.html", null ],
+      [ "Text", "structComponentRType_1_1Text.html", null ],
+      [ "Transform", "structComponentRType_1_1Transform.html", null ],
+      [ "UIElement", "structComponentRType_1_1UIElement.html", null ]
     ] ],
     [ "GameEngine", null, [
       [ "Asset", null, [
-        [ "AssetManager", "class_game_engine_1_1_asset_1_1_asset_manager.html", null ]
+        [ "AssetManager", "classGameEngine_1_1Asset_1_1AssetManager.html", null ]
       ] ],
       [ "Builder", null, [
-        [ "RegistryBuilder", "class_game_engine_1_1_builder_1_1_registry_builder.html", null ]
+        [ "RegistryBuilder", "classGameEngine_1_1Builder_1_1RegistryBuilder.html", null ]
+      ] ],
+      [ "Core", null, [
+        [ "Core", "classGameEngine_1_1Core_1_1Core.html", null ]
       ] ],
       [ "ECS", null, [
-        [ "ComponentArray", "class_game_engine_1_1_e_c_s_1_1_component_array.html", "class_game_engine_1_1_e_c_s_1_1_component_array" ],
-        [ "ComponentManager", "class_game_engine_1_1_e_c_s_1_1_component_manager.html", "class_game_engine_1_1_e_c_s_1_1_component_manager" ],
-        [ "EntityManager", "class_game_engine_1_1_e_c_s_1_1_entity_manager.html", "class_game_engine_1_1_e_c_s_1_1_entity_manager" ],
-        [ "IComponentArray", "class_game_engine_1_1_e_c_s_1_1_i_component_array.html", null ],
-        [ "Registry", "class_game_engine_1_1_e_c_s_1_1_registry.html", null ],
-        [ "System", "class_game_engine_1_1_e_c_s_1_1_system.html", null ],
-        [ "SystemManager", "class_game_engine_1_1_e_c_s_1_1_system_manager.html", "class_game_engine_1_1_e_c_s_1_1_system_manager" ]
+        [ "ComponentArray", "classGameEngine_1_1ECS_1_1ComponentArray.html", "classGameEngine_1_1ECS_1_1ComponentArray" ],
+        [ "ComponentManager", "classGameEngine_1_1ECS_1_1ComponentManager.html", "classGameEngine_1_1ECS_1_1ComponentManager" ],
+        [ "EntityManager", "classGameEngine_1_1ECS_1_1EntityManager.html", "classGameEngine_1_1ECS_1_1EntityManager" ],
+        [ "IComponentArray", "classGameEngine_1_1ECS_1_1IComponentArray.html", null ],
+        [ "Registry", "classGameEngine_1_1ECS_1_1Registry.html", null ],
+        [ "RegistryHolder", "classGameEngine_1_1ECS_1_1RegistryHolder.html", null ],
+        [ "System", "classGameEngine_1_1ECS_1_1System.html", null ],
+        [ "SystemManager", "classGameEngine_1_1ECS_1_1SystemManager.html", "classGameEngine_1_1ECS_1_1SystemManager" ]
       ] ],
       [ "Entity", null, [
-        [ "ComponentBluePrint", "struct_game_engine_1_1_entity_1_1_component_blue_print.html", null ],
-        [ "EntityBluePrint", "struct_game_engine_1_1_entity_1_1_entity_blue_print.html", null ],
-        [ "EntityBuilder", "class_game_engine_1_1_entity_1_1_entity_builder.html", null ],
-        [ "EntityFactory", "class_game_engine_1_1_entity_1_1_entity_factory.html", null ]
+        [ "ComponentsBluePrint", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html", null ],
+        [ "ConfigLoader", "classGameEngine_1_1Entity_1_1ConfigLoader.html", null ],
+        [ "EntityBuilder", "classGameEngine_1_1Entity_1_1EntityBuilder.html", null ],
+        [ "EntityFactory", "classGameEngine_1_1Entity_1_1EntityFactory.html", null ],
+        [ "EntityTemplate", "structGameEngine_1_1Entity_1_1EntityTemplate.html", null ]
+      ] ],
+      [ "Event", null, [
+        [ "DestroyEntity", "structGameEngine_1_1Event_1_1DestroyEntity.html", null ],
+        [ "DisconnectedPlayer", "structGameEngine_1_1Event_1_1DisconnectedPlayer.html", null ],
+        [ "EntityCollision", "structGameEngine_1_1Event_1_1EntityCollision.html", null ],
+        [ "EventListenerWrapper", "classGameEngine_1_1Event_1_1EventListenerWrapper.html", null ],
+        [ "EventRegistry", "classGameEngine_1_1Event_1_1EventRegistry.html", null ],
+        [ "IEvent", "classGameEngine_1_1Event_1_1IEvent.html", null ],
+        [ "IEventBindable", "classGameEngine_1_1Event_1_1IEventBindable.html", null ],
+        [ "IEventListener", "classGameEngine_1_1Event_1_1IEventListener.html", null ],
+        [ "KeyboardInput", "structGameEngine_1_1Event_1_1KeyboardInput.html", null ],
+        [ "MouseButtonPressed", "structGameEngine_1_1Event_1_1MouseButtonPressed.html", null ],
+        [ "Movedown", "structGameEngine_1_1Event_1_1Movedown.html", null ],
+        [ "MoveLeft", "structGameEngine_1_1Event_1_1MoveLeft.html", null ],
+        [ "MoveRight", "structGameEngine_1_1Event_1_1MoveRight.html", null ],
+        [ "MoveUp", "structGameEngine_1_1Event_1_1MoveUp.html", null ],
+        [ "NewEnemy", "structGameEngine_1_1Event_1_1NewEnemy.html", null ],
+        [ "NewPlayer", "structGameEngine_1_1Event_1_1NewPlayer.html", null ],
+        [ "PlayerShoot", "structGameEngine_1_1Event_1_1PlayerShoot.html", null ],
+        [ "PressSpace", "structGameEngine_1_1Event_1_1PressSpace.html", null ]
+      ] ],
+      [ "Gfx", null, [
+        [ "Sfml", null, [
+          [ "Renderer", "classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer.html", null ]
+        ] ],
+        [ "IRenderer", "classGameEngine_1_1Gfx_1_1IRenderer.html", null ]
       ] ],
       [ "Network", null, [
         [ "Serializer", null, [
-          [ "BaseNetworkComponent", "class_game_engine_1_1_network_1_1_serializer_1_1_base_network_component.html", null ],
-          [ "EcsSerializer", "class_game_engine_1_1_network_1_1_serializer_1_1_ecs_serializer.html", null ]
-        ] ]
+          [ "BaseNetworkComponent", "classGameEngine_1_1Network_1_1Serializer_1_1BaseNetworkComponent.html", null ],
+          [ "EcsSerializer", "classGameEngine_1_1Network_1_1Serializer_1_1EcsSerializer.html", null ]
+        ] ],
+        [ "INetworkController", "classGameEngine_1_1Network_1_1INetworkController.html", null ]
       ] ],
       [ "Scene", null, [
-        [ "IScene", "class_game_engine_1_1_scene_1_1_i_scene.html", null ],
-        [ "SceneContainer", "class_game_engine_1_1_scene_1_1_scene_container.html", null ],
-        [ "SceneManager", "class_game_engine_1_1_scene_1_1_scene_manager.html", null ]
+        [ "IScene", "classGameEngine_1_1Scene_1_1IScene.html", "classGameEngine_1_1Scene_1_1IScene" ],
+        [ "ISceneManager", "classGameEngine_1_1Scene_1_1ISceneManager.html", null ],
+        [ "SceneContainer", "classGameEngine_1_1Scene_1_1SceneContainer.html", "classGameEngine_1_1Scene_1_1SceneContainer" ],
+        [ "SceneManager", "classGameEngine_1_1Scene_1_1SceneManager.html", null ],
+        [ "SimpleScene", "classGameEngine_1_1Scene_1_1SimpleScene.html", "classGameEngine_1_1Scene_1_1SimpleScene" ]
+      ] ],
+      [ "Script", null, [
+        [ "IScript", "classGameEngine_1_1Script_1_1IScript.html", "classGameEngine_1_1Script_1_1IScript" ],
+        [ "ScriptManager", "classGameEngine_1_1Script_1_1ScriptManager.html", "classGameEngine_1_1Script_1_1ScriptManager" ]
       ] ],
       [ "System", null, [
-        [ "Animation", "class_game_engine_1_1_system_1_1_animation.html", null ],
-        [ "EcsSerializer", "class_game_engine_1_1_system_1_1_ecs_serializer.html", null ],
-        [ "Input", "class_game_engine_1_1_system_1_1_input.html", null ],
-        [ "IUpdateSystem", "class_game_engine_1_1_system_1_1_i_update_system.html", null ],
-        [ "Keyboard", "class_game_engine_1_1_system_1_1_keyboard.html", null ],
-        [ "Move", "class_game_engine_1_1_system_1_1_move.html", null ],
-        [ "Physics", "class_game_engine_1_1_system_1_1_physics.html", null ],
-        [ "Renderer", "class_game_engine_1_1_system_1_1_renderer.html", null ]
+        [ "Animation", "classGameEngine_1_1System_1_1Animation.html", null ],
+        [ "Collider", "classGameEngine_1_1System_1_1Collider.html", null ],
+        [ "ControlableEntity", "classGameEngine_1_1System_1_1ControlableEntity.html", null ],
+        [ "EcsSerializer", "classGameEngine_1_1System_1_1EcsSerializer.html", null ],
+        [ "InputCatcher", "classGameEngine_1_1System_1_1InputCatcher.html", null ],
+        [ "NetworkEventPusher", "classGameEngine_1_1System_1_1NetworkEventPusher.html", null ],
+        [ "Parallax", "classGameEngine_1_1System_1_1Parallax.html", null ],
+        [ "Physics", "classGameEngine_1_1System_1_1Physics.html", null ],
+        [ "Renderer", "classGameEngine_1_1System_1_1Renderer.html", null ],
+        [ "ScriptableEntity", "classGameEngine_1_1System_1_1ScriptableEntity.html", null ],
+        [ "Spawn", "classGameEngine_1_1System_1_1Spawn.html", null ],
+        [ "TextRenderer", "classGameEngine_1_1System_1_1TextRenderer.html", null ],
+        [ "UI", "classGameEngine_1_1System_1_1UI.html", null ]
       ] ],
       [ "UI", null, [
-        [ "Window", "class_game_engine_1_1_u_i_1_1_window.html", null ],
-        [ "WindowContext", "struct_game_engine_1_1_u_i_1_1_window_context.html", null ]
+        [ "UIFactory", "classGameEngine_1_1UI_1_1UIFactory.html", null ],
+        [ "Window", "classGameEngine_1_1UI_1_1Window.html", null ]
       ] ]
     ] ],
-    [ "ge", null, [
-      [ "Position", "structge_1_1_position.html", null ]
-    ] ],
     [ "Network", null, [
-      [ "Client", "class_network_1_1_client.html", "class_network_1_1_client" ],
-      [ "ConnectToServerCommandHandler", "class_network_1_1_connect_to_server_command_handler.html", "class_network_1_1_connect_to_server_command_handler" ],
-      [ "ICommandHandler", "class_network_1_1_i_command_handler.html", "class_network_1_1_i_command_handler" ],
-      [ "InputCommandHandler", "class_network_1_1_input_command_handler.html", "class_network_1_1_input_command_handler" ],
-      [ "JoinGameCommandHandler", "class_network_1_1_join_game_command_handler.html", "class_network_1_1_join_game_command_handler" ],
-      [ "JoinRoomCommandHandler", "class_network_1_1_join_room_command_handler.html", "class_network_1_1_join_room_command_handler" ],
-      [ "Room", "class_network_1_1_room.html", "class_network_1_1_room" ],
-      [ "ThreadSafeQueue", "class_network_1_1_thread_safe_queue.html", "class_network_1_1_thread_safe_queue" ],
-      [ "UDPServer", "class_network_1_1_u_d_p_server.html", "class_network_1_1_u_d_p_server" ],
-      [ "UpdateNameCommandHandler", "class_network_1_1_update_name_command_handler.html", "class_network_1_1_update_name_command_handler" ]
+      [ "Client", "classNetwork_1_1Client.html", "classNetwork_1_1Client" ],
+      [ "ConnectToServerCommandHandler", "classNetwork_1_1ConnectToServerCommandHandler.html", "classNetwork_1_1ConnectToServerCommandHandler" ],
+      [ "GodModeCommandHandler", "classNetwork_1_1GodModeCommandHandler.html", "classNetwork_1_1GodModeCommandHandler" ],
+      [ "ICommandHandler", "classNetwork_1_1ICommandHandler.html", "classNetwork_1_1ICommandHandler" ],
+      [ "InputCommandHandler", "classNetwork_1_1InputCommandHandler.html", "classNetwork_1_1InputCommandHandler" ],
+      [ "JoinGameCommandHandler", "classNetwork_1_1JoinGameCommandHandler.html", "classNetwork_1_1JoinGameCommandHandler" ],
+      [ "JoinRoomAutoCommandHandler", "classNetwork_1_1JoinRoomAutoCommandHandler.html", "classNetwork_1_1JoinRoomAutoCommandHandler" ],
+      [ "JoinRoomCommandHandler", "classNetwork_1_1JoinRoomCommandHandler.html", "classNetwork_1_1JoinRoomCommandHandler" ],
+      [ "KickPlayerCommandHandler", "classNetwork_1_1KickPlayerCommandHandler.html", "classNetwork_1_1KickPlayerCommandHandler" ],
+      [ "Room", "classNetwork_1_1Room.html", "classNetwork_1_1Room" ],
+      [ "SpectateCommandHandler", "classNetwork_1_1SpectateCommandHandler.html", "classNetwork_1_1SpectateCommandHandler" ],
+      [ "ThreadSafeQueue", "classNetwork_1_1ThreadSafeQueue.html", "classNetwork_1_1ThreadSafeQueue" ],
+      [ "UDPServer", "classNetwork_1_1UDPServer.html", "classNetwork_1_1UDPServer" ],
+      [ "UpdateNameCommandHandler", "classNetwork_1_1UpdateNameCommandHandler.html", "classNetwork_1_1UpdateNameCommandHandler" ]
     ] ],
     [ "Server", null, [
       [ "Game", null, [
-        [ "IGame", "class_server_1_1_game_1_1_i_game.html", null ],
-        [ "Player", "struct_server_1_1_game_1_1_player.html", null ],
-        [ "RtypeGame", "class_server_1_1_game_1_1_rtype_game.html", null ],
-        [ "RtypeScene", "class_server_1_1_game_1_1_rtype_scene.html", null ]
+        [ "Game", "classServer_1_1Game_1_1Game.html", null ],
+        [ "IGame", "classServer_1_1Game_1_1IGame.html", null ],
+        [ "Player", "structServer_1_1Game_1_1Player.html", null ]
       ] ]
     ] ],
-    [ "Audio", "class_audio.html", null ],
-    [ "Display", "class_display.html", null ],
-    [ "Event", "class_event.html", null ],
-    [ "IAudio", "class_i_audio.html", null ],
-    [ "IDisplay", "class_i_display.html", null ],
-    [ "IEvent", "class_i_event.html", null ],
-    [ "InputData", "struct_input_data.html", "struct_input_data" ],
-    [ "IRenderer", "class_i_renderer.html", null ],
-    [ "ITexture", "class_i_texture.html", null ],
-    [ "JoinGameData", "struct_join_game_data.html", "struct_join_game_data" ],
-    [ "JoinRoomData", "struct_join_room_data.html", "struct_join_room_data" ],
-    [ "Message", "struct_message.html", "struct_message" ],
-    [ "MessageHeader", "struct_message_header.html", "struct_message_header" ],
-    [ "Renderer", "class_renderer.html", null ],
-    [ "Response", "struct_response.html", "struct_response" ],
-    [ "ResponseHeader", "struct_response_header.html", null ],
-    [ "ServerClientDisconnectedData", "struct_server_client_disconnected_data.html", null ],
-    [ "SfmlAudio", "class_sfml_audio.html", null ],
-    [ "SfmlDisplay", "class_sfml_display.html", "class_sfml_display" ],
-    [ "SfmlEvent", "class_sfml_event.html", null ],
-    [ "SfmlRenderer", "class_sfml_renderer.html", null ],
-    [ "SfmlTexture", "class_sfml_texture.html", null ],
-    [ "Texture", "class_texture.html", null ],
-    [ "TimedMessage", "struct_timed_message.html", "struct_timed_message" ],
-    [ "UpdateNameData", "struct_update_name_data.html", "struct_update_name_data" ]
+    [ "Tools", null, [
+      [ "EndianConverter", "classTools_1_1EndianConverter.html", null ]
+    ] ],
+    [ "GodModeData", "structGodModeData.html", null ],
+    [ "InputData", "structInputData.html", "structInputData" ],
+    [ "JoinGameData", "structJoinGameData.html", "structJoinGameData" ],
+    [ "JoinRoomData", "structJoinRoomData.html", "structJoinRoomData" ],
+    [ "KickPlayerData", "structKickPlayerData.html", null ],
+    [ "Message", "structMessage.html", "structMessage" ],
+    [ "MessageHeader", "structMessageHeader.html", "structMessageHeader" ],
+    [ "Response", "structResponse.html", "structResponse" ],
+    [ "ResponseHeader", "structResponseHeader.html", "structResponseHeader" ],
+    [ "ServerClientDisconnectedData", "structServerClientDisconnectedData.html", null ],
+    [ "SpectateData", "structSpectateData.html", null ],
+    [ "TimedMessage", "structTimedMessage.html", "structTimedMessage" ],
+    [ "UpdateNameData", "structUpdateNameData.html", "structUpdateNameData" ]
 ];

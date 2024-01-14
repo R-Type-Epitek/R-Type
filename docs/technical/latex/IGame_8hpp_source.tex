@@ -1,0 +1,48 @@
+\hypertarget{IGame_8hpp_source}{}\doxysection{IGame.\+hpp}
+\label{IGame_8hpp_source}\index{server/include/game/IGame.hpp@{server/include/game/IGame.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by raphael on 12/22/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}gameEngine/constants/Keybinds.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}gameEngine/ecs/entity/Entity.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }Server::Game}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15   \textcolor{keyword}{struct }\mbox{\hyperlink{structServer_1_1Game_1_1Player}{Player}} \{}
+\DoxyCodeLine{16     \textcolor{keywordtype}{size\_t} id;}
+\DoxyCodeLine{17     std::string name; \textcolor{comment}{// optional only needed if the game needs to know the name of the player}}
+\DoxyCodeLine{18     GameEngine::Keybinds key = GameEngine::Keybinds::Unknown; \textcolor{comment}{// optional only needed for Input}}
+\DoxyCodeLine{19   \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21   \textcolor{keyword}{enum class} Event}
+\DoxyCodeLine{22   \{}
+\DoxyCodeLine{23     Input,}
+\DoxyCodeLine{24     Connect,}
+\DoxyCodeLine{25     Disconnect,}
+\DoxyCodeLine{26   \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \textcolor{keyword}{class }\mbox{\hyperlink{classServer_1_1Game_1_1IGame}{IGame}} \{}
+\DoxyCodeLine{29    \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \mbox{\hyperlink{classServer_1_1Game_1_1IGame}{\string~IGame}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} load() = 0;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} std::vector<std::vector<char>> getSerializedEntities() = 0;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} update(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} df) = 0;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run() = 0;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} pushEvent(Event, \mbox{\hyperlink{structServer_1_1Game_1_1Player}{Player}}) = 0;}
+\DoxyCodeLine{41   \};}
+\DoxyCodeLine{42 \} \textcolor{comment}{// namespace Server::Game}}
+
+\end{DoxyCode}

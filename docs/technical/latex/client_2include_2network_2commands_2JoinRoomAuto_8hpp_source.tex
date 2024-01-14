@@ -1,0 +1,29 @@
+\hypertarget{client_2include_2network_2commands_2JoinRoomAuto_8hpp_source}{}\doxysection{Join\+Room\+Auto.\+hpp}
+\label{client_2include_2network_2commands_2JoinRoomAuto_8hpp_source}\index{client/include/network/commands/JoinRoomAuto.hpp@{client/include/network/commands/JoinRoomAuto.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 24/12/23.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}network/Network.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}network/commands/IHandler.hpp"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }Client}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{20   \textcolor{keyword}{class }\mbox{\hyperlink{classClient_1_1JoinRoomAutoCommandHandler}{JoinRoomAutoCommandHandler}} : \textcolor{keyword}{public} \mbox{\hyperlink{classClient_1_1ICommandHandler}{ICommandHandler}} \{}
+\DoxyCodeLine{21    \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{classClient_1_1JoinRoomAutoCommandHandler_ae56e6cbe66a4d7b8a8cd79f9e90ebbb3}{JoinRoomAutoCommandHandler}}(\mbox{\hyperlink{classClient_1_1Network}{Network}}\& network);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1JoinRoomAutoCommandHandler_afce237f72124d3b84b5d155287ae8f2b}{send}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClient_1_1JoinRoomAutoCommandHandler_a36d9f5e66a8785b69d2857d10c5b07b8}{onResponse}}(\mbox{\hyperlink{structResponse}{Response}}* response) \textcolor{keyword}{override};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48    \textcolor{keyword}{protected}:}
+\DoxyCodeLine{49    \textcolor{keyword}{private}:}
+\DoxyCodeLine{50     \mbox{\hyperlink{classClient_1_1Network}{Network}}\& network; }
+\DoxyCodeLine{51   \};}
+\DoxyCodeLine{52 \} \textcolor{comment}{// namespace Client}}
+
+\end{DoxyCode}

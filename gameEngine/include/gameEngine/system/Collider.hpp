@@ -57,9 +57,11 @@ namespace GameEngine::System
           Event::EntityCollision {entity, otherEntity, mask, maskOther});
       }
       //      Check map bounds
-      if (int const mask = componentManager->getComponent<ComponentRType::Hitbox>(entity).mask;
-          globalBounds.left < 0 || globalBounds.left + globalBounds.width > 1920 || globalBounds.top < 0 ||
-          globalBounds.top + globalBounds.height > 1080) {
+      int const mask = componentManager->getComponent<ComponentRType::Hitbox>(entity).mask;
+      if (
+        mask != 0 &&
+        (globalBounds.left < 0 || globalBounds.left + globalBounds.width > 1920 || globalBounds.top < 0 ||
+         globalBounds.top + globalBounds.height > 1080)) {
         eventRegistry.publish<Event::EntityCollision>(Event::EntityCollision {entity, 666, mask, -1});
       }
     }

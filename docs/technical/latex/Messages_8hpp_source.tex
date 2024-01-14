@@ -1,36 +1,60 @@
 \hypertarget{Messages_8hpp_source}{}\doxysection{Messages.\+hpp}
-\label{Messages_8hpp_source}\index{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/network/Messages.hpp@{/home/raphael/epitech/tech3/OOP/R-\/Type/gameEngine/include/network/Messages.hpp}}
+\label{Messages_8hpp_source}\index{gameEngine/include/gameEngine/network/Messages.hpp@{gameEngine/include/gameEngine/network/Messages.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{//}}
 \DoxyCodeLine{2 \textcolor{comment}{// Created by Xavier VINCENT on 14/12/23.}}
 \DoxyCodeLine{3 \textcolor{comment}{//}}
 \DoxyCodeLine{4 }
-\DoxyCodeLine{12 \textcolor{keyword}{struct }\mbox{\hyperlink{structMessageHeader}{MessageHeader}} \{}
-\DoxyCodeLine{13   \textcolor{keywordtype}{int} \mbox{\hyperlink{structMessageHeader_a705418d85961d98b6f84f4fba9f9f799}{clientId}};         }
-\DoxyCodeLine{14   \textcolor{keywordtype}{char} \mbox{\hyperlink{structMessageHeader_a19f672c6735d819940166a11e25a321b}{command}}[32];     }
-\DoxyCodeLine{15   uint32\_t \mbox{\hyperlink{structMessageHeader_ac81cf10687f6cf52e454e4dec5a5cd6e}{dataLength}};  }
-\DoxyCodeLine{16 \};}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{25 \textcolor{keyword}{struct }\mbox{\hyperlink{structMessage}{Message}} \{}
-\DoxyCodeLine{26   \mbox{\hyperlink{structMessageHeader}{MessageHeader}} \mbox{\hyperlink{structMessage_a704863f3c71f270459d015102d61f7c8}{header}}; }
-\DoxyCodeLine{27   \textcolor{keywordtype}{char} \mbox{\hyperlink{structMessage_ae5226de4e2ee84b6813ae068bcccc211}{data}}[];          }
-\DoxyCodeLine{28 \};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{36 \textcolor{keyword}{struct }\mbox{\hyperlink{structUpdateNameData}{UpdateNameData}} \{}
-\DoxyCodeLine{37   \textcolor{keywordtype}{char} \mbox{\hyperlink{structUpdateNameData_a0a653a11d78a9e6be30feb49636bdfd3}{name}}[32]; }
-\DoxyCodeLine{38 \};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{46 \textcolor{keyword}{struct }\mbox{\hyperlink{structJoinRoomData}{JoinRoomData}} \{}
-\DoxyCodeLine{47   \textcolor{keywordtype}{int} \mbox{\hyperlink{structJoinRoomData_a9f0b47d9ccc022ca8ad92bc38d0ae5aa}{roomId}}; }
-\DoxyCodeLine{48 \};}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{56 \textcolor{keyword}{struct }\mbox{\hyperlink{structInputData}{InputData}} \{}
-\DoxyCodeLine{57   \textcolor{keywordtype}{char} \mbox{\hyperlink{structInputData_a63bb754a4032d719b927887a99e7d7d0}{key}}[1]; }
-\DoxyCodeLine{58 \};}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{66 \textcolor{keyword}{struct }\mbox{\hyperlink{structStartGameData}{StartGameData}} \{}
-\DoxyCodeLine{67   \textcolor{keywordtype}{int} \mbox{\hyperlink{structStartGameData_ade25ba277a3f0b013fccf404d0de39e2}{roomId}}; }
-\DoxyCodeLine{68 \};}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}MessageType.hpp"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{17 \textcolor{keyword}{struct }\mbox{\hyperlink{structMessageHeader}{MessageHeader}} \{}
+\DoxyCodeLine{18   \textcolor{keywordtype}{int} \mbox{\hyperlink{structMessageHeader_a705418d85961d98b6f84f4fba9f9f799}{clientId}};        }
+\DoxyCodeLine{19   \textcolor{keywordtype}{char} \mbox{\hyperlink{structMessageHeader_a19f672c6735d819940166a11e25a321b}{command}}[32];    }
+\DoxyCodeLine{20   \textcolor{keywordtype}{int} \mbox{\hyperlink{structMessageHeader_a10ba7181decd6d343b3ebca9548a8b46}{commandId}};       }
+\DoxyCodeLine{21   uint32\_t \mbox{\hyperlink{structMessageHeader_ac81cf10687f6cf52e454e4dec5a5cd6e}{dataLength}}; }
+\DoxyCodeLine{22   uint32\_t \mbox{\hyperlink{structMessageHeader_ad3ae5785b700ff9f1b3c2bc362e78e4b}{timestamp}};  }
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{32 \textcolor{keyword}{struct }\mbox{\hyperlink{structMessage}{Message}} \{}
+\DoxyCodeLine{33   MessageType \mbox{\hyperlink{structMessage_a6fc78df47d3755e088e7c658db565fc5}{type}} = MessageType::Message; }
+\DoxyCodeLine{34   \mbox{\hyperlink{structMessageHeader}{MessageHeader}} \mbox{\hyperlink{structMessage_a704863f3c71f270459d015102d61f7c8}{header}};                    }
+\DoxyCodeLine{35   \textcolor{keywordtype}{char} \mbox{\hyperlink{structMessage_ae5226de4e2ee84b6813ae068bcccc211}{data}}[];                             }
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{44 \textcolor{keyword}{struct }\mbox{\hyperlink{structUpdateNameData}{UpdateNameData}} \{}
+\DoxyCodeLine{45   \textcolor{keywordtype}{char} \mbox{\hyperlink{structUpdateNameData_a0a653a11d78a9e6be30feb49636bdfd3}{name}}[32]; }
+\DoxyCodeLine{46 \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{54 \textcolor{keyword}{struct }\mbox{\hyperlink{structJoinRoomData}{JoinRoomData}} \{}
+\DoxyCodeLine{55   \textcolor{keywordtype}{int} \mbox{\hyperlink{structJoinRoomData_a9f0b47d9ccc022ca8ad92bc38d0ae5aa}{roomId}}; }
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{64 \textcolor{keyword}{struct }\mbox{\hyperlink{structInputData}{InputData}} \{}
+\DoxyCodeLine{65   \textcolor{keywordtype}{int} \mbox{\hyperlink{structInputData_a0cfe6612080fdbc78701a829ce40f04c}{key}}; }
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{74 \textcolor{keyword}{struct }\mbox{\hyperlink{structJoinGameData}{JoinGameData}} \{}
+\DoxyCodeLine{75   \textcolor{keywordtype}{int} \mbox{\hyperlink{structJoinGameData_a89cfff7622a6679c5c8478b9b69c1de9}{roomId}}; }
+\DoxyCodeLine{76 \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{84 \textcolor{keyword}{struct }\mbox{\hyperlink{structServerClientDisconnectedData}{ServerClientDisconnectedData}} \{}
+\DoxyCodeLine{85   \textcolor{keywordtype}{int} clientId;}
+\DoxyCodeLine{86 \};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{94 \textcolor{keyword}{struct }\mbox{\hyperlink{structKickPlayerData}{KickPlayerData}} \{}
+\DoxyCodeLine{95   \textcolor{keywordtype}{int} clientId;}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{104 \textcolor{keyword}{struct }\mbox{\hyperlink{structGodModeData}{GodModeData}} \{}
+\DoxyCodeLine{105   \textcolor{keywordtype}{int} clientId;}
+\DoxyCodeLine{106 \};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{114 \textcolor{keyword}{struct }\mbox{\hyperlink{structSpectateData}{SpectateData}} \{}
+\DoxyCodeLine{115   \textcolor{keywordtype}{int} roomId;}
+\DoxyCodeLine{116 \};}
 
 \end{DoxyCode}
