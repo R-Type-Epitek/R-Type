@@ -10,6 +10,7 @@
 #include "gameEngine/system/Collider.hpp"
 #include "gameEngine/system/Spawning.hpp"
 #include "gameEngine/system/Parallax.hpp"
+#include "gameEngine/system/Gameplay.hpp"
 #include "gameEngine/system/ScriptableEntity.hpp"
 #include "script/EnemyLinear.hpp"
 #include "script/EnemySinusoidal.hpp"
@@ -36,6 +37,7 @@ namespace Rtype::Scene
     builder.buildSystemPhysics();
     builder.buildSystemSpawning();
     builder.buildSystemParallax();
+    builder.buildSystemGameplay();
     builder.buildSystemScriptableEntity();
     m_ecsRegistry = builder.getResult();
   }
@@ -89,6 +91,10 @@ namespace Rtype::Scene
         system->update(getEventRegistry());
       }
       {
+        auto system = ecsRegistry.getSystem<GameEngine::System::Gameplay>();
+        system->update();
+      }
+      {
         auto system = ecsRegistry.getSystem<GameEngine::System::Physics>();
         system->update();
       }
@@ -97,7 +103,7 @@ namespace Rtype::Scene
         system->update();
       }
     } catch (const std::exception& e) {
-      spdlog::error("[Client execute] Error: {}", e.what());
+      spdlog::error("[Client update] Error: {}", e.what());
     }
   }
 

@@ -22,6 +22,20 @@ namespace GameEngine::Event
     int maskB;
   };
 
+  struct EntityHit : public IEvent {
+    EntityHit() = default;
+    explicit EntityHit(ECS::Entity entityA, ECS::Entity entityB, int maskA = -1, int maskB = -1)
+      : entityA(entityA)
+      , entityB(entityB)
+      , maskA(maskA)
+      , maskB(maskB) {};
+    
+    ECS::Entity entityA;
+    ECS::Entity entityB;
+    int maskA;
+    int maskB;
+  };
+
   struct KeyboardInput : public IEvent {
     KeyboardInput() = default;
     explicit KeyboardInput(Keybinds key, ECS::Entity entity = -1)

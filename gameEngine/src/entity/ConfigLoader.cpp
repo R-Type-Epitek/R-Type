@@ -3,6 +3,7 @@
 //
 
 #include "gameEngine/entity/ConfigLoader.hpp"
+#include <fstream>
 #include "gameEngine/asset/AssetManager.hpp"
 #include <fstream>
 #include <iostream>
@@ -54,6 +55,22 @@ namespace GameEngine::Entity
     EntityTemplate entityTemplate = entityFactory.getEntityTemplate(type);
     entityTemplate.networkedEntity = ComponentRType::NetworkedEntity {EntityFactory::idOffset};
     entityTemplate.metaData.bluePrint = entityTemplate.blueprint;
+
+    if (config.contains("position")) {
+      int x = config["position"].value("x", 0);
+      int y = config["position"].value("y", 0);
+      entityTemplate.position.position = {static_cast<float>(x), static_cast<float>(y)};
+    }
+    if (config.contains("speed") && entityTemplate.blueprint.transform) {
+      entityTemplate.transform.speed = config["speed"];
+    }
+    if (config.contains("scriptName") && entityTemplate.blueprint.scriptable) {
+      entityTemplate.scriptable.scriptName = config["scriptName"];
+    }
+    if (config.contains("health") && entityTemplate.blueprint.health) {
+      entityTemplate.health.value = config["health"];
+    }
+
     entityFactory.createFromTemplate(entityTemplate);
     EntityFactory::idOffset++;
   }
@@ -62,6 +79,10 @@ namespace GameEngine::Entity
   {
     if (m_config.contains("entityTemplate") && m_config["entityTemplate"].is_array()) {
       for (const auto &element : m_config["entityTemplate"]) {
+        if (!element.contains("typeName") || !element.contains("components")) {
+          spdlog::error("Error: entityTemplate must have a typeName and components");
+          throw std::runtime_error("Error: entityTemplate must have a typeName and components");
+        }
         EntityTemplate entityTemplate = parseComponents(element["components"]);
         entityFactory.addEntityTemplate(element["typeName"], entityTemplate);
       }
@@ -89,6 +110,7 @@ namespace GameEngine::Entity
       tryParseComponents(name, "Gravity", entityTplt, element, &ConfigLoader::parseGravity);
       tryParseComponents(name, "Hitbox", entityTplt, element, &ConfigLoader::parseHitbox);
       tryParseComponents(name, "Parallax", entityTplt, element, &ConfigLoader::parseParallax);
+      tryParseComponents(name, "Health", entityTplt, element, &ConfigLoader::parseHealth);
       tryParseComponents(name, "Scriptable", entityTplt, element, &ConfigLoader::parseScriptable);
     }
     return entityTplt;
@@ -176,6 +198,17 @@ namespace GameEngine::Entity
   void ConfigLoader::parseParallax(EntityTemplate &entity, const json &)
   {
     entity.blueprint.parallax = true;
+  }
+
+  void ConfigLoader::parseHealth(EntityTemplate &entity, const json &config)
+  {
+    entity.blueprint.health = true;
+    int health = config.value("health", 0);
+    int damage = config.value("damage", ComponentRType::kdefaultDamage);
+    bool isAlive = config.value("isAlive", true);
+    entity.health.value = health;
+    entity.health.isAlive = isAlive;
+    entity.health.damage = damage;
   }
 
   void ConfigLoader::parseScriptable(EntityTemplate &entity, const json &config)

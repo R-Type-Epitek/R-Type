@@ -8,6 +8,7 @@
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
+#include "gameEngine/entity/EntityFactory.hpp"
 #include <assert.h>
 #include <fstream>
 #include <vector>
@@ -44,6 +45,7 @@ namespace GameEngine::Entity
     void parseHitbox(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseParallax(GameEngine::Entity::EntityTemplate &entity, const json &config);
     void parseScriptable(GameEngine::Entity::EntityTemplate &entity, const json &config);
+    void parseHealth(GameEngine::Entity::EntityTemplate &entity, const json &config);
 
     void loadScripts(GameEngine::Entity::EntityFactory &entityFactory);
     void parseScript(const json &config, Script::ScriptManager &scriptManager);
