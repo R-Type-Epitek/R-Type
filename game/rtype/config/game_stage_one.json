@@ -173,7 +173,7 @@
       "baseType": "Enemy",
       "type": "Boss",
       "health": 100,
-      "attackPattern": "Zigzag",
+      "scriptName": "EnemyLinear",
       "speed": 2
     }
   ],

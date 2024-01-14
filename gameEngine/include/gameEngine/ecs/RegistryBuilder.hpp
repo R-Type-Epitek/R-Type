@@ -36,6 +36,7 @@ namespace GameEngine::Builder
     void buildSystemTextRenderer();
     void buildSystemSpawning();
     void buildSystemUI();
+    void buildSystemGameplay();
     void buildSystemScriptableEntity();
 
     static void feedSystemHolder(
