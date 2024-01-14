@@ -12,6 +12,7 @@
 #include "gameEngine/system/Parallax.hpp"
 #include "gameEngine/system/ScriptableEntity.hpp"
 #include "script/EnemyLinear.hpp"
+#include "script/EnemySinusoidal.hpp"
 
 namespace Rtype::Scene
 {
@@ -64,8 +65,8 @@ namespace Rtype::Scene
       "EnemyLinear",
       std::make_shared<Script::EnemyLinear>(m_ecsRegistry, m_eventRegistry));
     scriptManager.registerScript(
-      "EnemyZigzag",
-      std::make_shared<Script::EnemyLinear>(m_ecsRegistry, m_eventRegistry));
+      "EnemySinusoidal",
+      std::make_shared<Script::EnemySinusoidal>(m_ecsRegistry, m_eventRegistry));
 
     m_configLoader.loadScripts(*m_entityFactory);
   }

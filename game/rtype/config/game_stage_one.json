@@ -159,8 +159,8 @@
       "scriptName": "EnemyLinear"
     },
     {
-      "name": "EnemyZigzag",
-      "scriptName": "EnemyZigzag"
+      "name": "EnemySinusoidal",
+      "scriptName": "EnemySinusoidal"
     }
   ],
   "entities": [
