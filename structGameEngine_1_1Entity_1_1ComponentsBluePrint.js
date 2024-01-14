@@ -10,6 +10,7 @@ var structGameEngine_1_1Entity_1_1ComponentsBluePrint =
     [ "hitbox", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html#a05bd385a830d78dc6799f1f381641f88", null ],
     [ "metaData", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html#af7aa7c6e876fad410340f02971c0ac70", null ],
     [ "networkedEntity", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html#ae35fd069cd3474b3d12fc43a0cdcb8ae", null ],
+    [ "parallax", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html#aeda531b2faea6932abf8109215171d2a", null ],
     [ "position", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html#abec6c604c8eabaca3275115623bfa1b6", null ],
     [ "transform", "structGameEngine_1_1Entity_1_1ComponentsBluePrint.html#ad73eb966f5b4c10eaadba3d74989b6c5", null ]
 ];

@@ -53,6 +53,7 @@ var hierarchy =
       [ "GameEngine::ECS::ComponentArray< T >", "classGameEngine_1_1ECS_1_1ComponentArray.html", null ]
     ] ],
     [ "GameEngine::Event::IEvent", "classGameEngine_1_1Event_1_1IEvent.html", [
+      [ "GameEngine::Event::DestroyEntity", "structGameEngine_1_1Event_1_1DestroyEntity.html", null ],
       [ "GameEngine::Event::DisconnectedPlayer", "structGameEngine_1_1Event_1_1DisconnectedPlayer.html", null ],
       [ "GameEngine::Event::EntityCollision", "structGameEngine_1_1Event_1_1EntityCollision.html", null ],
       [ "GameEngine::Event::KeyboardInput", "structGameEngine_1_1Event_1_1KeyboardInput.html", null ],
@@ -63,7 +64,7 @@ var hierarchy =
       [ "GameEngine::Event::Movedown", "structGameEngine_1_1Event_1_1Movedown.html", null ],
       [ "GameEngine::Event::NewEnemy", "structGameEngine_1_1Event_1_1NewEnemy.html", null ],
       [ "GameEngine::Event::NewPlayer", "structGameEngine_1_1Event_1_1NewPlayer.html", null ],
-      [ "GameEngine::Event::NewProjectile", "structGameEngine_1_1Event_1_1NewProjectile.html", null ],
+      [ "GameEngine::Event::PlayerShoot", "structGameEngine_1_1Event_1_1PlayerShoot.html", null ],
       [ "GameEngine::Event::PressSpace", "structGameEngine_1_1Event_1_1PressSpace.html", null ]
     ] ],
     [ "GameEngine::Event::IEventBindable", "classGameEngine_1_1Event_1_1IEventBindable.html", [
@@ -106,6 +107,7 @@ var hierarchy =
       [ "GameEngine::System::Collider", "classGameEngine_1_1System_1_1Collider.html", null ],
       [ "GameEngine::System::ControlableEntity", "classGameEngine_1_1System_1_1ControlableEntity.html", null ],
       [ "GameEngine::System::EcsSerializer", "classGameEngine_1_1System_1_1EcsSerializer.html", null ],
+      [ "GameEngine::System::Parallax", "classGameEngine_1_1System_1_1Parallax.html", null ],
       [ "GameEngine::System::Physics", "classGameEngine_1_1System_1_1Physics.html", null ],
       [ "GameEngine::System::Spawn", "classGameEngine_1_1System_1_1Spawn.html", null ],
       [ "GameEngine::System::UI", "classGameEngine_1_1System_1_1UI.html", null ]

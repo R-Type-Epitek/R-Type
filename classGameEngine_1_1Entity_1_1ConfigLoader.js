@@ -13,6 +13,7 @@ var classGameEngine_1_1Entity_1_1ConfigLoader =
     [ "parseHitbox", "classGameEngine_1_1Entity_1_1ConfigLoader.html#ac9aa6b1275aeea5cc5a6d1bd81461db3", null ],
     [ "parseMetaData", "classGameEngine_1_1Entity_1_1ConfigLoader.html#ac1f6717791f88321833f4c8805b5fa4d", null ],
     [ "parseNetworkedEntity", "classGameEngine_1_1Entity_1_1ConfigLoader.html#ace79e293dd538ece2dac279cb489e2ac", null ],
+    [ "parseParallax", "classGameEngine_1_1Entity_1_1ConfigLoader.html#af76308225835de453aa9a60ee43d4837", null ],
     [ "parsePosition", "classGameEngine_1_1Entity_1_1ConfigLoader.html#a76d2e1b55be316e871c2b3efa9477a34", null ],
     [ "parseTransform", "classGameEngine_1_1Entity_1_1ConfigLoader.html#aaabd6199b20b79fa5e9698832e1e43b5", null ],
     [ "tryParseComponents", "classGameEngine_1_1Entity_1_1ConfigLoader.html#ac8c3fde663885054a96e8c5ac99e16e5", null ]

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.9.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>R-Type: GameEngine::Event::NewProjectile Struct Reference</title>
+  <title>R-Type: GameEngine::Event::PlayerShoot Struct Reference</title>
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
   <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('structGameEngine_1_1Event_1_1NewProjectile.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('structGameEngine_1_1Event_1_1PlayerShoot.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -120,38 +120,41 @@ $(document).ready(function(){initNavTree('structGameEngine_1_1Event_1_1NewProjec
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structGameEngine_1_1Event_1_1NewProjectile-members.html">List of all members</a>  </div>
+<a href="structGameEngine_1_1Event_1_1PlayerShoot-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">GameEngine::Event::NewProjectile Struct Reference</div>  </div>
+<div class="title">GameEngine::Event::PlayerShoot Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for GameEngine::Event::NewProjectile:</div>
+Inheritance diagram for GameEngine::Event::PlayerShoot:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="structGameEngine_1_1Event_1_1NewProjectile.png" usemap="#GameEngine::Event::NewProjectile_map" alt=""/>
-  <map id="GameEngine::Event::NewProjectile_map" name="GameEngine::Event::NewProjectile_map">
-<area href="classGameEngine_1_1Event_1_1IEvent.html" alt="GameEngine::Event::IEvent" shape="rect" coords="0,0,205,24"/>
+  <img src="structGameEngine_1_1Event_1_1PlayerShoot.png" usemap="#GameEngine::Event::PlayerShoot_map" alt=""/>
+  <map id="GameEngine::Event::PlayerShoot_map" name="GameEngine::Event::PlayerShoot_map">
+<area href="classGameEngine_1_1Event_1_1IEvent.html" alt="GameEngine::Event::IEvent" shape="rect" coords="0,0,196,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a934b083035bb1386b102bb66da6ab72f"><td class="memItemLeft" align="right" valign="top"><a id="a934b083035bb1386b102bb66da6ab72f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NewProjectile</b> (size_t id, float x, float y)</td></tr>
-<tr class="separator:a934b083035bb1386b102bb66da6ab72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedfac558cd971a2ad99d4380597f5a98"><td class="memItemLeft" align="right" valign="top"><a id="aedfac558cd971a2ad99d4380597f5a98"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerShoot</b> (std::string entityTypeName, ECS::Entity entityActor, float x, float y)</td></tr>
+<tr class="separator:aedfac558cd971a2ad99d4380597f5a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac43588abee5ff070ffb340616eee5a25"><td class="memItemLeft" align="right" valign="top"><a id="ac43588abee5ff070ffb340616eee5a25"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
-<tr class="separator:ac43588abee5ff070ffb340616eee5a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5f5989c5177fa2ece93f2539e0f9b62"><td class="memItemLeft" align="right" valign="top"><a id="ae5f5989c5177fa2ece93f2539e0f9b62"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
-<tr class="separator:ae5f5989c5177fa2ece93f2539e0f9b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb28fd2916ce9cecc240596457715c43"><td class="memItemLeft" align="right" valign="top"><a id="afb28fd2916ce9cecc240596457715c43"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
-<tr class="separator:afb28fd2916ce9cecc240596457715c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af05ace5a4067a4d453817d77026b8a03"><td class="memItemLeft" align="right" valign="top"><a id="af05ace5a4067a4d453817d77026b8a03"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>entityTypeName</b></td></tr>
+<tr class="separator:af05ace5a4067a4d453817d77026b8a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f6a1c1918784f5f5cdc90a236c834d"><td class="memItemLeft" align="right" valign="top"><a id="ab6f6a1c1918784f5f5cdc90a236c834d"></a>
+ECS::Entity&#160;</td><td class="memItemRight" valign="bottom"><b>entityActor</b></td></tr>
+<tr class="separator:ab6f6a1c1918784f5f5cdc90a236c834d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa572600fe2faeaa6de299a2d2cd2ea61"><td class="memItemLeft" align="right" valign="top"><a id="aa572600fe2faeaa6de299a2d2cd2ea61"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
+<tr class="separator:aa572600fe2faeaa6de299a2d2cd2ea61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1342f4c82543ae595679490baf421e6a"><td class="memItemLeft" align="right" valign="top"><a id="a1342f4c82543ae595679490baf421e6a"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
+<tr class="separator:a1342f4c82543ae595679490baf421e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>gameEngine/include/gameEngine/event/<a class="el" href="Events_8hpp_source.html">Events.hpp</a></li>
@@ -161,7 +164,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>GameEngine</b></li><li class="navelem"><b>Event</b></li><li class="navelem"><a class="el" href="structGameEngine_1_1Event_1_1NewProjectile.html">NewProjectile</a></li>
+    <li class="navelem"><b>GameEngine</b></li><li class="navelem"><b>Event</b></li><li class="navelem"><a class="el" href="structGameEngine_1_1Event_1_1PlayerShoot.html">PlayerShoot</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

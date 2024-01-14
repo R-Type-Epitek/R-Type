@@ -5,5 +5,6 @@ var classServer_1_1Game_1_1Game =
     [ "initScenes", "classServer_1_1Game_1_1Game.html#aa593b131aac88fb14e3dbd6a1d2e82ef", null ],
     [ "load", "classServer_1_1Game_1_1Game.html#aab0e0731991380cdf71b3e54331b2fa9", null ],
     [ "pushEvent", "classServer_1_1Game_1_1Game.html#abbd8f752db4ebb7fcd22ade21b723f7b", null ],
+    [ "run", "classServer_1_1Game_1_1Game.html#a76b21ac1115313d941317225a62abae8", null ],
     [ "update", "classServer_1_1Game_1_1Game.html#a990edcdcae8b9683ab8fb366cff65f07", null ]
 ];
