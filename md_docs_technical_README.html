@@ -32,8 +32,6 @@
 <script type="text/javascript" src="search/search.js"></script>
   $darkmode
   <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -231,7 +229,7 @@ Client to Server Messages</h3>
 <br  />
 The server will then generate an id and send it back to the client.   </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>/update_name</code>   </td><td class="markdownTableBodyNone">This client send this command to the server to execute his name.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
+<td class="markdownTableBodyNone"><code>/update_name</code>   </td><td class="markdownTableBodyNone">This client send this command to the server to update his name.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />
 The data is a <code>struct SendNameData {char name[32];}</code> (8 bytes: defined in the message header)    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>/join_room</code>   </td><td class="markdownTableBodyNone">The client send this command to the server to join a room.   </td><td class="markdownTableBodyNone"><code>char data[]</code><br  />

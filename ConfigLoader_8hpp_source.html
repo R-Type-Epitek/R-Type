@@ -32,8 +32,6 @@
 <script type="text/javascript" src="search/search.js"></script>
   $darkmode
   <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -173,10 +171,13 @@ $(document).ready(function(){initNavTree('ConfigLoader_8hpp_source.html',''); in
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> loadScripts(<a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> parseScript(<span class="keyword">const</span> json &amp;config, <a class="code" href="classGameEngine_1_1Script_1_1ScriptManager.html">Script::ScriptManager</a> &amp;scriptManager);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;   <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    json m_config;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace GameEngine::Entity</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> loadStages(<a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> parseStage(<span class="keyword">const</span> json &amp;config, <a class="code" href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a> &amp;entityFactory);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    json m_config;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  };</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace GameEngine::Entity</span></div>
 <div class="ttc" id="aclassGameEngine_1_1Entity_1_1ConfigLoader_html"><div class="ttname"><a href="classGameEngine_1_1Entity_1_1ConfigLoader.html">GameEngine::Entity::ConfigLoader</a></div><div class="ttdef"><b>Definition:</b> ConfigLoader.hpp:20</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Entity_1_1EntityFactory_html"><div class="ttname"><a href="classGameEngine_1_1Entity_1_1EntityFactory.html">GameEngine::Entity::EntityFactory</a></div><div class="ttdef"><b>Definition:</b> EntityFactory.hpp:44</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Script_1_1ScriptManager_html"><div class="ttname"><a href="classGameEngine_1_1Script_1_1ScriptManager.html">GameEngine::Script::ScriptManager</a></div><div class="ttdoc">Manager for handling scripts and their bindings.</div><div class="ttdef"><b>Definition:</b> ScriptManager.hpp:18</div></div>

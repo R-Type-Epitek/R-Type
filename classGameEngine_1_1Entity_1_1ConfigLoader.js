@@ -6,6 +6,7 @@ var classGameEngine_1_1Entity_1_1ConfigLoader =
     [ "loadEntitiesTemplate", "classGameEngine_1_1Entity_1_1ConfigLoader.html#a5662324ea985aa981b15211dc67b3e66", null ],
     [ "loadFromJson", "classGameEngine_1_1Entity_1_1ConfigLoader.html#aba7f0f2f4d7a375bdfad4c31ff8eecce", null ],
     [ "loadScripts", "classGameEngine_1_1Entity_1_1ConfigLoader.html#ae7a3efa3aae61c6849db8072238b9e27", null ],
+    [ "loadStages", "classGameEngine_1_1Entity_1_1ConfigLoader.html#a53130b60830e516703bc7f9a36fe2049", null ],
     [ "parseComponents", "classGameEngine_1_1Entity_1_1ConfigLoader.html#abc13dd43386d84c6341407c5bfbf15d1", null ],
     [ "parseControllable", "classGameEngine_1_1Entity_1_1ConfigLoader.html#a57641d7c4e8c54e44bad6f170ddcd559", null ],
     [ "parseDisplayable", "classGameEngine_1_1Entity_1_1ConfigLoader.html#a569a17226e0baa535c6e9bb45973be56", null ],
@@ -19,6 +20,7 @@ var classGameEngine_1_1Entity_1_1ConfigLoader =
     [ "parsePosition", "classGameEngine_1_1Entity_1_1ConfigLoader.html#a76d2e1b55be316e871c2b3efa9477a34", null ],
     [ "parseScript", "classGameEngine_1_1Entity_1_1ConfigLoader.html#ad8cf8d1370b54db354b697a4bd3abd63", null ],
     [ "parseScriptable", "classGameEngine_1_1Entity_1_1ConfigLoader.html#abc3c0ec5854dfe6bc9610ba4efda92b0", null ],
+    [ "parseStage", "classGameEngine_1_1Entity_1_1ConfigLoader.html#aa2d9aa11cf182c9974c76de2738d723b", null ],
     [ "parseTransform", "classGameEngine_1_1Entity_1_1ConfigLoader.html#aaabd6199b20b79fa5e9698832e1e43b5", null ],
     [ "tryParseComponents", "classGameEngine_1_1Entity_1_1ConfigLoader.html#ac8c3fde663885054a96e8c5ac99e16e5", null ]
 ];

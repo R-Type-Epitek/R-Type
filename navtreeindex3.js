@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"functions_vars.html":[1,3,2],
+"functions_w.html":[1,3,0,20],
 "functions_~.html":[1,3,0,21],
 "gfx_2Text_8hpp_source.html":[2,0,1,0,0,7,4],
 "gfx_2sfml_2Renderer_8hpp_source.html":[2,0,1,0,0,7,0,0],

@@ -32,8 +32,6 @@
 <script type="text/javascript" src="search/search.js"></script>
   $darkmode
   <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -130,38 +128,44 @@ $(document).ready(function(){initNavTree('system_2Renderer_8hpp_source.html','')
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;gameEngine/gfx/IRenderer.hpp&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;gameEngine/gfx/sfml/Renderer.hpp&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/Displayable.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/Registry.hpp&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/system/System.hpp&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>GameEngine::System</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classGameEngine_1_1System_1_1Renderer.html">   16</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1System_1_1Renderer.html">Renderer</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> update(<a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; registry, <a class="code" href="classGameEngine_1_1Gfx_1_1IRenderer.html">Gfx::IRenderer</a>&amp; renderer)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = registry.getComponentManager();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <span class="comment">//        TODO: use only Rtype game engine gfx objects (not SFML)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">auto</span>* sfmlRenderer = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer.html">Gfx::Sfml::Renderer</a>*<span class="keyword">&gt;</span>(&amp;renderer)) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        sfmlRenderer-&gt;getWindow().clear();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; entity : m_entities) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;          <span class="keyword">auto</span>&amp; spriteC = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a>&gt;(entity);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;          sfmlRenderer-&gt;draw(spriteC.sprite);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;System::Renderer::update: renderer is not compatible&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  };</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;gameEngine/component/UiElement.hpp&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/Registry.hpp&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;gameEngine/ecs/system/System.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>GameEngine::System</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classGameEngine_1_1System_1_1Renderer.html">   17</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classGameEngine_1_1System_1_1Renderer.html">Renderer</a> : <span class="keyword">public</span> <a class="code" href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> update(<a class="code" href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a>&amp; registry, <a class="code" href="classGameEngine_1_1Gfx_1_1IRenderer.html">Gfx::IRenderer</a>&amp; renderer)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <span class="keyword">auto</span>&amp; componentManager = registry.getComponentManager();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="comment">//        TODO: use only Rtype game engine gfx objects (not SFML)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">auto</span>* sfmlRenderer = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer.html">Gfx::Sfml::Renderer</a>*<span class="keyword">&gt;</span>(&amp;renderer)) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        sfmlRenderer-&gt;getWindow().clear();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span>&amp; entity : m_entities) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;          <span class="keyword">auto</span>&amp; spriteC = componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a>&gt;(entity);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;          <span class="keywordflow">if</span> (componentManager-&gt;hasComponent&lt;<a class="code" href="structComponentRType_1_1UIElement.html">ComponentRType::UIElement</a>&gt;(entity))</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            spriteC.sprite.setPosition(</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;              componentManager-&gt;getComponent&lt;<a class="code" href="structComponentRType_1_1Position.html">ComponentRType::Position</a>&gt;(entity).position);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;          sfmlRenderer-&gt;draw(spriteC.sprite);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;System::Renderer::update: renderer is not compatible&quot;</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;} <span class="comment">// namespace GameEngine::System</span></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1Registry_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1Registry.html">GameEngine::ECS::Registry</a></div><div class="ttdef"><b>Definition:</b> Registry.hpp:19</div></div>
 <div class="ttc" id="aclassGameEngine_1_1ECS_1_1System_html"><div class="ttname"><a href="classGameEngine_1_1ECS_1_1System.html">GameEngine::ECS::System</a></div><div class="ttdef"><b>Definition:</b> System.hpp:12</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Gfx_1_1IRenderer_html"><div class="ttname"><a href="classGameEngine_1_1Gfx_1_1IRenderer.html">GameEngine::Gfx::IRenderer</a></div><div class="ttdef"><b>Definition:</b> IRenderer.hpp:9</div></div>
 <div class="ttc" id="aclassGameEngine_1_1Gfx_1_1Sfml_1_1Renderer_html"><div class="ttname"><a href="classGameEngine_1_1Gfx_1_1Sfml_1_1Renderer.html">GameEngine::Gfx::Sfml::Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.hpp:11</div></div>
-<div class="ttc" id="aclassGameEngine_1_1System_1_1Renderer_html"><div class="ttname"><a href="classGameEngine_1_1System_1_1Renderer.html">GameEngine::System::Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.hpp:16</div></div>
+<div class="ttc" id="aclassGameEngine_1_1System_1_1Renderer_html"><div class="ttname"><a href="classGameEngine_1_1System_1_1Renderer.html">GameEngine::System::Renderer</a></div><div class="ttdef"><b>Definition:</b> Renderer.hpp:17</div></div>
 <div class="ttc" id="astructComponentRType_1_1Displayable_html"><div class="ttname"><a href="structComponentRType_1_1Displayable.html">ComponentRType::Displayable</a></div><div class="ttdef"><b>Definition:</b> Displayable.hpp:18</div></div>
+<div class="ttc" id="astructComponentRType_1_1Position_html"><div class="ttname"><a href="structComponentRType_1_1Position.html">ComponentRType::Position</a></div><div class="ttdef"><b>Definition:</b> Position.hpp:15</div></div>
+<div class="ttc" id="astructComponentRType_1_1UIElement_html"><div class="ttname"><a href="structComponentRType_1_1UIElement.html">ComponentRType::UIElement</a></div><div class="ttdoc">A component representing if a entity is an ui element.</div><div class="ttdef"><b>Definition:</b> UiElement.hpp:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
