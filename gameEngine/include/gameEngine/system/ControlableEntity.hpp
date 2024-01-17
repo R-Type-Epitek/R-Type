@@ -90,9 +90,6 @@ namespace GameEngine::System
 
       Event::PlayerShoot shootEvent("PlayerBullet", event.entity, position.x + 20, position.y);
       getEventRegistry().publish<Event::PlayerShoot>(shootEvent);
-
-      auto& transformC = componentManager->getComponent<ComponentRType::Transform>(entity);
-      transformC.movement = sf::Vector2f(0, 0);
     }
 
    private:

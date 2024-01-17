@@ -3,21 +3,40 @@
     {
       "name": "Background",
       "type": "Image",
-      "assetPath": "game/rtype/assets/sprites/menu/bg_welcome.jpg",
+      "assetPath": "game/rtype/assets/sprites/menu/bg_galaxy.png",
       "position": {
         "x": 0,
         "y": 0
       }
     },
     {
-      "name": "ButtonGotoLobby",
-      "type": "Button",
-      "assetPath": "game/rtype/assets/sprites/menu/rtype_title.jpg",
+      "name": "Title",
+      "type": "Image",
+      "assetPath": "game/rtype/assets/sprites/menu/rtype_title.png",
       "position": {
         "x": 615,
-        "y": 480
+        "y": 238
+      }
+    },
+    {
+      "name": "ButtonGotoMultiplayer",
+      "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/multiplayer_btn.png",
+      "position": {
+        "x": 852,
+        "y": 540
       },
       "callbackValue": "goToLobbyScene"
+    },
+    {
+      "name": "ButtonGotoSolo",
+      "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/solo_btn.png",
+      "position": {
+        "x": 852,
+        "y": 711
+      },
+      "callbackValue": "goToSoloScene"
     }
   ]
 }

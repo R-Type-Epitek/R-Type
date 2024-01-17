@@ -50,6 +50,9 @@ namespace GameEngine::Entity
     void loadScripts(GameEngine::Entity::EntityFactory &entityFactory);
     void parseScript(const json &config, Script::ScriptManager &scriptManager);
 
+    void loadStages(GameEngine::Entity::EntityFactory &entityFactory);
+    void parseStage(const json &config, GameEngine::Entity::EntityFactory &entityFactory);
+
    private:
     json m_config;
   };

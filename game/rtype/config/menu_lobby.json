@@ -3,158 +3,147 @@
     {
       "name": "BackGround",
       "type": "Image",
+      "assetPath": "game/rtype/assets/sprites/menu/bg_galaxy.png",
       "position": {
         "x": 0,
         "y": 0
-      },
-      "assetPath": "game/rtype/assets/sprites/menu/bg_lobby.png"
+      }
+    },
+    {
+      "name": "BackGroundMenu",
+      "type": "Image",
+      "assetPath": "game/rtype/assets/sprites/menu/menu_lobby.png",
+      "position": {
+        "x": 679,
+        "y": 197
+      }
     },
     {
       "name": "JoinButton",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/join_btn.png",
       "position": {
-        "x": 963,
-        "y": 720
+        "x": 966,
+        "y": 679
       },
-      "assetPath": "game/rtype/assets/sprites/menu/join_button.png",
       "callbackValue": "joinGame"
-    },
-    {
-      "name": "JoinText",
-      "type": "Text",
-      "position": {
-        "x": 1008,
-        "y": 728
-      },
-      "content": "JOIN",
-      "fontSize": 24
     },
     {
       "name": "EscapeButton",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/return_btn.png",
       "position": {
-        "x": 1182,
-        "y": 270
+        "x": 1714,
+        "y": 29
       },
-      "assetPath": "game/rtype/assets/sprites/menu/escape_button.png",
       "callbackValue": "exitFast"
     },
     {
       "name": "JoinRoom0Button",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/room_btn.png",
       "position": {
-        "x": 748,
-        "y": 495
+        "x": 760,
+        "y": 445
       },
-      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
       "callbackValue": "joinRoom0"
     },
     {
       "name": "JoinRoom0Text",
       "type": "Text",
       "position": {
-        "x": 768,
-        "y": 507
+        "x": 778,
+        "y": 451
       },
-      "content": "ROOM 0",
-      "fontSize": 18
+      "content": "Room 1",
+      "fontSize": 20
     },
     {
       "name": "JoinRoom1Button",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/room_btn.png",
       "position": {
-        "x": 998,
-        "y": 495
+        "x": 997,
+        "y": 445
       },
-      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
       "callbackValue": "joinRoom1"
     },
     {
       "name": "JoinRoom1Text",
       "type": "Text",
       "position": {
-        "x": 1018,
-        "y": 507
+        "x": 1013,
+        "y": 455
       },
-      "content": "ROOM 1",
-      "fontSize": 18
+      "content": "Room 2",
+      "fontSize": 20
     },
     {
       "name": "JoinRoom2Button",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/room_btn.png",
       "position": {
-        "x": 748,
-        "y": 595
+        "x": 760,
+        "y": 553
       },
-      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
       "callbackValue": "joinRoom2"
     },
     {
       "name": "JoinRoom2Text",
       "type": "Text",
       "position": {
-        "x": 768,
-        "y": 607
+        "x": 778,
+        "y": 561
       },
-      "content": "ROOM 2",
-      "fontSize": 18
+      "content": "Room 3",
+      "fontSize": 20
     },
     {
       "name": "JoinRoom3Button",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/room_btn.png",
       "position": {
-        "x": 998,
-        "y": 595
+        "x": 997,
+        "y": 553
       },
-      "assetPath": "game/rtype/assets/sprites/menu/room_button.png",
       "callbackValue": "joinRoom3"
     },
     {
       "name": "JoinRoom3Text",
       "type": "Text",
       "position": {
-        "x": 1018,
-        "y": 607
+        "x": 1013,
+        "y": 561
       },
-      "content": "ROOM 3",
-      "fontSize": 18
+      "content": "Room 4",
+      "fontSize": 20
     },
     {
       "name": "AutoRoomButton",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/auto_btn.png",
       "position": {
-        "x": 718,
-        "y": 445
+        "x": 879,
+        "y": 363
       },
-      "assetPath": "game/rtype/assets/sprites/menu/auto_select_button.png",
       "callbackValue": "joinRoomAuto"
     },
     {
       "name": "SpectatorButton",
       "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/spectate_btn.png",
       "position": {
-        "x": 803,
-        "y": 720
+        "x": 788,
+        "y": 679
       },
-      "assetPath": "game/rtype/assets/sprites/menu/spectator_button.png",
       "callbackValue": "spectate"
-    },
-    {
-      "name": "SpectatorText",
-      "type": "Text",
-      "position": {
-        "x": 806,
-        "y": 728
-      },
-      "content": "SPECTATOR",
-      "fontSize": 24
     },
     {
       "name": "IpText",
       "type": "Text",
       "position": {
-        "x": 729,
-        "y": 346
+        "x": 734,
+        "y": 304
       },
       "content": "127.0.0.1",
       "fontSize": 24
@@ -163,8 +152,8 @@
       "name": "PortText",
       "type": "Text",
       "position": {
-        "x": 972,
-        "y": 346
+        "x": 973,
+        "y": 304
       },
       "content": "4242",
       "fontSize": 24

@@ -7,6 +7,7 @@
 #include "network/Constants.hpp"
 #include "sceneController/GraphicController.hpp"
 #include "scene/ClientGame.hpp"
+#include "scene/SoloHostGame.hpp"
 #include "scene/Lobby.hpp"
 #include "scene/Welcome.hpp"
 #include "network/Network.hpp"
@@ -43,29 +44,9 @@ namespace Client
   void Client::initNetwork()
   {
     try {
-      spdlog::info("Starting Network...");
+      spdlog::info("Starting Network socket...");
       m_network = std::make_shared<Network>(DEFAULT_IP, DEFAULT_PORT);
       spdlog::info("Done");
-
-      spdlog::info("Establishing Network connection...");
-      m_network->connectToServer();
-      spdlog::info("Done");
-
-      spdlog::info("Getting Server id...");
-      while (m_network->getClientId() == -1) {
-      };
-      spdlog::info("Done");
-
-      spdlog::info("Connecting to game room [0]...");
-      m_network->updateName("John Doe");
-      //      m_network->joinRoom(0);
-      //      m_network->joinRoomAuto();
-      //      m_network->joinGame(0);
-      //      m_network->kickPlayer(1);
-      //      m_network->godMode(1);
-      //      m_network->spectate(0);
-      spdlog::info("Done");
-
     } catch (std::exception const &) {
       spdlog::error("Failed to initialize Network");
     }
@@ -92,6 +73,7 @@ namespace Client
     m_coreGE->addScene("game", std::make_unique<Rtype::Scene::ClientGame>(controller));
     m_coreGE->addScene("lobby", std::make_unique<Rtype::Scene::Lobby>(controller));
     m_coreGE->addScene("welcome", std::make_unique<Rtype::Scene::Welcome>(controller));
+    m_coreGE->addScene("solo", std::make_unique<Rtype::Scene::SoloHostGame>(controller));
 
     m_coreGE->setCurrentScene("welcome");
     m_coreGE->loadScenes();

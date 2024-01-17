@@ -34,7 +34,7 @@ namespace GameEngine::System
             return;
           }
           if (event.type == sf::Event::KeyPressed) {
-            keyPressedEventPublisher(eventRegistry, convertKey(event.key.code));
+            keyPressedEventPublisher(eventRegistry, convertKey(event.key.code), 0);
           }
         }
       } else {

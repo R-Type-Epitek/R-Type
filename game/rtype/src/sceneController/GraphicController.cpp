@@ -20,7 +20,11 @@ namespace Rtype::Controller
   {
     addBinding("goToWelcomeScene", [this]() { this->goToWelcomeScene(); });
     addBinding("goToGameScene", [this]() { this->goToGameScene(); });
-    addBinding("goToLobbyScene", [this]() { this->goToLobbyScene(); });
+    addBinding("goToLobbyScene", [this]() {
+      this->connect();
+      this->goToLobbyScene();
+    });
+    addBinding("goToSoloScene", [this]() { this->goToSoloScene(); });
     addBinding("joinRoom0", [this]() { this->joinRoom(0); });
     addBinding("joinRoom1", [this]() { this->joinRoom(1); });
     addBinding("joinRoom2", [this]() { this->joinRoom(2); });
@@ -46,6 +50,11 @@ namespace Rtype::Controller
   void GraphicController::goToLobbyScene()
   {
     getScenes().setCurrent("lobby");
+  }
+
+  void GraphicController::goToSoloScene()
+  {
+    getScenes().setCurrent("solo");
   }
 
   void GraphicController::joinRoom(int id)

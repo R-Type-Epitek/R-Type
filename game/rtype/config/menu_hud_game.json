@@ -7,7 +7,7 @@
         "x": 1500,
         "y": 0
       },
-      "content": "Health player:",
+      "content": "Health: 100",
       "fontSize": 24
     },
     {
@@ -17,8 +17,18 @@
         "x": 1000,
         "y": 0
       },
-      "content": "Score:",
+      "content": "Score: 0",
       "fontSize": 24
+    },
+    {
+      "name": "EscapeButton",
+      "type": "Button",
+      "assetPath": "game/rtype/assets/sprites/menu/return_btn.png",
+      "position": {
+        "x": 1714,
+        "y": 29
+      },
+      "callbackValue": "exitFast"
     }
   ]
 }

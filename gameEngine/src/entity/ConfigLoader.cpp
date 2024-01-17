@@ -4,8 +4,7 @@
 
 #include "gameEngine/entity/ConfigLoader.hpp"
 #include <fstream>
-#include "gameEngine/asset/AssetManager.hpp"
-#include <fstream>
+#include <random>
 #include <iostream>
 #include "gameEngine/entity/EntityFactory.hpp"
 #include "spdlog/spdlog.h"
@@ -234,6 +233,47 @@ namespace GameEngine::Entity
     std::string scriptPath = config.value("scriptPath", "");
 
     scriptManager.addScriptBinding(name, baseScriptName);
+  }
+
+  void ConfigLoader::loadStages(EntityFactory &entityFactory)
+  {
+    if (m_config.contains("stages") && m_config["stages"].is_array()) {
+      for (const auto &element : m_config["stages"]) {
+        for (const auto &entities : element["entities"]) {
+          parseStage(entities, entityFactory);
+        }
+      }
+    }
+  }
+
+  void ConfigLoader::parseStage(const json &config, GameEngine::Entity::EntityFactory &entityFactory)
+  {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    try {
+      std::string entityType = config.value("typeName", "");
+      int number = config["number"];
+      int maxX = config["range_x"].value("max", 0);
+      int minX = config["range_x"].value("min", 0);
+      int maxY = config["range_y"].value("max", 0);
+      int minY = config["range_y"].value("min", 0);
+
+      auto scheme = entityFactory.getEntityTemplate(entityType);
+      for (int i = 0; i < number; i++) {
+        EntityTemplate entityTemplate = scheme;
+        entityTemplate.networkedEntity = ComponentRType::NetworkedEntity {EntityFactory::idOffset};
+        EntityFactory::idOffset++;
+        std::uniform_real_distribution<float> xDist(minX, maxX);
+        std::uniform_real_distribution<float> yDist(minY, maxY);
+        entityTemplate.position.position = {static_cast<float>(xDist(gen)), static_cast<float>(yDist(gen))};
+
+        entityTemplate.metaData.bluePrint = entityTemplate.blueprint;
+        entityFactory.createFromTemplate(entityTemplate);
+      }
+    } catch (const std::exception &e) {
+      spdlog::error("Error parsing JSON: {}", e.what());
+    }
   }
 
 } // namespace GameEngine::Loader

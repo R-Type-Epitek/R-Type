@@ -63,8 +63,8 @@
         {
           "name": "Position",
           "position": {
-            "x": 0,
-            "y": 0
+            "x": 960,
+            "y": 540
           }
         },
         {
@@ -79,9 +79,8 @@
         },
         {
           "name": "Health",
-          "health": 200,
-          "damage": 100,
-          "isAlive": true
+          "damage": 50,
+          "health": 500
         }
       ]
     },
@@ -125,14 +124,12 @@
         },
         {
           "name": "Health",
-          "health": 10,
-          "damage": 20,
-          "isAlive": true
+          "damage": 70
         }
       ]
     },
     {
-      "typeName": "Enemy",
+      "typeName": "PlayerBulletCharged",
       "components": [
         {
           "name": "MetaData"
@@ -142,18 +139,75 @@
         },
         {
           "name": "Displayable",
-          "assetPath": "game/rtype/assets/sprites/r-typesheet23.gif"
+          "assetPath": "game/rtype/assets/sprites/r-typesheet43.gif",
+          "rect": {
+            "x": 200,
+            "y": 37,
+            "width": 48,
+            "height": 12
+          }
+        },
+        {
+          "name": "Health",
+          "damage": 2000
         },
         {
           "name": "Position",
           "position": {
-            "x": 250,
-            "y": 150
+            "x": -100,
+            "y": -100
           }
         },
         {
           "name": "Transform",
-          "speed": 7
+          "speed": 25,
+          "movement": {
+            "x": 25,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 6
+        },
+        {
+          "name": "Health",
+          "damage": 50
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy1",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet7.gif",
+          "rect": {
+            "x": 100,
+            "y": 33,
+            "width": 33,
+            "height": 33
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 2000,
+            "y": 500
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
         },
         {
           "name": "Hitbox",
@@ -161,58 +215,727 @@
         },
         {
           "name": "Health",
-          "health": 100,
-          "damage": 10,
-          "isAlive": true
-        },
-        {
-          "name": "Scriptable",
-          "scriptName": "EnemySinusoidal"
+          "damage": 50,
+          "health": 100
         }
       ]
-    }
-  ],
-  "entitiesScript": [
-    {
-      "name": "EnemyLinear",
-      "scriptName": "EnemyLinear"
     },
     {
-      "name": "EnemySinusoidal",
-      "scriptName": "EnemySinusoidal"
+      "typeName": "Enemy2",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet8.gif",
+          "rect": {
+            "x": 1,
+            "y": 34,
+            "width": 33,
+            "height": 33
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 3000,
+            "y": 200
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 10,
+          "health": 70
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy3",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet9.gif",
+          "rect": {
+            "x": 50,
+            "y": 0,
+            "width": 60,
+            "height": 58
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 4000,
+            "y": 400
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 10,
+          "health": 70
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy4",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet10.gif",
+          "rect": {
+            "x": 67,
+            "y": 1,
+            "width": 33,
+            "height": 30
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 5000,
+            "y": 500
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -8,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 10,
+          "health": 70
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy5",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet11.gif",
+          "rect": {
+            "x": 1,
+            "y": 1,
+            "width": 33,
+            "height": 33
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 5500,
+            "y": 500
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy6",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet17.gif",
+          "rect": {
+            "x": 261,
+            "y": 0,
+            "width": 65,
+            "height": 132
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 500,
+            "y": 600
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 10,
+          "health": 70
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy7",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet22.gif",
+          "rect": {
+            "x": 132,
+            "y": 33,
+            "width": 33,
+            "height": 33
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 6000,
+            "y": 700
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 10,
+          "health": 70
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy8",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet23.gif",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 33,
+            "height": 33
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 6200,
+            "y": 100
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 10,
+          "health": 70
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy9",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet24.gif",
+          "rect": {
+            "x": 1,
+            "y": 0,
+            "width": 81,
+            "height": 66
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 6300,
+            "y": 300
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -7,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy10",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet25.gif",
+          "rect": {
+            "x": 0,
+            "y": 66,
+            "width": 33,
+            "height": 33
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 6500,
+            "y": 260
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -9,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        }
+      ]
+    },
+    {
+      "typeName": "Enemy11",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet14.gif",
+          "rect": {
+            "x": 78,
+            "y": 51,
+            "width": 58,
+            "height": 49
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 500,
+            "y": 500
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        }
+      ]
+    },
+    {
+      "typeName": "BulletEnemy",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet9.gif",
+          "rect": {
+            "x": 50,
+            "y": 0,
+            "width": 60,
+            "height": 58
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 4000,
+            "y": 400
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 50,
+          "health": 50
+        }
+      ]
+    },
+    {
+      "typeName": "Boss1",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet30.gif",
+          "rect": {
+            "x": 185,
+            "y": 208,
+            "width": 185,
+            "height": 156
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 2000,
+            "y": 500
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 50,
+          "health": 20
+        }
+      ]
+    },
+    {
+      "typeName": "Boss2",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet38.gif",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 185,
+            "height": 156
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 2000,
+            "y": 500
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 100,
+          "health": 300
+        }
+      ]
+    },
+    {
+      "typeName": "Boss3",
+      "components": [
+        {
+          "name": "MetaData"
+        },
+        {
+          "name": "NetworkedEntity"
+        },
+        {
+          "name": "Displayable",
+          "assetPath": "game/rtype/assets/sprites/r-typesheet32.gif",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 260,
+            "height": 143
+          }
+        },
+        {
+          "name": "Position",
+          "position": {
+            "x": 2000,
+            "y": 500
+          }
+        },
+        {
+          "name": "Transform",
+          "movement": {
+            "x": -5,
+            "y": 0
+          }
+        },
+        {
+          "name": "Hitbox",
+          "mask": 0
+        },
+        {
+          "name": "Health",
+          "damage": 100,
+          "health": 300
+        }
+      ]
     }
   ],
   "entities": [
     {
       "baseType": "Background",
       "type": "Parallax"
-    },
+    }
+  ],
+  "stages": [
     {
-      "baseType": "Enemy",
-      "type": "Boss",
-      "health": 100,
-      "speed": 2
-    },
-    {
-      "baseType": "Enemy",
-      "type": "Boss",
-      "health": 100,
-      "speed": 0,
-      "position": {
-        "x": 200,
-        "y": 200
-      }
-    },
-    {
-      "baseType": "Enemy",
-      "type": "bob",
-      "health": 100,
-      "scriptName": "EnemyLinear",
-      "speed": 1,
-      "position": {
-        "x": 500,
-        "y": 200
-      }
+      "name": "Stage1",
+      "entities": [
+        {
+          "typeName": "Enemy1",
+          "number": 10,
+          "range_x": {
+            "min": 1920,
+            "max": 10000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "Enemy3",
+          "number": 7,
+          "range_x": {
+            "min": 2000,
+            "max": 7000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "Enemy2",
+          "number": 7,
+          "range_x": {
+            "min": 4000,
+            "max": 10000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "Boss2",
+          "number": 1,
+          "range_x": {
+            "min": 6000,
+            "max": 6001
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "Enemy2",
+          "number": 7,
+          "range_x": {
+            "min": 6000,
+            "max": 9000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "Enemy5",
+          "number": 5,
+          "range_x": {
+            "min": 6000,
+            "max": 9000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "Enemy11",
+          "number": 6,
+          "range_x": {
+            "min": 6000,
+            "max": 9000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "Enemy8",
+          "number": 7,
+          "range_x": {
+            "min": 6000,
+            "max": 9000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        },
+        {
+          "typeName": "BulletEnemy",
+          "number": 20,
+          "range_x": {
+            "min": 1920,
+            "max": 11000
+          },
+          "range_y": {
+            "min": 0,
+            "max": 1080
+          }
+        }
+      ]
     }
   ],
   "powerUps": [

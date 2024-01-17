@@ -419,6 +419,7 @@ void Client::Network::connect()
   spdlog::info("Getting player id...");
   while (getClientId() == -1) {
   };
+  updateName("John Doe");
   spdlog::info("Done");
 }
 

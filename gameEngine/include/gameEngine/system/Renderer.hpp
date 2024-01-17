@@ -7,6 +7,7 @@
 #include "gameEngine/gfx/IRenderer.hpp"
 #include "gameEngine/gfx/sfml/Renderer.hpp"
 #include "gameEngine/component/Displayable.hpp"
+#include "gameEngine/component/UiElement.hpp"
 #include "gameEngine/ecs/Registry.hpp"
 #include "gameEngine/ecs/system/System.hpp"
 
@@ -24,6 +25,9 @@ namespace GameEngine::System
         sfmlRenderer->getWindow().clear();
         for (auto const& entity : m_entities) {
           auto& spriteC = componentManager->getComponent<ComponentRType::Displayable>(entity);
+          if (componentManager->hasComponent<ComponentRType::UIElement>(entity))
+            spriteC.sprite.setPosition(
+              componentManager->getComponent<ComponentRType::Position>(entity).position);
           sfmlRenderer->draw(spriteC.sprite);
         }
       } else {

@@ -29,6 +29,7 @@ namespace Rtype::Controller
     void goToWelcomeScene();
     void goToGameScene();
     void goToLobbyScene();
+    void goToSoloScene();
 
     //    Network
     void joinRoom(int id);

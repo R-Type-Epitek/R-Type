@@ -17,6 +17,7 @@ add_library(${LIBRARY} STATIC
         src/scripts/DataHolder.cpp
         src/scripts/EnemyLinear.cpp
         src/scripts/EnemySinusoidal.cpp
+        src/scene/SoloHostGame.cpp
 )
 
 target_include_directories(${LIBRARY}
